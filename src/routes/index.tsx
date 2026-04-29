@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import heroWave from "@/assets/hero-wave.jpg";
 import caseWolt from "@/assets/case-wolt.jpg";
 import caseBoliga from "@/assets/case-boliga.jpg";
@@ -70,6 +70,7 @@ const competencies = [
 const cases = [
   {
     no: "01",
+    slug: "wolt",
     client: "Wolt",
     title: "Fra usynlig algoritme til informeret bud",
     desc:
@@ -79,6 +80,7 @@ const cases = [
   },
   {
     no: "02",
+    slug: "boliga",
     client: "Boliga",
     title: "Reduceret kompleksitet i boligsøgning",
     desc:
@@ -88,6 +90,7 @@ const cases = [
   },
   {
     no: "03",
+    slug: "interaktiv-horesimulering",
     client: "Interaktiv høresimulering",
     title: "Inklusion i undervisningen",
     desc:
@@ -98,12 +101,12 @@ const cases = [
 ];
 
 const partners = [
-  { name: "Danmarks Radio", note: "Broadcast, podcastproduktion og tværgående koordinering" },
-  { name: "Danmarks Naturfredningsforening", note: "Kommunikation om bæredygtighed og brandudvikling" },
-  { name: "Amnesty International", note: "Journalistisk formidling af menneskerettighedsspørgsmål" },
-  { name: "Ulla Dyrløv", note: "Koncept- og platformudvikling med fokus på børns trivsel" },
-  { name: "Concerto Copenhagen", note: "Engagement af publikum gennem kulturformidling" },
-  { name: "Art Spirit Coaching", note: "Brand, koncept og kommunikation fra idé til lancering" },
+  { slug: "danmarks-radio", name: "Danmarks Radio", note: "Broadcast, podcastproduktion og tværgående koordinering" },
+  { slug: "danmarks-naturfredningsforening", name: "Danmarks Naturfredningsforening", note: "Kommunikation om bæredygtighed og brandudvikling" },
+  { slug: "amnesty-international", name: "Amnesty International", note: "Journalistisk formidling af menneskerettighedsspørgsmål" },
+  { slug: "ulla-dyrlov", name: "Ulla Dyrløv", note: "Koncept- og platformudvikling med fokus på børns trivsel" },
+  { slug: "concerto-copenhagen", name: "Concerto Copenhagen", note: "Engagement af publikum gennem kulturformidling" },
+  { slug: "art-spirit-coaching", name: "Art Spirit Coaching", note: "Brand, koncept og kommunikation fra idé til lancering" },
 ];
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
@@ -308,7 +311,11 @@ function Index() {
                 key={c.no}
                 className={`col-span-12 md:col-span-6 ${i === 0 ? "md:col-span-8" : ""} ${i === 1 ? "md:col-span-4" : ""} ${i === 2 ? "md:col-span-12 lg:col-span-12" : ""}`}
               >
-                <div className="bg-cream text-navy-deep group cursor-pointer overflow-hidden">
+                <Link
+                  to="/cases/$slug"
+                  params={{ slug: c.slug }}
+                  className="block bg-cream text-navy-deep group cursor-pointer overflow-hidden"
+                >
                   <div className="overflow-hidden">
                     <img
                       src={c.image}
@@ -339,7 +346,7 @@ function Index() {
                       ))}
                     </ul>
                   </div>
-                </div>
+                </Link>
               </article>
             ))}
           </div>
@@ -363,17 +370,20 @@ function Index() {
 
           <ul className="divide-y divide-cream/10 border-y border-cream/10">
             {partners.map((p, i) => (
-              <li
-                key={p.name}
-                className="group py-8 md:py-10 grid grid-cols-12 gap-6 items-baseline hover:bg-navy/40 transition-colors -mx-6 md:-mx-10 px-6 md:px-10"
-              >
-                <span className="col-span-2 md:col-span-1 text-ember font-display">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="col-span-10 md:col-span-5 font-display text-2xl md:text-4xl tracking-tight">
-                  {p.name}
-                </h3>
-                <p className="col-span-12 md:col-span-6 text-cream/70">{p.note}</p>
+              <li key={p.name}>
+                <Link
+                  to="/cases/$slug"
+                  params={{ slug: p.slug }}
+                  className="group py-8 md:py-10 grid grid-cols-12 gap-6 items-baseline hover:bg-navy/40 transition-colors -mx-6 md:-mx-10 px-6 md:px-10"
+                >
+                  <span className="col-span-2 md:col-span-1 text-ember font-display">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="col-span-10 md:col-span-5 font-display text-2xl md:text-4xl tracking-tight group-hover:text-ember transition-colors">
+                    {p.name}
+                  </h3>
+                  <p className="col-span-12 md:col-span-6 text-cream/70">{p.note}</p>
+                </Link>
               </li>
             ))}
           </ul>
