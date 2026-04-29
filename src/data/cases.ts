@@ -169,7 +169,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "concerto-copenhagen",
     client: "Concerto Copenhagen",
     title: "Bach remixet for en ny generation",
-    image: caseWolt,
+    image: caseConcerto,
     context:
       "Concerto Copenhagen er et af Danmarks førende barokensembler. Samarbejdet handlede om at skabe en remix af Johann Sebastian Bachs B minor Messe og bruge den som løftestang til at engagere unge i klassisk musik.",
     challenge:
@@ -190,7 +190,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "art-spirit-coaching",
     client: "Art Spirit Coaching — Insight Consulting",
     title: "Brand- og platformsidentitet fra bunden",
-    image: caseBoliga,
+    image: caseArtSpirit,
     context:
       "Art Spirit Coaching er en coaching- og psykoterapipraksis ledet af Steen Lykke, der arbejder med mindfulness og personlig udvikling — både individuelt og på hold i retreatsettings.",
     challenge:
