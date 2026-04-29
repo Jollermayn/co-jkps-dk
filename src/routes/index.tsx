@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { caseStudies } from "@/data/cases";
 
 export const Route = createFileRoute("/")({
@@ -419,21 +419,91 @@ const CASE_META: Record<string, { headline: string; tags: string[] }> = {
 
 function CasesSection() {
   const [filter, setFilter] = useState<Filter>("Alle");
+  const scrollerRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const filtered = caseStudies.filter((c) => {
     if (filter === "Alle") return true;
     return CASE_META[c.slug]?.tags.includes(filter);
   });
 
+  // Reset scroll when filter changes
+  useEffect(() => {
+    if (scrollerRef.current) {
+      scrollerRef.current.scrollTo({ left: 0, behavior: "smooth" });
+      setActiveIndex(0);
+    }
+  }, [filter]);
+
+  const handleScroll = () => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    const children = Array.from(el.children) as HTMLElement[];
+    if (!children.length) return;
+    const scrollLeft = el.scrollLeft;
+    let closest = 0;
+    let min = Infinity;
+    children.forEach((child, i) => {
+      const dist = Math.abs(child.offsetLeft - scrollLeft);
+      if (dist < min) {
+        min = dist;
+        closest = i;
+      }
+    });
+    setActiveIndex(closest);
+  };
+
+  const scrollByCard = (dir: -1 | 1) => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    const children = Array.from(el.children) as HTMLElement[];
+    if (!children.length) return;
+    const target = Math.max(
+      0,
+      Math.min(children.length - 1, activeIndex + dir),
+    );
+    children[target]?.scrollIntoView({
+      behavior: "smooth",
+      inline: "start",
+      block: "nearest",
+    });
+  };
+
+  const total = filtered.length;
+  const progress = total > 1 ? ((activeIndex + 1) / total) * 100 : 100;
+
   return (
     <section id="cases" className="py-24 md:py-36 border-t border-cream/10">
       <div className="px-6 md:px-10">
-        <div className="mb-10 md:mb-14">
-          <Eyebrow>Udvalgte cases</Eyebrow>
-          <h2 className="font-display text-5xl md:text-7xl mt-6 leading-[0.95] tracking-tight">
-            Ni projekter.<br />
-            <span className="italic text-ember">Ét princip</span>: lad arbejdet tale.
-          </h2>
+        <div className="mb-10 md:mb-14 flex items-start justify-between gap-6">
+          <div>
+            <Eyebrow>Udvalgte cases</Eyebrow>
+            <h2 className="font-display text-5xl md:text-7xl mt-6 leading-[0.95] tracking-tight">
+              Ni projekter.<br />
+              <span className="italic text-ember">Ét princip</span>: lad arbejdet tale.
+            </h2>
+          </div>
+          {/* Arrow nav */}
+          <div className="hidden md:flex items-center gap-3 shrink-0 pt-4">
+            <button
+              type="button"
+              aria-label="Forrige case"
+              onClick={() => scrollByCard(-1)}
+              disabled={activeIndex === 0}
+              className="w-12 h-12 rounded-full border border-cream/25 text-cream flex items-center justify-center transition-colors hover:border-[#C0281E] hover:text-[#C0281E] disabled:opacity-30 disabled:hover:border-cream/25 disabled:hover:text-cream"
+            >
+              <span aria-hidden className="text-xl leading-none">←</span>
+            </button>
+            <button
+              type="button"
+              aria-label="Næste case"
+              onClick={() => scrollByCard(1)}
+              disabled={activeIndex >= total - 1}
+              className="w-12 h-12 rounded-full border border-cream/25 text-cream flex items-center justify-center transition-colors hover:border-[#C0281E] hover:text-[#C0281E] disabled:opacity-30 disabled:hover:border-cream/25 disabled:hover:text-cream"
+            >
+              <span aria-hidden className="text-xl leading-none">→</span>
+            </button>
+          </div>
         </div>
 
         {/* Filter bar */}
@@ -462,53 +532,73 @@ function CasesSection() {
             {filtered.length} / {caseStudies.length}
           </span>
         </div>
+      </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {filtered.map((c) => {
-            const meta = CASE_META[c.slug];
-            return (
-              <Link
-                key={c.slug}
-                to="/cases/$slug"
-                params={{ slug: c.slug }}
-                className="group flex flex-col border border-cream/10 bg-navy/30 hover:bg-navy/50 overflow-hidden transition-all duration-300 ease-out hover:-translate-y-1 hover:border-[#C0281E]"
-              >
-                <div className="w-full overflow-hidden bg-navy" style={{ height: 200 }}>
-                  <img
-                    src={c.image}
-                    alt={`${c.client} — ${meta?.headline ?? c.title}`}
-                    loading="lazy"
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-[1.04] transition-all duration-[400ms] ease-out"
-                  />
-                </div>
-                <div className="p-5 flex flex-col gap-3">
-                  <span
-                    className="text-cream/60 uppercase font-semibold"
-                    style={{ fontSize: 9, letterSpacing: "0.18em" }}
-                  >
-                    {c.client}
-                  </span>
-                  <h3
-                    className="font-display font-bold text-cream leading-snug"
-                    style={{ fontSize: 16 }}
-                  >
-                    {meta?.headline ?? c.title}
-                  </h3>
-                  <ul className="flex flex-wrap gap-1.5 mt-1">
-                    {(meta?.tags ?? []).map((t) => (
-                      <li
-                        key={t}
-                        className="text-[10px] tracking-wide px-2.5 py-1 rounded-full border border-cream/20 text-cream/70"
-                      >
-                        {t}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </Link>
-            );
-          })}
+      {/* Slider */}
+      <div
+        ref={scrollerRef}
+        onScroll={handleScroll}
+        className="flex gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 px-6 md:px-10 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+      >
+        {filtered.map((c) => {
+          const meta = CASE_META[c.slug];
+          return (
+            <Link
+              key={c.slug}
+              to="/cases/$slug"
+              params={{ slug: c.slug }}
+              className="group snap-start shrink-0 w-[85vw] sm:w-[420px] flex flex-col border border-cream/10 bg-navy/30 hover:bg-navy/50 overflow-hidden transition-all duration-300 ease-out hover:-translate-y-1 hover:border-[#C0281E]"
+            >
+              <div className="w-full overflow-hidden bg-navy" style={{ height: 250 }}>
+                <img
+                  src={c.image}
+                  alt={`${c.client} — ${meta?.headline ?? c.title}`}
+                  loading="lazy"
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-[1.04] transition-all duration-[400ms] ease-out"
+                />
+              </div>
+              <div className="p-6 flex flex-col gap-3">
+                <span
+                  className="text-cream/60 uppercase font-semibold"
+                  style={{ fontSize: 9, letterSpacing: "0.18em" }}
+                >
+                  {c.client}
+                </span>
+                <h3
+                  className="font-display font-bold text-cream leading-snug"
+                  style={{ fontSize: 18 }}
+                >
+                  {meta?.headline ?? c.title}
+                </h3>
+                <ul className="flex flex-wrap gap-1.5 mt-1">
+                  {(meta?.tags ?? []).map((t) => (
+                    <li
+                      key={t}
+                      className="text-[10px] tracking-wide px-2.5 py-1 rounded-full border border-cream/20 text-cream/70"
+                    >
+                      {t}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Link>
+          );
+        })}
+      </div>
+
+      {/* Progress indicator */}
+      <div className="px-6 md:px-10 mt-8 flex items-center gap-6">
+        <span
+          className="text-cream/70 font-mono tabular-nums"
+          style={{ fontSize: 12, letterSpacing: "0.1em" }}
+        >
+          {String(Math.min(activeIndex + 1, total)).padStart(2, "0")} / {String(total).padStart(2, "0")}
+        </span>
+        <div className="flex-1 h-px bg-cream/15 relative overflow-hidden">
+          <div
+            className="absolute inset-y-0 left-0 bg-[#C0281E] transition-[width] duration-300 ease-out"
+            style={{ width: `${progress}%`, height: 1 }}
+          />
         </div>
       </div>
     </section>
