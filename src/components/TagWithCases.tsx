@@ -13,13 +13,25 @@ interface Props {
 
 export function TagWithCases({ tag, excludeSlug, variant = "skill" }: Props) {
   const [open, setOpen] = useState(false);
+  const [canHover, setCanHover] = useState(false);
   const ref = useRef<HTMLLIElement>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const slugs = (TAG_TO_SLUGS[tag] ?? []).filter((s) => s !== excludeSlug);
   const hasCases = slugs.length > 0;
+  const useHover = variant === "approach" && canHover;
 
   useEffect(() => {
-    if (!open) return;
+    if (typeof window === "undefined") return;
+    const mql = window.matchMedia("(hover: hover) and (pointer: fine)");
+    const update = () => setCanHover(mql.matches);
+    update();
+    mql.addEventListener("change", update);
+    return () => mql.removeEventListener("change", update);
+  }, []);
+
+  useEffect(() => {
+    if (!open || useHover) return;
     const onDocClick = (e: MouseEvent) => {
       if (!ref.current) return;
       if (!ref.current.contains(e.target as Node)) setOpen(false);
@@ -33,7 +45,35 @@ export function TagWithCases({ tag, excludeSlug, variant = "skill" }: Props) {
       document.removeEventListener("mousedown", onDocClick);
       document.removeEventListener("keydown", onKey);
     };
-  }, [open]);
+  }, [open, useHover]);
+
+  const cancelClose = () => {
+    if (closeTimer.current) {
+      clearTimeout(closeTimer.current);
+      closeTimer.current = null;
+    }
+  };
+
+  const scheduleClose = () => {
+    cancelClose();
+    closeTimer.current = setTimeout(() => setOpen(false), 120);
+  };
+
+  const handleMouseEnter = () => {
+    if (!useHover || !hasCases) return;
+    cancelClose();
+    setOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    if (!useHover) return;
+    scheduleClose();
+  };
+
+  const handleClick = () => {
+    if (useHover) return; // hover handles it on desktop for approach
+    setOpen((o) => !o);
+  };
 
   const buttonClasses =
     variant === "approach"
@@ -51,11 +91,18 @@ export function TagWithCases({ tag, excludeSlug, variant = "skill" }: Props) {
             : "border-cream/10 text-cream/40 cursor-default");
 
   return (
-    <li ref={ref} className="relative">
+    <li
+      ref={ref}
+      className="relative"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <button
         type="button"
         disabled={!hasCases}
-        onClick={() => setOpen((o) => !o)}
+        onClick={handleClick}
+        onFocus={useHover ? handleMouseEnter : undefined}
+        onBlur={useHover ? handleMouseLeave : undefined}
         aria-expanded={open}
         className={buttonClasses}
       >
