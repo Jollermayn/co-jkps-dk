@@ -1,67 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useRef } from "react";
-
-function HeroWaveSVG({ className = "" }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 800 600"
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-      aria-hidden="true"
-      fill="none"
-    >
-      <defs>
-        {/* Crosshatch pattern for the red sun */}
-        <pattern id="sunHatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
-          <line x1="0" y1="0" x2="0" y2="6" stroke="#c0392b" strokeWidth="1.2" />
-        </pattern>
-        <pattern id="sunHatch2" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(-30)">
-          <line x1="0" y1="0" x2="0" y2="6" stroke="#a83224" strokeWidth="1" opacity="0.85" />
-        </pattern>
-      </defs>
-
-      {/* Red crosshatch sun, upper right */}
-      <g>
-        <circle cx="615" cy="135" r="58" fill="url(#sunHatch)" />
-        <circle cx="615" cy="135" r="58" fill="url(#sunHatch2)" />
-        <circle cx="615" cy="135" r="58" fill="none" stroke="#a83224" strokeWidth="1.5" />
-      </g>
-
-      {/* Hand-drawn white wave crests (Hokusai-inspired) */}
-      <g
-        stroke="#f5efe6"
-        strokeWidth="2.2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        fill="none"
-      >
-        {/* Three rolling crests */}
-        <path d="M120 360 C 220 200, 330 200, 380 320 C 400 360, 360 380, 340 360 C 325 345, 335 320, 360 325" />
-        <path d="M260 350 C 340 230, 430 230, 470 340 C 485 375, 450 390, 435 370 C 425 358, 435 338, 455 342" />
-        <path d="M380 360 C 450 260, 530 260, 565 350 C 578 380, 548 395, 535 378 C 527 367, 535 350, 552 354" />
-
-        {/* Long sweeping under-curves */}
-        <path d="M60 430 C 220 360, 420 380, 720 420" />
-        <path d="M70 470 C 240 410, 440 430, 740 460" />
-        <path d="M80 510 C 260 460, 460 478, 760 498" />
-        <path d="M100 548 C 280 510, 480 522, 770 538" />
-
-        {/* Crosshatch suggestion in wave troughs */}
-        <g opacity="0.55" strokeWidth="1.2">
-          <path d="M180 440 L 230 470" />
-          <path d="M210 442 L 250 468" />
-          <path d="M310 460 L 360 488" />
-          <path d="M340 462 L 380 486" />
-          <path d="M470 470 L 520 495" />
-          <path d="M500 472 L 540 494" />
-          <path d="M610 478 L 660 500" />
-          <path d="M635 480 L 675 502" />
-        </g>
-      </g>
-    </svg>
-  );
-}
-
 import { caseStudies } from "@/data/cases";
 
 export const Route = createFileRoute("/")({
@@ -172,37 +110,31 @@ function Index() {
       {/* HERO */}
       <section id="top" className="pt-32 md:pt-40 pb-16 md:pb-24">
         <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-          <div className="grid grid-cols-12 gap-6 md:gap-10">
-            <div className="col-span-12 md:col-span-7">
-              <Eyebrow>Portfolio · Digital konsulent · Aarhus</Eyebrow>
-              <h1 className="font-display mt-8 text-[clamp(3rem,8vw,7.5rem)] leading-[0.92] tracking-[-0.02em] font-medium">
-                Jonas K.P.<br />
-                <span className="italic font-light">Sørensen</span>
-              </h1>
-              <p className="mt-8 text-lg md:text-2xl text-cream/85 max-w-xl leading-snug font-display italic">
-                Digital konsulent · Brugeroplevelse &amp; digitale løsninger.
-              </p>
-              <p className="mt-6 max-w-md text-cream/65 text-base">
-                Selvstændig siden 2016. Jeg arbejder i skæringsfeltet mellem strategi, design og teknologi.
-              </p>
-              <div className="mt-10 flex flex-wrap items-center gap-4">
-                <a
-                  href="#kontakt"
-                  className="inline-flex items-center gap-3 bg-ember text-cream px-6 py-3 text-sm tracking-wide hover:bg-ember/90 transition-colors"
-                >
-                  Lad os tales ved <span aria-hidden>→</span>
-                </a>
-                <a
-                  href="#cases"
-                  className="inline-flex items-center gap-3 px-6 py-3 text-sm tracking-wide border border-cream/25 hover:border-ember hover:text-ember transition-colors"
-                >
-                  Se cases
-                </a>
-              </div>
-            </div>
-
-            <div className="col-span-12 md:col-span-5 flex items-end">
-              <HeroWaveSVG className="w-full h-auto" />
+          <div className="max-w-4xl">
+            <Eyebrow>Portfolio · Digital konsulent · Aarhus</Eyebrow>
+            <h1 className="font-display mt-8 text-[clamp(3rem,8vw,7.5rem)] leading-[0.92] tracking-[-0.02em] font-medium">
+              Jonas K.P.<br />
+              <span className="italic font-light">Sørensen</span>
+            </h1>
+            <p className="mt-8 text-lg md:text-2xl text-cream/85 max-w-xl leading-snug font-display italic">
+              Digital konsulent · Brugeroplevelse &amp; digitale løsninger.
+            </p>
+            <p className="mt-6 max-w-md text-cream/65 text-base">
+              Selvstændig siden 2016. Jeg arbejder i skæringsfeltet mellem strategi, design og teknologi.
+            </p>
+            <div className="mt-10 flex flex-wrap items-center gap-4">
+              <a
+                href="#kontakt"
+                className="inline-flex items-center gap-3 bg-ember text-cream px-6 py-3 text-sm tracking-wide hover:bg-ember/90 transition-colors"
+              >
+                Lad os tales ved <span aria-hidden>→</span>
+              </a>
+              <a
+                href="#cases"
+                className="inline-flex items-center gap-3 px-6 py-3 text-sm tracking-wide border border-cream/25 hover:border-ember hover:text-ember transition-colors"
+              >
+                Se cases
+              </a>
             </div>
           </div>
 
@@ -353,9 +285,6 @@ function Index() {
 
       {/* KONTAKT */}
       <section id="kontakt" className="py-24 md:py-40 border-t border-cream/10 relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none opacity-[0.06]">
-          <HeroWaveSVG className="w-full h-full" />
-        </div>
         <div className="mx-auto max-w-[1400px] px-6 md:px-10 relative">
           <Eyebrow>Kontakt · Portfolio 2026</Eyebrow>
           <h2 className="font-display text-6xl md:text-9xl mt-8 leading-[0.9] tracking-tight">
