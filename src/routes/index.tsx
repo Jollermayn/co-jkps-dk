@@ -474,14 +474,14 @@ function CasesSection() {
                 key={c.slug}
                 to="/cases/$slug"
                 params={{ slug: c.slug }}
-                className="group flex flex-col border border-cream/10 hover:border-ember/60 bg-navy/30 hover:bg-navy/50 transition-colors overflow-hidden"
+                className="group flex flex-col border border-cream/10 bg-navy/30 hover:bg-navy/50 overflow-hidden transition-all duration-300 ease-out hover:-translate-y-1 hover:border-[#C0281E]"
               >
                 <div className="w-full overflow-hidden bg-navy" style={{ height: 200 }}>
                   <img
                     src={c.image}
                     alt={`${c.client} — ${meta?.headline ?? c.title}`}
                     loading="lazy"
-                    className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700"
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-[1.04] transition-all duration-[400ms] ease-out"
                   />
                 </div>
                 <div className="p-5 flex flex-col gap-3">
