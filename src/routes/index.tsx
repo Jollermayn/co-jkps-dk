@@ -202,12 +202,7 @@ function Index() {
                     <p className="col-span-12 md:col-span-4 text-cream/80 leading-relaxed">{c.body}</p>
                     <ul className="col-span-12 md:col-span-3 flex flex-wrap gap-2">
                       {c.tags.map((t) => (
-                        <li
-                          key={t}
-                          className="text-[11px] tracking-wide uppercase border border-cream/20 px-2.5 py-1 text-cream/70"
-                        >
-                          {t}
-                        </li>
+                        <SkillTag key={t} tag={t} />
                       ))}
                     </ul>
                   </li>
