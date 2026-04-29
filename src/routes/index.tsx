@@ -347,9 +347,6 @@ function Index() {
 
       {/* KONTAKT */}
       <section id="kontakt" className="py-24 md:py-40 border-t border-cream/10 relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none opacity-[0.06]">
-          <HeroWaveSVG className="w-full h-full" />
-        </div>
         <div className="mx-auto max-w-[1400px] px-6 md:px-10 relative">
           <Eyebrow>Kontakt · Portfolio 2026</Eyebrow>
           <h2 className="font-display text-6xl md:text-9xl mt-8 leading-[0.9] tracking-tight">
