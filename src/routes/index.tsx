@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useRef } from "react";
+import { useState } from "react";
 import { caseStudies } from "@/data/cases";
 
 export const Route = createFileRoute("/")({
