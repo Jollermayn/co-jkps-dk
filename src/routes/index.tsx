@@ -144,7 +144,7 @@ function Index() {
         {/* LEFT — scrolling content */}
         <div className="min-w-0 order-2 lg:order-none">
           {/* OM MIG */}
-          <section id="om" className="py-24 md:py-36">
+          <section id="om" className="py-16 md:py-20">
             <div className="px-6 md:px-10">
               <Eyebrow>Om mig</Eyebrow>
               <div className="mt-8 max-w-3xl space-y-6 text-cream/80 text-lg leading-relaxed">
@@ -176,9 +176,9 @@ function Index() {
           <CasesSection />
 
           {/* KOMPETENCER */}
-          <section id="kompetencer" className="py-24 md:py-36 border-t border-cream/10">
+          <section id="kompetencer" className="py-16 md:py-20 border-t border-cream/10">
             <div className="px-6 md:px-10">
-              <div className="mb-16 md:mb-24">
+              <div className="mb-10 md:mb-14">
                 <Eyebrow>Kompetencer</Eyebrow>
                 <p className="mt-8 max-w-2xl text-lg text-cream/75 leading-relaxed">
                   Jeg arbejder i skæringsfeltet mellem strategi, design og teknologi — og bringer alle tre
@@ -192,7 +192,7 @@ function Index() {
           </section>
 
           {/* UDDANNELSE */}
-          <section id="uddannelse" className="py-24 md:py-36 border-t border-cream/10">
+          <section id="uddannelse" className="py-16 md:py-20 border-t border-cream/10">
             <div className="px-6 md:px-10">
               <div className="mb-16">
                 <Eyebrow>Uddannelse</Eyebrow>
@@ -231,7 +231,7 @@ function Index() {
           </section>
 
           {/* KONTAKT */}
-          <section id="kontakt" className="py-24 md:py-40 border-t border-cream/10 relative overflow-hidden">
+          <section id="kontakt" className="py-16 md:py-20 border-t border-cream/10 relative overflow-hidden">
             <div className="px-6 md:px-10 relative">
               <Eyebrow>Kontakt · Portfolio 2026</Eyebrow>
               <h2 className="font-display text-5xl md:text-8xl mt-8 leading-[0.9] tracking-tight">
@@ -407,7 +407,7 @@ function CasesSection() {
   const progress = total > 1 ? ((activeIndex + 1) / total) * 100 : 100;
 
   return (
-    <section id="cases" className="py-24 md:py-36 border-t border-cream/10">
+    <section id="cases" className="py-16 md:py-20 border-t border-cream/10">
       <div className="px-6 md:px-10">
         <div className="mb-10 md:mb-14 flex items-start justify-between gap-6">
           <div>
@@ -468,7 +468,7 @@ function CasesSection() {
       <div
         ref={scrollerRef}
         onScroll={handleScroll}
-        className="flex gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 px-6 md:px-10 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+        className="flex gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-2 px-6 md:px-10 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
       >
         {filtered.map((c) => {
           const meta = CASE_META[c.slug];
@@ -517,7 +517,7 @@ function CasesSection() {
       </div>
 
       {/* Progress indicator */}
-      <div className="px-6 md:px-10 mt-8 flex items-center gap-6">
+      <div className="px-6 md:px-10 mt-4 flex items-center gap-6">
         <span
           className="text-cream/70 font-mono tabular-nums"
           style={{ fontSize: 12, letterSpacing: "0.1em" }}
@@ -607,7 +607,7 @@ function KompetencerList() {
       {competencies.map((c) => (
         <li
           key={c.no}
-          className="group py-10 md:py-14 hover:bg-navy/40 transition-colors -mx-6 md:-mx-10 px-6 md:px-10"
+          className="group py-8 md:py-10 hover:bg-navy/40 transition-colors -mx-6 md:-mx-10 px-6 md:px-10"
         >
           <div className="flex items-baseline gap-4">
             <span className="font-display text-2xl text-ember shrink-0">{c.no}</span>
