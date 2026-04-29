@@ -416,7 +416,7 @@ function Index() {
             <div className="col-span-12 md:col-span-4">
               <span className="eyebrow text-ember">LinkedIn</span>
               <a
-                href="https://linkedin.com/in/jonaskps"
+                href="https://www.linkedin.com/in/jonaskps/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block mt-3 font-display text-2xl md:text-3xl hover:text-ember transition-colors"
