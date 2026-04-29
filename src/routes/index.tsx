@@ -191,29 +191,6 @@ function Index() {
             </div>
           </section>
 
-          {/* PARTNERE */}
-          <section id="partnere" className="py-24 md:py-36 border-t border-cream/10">
-            <div className="px-6 md:px-10">
-              <div className="mb-16 md:mb-20">
-                <Eyebrow>Tidligere samarbejdspartnere</Eyebrow>
-                <h2 className="font-display text-5xl md:text-7xl mt-6 leading-[0.95] tracking-tight">
-                  Et bredt <span className="italic text-ember">felt</span>.
-                </h2>
-              </div>
-
-              <ul className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 md:gap-x-14 lg:gap-x-16 py-8">
-                {partners.map((p) => (
-                  <li
-                    key={p.name}
-                    className="font-display text-cream/80 hover:text-cream transition-colors text-sm md:text-base tracking-wide whitespace-nowrap"
-                  >
-                    {p.name}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </section>
-
           {/* UDDANNELSE */}
           <section id="uddannelse" className="py-24 md:py-36 border-t border-cream/10">
             <div className="px-6 md:px-10">
