@@ -434,7 +434,7 @@ function CasesSection() {
               <div className="absolute inset-0 bg-gradient-to-t from-navy-deep via-navy-deep/40 to-transparent" />
               <div className="absolute inset-0 p-6 md:p-10 flex flex-col justify-between">
                 <div className="flex items-center justify-between">
-                  <span className="eyebrow text-white font-bold">
+                  <span className="text-white font-bold text-lg md:text-xl tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
                     {String(i + 1).padStart(2, "0")} · {c.client}
                   </span>
                   <span className="text-ember text-2xl group-hover:translate-x-1 transition-transform">
