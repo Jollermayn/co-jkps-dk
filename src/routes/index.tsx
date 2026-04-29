@@ -584,32 +584,30 @@ const TAG_HEADLINES: Record<string, string> = {
 
 function KompetencerList() {
   const [openTag, setOpenTag] = useState<string | null>(null);
-  const containerRef = useRef<HTMLUListElement>(null);
+  const activeTagRef = useRef<HTMLLIElement>(null);
 
   useEffect(() => {
     if (!openTag) return;
     const onDocClick = (e: MouseEvent) => {
-      if (!containerRef.current) return;
-      if (!containerRef.current.contains(e.target as Node)) {
+      const node = activeTagRef.current;
+      if (node && !node.contains(e.target as Node)) {
         setOpenTag(null);
       }
     };
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setOpenTag(null);
     };
-    document.addEventListener("mousedown", onDocClick);
+    // Use 'click' (bubble phase) so the tag's own onClick toggles first
+    document.addEventListener("click", onDocClick);
     document.addEventListener("keydown", onKey);
     return () => {
-      document.removeEventListener("mousedown", onDocClick);
+      document.removeEventListener("click", onDocClick);
       document.removeEventListener("keydown", onKey);
     };
   }, [openTag]);
 
   return (
-    <ul
-      ref={containerRef}
-      className="divide-y divide-cream/10 border-y border-cream/10"
-    >
+    <ul className="divide-y divide-cream/10 border-y border-cream/10">
       {competencies.map((c) => (
         <li
           key={c.no}
