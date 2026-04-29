@@ -128,7 +128,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "danmarks-naturfredningsforening",
     client: "Danmarks Naturfredningsforening",
     title: "Naturformidling og strategisk kommunikation",
-    image: caseBoliga,
+    image: caseDN,
     context:
       "Danmarks Naturfredningsforening er Danmarks største naturorganisation. Samarbejdet tog udgangspunkt i Den Grønne Sommerhøjskole med fokus på bæredygtighed og naturformidling.",
     challenge:
