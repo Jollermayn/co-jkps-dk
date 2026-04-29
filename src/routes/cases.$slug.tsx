@@ -161,32 +161,32 @@ function CaseDetail() {
 
       {/* NEXT / PREV */}
       <section className="py-16 md:py-24 border-t border-cream/10">
-        <div className="mx-auto max-w-[1400px] px-6 md:px-10 grid grid-cols-12 gap-6 md:gap-10">
-          <div className="col-span-12 md:col-span-6">
+        <div className="mx-auto max-w-[1400px] px-6 md:px-10 flex flex-col md:flex-row md:items-center md:justify-between gap-8 md:gap-10">
+          <div className="md:flex-1 md:text-left">
+            <span className="eyebrow text-ember">Forrige case</span>
+            <Link
+              to="/cases/$slug"
+              params={{ slug: prev.slug }}
+              className="block mt-3 font-display text-2xl md:text-3xl hover:text-ember transition-colors"
+            >
+              ← {prev.client}
+            </Link>
+          </div>
+          <div className="md:flex-1 md:flex md:justify-center">
             <Link
               to="/"
               hash="cases"
-              className="inline-flex items-center gap-3 px-6 py-3 text-sm tracking-wide border border-cream/25 hover:border-ember hover:text-ember transition-colors mb-8"
+              className="inline-flex items-center gap-3 px-6 py-3 text-sm tracking-wide border border-cream/25 hover:border-ember hover:text-ember transition-colors whitespace-nowrap"
             >
               ← Tilbage til portfolio
             </Link>
-            <div>
-              <span className="eyebrow text-ember">Forrige case</span>
-              <Link
-                to="/cases/$slug"
-                params={{ slug: prev.slug }}
-                className="block mt-3 font-display text-2xl md:text-3xl hover:text-ember transition-colors"
-              >
-                ← {prev.client}
-              </Link>
-            </div>
           </div>
-          <div className="col-span-12 md:col-span-6 md:text-right">
+          <div className="md:flex-1 md:text-right">
             <span className="eyebrow text-ember">Næste case</span>
             <Link
               to="/cases/$slug"
               params={{ slug: next.slug }}
-              className="block mt-3 font-display text-3xl md:text-4xl hover:text-ember transition-colors"
+              className="block mt-3 font-display text-2xl md:text-3xl hover:text-ember transition-colors"
             >
               {next.client} →
             </Link>
