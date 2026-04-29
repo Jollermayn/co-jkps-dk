@@ -164,7 +164,7 @@ function Index() {
 
                 <blockquote className="border-l-2 border-ember pl-6 mt-10">
                   <p className="font-display italic text-2xl md:text-3xl leading-snug text-cream/95">
-                    The problem with AI is when there's too much A and not enough{" "}
+                    The problem with Ai is when there's too much A and not enough{" "}
                     <span className="not-italic font-normal text-ember">i</span>.
                   </p>
                 </blockquote>
