@@ -164,8 +164,8 @@ function Index() {
 
                 <blockquote className="border-l-2 border-ember pl-6 mt-10">
                   <p className="font-display italic text-2xl md:text-3xl leading-snug text-cream/95">
-                    "Teknologien er kun så god som den{" "}
-                    <mark className="bg-transparent text-ember">menneskelige oplevelse,</mark> den skaber."
+                    "The problem with AI is when there's too much A and{" "}
+                    <mark className="bg-transparent text-ember">not enough I</mark>."
                   </p>
                 </blockquote>
               </div>
