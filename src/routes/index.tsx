@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useRef } from "react";
+import { useState } from "react";
 import { caseStudies } from "@/data/cases";
 
 export const Route = createFileRoute("/")({
@@ -369,99 +369,149 @@ function Index() {
   );
 }
 
-function CasesSection() {
-  const scrollerRef = useRef<HTMLDivElement>(null);
+const FILTERS = [
+  "Alle",
+  "UX Research",
+  "Service Design",
+  "Kommunikation",
+  "Brandudvikling",
+  "Co-Creation",
+] as const;
 
-  const scrollByCard = (dir: 1 | -1) => {
-    const el = scrollerRef.current;
-    if (!el) return;
-    const card = el.querySelector<HTMLElement>("[data-case-card]");
-    const delta = card ? card.offsetWidth + 32 : el.clientWidth * 0.8;
-    el.scrollBy({ left: delta * dir, behavior: "smooth" });
-  };
+type Filter = (typeof FILTERS)[number];
+
+const CASE_META: Record<string, { headline: string; tags: string[] }> = {
+  wolt: {
+    headline: "Fra usynlig algoritme til informeret bud",
+    tags: ["UX Research", "Service Design"],
+  },
+  boliga: {
+    headline: "Reduceret kompleksitet i boligsøgning",
+    tags: ["UX Research", "Product Design"],
+  },
+  "interaktiv-horesimulering": {
+    headline: "Inklusion i undervisningen",
+    tags: ["UX Research", "Co-Creation"],
+  },
+  "danmarks-radio": {
+    headline: "Digitale og lydbaserede formater",
+    tags: ["Kommunikation"],
+  },
+  "amnesty-international": {
+    headline: "Menneskerettigheder til konkret indhold",
+    tags: ["Kommunikation"],
+  },
+  "danmarks-naturfredningsforening": {
+    headline: "Bæredygtighed og brandudvikling",
+    tags: ["Kommunikation", "Brandudvikling"],
+  },
+  "ulla-dyrlov": {
+    headline: "Koncept og platform fra bunden",
+    tags: ["Brandudvikling"],
+  },
+  "concerto-copenhagen": {
+    headline: "Publikumsengagement gennem kulturformidling",
+    tags: ["Brandudvikling", "Kommunikation"],
+  },
+  "art-spirit-coaching": {
+    headline: "Brand og koncept fra idé til lancering",
+    tags: ["Brandudvikling"],
+  },
+};
+
+function CasesSection() {
+  const [filter, setFilter] = useState<Filter>("Alle");
+
+  const filtered = caseStudies.filter((c) => {
+    if (filter === "Alle") return true;
+    return CASE_META[c.slug]?.tags.includes(filter);
+  });
 
   return (
     <section id="cases" className="py-24 md:py-36 border-t border-cream/10">
       <div className="px-6 md:px-10">
-        <div className="grid grid-cols-12 gap-6 md:gap-10 mb-12 md:mb-16">
-          <div className="col-span-12 md:col-span-7">
-            <Eyebrow>Udvalgte cases</Eyebrow>
-            <h2 className="font-display text-5xl md:text-7xl mt-6 leading-[0.95] tracking-tight">
-              Ni projekter.<br />
-              <span className="italic text-ember">Ét princip</span>: lad arbejdet tale.
-            </h2>
-          </div>
-          <div className="col-span-12 md:col-span-4 md:col-start-9 self-end flex md:justify-end items-center gap-3">
-            <button
-              type="button"
-              aria-label="Forrige case"
-              onClick={() => scrollByCard(-1)}
-              className="h-12 w-12 rounded-full border border-cream/25 hover:border-ember hover:text-ember transition-colors flex items-center justify-center text-xl"
-            >
-              ←
-            </button>
-            <button
-              type="button"
-              aria-label="Næste case"
-              onClick={() => scrollByCard(1)}
-              className="h-12 w-12 rounded-full border border-cream/25 hover:border-ember hover:text-ember transition-colors flex items-center justify-center text-xl"
-            >
-              →
-            </button>
-          </div>
+        <div className="mb-10 md:mb-14">
+          <Eyebrow>Udvalgte cases</Eyebrow>
+          <h2 className="font-display text-5xl md:text-7xl mt-6 leading-[0.95] tracking-tight">
+            Ni projekter.<br />
+            <span className="italic text-ember">Ét princip</span>: lad arbejdet tale.
+          </h2>
         </div>
-      </div>
 
-      <div
-        ref={scrollerRef}
-        className="flex gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-6 px-6 md:px-10 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-      >
-        {caseStudies.map((c, i) => (
-          <article
-            key={c.slug}
-            data-case-card
-            className="snap-start shrink-0 w-[85vw] sm:w-[70vw] md:w-[60vw] lg:w-[40vw] xl:w-[34vw]"
-          >
-            <Link
-              to="/cases/$slug"
-              params={{ slug: c.slug }}
-              className="group relative block aspect-[4/5] md:aspect-[3/4] overflow-hidden bg-navy"
-            >
-              <img
-                src={c.image}
-                alt={`${c.client} — ${c.title}`}
-                loading="lazy"
-                className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy-deep via-navy-deep/40 to-transparent" />
-              <div className="absolute inset-0 p-6 md:p-10 flex flex-col justify-between">
-                <div className="flex items-center justify-between">
-                  <span className="text-white font-bold text-lg md:text-xl tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
-                    {String(i + 1).padStart(2, "0")} · {c.client}
-                  </span>
-                  <span className="text-ember text-2xl group-hover:translate-x-1 transition-transform">
-                    →
-                  </span>
+        {/* Filter bar */}
+        <div className="flex flex-wrap items-center gap-x-2 gap-y-3 mb-10 md:mb-12">
+          <div className="flex flex-wrap gap-2 flex-1">
+            {FILTERS.map((f) => {
+              const active = f === filter;
+              return (
+                <button
+                  key={f}
+                  type="button"
+                  onClick={() => setFilter(f)}
+                  className={
+                    "text-xs tracking-wide px-3.5 py-1.5 rounded-full border transition-colors " +
+                    (active
+                      ? "bg-ember text-cream border-ember"
+                      : "border-cream/20 text-cream/70 hover:border-cream/50 hover:text-cream")
+                  }
+                >
+                  {f}
+                </button>
+              );
+            })}
+          </div>
+          <span className="eyebrow text-cream/50 ml-auto">
+            {filtered.length} / {caseStudies.length}
+          </span>
+        </div>
+
+        {/* Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {filtered.map((c) => {
+            const meta = CASE_META[c.slug];
+            return (
+              <Link
+                key={c.slug}
+                to="/cases/$slug"
+                params={{ slug: c.slug }}
+                className="group flex flex-col border border-cream/10 hover:border-ember/60 bg-navy/30 hover:bg-navy/50 transition-colors overflow-hidden"
+              >
+                <div className="w-full overflow-hidden bg-navy" style={{ height: 200 }}>
+                  <img
+                    src={c.image}
+                    alt={`${c.client} — ${meta?.headline ?? c.title}`}
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700"
+                  />
                 </div>
-                <div>
-                  <h3 className="font-display text-3xl md:text-5xl leading-[1] tracking-tight text-cream">
-                    {c.title}
+                <div className="p-5 flex flex-col gap-3">
+                  <span
+                    className="text-cream/60 uppercase font-semibold"
+                    style={{ fontSize: 9, letterSpacing: "0.18em" }}
+                  >
+                    {c.client}
+                  </span>
+                  <h3
+                    className="font-display font-bold text-cream leading-snug"
+                    style={{ fontSize: 16 }}
+                  >
+                    {meta?.headline ?? c.title}
                   </h3>
-                  <ul className="mt-5 flex flex-wrap gap-2">
-                    {c.approach.slice(0, 4).map((t) => (
+                  <ul className="flex flex-wrap gap-1.5 mt-1">
+                    {(meta?.tags ?? []).map((t) => (
                       <li
                         key={t}
-                        className="text-[11px] tracking-wide uppercase border border-cream/30 px-2.5 py-1 text-cream/85 backdrop-blur-sm"
+                        className="text-[10px] tracking-wide px-2.5 py-1 rounded-full border border-cream/20 text-cream/70"
                       >
                         {t}
                       </li>
                     ))}
                   </ul>
                 </div>
-              </div>
-            </Link>
-          </article>
-        ))}
+              </Link>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
