@@ -1,5 +1,6 @@
 import { createFileRoute, Link, notFound, useRouter } from "@tanstack/react-router";
 import { caseStudies, getCaseBySlug } from "@/data/cases";
+import { TagWithCases } from "@/components/TagWithCases";
 
 export const Route = createFileRoute("/cases/$slug")({
   loader: ({ params }) => {
@@ -136,12 +137,12 @@ function CaseDetail() {
           <Section label="Tilgang" title="Tilgang">
             <ul className="flex flex-wrap gap-2">
               {study.approach.map((t) => (
-                <li
+                <TagWithCases
                   key={t}
-                  className="text-xs tracking-wide uppercase border border-cream/25 px-3 py-1.5 text-cream/80"
-                >
-                  {t}
-                </li>
+                  tag={t}
+                  excludeSlug={study.slug}
+                  variant="approach"
+                />
               ))}
             </ul>
           </Section>
