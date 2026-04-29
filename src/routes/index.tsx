@@ -86,119 +86,93 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
   );
 }
 
+function Sidebar() {
+  return (
+    <aside className="lg:sticky lg:top-0 lg:h-screen lg:flex lg:flex-col lg:justify-between px-6 md:px-10 py-16 lg:py-20 border-b lg:border-b-0 lg:border-l border-cream/10 order-first lg:order-last">
+      <div>
+        <h1 className="font-display text-[clamp(2.5rem,5vw,4.5rem)] leading-[0.95] tracking-[-0.02em] font-medium">
+          Jonas K.P.<br />
+          <span className="italic font-light">Sørensen</span>
+        </h1>
+        <p className="mt-6 text-lg text-cream/85 leading-snug font-display italic">
+          Digital konsulent · Brugeroplevelse &amp; digitale løsninger.
+        </p>
+        <p className="mt-4 text-cream/65 text-sm">
+          Selvstændig siden 2016. Jeg arbejder i skæringsfeltet mellem strategi, design og teknologi.
+        </p>
+      </div>
+
+      <div className="mt-10 lg:mt-0 flex flex-col gap-3">
+        <a
+          href="/jonas-kp-sorensen-cv.pdf"
+          download
+          className="inline-flex items-center justify-between gap-3 px-5 py-3 text-sm tracking-wide border border-cream/25 hover:border-ember hover:text-ember transition-colors"
+        >
+          Download CV (PDF) <span aria-hidden>↓</span>
+        </a>
+        <a
+          href="#kontakt"
+          className="inline-flex items-center justify-between gap-3 bg-ember text-cream px-5 py-3 text-sm tracking-wide hover:bg-ember/90 transition-colors"
+        >
+          Lad os tales ved <span aria-hidden>→</span>
+        </a>
+        <div className="mt-6 space-y-2 text-sm text-cream/70">
+          <a href="mailto:Jonas@jkps.dk" className="block hover:text-ember transition-colors">
+            Jonas@jkps.dk
+          </a>
+          <a href="tel:+4560959596" className="block hover:text-ember transition-colors">
+            +45 60 95 95 96
+          </a>
+          <a
+            href="https://www.linkedin.com/in/jonaskps/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block hover:text-ember transition-colors"
+          >
+            LinkedIn →
+          </a>
+        </div>
+      </div>
+    </aside>
+  );
+}
+
 function Index() {
   return (
-    <main className="bg-navy-deep text-cream">
-      {/* NAV */}
-      <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-navy-deep/70 border-b border-cream/10">
-        <nav className="mx-auto max-w-[1400px] px-6 md:px-10 h-16 flex items-center justify-between">
-          <a href="#top" className="font-display text-lg tracking-tight">
-            Jonas K.P. Sørensen
-          </a>
-          <ul className="hidden md:flex items-center gap-8 text-sm text-cream/80">
-            <li><a href="#om" className="hover:text-ember transition-colors">Om</a></li>
-            <li><a href="#kompetencer" className="hover:text-ember transition-colors">Kompetencer</a></li>
-            <li><a href="#cases" className="hover:text-ember transition-colors">Cases</a></li>
-            <li><a href="#partnere" className="hover:text-ember transition-colors">Samarbejder</a></li>
-            <li>
-              <a href="#kontakt" className="text-ember hover:underline underline-offset-4">Kontakt</a>
-            </li>
-          </ul>
-        </nav>
-      </header>
+    <main id="top" className="bg-navy-deep text-cream">
+      <div className="lg:grid lg:grid-cols-[1fr_minmax(320px,420px)] lg:items-start">
+        {/* LEFT — scrolling content */}
+        <div className="min-w-0">
+          {/* OM MIG */}
+          <section id="om" className="py-24 md:py-36">
+            <div className="px-6 md:px-10 grid grid-cols-12 gap-6 md:gap-10">
+              <div className="col-span-12 md:col-span-4">
+                <Eyebrow>Om mig</Eyebrow>
+              </div>
+              <div className="col-span-12 md:col-span-8 space-y-6 text-cream/80 text-lg leading-relaxed">
+                <p>
+                  Siden 2016 har jeg drevet egen konsulent- og medieproduktionsvirksomhed — med fokus på
+                  samspillet mellem mennesker, teknologi og forretning.
+                </p>
+                <p>
+                  Fælles for alt mit arbejde er interessen for det øjeblik hvor noget abstrakt bliver konkret —
+                  hvor en idé finder sin form, en oplevelse finder sit udtryk, en fortælling finder sin modtager.
+                  Jeg er mest på hjemmebane når disciplinerne overlapper, og tiltrukket af de projekter der ikke
+                  lader sig løse med én faglighed alene.
+                </p>
+                <p className="text-cream/60 italic font-display">
+                  Privat er jeg familiefar, naturmenneske og det, man nok ville kalde en seriøs lytter.
+                </p>
 
-      {/* HERO */}
-      <section id="top" className="pt-32 md:pt-40 pb-16 md:pb-24">
-        <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-          <div className="max-w-4xl">
-            <Eyebrow>Portfolio · Digital konsulent · Aarhus</Eyebrow>
-            <h1 className="font-display mt-8 text-[clamp(3rem,8vw,7.5rem)] leading-[0.92] tracking-[-0.02em] font-medium">
-              Jonas K.P.<br />
-              <span className="italic font-light">Sørensen</span>
-            </h1>
-            <p className="mt-8 text-lg md:text-2xl text-cream/85 max-w-xl leading-snug font-display italic">
-              Digital konsulent · Brugeroplevelse &amp; digitale løsninger.
-            </p>
-            <p className="mt-6 max-w-md text-cream/65 text-base">
-              Selvstændig siden 2016. Jeg arbejder i skæringsfeltet mellem strategi, design og teknologi.
-            </p>
-            <div className="mt-10 flex flex-wrap items-center gap-4">
-              <a
-                href="#kontakt"
-                className="inline-flex items-center gap-3 bg-ember text-cream px-6 py-3 text-sm tracking-wide hover:bg-ember/90 transition-colors"
-              >
-                Lad os tales ved <span aria-hidden>→</span>
-              </a>
-              <a
-                href="#cases"
-                className="inline-flex items-center gap-3 px-6 py-3 text-sm tracking-wide border border-cream/25 hover:border-ember hover:text-ember transition-colors"
-              >
-                Se cases
-              </a>
+                <blockquote className="border-l-2 border-ember pl-6 mt-10">
+                  <p className="font-display italic text-2xl md:text-3xl leading-snug text-cream/95">
+                    "Teknologien er kun så god som den{" "}
+                    <mark className="bg-transparent text-ember">menneskelige oplevelse,</mark> den skaber."
+                  </p>
+                </blockquote>
+              </div>
             </div>
-          </div>
-
-          <blockquote className="mt-16 md:mt-24 border-l-2 border-ember pl-6 max-w-3xl">
-            <p className="font-display italic text-2xl md:text-3xl leading-snug text-cream/95">
-              "Teknologien er kun så god som den{" "}
-              <mark className="bg-transparent text-ember">menneskelige oplevelse,</mark> den skaber."
-            </p>
-          </blockquote>
-        </div>
-      </section>
-
-      {/* OM MIG */}
-      <section id="om" className="py-24 md:py-36 border-t border-cream/10">
-        <div className="mx-auto max-w-[1400px] px-6 md:px-10 grid grid-cols-12 gap-6 md:gap-10">
-          <div className="col-span-12 md:col-span-4">
-            <Eyebrow>Om mig</Eyebrow>
-            <h2 className="font-display text-5xl md:text-7xl mt-6 leading-[0.95] tracking-tight">
-              Hvor noget abstrakt bliver <span className="italic text-ember">konkret</span>.
-            </h2>
-          </div>
-          <div className="col-span-12 md:col-span-7 md:col-start-6 space-y-6 text-cream/80 text-lg leading-relaxed">
-            <p>
-              Siden 2016 har jeg drevet egen konsulent- og medieproduktionsvirksomhed — med fokus på
-              samspillet mellem mennesker, teknologi og forretning.
-            </p>
-            <p>
-              Fælles for alt mit arbejde er interessen for det øjeblik hvor noget abstrakt bliver konkret —
-              hvor en idé finder sin form, en oplevelse finder sit udtryk, en fortælling finder sin modtager.
-              Jeg er mest på hjemmebane når disciplinerne overlapper, og tiltrukket af de projekter der ikke
-              lader sig løse med én faglighed alene.
-            </p>
-            <p>
-              Uddannet cand.it i Digital Design og Interaktive Teknologier samt professionsbachelor i medie-
-              og sonokommunikation fra Sonic College. Et fagligt ståsted, hvor analytisk overblik møder en
-              kreativ og praksisnær tilgang.
-            </p>
-            <p className="text-cream/60 italic font-display">
-              Privat er jeg familiefar, naturmenneske og det, man nok ville kalde en seriøs lytter.
-            </p>
-
-            <dl className="hairline pt-8 mt-10 grid grid-cols-2 gap-y-6 gap-x-8 text-sm">
-              <div>
-                <dt className="eyebrow text-ember">Uddannelse</dt>
-                <dd className="mt-2 text-cream/85">
-                  Cand.it · Digital Design og Interaktive Teknologier · IT-Universitetet København
-                </dd>
-              </div>
-              <div>
-                <dt className="eyebrow text-ember">Professionsbachelor</dt>
-                <dd className="mt-2 text-cream/85">
-                  Medie- og sonokommunikation · Sonic College
-                </dd>
-              </div>
-              <div className="col-span-2">
-                <dt className="eyebrow text-ember">Kernekompetencer</dt>
-                <dd className="mt-2 text-cream/85">
-                  Brugerinddragelse · Branding · Konceptudvikling · Service Design · UX Research
-                </dd>
-              </div>
-            </dl>
-          </div>
-        </div>
-      </section>
+          </section>
 
       {/* KOMPETENCER */}
       <section id="kompetencer" className="py-24 md:py-36 border-t border-cream/10">
