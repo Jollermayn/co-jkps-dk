@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import heroWave from "@/assets/hero-wave.jpg";
 import caseWolt from "@/assets/case-wolt.jpg";
 import caseBoliga from "@/assets/case-boliga.jpg";
@@ -70,6 +70,7 @@ const competencies = [
 const cases = [
   {
     no: "01",
+    slug: "wolt",
     client: "Wolt",
     title: "Fra usynlig algoritme til informeret bud",
     desc:
@@ -79,6 +80,7 @@ const cases = [
   },
   {
     no: "02",
+    slug: "boliga",
     client: "Boliga",
     title: "Reduceret kompleksitet i boligsøgning",
     desc:
@@ -88,6 +90,7 @@ const cases = [
   },
   {
     no: "03",
+    slug: "interaktiv-horesimulering",
     client: "Interaktiv høresimulering",
     title: "Inklusion i undervisningen",
     desc:
@@ -98,12 +101,12 @@ const cases = [
 ];
 
 const partners = [
-  { name: "Danmarks Radio", note: "Broadcast, podcastproduktion og tværgående koordinering" },
-  { name: "Danmarks Naturfredningsforening", note: "Kommunikation om bæredygtighed og brandudvikling" },
-  { name: "Amnesty International", note: "Journalistisk formidling af menneskerettighedsspørgsmål" },
-  { name: "Ulla Dyrløv", note: "Koncept- og platformudvikling med fokus på børns trivsel" },
-  { name: "Concerto Copenhagen", note: "Engagement af publikum gennem kulturformidling" },
-  { name: "Art Spirit Coaching", note: "Brand, koncept og kommunikation fra idé til lancering" },
+  { slug: "danmarks-radio", name: "Danmarks Radio", note: "Broadcast, podcastproduktion og tværgående koordinering" },
+  { slug: "danmarks-naturfredningsforening", name: "Danmarks Naturfredningsforening", note: "Kommunikation om bæredygtighed og brandudvikling" },
+  { slug: "amnesty-international", name: "Amnesty International", note: "Journalistisk formidling af menneskerettighedsspørgsmål" },
+  { slug: "ulla-dyrlov", name: "Ulla Dyrløv", note: "Koncept- og platformudvikling med fokus på børns trivsel" },
+  { slug: "concerto-copenhagen", name: "Concerto Copenhagen", note: "Engagement af publikum gennem kulturformidling" },
+  { slug: "art-spirit-coaching", name: "Art Spirit Coaching", note: "Brand, koncept og kommunikation fra idé til lancering" },
 ];
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
@@ -308,7 +311,11 @@ function Index() {
                 key={c.no}
                 className={`col-span-12 md:col-span-6 ${i === 0 ? "md:col-span-8" : ""} ${i === 1 ? "md:col-span-4" : ""} ${i === 2 ? "md:col-span-12 lg:col-span-12" : ""}`}
               >
-                <div className="bg-cream text-navy-deep group cursor-pointer overflow-hidden">
+                <Link
+                  to="/cases/$slug"
+                  params={{ slug: c.slug }}
+                  className="block bg-cream text-navy-deep group cursor-pointer overflow-hidden"
+                >
                   <div className="overflow-hidden">
                     <img
                       src={c.image}
