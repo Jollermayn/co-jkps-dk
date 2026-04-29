@@ -1,8 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useRef } from "react";
 import heroWave from "@/assets/hero-wave.jpg";
-import caseWolt from "@/assets/case-wolt.jpg";
-import caseBoliga from "@/assets/case-boliga.jpg";
-import caseHearing from "@/assets/case-hearing.jpg";
+import { caseStudies } from "@/data/cases";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -67,38 +66,8 @@ const competencies = [
   },
 ];
 
-const cases = [
-  {
-    no: "01",
-    slug: "wolt",
-    client: "Wolt",
-    title: "Fra usynlig algoritme til informeret bud",
-    desc:
-      "Forbedret beslutningstagning for bude gennem øget transparens i platformens algoritmer og lønberegning.",
-    tags: ["Service Design", "UX Research"],
-    image: caseWolt,
-  },
-  {
-    no: "02",
-    slug: "boliga",
-    client: "Boliga",
-    title: "Reduceret kompleksitet i boligsøgning",
-    desc:
-      "Færre valg, bedre beslutninger på en platform med 6,5 mio. månedlige interaktioner.",
-    tags: ["Product Design", "UX Research"],
-    image: caseBoliga,
-  },
-  {
-    no: "03",
-    slug: "interaktiv-horesimulering",
-    client: "Interaktiv høresimulering",
-    title: "Inklusion i undervisningen",
-    desc:
-      "Binaural høresimulation valideret af hørehæmmede deltagere — ikke som information, men som indsigt.",
-    tags: ["Concept Design", "Co-Creation"],
-    image: caseHearing,
-  },
-];
+
+
 
 const partners = [
   { slug: "danmarks-radio", name: "Danmarks Radio", note: "Broadcast, podcastproduktion og tværgående koordinering" },
@@ -290,68 +259,7 @@ function Index() {
       </section>
 
       {/* CASES */}
-      <section id="cases" className="py-24 md:py-36 border-t border-cream/10">
-        <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-          <div className="grid grid-cols-12 gap-6 md:gap-10 mb-16 md:mb-24">
-            <div className="col-span-12 md:col-span-7">
-              <Eyebrow>Udvalgte cases</Eyebrow>
-              <h2 className="font-display text-5xl md:text-7xl mt-6 leading-[0.95] tracking-tight">
-                Tre projekter.<br />
-                <span className="italic text-ember">Ét princip</span>: lad arbejdet tale.
-              </h2>
-            </div>
-            <p className="col-span-12 md:col-span-4 md:col-start-9 text-lg text-cream/75 self-end leading-relaxed">
-              Brugeroplevelser, service design og digital konceptudvikling — kort fortalt.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-12 gap-6 md:gap-8">
-            {cases.map((c, i) => (
-              <article
-                key={c.no}
-                className={`col-span-12 md:col-span-6 ${i === 0 ? "md:col-span-8" : ""} ${i === 1 ? "md:col-span-4" : ""} ${i === 2 ? "md:col-span-12 lg:col-span-12" : ""}`}
-              >
-                <Link
-                  to="/cases/$slug"
-                  params={{ slug: c.slug }}
-                  className="block bg-cream text-navy-deep group cursor-pointer overflow-hidden"
-                >
-                  <div className="overflow-hidden">
-                    <img
-                      src={c.image}
-                      alt={`${c.client} — ${c.title}`}
-                      width={1024}
-                      height={768}
-                      loading="lazy"
-                      className="w-full h-[280px] md:h-[420px] object-cover group-hover:scale-[1.02] transition-transform duration-700"
-                    />
-                  </div>
-                  <div className="p-6 md:p-10">
-                    <div className="flex items-center justify-between gap-4">
-                      <span className="eyebrow text-ember">Case {c.no} · {c.client}</span>
-                      <span className="text-ember text-xl group-hover:translate-x-1 transition-transform">→</span>
-                    </div>
-                    <h3 className="font-display text-3xl md:text-5xl mt-4 leading-[1] tracking-tight">
-                      {c.title}
-                    </h3>
-                    <p className="mt-4 text-navy-deep/75 max-w-2xl leading-relaxed">{c.desc}</p>
-                    <ul className="mt-6 flex flex-wrap gap-2">
-                      {c.tags.map((t) => (
-                        <li
-                          key={t}
-                          className="text-[11px] tracking-wide uppercase border border-navy-deep/20 px-2.5 py-1 text-navy-deep/70"
-                        >
-                          {t}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </Link>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      <CasesSection />
 
       {/* PARTNERE */}
       <section id="partnere" className="py-24 md:py-36 border-t border-cream/10">
@@ -456,5 +364,103 @@ function Index() {
         </div>
       </footer>
     </main>
+  );
+}
+
+function CasesSection() {
+  const scrollerRef = useRef<HTMLDivElement>(null);
+
+  const scrollByCard = (dir: 1 | -1) => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    const card = el.querySelector<HTMLElement>("[data-case-card]");
+    const delta = card ? card.offsetWidth + 32 : el.clientWidth * 0.8;
+    el.scrollBy({ left: delta * dir, behavior: "smooth" });
+  };
+
+  return (
+    <section id="cases" className="py-24 md:py-36 border-t border-cream/10">
+      <div className="mx-auto max-w-[1400px] px-6 md:px-10">
+        <div className="grid grid-cols-12 gap-6 md:gap-10 mb-12 md:mb-16">
+          <div className="col-span-12 md:col-span-7">
+            <Eyebrow>Udvalgte cases</Eyebrow>
+            <h2 className="font-display text-5xl md:text-7xl mt-6 leading-[0.95] tracking-tight">
+              Ni projekter.<br />
+              <span className="italic text-ember">Ét princip</span>: lad arbejdet tale.
+            </h2>
+          </div>
+          <div className="col-span-12 md:col-span-4 md:col-start-9 self-end flex md:justify-end items-center gap-3">
+            <button
+              type="button"
+              aria-label="Forrige case"
+              onClick={() => scrollByCard(-1)}
+              className="h-12 w-12 rounded-full border border-cream/25 hover:border-ember hover:text-ember transition-colors flex items-center justify-center text-xl"
+            >
+              ←
+            </button>
+            <button
+              type="button"
+              aria-label="Næste case"
+              onClick={() => scrollByCard(1)}
+              className="h-12 w-12 rounded-full border border-cream/25 hover:border-ember hover:text-ember transition-colors flex items-center justify-center text-xl"
+            >
+              →
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div
+        ref={scrollerRef}
+        className="flex gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-6 px-6 md:px-10 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+      >
+        {caseStudies.map((c, i) => (
+          <article
+            key={c.slug}
+            data-case-card
+            className="snap-start shrink-0 w-[85vw] sm:w-[70vw] md:w-[60vw] lg:w-[48vw] xl:w-[42vw]"
+          >
+            <Link
+              to="/cases/$slug"
+              params={{ slug: c.slug }}
+              className="group relative block aspect-[4/5] md:aspect-[3/4] overflow-hidden bg-navy"
+            >
+              <img
+                src={c.image}
+                alt={`${c.client} — ${c.title}`}
+                loading="lazy"
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy-deep via-navy-deep/40 to-transparent" />
+              <div className="absolute inset-0 p-6 md:p-10 flex flex-col justify-between">
+                <div className="flex items-center justify-between">
+                  <span className="eyebrow text-ember">
+                    {String(i + 1).padStart(2, "0")} · {c.client}
+                  </span>
+                  <span className="text-ember text-2xl group-hover:translate-x-1 transition-transform">
+                    →
+                  </span>
+                </div>
+                <div>
+                  <h3 className="font-display text-3xl md:text-5xl leading-[1] tracking-tight text-cream">
+                    {c.title}
+                  </h3>
+                  <ul className="mt-5 flex flex-wrap gap-2">
+                    {c.approach.slice(0, 4).map((t) => (
+                      <li
+                        key={t}
+                        className="text-[11px] tracking-wide uppercase border border-cream/30 px-2.5 py-1 text-cream/85 backdrop-blur-sm"
+                      >
+                        {t}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </Link>
+          </article>
+        ))}
+      </div>
+    </section>
   );
 }
