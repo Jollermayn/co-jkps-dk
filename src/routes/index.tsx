@@ -585,6 +585,11 @@ const TAG_TO_SLUGS: Record<string, string[]> = {
   "Indholdsstrategi": ["amnesty-international", "danmarks-radio", "danmarks-naturfredningsforening"],
   "Podcastproduktion": ["danmarks-radio", "ulla-dyrlov"],
   "Lydproduktion": ["danmarks-radio", "ulla-dyrlov"],
+  "Redaktionel tilrettelæggelse": ["danmarks-radio", "amnesty-international"],
+  "Postproduktion": ["danmarks-radio", "ulla-dyrlov"],
+  "Indholdsproduktion": ["amnesty-international", "danmarks-radio", "danmarks-naturfredningsforening"],
+  "Visuel identitet": ["ulla-dyrlov", "art-spirit-coaching"],
+  "Indholdsarkitektur": ["ulla-dyrlov", "concerto-copenhagen"],
 };
 
 const TAG_HEADLINES: Record<string, string> = {
