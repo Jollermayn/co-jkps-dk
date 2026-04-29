@@ -91,7 +91,7 @@ function CaseDetail() {
           <img
             src={study.image}
             alt={`${study.client} — ${study.title}`}
-            className="w-full h-[55vh] md:h-[80vh] object-cover"
+            className="w-full h-[280px] sm:h-[360px] md:h-[420px] object-cover"
           />
         </figure>
       </section>
