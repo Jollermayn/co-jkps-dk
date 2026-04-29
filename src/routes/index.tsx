@@ -415,6 +415,9 @@ function CasesSection() {
         <div className="mb-10 md:mb-14 flex items-start justify-between gap-6">
           <div>
             <Eyebrow>Udvalgte cases</Eyebrow>
+            <h2 className="font-display text-5xl md:text-7xl mt-6 leading-[0.95] tracking-tight">
+              Ni projekter.
+            </h2>
           </div>
           {/* Arrow nav */}
           <div className="hidden md:flex items-center gap-3 shrink-0 pt-4">
