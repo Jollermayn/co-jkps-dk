@@ -98,7 +98,7 @@ function CaseDetail() {
       </section>
 
       {/* TITLE */}
-      <section className="py-16 md:py-24 border-b border-cream/10">
+      <section className="py-12 md:py-16 border-b border-cream/10">
         <div className="mx-auto max-w-[1400px] px-6 md:px-10 grid grid-cols-12 gap-6 md:gap-10">
           <div className="col-span-12 md:col-span-8">
             <div className="flex items-center gap-3">
@@ -113,8 +113,8 @@ function CaseDetail() {
       </section>
 
       {/* SECTIONS */}
-      <article className="py-16 md:py-24">
-        <div className="mx-auto max-w-[1400px] px-6 md:px-10 space-y-20 md:space-y-28">
+      <article className="py-12 md:py-16">
+        <div className="mx-auto max-w-[1400px] px-6 md:px-10 space-y-12 md:space-y-16">
           <Section label="Kontekst" title="Kontekst">
             <p className="text-lg md:text-xl text-cream/85 leading-relaxed">{study.context}</p>
           </Section>
@@ -161,7 +161,7 @@ function CaseDetail() {
       </article>
 
       {/* NEXT / PREV */}
-      <section className="py-16 md:py-24 border-t border-cream/10">
+      <section className="py-12 md:py-16 border-t border-cream/10">
         <div className="mx-auto max-w-[1400px] px-6 md:px-10 flex flex-col md:flex-row md:items-center md:justify-between gap-8 md:gap-10">
           <div className="md:flex-1 md:text-left">
             <span className="eyebrow text-ember">Forrige case</span>
