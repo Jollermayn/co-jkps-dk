@@ -366,3 +366,101 @@ function Index() {
     </main>
   );
 }
+
+function CasesSection() {
+  const scrollerRef = useRef<HTMLDivElement>(null);
+
+  const scrollByCard = (dir: 1 | -1) => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    const card = el.querySelector<HTMLElement>("[data-case-card]");
+    const delta = card ? card.offsetWidth + 32 : el.clientWidth * 0.8;
+    el.scrollBy({ left: delta * dir, behavior: "smooth" });
+  };
+
+  return (
+    <section id="cases" className="py-24 md:py-36 border-t border-cream/10">
+      <div className="mx-auto max-w-[1400px] px-6 md:px-10">
+        <div className="grid grid-cols-12 gap-6 md:gap-10 mb-12 md:mb-16">
+          <div className="col-span-12 md:col-span-7">
+            <Eyebrow>Udvalgte cases</Eyebrow>
+            <h2 className="font-display text-5xl md:text-7xl mt-6 leading-[0.95] tracking-tight">
+              Ni projekter.<br />
+              <span className="italic text-ember">Ét princip</span>: lad arbejdet tale.
+            </h2>
+          </div>
+          <div className="col-span-12 md:col-span-4 md:col-start-9 self-end flex md:justify-end items-center gap-3">
+            <button
+              type="button"
+              aria-label="Forrige case"
+              onClick={() => scrollByCard(-1)}
+              className="h-12 w-12 rounded-full border border-cream/25 hover:border-ember hover:text-ember transition-colors flex items-center justify-center text-xl"
+            >
+              ←
+            </button>
+            <button
+              type="button"
+              aria-label="Næste case"
+              onClick={() => scrollByCard(1)}
+              className="h-12 w-12 rounded-full border border-cream/25 hover:border-ember hover:text-ember transition-colors flex items-center justify-center text-xl"
+            >
+              →
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div
+        ref={scrollerRef}
+        className="flex gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-6 px-6 md:px-10 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+      >
+        {caseStudies.map((c, i) => (
+          <article
+            key={c.slug}
+            data-case-card
+            className="snap-start shrink-0 w-[85vw] sm:w-[70vw] md:w-[60vw] lg:w-[48vw] xl:w-[42vw]"
+          >
+            <Link
+              to="/cases/$slug"
+              params={{ slug: c.slug }}
+              className="group relative block aspect-[4/5] md:aspect-[3/4] overflow-hidden bg-navy"
+            >
+              <img
+                src={c.image}
+                alt={`${c.client} — ${c.title}`}
+                loading="lazy"
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy-deep via-navy-deep/40 to-transparent" />
+              <div className="absolute inset-0 p-6 md:p-10 flex flex-col justify-between">
+                <div className="flex items-center justify-between">
+                  <span className="eyebrow text-ember">
+                    {String(i + 1).padStart(2, "0")} · {c.client}
+                  </span>
+                  <span className="text-ember text-2xl group-hover:translate-x-1 transition-transform">
+                    →
+                  </span>
+                </div>
+                <div>
+                  <h3 className="font-display text-3xl md:text-5xl leading-[1] tracking-tight text-cream">
+                    {c.title}
+                  </h3>
+                  <ul className="mt-5 flex flex-wrap gap-2">
+                    {c.approach.slice(0, 4).map((t) => (
+                      <li
+                        key={t}
+                        className="text-[11px] tracking-wide uppercase border border-cream/30 px-2.5 py-1 text-cream/85 backdrop-blur-sm"
+                      >
+                        {t}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </Link>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
