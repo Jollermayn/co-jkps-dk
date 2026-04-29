@@ -420,7 +420,7 @@ function CasesSection() {
           <article
             key={c.slug}
             data-case-card
-            className="snap-start shrink-0 w-[85vw] sm:w-[70vw] md:w-[60vw] lg:w-[48vw] xl:w-[42vw]"
+            className="snap-start shrink-0 w-[85vw] sm:w-[70vw] md:w-[60vw] lg:w-[40vw] xl:w-[34vw]"
           >
             <Link
               to="/cases/$slug"
