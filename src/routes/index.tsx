@@ -583,6 +583,8 @@ const TAG_TO_SLUGS: Record<string, string[]> = {
   "Indholdsproduktion": ["amnesty-international", "danmarks-radio", "danmarks-naturfredningsforening"],
   "Visuel identitet": ["ulla-dyrlov", "art-spirit-coaching"],
   "Indholdsarkitektur": ["ulla-dyrlov", "concerto-copenhagen"],
+  "Facilitering": ["danmarks-naturfredningsforening", "interaktiv-horesimulering", "wolt"],
+  "Workshops": ["interaktiv-horesimulering", "wolt"],
 };
 
 const TAG_HEADLINES: Record<string, string> = {
