@@ -421,7 +421,7 @@ function Index() {
                 rel="noopener noreferrer"
                 className="block mt-3 font-display text-2xl md:text-3xl hover:text-ember transition-colors"
               >
-                /in/jonaskps
+                Kontakt mig på LinkedIn
               </a>
             </div>
           </div>
