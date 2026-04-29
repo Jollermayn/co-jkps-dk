@@ -140,7 +140,7 @@ function Sidebar() {
 function Index() {
   return (
     <main id="top" className="bg-navy-deep text-cream">
-      <div className="lg:grid lg:grid-cols-[1fr_minmax(320px,420px)] lg:items-start">
+      <div className="lg:grid lg:grid-cols-[60fr_40fr] lg:items-start">
         {/* LEFT — scrolling content */}
         <div className="min-w-0">
           {/* OM MIG */}
