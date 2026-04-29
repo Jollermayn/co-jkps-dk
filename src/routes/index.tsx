@@ -630,21 +630,21 @@ function KompetencerList() {
       {competencies.map((c) => (
         <li
           key={c.no}
-          className="group py-10 md:py-14 grid grid-cols-12 gap-6 md:gap-10 items-start hover:bg-navy/40 transition-colors -mx-6 md:-mx-10 px-6 md:px-10"
+          className="group py-10 md:py-14 hover:bg-navy/40 transition-colors -mx-6 md:-mx-10 px-6 md:px-10"
         >
-          <div className="col-span-2 md:col-span-1 font-display text-2xl text-ember">
-            {c.no}
+          <div className="flex items-baseline gap-4">
+            <span className="font-display text-2xl text-ember shrink-0">{c.no}</span>
+            <div>
+              <h3 className="font-display text-3xl md:text-4xl tracking-tight leading-tight">
+                {c.title}
+              </h3>
+              <p className="mt-2 text-sm text-cream/55 italic">{c.sub}</p>
+            </div>
           </div>
-          <div className="col-span-10 md:col-span-4">
-            <h3 className="font-display text-3xl md:text-4xl tracking-tight leading-tight">
-              {c.title}
-            </h3>
-            <p className="mt-2 text-sm text-cream/55 italic">{c.sub}</p>
-          </div>
-          <p className="col-span-12 md:col-span-4 text-cream/80 leading-relaxed">
+          <p className="mt-6 max-w-3xl text-cream/80 leading-relaxed">
             {c.body}
           </p>
-          <ul className="col-span-12 md:col-span-3 flex flex-wrap gap-2">
+          <ul className="mt-6 flex flex-wrap gap-2">
             {c.tags.map((t) => {
               const slugs = TAG_TO_SLUGS[t] ?? [];
               const hasCases = slugs.length > 0;
