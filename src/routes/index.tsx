@@ -145,11 +145,9 @@ function Index() {
         <div className="min-w-0 order-2 lg:order-none">
           {/* OM MIG */}
           <section id="om" className="py-24 md:py-36">
-            <div className="px-6 md:px-10 grid grid-cols-12 gap-6 md:gap-10">
-              <div className="col-span-12 md:col-span-4">
-                <Eyebrow>Om mig</Eyebrow>
-              </div>
-              <div className="col-span-12 md:col-span-8 space-y-6 text-cream/80 text-lg leading-relaxed">
+            <div className="px-6 md:px-10">
+              <Eyebrow>Om mig</Eyebrow>
+              <div className="mt-8 max-w-3xl space-y-6 text-cream/80 text-lg leading-relaxed">
                 <p>
                   Siden 2016 har jeg drevet egen konsulent- og medieproduktionsvirksomhed — med fokus på
                   samspillet mellem mennesker, teknologi og forretning.
