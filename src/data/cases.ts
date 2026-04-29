@@ -88,7 +88,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "danmarks-radio",
     client: "Danmarks Radio",
     title: "Broadcast-kvalitet for Danmarks største medieplatform",
-    image: caseWolt,
+    image: caseDR,
     context:
       "Danmarks Radio er Danmarks største public service medievirksomhed. Samarbejdet dækkede broadcast, podcastproduktion og tværgående koordinering på tværs af redaktioner.",
     challenge:
