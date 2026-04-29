@@ -253,12 +253,6 @@ function Index() {
                 </li>
               </ul>
 
-              <dl className="mt-12 text-sm">
-                <dt className="eyebrow text-ember">Kernekompetencer</dt>
-                <dd className="mt-2 text-cream/85">
-                  Brugerinddragelse · Branding · Konceptudvikling · Service Design · UX Research
-                </dd>
-              </dl>
             </div>
           </section>
 
