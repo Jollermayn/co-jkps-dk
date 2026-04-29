@@ -140,9 +140,9 @@ function Sidebar() {
 function Index() {
   return (
     <main id="top" className="bg-navy-deep text-cream">
-      <div className="lg:grid lg:grid-cols-[60fr_40fr] lg:items-start">
+      <div className="flex flex-col lg:grid lg:grid-cols-[60fr_40fr] lg:items-start">
         {/* LEFT — scrolling content */}
-        <div className="min-w-0">
+        <div className="min-w-0 order-2 lg:order-none">
           {/* OM MIG */}
           <section id="om" className="py-24 md:py-36">
             <div className="px-6 md:px-10 grid grid-cols-12 gap-6 md:gap-10">
