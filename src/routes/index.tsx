@@ -346,7 +346,7 @@ function Index() {
                       ))}
                     </ul>
                   </div>
-                </div>
+                </Link>
               </article>
             ))}
           </div>
@@ -370,17 +370,20 @@ function Index() {
 
           <ul className="divide-y divide-cream/10 border-y border-cream/10">
             {partners.map((p, i) => (
-              <li
-                key={p.name}
-                className="group py-8 md:py-10 grid grid-cols-12 gap-6 items-baseline hover:bg-navy/40 transition-colors -mx-6 md:-mx-10 px-6 md:px-10"
-              >
-                <span className="col-span-2 md:col-span-1 text-ember font-display">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="col-span-10 md:col-span-5 font-display text-2xl md:text-4xl tracking-tight">
-                  {p.name}
-                </h3>
-                <p className="col-span-12 md:col-span-6 text-cream/70">{p.note}</p>
+              <li key={p.name}>
+                <Link
+                  to="/cases/$slug"
+                  params={{ slug: p.slug }}
+                  className="group py-8 md:py-10 grid grid-cols-12 gap-6 items-baseline hover:bg-navy/40 transition-colors -mx-6 md:-mx-10 px-6 md:px-10"
+                >
+                  <span className="col-span-2 md:col-span-1 text-ember font-display">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="col-span-10 md:col-span-5 font-display text-2xl md:text-4xl tracking-tight group-hover:text-ember transition-colors">
+                    {p.name}
+                  </h3>
+                  <p className="col-span-12 md:col-span-6 text-cream/70">{p.note}</p>
+                </Link>
               </li>
             ))}
           </ul>
