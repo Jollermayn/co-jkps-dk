@@ -202,15 +202,7 @@ function Index() {
             </div>
 
             <div className="col-span-12 md:col-span-5 flex items-end">
-              <figure className="w-full">
-                <img
-                  src={heroWave}
-                  alt="Crosshatch illustration af en bølge med en rød sol"
-                  width={1536}
-                  height={1280}
-                  className="w-full h-auto mix-blend-screen opacity-95"
-                />
-              </figure>
+              <HeroWaveSVG className="w-full h-auto" />
             </div>
           </div>
 
