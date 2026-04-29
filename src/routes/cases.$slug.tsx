@@ -1,5 +1,6 @@
 import { createFileRoute, Link, notFound, useRouter } from "@tanstack/react-router";
 import { caseStudies, getCaseBySlug } from "@/data/cases";
+import { TagWithCases } from "@/components/TagWithCases";
 
 export const Route = createFileRoute("/cases/$slug")({
   loader: ({ params }) => {
