@@ -174,147 +174,193 @@ function Index() {
             </div>
           </section>
 
-      {/* KOMPETENCER */}
-      <section id="kompetencer" className="py-24 md:py-36 border-t border-cream/10">
-        <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-          <div className="grid grid-cols-12 gap-6 md:gap-10 mb-16 md:mb-24">
-            <div className="col-span-12 md:col-span-5">
-              <Eyebrow>Kompetencer</Eyebrow>
-              <h2 className="font-display text-5xl md:text-7xl mt-6 leading-[0.95] tracking-tight">
-                Hvad jeg <span className="italic">bringer</span>.
-              </h2>
-            </div>
-            <p className="col-span-12 md:col-span-6 md:col-start-7 text-lg text-cream/75 self-end leading-relaxed">
-              Jeg arbejder i skæringsfeltet mellem strategi, design og teknologi — og bringer alle tre
-              perspektiver ind i hvert projekt.
-            </p>
-          </div>
+          {/* CASES */}
+          <CasesSection />
 
-          <ul className="divide-y divide-cream/10 border-y border-cream/10">
-            {competencies.map((c) => (
-              <li key={c.no} className="group py-10 md:py-14 grid grid-cols-12 gap-6 md:gap-10 items-start hover:bg-navy/40 transition-colors -mx-6 md:-mx-10 px-6 md:px-10">
-                <div className="col-span-2 md:col-span-1 font-display text-2xl text-ember">{c.no}</div>
-                <div className="col-span-10 md:col-span-4">
-                  <h3 className="font-display text-3xl md:text-4xl tracking-tight leading-tight">
-                    {c.title}
-                  </h3>
-                  <p className="mt-2 text-sm text-cream/55 italic">{c.sub}</p>
-                </div>
-                <p className="col-span-12 md:col-span-4 text-cream/80 leading-relaxed">{c.body}</p>
-                <ul className="col-span-12 md:col-span-3 flex flex-wrap gap-2">
-                  {c.tags.map((t) => (
-                    <li
-                      key={t}
-                      className="text-[11px] tracking-wide uppercase border border-cream/20 px-2.5 py-1 text-cream/70"
+          {/* KOMPETENCER */}
+          <section id="kompetencer" className="py-24 md:py-36 border-t border-cream/10">
+            <div className="px-6 md:px-10">
+              <div className="mb-16 md:mb-24">
+                <Eyebrow>Kompetencer</Eyebrow>
+                <h2 className="font-display text-5xl md:text-7xl mt-6 leading-[0.95] tracking-tight">
+                  Hvad jeg <span className="italic">bringer</span>.
+                </h2>
+                <p className="mt-8 max-w-2xl text-lg text-cream/75 leading-relaxed">
+                  Jeg arbejder i skæringsfeltet mellem strategi, design og teknologi — og bringer alle tre
+                  perspektiver ind i hvert projekt.
+                </p>
+              </div>
+
+              <ul className="divide-y divide-cream/10 border-y border-cream/10">
+                {competencies.map((c) => (
+                  <li key={c.no} className="group py-10 md:py-14 grid grid-cols-12 gap-6 md:gap-10 items-start hover:bg-navy/40 transition-colors -mx-6 md:-mx-10 px-6 md:px-10">
+                    <div className="col-span-2 md:col-span-1 font-display text-2xl text-ember">{c.no}</div>
+                    <div className="col-span-10 md:col-span-4">
+                      <h3 className="font-display text-3xl md:text-4xl tracking-tight leading-tight">
+                        {c.title}
+                      </h3>
+                      <p className="mt-2 text-sm text-cream/55 italic">{c.sub}</p>
+                    </div>
+                    <p className="col-span-12 md:col-span-4 text-cream/80 leading-relaxed">{c.body}</p>
+                    <ul className="col-span-12 md:col-span-3 flex flex-wrap gap-2">
+                      {c.tags.map((t) => (
+                        <li
+                          key={t}
+                          className="text-[11px] tracking-wide uppercase border border-cream/20 px-2.5 py-1 text-cream/70"
+                        >
+                          {t}
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+
+          {/* PARTNERE */}
+          <section id="partnere" className="py-24 md:py-36 border-t border-cream/10">
+            <div className="px-6 md:px-10">
+              <div className="mb-16 md:mb-24">
+                <Eyebrow>Tidligere samarbejdspartnere</Eyebrow>
+                <h2 className="font-display text-5xl md:text-7xl mt-6 leading-[0.95] tracking-tight">
+                  Et bredt <span className="italic text-ember">felt</span>.
+                </h2>
+                <p className="mt-8 max-w-2xl text-lg text-cream/75 leading-relaxed">
+                  Fra public broadcast til NGO, kulturliv og private brands.
+                </p>
+              </div>
+
+              <ul className="divide-y divide-cream/10 border-y border-cream/10">
+                {partners.map((p, i) => (
+                  <li key={p.name}>
+                    <Link
+                      to="/cases/$slug"
+                      params={{ slug: p.slug }}
+                      className="group py-8 md:py-10 grid grid-cols-12 gap-6 items-baseline hover:bg-navy/40 transition-colors -mx-6 md:-mx-10 px-6 md:px-10"
                     >
-                      {t}
-                    </li>
-                  ))}
-                </ul>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+                      <span className="col-span-2 md:col-span-1 text-ember font-display">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <h3 className="col-span-10 md:col-span-5 font-display text-2xl md:text-4xl tracking-tight group-hover:text-ember transition-colors">
+                        {p.name}
+                      </h3>
+                      <p className="col-span-12 md:col-span-6 text-cream/70">{p.note}</p>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
 
-      {/* CASES */}
-      <CasesSection />
+          {/* UDDANNELSE */}
+          <section id="uddannelse" className="py-24 md:py-36 border-t border-cream/10">
+            <div className="px-6 md:px-10">
+              <div className="mb-16">
+                <Eyebrow>Uddannelse</Eyebrow>
+                <h2 className="font-display text-5xl md:text-7xl mt-6 leading-[0.95] tracking-tight">
+                  Et fagligt <span className="italic text-ember">ståsted</span>.
+                </h2>
+                <p className="mt-8 max-w-2xl text-lg text-cream/75 leading-relaxed">
+                  Hvor analytisk overblik møder en kreativ og praksisnær tilgang.
+                </p>
+              </div>
 
-      {/* PARTNERE */}
-      <section id="partnere" className="py-24 md:py-36 border-t border-cream/10">
-        <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-          <div className="grid grid-cols-12 gap-6 md:gap-10 mb-16 md:mb-24">
-            <div className="col-span-12 md:col-span-6">
-              <Eyebrow>Tidligere samarbejdspartnere</Eyebrow>
-              <h2 className="font-display text-5xl md:text-7xl mt-6 leading-[0.95] tracking-tight">
-                Et bredt <span className="italic text-ember">felt</span>.
+              <ul className="divide-y divide-cream/10 border-y border-cream/10">
+                <li className="py-8 md:py-10 grid grid-cols-12 gap-6">
+                  <span className="col-span-2 md:col-span-1 text-ember font-display">01</span>
+                  <div className="col-span-10 md:col-span-6">
+                    <h3 className="font-display text-2xl md:text-3xl tracking-tight">Cand.it · Digital Design og Interaktive Teknologier</h3>
+                    <p className="mt-2 text-cream/65 text-sm">IT-Universitetet København · 2024</p>
+                  </div>
+                  <p className="col-span-12 md:col-span-5 text-cream/75">
+                    Tværfagligt kandidatprogram med fokus på interaktionsdesign, UX research og digitale teknologier.
+                  </p>
+                </li>
+                <li className="py-8 md:py-10 grid grid-cols-12 gap-6">
+                  <span className="col-span-2 md:col-span-1 text-ember font-display">02</span>
+                  <div className="col-span-10 md:col-span-6">
+                    <h3 className="font-display text-2xl md:text-3xl tracking-tight">Professionsbachelor · Medie- og sonokommunikation</h3>
+                    <p className="mt-2 text-cream/65 text-sm">Sonic College · 2016</p>
+                  </div>
+                  <p className="col-span-12 md:col-span-5 text-cream/75">
+                    Praksisnær uddannelse i lyd, medieproduktion og kommunikation.
+                  </p>
+                </li>
+              </ul>
+
+              <dl className="mt-12 text-sm">
+                <dt className="eyebrow text-ember">Kernekompetencer</dt>
+                <dd className="mt-2 text-cream/85">
+                  Brugerinddragelse · Branding · Konceptudvikling · Service Design · UX Research
+                </dd>
+              </dl>
+            </div>
+          </section>
+
+          {/* KONTAKT */}
+          <section id="kontakt" className="py-24 md:py-40 border-t border-cream/10 relative overflow-hidden">
+            <div className="px-6 md:px-10 relative">
+              <Eyebrow>Kontakt · Portfolio 2026</Eyebrow>
+              <h2 className="font-display text-5xl md:text-8xl mt-8 leading-[0.9] tracking-tight">
+                Lad os <span className="italic text-ember">tales ved</span>.
               </h2>
-            </div>
-            <p className="col-span-12 md:col-span-5 md:col-start-8 text-lg text-cream/75 self-end leading-relaxed">
-              Fra public broadcast til NGO, kulturliv og private brands.
-            </p>
-          </div>
+              <p className="mt-8 max-w-xl text-cream/70 text-lg italic font-display">
+                Jeg er altid interesseret i nye samarbejder — store som små, kommercielle som kulturelle.
+              </p>
 
-          <ul className="divide-y divide-cream/10 border-y border-cream/10">
-            {partners.map((p, i) => (
-              <li key={p.name}>
-                <Link
-                  to="/cases/$slug"
-                  params={{ slug: p.slug }}
-                  className="group py-8 md:py-10 grid grid-cols-12 gap-6 items-baseline hover:bg-navy/40 transition-colors -mx-6 md:-mx-10 px-6 md:px-10"
+              <div className="mt-16 grid grid-cols-12 gap-6 md:gap-10">
+                <div className="col-span-12 md:col-span-4">
+                  <span className="eyebrow text-ember">Email</span>
+                  <a
+                    href="mailto:Jonas@jkps.dk"
+                    className="block mt-3 font-display text-xl md:text-2xl hover:text-ember transition-colors break-all"
+                  >
+                    Jonas@jkps.dk
+                  </a>
+                </div>
+                <div className="col-span-12 md:col-span-4">
+                  <span className="eyebrow text-ember">Telefon</span>
+                  <a
+                    href="tel:+4560959596"
+                    className="block mt-3 font-display text-xl md:text-2xl hover:text-ember transition-colors"
+                  >
+                    +45 60 95 95 96
+                  </a>
+                </div>
+                <div className="col-span-12 md:col-span-4">
+                  <span className="eyebrow text-ember">LinkedIn</span>
+                  <a
+                    href="https://www.linkedin.com/in/jonaskps/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block mt-3 font-display text-xl md:text-2xl hover:text-ember transition-colors"
+                  >
+                    Find mig på LinkedIn
+                  </a>
+                </div>
+              </div>
+
+              <div className="mt-16">
+                <a
+                  href="/jonas-kp-sorensen-cv.pdf"
+                  download
+                  className="inline-flex items-center gap-3 bg-ember text-cream px-8 py-4 text-sm tracking-wide hover:bg-ember/90 transition-colors"
                 >
-                  <span className="col-span-2 md:col-span-1 text-ember font-display">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="col-span-10 md:col-span-5 font-display text-2xl md:text-4xl tracking-tight group-hover:text-ember transition-colors">
-                    {p.name}
-                  </h3>
-                  <p className="col-span-12 md:col-span-6 text-cream/70">{p.note}</p>
-                </Link>
-              </li>
-            ))}
-          </ul>
+                  Download CV (PDF) <span aria-hidden>↓</span>
+                </a>
+              </div>
+            </div>
+          </section>
         </div>
-      </section>
 
-      {/* KONTAKT */}
-      <section id="kontakt" className="py-24 md:py-40 border-t border-cream/10 relative overflow-hidden">
-        <div className="mx-auto max-w-[1400px] px-6 md:px-10 relative">
-          <Eyebrow>Kontakt · Portfolio 2026</Eyebrow>
-          <h2 className="font-display text-6xl md:text-9xl mt-8 leading-[0.9] tracking-tight">
-            Lad os <span className="italic text-ember">tales ved</span>.
-          </h2>
-          <p className="mt-8 max-w-xl text-cream/70 text-lg italic font-display">
-            Jeg er altid interesseret i nye samarbejder — store som små, kommercielle som kulturelle.
-          </p>
-
-          <div className="mt-16 grid grid-cols-12 gap-6 md:gap-10">
-            <div className="col-span-12 md:col-span-4">
-              <span className="eyebrow text-ember">Email</span>
-              <a
-                href="mailto:Jonas@jkps.dk"
-                className="block mt-3 font-display text-2xl md:text-3xl hover:text-ember transition-colors break-all"
-              >
-                Jonas@jkps.dk
-              </a>
-            </div>
-            <div className="col-span-12 md:col-span-4">
-              <span className="eyebrow text-ember">Telefon</span>
-              <a
-                href="tel:+4560959596"
-                className="block mt-3 font-display text-2xl md:text-3xl hover:text-ember transition-colors"
-              >
-                +45 60 95 95 96
-              </a>
-            </div>
-            <div className="col-span-12 md:col-span-4">
-              <span className="eyebrow text-ember">LinkedIn</span>
-              <a
-                href="https://www.linkedin.com/in/jonaskps/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block mt-3 font-display text-2xl md:text-3xl hover:text-ember transition-colors"
-              >
-                Find mig på LinkedIn
-              </a>
-            </div>
-          </div>
-
-          <div className="mt-16">
-            <a
-              href="/jonas-kp-sorensen-cv.pdf"
-              download
-              className="inline-flex items-center gap-3 bg-ember text-cream px-8 py-4 text-sm tracking-wide hover:bg-ember/90 transition-colors"
-            >
-              Download CV (PDF) <span aria-hidden>↓</span>
-            </a>
-          </div>
-        </div>
-      </section>
+        {/* RIGHT — sticky sidebar */}
+        <Sidebar />
+      </div>
 
       {/* FOOTER */}
       <footer className="border-t border-cream/10 py-10">
-        <div className="mx-auto max-w-[1400px] px-6 md:px-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-sm text-cream/55">
+        <div className="px-6 md:px-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-sm text-cream/55">
           <p>Jonas K.P. Sørensen · Digital konsulent · Aarhus</p>
           <p>© {new Date().getFullYear()} · Selvstændig siden 2016</p>
         </div>
