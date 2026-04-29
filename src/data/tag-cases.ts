@@ -21,6 +21,8 @@ export const TAG_TO_SLUGS: Record<string, string[]> = {
   "Konceptdesign": ["art-spirit-coaching", "ulla-dyrlov"],
   "Product Design": ["boliga", "wolt"],
   "Workshopfacilitering": ["interaktiv-horesimulering", "danmarks-naturfredningsforening"],
+  "Facilitering": ["danmarks-naturfredningsforening", "interaktiv-horesimulering", "wolt"],
+  "Workshops": ["interaktiv-horesimulering", "wolt"],
 
   // Strategi / Brand
   "Digital strategi": ["ulla-dyrlov", "art-spirit-coaching", "concerto-copenhagen"],
