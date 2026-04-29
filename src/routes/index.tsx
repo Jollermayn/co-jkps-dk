@@ -570,3 +570,165 @@ function CasesSection() {
     </section>
   );
 }
+
+// ============ Kompetencer with interactive tag popups ============
+
+const TAG_TO_SLUGS: Record<string, string[]> = {
+  "Semistrukturerede interviews": ["wolt", "boliga", "interaktiv-horesimulering"],
+  "Feltobservation": ["wolt", "boliga", "interaktiv-horesimulering"],
+  "Mixed methods": ["wolt", "boliga", "interaktiv-horesimulering"],
+  "Co-design": ["interaktiv-horesimulering", "wolt"],
+  "Participatorisk design": ["interaktiv-horesimulering", "wolt"],
+  "Brugerrejser": ["boliga", "wolt"],
+  "Touchpoint-mapping": ["boliga", "wolt"],
+  "Servicedesign": ["wolt", "boliga"],
+  "Konceptvalidering": ["wolt", "boliga"],
+  "Workshopfacilitering": ["interaktiv-horesimulering", "danmarks-naturfredningsforening"],
+  "Digital strategi": ["ulla-dyrlov", "art-spirit-coaching", "concerto-copenhagen"],
+  "Positionering": ["ulla-dyrlov", "art-spirit-coaching", "concerto-copenhagen"],
+  "Brandudvikling": ["ulla-dyrlov", "art-spirit-coaching", "concerto-copenhagen"],
+  "Kommunikationsstrategi": ["amnesty-international", "danmarks-radio", "danmarks-naturfredningsforening"],
+  "Indholdsstrategi": ["amnesty-international", "danmarks-radio", "danmarks-naturfredningsforening"],
+  "Podcastproduktion": ["danmarks-radio", "ulla-dyrlov"],
+  "Lydproduktion": ["danmarks-radio", "ulla-dyrlov"],
+};
+
+const TAG_HEADLINES: Record<string, string> = {
+  wolt: "Fra usynlig algoritme til informeret bud",
+  boliga: "Reduceret kompleksitet i boligsøgning",
+  "interaktiv-horesimulering": "Inklusion i undervisningen",
+  "danmarks-radio": "Digitale og lydbaserede formater",
+  "amnesty-international": "Menneskerettigheder til konkret indhold",
+  "danmarks-naturfredningsforening": "Bæredygtighed og brandudvikling",
+  "ulla-dyrlov": "Koncept og platform fra bunden",
+  "concerto-copenhagen": "Publikumsengagement gennem kulturformidling",
+  "art-spirit-coaching": "Brand og koncept fra idé til lancering",
+};
+
+function KompetencerList() {
+  const [openTag, setOpenTag] = useState<string | null>(null);
+  const containerRef = useRef<HTMLUListElement>(null);
+
+  useEffect(() => {
+    if (!openTag) return;
+    const onDocClick = (e: MouseEvent) => {
+      if (!containerRef.current) return;
+      if (!containerRef.current.contains(e.target as Node)) {
+        setOpenTag(null);
+      }
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpenTag(null);
+    };
+    document.addEventListener("mousedown", onDocClick);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onDocClick);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [openTag]);
+
+  return (
+    <ul
+      ref={containerRef}
+      className="divide-y divide-cream/10 border-y border-cream/10"
+    >
+      {competencies.map((c) => (
+        <li
+          key={c.no}
+          className="group py-10 md:py-14 grid grid-cols-12 gap-6 md:gap-10 items-start hover:bg-navy/40 transition-colors -mx-6 md:-mx-10 px-6 md:px-10"
+        >
+          <div className="col-span-2 md:col-span-1 font-display text-2xl text-ember">
+            {c.no}
+          </div>
+          <div className="col-span-10 md:col-span-4">
+            <h3 className="font-display text-3xl md:text-4xl tracking-tight leading-tight">
+              {c.title}
+            </h3>
+            <p className="mt-2 text-sm text-cream/55 italic">{c.sub}</p>
+          </div>
+          <p className="col-span-12 md:col-span-4 text-cream/80 leading-relaxed">
+            {c.body}
+          </p>
+          <ul className="col-span-12 md:col-span-3 flex flex-wrap gap-2">
+            {c.tags.map((t) => {
+              const slugs = TAG_TO_SLUGS[t] ?? [];
+              const hasCases = slugs.length > 0;
+              const isOpen = openTag === `${c.no}-${t}`;
+              return (
+                <li key={t} className="relative">
+                  <button
+                    type="button"
+                    disabled={!hasCases}
+                    onClick={() =>
+                      setOpenTag(isOpen ? null : `${c.no}-${t}`)
+                    }
+                    aria-expanded={isOpen}
+                    className={
+                      "text-[11px] tracking-wide uppercase border px-2.5 py-1 transition-colors " +
+                      (isOpen
+                        ? "bg-ember border-ember text-cream"
+                        : hasCases
+                          ? "border-cream/20 text-cream/70 hover:border-ember hover:text-cream cursor-pointer"
+                          : "border-cream/10 text-cream/40 cursor-default")
+                    }
+                  >
+                    {t}
+                  </button>
+                  {isOpen && hasCases && (
+                    <div className="absolute z-30 left-0 top-full mt-2 w-72 bg-navy-deep border border-cream/15 shadow-2xl p-4 animate-in fade-in slide-in-from-top-1 duration-150">
+                      <div
+                        className="text-cream/55 uppercase font-semibold mb-3"
+                        style={{ fontSize: 9, letterSpacing: "0.18em" }}
+                      >
+                        Relaterede cases
+                      </div>
+                      <ul className="flex flex-col gap-2">
+                        {slugs.map((slug) => {
+                          const study = caseStudies.find(
+                            (s) => s.slug === slug,
+                          );
+                          if (!study) return null;
+                          return (
+                            <li key={slug}>
+                              <Link
+                                to="/cases/$slug"
+                                params={{ slug }}
+                                onClick={() => setOpenTag(null)}
+                                className="group/case flex items-start gap-3 p-2 -mx-2 rounded hover:bg-cream/5 transition-colors"
+                              >
+                                <img
+                                  src={study.image}
+                                  alt=""
+                                  className="w-12 h-12 object-cover shrink-0 grayscale group-hover/case:grayscale-0 transition-all duration-300"
+                                />
+                                <div className="min-w-0 flex-1">
+                                  <div className="text-sm font-display font-semibold text-cream leading-tight">
+                                    {study.client}
+                                  </div>
+                                  <div className="text-xs text-cream/65 leading-snug mt-0.5 truncate">
+                                    {TAG_HEADLINES[slug] ?? study.title}
+                                  </div>
+                                </div>
+                                <span
+                                  aria-hidden
+                                  className="text-cream/40 group-hover/case:text-ember transition-colors text-sm"
+                                >
+                                  ↗
+                                </span>
+                              </Link>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+        </li>
+      ))}
+    </ul>
+  );
+}
