@@ -88,7 +88,7 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
 
 function Sidebar() {
   return (
-    <aside className="lg:sticky lg:top-0 lg:h-screen lg:flex lg:flex-col lg:justify-between px-6 md:px-10 py-16 lg:py-20 border-b lg:border-b-0 lg:border-l border-cream/10 order-first lg:order-last">
+    <aside className="flex flex-col justify-between min-h-[100svh] lg:min-h-0 lg:sticky lg:top-0 lg:h-screen px-6 md:px-10 py-16 lg:py-20 border-b lg:border-b-0 lg:border-l border-cream/10 order-first lg:order-last">
       <div>
         <h1 className="font-display text-[clamp(2.5rem,5vw,4.5rem)] leading-[0.95] tracking-[-0.02em] font-medium">
           Jonas K.P.<br />
@@ -140,7 +140,7 @@ function Sidebar() {
 function Index() {
   return (
     <main id="top" className="bg-navy-deep text-cream">
-      <div className="lg:grid lg:grid-cols-[1fr_minmax(320px,420px)] lg:items-start">
+      <div className="lg:grid lg:grid-cols-[60fr_40fr] lg:items-start">
         {/* LEFT — scrolling content */}
         <div className="min-w-0">
           {/* OM MIG */}
