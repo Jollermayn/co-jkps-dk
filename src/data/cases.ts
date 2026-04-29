@@ -108,7 +108,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "amnesty-international",
     client: "Amnesty International",
     title: "Menneskerettigheder formidlet i lyd",
-    image: caseHearing,
+    image: caseAmnesty,
     context:
       "Amnesty International er en af verdens førende menneskerettighedsorganisationer. Samarbejdet handlede om journalistisk formidling af komplekse menneskerettighedsspørgsmål til en bred dansk offentlighed.",
     challenge:
