@@ -517,7 +517,7 @@ function CasesSection() {
       </div>
 
       {/* Progress indicator */}
-      <div className="px-6 md:px-10 mt-8 flex items-center gap-6">
+      <div className="px-6 md:px-10 mt-4 flex items-center gap-6">
         <span
           className="text-cream/70 font-mono tabular-nums"
           style={{ fontSize: 12, letterSpacing: "0.1em" }}
