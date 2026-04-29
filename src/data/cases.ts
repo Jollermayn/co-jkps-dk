@@ -1,9 +1,10 @@
-import caseWolt from "@/assets/case-wolt.jpg";
+import caseWolt from "@/assets/case-wolt.png";
 import caseBoliga from "@/assets/case-boliga.png";
 import caseHearing from "@/assets/case-hearing.png";
 import caseDR from "@/assets/case-dr.png";
 import caseAmnesty from "@/assets/case-amnesty.png";
 import caseDN from "@/assets/case-dn.png";
+import caseUlla from "@/assets/case-ulla.png";
 import caseConcerto from "@/assets/case-concerto.png";
 import caseArtSpirit from "@/assets/case-artspirit.png";
 
