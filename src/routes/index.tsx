@@ -631,7 +631,7 @@ function KompetencerList() {
               const hasCases = slugs.length > 0;
               const isOpen = openTag === `${c.no}-${t}`;
               return (
-                <li key={t} className="relative">
+                <li key={t} ref={isOpen ? activeTagRef : undefined} className="relative">
                   <button
                     type="button"
                     disabled={!hasCases}
