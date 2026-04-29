@@ -1,9 +1,10 @@
-import caseWolt from "@/assets/case-wolt.jpg";
+import caseWolt from "@/assets/case-wolt.png";
 import caseBoliga from "@/assets/case-boliga.png";
 import caseHearing from "@/assets/case-hearing.png";
 import caseDR from "@/assets/case-dr.png";
 import caseAmnesty from "@/assets/case-amnesty.png";
 import caseDN from "@/assets/case-dn.png";
+import caseUlla from "@/assets/case-ulla.png";
 import caseConcerto from "@/assets/case-concerto.png";
 import caseArtSpirit from "@/assets/case-artspirit.png";
 
@@ -87,7 +88,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "danmarks-radio",
     client: "Danmarks Radio",
     title: "Broadcast-kvalitet for Danmarks største medieplatform",
-    image: caseWolt,
+    image: caseDR,
     context:
       "Danmarks Radio er Danmarks største public service medievirksomhed. Samarbejdet dækkede broadcast, podcastproduktion og tværgående koordinering på tværs af redaktioner.",
     challenge:
@@ -107,7 +108,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "amnesty-international",
     client: "Amnesty International",
     title: "Menneskerettigheder formidlet i lyd",
-    image: caseHearing,
+    image: caseAmnesty,
     context:
       "Amnesty International er en af verdens førende menneskerettighedsorganisationer. Samarbejdet handlede om journalistisk formidling af komplekse menneskerettighedsspørgsmål til en bred dansk offentlighed.",
     challenge:
@@ -127,7 +128,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "danmarks-naturfredningsforening",
     client: "Danmarks Naturfredningsforening",
     title: "Naturformidling og strategisk kommunikation",
-    image: caseBoliga,
+    image: caseDN,
     context:
       "Danmarks Naturfredningsforening er Danmarks største naturorganisation. Samarbejdet tog udgangspunkt i Den Grønne Sommerhøjskole med fokus på bæredygtighed og naturformidling.",
     challenge:
@@ -147,7 +148,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "ulla-dyrlov",
     client: "Ulla Dyrløv",
     title: "Lydidentitet og podcastplatform fra bunden",
-    image: caseHearing,
+    image: caseUlla,
     context:
       "Ulla Dyrløv er TV-børnepsykolog og arbejder med børns trivsel og mentale sundhed. Samarbejdet handlede om at bygge en professionel lydidentitet og podcastplatform op fra bunden i hendes psykologpraksis.",
     challenge:
