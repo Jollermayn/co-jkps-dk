@@ -66,38 +66,8 @@ const competencies = [
   },
 ];
 
-const cases = [
-  {
-    no: "01",
-    slug: "wolt",
-    client: "Wolt",
-    title: "Fra usynlig algoritme til informeret bud",
-    desc:
-      "Forbedret beslutningstagning for bude gennem øget transparens i platformens algoritmer og lønberegning.",
-    tags: ["Service Design", "UX Research"],
-    image: caseWolt,
-  },
-  {
-    no: "02",
-    slug: "boliga",
-    client: "Boliga",
-    title: "Reduceret kompleksitet i boligsøgning",
-    desc:
-      "Færre valg, bedre beslutninger på en platform med 6,5 mio. månedlige interaktioner.",
-    tags: ["Product Design", "UX Research"],
-    image: caseBoliga,
-  },
-  {
-    no: "03",
-    slug: "interaktiv-horesimulering",
-    client: "Interaktiv høresimulering",
-    title: "Inklusion i undervisningen",
-    desc:
-      "Binaural høresimulation valideret af hørehæmmede deltagere — ikke som information, men som indsigt.",
-    tags: ["Concept Design", "Co-Creation"],
-    image: caseHearing,
-  },
-];
+
+
 
 const partners = [
   { slug: "danmarks-radio", name: "Danmarks Radio", note: "Broadcast, podcastproduktion og tværgående koordinering" },
