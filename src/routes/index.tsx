@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useRef } from "react";
-import heroWave from "@/assets/hero-wave.jpg";
+import heroWave from "@/assets/hero-wave.png";
 import { caseStudies } from "@/data/cases";
 
 export const Route = createFileRoute("/")({
