@@ -114,26 +114,26 @@ function CaseDetail() {
       {/* SECTIONS */}
       <article className="py-16 md:py-24">
         <div className="mx-auto max-w-[1400px] px-6 md:px-10 space-y-20 md:space-y-28">
-          <Section label="Context" title="Kontekst">
+          <Section label="Kontekst" title="Kontekst">
             <p className="text-lg md:text-xl text-cream/85 leading-relaxed">{study.context}</p>
           </Section>
 
-          <Section label="Challenge" title="Udfordring">
+          <Section label="Udfordring" title="Udfordring">
             <p className="text-lg md:text-xl text-cream/85 leading-relaxed">{study.challenge}</p>
           </Section>
 
-          <Section label="My role" title="Min rolle">
+          <Section label="Min rolle" title="Min rolle">
             <ul className="space-y-4">
               {study.role.map((r) => (
-                <li key={r} className="flex gap-4 text-lg text-cream/85 leading-relaxed">
-                  <span className="text-ember mt-2 shrink-0">—</span>
+                <li key={r} className="flex items-start gap-4 text-lg text-cream/85 leading-relaxed">
+                  <span className="text-ember shrink-0 leading-relaxed">—</span>
                   <span>{r}</span>
                 </li>
               ))}
             </ul>
           </Section>
 
-          <Section label="Approach" title="Tilgang">
+          <Section label="Tilgang" title="Tilgang">
             <ul className="flex flex-wrap gap-2">
               {study.approach.map((t) => (
                 <li
@@ -146,11 +146,11 @@ function CaseDetail() {
             </ul>
           </Section>
 
-          <Section label="Outcomes" title="Resultater">
+          <Section label="Resultater" title="Resultater">
             <ul className="space-y-4">
               {study.outcomes.map((o) => (
-                <li key={o} className="flex gap-4 text-lg text-cream/85 leading-relaxed">
-                  <span className="text-ember mt-2 shrink-0">→</span>
+                <li key={o} className="flex items-start gap-4 text-lg text-cream/85 leading-relaxed">
+                  <span className="text-ember shrink-0 leading-relaxed">→</span>
                   <span>{o}</span>
                 </li>
               ))}
