@@ -148,7 +148,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "ulla-dyrlov",
     client: "Ulla Dyrløv",
     title: "Lydidentitet og podcastplatform fra bunden",
-    image: caseHearing,
+    image: caseUlla,
     context:
       "Ulla Dyrløv er TV-børnepsykolog og arbejder med børns trivsel og mentale sundhed. Samarbejdet handlede om at bygge en professionel lydidentitet og podcastplatform op fra bunden i hendes psykologpraksis.",
     challenge:
