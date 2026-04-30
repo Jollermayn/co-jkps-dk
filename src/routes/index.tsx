@@ -190,9 +190,6 @@ function Sidebar() {
       </div>
 
       <div className="mt-6 lg:mt-6 flex flex-col items-center gap-3 w-full text-center">
-        <p className="mb-3 text-cream/65 text-sm">
-          Selvstændig siden 2016. Jeg arbejder i skæringsfeltet mellem strategi, design og teknologi.
-        </p>
         <a
           href="/jonas-kp-sorensen-cv.pdf"
           download
