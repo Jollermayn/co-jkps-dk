@@ -177,8 +177,7 @@ function TypewriterQuote() {
   return (
     <p
       ref={ref}
-      className="font-display italic leading-snug text-cream/95"
-      style={{ fontSize: "26px" }}
+      className="font-display italic leading-[1.2] text-cream/95 text-[clamp(1.6rem,2.4vw,2.25rem)]"
       aria-label={ariaLabel}
     >
       <span aria-hidden>{nodes}</span>
