@@ -27,8 +27,6 @@ export function HeroSymbol({ className }: { className?: string }) {
         .hs-figure { opacity: 0; animation: hs-figure ${DUR}s ease-in-out infinite; }
       `}</style>
 
-      {/* Background */}
-      <rect width="200" height="200" rx="8" fill="#0D1B2A" />
 
       {/* Clip to triangle interior for waves + dots */}
       <defs>
@@ -79,7 +77,7 @@ export function HeroSymbol({ className }: { className?: string }) {
 
       {/* Circle + human figure at top */}
       <g>
-        <circle cx="100" cy="30" r="14" fill="#0D1B2A" stroke="#F2EDE4" strokeWidth="2" />
+        <circle cx="100" cy="30" r="14" fill="none" stroke="#F2EDE4" strokeWidth="2" />
         <g className="hs-figure" fill="#F2EDE4">
           <circle cx="100" cy="26" r="3" />
           <path d="M 94 38 Q 100 30 106 38 L 105 36 Q 100 32 95 36 Z" />
