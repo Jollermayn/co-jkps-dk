@@ -191,6 +191,33 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
             </div>
           )}
 
+          {(() => {
+            const idx = caseStudies.findIndex((c) => c.slug === study.slug);
+            if (idx === -1) return null;
+            const prev = caseStudies[(idx - 1 + caseStudies.length) % caseStudies.length];
+            const next = caseStudies[(idx + 1) % caseStudies.length];
+            const handle = (s: CaseStudy) => {
+              if (onNavigate) onNavigate(s);
+            };
+            return (
+              <div className="pt-8 pb-10 mt-4 border-t border-cream/10 flex items-center justify-between gap-4">
+                <button
+                  type="button"
+                  onClick={() => handle(prev)}
+                  className="text-[#C0281E] hover:underline underline-offset-4 text-base md:text-lg tracking-wide"
+                >
+                  ← Forrige case
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handle(next)}
+                  className="text-[#C0281E] hover:underline underline-offset-4 text-base md:text-lg tracking-wide"
+                >
+                  Næste case →
+                </button>
+              </div>
+            );
+          })()}
         </article>
       </div>
     </div>
