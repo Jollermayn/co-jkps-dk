@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import type { CaseStudy } from "@/data/cases";
 import { TagWithCases } from "@/components/TagWithCases";
+import woltHeatmap from "@/assets/wolt-heatmap.png";
 
 type Props = {
   study: CaseStudy | null;
@@ -94,6 +95,16 @@ export function CaseModal({ study, onClose }: Props) {
               ))}
             </ul>
           </ModalSection>
+
+          {study.slug === "wolt" && (
+            <div className="flex justify-center">
+              <img
+                src={woltHeatmap}
+                alt="Heatmap der viser efterspørgsel i realtid i København"
+                className="w-full max-w-[480px] h-auto"
+              />
+            </div>
+          )}
 
           <ModalSection title="Tilgang">
             <ul className="flex flex-wrap gap-2">
