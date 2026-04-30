@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { caseStudies } from "@/data/cases";
+import { caseStudies, type CaseStudy } from "@/data/cases";
 import { TAG_TO_SLUGS, TAG_HEADLINES } from "@/data/tag-cases";
 
 interface Props {
@@ -9,9 +9,11 @@ interface Props {
   excludeSlug?: string;
   /** Visual variant */
   variant?: "skill" | "approach";
+  /** When provided, clicking a related case calls this instead of navigating */
+  onSelectCase?: (study: CaseStudy) => void;
 }
 
-export function TagWithCases({ tag, excludeSlug, variant = "skill" }: Props) {
+export function TagWithCases({ tag, excludeSlug, variant = "skill", onSelectCase }: Props) {
   const [open, setOpen] = useState(false);
   const [canHover, setCanHover] = useState(false);
   const ref = useRef<HTMLLIElement>(null);
