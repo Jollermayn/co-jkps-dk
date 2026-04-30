@@ -417,7 +417,8 @@ function CasesSection() {
   }, [filter]);
 
   const total = filtered.length;
-  const progress = total > 1 ? ((currentIndex + 1) / total) * 100 : 100;
+  const displayIndex = hoveredIndex ?? currentIndex;
+  const progress = total > 0 ? ((displayIndex + 1) / total) * 100 : 0;
 
   const scrollToIndex = (target: number) => {
     const el = scrollerRef.current;
