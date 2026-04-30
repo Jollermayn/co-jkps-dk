@@ -2,7 +2,7 @@ import heroSymbol from "@/assets/hero-symbol.png";
 
 export function HeroSymbol({ className }: { className?: string }) {
   return (
-    <div className={`mx-auto w-full max-w-[180px] ${className ?? ""}`}>
+    <div className={`mx-auto w-full max-w-[240px] ${className ?? ""}`}>
       <style>{`
         @keyframes hero-symbol-pulse {
           0%, 100% { transform: scale(1); opacity: 0.95; }
