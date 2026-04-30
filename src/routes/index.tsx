@@ -648,7 +648,11 @@ function CasesSection() {
         );
       })()}
 
-      <CaseModal study={openCase} onClose={() => setOpenCase(null)} />
+      <CaseModal
+        study={openCase}
+        onClose={() => setOpenCase(null)}
+        onNavigate={(s) => setOpenCase(s)}
+      />
     </section>
   );
 }

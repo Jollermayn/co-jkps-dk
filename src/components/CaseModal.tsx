@@ -1,14 +1,16 @@
 import { useEffect } from "react";
 import type { CaseStudy } from "@/data/cases";
+import { caseStudies } from "@/data/cases";
 import { TagWithCases } from "@/components/TagWithCases";
 import woltHeatmap from "@/assets/wolt-heatmap.png";
 
 type Props = {
   study: CaseStudy | null;
   onClose: () => void;
+  onNavigate?: (study: CaseStudy) => void;
 };
 
-export function CaseModal({ study, onClose }: Props) {
+export function CaseModal({ study, onClose, onNavigate }: Props) {
   const open = !!study;
 
   // Lock body scroll + Escape to close
@@ -124,6 +126,52 @@ export function CaseModal({ study, onClose }: Props) {
               ))}
             </ul>
           </ModalSection>
+
+          {(() => {
+            const idx = caseStudies.findIndex((c) => c.slug === study.slug);
+            if (idx === -1) return null;
+            const prev = caseStudies[(idx - 1 + caseStudies.length) % caseStudies.length];
+            const next = caseStudies[(idx + 1) % caseStudies.length];
+            const handle = (s: CaseStudy) => {
+              if (onNavigate) onNavigate(s);
+            };
+            return (
+              <div className="pt-8 mt-4 border-t border-cream/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+                <button
+                  type="button"
+                  onClick={() => handle(prev)}
+                  aria-label={`Forrige case: ${prev.client}`}
+                  className="group inline-flex items-center gap-4 text-left"
+                >
+                  <span className="w-12 h-12 rounded-full border border-cream/25 text-cream flex items-center justify-center transition-colors group-hover:border-[#C0281E] group-hover:text-[#C0281E]">
+                    <span aria-hidden className="text-xl leading-none">←</span>
+                  </span>
+                  <span className="flex flex-col">
+                    <span className="eyebrow text-ember">Forrige case</span>
+                    <span className="font-display text-xl mt-1 group-hover:text-[#C0281E] transition-colors">
+                      {prev.client}
+                    </span>
+                  </span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handle(next)}
+                  aria-label={`Næste case: ${next.client}`}
+                  className="group inline-flex items-center gap-4 sm:flex-row-reverse text-left sm:text-right"
+                >
+                  <span className="w-12 h-12 rounded-full border border-cream/25 text-cream flex items-center justify-center transition-colors group-hover:border-[#C0281E] group-hover:text-[#C0281E]">
+                    <span aria-hidden className="text-xl leading-none">→</span>
+                  </span>
+                  <span className="flex flex-col sm:items-end">
+                    <span className="eyebrow text-ember">Næste case</span>
+                    <span className="font-display text-xl mt-1 group-hover:text-[#C0281E] transition-colors">
+                      {next.client}
+                    </span>
+                  </span>
+                </button>
+              </div>
+            );
+          })()}
         </article>
       </div>
     </div>
