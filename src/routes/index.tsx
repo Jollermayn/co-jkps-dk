@@ -171,10 +171,7 @@ function Sidebar() {
       <div className="flex flex-col items-center gap-2 text-center">
         <HeroSymbol className="h-auto w-full max-w-[300px]" />
         <blockquote>
-          <p className="font-display italic leading-snug text-cream/95" style={{ fontSize: "26px" }}>
-            The problem with Ai is when there's too much A and{" "}
-            <span className="not-italic font-normal text-[#C0281E] whitespace-nowrap">not enough i.</span>
-          </p>
+          <TypewriterQuote />
         </blockquote>
       </div>
 
