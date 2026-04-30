@@ -752,14 +752,11 @@ function KompetencerList() {
                   {c.title}
                 </h3>
                 <p className="mt-1 text-sm text-cream/55 italic">{c.sub}</p>
-                <p className="mt-3 text-cream/80 leading-relaxed md:hidden">
-                  {c.body}
-                </p>
               </div>
             </div>
 
-            {/* Middle: description (desktop) */}
-            <p className="hidden md:block md:col-span-5 md:mt-3 text-cream/80 leading-relaxed">
+            {/* Middle: description */}
+            <p className="md:col-span-5 mt-3 md:mt-0 text-cream/80 leading-relaxed">
               {c.body}
             </p>
 
