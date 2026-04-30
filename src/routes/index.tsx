@@ -177,7 +177,7 @@ function Sidebar() {
           Digital konsulent · Brugeroplevelse &amp; digitale løsninger.
         </p>
       </div>
-      <div className="flex flex-1 min-h-0 flex-col items-center justify-center gap-8 text-center py-10 lg:py-6">
+      <div className="flex flex-1 min-h-0 flex-col items-start justify-center gap-8 text-left py-10 lg:py-6 pl-4 md:pl-6">
         
         <blockquote className="max-w-full">
           <TypewriterQuote />
