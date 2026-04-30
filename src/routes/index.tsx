@@ -144,7 +144,7 @@ function TypewriterQuote() {
       const t = setTimeout(() => {
         setPausing(false);
         setCount((c) => c + 1);
-      }, 300);
+      }, 20);
       return () => clearTimeout(t);
     }
     const t = setTimeout(() => setCount((c) => c + 1), 40);
