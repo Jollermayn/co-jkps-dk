@@ -97,16 +97,22 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
 function TypewriterQuote() {
   const ref = useRef<HTMLParagraphElement>(null);
   const [started, setStarted] = useState(false);
-  // Segments: { text, red?, lineBreakAfter? }
-  const segments = [
-    { text: "The problem with Ai is", lineBreakAfter: true },
-    { text: "when there's too much A", lineBreakAfter: true },
-    { text: "and " },
-    { text: "not enough i.", red: true },
+
+  const lines: { content: React.ReactNode; plain: string }[] = [
+    { content: "The problem with Ai is", plain: "The problem with Ai is" },
+    { content: "when there's too much A", plain: "when there's too much A" },
+    {
+      content: (
+        <>
+          and{" "}
+          <span className="not-italic font-normal text-[#C0281E] whitespace-nowrap">
+            not enough i.
+          </span>
+        </>
+      ),
+      plain: "and not enough i.",
+    },
   ];
-  const totalChars = segments.reduce((n, s) => n + s.text.length, 0);
-  const [count, setCount] = useState(0);
-  
 
   useEffect(() => {
     const el = ref.current;
@@ -127,52 +133,7 @@ function TypewriterQuote() {
     return () => io.disconnect();
   }, [started]);
 
-  useEffect(() => {
-    if (!started || count >= totalChars) return;
-    // If we just finished a segment with lineBreakAfter, use a longer delay
-    let acc = 0;
-    let atBreak = false;
-    for (const s of segments) {
-      acc += s.text.length;
-      if (count === acc && s.lineBreakAfter) {
-        atBreak = true;
-        break;
-      }
-    }
-    const delay = atBreak ? 320 : 65;
-    const t = setTimeout(() => setCount((c) => c + 1), delay);
-    return () => clearTimeout(t);
-  }, [started, count, totalChars]);
-
-  // Render: walk segments, slicing each by remaining chars
-  let remaining = count;
-  const nodes: React.ReactNode[] = [];
-  segments.forEach((s, i) => {
-    const take = Math.max(0, Math.min(remaining, s.text.length));
-    remaining -= s.text.length;
-    const shown = s.text.slice(0, take);
-    if (shown) {
-      nodes.push(
-        s.red ? (
-          <span
-            key={i}
-            className="not-italic font-normal text-[#C0281E] whitespace-nowrap"
-          >
-            {shown}
-          </span>
-        ) : (
-          <span key={i}>{shown}</span>
-        ),
-      );
-    }
-    // Line break renders only after the full segment is typed
-    if (s.lineBreakAfter && take === s.text.length) {
-      nodes.push(<br key={`br-${i}`} />);
-    }
-  });
-
-  const done = count >= totalChars;
-  const ariaLabel = segments.map((s) => s.text).join(" ");
+  const ariaLabel = lines.map((l) => l.plain).join(" ");
 
   return (
     <p
@@ -180,13 +141,19 @@ function TypewriterQuote() {
       className="font-display italic leading-[1.2] text-cream/95 text-[1.4rem] sm:text-[1.6rem] lg:text-[clamp(1.8rem,2.4vw,2.25rem)]"
       aria-label={ariaLabel}
     >
-      <span aria-hidden>{nodes}</span>
-      {!done && (
+      {lines.map((line, i) => (
         <span
+          key={i}
           aria-hidden
-          className="inline-block w-[2px] h-[1em] align-[-0.15em] ml-0.5 bg-cream/70 animate-pulse"
-        />
-      )}
+          className="block transition-opacity duration-[600ms] ease-out"
+          style={{
+            opacity: started ? 1 : 0,
+            transitionDelay: started ? `${i * 800}ms` : "0ms",
+          }}
+        >
+          {line.content}
+        </span>
+      ))}
     </p>
   );
 }
