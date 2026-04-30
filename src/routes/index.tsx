@@ -363,6 +363,7 @@ function CasesSection() {
   const [filter, setFilter] = useState<Filter>("Alle");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [openCase, setOpenCase] = useState<CaseStudy | null>(null);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const scrollerRef = useRef<HTMLDivElement | null>(null);
 
   const filtered = caseStudies.filter((c) => {
