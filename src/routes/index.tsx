@@ -534,12 +534,12 @@ function CasesSection() {
                 (isActiveMobile ? "grayscale-0 " : "grayscale ") +
                 "md:grayscale md:group-hover:grayscale-0";
           return (
-            <Link
+            <button
               key={c.slug}
-              to="/cases/$slug"
-              params={{ slug: c.slug }}
+              type="button"
+              onClick={() => setOpenCase(c)}
               className={
-                "group flex flex-col rounded-lg border border-cream/10 bg-navy/30 hover:bg-[rgba(255,255,255,0.04)] overflow-hidden transition-all duration-300 ease-out hover:-translate-y-[3px] " +
+                "group flex flex-col text-left rounded-lg border border-cream/10 bg-navy/30 hover:bg-[rgba(255,255,255,0.04)] overflow-hidden transition-all duration-300 ease-out hover:-translate-y-[3px] " +
                 sizing
               }
             >
@@ -578,7 +578,7 @@ function CasesSection() {
                   ))}
                 </ul>
               </div>
-            </Link>
+            </button>
           );
         };
 
