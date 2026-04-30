@@ -745,10 +745,10 @@ function KompetencerList() {
         >
           <div className="grid grid-cols-1 md:grid-cols-12 md:gap-8">
             {/* Left: number + title + sub */}
-            <div className="md:col-span-4 flex items-baseline gap-4">
+            <div className="md:col-span-4 min-w-0 flex items-baseline gap-4">
               <span className="font-display text-2xl text-ember shrink-0">{c.no}</span>
-              <div>
-                <h3 className="font-display text-3xl md:text-4xl tracking-tight leading-tight">
+              <div className="min-w-0 flex-1">
+                <h3 className="font-display text-3xl md:text-4xl tracking-tight leading-tight max-w-full break-words hyphens-auto">
                   {c.title}
                 </h3>
                 <p className="mt-1 text-sm text-cream/55 italic">{c.sub}</p>
