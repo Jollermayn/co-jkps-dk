@@ -484,20 +484,26 @@ function CasesSection() {
         </div>
       </div>
 
-      {/* Slider */}
-      <div
-        ref={scrollerRef}
-        onScroll={handleScroll}
-        className="flex gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-2 px-6 md:px-10 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
-      >
-        {filtered.map((c) => {
+      {/* Cases view: slider (Alle) or grid (filter) */}
+      {(() => {
+        const renderCard = (
+          c: (typeof caseStudies)[number],
+          variant: "slider" | "grid",
+        ) => {
           const meta = CASE_META[c.slug];
+          const sizing =
+            variant === "slider"
+              ? "snap-start shrink-0 w-[85vw] sm:w-[420px]"
+              : "w-full";
           return (
             <Link
               key={c.slug}
               to="/cases/$slug"
               params={{ slug: c.slug }}
-              className="group snap-start shrink-0 w-[85vw] sm:w-[420px] flex flex-col rounded-lg border border-cream/10 bg-navy/30 hover:bg-[rgba(255,255,255,0.04)] overflow-hidden transition-all duration-300 ease-out hover:-translate-y-[3px]"
+              className={
+                "group flex flex-col rounded-lg border border-cream/10 bg-navy/30 hover:bg-[rgba(255,255,255,0.04)] overflow-hidden transition-all duration-300 ease-out hover:-translate-y-[3px] " +
+                sizing
+              }
             >
               <div className="w-full overflow-hidden bg-navy" style={{ height: 250 }}>
                 <img
@@ -533,24 +539,44 @@ function CasesSection() {
               </div>
             </Link>
           );
-        })}
-      </div>
+        };
 
-      {/* Progress indicator */}
-      <div className="px-6 md:px-10 mt-4 flex items-center gap-6">
-        <span
-          className="text-cream/70 font-mono tabular-nums"
-          style={{ fontSize: 12, letterSpacing: "0.1em" }}
-        >
-          {String(Math.min(activeIndex + 1, total)).padStart(2, "0")} / {String(total).padStart(2, "0")}
-        </span>
-        <div className="flex-1 h-px bg-cream/15 relative overflow-hidden">
-          <div
-            className="absolute inset-y-0 left-0 bg-[#C0281E] transition-[width] duration-300 ease-out"
-            style={{ width: `${progress}%`, height: 1 }}
-          />
-        </div>
-      </div>
+        return (
+          <div key={isGrid ? "grid" : "slider"} className="animate-fade-in">
+            {isGrid ? (
+              <div className="px-6 md:px-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                {filtered.map((c) => renderCard(c, "grid"))}
+              </div>
+            ) : (
+              <>
+                <div
+                  ref={scrollerRef}
+                  onScroll={handleScroll}
+                  className="flex gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-2 px-6 md:px-10 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+                >
+                  {filtered.map((c) => renderCard(c, "slider"))}
+                </div>
+
+                {/* Progress indicator */}
+                <div className="px-6 md:px-10 mt-4 flex items-center gap-6">
+                  <span
+                    className="text-cream/70 font-mono tabular-nums"
+                    style={{ fontSize: 12, letterSpacing: "0.1em" }}
+                  >
+                    {String(Math.min(activeIndex + 1, total)).padStart(2, "0")} / {String(total).padStart(2, "0")}
+                  </span>
+                  <div className="flex-1 h-px bg-cream/15 relative overflow-hidden">
+                    <div
+                      className="absolute inset-y-0 left-0 bg-[#C0281E] transition-[width] duration-300 ease-out"
+                      style={{ width: `${progress}%`, height: 1 }}
+                    />
+                  </div>
+                </div>
+              </>
+            )}
+          </div>
+        );
+      })()}
     </section>
   );
 }
