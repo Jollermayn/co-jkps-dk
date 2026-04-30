@@ -158,17 +158,16 @@ function CaseDetail() {
                 </li>
               ))}
             </ul>
+            {study.slug === "boliga" && (
+              <div className="mt-4 flex justify-start">
+                <img
+                  src={boligaMockup}
+                  alt="Boliga app mockups: vælg kommune, drømmebolig, boligtype og præferencer"
+                  className="w-full max-w-[480px] h-auto"
+                />
+              </div>
+            )}
           </Section>
-
-          {study.slug === "boliga" && (
-            <div className="flex justify-start">
-              <img
-                src={boligaMockup}
-                alt="Boliga app mockups: vælg kommune, drømmebolig, boligtype og præferencer"
-                className="w-full max-w-[480px] h-auto"
-              />
-            </div>
-          )}
 
           {study.slug === "wolt" && (
             <div className="grid grid-cols-12 gap-4 md:gap-8">
