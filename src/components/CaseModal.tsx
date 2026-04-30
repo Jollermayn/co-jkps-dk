@@ -129,7 +129,7 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
           {study.slug === "boliga" && (
             <div className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-8">
               <div className="md:col-span-3" />
-              <div className="md:col-span-9 flex justify-center">
+              <div className="md:col-span-9 flex justify-start">
                 <img
                   src={boligaMockup}
                   alt="Boliga app mockups: vælg kommune, drømmebolig, boligtype og præferencer"
@@ -142,7 +142,7 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
           {study.slug === "wolt" && (
             <div className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-8">
               <div className="md:col-span-3" />
-              <div className="md:col-span-9 flex justify-center">
+              <div className="md:col-span-9 flex justify-start">
                 <img
                   src={woltHeatmap}
                   alt="Heatmap der viser efterspørgsel i realtid i København"
