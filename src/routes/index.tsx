@@ -187,7 +187,7 @@ function Sidebar() {
         <a
           href="/jonas-kp-sorensen-cv.pdf"
           download
-          className="inline-flex items-center justify-center gap-3 px-5 py-3 text-sm tracking-wide border border-cream/25 hover:border-ember hover:text-ember transition-colors"
+          className="inline-flex items-center justify-center gap-3 px-5 py-3 text-sm tracking-wide rounded-full bg-[#0D1B2A] text-white transition-transform duration-200 ease-out hover:scale-[1.04]"
         >
           Download CV (PDF) <span aria-hidden>↓</span>
         </a>
