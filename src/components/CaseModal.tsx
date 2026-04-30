@@ -3,6 +3,7 @@ import type { CaseStudy } from "@/data/cases";
 import { caseStudies } from "@/data/cases";
 import { TagWithCases } from "@/components/TagWithCases";
 import woltHeatmap from "@/assets/wolt-heatmap.png";
+import boligaMockup from "@/assets/boliga-mockup.png";
 
 type Props = {
   study: CaseStudy | null;
@@ -105,6 +106,19 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
               ))}
             </ul>
           </ModalSection>
+
+          {study.slug === "boliga" && (
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-8">
+              <div className="md:col-span-3" />
+              <div className="md:col-span-9 flex justify-center">
+                <img
+                  src={boligaMockup}
+                  alt="Boliga app mockups: vælg kommune, drømmebolig, boligtype og præferencer"
+                  className="w-full max-w-[560px] h-auto"
+                />
+              </div>
+            </div>
+          )}
 
           {study.slug === "wolt" && (
             <div className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-8">
