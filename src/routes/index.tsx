@@ -738,7 +738,7 @@ function KompetencerList() {
             </div>
 
             {/* Middle: description */}
-            <p className="md:col-span-5 mt-6 md:mt-0 text-cream/80 leading-relaxed">
+            <p className="md:col-span-5 mt-6 text-cream/80 leading-relaxed">
               {c.body}
             </p>
 
