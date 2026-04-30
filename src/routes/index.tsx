@@ -571,7 +571,14 @@ function CasesSection() {
                 <div className="px-6 md:px-10 mt-10 flex justify-center">
                   <button
                     type="button"
-                    onClick={() => setFilter("Alle")}
+                    onClick={() => {
+                      setFilter("Alle");
+                      requestAnimationFrame(() => {
+                        document
+                          .getElementById("cases")
+                          ?.scrollIntoView({ behavior: "smooth", block: "start" });
+                      });
+                    }}
                     className="text-sm tracking-wide text-cream/85 underline underline-offset-4 decoration-cream/40 hover:text-cream hover:decoration-cream transition-colors"
                   >
                     Vis alle cases →
