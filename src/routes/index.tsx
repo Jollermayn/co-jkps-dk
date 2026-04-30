@@ -578,9 +578,6 @@ function CasesSection() {
               </div>
             )}
           </div>
-          <span className="eyebrow text-cream/50 ml-auto">
-            {filtered.length} / {caseStudies.length}
-          </span>
         </div>
       </div>
 
