@@ -90,7 +90,7 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
 
 function Sidebar() {
   return (
-    <aside className="flex flex-col gap-10 lg:justify-between lg:min-h-0 lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto px-6 md:px-10 py-16 lg:py-20 border-b lg:border-b-0 lg:border-l border-cream/10 order-1 lg:order-last lg:bg-[#C0281E] lg:text-cream">
+    <aside className="flex flex-col gap-10 lg:justify-between lg:min-h-0 lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto px-6 md:px-10 py-16 lg:py-20 border-b lg:border-b-0 lg:border-l border-cream/10 order-1 lg:order-last">
       <div>
         <h1 className="font-display text-[clamp(2.5rem,5vw,4.5rem)] leading-[0.95] tracking-[-0.02em] font-medium">
           Jonas K.P.<br />
@@ -112,7 +112,7 @@ function Sidebar() {
           <blockquote>
             <p className="font-display italic leading-snug text-cream/95" style={{ fontSize: "26px" }}>
               The problem with Ai is when there's too much A and{" "}
-              <span className="not-italic font-normal text-[#C0281E] lg:text-[#0D1B2A]">not enough i</span>.
+              <span className="not-italic font-normal" style={{ color: "#C0281E" }}>not enough i</span>.
             </p>
           </blockquote>
         </div>
@@ -128,7 +128,7 @@ function Sidebar() {
         </a>
         <a
           href="#kontakt"
-          className="inline-flex items-center justify-between gap-3 bg-ember text-cream px-5 py-3 text-sm tracking-wide hover:bg-ember/90 transition-colors lg:bg-[#0D1B2A] lg:hover:bg-[#0D1B2A]/85"
+          className="inline-flex items-center justify-between gap-3 bg-ember text-cream px-5 py-3 text-sm tracking-wide hover:bg-ember/90 transition-colors"
         >
           Lad os tales ved <span aria-hidden>→</span>
         </a>
