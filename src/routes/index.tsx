@@ -710,19 +710,25 @@ function KompetencerList() {
           key={c.no}
           className="group py-8 md:py-10 hover:bg-navy/40 transition-colors -mx-6 md:-mx-10 px-6 md:px-10"
         >
-          <div className="flex items-baseline gap-4">
-            <span className="font-display text-2xl text-ember shrink-0">{c.no}</span>
-            <div>
-              <h3 className="font-display text-3xl md:text-4xl tracking-tight leading-tight">
-                {c.title}
-              </h3>
-              <p className="mt-2 text-sm text-cream/55 italic">{c.sub}</p>
+          <div className="grid grid-cols-1 md:grid-cols-12 md:gap-8">
+            {/* Left: number + title + sub */}
+            <div className="md:col-span-4 flex items-baseline gap-4">
+              <span className="font-display text-2xl text-ember shrink-0">{c.no}</span>
+              <div>
+                <h3 className="font-display text-3xl md:text-4xl tracking-tight leading-tight">
+                  {c.title}
+                </h3>
+                <p className="mt-2 text-sm text-cream/55 italic">{c.sub}</p>
+              </div>
             </div>
-          </div>
-          <p className="mt-6 max-w-3xl text-cream/80 leading-relaxed">
-            {c.body}
-          </p>
-          <ul className="mt-6 flex flex-wrap gap-2">
+
+            {/* Middle: description */}
+            <p className="md:col-span-5 mt-6 md:mt-0 text-cream/80 leading-relaxed">
+              {c.body}
+            </p>
+
+            {/* Right: stacked tags */}
+            <ul className="md:col-span-3 mt-6 md:mt-0 flex flex-col items-start gap-2">
             {c.tags.map((t) => {
               const slugs = TAG_TO_SLUGS[t] ?? [];
               const hasCases = slugs.length > 0;
@@ -799,6 +805,7 @@ function KompetencerList() {
               );
             })}
           </ul>
+          </div>
         </li>
       ))}
     </ul>
