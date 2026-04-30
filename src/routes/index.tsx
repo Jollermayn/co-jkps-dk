@@ -102,12 +102,7 @@ function Sidebar() {
           Digital konsulent · Brugeroplevelse &amp; digitale løsninger.
         </p>
       </div>
-      <div className="flex flex-col items-center gap-6 text-center">
-        <img
-          src={profilePhoto}
-          alt="Jonas K.P. Sørensen"
-          className="w-full max-w-[160px] aspect-square rounded-full object-cover"
-        />
+      <div className="flex flex-col items-center gap-2 text-center">
         <HeroSymbol className="h-auto w-full max-w-[300px]" />
         <blockquote>
           <p className="font-display italic leading-snug text-cream/95" style={{ fontSize: "26px" }}>
@@ -134,6 +129,11 @@ function Sidebar() {
         >
           Lad os tales ved <span aria-hidden>→</span>
         </a>
+        <img
+          src={profilePhoto}
+          alt="Jonas K.P. Sørensen"
+          className="mx-auto mb-2 w-full max-w-[100px] aspect-square rounded-full object-cover"
+        />
         <div className="mt-6 space-y-2 text-sm text-cream/70">
           <a href="mailto:Jonas@jkps.dk" className="block hover:text-ember transition-colors">
             Jonas@jkps.dk
