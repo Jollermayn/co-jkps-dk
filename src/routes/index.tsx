@@ -368,6 +368,7 @@ function CasesSection() {
   const [filter, setFilter] = useState<Filter>("Alle");
   const scrollerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [hoverIndex, setHoverIndex] = useState<number | null>(null);
   const [openCase, setOpenCase] = useState<CaseStudy | null>(null);
 
   const filtered = caseStudies.filter((c) => {
@@ -541,6 +542,12 @@ function CasesSection() {
               key={c.slug}
               type="button"
               onClick={() => setOpenCase(c)}
+              onMouseEnter={
+                variant === "slider" ? () => setHoverIndex(index) : undefined
+              }
+              onMouseLeave={
+                variant === "slider" ? () => setHoverIndex(null) : undefined
+              }
               className={
                 "group flex flex-col text-left rounded-lg border border-cream/10 bg-navy/30 hover:bg-[rgba(255,255,255,0.04)] overflow-hidden transition-all duration-300 ease-out hover:-translate-y-[3px] " +
                 sizing
@@ -625,7 +632,7 @@ function CasesSection() {
                     className="text-cream/70 font-mono tabular-nums"
                     style={{ fontSize: 12, letterSpacing: "0.1em" }}
                   >
-                    {String(Math.min(activeIndex + 1, total)).padStart(2, "0")} / {String(total).padStart(2, "0")}
+                    {String(Math.min((hoverIndex ?? activeIndex) + 1, total)).padStart(2, "0")} / {String(total).padStart(2, "0")}
                   </span>
                   <div className="flex-1 h-px bg-cream/15 relative overflow-hidden">
                     <div
