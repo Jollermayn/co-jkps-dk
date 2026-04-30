@@ -170,9 +170,12 @@ function Sidebar() {
     <aside className="relative flex flex-col gap-10 lg:gap-0 lg:justify-between lg:min-h-0 lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto px-6 md:px-10 py-16 lg:pt-20 lg:pb-20 border-b lg:border-b-0 lg:border-l border-cream/10 order-1 lg:order-last lg:bg-[#163028] lg:z-20 lg:rounded-l-xl lg:shadow-[-8px_0_24px_rgba(0,0,0,0.25)]">
       <div>
         <h1 className="font-display text-[clamp(2.5rem,5vw,4.5rem)] leading-[0.95] tracking-[-0.02em] font-medium">
-          Jonas K.P.<br />
+          Jonas<br />
           <span className="italic font-light">Sørensen</span>
         </h1>
+        <p className="mt-2 text-[0.9rem] text-cream/55 font-display italic font-light tracking-wide">
+          K.P.
+        </p>
         <p className="mt-6 text-base leading-relaxed lg:text-lg lg:leading-snug text-cream/85 font-display italic">
           Digital konsulent &amp; strateg.
         </p>
