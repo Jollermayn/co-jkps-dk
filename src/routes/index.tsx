@@ -98,7 +98,7 @@ function Sidebar() {
           Jonas K.P.<br />
           <span className="italic font-light">Sørensen</span>
         </h1>
-        <p className="mt-6 text-lg text-cream/85 leading-snug font-display italic">
+        <p className="mt-6 text-base leading-relaxed lg:text-lg lg:leading-snug text-cream/85 font-display italic">
           Digital konsulent · Brugeroplevelse &amp; digitale løsninger.
         </p>
       </div>
