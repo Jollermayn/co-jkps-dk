@@ -207,22 +207,6 @@ function Sidebar() {
           Lad os tales ved <span aria-hidden>→</span>
         </a>
         <div className="mt-6 flex items-center gap-4">
-          <div className="flex-1 space-y-2 text-sm text-cream/70">
-            <a href="mailto:Jonas@jkps.dk" className="block hover:text-ember transition-colors">
-              Jonas@jkps.dk
-            </a>
-            <a href="tel:+4560959596" className="block hover:text-ember transition-colors">
-              +45 60 95 95 96
-            </a>
-            <a
-              href="https://www.linkedin.com/in/jonaskps/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block hover:text-ember transition-colors"
-            >
-              LinkedIn →
-            </a>
-          </div>
           <img
             src={profilePhoto}
             alt="Jonas K.P. Sørensen"
