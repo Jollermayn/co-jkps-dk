@@ -796,30 +796,30 @@ function CasesSection() {
 // ============ Kompetencer with interactive tag popups ============
 
 const TAG_TO_SLUGS: Record<string, string[]> = {
-  "Semistrukturerede interviews": ["wolt", "boliga", "interaktiv-horesimulering"],
-  "Feltobservation": ["wolt", "boliga", "interaktiv-horesimulering"],
-  "Mixed methods": ["wolt", "boliga", "interaktiv-horesimulering"],
-  "Co-design": ["interaktiv-horesimulering", "wolt"],
-  "Participatorisk design": ["interaktiv-horesimulering", "wolt"],
+  // 01 — Indsigt / UX Research
+  "Semistrukturerede interviews": ["wolt", "interaktiv-horesimulering"],
+  "Feltobservation": ["wolt", "interaktiv-horesimulering"],
+  "Co-design": ["wolt", "interaktiv-horesimulering"],
+  "Mixed methods": ["wolt", "interaktiv-horesimulering"],
+  "Facilitering": ["interaktiv-horesimulering", "amnesty-international"],
+  "Workshops": ["interaktiv-horesimulering", "amnesty-international"],
+
+  // 02 — Koncept / Service- & Konceptdesign
   "Brugerrejser": ["boliga", "wolt"],
   "Touchpoint-mapping": ["boliga", "wolt"],
-  "Servicedesign": ["wolt", "boliga"],
-  "Konceptvalidering": ["wolt", "boliga"],
-  "Workshopfacilitering": ["interaktiv-horesimulering", "danmarks-naturfredningsforening"],
-  "Digital strategi": ["ulla-dyrlov", "art-spirit-coaching", "concerto-copenhagen"],
-  "Positionering": ["ulla-dyrlov", "art-spirit-coaching", "concerto-copenhagen"],
-  "Brandudvikling": ["ulla-dyrlov", "art-spirit-coaching", "concerto-copenhagen"],
-  "Kommunikationsstrategi": ["amnesty-international", "danmarks-radio", "danmarks-naturfredningsforening"],
-  "Indholdsstrategi": ["amnesty-international", "danmarks-radio", "danmarks-naturfredningsforening"],
-  "Podcastproduktion": ["danmarks-radio", "ulla-dyrlov"],
-  "Lydproduktion": ["danmarks-radio", "ulla-dyrlov"],
-  "Redaktionel tilrettelæggelse": ["danmarks-radio", "amnesty-international"],
+  "Participatorisk design": ["interaktiv-horesimulering"],
+  "Konceptvalidering": ["interaktiv-horesimulering"],
+
+  // 03 — Digital Strategi & Brand
+  "Kommunikationsstrategi": ["amnesty-international", "danmarks-naturfredningsforening", "art-spirit-coaching"],
+  "Visuel identitet": ["amnesty-international", "danmarks-naturfredningsforening", "art-spirit-coaching"],
+  "Indholdsarkitektur": ["boliga", "danmarks-radio"],
+  "Positionering": ["boliga", "danmarks-radio"],
+
+  // 04 — Medie- & Lydproduktion
+  "Redaktionel tilrettelæggelse": ["danmarks-radio", "ulla-dyrlov", "concerto-copenhagen"],
+  "Indholdsproduktion": ["danmarks-radio", "ulla-dyrlov", "concerto-copenhagen"],
   "Postproduktion": ["danmarks-radio", "ulla-dyrlov"],
-  "Indholdsproduktion": ["amnesty-international", "danmarks-radio", "danmarks-naturfredningsforening"],
-  "Visuel identitet": ["ulla-dyrlov", "art-spirit-coaching"],
-  "Indholdsarkitektur": ["ulla-dyrlov", "concerto-copenhagen"],
-  "Facilitering": ["danmarks-naturfredningsforening", "interaktiv-horesimulering", "wolt"],
-  "Workshops": ["interaktiv-horesimulering", "wolt"],
 };
 
 const TAG_HEADLINES: Record<string, string> = {
