@@ -105,7 +105,7 @@ function TypewriterQuote() {
       content: (
         <>
           and{" "}
-          <span className="not-italic font-normal text-[#C0281E] whitespace-nowrap">
+          <span className="not-italic font-normal text-cream bg-[#C0281E] whitespace-nowrap px-[6px] py-[2px]">
             not enough i.
           </span>
         </>
