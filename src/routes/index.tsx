@@ -142,7 +142,7 @@ function TypewriterQuote() {
   return (
     <p
       ref={ref}
-      className="font-display italic font-semibold leading-[1.65] lg:leading-[1.5] text-cream/95 text-[2rem] lg:text-[1.8rem]"
+      className="font-display italic font-semibold leading-[1.5] lg:leading-[1.5] text-cream/95 text-[1.4rem] lg:text-[1.8rem]"
       aria-label={ariaLabel}
     >
       {lines.map((line, i) => (
@@ -164,7 +164,7 @@ function TypewriterQuote() {
 
 function Sidebar() {
   return (
-    <aside className="relative flex flex-col gap-10 lg:gap-0 lg:justify-between lg:min-h-0 lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto px-12 md:px-14 lg:px-16 py-16 md:py-20 lg:pt-20 lg:pb-20 border-b lg:border-b-0 lg:border-l border-cream/10 order-1 lg:order-last bg-[#0D1B2A] lg:z-20 lg:rounded-l-xl lg:shadow-[-8px_0_24px_rgba(0,0,0,0.25)] text-center items-center">
+    <aside className="relative flex flex-col gap-8 lg:gap-0 lg:justify-between lg:min-h-0 lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto px-6 md:px-14 lg:px-16 py-8 md:py-20 lg:pt-20 lg:pb-20 border-b lg:border-b-0 lg:border-l border-cream/10 order-1 lg:order-last bg-[#0D1B2A] lg:z-20 lg:rounded-l-xl lg:shadow-[-8px_0_24px_rgba(0,0,0,0.25)] text-center items-center">
       <div className="w-full">
         <h1 className="font-display text-[clamp(2.5rem,5vw,4.5rem)] leading-[0.95] tracking-[-0.02em] font-medium text-center">
           Jonas K.P. Sørensen
@@ -185,7 +185,7 @@ function Sidebar() {
           <img
             src={profilePhoto}
             alt="Jonas K.P. Sørensen"
-            className="shrink-0 w-full max-w-[150px] aspect-square rounded-full object-cover shadow-[0_4px_16px_rgba(0,0,0,0.4)] hover:scale-105 transition-all duration-[400ms] ease-out"
+            className="shrink-0 w-full max-w-[120px] lg:max-w-[150px] aspect-square rounded-full object-cover shadow-[0_4px_16px_rgba(0,0,0,0.4)] hover:scale-105 transition-all duration-[400ms] ease-out"
           />
         </div>
         <a
