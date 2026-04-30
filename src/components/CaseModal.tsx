@@ -147,12 +147,12 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
               if (onNavigate) onNavigate(s);
             };
             return (
-              <div className="pt-8 mt-4 border-t border-cream/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+              <div className="pt-8 mt-4 border-t border-cream/10 flex flex-row items-center justify-between gap-4">
                 <button
                   type="button"
                   onClick={() => handle(prev)}
                   aria-label={`Forrige case: ${prev.client}`}
-                  className="group inline-flex items-center gap-4 text-left"
+                  className="group inline-flex items-center gap-3 sm:gap-4 text-left"
                 >
                   <span className="w-12 h-12 rounded-full border border-cream/25 text-cream flex items-center justify-center transition-colors group-hover:border-[#C0281E] group-hover:text-[#C0281E]">
                     <span aria-hidden className="text-xl leading-none">←</span>
@@ -168,12 +168,12 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
                   type="button"
                   onClick={() => handle(next)}
                   aria-label={`Næste case: ${next.client}`}
-                  className="group inline-flex items-center gap-4 sm:flex-row-reverse text-left sm:text-right"
+                  className="group inline-flex flex-row-reverse items-center gap-3 sm:gap-4 text-right"
                 >
                   <span className="w-12 h-12 rounded-full border border-cream/25 text-cream flex items-center justify-center transition-colors group-hover:border-[#C0281E] group-hover:text-[#C0281E]">
                     <span aria-hidden className="text-xl leading-none">→</span>
                   </span>
-                  <span className="flex flex-col sm:items-end">
+                  <span className="flex flex-col items-end">
                     <span className="eyebrow text-ember">Næste case</span>
                     <span className="font-display text-xl mt-1 group-hover:text-[#C0281E] transition-colors">
                       {next.client}
