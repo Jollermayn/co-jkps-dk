@@ -449,7 +449,7 @@ function CasesSection() {
           <div>
             <Eyebrow>Udvalgte cases</Eyebrow>
             <h2 className="font-display text-5xl md:text-7xl mt-6 leading-[0.95] tracking-tight">
-              Ni projekter.
+              Ni projekter
             </h2>
           </div>
           {/* Arrow nav */}
