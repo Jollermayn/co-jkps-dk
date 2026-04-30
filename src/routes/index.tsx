@@ -614,7 +614,7 @@ function CasesSection() {
                   onScroll={handleScroll}
                   className="flex gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth px-6 md:px-10 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
                 >
-                  {filtered.map((c) => renderCard(c, "slider"))}
+                  {filtered.map((c, i) => renderCard(c, "slider", i))}
                 </div>
 
                 {/* Progress indicator */}
