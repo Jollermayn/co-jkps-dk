@@ -503,6 +503,7 @@ function CasesSection() {
         const renderCard = (
           c: (typeof caseStudies)[number],
           variant: "slider" | "grid",
+          index: number,
         ) => {
           const meta = CASE_META[c.slug];
           const sizing =
