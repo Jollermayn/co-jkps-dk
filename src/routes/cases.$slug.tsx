@@ -140,7 +140,7 @@ function CaseDetail() {
               <img
                 src={woltHeatmap}
                 alt="Heatmap der viser efterspørgsel i realtid i København"
-                className="w-full max-w-[500px] h-auto"
+                className="w-full max-w-[480px] h-auto"
               />
             </div>
           )}
