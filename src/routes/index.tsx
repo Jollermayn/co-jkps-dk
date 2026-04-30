@@ -526,8 +526,9 @@ function CasesSection() {
         </div>
 
         {/* Filter dropdown */}
-        <div className="flex flex-wrap items-center gap-x-3 gap-y-3 mb-10 md:mb-12">
-          <div className="relative" ref={filterRef}>
+        <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-3 mb-2.5 md:mb-3">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-3">
+            <div className="relative" ref={filterRef}>
             <button
               type="button"
               onClick={() => setFilterOpen((v) => !v)}
