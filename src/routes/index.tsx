@@ -149,7 +149,7 @@ function Sidebar() {
           <img
             src={profilePhoto}
             alt="Jonas K.P. Sørensen"
-            className="shrink-0 w-full max-w-[120px] aspect-square rounded-full object-cover grayscale hover:grayscale-0 transition-all duration-[400ms] ease-out"
+            className="shrink-0 w-full max-w-[120px] aspect-square rounded-full object-cover"
           />
         </div>
       </div>
