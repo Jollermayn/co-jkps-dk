@@ -194,7 +194,7 @@ function Index() {
               <div className="mb-10 md:mb-14">
                 <Eyebrow>Kompetencer</Eyebrow>
                 <h2 className="font-display text-5xl md:text-7xl mt-6 leading-[0.95] tracking-tight">
-                  Hvad jeg <span className="italic">bringer</span>.
+                  Hvad jeg <span className="italic">bringer</span>
                 </h2>
                 <p className="mt-8 max-w-2xl text-lg text-cream/75 leading-relaxed">
                   Jeg arbejder i skæringsfeltet mellem strategi, design og teknologi — og bringer alle tre
