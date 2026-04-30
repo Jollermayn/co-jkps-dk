@@ -361,9 +361,7 @@ const CASE_META: Record<string, { headline: string; tags: string[] }> = {
 
 function CasesSection() {
   const [filter, setFilter] = useState<Filter>("Alle");
-  const scrollerRef = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [hoverIndex, setHoverIndex] = useState<number | null>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [openCase, setOpenCase] = useState<CaseStudy | null>(null);
 
   const filtered = caseStudies.filter((c) => {
@@ -381,53 +379,23 @@ function CasesSection() {
 
   const isGrid = filter !== "Alle";
 
-  // Reset scroll when filter changes
   useEffect(() => {
-    if (scrollerRef.current) {
-      scrollerRef.current.scrollTo({ left: 0, behavior: "smooth" });
-      setActiveIndex(0);
-    }
+    setCurrentIndex(0);
   }, [filter]);
 
-  const handleScroll = () => {
-    const el = scrollerRef.current;
-    if (!el) return;
-    const children = Array.from(el.children) as HTMLElement[];
-    if (!children.length) return;
-    // Use the horizontal center of the viewport as reference so the active
-    // card is whichever one the user is currently looking at.
-    const viewportCenter = el.scrollLeft + el.clientWidth / 2;
-    let closest = 0;
-    let min = Infinity;
-    children.forEach((child, i) => {
-      const childCenter = child.offsetLeft + child.offsetWidth / 2;
-      const dist = Math.abs(childCenter - viewportCenter);
-      if (dist < min) {
-        min = dist;
-        closest = i;
-      }
-    });
-    setActiveIndex((prev) => (prev === closest ? prev : closest));
-  };
-
-  const scrollByCard = (dir: -1 | 1) => {
-    const el = scrollerRef.current;
-    if (!el) return;
-    const children = Array.from(el.children) as HTMLElement[];
-    if (!children.length) return;
-    const len = children.length;
-    const target = ((activeIndex + dir) % len + len) % len;
-    const child = children[target];
-    if (!child) return;
-    el.scrollTo({
-      left: child.offsetLeft - el.offsetLeft,
-      behavior: "smooth",
-    });
-    setActiveIndex(target);
-  };
-
   const total = filtered.length;
-  const progress = total > 1 ? ((activeIndex + 1) / total) * 100 : 100;
+  const progress = total > 1 ? ((currentIndex + 1) / total) * 100 : 100;
+  const activeCase = filtered[currentIndex] ?? filtered[0] ?? null;
+
+  const showNextCase = () => {
+    if (!filtered.length) return;
+    setCurrentIndex((prev) => (prev + 1) % filtered.length);
+  };
+
+  const showPreviousCase = () => {
+    if (!filtered.length) return;
+    setCurrentIndex((prev) => (prev - 1 + filtered.length) % filtered.length);
+  };
 
   return (
     <section id="cases" className="py-16 md:py-20 border-t border-cream/10">
@@ -449,7 +417,7 @@ function CasesSection() {
             <button
               type="button"
               aria-label="Forrige case"
-              onClick={() => scrollByCard(-1)}
+              onClick={showPreviousCase}
               className="w-12 h-12 rounded-full border border-cream/25 text-cream flex items-center justify-center transition-colors hover:border-[#C0281E] hover:text-[#C0281E]"
             >
               <span aria-hidden className="text-xl leading-none">←</span>
@@ -457,7 +425,7 @@ function CasesSection() {
             <button
               type="button"
               aria-label="Næste case"
-              onClick={() => scrollByCard(1)}
+              onClick={showNextCase}
               className="w-12 h-12 rounded-full border border-cream/25 text-cream flex items-center justify-center transition-colors hover:border-[#C0281E] hover:text-[#C0281E] disabled:opacity-30 disabled:hover:border-cream/25 disabled:hover:text-cream"
             >
               <span aria-hidden className="text-xl leading-none">→</span>
@@ -498,7 +466,6 @@ function CasesSection() {
         const renderCard = (
           c: (typeof caseStudies)[number],
           variant: "slider" | "grid",
-          index: number,
         ) => {
           const meta = CASE_META[c.slug];
           const sizing =
@@ -521,32 +488,15 @@ function CasesSection() {
             variant === "slider"
               ? "max-[428px]:text-[9px] max-[428px]:px-2 max-[428px]:py-0.5"
               : "";
-          const isActiveMobile = variant === "slider" && index === activeIndex;
-          // Slider: mobile shows active card in color, others greyscale; desktop greyscale + hover color.
-          // Grid: always full color.
           const imgClass =
             variant === "grid"
               ? "w-full h-full object-cover transition-all duration-[300ms] ease-out group-hover:scale-[1.04]"
-              : "w-full h-full object-cover transition-all duration-[300ms] ease-out group-hover:scale-[1.04] " +
-                (isActiveMobile ? "grayscale-0 " : "grayscale ") +
-                "md:grayscale md:group-hover:grayscale-0";
+              : "w-full h-full object-cover transition-all duration-[300ms] ease-out group-hover:scale-[1.04]";
           return (
             <button
               key={c.slug}
               type="button"
               onClick={() => setOpenCase(c)}
-              onMouseEnter={() => {
-                if (variant === "slider") setHoverIndex(index);
-              }}
-              onMouseLeave={() => {
-                if (variant === "slider") setHoverIndex(null);
-              }}
-              onFocus={() => {
-                if (variant === "slider") setHoverIndex(index);
-              }}
-              onBlur={() => {
-                if (variant === "slider") setHoverIndex(null);
-              }}
               className={
                 "group flex flex-col text-left rounded-lg border border-cream/10 bg-navy/30 hover:bg-[rgba(255,255,255,0.04)] overflow-hidden transition-all duration-300 ease-out hover:-translate-y-[3px] " +
                 sizing
@@ -596,7 +546,7 @@ function CasesSection() {
             {isGrid ? (
               <>
                 <div className="px-6 md:px-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                  {filtered.map((c, i) => renderCard(c, "grid", i))}
+                  {filtered.map((c) => renderCard(c, "grid"))}
                 </div>
                 <div className="px-6 md:px-10 mt-10 flex justify-center">
                   <button
@@ -617,12 +567,8 @@ function CasesSection() {
               </>
             ) : (
               <>
-                <div
-                  ref={scrollerRef}
-                  onScroll={handleScroll}
-                  className="flex gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-2 px-6 md:px-10 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
-                >
-                  {filtered.map((c, i) => renderCard(c, "slider", i))}
+                <div className="px-6 md:px-10">
+                  {activeCase ? renderCard(activeCase, "slider") : null}
                 </div>
 
                 {/* Progress indicator */}
@@ -631,7 +577,7 @@ function CasesSection() {
                     className="text-cream/70 font-mono tabular-nums"
                     style={{ fontSize: 12, letterSpacing: "0.1em" }}
                   >
-                    {String(Math.min((hoverIndex ?? activeIndex) + 1, total)).padStart(2, "0")} / {String(total).padStart(2, "0")}
+                    {String(Math.min(currentIndex + 1, total || 1)).padStart(2, "0")} / {String(total).padStart(2, "0")}
                   </span>
                   <div className="flex-1 h-px bg-cream/15 relative overflow-hidden">
                     <div
