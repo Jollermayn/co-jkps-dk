@@ -174,7 +174,7 @@ function Sidebar() {
           <span className="italic font-light">Sørensen</span>
         </h1>
         <p className="mt-6 text-base leading-relaxed lg:text-lg lg:leading-snug text-cream/85 font-display italic">
-          Digital konsulent · Brugeroplevelse &amp; digitale løsninger.
+          Digital konsulent &amp; strateg.
         </p>
       </div>
       <div className="flex flex-1 min-h-0 flex-col items-start justify-center gap-8 text-left py-10 lg:py-6 pl-4 md:pl-6">
@@ -381,7 +381,7 @@ function Index() {
       {/* FOOTER */}
       <footer className="bg-navy-deep py-10 relative z-30">
         <div className="px-6 md:px-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-sm text-cream/55">
-          <p>Jonas K.P. Sørensen · Digital konsulent · Aarhus</p>
+          <p>Jonas K.P. Sørensen · Digital konsulent &amp; strateg · Aarhus</p>
           <p>© {new Date().getFullYear()} · Selvstændig siden 2016</p>
         </div>
       </footer>
