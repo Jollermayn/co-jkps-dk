@@ -542,12 +542,18 @@ function CasesSection() {
               key={c.slug}
               type="button"
               onClick={() => setOpenCase(c)}
-              onMouseEnter={
-                variant === "slider" ? () => setHoverIndex(index) : undefined
-              }
-              onMouseLeave={
-                variant === "slider" ? () => setHoverIndex(null) : undefined
-              }
+              onMouseEnter={() => {
+                if (variant === "slider") setHoverIndex(index);
+              }}
+              onMouseLeave={() => {
+                if (variant === "slider") setHoverIndex(null);
+              }}
+              onFocus={() => {
+                if (variant === "slider") setHoverIndex(index);
+              }}
+              onBlur={() => {
+                if (variant === "slider") setHoverIndex(null);
+              }}
               className={
                 "group flex flex-col text-left rounded-lg border border-cream/10 bg-navy/30 hover:bg-[rgba(255,255,255,0.04)] overflow-hidden transition-all duration-300 ease-out hover:-translate-y-[3px] " +
                 sizing
