@@ -130,17 +130,16 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
                 </li>
               ))}
             </ul>
+            {study.slug === "boliga" && (
+              <div className="mt-3 flex justify-start">
+                <img
+                  src={boligaMockup}
+                  alt="Boliga app mockups: vælg kommune, drømmebolig, boligtype og præferencer"
+                  className="w-full max-w-[480px] h-auto"
+                />
+              </div>
+            )}
           </ModalSection>
-
-          {study.slug === "boliga" && (
-            <div className="flex justify-start">
-              <img
-                src={boligaMockup}
-                alt="Boliga app mockups: vælg kommune, drømmebolig, boligtype og præferencer"
-                className="w-full max-w-[480px] h-auto"
-              />
-            </div>
-          )}
 
           {study.slug === "wolt" && (
             <div className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-8">
