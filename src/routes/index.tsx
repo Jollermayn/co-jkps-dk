@@ -86,7 +86,7 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
     <span className="inline-flex flex-col items-stretch w-fit cursor-default">
       <span className="eyebrow text-ember">{children}</span>
-      <span aria-hidden className="mt-1.5 block h-px w-full bg-[#C0281E]" />
+      <span aria-hidden className="mt-1.5 block h-px w-1/2 bg-[#C0281E]" />
     </span>
   );
 }
