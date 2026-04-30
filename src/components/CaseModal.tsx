@@ -107,10 +107,29 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
             </ul>
           </ModalSection>
 
+          <ModalSection title="Tilgang">
+            <ul className="flex flex-wrap gap-2">
+              {study.approach.map((t) => (
+                <TagWithCases key={t} tag={t} excludeSlug={study.slug} variant="approach" />
+              ))}
+            </ul>
+          </ModalSection>
+
+          <ModalSection title="Resultater">
+            <ul className="space-y-3">
+              {study.outcomes.map((o) => (
+                <li key={o} className="flex items-start gap-3 text-base md:text-lg text-cream/85 leading-relaxed">
+                  <span className="text-ember shrink-0">→</span>
+                  <span>{o}</span>
+                </li>
+              ))}
+            </ul>
+          </ModalSection>
+
           {study.slug === "boliga" && (
             <div className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-8">
               <div className="md:col-span-3" />
-              <div className="md:col-span-9 flex justify-start">
+              <div className="md:col-span-9 flex justify-center">
                 <img
                   src={boligaMockup}
                   alt="Boliga app mockups: vælg kommune, drømmebolig, boligtype og præferencer"
@@ -132,25 +151,6 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
               </div>
             </div>
           )}
-
-          <ModalSection title="Tilgang">
-            <ul className="flex flex-wrap gap-2">
-              {study.approach.map((t) => (
-                <TagWithCases key={t} tag={t} excludeSlug={study.slug} variant="approach" />
-              ))}
-            </ul>
-          </ModalSection>
-
-          <ModalSection title="Resultater">
-            <ul className="space-y-3">
-              {study.outcomes.map((o) => (
-                <li key={o} className="flex items-start gap-3 text-base md:text-lg text-cream/85 leading-relaxed">
-                  <span className="text-ember shrink-0">→</span>
-                  <span>{o}</span>
-                </li>
-              ))}
-            </ul>
-          </ModalSection>
 
           {(() => {
             const idx = caseStudies.findIndex((c) => c.slug === study.slug);
