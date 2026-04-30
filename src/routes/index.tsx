@@ -194,7 +194,7 @@ function Index() {
               <div className="mb-10 md:mb-14">
                 <Eyebrow>Kompetencer</Eyebrow>
                 <h2 className="font-display text-5xl md:text-7xl mt-6 leading-[0.95] tracking-tight">
-                  Hvad jeg <span className="italic">bringer</span>.
+                  Hvad jeg <span className="italic">bringer</span>
                 </h2>
                 <p className="mt-8 max-w-2xl text-lg text-cream/75 leading-relaxed">
                   Jeg arbejder i skæringsfeltet mellem strategi, design og teknologi — og bringer alle tre
@@ -213,7 +213,7 @@ function Index() {
               <div className="mb-16">
                 <Eyebrow>Uddannelse</Eyebrow>
                 <h2 className="font-display text-5xl md:text-7xl mt-6 leading-[0.95] tracking-tight">
-                  Et fagligt <span className="italic text-ember">ståsted</span>.
+                  Et fagligt <span className="italic text-ember">ståsted</span>
                 </h2>
                 <p className="mt-8 max-w-2xl text-lg text-cream/75 leading-relaxed">
                   Hvor analytisk overblik møder en kreativ og praksisnær tilgang.
@@ -251,7 +251,7 @@ function Index() {
             <div className="px-6 md:px-10 relative">
               <Eyebrow>Kontakt · Portfolio 2026</Eyebrow>
               <h2 className="font-display text-5xl md:text-8xl mt-8 leading-[0.9] tracking-tight">
-                Lad os <span className="italic text-ember">tales ved</span>.
+                Lad os <span className="italic text-ember">tales ved</span>
               </h2>
               <p className="mt-8 max-w-xl text-cream/70 text-lg italic font-display">
                 Jeg er altid interesseret i nye samarbejder — store som små, kommercielle som kulturelle.
@@ -449,7 +449,7 @@ function CasesSection() {
           <div>
             <Eyebrow>Udvalgte cases</Eyebrow>
             <h2 className="font-display text-5xl md:text-7xl mt-6 leading-[0.95] tracking-tight">
-              Ni projekter.
+              Ni projekter
             </h2>
           </div>
           {/* Arrow nav */}
