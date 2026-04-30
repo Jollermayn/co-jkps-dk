@@ -68,12 +68,43 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
         </button>
 
         {/* Hero image */}
-        <figure className="w-full">
+        <figure className="relative w-full">
           <img
             src={study.image}
             alt={`${study.client} — ${study.title}`}
             className="w-full h-[240px] sm:h-[320px] md:h-[380px] object-cover"
           />
+          {(() => {
+            const idx = caseStudies.findIndex((c) => c.slug === study.slug);
+            if (idx === -1) return null;
+            const prev = caseStudies[(idx - 1 + caseStudies.length) % caseStudies.length];
+            const next = caseStudies[(idx + 1) % caseStudies.length];
+            const handle = (s: CaseStudy) => {
+              if (onNavigate) onNavigate(s);
+            };
+            const btn =
+              "absolute top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-cream/25 bg-black/55 backdrop-blur text-cream flex items-center justify-center transition-colors hover:border-[#C0281E] hover:text-[#C0281E] hover:bg-black/70";
+            return (
+              <>
+                <button
+                  type="button"
+                  onClick={() => handle(prev)}
+                  aria-label={`Forrige case: ${prev.client}`}
+                  className={`${btn} left-4`}
+                >
+                  <span aria-hidden className="text-xl leading-none">‹</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handle(next)}
+                  aria-label={`Næste case: ${next.client}`}
+                  className={`${btn} right-4`}
+                >
+                  <span aria-hidden className="text-xl leading-none">›</span>
+                </button>
+              </>
+            );
+          })()}
         </figure>
 
         {/* Title */}
