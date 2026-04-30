@@ -473,7 +473,7 @@ function CasesSection() {
                       : "border-cream/20 text-cream/70 hover:border-cream/50 hover:text-cream")
                   }
                 >
-                  {f}
+                  {f} <span className="text-[10px] opacity-70">({filterCounts[f]})</span>
                 </button>
               );
             })}
