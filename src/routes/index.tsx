@@ -719,18 +719,18 @@ function CasesSection() {
 
                 {/* Progress indicator */}
                 <div className="px-6 md:px-10 mt-4 flex items-center gap-6">
-                  <span
-                    className="text-cream/70 font-mono tabular-nums"
-                    style={{ fontSize: 12, letterSpacing: "0.1em" }}
-                  >
-                    {(hoveredIndex ?? currentIndex) + 1} / {total}
-                  </span>
                   <div className="flex-1 h-px bg-cream/15 relative overflow-hidden">
                     <div
                       className="absolute inset-y-0 left-0 bg-[#C0281E] transition-[width] duration-300 ease-out"
                       style={{ width: `${progress}%`, height: 1 }}
                     />
                   </div>
+                  <span
+                    className="text-cream/70 font-mono tabular-nums"
+                    style={{ fontSize: 12, letterSpacing: "0.1em" }}
+                  >
+                    {(hoveredIndex ?? currentIndex) + 1} / {total}
+                  </span>
                 </div>
               </>
             )}
