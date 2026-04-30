@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import type { CaseStudy } from "@/data/cases";
 import { caseStudies } from "@/data/cases";
 import { TagWithCases } from "@/components/TagWithCases";
@@ -12,6 +12,14 @@ type Props = {
 
 export function CaseModal({ study, onClose, onNavigate }: Props) {
   const open = !!study;
+  const panelRef = useRef<HTMLDivElement>(null);
+
+  // Reset scroll to top when navigating to a different case
+  useEffect(() => {
+    if (study && panelRef.current) {
+      panelRef.current.scrollTo({ top: 0, behavior: "auto" });
+    }
+  }, [study?.slug]);
 
   // Lock body scroll + Escape to close
   useEffect(() => {
@@ -46,7 +54,7 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
       />
 
       {/* Panel */}
-      <div className="relative ml-auto w-full md:w-[min(960px,92vw)] h-full bg-navy-deep text-cream overflow-y-auto shadow-2xl animate-in slide-in-from-right duration-300">
+      <div ref={panelRef} className="relative ml-auto w-full md:w-[min(960px,92vw)] h-full bg-navy-deep text-cream overflow-y-auto shadow-2xl animate-in slide-in-from-right duration-300">
         {/* Close */}
         <button
           type="button"
