@@ -145,10 +145,10 @@ function TypewriterQuote() {
         <span
           key={i}
           aria-hidden
-          className="block whitespace-nowrap transition-opacity duration-[600ms] ease-out"
+          className="block whitespace-nowrap transition-opacity duration-[1400ms] ease-out"
           style={{
             opacity: started ? 1 : 0,
-            transitionDelay: started ? `${i * 800}ms` : "0ms",
+            transitionDelay: started ? `${i * 1400}ms` : "0ms",
           }}
         >
           {line.content}
