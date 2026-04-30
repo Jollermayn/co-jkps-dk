@@ -139,7 +139,7 @@ function TypewriterQuote() {
         break;
       }
     }
-    const delay = atBreak ? 320 : 40;
+    const delay = atBreak ? 320 : 65;
     const t = setTimeout(() => setCount((c) => c + 1), delay);
     return () => clearTimeout(t);
   }, [started, count, totalChars]);
@@ -177,7 +177,7 @@ function TypewriterQuote() {
   return (
     <p
       ref={ref}
-      className="font-display italic leading-[1.2] text-cream/95 text-[clamp(1.6rem,2.4vw,2.25rem)]"
+      className="font-display italic leading-[1.2] text-cream/95 text-[1.4rem] sm:text-[1.6rem] lg:text-[clamp(1.8rem,2.4vw,2.25rem)]"
       aria-label={ariaLabel}
     >
       <span aria-hidden>{nodes}</span>
@@ -203,7 +203,7 @@ function Sidebar() {
           Digital konsulent · Brugeroplevelse &amp; digitale løsninger.
         </p>
       </div>
-      <div className="flex flex-1 min-h-0 flex-col items-center justify-center gap-8 text-center py-6">
+      <div className="flex flex-1 min-h-0 flex-col items-center justify-center gap-8 text-center py-10 lg:py-6">
         
         <blockquote className="max-w-[20ch]">
           <TypewriterQuote />
