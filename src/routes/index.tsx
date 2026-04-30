@@ -896,7 +896,7 @@ function KompetencerList() {
                 <h3 className="font-display text-3xl md:text-4xl tracking-tight leading-tight max-w-full break-words hyphens-auto">
                   {c.title}
                 </h3>
-                <p className="mt-1 text-sm text-cream/55 italic">{c.sub}</p>
+                
               </div>
             </div>
 
