@@ -138,14 +138,14 @@ function TypewriterQuote() {
   return (
     <p
       ref={ref}
-      className="font-display italic leading-[1.2] text-cream/95 text-[1.4rem] sm:text-[1.6rem] lg:text-[clamp(1.8rem,2.4vw,2.25rem)]"
+      className="font-display italic leading-[1.2] text-cream/95 text-[clamp(1rem,4.2vw,1.6rem)] lg:text-[clamp(1.2rem,1.8vw,1.9rem)]"
       aria-label={ariaLabel}
     >
       {lines.map((line, i) => (
         <span
           key={i}
           aria-hidden
-          className="block transition-opacity duration-[600ms] ease-out"
+          className="block whitespace-nowrap transition-opacity duration-[600ms] ease-out"
           style={{
             opacity: started ? 1 : 0,
             transitionDelay: started ? `${i * 800}ms` : "0ms",
@@ -172,7 +172,7 @@ function Sidebar() {
       </div>
       <div className="flex flex-1 min-h-0 flex-col items-center justify-center gap-8 text-center py-10 lg:py-6">
         
-        <blockquote className="max-w-[20ch]">
+        <blockquote className="max-w-full">
           <TypewriterQuote />
         </blockquote>
       </div>
