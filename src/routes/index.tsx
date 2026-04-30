@@ -606,7 +606,6 @@ function CasesSection() {
             )}
           </div>
           </div>
-          </div>
           {/* Arrow nav — right side, same row as filter */}
           {!isGrid && (
             <div className="hidden md:flex items-center gap-3">
