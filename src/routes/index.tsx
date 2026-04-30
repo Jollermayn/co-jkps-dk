@@ -831,5 +831,11 @@ function KompetencerList() {
         </li>
       ))}
     </ul>
+    <CaseModal
+      study={openCase}
+      onClose={() => setOpenCase(null)}
+      onNavigate={(s) => setOpenCase(s)}
+    />
+    </>
   );
 }
