@@ -27,8 +27,6 @@ export function HeroSymbol({ className }: { className?: string }) {
         .hs-figure { opacity: 0; animation: hs-figure ${DUR}s ease-in-out infinite; }
       `}</style>
 
-      {/* Background */}
-      <rect width="200" height="200" rx="8" fill="#0D1B2A" />
 
       {/* Clip to triangle interior for waves + dots */}
       <defs>
