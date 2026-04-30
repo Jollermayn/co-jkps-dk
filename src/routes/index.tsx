@@ -911,15 +911,39 @@ function KompetencerList() {
               const slugs = TAG_TO_SLUGS[t] ?? [];
               const hasCases = slugs.length > 0;
               const isOpen = openTag === `${c.no}-${t}`;
+              const tagKey = `${c.no}-${t}`;
               return (
-                <li key={t} ref={isOpen ? activeTagRef : undefined} className="relative inline-flex items-baseline">
+                <li
+                  key={t}
+                  ref={isOpen ? activeTagRef : undefined}
+                  className="relative inline-flex items-baseline"
+                  onMouseEnter={() => {
+                    if (!canHover || !hasCases) return;
+                    cancelClose();
+                    setOpenTag(tagKey);
+                  }}
+                  onMouseLeave={() => {
+                    if (!canHover) return;
+                    scheduleClose();
+                  }}
+                >
                   <span aria-hidden className="text-[#8899AA]/60 mr-1.5 select-none">·</span>
                   <button
                     type="button"
                     disabled={!hasCases}
-                    onClick={() =>
-                      setOpenTag(isOpen ? null : `${c.no}-${t}`)
-                    }
+                    onClick={() => {
+                      if (canHover) return;
+                      setOpenTag(isOpen ? null : tagKey);
+                    }}
+                    onFocus={() => {
+                      if (!canHover || !hasCases) return;
+                      cancelClose();
+                      setOpenTag(tagKey);
+                    }}
+                    onBlur={() => {
+                      if (!canHover) return;
+                      scheduleClose();
+                    }}
                     aria-expanded={isOpen}
                     className={
                       "text-left text-[11px] tracking-wide uppercase bg-transparent border-0 p-0 transition-colors " +
