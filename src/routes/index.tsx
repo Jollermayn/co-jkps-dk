@@ -732,7 +732,7 @@ function KompetencerList() {
             </p>
 
             {/* Right: stacked tags */}
-            <ul className="md:col-span-3 mt-6 md:mt-0 flex flex-col items-start gap-2">
+            <ul className="md:col-span-3 mt-6 md:mt-0 flex flex-wrap justify-center gap-2 md:flex-col md:flex-nowrap md:justify-start md:items-start">
             {c.tags.map((t) => {
               const slugs = TAG_TO_SLUGS[t] ?? [];
               const hasCases = slugs.length > 0;
