@@ -110,7 +110,13 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
           <ModalSection title="Tilgang">
             <ul className="flex flex-wrap gap-2">
               {study.approach.map((t) => (
-                <TagWithCases key={t} tag={t} excludeSlug={study.slug} variant="approach" />
+                <TagWithCases
+                  key={t}
+                  tag={t}
+                  excludeSlug={study.slug}
+                  variant="approach"
+                  onSelectCase={onNavigate}
+                />
               ))}
             </ul>
           </ModalSection>

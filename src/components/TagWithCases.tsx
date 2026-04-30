@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { caseStudies } from "@/data/cases";
+import { caseStudies, type CaseStudy } from "@/data/cases";
 import { TAG_TO_SLUGS, TAG_HEADLINES } from "@/data/tag-cases";
 
 interface Props {
@@ -9,9 +9,11 @@ interface Props {
   excludeSlug?: string;
   /** Visual variant */
   variant?: "skill" | "approach";
+  /** When provided, clicking a related case calls this instead of navigating */
+  onSelectCase?: (study: CaseStudy) => void;
 }
 
-export function TagWithCases({ tag, excludeSlug, variant = "skill" }: Props) {
+export function TagWithCases({ tag, excludeSlug, variant = "skill", onSelectCase }: Props) {
   const [open, setOpen] = useState(false);
   const [canHover, setCanHover] = useState(false);
   const ref = useRef<HTMLLIElement>(null);
@@ -120,34 +122,54 @@ export function TagWithCases({ tag, excludeSlug, variant = "skill" }: Props) {
             {slugs.map((slug) => {
               const study = caseStudies.find((s) => s.slug === slug);
               if (!study) return null;
+              const itemContent = (
+                <>
+                  <img
+                    src={study.image}
+                    alt=""
+                    className="w-12 h-12 object-cover shrink-0 grayscale group-hover/case:grayscale-0 transition-all duration-300"
+                  />
+                  <div className="min-w-0 flex-1">
+                    <div className="text-sm font-display font-semibold text-cream leading-tight">
+                      {study.client}
+                    </div>
+                    <div className="text-xs text-cream/65 leading-snug mt-0.5 truncate">
+                      {TAG_HEADLINES[slug] ?? study.title}
+                    </div>
+                  </div>
+                  <span
+                    aria-hidden
+                    className="text-cream/40 group-hover/case:text-ember transition-colors text-sm"
+                  >
+                    ↗
+                  </span>
+                </>
+              );
+              const itemClass =
+                "group/case w-full text-left flex items-start gap-3 p-2 -mx-2 rounded hover:bg-cream/5 transition-colors";
               return (
                 <li key={slug}>
-                  <Link
-                    to="/cases/$slug"
-                    params={{ slug }}
-                    onClick={() => setOpen(false)}
-                    className="group/case flex items-start gap-3 p-2 -mx-2 rounded hover:bg-cream/5 transition-colors"
-                  >
-                    <img
-                      src={study.image}
-                      alt=""
-                      className="w-12 h-12 object-cover shrink-0 grayscale group-hover/case:grayscale-0 transition-all duration-300"
-                    />
-                    <div className="min-w-0 flex-1">
-                      <div className="text-sm font-display font-semibold text-cream leading-tight">
-                        {study.client}
-                      </div>
-                      <div className="text-xs text-cream/65 leading-snug mt-0.5 truncate">
-                        {TAG_HEADLINES[slug] ?? study.title}
-                      </div>
-                    </div>
-                    <span
-                      aria-hidden
-                      className="text-cream/40 group-hover/case:text-ember transition-colors text-sm"
+                  {onSelectCase ? (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setOpen(false);
+                        onSelectCase(study);
+                      }}
+                      className={itemClass}
                     >
-                      ↗
-                    </span>
-                  </Link>
+                      {itemContent}
+                    </button>
+                  ) : (
+                    <Link
+                      to="/cases/$slug"
+                      params={{ slug }}
+                      onClick={() => setOpen(false)}
+                      className={itemClass}
+                    >
+                      {itemContent}
+                    </Link>
+                  )}
                 </li>
               );
             })}
