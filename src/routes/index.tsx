@@ -504,8 +504,24 @@ function CasesSection() {
           const meta = CASE_META[c.slug];
           const sizing =
             variant === "slider"
-              ? "snap-start shrink-0 w-[85vw] sm:w-[420px]"
+              ? "snap-start shrink-0 w-[85vw] max-[428px]:w-[78vw] sm:w-[420px]"
               : "w-full";
+          const imgWrapperClass =
+            variant === "slider"
+              ? "w-full overflow-hidden bg-navy h-[250px] max-[428px]:h-[160px]"
+              : "w-full overflow-hidden bg-navy h-[250px]";
+          const bodyPadding =
+            variant === "slider"
+              ? "p-6 max-[428px]:p-4 flex flex-col gap-3 max-[428px]:gap-2"
+              : "p-6 flex flex-col gap-3";
+          const clientSize =
+            variant === "slider" ? "max-[428px]:!text-[10px]" : "";
+          const headlineSize =
+            variant === "slider" ? "max-[428px]:!text-[15px]" : "";
+          const tagSize =
+            variant === "slider"
+              ? "max-[428px]:text-[9px] max-[428px]:px-2 max-[428px]:py-0.5"
+              : "";
           const isActiveMobile = variant === "slider" && index === activeIndex;
           // Slider: mobile shows active card in color, others greyscale; desktop greyscale + hover color.
           // Grid: always full color.
@@ -525,7 +541,7 @@ function CasesSection() {
                 sizing
               }
             >
-              <div className="w-full overflow-hidden bg-navy" style={{ height: 250 }}>
+              <div className={imgWrapperClass}>
                 <img
                   src={c.image}
                   alt={`${c.client} — ${meta?.headline ?? c.title}`}
@@ -533,15 +549,15 @@ function CasesSection() {
                   className={imgClass}
                 />
               </div>
-              <div className="p-6 flex flex-col gap-3">
+              <div className={bodyPadding}>
                 <span
-                  className="text-cream/60 uppercase font-semibold"
+                  className={"text-cream/60 uppercase font-semibold " + clientSize}
                   style={{ fontSize: 9, letterSpacing: "0.18em" }}
                 >
                   {c.client}
                 </span>
                 <h3
-                  className="font-display font-bold text-cream leading-snug"
+                  className={"font-display font-bold text-cream leading-snug " + headlineSize}
                   style={{ fontSize: 18 }}
                 >
                   {meta?.headline ?? c.title}
@@ -550,7 +566,10 @@ function CasesSection() {
                   {(meta?.tags ?? []).map((t) => (
                     <li
                       key={t}
-                      className="text-[10px] tracking-wide px-2.5 py-1 rounded-full border border-cream/20 text-cream/70"
+                      className={
+                        "text-[10px] tracking-wide px-2.5 py-1 rounded-full border border-cream/20 text-cream/70 " +
+                        tagSize
+                      }
                     >
                       {t}
                     </li>
