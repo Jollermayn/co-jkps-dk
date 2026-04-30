@@ -839,13 +839,16 @@ function KompetencerList() {
             </p>
 
             {/* Right: stacked tags */}
-            <ul className="md:col-span-3 mt-6 md:mt-0 flex flex-wrap justify-center gap-2 md:flex-col md:flex-nowrap md:justify-start md:items-start">
-            {c.tags.map((t) => {
+            <ul className="md:col-span-3 mt-6 md:mt-0 flex flex-wrap items-baseline gap-x-1.5 gap-y-1">
+            {c.tags.map((t, i) => {
               const slugs = TAG_TO_SLUGS[t] ?? [];
               const hasCases = slugs.length > 0;
               const isOpen = openTag === `${c.no}-${t}`;
               return (
-                <li key={t} ref={isOpen ? activeTagRef : undefined} className="relative">
+                <li key={t} ref={isOpen ? activeTagRef : undefined} className="relative inline-flex items-baseline">
+                  {i > 0 && (
+                    <span aria-hidden className="text-[#8899AA]/60 mr-1.5 select-none">·</span>
+                  )}
                   <button
                     type="button"
                     disabled={!hasCases}
@@ -854,12 +857,11 @@ function KompetencerList() {
                     }
                     aria-expanded={isOpen}
                     className={
-                      "text-[11px] tracking-wide uppercase border px-2.5 py-1 transition-colors " +
-                      (isOpen
-                        ? "bg-ember border-ember text-cream"
-                        : hasCases
-                          ? "border-cream/20 text-cream/70 hover:border-ember hover:text-cream cursor-pointer"
-                          : "border-cream/10 text-cream/40 cursor-default")
+                      "text-[11px] tracking-wide uppercase bg-transparent border-0 p-0 transition-colors " +
+                      (hasCases
+                        ? "cursor-pointer hover:text-[#C0281E] "
+                        : "cursor-default ") +
+                      (isOpen ? "text-[#C0281E]" : "text-[#8899AA]")
                     }
                   >
                     {t}
