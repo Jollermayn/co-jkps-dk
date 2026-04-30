@@ -106,7 +106,7 @@ function TypewriterQuote() {
   ];
   const totalChars = segments.reduce((n, s) => n + s.text.length, 0);
   const [count, setCount] = useState(0);
-  const [pausing, setPausing] = useState(false);
+  
 
   useEffect(() => {
     const el = ref.current;
@@ -128,28 +128,21 @@ function TypewriterQuote() {
   }, [started]);
 
   useEffect(() => {
-    if (!started || count >= totalChars || pausing) return;
-    // Determine if we just finished a segment that has lineBreakAfter
+    if (!started || count >= totalChars) return;
+    // If we just finished a segment with lineBreakAfter, use a longer delay
     let acc = 0;
-    let pauseNeeded = false;
+    let atBreak = false;
     for (const s of segments) {
       acc += s.text.length;
       if (count === acc && s.lineBreakAfter) {
-        pauseNeeded = true;
+        atBreak = true;
         break;
       }
     }
-    if (pauseNeeded) {
-      setPausing(true);
-      const t = setTimeout(() => {
-        setPausing(false);
-        setCount((c) => c + 1);
-      }, 20);
-      return () => clearTimeout(t);
-    }
-    const t = setTimeout(() => setCount((c) => c + 1), 40);
+    const delay = atBreak ? 320 : 40;
+    const t = setTimeout(() => setCount((c) => c + 1), delay);
     return () => clearTimeout(t);
-  }, [started, count, totalChars, pausing]);
+  }, [started, count, totalChars]);
 
   // Render: walk segments, slicing each by remaining chars
   let remaining = count;
