@@ -417,11 +417,13 @@ function CasesSection() {
     if (!children.length) return;
     const len = children.length;
     const target = ((activeIndex + dir) % len + len) % len;
-    children[target]?.scrollIntoView({
+    const child = children[target];
+    if (!child) return;
+    el.scrollTo({
+      left: child.offsetLeft - el.offsetLeft,
       behavior: "smooth",
-      inline: "start",
-      block: "nearest",
     });
+    setActiveIndex(target);
   };
 
   const total = filtered.length;
