@@ -100,10 +100,10 @@ function Sidebar() {
         <p className="mt-4 text-cream/65 text-sm">
           Selvstændig siden 2016. Jeg arbejder i skæringsfeltet mellem strategi, design og teknologi.
         </p>
-        <blockquote className="border-l-2 border-ember pl-6 mt-8">
-          <p className="font-display italic text-xl md:text-2xl leading-snug text-cream/95">
-            The problem with Ai is when there's too much A and not enough{" "}
-            <span className="not-italic font-normal text-ember">i</span>.
+        <blockquote className="pl-6 mt-8" style={{ borderLeft: "3px solid #C0281E" }}>
+          <p className="font-display italic leading-snug text-cream/95" style={{ fontSize: "26px" }}>
+            The problem with Ai is when there's too much A and{" "}
+            <span className="not-italic font-normal" style={{ color: "#C0281E" }}>not enough i</span>.
           </p>
         </blockquote>
       </div>
