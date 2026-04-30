@@ -381,7 +381,7 @@ function Index() {
       {/* FOOTER */}
       <footer className="bg-navy-deep py-10 relative z-30">
         <div className="px-6 md:px-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-sm text-cream/55">
-          <p>Jonas K.P. Sørensen · Digital konsulent · Aarhus</p>
+          <p>Jonas K.P. Sørensen · Digital konsulent &amp; strateg · Aarhus</p>
           <p>© {new Date().getFullYear()} · Selvstændig siden 2016</p>
         </div>
       </footer>
