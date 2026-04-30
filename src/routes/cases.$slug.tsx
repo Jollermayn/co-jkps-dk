@@ -3,6 +3,7 @@ import { caseStudies, getCaseBySlug } from "@/data/cases";
 import { ApproachGrid } from "@/components/ApproachGrid";
 import woltHeatmap from "@/assets/wolt-heatmap.png";
 import boligaMockup from "@/assets/boliga-mockup.png";
+import horesimQuotes from "@/assets/horesim-quotes.png";
 
 export const Route = createFileRoute("/cases/$slug")({
   loader: ({ params }) => {
@@ -117,6 +118,17 @@ function CaseDetail() {
       {/* SECTIONS */}
       <article className="py-12 md:py-16">
         <div className="mx-auto max-w-[1400px] px-6 md:px-10 space-y-12 md:space-y-16">
+          {study.slug === "interaktiv-horesimulering" && (
+            <div className="flex flex-col items-center text-center">
+              <span className="eyebrow text-ember tracking-[0.2em]">— Stemmer fra feltet</span>
+              <img
+                src={horesimQuotes}
+                alt="Citater fra hørehæmmede elever, lærere og eksperter"
+                className="mt-6 w-full max-w-[600px] h-auto"
+              />
+            </div>
+          )}
+
           <Section label="Kontekst" title="Kontekst">
             <p className="text-lg md:text-xl text-cream/85 leading-relaxed">{study.context}</p>
           </Section>
