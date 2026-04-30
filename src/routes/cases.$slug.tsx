@@ -1,6 +1,7 @@
 import { createFileRoute, Link, notFound, useRouter } from "@tanstack/react-router";
 import { caseStudies, getCaseBySlug } from "@/data/cases";
 import { TagWithCases } from "@/components/TagWithCases";
+import woltHeatmap from "@/assets/wolt-heatmap.png";
 
 export const Route = createFileRoute("/cases/$slug")({
   loader: ({ params }) => {
@@ -133,6 +134,16 @@ function CaseDetail() {
               ))}
             </ul>
           </Section>
+
+          {study.slug === "wolt" && (
+            <div className="flex justify-center">
+              <img
+                src={woltHeatmap}
+                alt="Heatmap der viser efterspørgsel i realtid i København"
+                className="w-full max-w-[500px] h-auto"
+              />
+            </div>
+          )}
 
           <Section label="Tilgang" title="Tilgang">
             <ul className="flex flex-wrap gap-2">
