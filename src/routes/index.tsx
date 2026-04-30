@@ -758,7 +758,7 @@ function CasesSection() {
                 <div
                   ref={scrollerRef}
                   onScroll={handleScroll}
-                  className="flex gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth px-12 md:px-14 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+                  className="flex gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth px-12 md:px-14 scroll-pl-12 md:scroll-pl-14 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
                 >
                   {filtered.map((c, i) => renderCard(c, "slider", i))}
                 </div>
