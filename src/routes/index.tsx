@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { caseStudies, type CaseStudy } from "@/data/cases";
-import heroSymbol from "@/assets/hero-symbol.png";
+import { HeroSymbol } from "@/components/HeroSymbol";
 import { CaseModal } from "@/components/CaseModal";
 
 
@@ -104,12 +104,7 @@ function Sidebar() {
           Selvstændig siden 2016. Jeg arbejder i skæringsfeltet mellem strategi, design og teknologi.
         </p>
         <div className="mt-8 flex flex-col items-center gap-6 text-center">
-          <img
-            src={heroSymbol}
-            alt=""
-            aria-hidden="true"
-            className="h-auto w-full max-w-[130px] md:max-w-[160px]"
-          />
+          <HeroSymbol className="h-auto w-full max-w-[130px] md:max-w-[160px]" />
           <blockquote>
             <p className="font-display italic leading-snug text-cream/95" style={{ fontSize: "26px" }}>
               The problem with Ai is when there's too much A and{" "}
