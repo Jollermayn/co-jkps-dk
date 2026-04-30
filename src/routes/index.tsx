@@ -614,8 +614,8 @@ function CasesSection() {
               : "";
           const imgClass =
             variant === "grid"
-              ? "w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-[400ms] ease-out group-hover:scale-[1.04]"
-              : "w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-[400ms] ease-out group-hover:scale-[1.04]";
+              ? "w-full h-full object-cover md:grayscale md:group-hover:grayscale-0 transition-all duration-[400ms] ease-out group-hover:scale-[1.04]"
+              : "w-full h-full object-cover md:grayscale md:group-hover:grayscale-0 transition-all duration-[400ms] ease-out group-hover:scale-[1.04]";
           return (
             <button
               key={c.slug}
