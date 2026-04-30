@@ -363,6 +363,7 @@ function CasesSection() {
   const [filter, setFilter] = useState<Filter>("Alle");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [openCase, setOpenCase] = useState<CaseStudy | null>(null);
+  const scrollerRef = useRef<HTMLDivElement | null>(null);
 
   const filtered = caseStudies.filter((c) => {
     if (filter === "Alle") return true;
@@ -381,20 +382,55 @@ function CasesSection() {
 
   useEffect(() => {
     setCurrentIndex(0);
+    const el = scrollerRef.current;
+    if (el) el.scrollTo({ left: 0, behavior: "auto" });
   }, [filter]);
 
   const total = filtered.length;
   const progress = total > 1 ? ((currentIndex + 1) / total) * 100 : 100;
-  const activeCase = filtered[currentIndex] ?? filtered[0] ?? null;
+
+  const scrollToIndex = (target: number) => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    const children = Array.from(el.children) as HTMLElement[];
+    const child = children[target];
+    if (!child) return;
+    el.scrollTo({
+      left: child.offsetLeft - el.offsetLeft,
+      behavior: "smooth",
+    });
+  };
 
   const showNextCase = () => {
     if (!filtered.length) return;
-    setCurrentIndex((prev) => (prev + 1) % filtered.length);
+    const next = (currentIndex + 1) % filtered.length;
+    setCurrentIndex(next);
+    scrollToIndex(next);
   };
 
   const showPreviousCase = () => {
     if (!filtered.length) return;
-    setCurrentIndex((prev) => (prev - 1 + filtered.length) % filtered.length);
+    const prev = (currentIndex - 1 + filtered.length) % filtered.length;
+    setCurrentIndex(prev);
+    scrollToIndex(prev);
+  };
+
+  const handleScroll = () => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    const children = Array.from(el.children) as HTMLElement[];
+    if (!children.length) return;
+    const scrollLeft = el.scrollLeft;
+    let closest = 0;
+    let minDist = Infinity;
+    children.forEach((child, i) => {
+      const dist = Math.abs(child.offsetLeft - el.offsetLeft - scrollLeft);
+      if (dist < minDist) {
+        minDist = dist;
+        closest = i;
+      }
+    });
+    if (closest !== currentIndex) setCurrentIndex(closest);
   };
 
   return (
