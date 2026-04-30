@@ -370,10 +370,30 @@ const CASE_META: Record<string, { headline: string; tags: string[] }> = {
 
 function CasesSection() {
   const [filter, setFilter] = useState<Filter>("Alle");
+  const [filterOpen, setFilterOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [openCase, setOpenCase] = useState<CaseStudy | null>(null);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const scrollerRef = useRef<HTMLDivElement | null>(null);
+  const filterRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (!filterOpen) return;
+    const onClick = (e: MouseEvent) => {
+      if (filterRef.current && !filterRef.current.contains(e.target as Node)) {
+        setFilterOpen(false);
+      }
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setFilterOpen(false);
+    };
+    document.addEventListener("mousedown", onClick);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onClick);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [filterOpen]);
 
   const filtered = caseStudies.filter((c) => {
     if (filter === "Alle") return true;
