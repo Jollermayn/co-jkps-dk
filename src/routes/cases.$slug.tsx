@@ -163,7 +163,7 @@ function CaseDetail() {
           {study.slug === "boliga" && (
             <div className="grid grid-cols-12 gap-4 md:gap-8">
               <div className="hidden md:block md:col-span-4" />
-              <div className="col-span-12 md:col-span-8 flex justify-center">
+              <div className="col-span-12 md:col-span-8 flex justify-start">
                 <img
                   src={boligaMockup}
                   alt="Boliga app mockups: vælg kommune, drømmebolig, boligtype og præferencer"
@@ -176,7 +176,7 @@ function CaseDetail() {
           {study.slug === "wolt" && (
             <div className="grid grid-cols-12 gap-4 md:gap-8">
               <div className="hidden md:block md:col-span-4" />
-              <div className="col-span-12 md:col-span-8 flex justify-center">
+              <div className="col-span-12 md:col-span-8 flex justify-start">
                 <img
                   src={woltHeatmap}
                   alt="Heatmap der viser efterspørgsel i realtid i København"
