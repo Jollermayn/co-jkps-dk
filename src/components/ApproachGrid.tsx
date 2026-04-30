@@ -63,7 +63,7 @@ export function ApproachGrid({ tags }: { tags: string[] }) {
         return (
           <div
             key={tag}
-            className="flex flex-col items-start gap-3 border border-cream/15 bg-navy-deep/40 px-4 py-4 md:px-5 md:py-5 transition-colors hover:border-ember/60"
+            className="flex flex-row items-center gap-3"
           >
             <Icon
               className="w-5 h-5 text-ember shrink-0"
