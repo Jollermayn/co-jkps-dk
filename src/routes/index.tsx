@@ -106,7 +106,7 @@ function TypewriterQuote() {
   ];
   const totalChars = segments.reduce((n, s) => n + s.text.length, 0);
   const [count, setCount] = useState(0);
-  const [pausing, setPausing] = useState(false);
+  
 
   useEffect(() => {
     const el = ref.current;
