@@ -112,7 +112,7 @@ function Sidebar() {
         </blockquote>
       </div>
 
-      <div className="mt-10 lg:mt-0 flex flex-col gap-3">
+      <div className="mt-10 lg:mt-6 flex flex-col gap-3">
         <p className="mb-3 text-cream/65 text-sm">
           Selvstændig siden 2016. Jeg arbejder i skæringsfeltet mellem strategi, design og teknologi.
         </p>
