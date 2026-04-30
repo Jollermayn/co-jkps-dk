@@ -99,8 +99,8 @@ function TypewriterQuote() {
   const [started, setStarted] = useState(false);
   // Segments: { text, red?, lineBreakAfter? }
   const segments = [
-    { text: "The problem with Ai", lineBreakAfter: true },
-    { text: "is when there's too much A", lineBreakAfter: true },
+    { text: "The problem with Ai is", lineBreakAfter: true },
+    { text: "when there's too much A", lineBreakAfter: true },
     { text: "and " },
     { text: "not enough i.", red: true },
   ];
