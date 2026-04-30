@@ -189,13 +189,13 @@ function Sidebar() {
           download
           className="inline-flex items-center justify-center gap-3 px-5 py-3 text-sm tracking-wide rounded-full bg-[#0D1B2A] text-white transition-transform duration-200 ease-out hover:scale-[1.04]"
         >
-          Download CV (PDF) <span aria-hidden>↓</span>
+          Download CV (PDF)
         </a>
         <a
           href="#kontakt"
           className="inline-flex items-center justify-center gap-2 text-[1.1rem] font-bold tracking-wide text-[#C0281E] hover:text-[#C0281E]/80 transition-colors"
         >
-          Lad os tales ved <span aria-hidden>→</span>
+          Lad os tales ved
         </a>
         <div className="mt-6 flex items-center justify-center gap-4">
           <img
