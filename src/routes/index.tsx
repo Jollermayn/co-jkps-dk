@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
+import { SlidersHorizontal, X } from "lucide-react";
 import { caseStudies, type CaseStudy } from "@/data/cases";
 import { HeroSymbol } from "@/components/HeroSymbol";
 import { CaseModal } from "@/components/CaseModal";
@@ -369,10 +370,30 @@ const CASE_META: Record<string, { headline: string; tags: string[] }> = {
 
 function CasesSection() {
   const [filter, setFilter] = useState<Filter>("Alle");
+  const [filterOpen, setFilterOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [openCase, setOpenCase] = useState<CaseStudy | null>(null);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const scrollerRef = useRef<HTMLDivElement | null>(null);
+  const filterRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (!filterOpen) return;
+    const onClick = (e: MouseEvent) => {
+      if (filterRef.current && !filterRef.current.contains(e.target as Node)) {
+        setFilterOpen(false);
+      }
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setFilterOpen(false);
+    };
+    document.addEventListener("mousedown", onClick);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onClick);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [filterOpen]);
 
   const filtered = caseStudies.filter((c) => {
     if (filter === "Alle") return true;
@@ -478,27 +499,84 @@ function CasesSection() {
           </div>
         </div>
 
-        {/* Filter bar */}
-        <div className="flex flex-wrap items-center gap-x-2 gap-y-3 mb-10 md:mb-12">
-          <div className="flex flex-wrap gap-2 flex-1">
-            {FILTERS.map((f) => {
-              const active = f === filter;
-              return (
-                <button
-                  key={f}
-                  type="button"
-                  onClick={() => setFilter(f)}
-                  className={
-                    "text-xs tracking-wide px-3.5 py-1.5 rounded-full border transition-colors " +
-                    (active
-                      ? "bg-ember text-cream border-ember"
-                      : "border-cream/20 text-cream/70 hover:border-cream/50 hover:text-cream")
-                  }
+        {/* Filter dropdown */}
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-3 mb-10 md:mb-12">
+          <div className="relative" ref={filterRef}>
+            <button
+              type="button"
+              onClick={() => setFilterOpen((v) => !v)}
+              aria-haspopup="listbox"
+              aria-expanded={filterOpen}
+              className={
+                "inline-flex items-center gap-2 text-xs tracking-wide px-4 py-2 rounded-full border transition-colors " +
+                (filter !== "Alle"
+                  ? "bg-ember text-cream border-ember hover:bg-ember/90"
+                  : "border-cream/25 text-cream/85 hover:border-cream/60 hover:text-cream")
+              }
+            >
+              <SlidersHorizontal size={14} strokeWidth={2} />
+              <span>
+                Filter
+                {filter !== "Alle" && <span className="opacity-90"> · {filter}</span>}
+              </span>
+              {filter !== "Alle" && (
+                <span
+                  role="button"
+                  tabIndex={0}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setFilter("Alle");
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      setFilter("Alle");
+                    }
+                  }}
+                  aria-label="Ryd filter"
+                  className="ml-1 -mr-1 inline-flex items-center justify-center rounded-full p-0.5 hover:bg-cream/20"
                 >
-                  {f} <span className="text-[10px] opacity-70">({filterCounts[f]})</span>
-                </button>
-              );
-            })}
+                  <X size={12} strokeWidth={2.25} />
+                </span>
+              )}
+            </button>
+
+            {filterOpen && (
+              <div className="absolute left-0 top-full mt-2 z-30 min-w-[260px] bg-navy-deep border border-cream/15 rounded-xl shadow-2xl p-3">
+                <div className="eyebrow text-cream/50 px-2 pb-2">Kategorier</div>
+                <ul role="listbox" className="flex flex-col">
+                  {FILTERS.map((f) => {
+                    const active = f === filter;
+                    return (
+                      <li key={f}>
+                        <button
+                          type="button"
+                          role="option"
+                          aria-selected={active}
+                          onClick={() => {
+                            setFilter(f);
+                            setFilterOpen(false);
+                          }}
+                          className={
+                            "w-full flex items-center justify-between gap-3 text-left px-3 py-2 rounded-md text-sm transition-colors " +
+                            (active
+                              ? "bg-ember/15 text-cream"
+                              : "text-cream/75 hover:bg-cream/5 hover:text-cream")
+                          }
+                        >
+                          <span className="flex items-center gap-2">
+                            {active && <span className="h-1.5 w-1.5 rounded-full bg-ember" />}
+                            {f}
+                          </span>
+                          <span className="text-[11px] text-cream/50">{filterCounts[f]}</span>
+                        </button>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            )}
           </div>
           <span className="eyebrow text-cream/50 ml-auto">
             {filtered.length} / {caseStudies.length}
