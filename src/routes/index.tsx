@@ -100,9 +100,6 @@ function Sidebar() {
         <p className="mt-6 text-lg text-cream/85 leading-snug font-display italic">
           Digital konsulent · Brugeroplevelse &amp; digitale løsninger.
         </p>
-        <p className="mt-4 text-cream/65 text-sm">
-          Selvstændig siden 2016. Jeg arbejder i skæringsfeltet mellem strategi, design og teknologi.
-        </p>
         <div className="mt-8 flex flex-col items-center gap-6 text-center">
           <HeroSymbol className="h-auto w-full max-w-[130px] md:max-w-[160px]" />
           <blockquote>
@@ -115,6 +112,9 @@ function Sidebar() {
       </div>
 
       <div className="mt-10 lg:mt-0 flex flex-col gap-3">
+        <p className="mb-3 text-cream/65 text-sm">
+          Selvstændig siden 2016. Jeg arbejder i skæringsfeltet mellem strategi, design og teknologi.
+        </p>
         <a
           href="/jonas-kp-sorensen-cv.pdf"
           download
