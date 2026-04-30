@@ -84,12 +84,9 @@ const partners = [
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
-    <span className="group/eyebrow inline-flex flex-col items-stretch w-fit cursor-default">
+    <span className="inline-flex flex-col items-stretch w-fit cursor-default">
       <span className="eyebrow text-ember">{children}</span>
-      <span aria-hidden className="relative mt-1.5 block h-px w-full">
-        <span className="absolute inset-y-0 left-0 w-1/2 bg-[#C0281E] transition-opacity duration-200 ease-out group-hover/eyebrow:opacity-0" />
-        <span className="absolute inset-y-0 right-0 w-1/2 bg-white opacity-0 transition-opacity duration-200 ease-out group-hover/eyebrow:opacity-100" />
-      </span>
+      <span aria-hidden className="mt-1.5 block h-px w-full bg-[#C0281E]" />
     </span>
   );
 }
