@@ -526,8 +526,9 @@ function CasesSection() {
         </div>
 
         {/* Filter dropdown */}
-        <div className="flex flex-wrap items-center gap-x-3 gap-y-3 mb-10 md:mb-12">
-          <div className="relative" ref={filterRef}>
+        <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-3 mb-2.5 md:mb-3">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-3">
+            <div className="relative" ref={filterRef}>
             <button
               type="button"
               onClick={() => setFilterOpen((v) => !v)}
@@ -604,6 +605,28 @@ function CasesSection() {
               </div>
             )}
           </div>
+          </div>
+          {/* Arrow nav — right side, same row as filter */}
+          {!isGrid && (
+            <div className="hidden md:flex items-center gap-3">
+              <button
+                type="button"
+                aria-label="Forrige case"
+                onClick={showPreviousCase}
+                className="w-12 h-12 rounded-full border border-cream/25 text-cream flex items-center justify-center transition-colors hover:border-[#C0281E] hover:text-[#C0281E]"
+              >
+                <span aria-hidden className="text-xl leading-none">←</span>
+              </button>
+              <button
+                type="button"
+                aria-label="Næste case"
+                onClick={showNextCase}
+                className="w-12 h-12 rounded-full border border-cream/25 text-cream flex items-center justify-center transition-colors hover:border-[#C0281E] hover:text-[#C0281E]"
+              >
+                <span aria-hidden className="text-xl leading-none">→</span>
+              </button>
+            </div>
+          )}
         </div>
       </div>
 
@@ -732,25 +755,6 @@ function CasesSection() {
               </>
             ) : (
               <>
-                {/* Arrow nav — sits directly above the carousel, aligned right */}
-                <div className="hidden md:flex justify-end items-center gap-3 px-12 md:px-14 mb-2.5">
-                  <button
-                    type="button"
-                    aria-label="Forrige case"
-                    onClick={showPreviousCase}
-                    className="w-12 h-12 rounded-full border border-cream/25 text-cream flex items-center justify-center transition-colors hover:border-[#C0281E] hover:text-[#C0281E]"
-                  >
-                    <span aria-hidden className="text-xl leading-none">←</span>
-                  </button>
-                  <button
-                    type="button"
-                    aria-label="Næste case"
-                    onClick={showNextCase}
-                    className="w-12 h-12 rounded-full border border-cream/25 text-cream flex items-center justify-center transition-colors hover:border-[#C0281E] hover:text-[#C0281E]"
-                  >
-                    <span aria-hidden className="text-xl leading-none">→</span>
-                  </button>
-                </div>
                 <div
                   ref={scrollerRef}
                   onScroll={handleScroll}
