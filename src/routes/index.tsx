@@ -102,12 +102,12 @@ function Sidebar() {
         <p className="mt-4 text-cream/65 text-sm">
           Selvstændig siden 2016. Jeg arbejder i skæringsfeltet mellem strategi, design og teknologi.
         </p>
-        <div className="mt-8 flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
+        <div className="mt-8 flex flex-col items-center gap-6 text-center">
           <img
             src={heroSymbol}
             alt=""
             aria-hidden="true"
-            className="h-auto w-full max-w-[160px] md:max-w-[120px] shrink-0"
+            className="h-auto w-full max-w-[130px] md:max-w-[160px]"
           />
           <blockquote>
             <p className="font-display italic leading-snug text-cream/95" style={{ fontSize: "26px" }}>
