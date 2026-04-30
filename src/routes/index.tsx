@@ -100,7 +100,14 @@ function TypewriterQuote() {
 
   const lines: { content: React.ReactNode; plain: string }[] = [
     { content: "The problem with Ai is", plain: "The problem with Ai is" },
-    { content: "when there's too much A", plain: "when there's too much A" },
+    {
+      content: (
+        <>
+          when there's <span className="font-extrabold text-[1.1em]">too much A</span>
+        </>
+      ),
+      plain: "when there's too much A",
+    },
     {
       content: (
         <>
