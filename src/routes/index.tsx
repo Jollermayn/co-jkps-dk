@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { caseStudies } from "@/data/cases";
+import heroSymbol from "@/assets/hero-symbol.png";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -100,6 +102,14 @@ function Sidebar() {
         <p className="mt-4 text-cream/65 text-sm">
           Selvstændig siden 2016. Jeg arbejder i skæringsfeltet mellem strategi, design og teknologi.
         </p>
+        <div className="mt-8 flex justify-center">
+          <img
+            src={heroSymbol}
+            alt=""
+            aria-hidden="true"
+            className="w-full max-w-[200px] h-auto"
+          />
+        </div>
         <blockquote className="pl-6 mt-8" style={{ borderLeft: "3px solid #C0281E" }}>
           <p className="font-display italic leading-snug text-cream/95" style={{ fontSize: "26px" }}>
             The problem with Ai is when there's too much A and{" "}
