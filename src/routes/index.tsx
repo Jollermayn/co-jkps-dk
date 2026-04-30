@@ -429,7 +429,12 @@ function CasesSection() {
             </h2>
           </div>
           {/* Arrow nav */}
-          <div className="hidden md:flex items-center gap-3 shrink-0 pt-4">
+          <div
+            className={
+              "hidden md:flex items-center gap-3 shrink-0 pt-4 transition-opacity duration-300 " +
+              (isGrid ? "opacity-0 pointer-events-none" : "opacity-100")
+            }
+          >
             <button
               type="button"
               aria-label="Forrige case"
