@@ -507,12 +507,14 @@ function CasesSection() {
               ? "snap-start shrink-0 w-[85vw] sm:w-[420px]"
               : "w-full";
           const isActiveMobile = variant === "slider" && index === activeIndex;
-          // On mobile: active card shows in color, others greyscale.
-          // On desktop (md+): always greyscale unless hovered.
+          // Slider: mobile shows active card in color, others greyscale; desktop greyscale + hover color.
+          // Grid: always full color.
           const imgClass =
-            "w-full h-full object-cover transition-all duration-[300ms] ease-out group-hover:scale-[1.04] " +
-            (isActiveMobile ? "grayscale-0 " : "grayscale ") +
-            "md:grayscale md:group-hover:grayscale-0";
+            variant === "grid"
+              ? "w-full h-full object-cover transition-all duration-[300ms] ease-out group-hover:scale-[1.04]"
+              : "w-full h-full object-cover transition-all duration-[300ms] ease-out group-hover:scale-[1.04] " +
+                (isActiveMobile ? "grayscale-0 " : "grayscale ") +
+                "md:grayscale md:group-hover:grayscale-0";
           return (
             <Link
               key={c.slug}
