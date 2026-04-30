@@ -118,23 +118,22 @@ function CaseDetail() {
       {/* SECTIONS */}
       <article className="py-12 md:py-16">
         <div className="mx-auto max-w-[1400px] px-6 md:px-10 space-y-12 md:space-y-16">
-          {study.slug === "interaktiv-horesimulering" && (
-            <div>
-              <span className="eyebrow text-ember tracking-[0.2em] block">— Stemmer fra feltet</span>
-              <img
-                src={horesimQuotes}
-                alt="Citater fra hørehæmmede elever, lærere og eksperter"
-                className="mt-6 w-full h-auto"
-              />
-            </div>
-          )}
-
           <Section label="Kontekst" title="Kontekst">
             <p className="text-lg md:text-xl text-cream/85 leading-relaxed">{study.context}</p>
           </Section>
 
           <Section label="Udfordring" title="Udfordring">
             <p className="text-lg md:text-xl text-cream/85 leading-relaxed">{study.challenge}</p>
+            {study.slug === "interaktiv-horesimulering" && (
+              <div className="mt-10">
+                <span className="eyebrow text-ember tracking-[0.2em] block">— Stemmer fra feltet</span>
+                <img
+                  src={horesimQuotes}
+                  alt="Citater fra hørehæmmede elever, lærere og eksperter"
+                  className="mt-6 w-full h-auto"
+                />
+              </div>
+            )}
           </Section>
 
           <Section label="Min rolle" title="Min rolle">
