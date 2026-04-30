@@ -99,12 +99,15 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
           </ModalSection>
 
           {study.slug === "wolt" && (
-            <div className="flex justify-center">
-              <img
-                src={woltHeatmap}
-                alt="Heatmap der viser efterspørgsel i realtid i København"
-                className="w-full max-w-[480px] h-auto"
-              />
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-8">
+              <div className="md:col-span-3" />
+              <div className="md:col-span-9">
+                <img
+                  src={woltHeatmap}
+                  alt="Heatmap der viser efterspørgsel i realtid i København"
+                  className="w-full max-w-[480px] h-auto"
+                />
+              </div>
             </div>
           )}
 
