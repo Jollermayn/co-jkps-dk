@@ -167,8 +167,8 @@ function TypewriterQuote() {
 
 function Sidebar() {
   return (
-    <aside className="relative flex flex-col gap-10 lg:gap-0 lg:justify-between lg:min-h-0 lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto px-6 md:px-10 py-16 lg:pt-20 lg:pb-20 border-b lg:border-b-0 lg:border-l border-cream/10 order-1 lg:order-last bg-[#163028] lg:z-20 lg:rounded-l-xl lg:shadow-[-8px_0_24px_rgba(0,0,0,0.25)]">
-      <div>
+    <aside className="relative flex flex-col gap-10 lg:gap-0 lg:justify-between lg:min-h-0 lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto px-6 md:px-10 py-16 lg:pt-20 lg:pb-20 border-b lg:border-b-0 lg:border-l border-cream/10 order-1 lg:order-last bg-[#163028] lg:z-20 lg:rounded-l-xl lg:shadow-[-8px_0_24px_rgba(0,0,0,0.25)] text-center items-center">
+      <div className="w-full">
         <h1 className="font-display text-[clamp(2.5rem,5vw,4.5rem)] leading-[0.95] tracking-[-0.02em] font-medium">
           Jonas
         </h1>
@@ -182,31 +182,31 @@ function Sidebar() {
           Digital konsulent &amp; strateg.
         </p>
       </div>
-      <div className="flex flex-1 min-h-0 flex-col items-start justify-center gap-8 text-left py-10 lg:py-6 pl-4 md:pl-6">
+      <div className="flex flex-1 min-h-0 flex-col items-center justify-center gap-8 text-center py-10 lg:py-6 w-full">
         
         <blockquote className="max-w-full">
           <TypewriterQuote />
         </blockquote>
       </div>
 
-      <div className="mt-6 lg:mt-6 flex flex-col gap-3">
+      <div className="mt-6 lg:mt-6 flex flex-col items-center gap-3 w-full text-center">
         <p className="mb-3 text-cream/65 text-sm">
           Selvstændig siden 2016. Jeg arbejder i skæringsfeltet mellem strategi, design og teknologi.
         </p>
         <a
           href="/jonas-kp-sorensen-cv.pdf"
           download
-          className="inline-flex items-center justify-between gap-3 px-5 py-3 text-sm tracking-wide border border-cream/25 hover:border-ember hover:text-ember transition-colors"
+          className="inline-flex items-center justify-center gap-3 px-5 py-3 text-sm tracking-wide border border-cream/25 hover:border-ember hover:text-ember transition-colors"
         >
           Download CV (PDF) <span aria-hidden>↓</span>
         </a>
         <a
           href="#kontakt"
-          className="inline-flex items-center justify-between gap-3 bg-ember lg:bg-[#8B3A2A] text-cream px-5 py-3 text-sm tracking-wide hover:bg-ember/90 lg:hover:bg-[#8B3A2A]/90 transition-colors"
+          className="inline-flex items-center justify-center gap-3 bg-ember lg:bg-[#8B3A2A] text-cream px-5 py-3 text-sm tracking-wide hover:bg-ember/90 lg:hover:bg-[#8B3A2A]/90 transition-colors"
         >
           Lad os tales ved <span aria-hidden>→</span>
         </a>
-        <div className="mt-6 flex items-center gap-4">
+        <div className="mt-6 flex items-center justify-center gap-4">
           <img
             src={profilePhoto}
             alt="Jonas K.P. Sørensen"
