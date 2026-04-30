@@ -415,10 +415,8 @@ function CasesSection() {
     if (!el) return;
     const children = Array.from(el.children) as HTMLElement[];
     if (!children.length) return;
-    const target = Math.max(
-      0,
-      Math.min(children.length - 1, activeIndex + dir),
-    );
+    const len = children.length;
+    const target = ((activeIndex + dir) % len + len) % len;
     children[target]?.scrollIntoView({
       behavior: "smooth",
       inline: "start",
@@ -450,8 +448,7 @@ function CasesSection() {
               type="button"
               aria-label="Forrige case"
               onClick={() => scrollByCard(-1)}
-              disabled={activeIndex === 0}
-              className="w-12 h-12 rounded-full border border-cream/25 text-cream flex items-center justify-center transition-colors hover:border-[#C0281E] hover:text-[#C0281E] disabled:opacity-30 disabled:hover:border-cream/25 disabled:hover:text-cream"
+              className="w-12 h-12 rounded-full border border-cream/25 text-cream flex items-center justify-center transition-colors hover:border-[#C0281E] hover:text-[#C0281E]"
             >
               <span aria-hidden className="text-xl leading-none">←</span>
             </button>
@@ -459,7 +456,6 @@ function CasesSection() {
               type="button"
               aria-label="Næste case"
               onClick={() => scrollByCard(1)}
-              disabled={activeIndex >= total - 1}
               className="w-12 h-12 rounded-full border border-cream/25 text-cream flex items-center justify-center transition-colors hover:border-[#C0281E] hover:text-[#C0281E] disabled:opacity-30 disabled:hover:border-cream/25 disabled:hover:text-cream"
             >
               <span aria-hidden className="text-xl leading-none">→</span>
