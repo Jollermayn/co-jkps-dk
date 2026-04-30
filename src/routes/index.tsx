@@ -563,7 +563,7 @@ function CasesSection() {
           <div key={isGrid ? "grid" : "slider"} className="animate-fade-in">
             {isGrid ? (
               <div className="px-6 md:px-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                {filtered.map((c) => renderCard(c, "grid"))}
+                {filtered.map((c, i) => renderCard(c, "grid", i))}
               </div>
             ) : (
               <>
@@ -572,7 +572,7 @@ function CasesSection() {
                   onScroll={handleScroll}
                   className="flex gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-2 px-6 md:px-10 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
                 >
-                  {filtered.map((c) => renderCard(c, "slider"))}
+                  {filtered.map((c, i) => renderCard(c, "slider", i))}
                 </div>
 
                 {/* Progress indicator */}
