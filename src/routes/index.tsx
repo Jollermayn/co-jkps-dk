@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { SlidersHorizontal, X } from "lucide-react";
 import { caseStudies, type CaseStudy } from "@/data/cases";
-import { HeroSymbol } from "@/components/HeroSymbol";
+
 import { CaseModal } from "@/components/CaseModal";
 import profilePhoto from "@/assets/profile-photo.png";
 
