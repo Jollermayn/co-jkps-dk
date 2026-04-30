@@ -724,6 +724,7 @@ function KompetencerList() {
   }, [openTag]);
 
   return (
+    <>
     <ul className="divide-y divide-cream/10 border-y border-cream/10">
       {competencies.map((c) => (
         <li
