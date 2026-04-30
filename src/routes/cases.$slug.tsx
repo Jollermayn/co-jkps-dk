@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound, useRouter } from "@tanstack/react-router";
 import { caseStudies, getCaseBySlug } from "@/data/cases";
-import { TagWithCases } from "@/components/TagWithCases";
+import { ApproachGrid } from "@/components/ApproachGrid";
 import woltHeatmap from "@/assets/wolt-heatmap.png";
 import boligaMockup from "@/assets/boliga-mockup.png";
 
@@ -137,16 +137,7 @@ function CaseDetail() {
           </Section>
 
           <Section label="Tilgang" title="Tilgang">
-            <ul className="flex flex-wrap gap-2">
-              {study.approach.map((t) => (
-                <TagWithCases
-                  key={t}
-                  tag={t}
-                  excludeSlug={study.slug}
-                  variant="approach"
-                />
-              ))}
-            </ul>
+            <ApproachGrid tags={study.approach} />
           </Section>
 
           <Section label="Resultater" title="Resultater">
