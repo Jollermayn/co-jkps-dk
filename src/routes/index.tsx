@@ -700,6 +700,7 @@ const TAG_HEADLINES: Record<string, string> = {
 
 function KompetencerList() {
   const [openTag, setOpenTag] = useState<string | null>(null);
+  const [openCase, setOpenCase] = useState<CaseStudy | null>(null);
   const activeTagRef = useRef<HTMLLIElement>(null);
 
   useEffect(() => {
@@ -788,11 +789,13 @@ function KompetencerList() {
                           if (!study) return null;
                           return (
                             <li key={slug}>
-                              <Link
-                                to="/cases/$slug"
-                                params={{ slug }}
-                                onClick={() => setOpenTag(null)}
-                                className="group/case flex items-start gap-3 p-2 -mx-2 rounded hover:bg-cream/5 transition-colors"
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  setOpenTag(null);
+                                  setOpenCase(study);
+                                }}
+                                className="group/case w-full text-left flex items-start gap-3 p-2 -mx-2 rounded hover:bg-cream/5 transition-colors"
                               >
                                 <img
                                   src={study.image}
@@ -813,7 +816,7 @@ function KompetencerList() {
                                 >
                                   ↗
                                 </span>
-                              </Link>
+                              </button>
                             </li>
                           );
                         })}
