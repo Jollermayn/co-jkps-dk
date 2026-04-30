@@ -203,9 +203,9 @@ function Sidebar() {
           Digital konsulent · Brugeroplevelse &amp; digitale løsninger.
         </p>
       </div>
-      <div className="flex flex-col items-center gap-2 text-center">
-        <HeroSymbol className="h-auto w-full max-w-[300px]" />
-        <blockquote>
+      <div className="flex flex-1 min-h-0 flex-col items-center justify-center gap-8 text-center py-6">
+        <HeroSymbol className="h-auto w-full max-w-[260px]" />
+        <blockquote className="max-w-[20ch]">
           <TypewriterQuote />
         </blockquote>
       </div>
