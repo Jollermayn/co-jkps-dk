@@ -193,37 +193,6 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
 
         </article>
       </div>
-
-      {/* Prev / Next floating arrows */}
-      {(() => {
-        const idx = caseStudies.findIndex((c) => c.slug === study.slug);
-        if (idx === -1) return null;
-        const prev = caseStudies[(idx - 1 + caseStudies.length) % caseStudies.length];
-        const next = caseStudies[(idx + 1) % caseStudies.length];
-        const handle = (s: CaseStudy) => {
-          if (onNavigate) onNavigate(s);
-        };
-        return (
-          <>
-            <button
-              type="button"
-              onClick={() => handle(prev)}
-              aria-label={`Forrige case: ${prev.client}`}
-              className="fixed left-4 md:left-[calc(100vw-min(960px,92vw)+1rem)] top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-cream/25 bg-navy-deep/80 backdrop-blur text-cream flex items-center justify-center transition-colors hover:border-[#C0281E] hover:text-[#C0281E]"
-            >
-              <span aria-hidden className="text-xl leading-none">‹</span>
-            </button>
-            <button
-              type="button"
-              onClick={() => handle(next)}
-              aria-label={`Næste case: ${next.client}`}
-              className="fixed right-4 md:right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-cream/25 bg-navy-deep/80 backdrop-blur text-cream flex items-center justify-center transition-colors hover:border-[#C0281E] hover:text-[#C0281E]"
-            >
-              <span aria-hidden className="text-xl leading-none">›</span>
-            </button>
-          </>
-        );
-      })()}
     </div>
   );
 }
