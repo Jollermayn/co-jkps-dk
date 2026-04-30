@@ -417,7 +417,8 @@ function CasesSection() {
   }, [filter]);
 
   const total = filtered.length;
-  const progress = total > 1 ? ((currentIndex + 1) / total) * 100 : 100;
+  const displayIndex = hoveredIndex ?? currentIndex;
+  const progress = total > 0 ? ((displayIndex + 1) / total) * 100 : 0;
 
   const scrollToIndex = (target: number) => {
     const el = scrollerRef.current;
@@ -716,17 +717,17 @@ function CasesSection() {
 
                 {/* Progress indicator */}
                 <div className="px-6 md:px-10 mt-4 flex items-center gap-6">
-                  <div className="flex-1 h-px bg-cream/15 relative overflow-hidden">
+                  <div className="flex-1 h-0.5 bg-cream/15 relative overflow-hidden rounded-full">
                     <div
-                      className="absolute inset-y-0 left-0 bg-[#C0281E] transition-[width] duration-300 ease-out"
-                      style={{ width: `${progress}%`, height: 1 }}
+                      className="absolute inset-y-0 left-0 bg-[#C0281E] transition-[width] duration-300 ease-out rounded-full"
+                      style={{ width: `${progress}%` }}
                     />
                   </div>
                   <span
                     className="text-cream/70 font-mono tabular-nums"
                     style={{ fontSize: 12, letterSpacing: "0.1em" }}
                   >
-                    {(hoveredIndex ?? currentIndex) + 1} / {total}
+                    {displayIndex + 1} / {total}
                   </span>
                 </div>
               </>
