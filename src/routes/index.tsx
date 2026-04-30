@@ -167,7 +167,7 @@ function TypewriterQuote() {
 
 function Sidebar() {
   return (
-    <aside className="relative flex flex-col gap-10 lg:gap-0 lg:justify-between lg:min-h-0 lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto px-12 md:px-14 lg:px-16 py-16 md:py-20 lg:pt-20 lg:pb-20 border-b lg:border-b-0 lg:border-l border-cream/10 order-1 lg:order-last bg-[#163028] lg:z-20 lg:rounded-l-xl lg:shadow-[-8px_0_24px_rgba(0,0,0,0.25)] text-center items-center">
+    <aside className="relative flex flex-col gap-10 lg:gap-0 lg:justify-between lg:min-h-0 lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto px-12 md:px-14 lg:px-16 py-16 md:py-20 lg:pt-20 lg:pb-20 border-b lg:border-b-0 lg:border-l border-cream/10 order-1 lg:order-last bg-[#0D1B2A] lg:z-20 lg:rounded-l-xl lg:shadow-[-8px_0_24px_rgba(0,0,0,0.25)] text-center items-center">
       <div className="w-full">
         <h1 className="font-display text-[clamp(2.5rem,5vw,4.5rem)] leading-[0.95] tracking-[-0.02em] font-medium text-center">
           Jonas K.P. Sørensen
@@ -211,7 +211,7 @@ function Sidebar() {
 
 function Index() {
   return (
-    <main id="top" className="text-cream lg:bg-[#163028]">
+    <main id="top" className="text-cream lg:bg-[#0D1B2A]">
       <div className="flex flex-col lg:grid lg:grid-cols-[60fr_40fr] lg:items-start">
         {/* LEFT — scrolling content */}
         <div className="min-w-0 order-2 lg:order-none bg-navy-deep lg:mt-11 lg:rounded-t-xl lg:shadow-[0_-8px_24px_rgba(0,0,0,0.2)]">
