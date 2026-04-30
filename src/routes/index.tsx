@@ -520,6 +520,9 @@ function CasesSection() {
       <div className="px-12 md:px-14">
         <div className="mb-10 md:mb-14">
           <Eyebrow>Udvalgte cases</Eyebrow>
+          <p className="mt-3 italic text-cream/55" style={{ fontSize: "0.9rem" }}>
+            Ni projekter. Fra research og co-design til strategi og produktion.
+          </p>
         </div>
 
         {/* Filter dropdown */}
