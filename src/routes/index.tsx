@@ -924,7 +924,7 @@ function KompetencerList() {
                     }
                     aria-expanded={isOpen}
                     className={
-                      "text-[11px] tracking-wide uppercase bg-transparent border-0 p-0 transition-colors " +
+                      "text-left text-[11px] tracking-wide uppercase bg-transparent border-0 p-0 transition-colors " +
                       (hasCases
                         ? "cursor-pointer hover:text-[#C0281E] "
                         : "cursor-default ") +
