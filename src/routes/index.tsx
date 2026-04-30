@@ -482,7 +482,7 @@ function CasesSection() {
               key={c.slug}
               to="/cases/$slug"
               params={{ slug: c.slug }}
-              className="group snap-start shrink-0 w-[85vw] sm:w-[420px] flex flex-col rounded-lg border border-cream/10 bg-navy/30 hover:bg-navy/50 overflow-hidden transition-all duration-300 ease-out hover:-translate-y-1 hover:border-[#C0281E]"
+              className="group snap-start shrink-0 w-[85vw] sm:w-[420px] flex flex-col rounded-lg border border-cream/10 bg-navy/30 hover:bg-[rgba(255,255,255,0.05)] overflow-hidden transition-all duration-300 ease-out hover:-translate-y-1"
             >
               <div className="w-full overflow-hidden bg-navy" style={{ height: 250 }}>
                 <img
