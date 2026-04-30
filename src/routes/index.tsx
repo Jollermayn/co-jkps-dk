@@ -204,7 +204,7 @@ function Sidebar() {
         </p>
       </div>
       <div className="flex flex-1 min-h-0 flex-col items-center justify-center gap-8 text-center py-6">
-        <HeroSymbol className="h-auto w-full max-w-[260px]" />
+        
         <blockquote className="max-w-[20ch]">
           <TypewriterQuote />
         </blockquote>
