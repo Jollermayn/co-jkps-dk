@@ -363,6 +363,16 @@ function CasesSection() {
     return CASE_META[c.slug]?.tags.includes(filter);
   });
 
+  const filterCounts = FILTERS.reduce<Record<string, number>>((acc, f) => {
+    acc[f] =
+      f === "Alle"
+        ? caseStudies.length
+        : caseStudies.filter((c) => CASE_META[c.slug]?.tags.includes(f)).length;
+    return acc;
+  }, {});
+
+  const isGrid = filter !== "Alle";
+
   // Reset scroll when filter changes
   useEffect(() => {
     if (scrollerRef.current) {
