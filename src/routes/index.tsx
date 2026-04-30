@@ -605,8 +605,30 @@ function CasesSection() {
               </div>
             )}
           </div>
+          </div>
+          </div>
+          {/* Arrow nav — right side, same row as filter */}
+          {!isGrid && (
+            <div className="hidden md:flex items-center gap-3">
+              <button
+                type="button"
+                aria-label="Forrige case"
+                onClick={showPreviousCase}
+                className="w-12 h-12 rounded-full border border-cream/25 text-cream flex items-center justify-center transition-colors hover:border-[#C0281E] hover:text-[#C0281E]"
+              >
+                <span aria-hidden className="text-xl leading-none">←</span>
+              </button>
+              <button
+                type="button"
+                aria-label="Næste case"
+                onClick={showNextCase}
+                className="w-12 h-12 rounded-full border border-cream/25 text-cream flex items-center justify-center transition-colors hover:border-[#C0281E] hover:text-[#C0281E]"
+              >
+                <span aria-hidden className="text-xl leading-none">→</span>
+              </button>
+            </div>
+          )}
         </div>
-      </div>
 
       {/* Cases view: slider (Alle) or grid (filter) */}
       {(() => {
