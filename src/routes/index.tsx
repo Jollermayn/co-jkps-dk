@@ -105,7 +105,7 @@ function Sidebar() {
           <blockquote>
             <p className="font-display italic leading-snug text-cream/95" style={{ fontSize: "26px" }}>
               The problem with Ai is when there's too much A and{" "}
-              <span className="not-italic font-normal" style={{ color: "#C0281E" }}>not enough i</span>.
+              <span className="not-italic font-normal text-[#C0281E] lg:text-[#8B3A2A]">not enough i</span>.
             </p>
           </blockquote>
         </div>
