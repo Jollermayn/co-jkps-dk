@@ -157,9 +157,9 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
                   <span className="w-12 h-12 rounded-full border border-cream/25 text-cream flex items-center justify-center transition-colors group-hover:border-[#C0281E] group-hover:text-[#C0281E]">
                     <span aria-hidden className="text-xl leading-none">←</span>
                   </span>
-                  <span className="hidden sm:flex flex-col">
+                  <span className="flex flex-col">
                     <span className="eyebrow text-ember">Forrige case</span>
-                    <span className="font-display text-xl mt-1 group-hover:text-[#C0281E] transition-colors">
+                    <span className="hidden sm:block font-display text-xl mt-1 group-hover:text-[#C0281E] transition-colors">
                       {prev.client}
                     </span>
                   </span>
@@ -173,9 +173,9 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
                   <span className="w-12 h-12 rounded-full border border-cream/25 text-cream flex items-center justify-center transition-colors group-hover:border-[#C0281E] group-hover:text-[#C0281E]">
                     <span aria-hidden className="text-xl leading-none">→</span>
                   </span>
-                  <span className="hidden sm:flex flex-col items-end">
+                  <span className="flex flex-col items-end">
                     <span className="eyebrow text-ember">Næste case</span>
-                    <span className="font-display text-xl mt-1 group-hover:text-[#C0281E] transition-colors">
+                    <span className="hidden sm:block font-display text-xl mt-1 group-hover:text-[#C0281E] transition-colors">
                       {next.client}
                     </span>
                   </span>
