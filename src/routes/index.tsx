@@ -668,7 +668,7 @@ function CasesSection() {
                     <li
                       key={t}
                       className={
-                        "text-[10px] tracking-wide px-2.5 py-1 rounded-full border border-cream/20 text-cream/70 transition-colors duration-200 group-hover:bg-[#C0281E] group-hover:border-[#C0281E] group-hover:text-white " +
+                        "text-[10px] tracking-wide px-2.5 py-1 rounded-full border border-cream/20 text-cream/70 transition-all duration-150 ease-out group-hover:bg-[#C0281E] group-hover:border-[#C0281E] group-hover:text-white hover:scale-[1.08] " +
                         tagSize
                       }
                     >
