@@ -603,8 +603,12 @@ function CasesSection() {
               </>
             ) : (
               <>
-                <div className="px-6 md:px-10">
-                  {activeCase ? renderCard(activeCase, "slider") : null}
+                <div
+                  ref={scrollerRef}
+                  onScroll={handleScroll}
+                  className="flex gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth px-6 md:px-10 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+                >
+                  {filtered.map((c) => renderCard(c, "slider"))}
                 </div>
 
                 {/* Progress indicator */}
