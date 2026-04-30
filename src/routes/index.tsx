@@ -217,7 +217,7 @@ function Index() {
         <div className="min-w-0 order-2 lg:order-none bg-navy-deep lg:mt-11 lg:rounded-t-xl lg:shadow-[0_-8px_24px_rgba(0,0,0,0.2)]">
           {/* OM MIG */}
           <section id="om" className="py-16 md:py-20">
-            <div className="px-8 md:px-10">
+            <div className="px-12 md:px-14">
               <Eyebrow>Om mig</Eyebrow>
               <div className="mt-8 max-w-3xl space-y-6 text-cream/80 text-lg leading-relaxed">
                 <p>
@@ -242,7 +242,7 @@ function Index() {
 
           {/* KOMPETENCER */}
           <section id="kompetencer" className="py-16 md:py-20">
-            <div className="px-8 md:px-10">
+            <div className="px-12 md:px-14">
               <div className="mb-10 md:mb-14">
                 <Eyebrow>Kompetencer</Eyebrow>
                 <h2 className="font-display text-5xl md:text-7xl mt-6 leading-[0.95] tracking-tight">
@@ -261,7 +261,7 @@ function Index() {
 
           {/* UDDANNELSE */}
           <section id="uddannelse" className="py-16 md:py-20">
-            <div className="px-8 md:px-10">
+            <div className="px-12 md:px-14">
               <div className="mb-16">
                 <Eyebrow>Uddannelse</Eyebrow>
                 <h2 className="font-display text-5xl md:text-7xl mt-6 leading-[0.95] tracking-tight">
@@ -300,7 +300,7 @@ function Index() {
 
           {/* KONTAKT */}
           <section id="kontakt" className="py-16 md:py-20 relative overflow-hidden">
-            <div className="px-8 md:px-10 relative">
+            <div className="px-12 md:px-14 relative">
               <Eyebrow>Kontakt · Portfolio 2026</Eyebrow>
               <h2 className="font-display text-5xl md:text-8xl mt-8 leading-[0.9] tracking-tight">
                 Lad os <span className="italic text-ember">tales ved</span>
@@ -360,7 +360,7 @@ function Index() {
 
       {/* FOOTER */}
       <footer className="bg-navy-deep py-10 relative z-30">
-        <div className="px-8 md:px-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-sm text-cream/55">
+        <div className="px-12 md:px-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-sm text-cream/55">
           <p>Jonas K.P. Sørensen · Digital konsulent &amp; strateg · Aarhus</p>
           <p>© {new Date().getFullYear()} · Selvstændig siden 2016</p>
         </div>
@@ -517,7 +517,7 @@ function CasesSection() {
 
   return (
     <section id="cases" className="py-16 md:py-20">
-      <div className="px-8 md:px-10">
+      <div className="px-12 md:px-14">
         <div className="mb-10 md:mb-14 flex items-start justify-between gap-6">
           <div>
             <Eyebrow>Udvalgte cases</Eyebrow>
@@ -733,10 +733,10 @@ function CasesSection() {
           <div key={isGrid ? "grid" : "slider"} className="animate-fade-in">
             {isGrid ? (
               <>
-                <div className="px-8 md:px-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <div className="px-12 md:px-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                   {filtered.map((c, i) => renderCard(c, "grid", i))}
                 </div>
-                <div className="px-8 md:px-10 mt-10 flex justify-center">
+                <div className="px-12 md:px-14 mt-10 flex justify-center">
                   <button
                     type="button"
                     onClick={() => {
@@ -758,13 +758,13 @@ function CasesSection() {
                 <div
                   ref={scrollerRef}
                   onScroll={handleScroll}
-                  className="flex gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth px-8 md:px-10 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+                  className="flex gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth px-12 md:px-14 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
                 >
                   {filtered.map((c, i) => renderCard(c, "slider", i))}
                 </div>
 
                 {/* Progress indicator */}
-                <div className="px-8 md:px-10 mt-4 flex items-center gap-6">
+                <div className="px-12 md:px-14 mt-4 flex items-center gap-6">
                   <div className="flex-1 h-0.5 bg-cream/15 relative overflow-hidden rounded-full">
                     <div
                       className="absolute inset-y-0 left-0 bg-[#C0281E] transition-[width] duration-300 ease-out rounded-full"
@@ -865,7 +865,7 @@ function KompetencerList() {
       {competencies.map((c) => (
         <li
           key={c.no}
-          className="group py-8 md:py-10 hover:bg-navy/40 transition-colors -mx-8 md:-mx-10 px-8 md:px-10"
+          className="group py-8 md:py-10 hover:bg-navy/40 transition-colors -mx-12 md:-mx-14 px-12 md:px-14"
         >
           <div className="grid grid-cols-1 md:grid-cols-12 md:gap-8">
             {/* Left: number + title + sub */}
