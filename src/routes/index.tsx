@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { caseStudies } from "@/data/cases";
+import { caseStudies, type CaseStudy } from "@/data/cases";
 import heroSymbol from "@/assets/hero-symbol.png";
+import { CaseModal } from "@/components/CaseModal";
 
 
 export const Route = createFileRoute("/")({
@@ -367,6 +368,7 @@ function CasesSection() {
   const [filter, setFilter] = useState<Filter>("Alle");
   const scrollerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [openCase, setOpenCase] = useState<CaseStudy | null>(null);
 
   const filtered = caseStudies.filter((c) => {
     if (filter === "Alle") return true;
