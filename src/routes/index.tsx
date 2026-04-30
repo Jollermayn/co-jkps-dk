@@ -564,9 +564,20 @@ function CasesSection() {
         return (
           <div key={isGrid ? "grid" : "slider"} className="animate-fade-in">
             {isGrid ? (
-              <div className="px-6 md:px-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                {filtered.map((c, i) => renderCard(c, "grid", i))}
-              </div>
+              <>
+                <div className="px-6 md:px-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                  {filtered.map((c, i) => renderCard(c, "grid", i))}
+                </div>
+                <div className="px-6 md:px-10 mt-10 flex justify-center">
+                  <button
+                    type="button"
+                    onClick={() => setFilter("Alle")}
+                    className="text-sm tracking-wide text-cream/85 underline underline-offset-4 decoration-cream/40 hover:text-cream hover:decoration-cream transition-colors"
+                  >
+                    Vis alle cases →
+                  </button>
+                </div>
+              </>
             ) : (
               <>
                 <div
