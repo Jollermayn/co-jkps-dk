@@ -103,7 +103,7 @@ function TypewriterQuote() {
     {
       content: (
         <>
-          when there's <span className="font-extrabold text-[1.1em]">too much A</span>
+          when there's <span className="font-black text-[1.2em]">too much A</span>
         </>
       ),
       plain: "when there's too much A",
@@ -145,7 +145,7 @@ function TypewriterQuote() {
   return (
     <p
       ref={ref}
-      className="font-display italic font-semibold leading-[1.2] text-cream/95 text-[clamp(1.2rem,5.8vw,1.8rem)] lg:text-[clamp(1.4rem,2.1vw,2.2rem)]"
+      className="font-display italic font-semibold leading-[1.65] text-cream/95 text-[2rem] lg:text-[2.8rem]"
       aria-label={ariaLabel}
     >
       {lines.map((line, i) => (
