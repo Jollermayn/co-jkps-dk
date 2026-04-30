@@ -90,12 +90,12 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
         {/* Sections */}
         <article className="px-6 md:px-10 py-10 md:py-14 space-y-10 md:space-y-12">
           {study.slug === "interaktiv-horesimulering" && (
-            <div className="flex flex-col items-center text-center">
-              <span className="eyebrow text-ember tracking-[0.2em]">— Stemmer fra feltet</span>
+            <div>
+              <span className="eyebrow text-ember tracking-[0.2em] block">— Stemmer fra feltet</span>
               <img
                 src={horesimQuotes}
                 alt="Citater fra hørehæmmede elever, lærere og eksperter"
-                className="mt-6 w-full max-w-[600px] h-auto"
+                className="mt-6 w-full h-auto"
               />
             </div>
           )}
