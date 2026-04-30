@@ -190,7 +190,7 @@ function Index() {
           <CasesSection />
 
           {/* KOMPETENCER */}
-          <section id="kompetencer" className="py-16 md:py-20 border-t border-cream/10">
+          <section id="kompetencer" className="py-16 md:py-20">
             <div className="px-6 md:px-10">
               <div className="mb-10 md:mb-14">
                 <Eyebrow>Kompetencer</Eyebrow>
@@ -209,7 +209,7 @@ function Index() {
           </section>
 
           {/* UDDANNELSE */}
-          <section id="uddannelse" className="py-16 md:py-20 border-t border-cream/10">
+          <section id="uddannelse" className="py-16 md:py-20">
             <div className="px-6 md:px-10">
               <div className="mb-16">
                 <Eyebrow>Uddannelse</Eyebrow>
@@ -248,7 +248,7 @@ function Index() {
           </section>
 
           {/* KONTAKT */}
-          <section id="kontakt" className="py-16 md:py-20 border-t border-cream/10 relative overflow-hidden">
+          <section id="kontakt" className="py-16 md:py-20 relative overflow-hidden">
             <div className="px-6 md:px-10 relative">
               <Eyebrow>Kontakt · Portfolio 2026</Eyebrow>
               <h2 className="font-display text-5xl md:text-8xl mt-8 leading-[0.9] tracking-tight">
@@ -308,7 +308,7 @@ function Index() {
       </div>
 
       {/* FOOTER */}
-      <footer className="bg-navy-deep border-t border-cream/10 py-10 relative z-30">
+      <footer className="bg-navy-deep py-10 relative z-30">
         <div className="px-6 md:px-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-sm text-cream/55">
           <p>Jonas K.P. Sørensen · Digital konsulent · Aarhus</p>
           <p>© {new Date().getFullYear()} · Selvstændig siden 2016</p>
@@ -465,7 +465,7 @@ function CasesSection() {
   };
 
   return (
-    <section id="cases" className="py-16 md:py-20 border-t border-cream/10">
+    <section id="cases" className="py-16 md:py-20">
       <div className="px-6 md:px-10">
         <div className="mb-10 md:mb-14 flex items-start justify-between gap-6">
           <div>
