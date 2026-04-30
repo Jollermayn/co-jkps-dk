@@ -102,7 +102,7 @@ function Sidebar() {
         </p>
       </div>
       <div className="flex flex-col items-center gap-6 text-center">
-        <HeroSymbol className="h-auto w-full max-w-[130px] md:max-w-[160px]" />
+        <HeroSymbol className="h-auto w-full max-w-[300px]" />
         <blockquote>
           <p className="font-display italic leading-snug text-cream/95" style={{ fontSize: "26px" }}>
             The problem with Ai is when there's too much A and{" "}
