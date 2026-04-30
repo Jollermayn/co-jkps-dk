@@ -96,11 +96,17 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
 
 function TypewriterQuote() {
   const ref = useRef<HTMLParagraphElement>(null);
-  const [count, setCount] = useState(0);
   const [started, setStarted] = useState(false);
-  const part1 = "The problem with Ai is when there's too much A and ";
-  const part2 = "not enough i.";
-  const total = part1.length + part2.length;
+  // Segments: { text, red?, lineBreakAfter? }
+  const segments = [
+    { text: "The problem with Ai", lineBreakAfter: true },
+    { text: "is when there's too much A", lineBreakAfter: true },
+    { text: "and " },
+    { text: "not enough i.", red: true },
+  ];
+  const totalChars = segments.reduce((n, s) => n + s.text.length, 0);
+  const [count, setCount] = useState(0);
+  const [pausing, setPausing] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
@@ -122,30 +128,67 @@ function TypewriterQuote() {
   }, [started]);
 
   useEffect(() => {
-    if (!started) return;
-    if (count >= total) return;
+    if (!started || count >= totalChars || pausing) return;
+    // Determine if we just finished a segment that has lineBreakAfter
+    let acc = 0;
+    let pauseNeeded = false;
+    for (const s of segments) {
+      acc += s.text.length;
+      if (count === acc && s.lineBreakAfter) {
+        pauseNeeded = true;
+        break;
+      }
+    }
+    if (pauseNeeded) {
+      setPausing(true);
+      const t = setTimeout(() => {
+        setPausing(false);
+        setCount((c) => c + 1);
+      }, 300);
+      return () => clearTimeout(t);
+    }
     const t = setTimeout(() => setCount((c) => c + 1), 40);
     return () => clearTimeout(t);
-  }, [started, count, total]);
+  }, [started, count, totalChars, pausing]);
 
-  const shown1 = part1.slice(0, Math.min(count, part1.length));
-  const shown2 = part2.slice(0, Math.max(0, count - part1.length));
-  const done = count >= total;
+  // Render: walk segments, slicing each by remaining chars
+  let remaining = count;
+  const nodes: React.ReactNode[] = [];
+  segments.forEach((s, i) => {
+    const take = Math.max(0, Math.min(remaining, s.text.length));
+    remaining -= s.text.length;
+    const shown = s.text.slice(0, take);
+    if (shown) {
+      nodes.push(
+        s.red ? (
+          <span
+            key={i}
+            className="not-italic font-normal text-[#C0281E] whitespace-nowrap"
+          >
+            {shown}
+          </span>
+        ) : (
+          <span key={i}>{shown}</span>
+        ),
+      );
+    }
+    // Line break renders only after the full segment is typed
+    if (s.lineBreakAfter && take === s.text.length) {
+      nodes.push(<br key={`br-${i}`} />);
+    }
+  });
+
+  const done = count >= totalChars;
+  const ariaLabel = segments.map((s) => s.text).join(" ");
 
   return (
     <p
       ref={ref}
       className="font-display italic leading-snug text-cream/95"
       style={{ fontSize: "26px" }}
-      aria-label={part1 + part2}
+      aria-label={ariaLabel}
     >
-      <span aria-hidden>{shown1}</span>
-      <span
-        aria-hidden
-        className="not-italic font-normal text-[#C0281E] whitespace-nowrap"
-      >
-        {shown2}
-      </span>
+      <span aria-hidden>{nodes}</span>
       {!done && (
         <span
           aria-hidden
