@@ -174,7 +174,7 @@ function Sidebar() {
           <span className="italic font-light">Sørensen</span>
         </h1>
         <p className="mt-6 text-base leading-relaxed lg:text-lg lg:leading-snug text-cream/85 font-display italic">
-          Digital konsulent · Brugeroplevelse &amp; digitale løsninger.
+          Digital konsulent &amp; strateg.
         </p>
       </div>
       <div className="flex flex-1 min-h-0 flex-col items-start justify-center gap-8 text-left py-10 lg:py-6 pl-4 md:pl-6">
