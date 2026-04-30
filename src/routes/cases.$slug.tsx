@@ -173,36 +173,48 @@ function CaseDetail() {
 
       {/* NEXT / PREV */}
       <section className="py-12 md:py-16 border-t border-cream/10">
-        <div className="mx-auto max-w-[1400px] px-6 md:px-10 flex flex-col md:flex-row md:items-center md:justify-between gap-8 md:gap-10">
-          <div className="md:flex-1 md:text-left">
-            <span className="eyebrow text-ember">Forrige case</span>
-            <Link
-              to="/cases/$slug"
-              params={{ slug: prev.slug }}
-              className="block mt-3 font-display text-2xl md:text-3xl hover:text-ember transition-colors"
-            >
-              ← {prev.client}
-            </Link>
-          </div>
-          <div className="md:flex-1 md:flex md:justify-center">
-            <Link
-              to="/"
-              hash="cases"
-              className="inline-flex items-center gap-3 px-6 py-3 text-sm tracking-wide border border-cream/25 hover:border-ember hover:text-ember transition-colors whitespace-nowrap"
-            >
-              ← Tilbage til portfolio
-            </Link>
-          </div>
-          <div className="md:flex-1 md:text-right">
-            <span className="eyebrow text-ember">Næste case</span>
-            <Link
-              to="/cases/$slug"
-              params={{ slug: next.slug }}
-              className="block mt-3 font-display text-2xl md:text-3xl hover:text-ember transition-colors"
-            >
-              {next.client} →
-            </Link>
-          </div>
+        <div className="mx-auto max-w-[1400px] px-6 md:px-10 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+          <Link
+            to="/cases/$slug"
+            params={{ slug: prev.slug }}
+            aria-label={`Forrige case: ${prev.client}`}
+            className="group inline-flex items-center gap-4"
+          >
+            <span className="w-12 h-12 rounded-full border border-cream/25 text-cream flex items-center justify-center transition-colors group-hover:border-[#C0281E] group-hover:text-[#C0281E]">
+              <span aria-hidden className="text-xl leading-none">←</span>
+            </span>
+            <span className="flex flex-col">
+              <span className="eyebrow text-ember">Forrige case</span>
+              <span className="font-display text-xl md:text-2xl mt-1 group-hover:text-[#C0281E] transition-colors">
+                {prev.client}
+              </span>
+            </span>
+          </Link>
+
+          <Link
+            to="/"
+            hash="cases"
+            className="inline-flex items-center gap-3 px-6 py-3 text-sm tracking-wide border border-cream/25 hover:border-ember hover:text-ember transition-colors whitespace-nowrap"
+          >
+            ← Tilbage til portfolio
+          </Link>
+
+          <Link
+            to="/cases/$slug"
+            params={{ slug: next.slug }}
+            aria-label={`Næste case: ${next.client}`}
+            className="group inline-flex items-center gap-4 md:flex-row-reverse md:text-right"
+          >
+            <span className="w-12 h-12 rounded-full border border-cream/25 text-cream flex items-center justify-center transition-colors group-hover:border-[#C0281E] group-hover:text-[#C0281E]">
+              <span aria-hidden className="text-xl leading-none">→</span>
+            </span>
+            <span className="flex flex-col md:items-end">
+              <span className="eyebrow text-ember">Næste case</span>
+              <span className="font-display text-xl md:text-2xl mt-1 group-hover:text-[#C0281E] transition-colors">
+                {next.client}
+              </span>
+            </span>
+          </Link>
         </div>
       </section>
     </main>
