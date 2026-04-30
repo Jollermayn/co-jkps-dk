@@ -193,7 +193,7 @@ function Sidebar() {
         </a>
         <a
           href="#kontakt"
-          className="inline-flex items-center justify-center gap-3 bg-ember lg:bg-[#8B3A2A] text-cream px-5 py-3 text-sm tracking-wide hover:bg-ember/90 lg:hover:bg-[#8B3A2A]/90 transition-colors"
+          className="inline-flex items-center justify-center gap-2 text-[1.1rem] font-bold tracking-wide text-[#C0281E] hover:text-[#C0281E]/80 transition-colors"
         >
           Lad os tales ved <span aria-hidden>→</span>
         </a>
