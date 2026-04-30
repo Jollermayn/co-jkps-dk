@@ -623,7 +623,7 @@ function CasesSection() {
                     className="text-cream/70 font-mono tabular-nums"
                     style={{ fontSize: 12, letterSpacing: "0.1em" }}
                   >
-                    {String(Math.min(currentIndex + 1, total || 1)).padStart(2, "0")} / {String(total).padStart(2, "0")}
+                    {(hoveredIndex ?? currentIndex) + 1} / {total}
                   </span>
                   <div className="flex-1 h-px bg-cream/15 relative overflow-hidden">
                     <div
