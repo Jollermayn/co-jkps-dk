@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import type { CaseStudy } from "@/data/cases";
 import { caseStudies } from "@/data/cases";
-import { TagWithCases } from "@/components/TagWithCases";
+import { ApproachGrid } from "@/components/ApproachGrid";
 import woltHeatmap from "@/assets/wolt-heatmap.png";
 import boligaMockup from "@/assets/boliga-mockup.png";
 
@@ -108,17 +108,7 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
           </ModalSection>
 
           <ModalSection title="Tilgang">
-            <ul className="flex flex-wrap gap-2">
-              {study.approach.map((t) => (
-                <TagWithCases
-                  key={t}
-                  tag={t}
-                  excludeSlug={study.slug}
-                  variant="approach"
-                  onSelectCase={onNavigate}
-                />
-              ))}
-            </ul>
+            <ApproachGrid tags={study.approach} />
           </ModalSection>
 
           <ModalSection title="Resultater">
