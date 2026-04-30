@@ -588,7 +588,7 @@ function CasesSection() {
             {isGrid ? (
               <>
                 <div className="px-6 md:px-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                  {filtered.map((c) => renderCard(c, "grid"))}
+                  {filtered.map((c, i) => renderCard(c, "grid", i))}
                 </div>
                 <div className="px-6 md:px-10 mt-10 flex justify-center">
                   <button
