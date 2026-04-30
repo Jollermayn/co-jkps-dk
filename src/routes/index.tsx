@@ -398,17 +398,20 @@ function CasesSection() {
     if (!el) return;
     const children = Array.from(el.children) as HTMLElement[];
     if (!children.length) return;
-    const scrollLeft = el.scrollLeft;
+    // Use the horizontal center of the viewport as reference so the active
+    // card is whichever one the user is currently looking at.
+    const viewportCenter = el.scrollLeft + el.clientWidth / 2;
     let closest = 0;
     let min = Infinity;
     children.forEach((child, i) => {
-      const dist = Math.abs(child.offsetLeft - scrollLeft);
+      const childCenter = child.offsetLeft + child.offsetWidth / 2;
+      const dist = Math.abs(childCenter - viewportCenter);
       if (dist < min) {
         min = dist;
         closest = i;
       }
     });
-    setActiveIndex(closest);
+    setActiveIndex((prev) => (prev === closest ? prev : closest));
   };
 
   const scrollByCard = (dir: -1 | 1) => {
