@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { caseStudies, type CaseStudy } from "@/data/cases";
 import { HeroSymbol } from "@/components/HeroSymbol";
 import { CaseModal } from "@/components/CaseModal";
+import profilePhoto from "@/assets/profile-photo.png";
 
 
 export const Route = createFileRoute("/")({
@@ -101,7 +102,12 @@ function Sidebar() {
           Digital konsulent · Brugeroplevelse &amp; digitale løsninger.
         </p>
       </div>
-      <div className="flex flex-col items-center gap-2 text-center">
+      <div className="flex flex-col items-center gap-6 text-center">
+        <img
+          src={profilePhoto}
+          alt="Jonas K.P. Sørensen"
+          className="w-full max-w-[160px] aspect-square rounded-full object-cover"
+        />
         <HeroSymbol className="h-auto w-full max-w-[300px]" />
         <blockquote>
           <p className="font-display italic leading-snug text-cream/95" style={{ fontSize: "26px" }}>
