@@ -908,9 +908,7 @@ function KompetencerList() {
               const isOpen = openTag === `${c.no}-${t}`;
               return (
                 <li key={t} ref={isOpen ? activeTagRef : undefined} className="relative inline-flex items-baseline">
-                  {i > 0 && (
-                    <span aria-hidden className="text-[#8899AA]/60 mr-1.5 select-none">·</span>
-                  )}
+                  <span aria-hidden className="text-[#8899AA]/60 mr-1.5 select-none">·</span>
                   <button
                     type="button"
                     disabled={!hasCases}
