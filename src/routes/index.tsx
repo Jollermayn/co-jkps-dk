@@ -214,22 +214,22 @@ function Index() {
 
               <ul className="divide-y divide-cream/10 border-y border-cream/10">
                 <li className="py-8 md:py-10 grid grid-cols-12 gap-6">
-                  <span className="col-span-2 md:col-span-1 text-ember font-display">01</span>
+                  <span className="col-span-2 md:col-span-1 font-display text-2xl text-ember">01</span>
                   <div className="col-span-10 md:col-span-6">
-                    <h3 className="font-display text-2xl md:text-3xl tracking-tight">Cand.it · Digital Design og Interaktive Teknologier</h3>
-                    <p className="mt-2 text-cream/65 text-sm">IT-Universitetet København · 2024</p>
+                    <h3 className="font-display text-3xl md:text-4xl tracking-tight leading-tight">Cand.it · Digital Design og Interaktive Teknologier</h3>
+                    <p className="mt-2 text-sm text-cream/55 italic">IT-Universitetet København · 2024</p>
                   </div>
-                  <p className="col-span-12 md:col-span-5 text-cream/75">
+                  <p className="col-span-12 md:col-span-5 text-cream/80 leading-relaxed">
                     Tværfagligt kandidatprogram med fokus på interaktionsdesign, UX research og digitale teknologier.
                   </p>
                 </li>
                 <li className="py-8 md:py-10 grid grid-cols-12 gap-6">
-                  <span className="col-span-2 md:col-span-1 text-ember font-display">02</span>
+                  <span className="col-span-2 md:col-span-1 font-display text-2xl text-ember">02</span>
                   <div className="col-span-10 md:col-span-6">
-                    <h3 className="font-display text-2xl md:text-3xl tracking-tight">Professionsbachelor · Medie- og sonokommunikation</h3>
-                    <p className="mt-2 text-cream/65 text-sm">Sonic College · 2016</p>
+                    <h3 className="font-display text-3xl md:text-4xl tracking-tight leading-tight">Professionsbachelor · Medie- og sonokommunikation</h3>
+                    <p className="mt-2 text-sm text-cream/55 italic">Sonic College · 2016</p>
                   </div>
-                  <p className="col-span-12 md:col-span-5 text-cream/75">
+                  <p className="col-span-12 md:col-span-5 text-cream/80 leading-relaxed">
                     Praksisnær uddannelse i lyd, medieproduktion og kommunikation.
                   </p>
                 </li>
