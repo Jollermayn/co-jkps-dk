@@ -251,7 +251,7 @@ function Index() {
             <div className="px-6 md:px-10 relative">
               <Eyebrow>Kontakt · Portfolio 2026</Eyebrow>
               <h2 className="font-display text-5xl md:text-8xl mt-8 leading-[0.9] tracking-tight">
-                Lad os <span className="italic text-ember">tales ved</span>.
+                Lad os <span className="italic text-ember">tales ved</span>
               </h2>
               <p className="mt-8 max-w-xl text-cream/70 text-lg italic font-display">
                 Jeg er altid interesseret i nye samarbejder — store som små, kommercielle som kulturelle.
