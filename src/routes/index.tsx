@@ -499,12 +499,20 @@ function CasesSection() {
         const renderCard = (
           c: (typeof caseStudies)[number],
           variant: "slider" | "grid",
+          index: number,
         ) => {
           const meta = CASE_META[c.slug];
           const sizing =
             variant === "slider"
               ? "snap-start shrink-0 w-[85vw] sm:w-[420px]"
               : "w-full";
+          const isActiveMobile = variant === "slider" && index === activeIndex;
+          // On mobile: active card shows in color, others greyscale.
+          // On desktop (md+): always greyscale unless hovered.
+          const imgClass =
+            "w-full h-full object-cover transition-all duration-[300ms] ease-out group-hover:scale-[1.04] " +
+            (isActiveMobile ? "grayscale-0 " : "grayscale ") +
+            "md:grayscale md:group-hover:grayscale-0";
           return (
             <Link
               key={c.slug}
@@ -520,7 +528,7 @@ function CasesSection() {
                   src={c.image}
                   alt={`${c.client} — ${meta?.headline ?? c.title}`}
                   loading="lazy"
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-[1.04] transition-all duration-[400ms] ease-out"
+                  className={imgClass}
                 />
               </div>
               <div className="p-6 flex flex-col gap-3">
