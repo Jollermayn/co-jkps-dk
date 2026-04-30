@@ -94,6 +94,68 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
   );
 }
 
+function TypewriterQuote() {
+  const ref = useRef<HTMLParagraphElement>(null);
+  const [count, setCount] = useState(0);
+  const [started, setStarted] = useState(false);
+  const part1 = "The problem with Ai is when there's too much A and ";
+  const part2 = "not enough i.";
+  const total = part1.length + part2.length;
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || started) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            setStarted(true);
+            io.disconnect();
+            break;
+          }
+        }
+      },
+      { threshold: 0.4 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [started]);
+
+  useEffect(() => {
+    if (!started) return;
+    if (count >= total) return;
+    const t = setTimeout(() => setCount((c) => c + 1), 40);
+    return () => clearTimeout(t);
+  }, [started, count, total]);
+
+  const shown1 = part1.slice(0, Math.min(count, part1.length));
+  const shown2 = part2.slice(0, Math.max(0, count - part1.length));
+  const done = count >= total;
+
+  return (
+    <p
+      ref={ref}
+      className="font-display italic leading-snug text-cream/95"
+      style={{ fontSize: "26px" }}
+      aria-label={part1 + part2}
+    >
+      <span aria-hidden>{shown1}</span>
+      <span
+        aria-hidden
+        className="not-italic font-normal text-[#C0281E] whitespace-nowrap"
+      >
+        {shown2}
+      </span>
+      {!done && (
+        <span
+          aria-hidden
+          className="inline-block w-[2px] h-[1em] align-[-0.15em] ml-0.5 bg-cream/70 animate-pulse"
+        />
+      )}
+    </p>
+  );
+}
+
 function Sidebar() {
   return (
     <aside className="relative flex flex-col gap-10 lg:gap-0 lg:justify-between lg:min-h-0 lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto px-6 md:px-10 py-16 lg:pt-20 lg:pb-20 border-b lg:border-b-0 lg:border-l border-cream/10 order-1 lg:order-last lg:bg-[#163028] lg:z-20 lg:rounded-l-xl lg:shadow-[-8px_0_24px_rgba(0,0,0,0.25)]">
