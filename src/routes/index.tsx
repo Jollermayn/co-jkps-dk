@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { SlidersHorizontal, X } from "lucide-react";
 import { caseStudies, type CaseStudy } from "@/data/cases";
-import { HeroSymbol } from "@/components/HeroSymbol";
+
 import { CaseModal } from "@/components/CaseModal";
 import profilePhoto from "@/assets/profile-photo.png";
 
@@ -204,7 +204,7 @@ function Sidebar() {
         </p>
       </div>
       <div className="flex flex-1 min-h-0 flex-col items-center justify-center gap-8 text-center py-6">
-        <HeroSymbol className="h-auto w-full max-w-[260px]" />
+        
         <blockquote className="max-w-[20ch]">
           <TypewriterQuote />
         </blockquote>
