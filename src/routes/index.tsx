@@ -542,10 +542,24 @@ function CasesSection() {
             <button
               key={c.slug}
               type="button"
+              onMouseDown={(e) => {
+                if (variant === "slider") e.preventDefault();
+              }}
               onClick={() => setOpenCase(c)}
               onMouseEnter={() => variant === "slider" && setHoveredIndex(index)}
               onMouseLeave={() => variant === "slider" && setHoveredIndex(null)}
-              onFocus={() => variant === "slider" && setHoveredIndex(index)}
+              onFocus={(e) => {
+                if (variant !== "slider") return;
+                setHoveredIndex(index);
+                // Prevent browser from auto-scrolling the carousel container
+                // when a card receives focus (e.g. on click).
+                const el = scrollerRef.current;
+                if (!el) return;
+                const left = el.scrollLeft;
+                requestAnimationFrame(() => {
+                  if (el.scrollLeft !== left) el.scrollLeft = left;
+                });
+              }}
               onBlur={() => variant === "slider" && setHoveredIndex(null)}
               className={
                 "group flex flex-col text-left rounded-lg border border-cream/10 bg-navy/30 hover:bg-[rgba(255,255,255,0.04)] overflow-hidden transition-all duration-300 ease-out hover:-translate-y-[3px] " +
