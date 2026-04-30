@@ -119,12 +119,12 @@ function CaseDetail() {
       <article className="py-12 md:py-16">
         <div className="mx-auto max-w-[1400px] px-6 md:px-10 space-y-12 md:space-y-16">
           {study.slug === "interaktiv-horesimulering" && (
-            <div className="flex flex-col items-center text-center">
-              <span className="eyebrow text-ember tracking-[0.2em]">— Stemmer fra feltet</span>
+            <div>
+              <span className="eyebrow text-ember tracking-[0.2em] block">— Stemmer fra feltet</span>
               <img
                 src={horesimQuotes}
                 alt="Citater fra hørehæmmede elever, lærere og eksperter"
-                className="mt-6 w-full max-w-[600px] h-auto"
+                className="mt-6 w-full h-auto"
               />
             </div>
           )}
