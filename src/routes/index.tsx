@@ -181,11 +181,13 @@ function Sidebar() {
       </div>
 
       <div className="mt-6 lg:mt-6 flex flex-col items-center gap-3 w-full text-center">
-        <img
-          src={profilePhoto}
-          alt="Jonas K.P. Sørensen"
-          className="block w-full aspect-[4/3] object-cover shadow-[0_4px_16px_rgba(0,0,0,0.4)]"
-        />
+        <div className="flex items-center justify-center gap-4">
+          <img
+            src={profilePhoto}
+            alt="Jonas K.P. Sørensen"
+            className="shrink-0 w-full max-w-[120px] lg:max-w-[150px] aspect-square rounded-full object-cover shadow-[0_4px_16px_rgba(0,0,0,0.4)] hover:scale-105 transition-all duration-[400ms] ease-out"
+          />
+        </div>
         <a
           href="/jonas-kp-sorensen-cv.pdf"
           download
