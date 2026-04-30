@@ -805,6 +805,7 @@ function KompetencerList() {
               );
             })}
           </ul>
+          </div>
         </li>
       ))}
     </ul>
