@@ -466,7 +466,6 @@ function CasesSection() {
         const renderCard = (
           c: (typeof caseStudies)[number],
           variant: "slider" | "grid",
-          index: number,
         ) => {
           const meta = CASE_META[c.slug];
           const sizing =
@@ -547,7 +546,7 @@ function CasesSection() {
             {isGrid ? (
               <>
                 <div className="px-6 md:px-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                  {filtered.map((c, i) => renderCard(c, "grid", i))}
+                  {filtered.map((c) => renderCard(c, "grid"))}
                 </div>
                 <div className="px-6 md:px-10 mt-10 flex justify-center">
                   <button
@@ -569,7 +568,7 @@ function CasesSection() {
             ) : (
               <>
                 <div className="px-6 md:px-10">
-                  {activeCase ? renderCard(activeCase, "slider", currentIndex) : null}
+                  {activeCase ? renderCard(activeCase, "slider") : null}
                 </div>
 
                 {/* Progress indicator */}
