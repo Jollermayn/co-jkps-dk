@@ -628,6 +628,7 @@ function CasesSection() {
             </div>
           )}
         </div>
+      </div>
 
       {/* Cases view: slider (Alle) or grid (filter) */}
       {(() => {
