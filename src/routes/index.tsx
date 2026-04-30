@@ -636,6 +636,8 @@ function CasesSection() {
           </div>
         );
       })()}
+
+      <CaseModal study={openCase} onClose={() => setOpenCase(null)} />
     </section>
   );
 }
