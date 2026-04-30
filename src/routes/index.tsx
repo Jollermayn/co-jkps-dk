@@ -224,7 +224,7 @@ function Index() {
                 <li className="py-8 md:py-10 grid grid-cols-12 gap-6">
                   <span className="col-span-2 md:col-span-1 font-display text-2xl text-ember">01</span>
                   <div className="col-span-10 md:col-span-6">
-                    <h3 className="font-display text-3xl md:text-4xl tracking-tight leading-tight">Cand.it · Digital Design og Interaktive Teknologier</h3>
+                    <h3 className="font-display text-2xl md:text-[1.7rem] tracking-tight leading-snug">Cand.it · Digital Design og Interaktive Teknologier</h3>
                     <p className="mt-2 text-sm text-cream/55 italic">IT-Universitetet København · 2024</p>
                   </div>
                   <p className="col-span-12 md:col-span-5 text-cream/80 leading-relaxed">
@@ -234,7 +234,7 @@ function Index() {
                 <li className="py-8 md:py-10 grid grid-cols-12 gap-6">
                   <span className="col-span-2 md:col-span-1 font-display text-2xl text-ember">02</span>
                   <div className="col-span-10 md:col-span-6">
-                    <h3 className="font-display text-3xl md:text-4xl tracking-tight leading-tight">Professionsbachelor · Medie- og sonokommunikation</h3>
+                    <h3 className="font-display text-2xl md:text-[1.7rem] tracking-snug leading-snug">Professionsbachelor · Medie- og sonokommunikation</h3>
                     <p className="mt-2 text-sm text-cream/55 italic">Sonic College · 2016</p>
                   </div>
                   <p className="col-span-12 md:col-span-5 text-cream/80 leading-relaxed">
