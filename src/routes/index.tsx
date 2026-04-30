@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { caseStudies } from "@/data/cases";
+import { caseStudies, type CaseStudy } from "@/data/cases";
 import heroSymbol from "@/assets/hero-symbol.png";
+import { CaseModal } from "@/components/CaseModal";
 
 
 export const Route = createFileRoute("/")({
@@ -367,6 +368,7 @@ function CasesSection() {
   const [filter, setFilter] = useState<Filter>("Alle");
   const scrollerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [openCase, setOpenCase] = useState<CaseStudy | null>(null);
 
   const filtered = caseStudies.filter((c) => {
     if (filter === "Alle") return true;
@@ -532,12 +534,12 @@ function CasesSection() {
                 (isActiveMobile ? "grayscale-0 " : "grayscale ") +
                 "md:grayscale md:group-hover:grayscale-0";
           return (
-            <Link
+            <button
               key={c.slug}
-              to="/cases/$slug"
-              params={{ slug: c.slug }}
+              type="button"
+              onClick={() => setOpenCase(c)}
               className={
-                "group flex flex-col rounded-lg border border-cream/10 bg-navy/30 hover:bg-[rgba(255,255,255,0.04)] overflow-hidden transition-all duration-300 ease-out hover:-translate-y-[3px] " +
+                "group flex flex-col text-left rounded-lg border border-cream/10 bg-navy/30 hover:bg-[rgba(255,255,255,0.04)] overflow-hidden transition-all duration-300 ease-out hover:-translate-y-[3px] " +
                 sizing
               }
             >
@@ -576,7 +578,7 @@ function CasesSection() {
                   ))}
                 </ul>
               </div>
-            </Link>
+            </button>
           );
         };
 
@@ -634,6 +636,8 @@ function CasesSection() {
           </div>
         );
       })()}
+
+      <CaseModal study={openCase} onClose={() => setOpenCase(null)} />
     </section>
   );
 }
