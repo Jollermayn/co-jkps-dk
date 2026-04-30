@@ -102,20 +102,20 @@ function Sidebar() {
         <p className="mt-4 text-cream/65 text-sm">
           Selvstændig siden 2016. Jeg arbejder i skæringsfeltet mellem strategi, design og teknologi.
         </p>
-        <div className="mt-8 flex justify-center">
+        <div className="mt-8 flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
           <img
             src={heroSymbol}
             alt=""
             aria-hidden="true"
-            className="w-full max-w-[200px] h-auto"
+            className="h-auto w-full max-w-[160px] md:max-w-[120px] shrink-0"
           />
+          <blockquote>
+            <p className="font-display italic leading-snug text-cream/95" style={{ fontSize: "26px" }}>
+              The problem with Ai is when there's too much A and{" "}
+              <span className="not-italic font-normal" style={{ color: "#C0281E" }}>not enough i</span>.
+            </p>
+          </blockquote>
         </div>
-        <blockquote className="pl-6 mt-8" style={{ borderLeft: "3px solid #C0281E" }}>
-          <p className="font-display italic leading-snug text-cream/95" style={{ fontSize: "26px" }}>
-            The problem with Ai is when there's too much A and{" "}
-            <span className="not-italic font-normal" style={{ color: "#C0281E" }}>not enough i</span>.
-          </p>
-        </blockquote>
       </div>
 
       <div className="mt-10 lg:mt-0 flex flex-col gap-3">
