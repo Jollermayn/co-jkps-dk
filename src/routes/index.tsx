@@ -171,6 +171,7 @@ function TypewriterQuote() {
                 boxShadow: "0 0 14px rgba(184, 58, 32, 0.85)",
                 zIndex: 10,
                 position: "relative",
+                ...(i === 1 ? { marginRight: "0.15em" } : {}),
               }
             : isComplete && meetPhase === "done"
               ? {
@@ -179,6 +180,7 @@ function TypewriterQuote() {
                   transition: "transform 0.35s ease, box-shadow 0.35s ease",
                   boxShadow: "none",
                   position: "relative",
+                  ...(i === 1 ? { marginRight: "0.15em" } : {}),
                 }
               : {
                   display: "inline-block",
