@@ -188,7 +188,7 @@ function Sidebar() {
           <span className="block text-[clamp(1.25rem,4.25vw,2.125rem)] font-bold text-[#C0281E] leading-none my-[0.15em]">
             K.P.
           </span>
-          <span className="block text-[clamp(2.25rem,9vw,4.5rem)] leading-none">
+          <span className="block text-[clamp(2.25rem,9vw,4.5rem)] leading-none -mt-[0.08em]">
             <span className="font-bold text-[#C0281E]">S</span>ørensen
           </span>
         </h1>
