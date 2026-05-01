@@ -419,7 +419,7 @@ function Index() {
                 </div>
               </div>
 
-              <div className="mt-16">
+              <div className="mt-16 flex justify-center">
                 <a
                   href="/jonas-kp-sorensen-cv.pdf"
                   download
