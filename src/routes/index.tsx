@@ -110,6 +110,7 @@ const HIGHLIGHT_RANGE: Record<number, { fromEnd?: number; fromStart?: number; le
 function TypewriterQuote() {
   const [lineIdx, setLineIdx] = useState(0);
   const [charIdx, setCharIdx] = useState(0);
+  const [meetPulse, setMeetPulse] = useState(0);
 
   useEffect(() => {
     if (lineIdx >= typewriterLines.length) return;
@@ -126,6 +127,13 @@ function TypewriterQuote() {
     }, LINE_PAUSE);
     return () => clearTimeout(t);
   }, [lineIdx, charIdx]);
+
+  // After the full typewriter sequence finishes, trigger the "meeting" pulse on the highlighted letters.
+  useEffect(() => {
+    if (lineIdx < typewriterLines.length) return;
+    const t = setTimeout(() => setMeetPulse((n) => n + 1), 400);
+    return () => clearTimeout(t);
+  }, [lineIdx]);
 
   const ariaLabel = typewriterLines.join(" ");
 
