@@ -86,7 +86,7 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
               if (onNavigate) onNavigate(s);
             };
             const btn =
-              "absolute top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-cream/25 bg-black/55 backdrop-blur text-cream flex items-center justify-center transition-colors hover:border-[#C0281E] hover:text-[#C0281E] hover:bg-black/70";
+              "absolute top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-cream/25 bg-black/55 backdrop-blur text-cream flex items-center justify-center transition-colors hover:border-[#B83A20] hover:text-[#B83A20] hover:bg-black/70";
             return (
               <>
                 <button
@@ -205,14 +205,14 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
                 <button
                   type="button"
                   onClick={() => handle(prev)}
-                  className="text-[#C0281E] hover:underline underline-offset-4 text-base md:text-lg tracking-wide"
+                  className="text-[#B83A20] hover:underline underline-offset-4 text-base md:text-lg tracking-wide"
                 >
                   ← Forrige case
                 </button>
                 <button
                   type="button"
                   onClick={() => handle(next)}
-                  className="text-[#C0281E] hover:underline underline-offset-4 text-base md:text-lg tracking-wide"
+                  className="text-[#B83A20] hover:underline underline-offset-4 text-base md:text-lg tracking-wide"
                 >
                   Næste case →
                 </button>
