@@ -217,17 +217,19 @@ function NameSignature() {
     <div
       ref={ref}
       aria-label="Jonas K.P. Sørensen"
-      className="font-display tracking-[-0.02em] font-light leading-none flex flex-wrap items-baseline gap-x-[0.35em] text-[clamp(1.25rem,2.4vw,2rem)] select-none"
+      className="font-display tracking-[-0.02em] font-light leading-none flex flex-nowrap items-baseline justify-between gap-x-[2.5em] md:gap-x-[4em] text-[clamp(1rem,2.2vw,1.875rem)] whitespace-nowrap select-none"
     >
       <span className={fade(1)}>
         <span className="text-[#C0281E]">J</span>
         <span className="text-cream/90">onas</span>
       </span>
-      <span className={fade(2) + " text-[#C0281E]"}>K</span>
-      <span className={fade(3)}>
-        <span className="text-cream/90">.</span>
-        <span className="text-[#C0281E]">P</span>
-        <span className="text-cream/90">.</span>
+      <span>
+        <span className={fade(2) + " text-[#C0281E]"}>K</span>
+        <span className={fade(3)}>
+          <span className="text-cream/90">.</span>
+          <span className="text-[#C0281E]">P</span>
+          <span className="text-cream/90">.</span>
+        </span>
       </span>
       <span className={fade(4)}>
         <span className="text-[#C0281E]">S</span>
