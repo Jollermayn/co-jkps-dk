@@ -6,7 +6,6 @@ import { caseStudies, type CaseStudy } from "@/data/cases";
 import { CaseModal } from "@/components/CaseModal";
 import profilePhoto from "@/assets/profile-photo.png";
 
-
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -33,8 +32,7 @@ const competencies = [
     no: "1",
     title: "UX Research",
     sub: "Research & Brugerinddragelse",
-    body:
-      "Dybdegående indsigt gennem interviews, observationer, co-design og brugertest. Jeg oversætter kompleks adfærd til handlebare designbeslutninger.",
+    body: "Dybdegående indsigt gennem interviews, observationer, co-design og brugertest. Jeg oversætter kompleks adfærd til handlebare designbeslutninger.",
     tags: [
       "Semistrukturerede interviews",
       "Feltobservation",
@@ -48,38 +46,44 @@ const competencies = [
     no: "2",
     title: "Service- & Konceptdesign",
     sub: "Fra problem til realiserbart koncept",
-    body:
-      "Fra identifikation af problemet til et konkret, realiserbart koncept. Jeg designer brugerrejser, touchpoints og serviceoplevelser der skaber reel værdi.",
+    body: "Fra identifikation af problemet til et konkret, realiserbart koncept. Jeg designer brugerrejser, touchpoints og serviceoplevelser der skaber reel værdi.",
     tags: ["Brugerrejser", "Touchpoint-mapping", "Participatorisk design", "Konceptvalidering"],
   },
   {
     no: "3",
     title: "Digital Strategi & Brand",
     sub: "Stemme, position og indhold",
-    body:
-      "Strategisk rådgivning om digital tilstedeværelse, indhold og positionering. Jeg hjælper organisationer med at finde og kommunikere deres unikke stemme.",
+    body: "Strategisk rådgivning om digital tilstedeværelse, indhold og positionering. Jeg hjælper organisationer med at finde og kommunikere deres unikke stemme.",
     tags: ["Kommunikationsstrategi", "Visuel identitet", "Indholdsarkitektur", "Positionering"],
   },
   {
     no: "4",
     title: "Medie- & Lydproduktion",
     sub: "Fra studie til kanal",
-    body:
-      "Professionel podcast-, video- og lydproduktion fra studie til kanal. Teknisk kompetence kombineret med journalistisk næse for det gode indhold.",
+    body: "Professionel podcast-, video- og lydproduktion fra studie til kanal. Teknisk kompetence kombineret med journalistisk næse for det gode indhold.",
     tags: ["Redaktionel tilrettelæggelse", "Postproduktion", "Indholdsproduktion"],
   },
 ];
 
-
-
-
 const partners = [
   { slug: "danmarks-radio", name: "Danmarks Radio", note: "Broadcast, podcastproduktion og tværgående koordinering" },
-  { slug: "danmarks-naturfredningsforening", name: "Danmarks Naturfredningsforening", note: "Kommunikation om bæredygtighed og brandudvikling" },
-  { slug: "amnesty-international", name: "Amnesty International", note: "Journalistisk formidling af menneskerettighedsspørgsmål" },
+  {
+    slug: "danmarks-naturfredningsforening",
+    name: "Danmarks Naturfredningsforening",
+    note: "Kommunikation om bæredygtighed og brandudvikling",
+  },
+  {
+    slug: "amnesty-international",
+    name: "Amnesty International",
+    note: "Journalistisk formidling af menneskerettighedsspørgsmål",
+  },
   { slug: "ulla-dyrlov", name: "Ulla Dyrløv", note: "Koncept- og platformudvikling med fokus på børns trivsel" },
   { slug: "concerto-copenhagen", name: "Concerto Copenhagen", note: "Engagement af publikum gennem kulturformidling" },
-  { slug: "art-spirit-coaching", name: "Art Spirit Coaching", note: "Brand, koncept og kommunikation fra idé til lancering" },
+  {
+    slug: "art-spirit-coaching",
+    name: "Art Spirit Coaching",
+    note: "Brand, koncept og kommunikation fra idé til lancering",
+  },
 ];
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
@@ -94,14 +98,13 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
 const TYPE_SPEED = 50;
 const LINE_PAUSE = 600;
 
-const typewriterLines = [
-  "The Ai paradox:",
-  "Too much A",
-  "Not enough i",
-];
+const typewriterLines = ["The Ai paradox:", "Too much A", "Not enough i"];
 
 // For lines with a highlighted segment, define position/length and style.
-const HIGHLIGHT_RANGE: Record<number, { fromEnd?: number; fromStart?: number; length: number; style?: "box" | "text" }> = {
+const HIGHLIGHT_RANGE: Record<
+  number,
+  { fromEnd?: number; fromStart?: number; length: number; style?: "box" | "text" }
+> = {
   0: { fromStart: 4, length: 2, style: "text" }, // "Ai" in "The Ai paradox:"
   1: { fromEnd: 1, length: 1, style: "box" }, // "A" at end of line 2
   2: { fromEnd: 1, length: 1, style: "box" }, // "i" at end of line 3
@@ -110,30 +113,35 @@ const HIGHLIGHT_RANGE: Record<number, { fromEnd?: number; fromStart?: number; le
 function TypewriterQuote() {
   const [lineIdx, setLineIdx] = useState(0);
   const [charIdx, setCharIdx] = useState(0);
-  const [meetPulse, setMeetPulse] = useState(0);
+  const [meetPhase, setMeetPhase] = useState<"idle" | "meet" | "done">("idle");
+
+  const done = lineIdx >= typewriterLines.length;
+
+  useEffect(() => {
+    if (done) {
+      // Typewriter færdig — start møde-animation efter 400ms
+      const t = setTimeout(() => {
+        setMeetPhase("meet");
+        // Efter 600ms er mødet "done" (bokse tilbage til normal)
+        setTimeout(() => setMeetPhase("done"), 600);
+      }, 400);
+      return () => clearTimeout(t);
+    }
+  }, [done]);
 
   useEffect(() => {
     if (lineIdx >= typewriterLines.length) return;
     const current = typewriterLines[lineIdx];
-
     if (charIdx < current.length) {
       const t = setTimeout(() => setCharIdx((c) => c + 1), TYPE_SPEED);
       return () => clearTimeout(t);
     }
-    // line complete — pause then advance
     const t = setTimeout(() => {
       setLineIdx((i) => i + 1);
       setCharIdx(0);
     }, LINE_PAUSE);
     return () => clearTimeout(t);
   }, [lineIdx, charIdx]);
-
-  // After the full typewriter sequence finishes, trigger the "meeting" pulse on the highlighted letters.
-  useEffect(() => {
-    if (lineIdx < typewriterLines.length) return;
-    const t = setTimeout(() => setMeetPulse((n) => n + 1), 400);
-    return () => clearTimeout(t);
-  }, [lineIdx]);
 
   const ariaLabel = typewriterLines.join(" ");
 
@@ -149,24 +157,36 @@ function TypewriterQuote() {
       const highlight = shown.length > start ? shown.slice(start, Math.min(shown.length, end)) : "";
       const after = shown.length > end ? shown.slice(end) : "";
       const isComplete = highlight.length === range.length;
-      const allDone = lineIdx >= typewriterLines.length;
-      const showMeet = isComplete && allDone && meetPulse > 0 && range.style !== "text";
-      const flashClass = showMeet
-        ? " letter-meet"
-        : isComplete
-          ? range.style === "text"
-            ? " letter-flash"
-            : " letter-flash-box"
-          : "";
+
+      // Møde-animation: A (linje 1) bevæger sig ned, i (linje 2) bevæger sig op
+      const meetStyle: React.CSSProperties =
+        isComplete && meetPhase === "meet"
+          ? {
+              transform: i === 1 ? "translateY(0.6em) scale(1.3)" : "translateY(-0.6em) scale(1.3)",
+              transition: "transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease",
+              boxShadow: "0 0 12px rgba(184, 58, 32, 0.8)",
+              zIndex: 10,
+              position: "relative" as const,
+            }
+          : isComplete && meetPhase === "done"
+            ? {
+                transform: "translateY(0) scale(1)",
+                transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                boxShadow: "none",
+                position: "relative" as const,
+              }
+            : {};
+
       const highlightClass =
-        (range.style === "text"
+        range.style === "text"
           ? "not-italic font-black text-[#B83A20]"
-          : "not-italic font-black text-[#F5F0E8] bg-[#B83A20] whitespace-nowrap px-[6px] py-[2px]") + flashClass;
+          : "not-italic font-black text-[#F5F0E8] bg-[#B83A20] whitespace-nowrap px-[6px] py-[2px]";
+
       return (
         <>
           {before}
           {highlight && (
-            <span key={`hl-${i}-${highlight.length}-${showMeet ? meetPulse : 0}`} className={highlightClass}>
+            <span key={`hl-${i}-${highlight.length}-${meetPhase}`} className={highlightClass} style={meetStyle}>
               {highlight}
             </span>
           )}
@@ -177,8 +197,6 @@ function TypewriterQuote() {
     return shown || "\u00A0";
   };
 
-  // Reserve full height up-front so buttons below don't shift while typing.
-  // Line 1 = 1.15em * 1.2 lh + 0.35em margin; lines 2-3 = 1em * 1.5 lh each.
   const reservedEm = 1.15 * 1.2 + 0.35 + 2 * 1.5;
   return (
     <p
@@ -194,11 +212,7 @@ function TypewriterQuote() {
           key={i}
           aria-hidden
           className="block whitespace-nowrap"
-          style={
-            i === 0
-              ? { fontSize: "1.15em", lineHeight: 1.2, marginBottom: "0.35em", fontWeight: 300 }
-              : undefined
-          }
+          style={i === 0 ? { fontSize: "1.15em", lineHeight: 1.2, marginBottom: "0.35em", fontWeight: 300 } : undefined}
         >
           {renderLine(i)}
         </span>
@@ -207,18 +221,13 @@ function TypewriterQuote() {
   );
 }
 
-
 function Sidebar() {
   return (
     <aside className="hero-sidebar relative w-full min-w-0 max-w-full flex flex-col gap-16 lg:gap-12 lg:fixed lg:top-0 lg:right-0 lg:w-[40%] lg:h-screen lg:overflow-hidden px-6 md:px-14 lg:px-16 py-12 md:py-20 lg:pt-[8vh] lg:pb-16 border-b lg:border-b-0 lg:border-l border-cream/10 order-1 lg:order-last bg-[#0D1B2A] lg:z-20 lg:rounded-l-xl lg:shadow-[-8px_0_24px_rgba(0,0,0,0.25)] text-center items-center lg:justify-start">
       <div className="w-full flex flex-col gap-3 lg:gap-4 items-center text-center">
         <h1 className="font-display tracking-[-0.02em] font-medium text-center px-2 flex flex-col items-center leading-none">
-          <span className="block text-[clamp(2.25rem,7.5vw,3.75rem)] leading-none">
-            Jonas
-          </span>
-          <span className="block text-[clamp(2.25rem,7.5vw,3.75rem)] leading-none -mt-[0.08em]">
-            Sørensen
-          </span>
+          <span className="block text-[clamp(2.25rem,7.5vw,3.75rem)] leading-none">Jonas</span>
+          <span className="block text-[clamp(2.25rem,7.5vw,3.75rem)] leading-none -mt-[0.08em]">Sørensen</span>
         </h1>
         <p className="hero-subtitle text-lg leading-relaxed lg:text-2xl lg:leading-snug text-cream/85 font-display italic text-center">
           Digital konsulent.
@@ -260,14 +269,14 @@ function Index() {
               <Eyebrow>Om mig</Eyebrow>
               <div className="mt-8 max-w-3xl space-y-6 text-cream/80 text-lg leading-relaxed">
                 <p>
-                  Siden 2016 har jeg drevet egen konsulent- og medieproduktionsvirksomhed — med fokus på
-                  samspillet mellem mennesker, teknologi og forretning.
+                  Siden 2016 har jeg drevet egen konsulent- og medieproduktionsvirksomhed — med fokus på samspillet
+                  mellem mennesker, teknologi og forretning.
                 </p>
                 <p>
-                  Fælles for alt mit arbejde er interessen for det øjeblik hvor noget abstrakt bliver konkret —
-                  hvor en idé finder sin form, en oplevelse finder sit udtryk, en fortælling finder sin modtager.
-                  Jeg er på hjemmebane når disciplinerne overlapper, og tiltrukket af de projekter der ikke
-                  lader sig løse med én faglighed alene.
+                  Fælles for alt mit arbejde er interessen for det øjeblik hvor noget abstrakt bliver konkret — hvor en
+                  idé finder sin form, en oplevelse finder sit udtryk, en fortælling finder sin modtager. Jeg er på
+                  hjemmebane når disciplinerne overlapper, og tiltrukket af de projekter der ikke lader sig løse med én
+                  faglighed alene.
                 </p>
                 <p className="text-cream/60 italic font-display">
                   Privat er jeg familiefar, naturmenneske og det, man nok ville kalde en seriøs lytter.
@@ -288,13 +297,12 @@ function Index() {
                   Hvad jeg <span className="italic">bringer</span>
                 </h2>
                 <p className="mt-8 max-w-2xl text-lg text-cream/75 leading-relaxed">
-                  Jeg arbejder i skæringsfeltet mellem strategi, design og teknologi — og bringer alle tre
-                  perspektiver ind i hvert projekt.
+                  Jeg arbejder i skæringsfeltet mellem strategi, design og teknologi — og bringer alle tre perspektiver
+                  ind i hvert projekt.
                 </p>
               </div>
 
               <KompetencerList />
-
             </div>
           </section>
 
@@ -315,7 +323,9 @@ function Index() {
                 <li className="py-8 md:py-10 grid grid-cols-12 gap-6">
                   <span className="col-span-2 md:col-span-1 font-display text-2xl text-ember">01</span>
                   <div className="col-span-10 md:col-span-11 lg:col-span-6">
-                    <h3 className="font-display text-2xl md:text-[1.7rem] tracking-tight leading-snug break-words [overflow-wrap:anywhere]">Cand.it · Digital Design og Interaktive Teknologier</h3>
+                    <h3 className="font-display text-2xl md:text-[1.7rem] tracking-tight leading-snug break-words [overflow-wrap:anywhere]">
+                      Cand.it · Digital Design og Interaktive Teknologier
+                    </h3>
                     <p className="mt-2 text-sm text-cream/55 italic">IT-Universitetet København · 2024</p>
                   </div>
                   <p className="col-span-12 lg:col-span-5 lg:col-start-auto col-start-3 md:col-start-2 lg:mt-0 mt-3 text-cream/80 leading-relaxed">
@@ -325,7 +335,9 @@ function Index() {
                 <li className="py-8 md:py-10 grid grid-cols-12 gap-6">
                   <span className="col-span-2 md:col-span-1 font-display text-2xl text-ember">02</span>
                   <div className="col-span-10 md:col-span-11 lg:col-span-6">
-                    <h3 className="font-display text-2xl md:text-[1.7rem] tracking-snug leading-snug break-words [overflow-wrap:anywhere]">Professionsbachelor · Medie- og sonokommunikation</h3>
+                    <h3 className="font-display text-2xl md:text-[1.7rem] tracking-snug leading-snug break-words [overflow-wrap:anywhere]">
+                      Professionsbachelor · Medie- og sonokommunikation
+                    </h3>
                     <p className="mt-2 text-sm text-cream/55 italic">Sonic College · 2016</p>
                   </div>
                   <p className="col-span-12 lg:col-span-5 lg:col-start-auto col-start-3 md:col-start-2 lg:mt-0 mt-3 text-cream/80 leading-relaxed">
@@ -333,7 +345,6 @@ function Index() {
                   </p>
                 </li>
               </ul>
-
             </div>
           </section>
 
@@ -416,14 +427,7 @@ function Index() {
   );
 }
 
-const FILTERS = [
-  "Alle",
-  "UX Research",
-  "Service Design",
-  "Kommunikation",
-  "Brandudvikling",
-  "Co-Creation",
-] as const;
+const FILTERS = ["Alle", "UX Research", "Service Design", "Kommunikation", "Brandudvikling", "Co-Creation"] as const;
 
 type Filter = (typeof FILTERS)[number];
 
@@ -499,10 +503,7 @@ function CasesSection() {
   });
 
   const filterCounts = FILTERS.reduce<Record<string, number>>((acc, f) => {
-    acc[f] =
-      f === "Alle"
-        ? caseStudies.length
-        : caseStudies.filter((c) => CASE_META[c.slug]?.tags.includes(f)).length;
+    acc[f] = f === "Alle" ? caseStudies.length : caseStudies.filter((c) => CASE_META[c.slug]?.tags.includes(f)).length;
     return acc;
   }, {});
 
@@ -573,82 +574,80 @@ function CasesSection() {
         <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-3 mb-2.5 md:mb-3">
           <div className="flex flex-wrap items-center gap-x-3 gap-y-3">
             <div className="relative" ref={filterRef}>
-            <button
-              type="button"
-              onClick={() => setFilterOpen((v) => !v)}
-              aria-haspopup="listbox"
-              aria-expanded={filterOpen}
-              className={
-                "inline-flex items-center gap-2 text-xs tracking-wide px-4 py-2 rounded-full border transition-colors " +
-                (filter !== "Alle"
-                  ? "bg-ember text-cream border-ember hover:bg-ember/90"
-                  : "border-cream/25 text-cream/85 hover:border-cream/60 hover:text-cream")
-              }
-            >
-              <SlidersHorizontal size={14} strokeWidth={2} />
-              <span>
-                Filter
-                {filter !== "Alle" && <span className="opacity-90"> · {filter}</span>}
-              </span>
-              {filter !== "Alle" && (
-                <span
-                  role="button"
-                  tabIndex={0}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setFilter("Alle");
-                  }}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                      e.preventDefault();
+              <button
+                type="button"
+                onClick={() => setFilterOpen((v) => !v)}
+                aria-haspopup="listbox"
+                aria-expanded={filterOpen}
+                className={
+                  "inline-flex items-center gap-2 text-xs tracking-wide px-4 py-2 rounded-full border transition-colors " +
+                  (filter !== "Alle"
+                    ? "bg-ember text-cream border-ember hover:bg-ember/90"
+                    : "border-cream/25 text-cream/85 hover:border-cream/60 hover:text-cream")
+                }
+              >
+                <SlidersHorizontal size={14} strokeWidth={2} />
+                <span>
+                  Filter
+                  {filter !== "Alle" && <span className="opacity-90"> · {filter}</span>}
+                </span>
+                {filter !== "Alle" && (
+                  <span
+                    role="button"
+                    tabIndex={0}
+                    onClick={(e) => {
                       e.stopPropagation();
                       setFilter("Alle");
-                    }
-                  }}
-                  aria-label="Ryd filter"
-                  className="ml-1 -mr-1 inline-flex items-center justify-center rounded-full p-0.5 hover:bg-cream/20"
-                >
-                  <X size={12} strokeWidth={2.25} />
-                </span>
-              )}
-            </button>
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        setFilter("Alle");
+                      }
+                    }}
+                    aria-label="Ryd filter"
+                    className="ml-1 -mr-1 inline-flex items-center justify-center rounded-full p-0.5 hover:bg-cream/20"
+                  >
+                    <X size={12} strokeWidth={2.25} />
+                  </span>
+                )}
+              </button>
 
-            {filterOpen && (
-              <div className="absolute left-0 top-full mt-2 z-30 w-[min(16.25rem,calc(100vw-6rem))] max-w-[calc(100vw-6rem)] min-w-0 bg-navy-deep border border-cream/15 rounded-xl shadow-2xl p-3">
-                <div className="eyebrow text-cream/50 px-2 pb-2">Kategorier</div>
-                <ul role="listbox" className="flex flex-col">
-                  {FILTERS.map((f) => {
-                    const active = f === filter;
-                    return (
-                      <li key={f}>
-                        <button
-                          type="button"
-                          role="option"
-                          aria-selected={active}
-                          onClick={() => {
-                            setFilter(f);
-                            setFilterOpen(false);
-                          }}
-                          className={
-                            "w-full flex items-center justify-between gap-3 text-left px-3 py-2 rounded-md text-sm transition-colors " +
-                            (active
-                              ? "bg-ember/15 text-cream"
-                              : "text-cream/75 hover:bg-cream/5 hover:text-cream")
-                          }
-                        >
-                          <span className="flex items-center gap-2">
-                            {active && <span className="h-1.5 w-1.5 rounded-full bg-ember" />}
-                            {f}
-                          </span>
-                          <span className="text-[11px] text-cream/50">{filterCounts[f]}</span>
-                        </button>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-            )}
-          </div>
+              {filterOpen && (
+                <div className="absolute left-0 top-full mt-2 z-30 w-[min(16.25rem,calc(100vw-6rem))] max-w-[calc(100vw-6rem)] min-w-0 bg-navy-deep border border-cream/15 rounded-xl shadow-2xl p-3">
+                  <div className="eyebrow text-cream/50 px-2 pb-2">Kategorier</div>
+                  <ul role="listbox" className="flex flex-col">
+                    {FILTERS.map((f) => {
+                      const active = f === filter;
+                      return (
+                        <li key={f}>
+                          <button
+                            type="button"
+                            role="option"
+                            aria-selected={active}
+                            onClick={() => {
+                              setFilter(f);
+                              setFilterOpen(false);
+                            }}
+                            className={
+                              "w-full flex items-center justify-between gap-3 text-left px-3 py-2 rounded-md text-sm transition-colors " +
+                              (active ? "bg-ember/15 text-cream" : "text-cream/75 hover:bg-cream/5 hover:text-cream")
+                            }
+                          >
+                            <span className="flex items-center gap-2">
+                              {active && <span className="h-1.5 w-1.5 rounded-full bg-ember" />}
+                              {f}
+                            </span>
+                            <span className="text-[11px] text-cream/50">{filterCounts[f]}</span>
+                          </button>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              )}
+            </div>
           </div>
           {/* Arrow nav — right side, same row as filter */}
           {!isGrid && (
@@ -659,7 +658,9 @@ function CasesSection() {
                 onClick={showPreviousCase}
                 className="w-12 h-12 rounded-full border border-cream/25 text-cream flex items-center justify-center transition-colors hover:border-[#B83A20] hover:text-[#B83A20]"
               >
-                <span aria-hidden className="text-xl leading-none">←</span>
+                <span aria-hidden className="text-xl leading-none">
+                  ←
+                </span>
               </button>
               <button
                 type="button"
@@ -667,7 +668,9 @@ function CasesSection() {
                 onClick={showNextCase}
                 className="w-12 h-12 rounded-full border border-cream/25 text-cream flex items-center justify-center transition-colors hover:border-[#B83A20] hover:text-[#B83A20]"
               >
-                <span aria-hidden className="text-xl leading-none">→</span>
+                <span aria-hidden className="text-xl leading-none">
+                  →
+                </span>
               </button>
             </div>
           )}
@@ -676,16 +679,10 @@ function CasesSection() {
 
       {/* Cases view: slider (Alle) or grid (filter) */}
       {(() => {
-        const renderCard = (
-          c: (typeof caseStudies)[number],
-          variant: "slider" | "grid",
-          index: number,
-        ) => {
+        const renderCard = (c: (typeof caseStudies)[number], variant: "slider" | "grid", index: number) => {
           const meta = CASE_META[c.slug];
           const sizing =
-            variant === "slider"
-              ? "snap-start shrink-0 w-[18rem] max-w-[calc(100vw-6rem)] sm:w-[420px]"
-              : "w-full";
+            variant === "slider" ? "snap-start shrink-0 w-[18rem] max-w-[calc(100vw-6rem)] sm:w-[420px]" : "w-full";
           const imgWrapperClass =
             variant === "slider"
               ? "w-full overflow-hidden bg-navy h-[250px] max-[428px]:h-[160px]"
@@ -694,14 +691,9 @@ function CasesSection() {
             variant === "slider"
               ? "p-6 max-[428px]:p-4 flex flex-col gap-3 max-[428px]:gap-2"
               : "p-6 flex flex-col gap-3";
-          const clientSize =
-            variant === "slider" ? "max-[428px]:!text-[10px]" : "";
-          const headlineSize =
-            variant === "slider" ? "max-[428px]:!text-[15px]" : "";
-          const tagSize =
-            variant === "slider"
-              ? "max-[428px]:text-[9px] max-[428px]:px-2 max-[428px]:py-0.5"
-              : "";
+          const clientSize = variant === "slider" ? "max-[428px]:!text-[10px]" : "";
+          const headlineSize = variant === "slider" ? "max-[428px]:!text-[15px]" : "";
+          const tagSize = variant === "slider" ? "max-[428px]:text-[9px] max-[428px]:px-2 max-[428px]:py-0.5" : "";
           const imgClass =
             variant === "grid"
               ? "w-full h-full object-cover md:grayscale md:group-hover:grayscale-0 transition-all duration-[400ms] ease-out group-hover:scale-[1.04]"
@@ -795,9 +787,7 @@ function CasesSection() {
                     onClick={() => {
                       setFilter("Alle");
                       requestAnimationFrame(() => {
-                        document
-                          .getElementById("cases")
-                          ?.scrollIntoView({ behavior: "smooth", block: "start" });
+                        document.getElementById("cases")?.scrollIntoView({ behavior: "smooth", block: "start" });
                       });
                     }}
                     className="text-sm tracking-wide text-cream/85 underline underline-offset-4 decoration-cream/40 hover:text-cream hover:decoration-cream transition-colors"
@@ -814,7 +804,7 @@ function CasesSection() {
                     onScroll={handleScroll}
                     className="cases-carousel flex w-full max-w-full gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth px-12 md:px-14 scroll-pl-12 md:scroll-pl-14 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
                   >
-                  {filtered.map((c, i) => renderCard(c, "slider", i))}
+                    {filtered.map((c, i) => renderCard(c, "slider", i))}
                   </div>
                 </div>
 
@@ -839,11 +829,7 @@ function CasesSection() {
         );
       })()}
 
-      <CaseModal
-        study={openCase}
-        onClose={() => setOpenCase(null)}
-        onNavigate={(s) => setOpenCase(s)}
-      />
+      <CaseModal study={openCase} onClose={() => setOpenCase(null)} onNavigate={(s) => setOpenCase(s)} />
     </section>
   );
 }
@@ -853,28 +839,28 @@ function CasesSection() {
 const TAG_TO_SLUGS: Record<string, string[]> = {
   // 01 — Indsigt / UX Research
   "Semistrukturerede interviews": ["wolt", "interaktiv-horesimulering"],
-  "Feltobservation": ["wolt", "interaktiv-horesimulering"],
+  Feltobservation: ["wolt", "interaktiv-horesimulering"],
   "Co-design": ["wolt", "interaktiv-horesimulering"],
   "Mixed methods": ["wolt", "interaktiv-horesimulering"],
-  "Facilitering": ["interaktiv-horesimulering", "amnesty-international"],
-  "Workshops": ["interaktiv-horesimulering", "amnesty-international"],
+  Facilitering: ["interaktiv-horesimulering", "amnesty-international"],
+  Workshops: ["interaktiv-horesimulering", "amnesty-international"],
 
   // 02 — Koncept / Service- & Konceptdesign
-  "Brugerrejser": ["boliga", "wolt"],
+  Brugerrejser: ["boliga", "wolt"],
   "Touchpoint-mapping": ["boliga", "wolt"],
   "Participatorisk design": ["interaktiv-horesimulering"],
-  "Konceptvalidering": ["interaktiv-horesimulering"],
+  Konceptvalidering: ["interaktiv-horesimulering"],
 
   // 03 — Digital Strategi & Brand
-  "Kommunikationsstrategi": ["amnesty-international", "danmarks-naturfredningsforening", "art-spirit-coaching"],
+  Kommunikationsstrategi: ["amnesty-international", "danmarks-naturfredningsforening", "art-spirit-coaching"],
   "Visuel identitet": ["amnesty-international", "danmarks-naturfredningsforening", "art-spirit-coaching"],
-  "Indholdsarkitektur": ["boliga", "danmarks-radio"],
-  "Positionering": ["boliga", "danmarks-radio"],
+  Indholdsarkitektur: ["boliga", "danmarks-radio"],
+  Positionering: ["boliga", "danmarks-radio"],
 
   // 04 — Medie- & Lydproduktion
   "Redaktionel tilrettelæggelse": ["danmarks-radio", "ulla-dyrlov", "concerto-copenhagen"],
-  "Indholdsproduktion": ["danmarks-radio", "ulla-dyrlov", "concerto-copenhagen"],
-  "Postproduktion": ["danmarks-radio", "ulla-dyrlov"],
+  Indholdsproduktion: ["danmarks-radio", "ulla-dyrlov", "concerto-copenhagen"],
+  Postproduktion: ["danmarks-radio", "ulla-dyrlov"],
 };
 
 const TAG_HEADLINES: Record<string, string> = {
@@ -937,142 +923,136 @@ function KompetencerList() {
 
   return (
     <>
-    <ul className="divide-y divide-cream/10 border-y border-cream/10">
-      {competencies.map((c) => (
-        <li
-          key={c.no}
-          className="group py-8 md:py-10 hover:bg-navy/40 transition-colors -mx-5 md:-mx-14 px-5 md:px-14"
-        >
-          <div className="grid grid-cols-1 md:grid-cols-12 md:gap-8">
-            {/* Left: number + title + sub */}
-            <div className="md:col-span-4 min-w-0 flex items-baseline gap-4">
-              <span className="font-display text-2xl text-ember shrink-0">{c.no}</span>
-              <div className="min-w-0 flex-1">
-                <h3 className="font-display tracking-tight leading-tight max-w-full [word-break:normal] [overflow-wrap:break-word] [hyphens:none] text-[clamp(1.4rem,5.5vw,2.25rem)] md:text-4xl">
-                  {c.title}
-                </h3>
-                
+      <ul className="divide-y divide-cream/10 border-y border-cream/10">
+        {competencies.map((c) => (
+          <li
+            key={c.no}
+            className="group py-8 md:py-10 hover:bg-navy/40 transition-colors -mx-5 md:-mx-14 px-5 md:px-14"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-12 md:gap-8">
+              {/* Left: number + title + sub */}
+              <div className="md:col-span-4 min-w-0 flex items-baseline gap-4">
+                <span className="font-display text-2xl text-ember shrink-0">{c.no}</span>
+                <div className="min-w-0 flex-1">
+                  <h3 className="font-display tracking-tight leading-tight max-w-full [word-break:normal] [overflow-wrap:break-word] [hyphens:none] text-[clamp(1.4rem,5.5vw,2.25rem)] md:text-4xl">
+                    {c.title}
+                  </h3>
+                </div>
               </div>
-            </div>
 
-            {/* Middle: description */}
-            <p className="md:col-span-5 mt-3 md:mt-0 text-cream/80 leading-relaxed">
-              {c.body}
-            </p>
+              {/* Middle: description */}
+              <p className="md:col-span-5 mt-3 md:mt-0 text-cream/80 leading-relaxed">{c.body}</p>
 
-            {/* Right: stacked tags */}
-            <ul className="md:col-span-3 mt-6 md:mt-0 flex flex-col items-start gap-y-1">
-            {c.tags.map((t, i) => {
-              const slugs = TAG_TO_SLUGS[t] ?? [];
-              const hasCases = slugs.length > 0;
-              const isOpen = openTag === `${c.no}-${t}`;
-              const tagKey = `${c.no}-${t}`;
-              return (
-                <li
-                  key={t}
-                  ref={isOpen ? activeTagRef : undefined}
-                  className="relative inline-flex items-baseline"
-                  onMouseEnter={() => {
-                    if (!canHover || !hasCases) return;
-                    cancelClose();
-                    setOpenTag(tagKey);
-                  }}
-                  onMouseLeave={() => {
-                    if (!canHover) return;
-                    scheduleClose();
-                  }}
-                >
-                  <span aria-hidden className="text-[#8899AA]/60 mr-1.5 select-none">·</span>
-                  <button
-                    type="button"
-                    disabled={!hasCases}
-                    onClick={() => {
-                      if (canHover) return;
-                      setOpenTag(isOpen ? null : tagKey);
-                    }}
-                    onFocus={() => {
-                      if (!canHover || !hasCases) return;
-                      cancelClose();
-                      setOpenTag(tagKey);
-                    }}
-                    onBlur={() => {
-                      if (!canHover) return;
-                      scheduleClose();
-                    }}
-                    aria-expanded={isOpen}
-                    className={
-                      "text-left text-[11px] tracking-wide uppercase bg-transparent border-0 p-0 transition-colors " +
-                      (hasCases
-                        ? "cursor-pointer hover:text-[#B83A20] "
-                        : "cursor-default ") +
-                      (isOpen ? "text-[#B83A20]" : "text-[#8899AA]")
-                    }
-                  >
-                    {t}
-                  </button>
-                  {isOpen && hasCases && (
-                    <div style={{ zIndex: 9999 }} className="absolute top-full left-0 mt-2 w-[calc(100vw-2.5rem)] max-w-[calc(100vw-2.5rem)] md:top-0 md:left-full md:mt-0 md:ml-3 md:w-[min(18rem,calc(100vw-6rem))] md:max-w-[calc(100vw-6rem)] bg-navy-deep border border-cream/15 shadow-2xl p-4 animate-in fade-in slide-in-from-top-1 md:slide-in-from-left-1 md:slide-in-from-top-0 duration-150">
-                      <div
-                        className="text-cream/55 uppercase font-semibold mb-3"
-                        style={{ fontSize: 9, letterSpacing: "0.18em" }}
+              {/* Right: stacked tags */}
+              <ul className="md:col-span-3 mt-6 md:mt-0 flex flex-col items-start gap-y-1">
+                {c.tags.map((t, i) => {
+                  const slugs = TAG_TO_SLUGS[t] ?? [];
+                  const hasCases = slugs.length > 0;
+                  const isOpen = openTag === `${c.no}-${t}`;
+                  const tagKey = `${c.no}-${t}`;
+                  return (
+                    <li
+                      key={t}
+                      ref={isOpen ? activeTagRef : undefined}
+                      className="relative inline-flex items-baseline"
+                      onMouseEnter={() => {
+                        if (!canHover || !hasCases) return;
+                        cancelClose();
+                        setOpenTag(tagKey);
+                      }}
+                      onMouseLeave={() => {
+                        if (!canHover) return;
+                        scheduleClose();
+                      }}
+                    >
+                      <span aria-hidden className="text-[#8899AA]/60 mr-1.5 select-none">
+                        ·
+                      </span>
+                      <button
+                        type="button"
+                        disabled={!hasCases}
+                        onClick={() => {
+                          if (canHover) return;
+                          setOpenTag(isOpen ? null : tagKey);
+                        }}
+                        onFocus={() => {
+                          if (!canHover || !hasCases) return;
+                          cancelClose();
+                          setOpenTag(tagKey);
+                        }}
+                        onBlur={() => {
+                          if (!canHover) return;
+                          scheduleClose();
+                        }}
+                        aria-expanded={isOpen}
+                        className={
+                          "text-left text-[11px] tracking-wide uppercase bg-transparent border-0 p-0 transition-colors " +
+                          (hasCases ? "cursor-pointer hover:text-[#B83A20] " : "cursor-default ") +
+                          (isOpen ? "text-[#B83A20]" : "text-[#8899AA]")
+                        }
                       >
-                        Relaterede cases
-                      </div>
-                      <ul className="flex flex-col gap-2">
-                        {slugs.map((slug) => {
-                          const study = caseStudies.find(
-                            (s) => s.slug === slug,
-                          );
-                          if (!study) return null;
-                          return (
-                            <li key={slug}>
-                              <button
-                                type="button"
-                                onClick={() => {
-                                  setOpenTag(null);
-                                  setOpenCase(study);
-                                }}
-                                className="group/case w-full text-left flex items-start gap-3 p-2 -mx-2 rounded hover:bg-cream/5 transition-colors"
-                              >
-                                <img
-                                  src={study.image}
-                                  alt=""
-                                  className="w-12 h-12 object-cover shrink-0 grayscale group-hover/case:grayscale-0 transition-all duration-300"
-                                />
-                                <div className="min-w-0 flex-1">
-                                  <div className="text-sm font-display font-semibold text-cream leading-tight">
-                                    {study.client}
-                                  </div>
-                                  <div className="text-xs text-cream/65 leading-snug mt-0.5 truncate">
-                                    {TAG_HEADLINES[slug] ?? study.title}
-                                  </div>
-                                </div>
-                                <span
-                                  aria-hidden
-                                  className="text-cream/40 group-hover/case:text-ember transition-colors text-sm"
-                                >
-                                  ↗
-                                </span>
-                              </button>
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    </div>
-                  )}
-                </li>
-              );
-            })}
-          </ul>
-          </div>
-        </li>
-      ))}
-    </ul>
-    <CaseModal
-      study={openCase}
-      onClose={() => setOpenCase(null)}
-      onNavigate={(s) => setOpenCase(s)}
-    />
+                        {t}
+                      </button>
+                      {isOpen && hasCases && (
+                        <div
+                          style={{ zIndex: 9999 }}
+                          className="absolute top-full left-0 mt-2 w-[calc(100vw-2.5rem)] max-w-[calc(100vw-2.5rem)] md:top-0 md:left-full md:mt-0 md:ml-3 md:w-[min(18rem,calc(100vw-6rem))] md:max-w-[calc(100vw-6rem)] bg-navy-deep border border-cream/15 shadow-2xl p-4 animate-in fade-in slide-in-from-top-1 md:slide-in-from-left-1 md:slide-in-from-top-0 duration-150"
+                        >
+                          <div
+                            className="text-cream/55 uppercase font-semibold mb-3"
+                            style={{ fontSize: 9, letterSpacing: "0.18em" }}
+                          >
+                            Relaterede cases
+                          </div>
+                          <ul className="flex flex-col gap-2">
+                            {slugs.map((slug) => {
+                              const study = caseStudies.find((s) => s.slug === slug);
+                              if (!study) return null;
+                              return (
+                                <li key={slug}>
+                                  <button
+                                    type="button"
+                                    onClick={() => {
+                                      setOpenTag(null);
+                                      setOpenCase(study);
+                                    }}
+                                    className="group/case w-full text-left flex items-start gap-3 p-2 -mx-2 rounded hover:bg-cream/5 transition-colors"
+                                  >
+                                    <img
+                                      src={study.image}
+                                      alt=""
+                                      className="w-12 h-12 object-cover shrink-0 grayscale group-hover/case:grayscale-0 transition-all duration-300"
+                                    />
+                                    <div className="min-w-0 flex-1">
+                                      <div className="text-sm font-display font-semibold text-cream leading-tight">
+                                        {study.client}
+                                      </div>
+                                      <div className="text-xs text-cream/65 leading-snug mt-0.5 truncate">
+                                        {TAG_HEADLINES[slug] ?? study.title}
+                                      </div>
+                                    </div>
+                                    <span
+                                      aria-hidden
+                                      className="text-cream/40 group-hover/case:text-ember transition-colors text-sm"
+                                    >
+                                      ↗
+                                    </span>
+                                  </button>
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        </div>
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          </li>
+        ))}
+      </ul>
+      <CaseModal study={openCase} onClose={() => setOpenCase(null)} onNavigate={(s) => setOpenCase(s)} />
     </>
   );
 }
