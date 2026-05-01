@@ -162,6 +162,7 @@
 
   .cases-carousel {
     padding-right: 3rem !important;
+    overscroll-behavior-x: contain;
   }
 
   .hero-quote,
