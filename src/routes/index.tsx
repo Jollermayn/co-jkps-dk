@@ -177,70 +177,6 @@ function TypewriterQuote() {
   );
 }
 
-function NameSignature() {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const [stage, setStage] = useState(0);
-  // 0 = idle, 1 = Jonas, 2 = + K., 3 = + P., 4 = + Sørensen.
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    let started = false;
-    const timeouts: number[] = [];
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !started) {
-            started = true;
-            setStage(1);
-            timeouts.push(window.setTimeout(() => setStage(2), 1500));
-            timeouts.push(window.setTimeout(() => setStage(3), 3000));
-            timeouts.push(window.setTimeout(() => setStage(4), 4500));
-            observer.disconnect();
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-    observer.observe(el);
-    return () => {
-      observer.disconnect();
-      timeouts.forEach((t) => window.clearTimeout(t));
-    };
-  }, []);
-
-  const fade = (minStage: number) =>
-    "inline-block transition-opacity duration-[800ms] ease-out " +
-    (stage >= minStage ? "opacity-100" : "opacity-0");
-
-  return (
-    <div
-      ref={ref}
-      aria-label="Jonas K.P. Sørensen"
-      className="font-display tracking-[-0.02em] font-light leading-none flex flex-nowrap items-baseline justify-center gap-x-8 md:gap-x-10 text-[clamp(1rem,2.2vw,1.875rem)] whitespace-nowrap select-none"
-    >
-      <span className={fade(1)}>
-        <span className="text-[#C0281E]">J</span>
-        <span className="text-cream/90">onas</span>
-      </span>
-      <span>
-        <span className={fade(2)}>
-          <span className="text-[#C0281E]">K</span>
-          <span className="text-cream/90">.</span>
-        </span>
-        <span className={fade(3)}>
-          <span className="text-[#C0281E]">P</span>
-          <span className="text-cream/90">.</span>
-        </span>
-      </span>
-      <span className={fade(4)}>
-        <span className="text-[#C0281E]">S</span>
-        <span className="text-cream/90">ørensen.</span>
-      </span>
-    </div>
-  );
-}
-
 
 function Sidebar() {
   return (
@@ -430,10 +366,6 @@ function Index() {
                 >
                   Download CV (PDF) <span aria-hidden>↓</span>
                 </a>
-              </div>
-
-              <div className="mt-10">
-                <NameSignature />
               </div>
             </div>
           </section>
