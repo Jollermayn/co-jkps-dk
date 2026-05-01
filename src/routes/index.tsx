@@ -102,10 +102,10 @@ const typewriterLines = [
   "not enough i.",
 ];
 
-// For lines with a trailing highlighted segment, define how many trailing chars get the red box.
-const HIGHLIGHT_TRAIL: Record<number, number> = {
-  2: 1, // "A" at end of line 3
-  4: 2, // "i." at end of line 5
+// For lines with a highlighted segment near the end, define [startFromEnd, length] of the red box.
+const HIGHLIGHT_RANGE: Record<number, { fromEnd: number; length: number }> = {
+  2: { fromEnd: 1, length: 1 }, // "A" at end of line 3
+  4: { fromEnd: 2, length: 1 }, // "i" in "i." at end of line 5
 };
 
 function TypewriterQuote() {
