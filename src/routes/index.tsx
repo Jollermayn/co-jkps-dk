@@ -102,10 +102,10 @@ const typewriterLines = [
   "not enough i.",
 ];
 
-// For lines with a trailing highlighted segment, define how many trailing chars get the red box.
-const HIGHLIGHT_TRAIL: Record<number, number> = {
-  2: 1, // "A" at end of line 3
-  4: 2, // "i." at end of line 5
+// For lines with a highlighted segment near the end, define [startFromEnd, length] of the red box.
+const HIGHLIGHT_RANGE: Record<number, { fromEnd: number; length: number }> = {
+  2: { fromEnd: 1, length: 1 }, // "A" at end of line 3
+  4: { fromEnd: 2, length: 1 }, // "i" in "i." at end of line 5
 };
 
 function TypewriterQuote() {
@@ -134,19 +134,22 @@ function TypewriterQuote() {
     if (i > lineIdx) return "\u00A0";
     const full = typewriterLines[i];
     const shown = i < lineIdx ? full : full.slice(0, charIdx);
-    const trail = HIGHLIGHT_TRAIL[i];
-    if (trail) {
-      const splitAt = full.length - trail;
-      const plainShown = shown.slice(0, Math.min(shown.length, splitAt));
-      const highlightShown = shown.length > splitAt ? shown.slice(splitAt) : "";
+    const range = HIGHLIGHT_RANGE[i];
+    if (range) {
+      const start = full.length - range.fromEnd;
+      const end = start + range.length;
+      const before = shown.slice(0, Math.min(shown.length, start));
+      const highlight = shown.length > start ? shown.slice(start, Math.min(shown.length, end)) : "";
+      const after = shown.length > end ? shown.slice(end) : "";
       return (
         <>
-          {plainShown}
-          {highlightShown && (
+          {before}
+          {highlight && (
             <span className="not-italic font-black text-cream bg-[#C0281E] whitespace-nowrap px-[6px] py-[2px]">
-              {highlightShown}
+              {highlight}
             </span>
           )}
+          {after}
         </>
       );
     }
