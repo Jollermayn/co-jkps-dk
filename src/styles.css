@@ -215,3 +215,43 @@
     font-size: 0.8rem !important;
   }
 }
+
+@keyframes letter-flash {
+  0% {
+    color: #ff5a3a;
+    text-shadow: 0 0 12px rgba(192, 40, 30, 0.9), 0 0 4px rgba(255, 90, 58, 0.7);
+    transform: scale(1.15);
+  }
+  60% {
+    color: #ff5a3a;
+    text-shadow: 0 0 6px rgba(192, 40, 30, 0.5);
+    transform: scale(1.05);
+  }
+  100% {
+    text-shadow: none;
+    transform: scale(1);
+  }
+}
+.letter-flash {
+  display: inline-block;
+  animation: letter-flash 0.6s ease-out;
+}
+@keyframes letter-flash-box {
+  0% {
+    box-shadow: 0 0 16px rgba(192, 40, 30, 0.9), 0 0 4px rgba(255, 90, 58, 0.8);
+    transform: scale(1.18);
+    background-color: #ff5a3a;
+  }
+  60% {
+    box-shadow: 0 0 8px rgba(192, 40, 30, 0.5);
+    transform: scale(1.06);
+  }
+  100% {
+    box-shadow: none;
+    transform: scale(1);
+  }
+}
+.letter-flash-box {
+  display: inline-block;
+  animation: letter-flash-box 0.6s ease-out;
+}
