@@ -217,7 +217,7 @@ function NameSignature() {
     <div
       ref={ref}
       aria-label="Jonas K.P. Sørensen"
-      className="font-display tracking-[-0.02em] font-light leading-none flex flex-nowrap items-baseline justify-between gap-x-[2.5em] md:gap-x-[4em] text-[clamp(1rem,2.2vw,1.875rem)] whitespace-nowrap select-none"
+      className="font-display tracking-[-0.02em] font-light leading-none flex flex-nowrap items-baseline justify-center gap-x-12 md:gap-x-16 text-[clamp(1rem,2.2vw,1.875rem)] whitespace-nowrap select-none"
     >
       <span className={fade(1)}>
         <span className="text-[#C0281E]">J</span>
