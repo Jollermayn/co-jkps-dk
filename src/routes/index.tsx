@@ -110,103 +110,104 @@ const HIGHLIGHT_RANGE: Record<
 };
 
 function TypewriterQuote() {
-  const [lineIdx, setLineIdx] = useState(0);
-  const [charIdx, setCharIdx] = useState(0);
-  const spanARef = useRef<HTMLSpanElement>(null);
-  const spanIRef = useRef<HTMLSpanElement>(null);
-
-  const done = lineIdx >= typewriterLines.length;
-
-  // Når typewriteren er færdig: animator direkte på DOM via refs — ingen React state
-  useEffect(() => {
-    if (!done) return;
-    const t = setTimeout(() => {
-      [spanARef, spanIRef].forEach((ref) => {
-        if (!ref.current) return;
-        ref.current.style.transition = "box-shadow 0.5s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)";
-        ref.current.style.boxShadow = "0 0 20px rgba(184, 58, 32, 0.95)";
-        ref.current.style.transform = "scale(1.12)";
-        setTimeout(() => {
-          if (!ref.current) return;
-          ref.current.style.transform = "scale(1)";
-          ref.current.style.boxShadow = "0 0 8px rgba(184, 58, 32, 0.45)";
-        }, 650);
-      });
-    }, 400);
-    return () => clearTimeout(t);
-  }, [done]);
+  const containerRef = useRef<HTMLParagraphElement>(null);
+  const mountedRef = useRef(false);
 
   useEffect(() => {
-    if (lineIdx >= typewriterLines.length) return;
-    const current = typewriterLines[lineIdx];
-    if (charIdx < current.length) {
-      const t = setTimeout(() => setCharIdx((c) => c + 1), TYPE_SPEED);
-      return () => clearTimeout(t);
-    }
-    const t = setTimeout(() => {
-      setLineIdx((i) => i + 1);
-      setCharIdx(0);
-    }, LINE_PAUSE);
-    return () => clearTimeout(t);
-  }, [lineIdx, charIdx]);
+    if (mountedRef.current) return;
+    mountedRef.current = true;
+    const root = containerRef.current;
+    if (!root) return;
 
-  const ariaLabel = typewriterLines.join(" ");
+    const timeouts: ReturnType<typeof setTimeout>[] = [];
+    const schedule = (fn: () => void, ms: number) => {
+      const t = setTimeout(fn, ms);
+      timeouts.push(t);
+      return t;
+    };
 
-  const renderLine = (i: number) => {
-    if (i > lineIdx) return "\u00A0";
-    const full = typewriterLines[i];
-    const shown = i < lineIdx ? full : full.slice(0, charIdx);
-    const range = HIGHLIGHT_RANGE[i];
+    const lineSpans: HTMLSpanElement[] = typewriterLines.map((_, i) => {
+      const span = document.createElement("span");
+      span.setAttribute("aria-hidden", "true");
+      span.className = "block whitespace-nowrap";
+      if (i === 0) {
+        span.style.fontSize = "1.15em";
+        span.style.lineHeight = "1.2";
+        span.style.marginBottom = "0.35em";
+        span.style.fontWeight = "300";
+      }
+      span.innerHTML = "&nbsp;";
+      root.appendChild(span);
+      return span;
+    });
 
-    if (range) {
+    const buildLineHTML = (i: number, charsShown: number): string => {
+      const full = typewriterLines[i];
+      const shown = full.slice(0, charsShown);
+      const range = HIGHLIGHT_RANGE[i];
+      if (!range) return shown || "&nbsp;";
+
       const start = range.fromStart !== undefined ? range.fromStart : full.length - (range.fromEnd ?? 0);
       const end = start + range.length;
       const before = shown.slice(0, Math.min(shown.length, start));
       const highlight = shown.length > start ? shown.slice(start, Math.min(shown.length, end)) : "";
       const after = shown.length > end ? shown.slice(end) : "";
 
-      const highlightClass =
+      const cls =
         range.style === "text"
           ? "not-italic font-black text-[#B83A20]"
           : "not-italic font-black text-[#F5F0E8] bg-[#B83A20] whitespace-nowrap px-[6px] py-[2px]";
+      const id = i === 1 ? ' id="tw-box-A"' : i === 2 ? ' id="tw-box-i"' : "";
+      const hlContent = highlight || "&nbsp;";
+      return `${before}<span${id} class="${cls}" style="display:inline-block">${hlContent}</span>${after}`;
+    };
 
-      const ref = i === 1 ? spanARef : i === 2 ? spanIRef : undefined;
+    let elapsed = 0;
+    typewriterLines.forEach((line, i) => {
+      for (let c = 0; c <= line.length; c++) {
+        const charsShown = c;
+        schedule(() => {
+          lineSpans[i].innerHTML = buildLineHTML(i, charsShown);
+        }, elapsed);
+        elapsed += TYPE_SPEED;
+      }
+      elapsed += LINE_PAUSE;
+    });
 
-      return (
-        <>
-          {before}
-          <span ref={ref} className={highlightClass} style={{ display: "inline-block" }}>
-            {highlight || "\u00A0"}
-          </span>
-          {after}
-        </>
-      );
-    }
-    return shown || "\u00A0";
-  };
+    schedule(() => {
+      const animate = (id: string) => {
+        const el = root.querySelector<HTMLElement>(`#${id}`);
+        if (!el) return;
+        el.style.transition = "box-shadow 0.5s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)";
+        el.style.boxShadow = "0 0 20px rgba(184, 58, 32, 0.95)";
+        el.style.transform = "scale(1.12)";
+        setTimeout(() => {
+          el.style.transform = "scale(1)";
+          el.style.boxShadow = "0 0 8px rgba(184, 58, 32, 0.45)";
+        }, 650);
+      };
+      animate("tw-box-A");
+      animate("tw-box-i");
+    }, elapsed + 400);
+
+    return () => {
+      timeouts.forEach(clearTimeout);
+    };
+  }, []);
 
   const reservedEm = 1.15 * 1.2 + 0.35 + 2 * 1.5;
+  const ariaLabel = typewriterLines.join(" ");
 
   return (
     <p
+      ref={containerRef}
       className="hero-quote font-display italic font-semibold leading-[1.5] text-cream/95"
       style={{
         fontSize: "clamp(1.25rem, 1.8vw, 2rem)",
         minHeight: `${reservedEm}em`,
       }}
       aria-label={ariaLabel}
-    >
-      {typewriterLines.map((_, i) => (
-        <span
-          key={i}
-          aria-hidden
-          className="block whitespace-nowrap"
-          style={i === 0 ? { fontSize: "1.15em", lineHeight: 1.2, marginBottom: "0.35em", fontWeight: 300 } : undefined}
-        >
-          {renderLine(i)}
-        </span>
-      ))}
-    </p>
+    />
   );
 }
 
