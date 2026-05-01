@@ -881,7 +881,7 @@ function KompetencerList() {
       {competencies.map((c) => (
         <li
           key={c.no}
-          className="group py-8 md:py-10 hover:bg-navy/40 transition-colors -mx-12 md:-mx-14 px-12 md:px-14"
+          className="group py-8 md:py-10 hover:bg-navy/40 transition-colors md:-mx-14 px-12 md:px-14"
         >
           <div className="grid grid-cols-1 md:grid-cols-12 md:gap-8">
             {/* Left: number + title + sub */}
