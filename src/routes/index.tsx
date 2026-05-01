@@ -972,7 +972,7 @@ function KompetencerList() {
                     {t}
                   </button>
                   {isOpen && hasCases && (
-                    <div className="absolute z-40 right-0 top-full mt-2 w-[min(18rem,calc(100vw-6rem))] max-w-[calc(100vw-6rem)] bg-navy-deep border border-cream/15 shadow-2xl p-4 animate-in fade-in slide-in-from-top-1 duration-150">
+                    <div style={{ zIndex: 9999 }} className="absolute left-0 top-full mt-2 w-[min(18rem,calc(100vw-6rem))] max-w-[calc(100vw-6rem)] bg-navy-deep border border-cream/15 shadow-2xl p-4 animate-in fade-in slide-in-from-top-1 duration-150">
                       <div
                         className="text-cream/55 uppercase font-semibold mb-3"
                         style={{ fontSize: 9, letterSpacing: "0.18em" }}
