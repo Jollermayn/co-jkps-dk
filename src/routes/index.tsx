@@ -143,7 +143,7 @@ function TypewriterQuote() {
         <>
           {before}
           {highlight && (
-            <span className="not-italic font-black text-cream bg-[#C0281E] whitespace-nowrap px-[6px] py-[2px]">
+            <span className="not-italic font-black text-[#F5F0E8] bg-[#C0281E] whitespace-nowrap px-[6px] py-[2px]">
               {highlight}
             </span>
           )}
