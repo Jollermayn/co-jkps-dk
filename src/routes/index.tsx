@@ -30,7 +30,7 @@ export const Route = createFileRoute("/")({
 
 const competencies = [
   {
-    no: "01",
+    no: "1",
     title: "UX Research",
     sub: "Research & Brugerinddragelse",
     body:
@@ -45,7 +45,7 @@ const competencies = [
     ],
   },
   {
-    no: "02",
+    no: "2",
     title: "Service- & Konceptdesign",
     sub: "Fra problem til realiserbart koncept",
     body:
@@ -53,7 +53,7 @@ const competencies = [
     tags: ["Brugerrejser", "Touchpoint-mapping", "Participatorisk design", "Konceptvalidering"],
   },
   {
-    no: "03",
+    no: "3",
     title: "Digital Strategi & Brand",
     sub: "Stemme, position og indhold",
     body:
@@ -61,7 +61,7 @@ const competencies = [
     tags: ["Kommunikationsstrategi", "Visuel identitet", "Indholdsarkitektur", "Positionering"],
   },
   {
-    no: "04",
+    no: "4",
     title: "Medie- & Lydproduktion",
     sub: "Fra studie til kanal",
     body:
@@ -252,7 +252,7 @@ function Index() {
 
           {/* KOMPETENCER */}
           <section id="kompetencer" className="py-16 md:py-20">
-            <div className="px-12 md:px-14">
+            <div className="px-5 md:px-14">
               <div className="mb-10 md:mb-14">
                 <Eyebrow>Kompetencer</Eyebrow>
                 <h2 className="font-display text-5xl md:text-7xl mt-6 leading-[0.95] tracking-tight">
@@ -902,7 +902,7 @@ function KompetencerList() {
       {competencies.map((c) => (
         <li
           key={c.no}
-          className="group py-8 md:py-10 hover:bg-navy/40 transition-colors md:-mx-14 px-12 md:px-14"
+          className="group py-8 md:py-10 hover:bg-navy/40 transition-colors -mx-5 md:-mx-14 px-5 md:px-14"
         >
           <div className="grid grid-cols-1 md:grid-cols-12 md:gap-8">
             {/* Left: number + title + sub */}
