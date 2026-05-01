@@ -100,34 +100,37 @@ const LINE_PAUSE = 600;
 
 const typewriterLines = ["The Ai paradox:", "Too much A", "Not enough i"];
 
-// For lines with a highlighted segment, define position/length and style.
 const HIGHLIGHT_RANGE: Record<
   number,
   { fromEnd?: number; fromStart?: number; length: number; style?: "box" | "text" }
 > = {
-  0: { fromStart: 4, length: 2, style: "text" }, // "Ai" in "The Ai paradox:"
-  1: { fromEnd: 1, length: 1, style: "box" }, // "A" at end of line 2
-  2: { fromEnd: 1, length: 1, style: "box" }, // "i" at end of line 3
+  0: { fromStart: 4, length: 2, style: "text" },
+  1: { fromEnd: 1, length: 1, style: "box" },
+  2: { fromEnd: 1, length: 1, style: "box" },
 };
 
 function TypewriterQuote() {
   const [lineIdx, setLineIdx] = useState(0);
   const [charIdx, setCharIdx] = useState(0);
-  const highlightRefs = useRef<Record<number, HTMLSpanElement | null>>({});
+  const spanARef = useRef<HTMLSpanElement>(null);
+  const spanIRef = useRef<HTMLSpanElement>(null);
 
   const done = lineIdx >= typewriterLines.length;
 
+  // Når typewriteren er færdig: animator direkte på DOM via refs — ingen React state
   useEffect(() => {
     if (!done) return;
     const t = setTimeout(() => {
-      [1, 2].forEach((i) => {
-        const el = highlightRefs.current[i];
-        if (el) {
-          el.classList.remove("highlight-pulse");
-          // force reflow so the animation can replay if class lingered
-          void el.offsetWidth;
-          el.classList.add("highlight-pulse");
-        }
+      [spanARef, spanIRef].forEach((ref) => {
+        if (!ref.current) return;
+        ref.current.style.transition = "box-shadow 0.5s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)";
+        ref.current.style.boxShadow = "0 0 20px rgba(184, 58, 32, 0.95)";
+        ref.current.style.transform = "scale(1.12)";
+        setTimeout(() => {
+          if (!ref.current) return;
+          ref.current.style.transform = "scale(1)";
+          ref.current.style.boxShadow = "0 0 8px rgba(184, 58, 32, 0.45)";
+        }, 650);
       });
     }, 400);
     return () => clearTimeout(t);
@@ -167,21 +170,12 @@ function TypewriterQuote() {
           ? "not-italic font-black text-[#B83A20]"
           : "not-italic font-black text-[#F5F0E8] bg-[#B83A20] whitespace-nowrap px-[6px] py-[2px]";
 
+      const ref = i === 1 ? spanARef : i === 2 ? spanIRef : undefined;
+
       return (
         <>
           {before}
-          <span
-            ref={(el) => {
-              if (range.style === "box") highlightRefs.current[i] = el;
-            }}
-            className={highlightClass}
-            style={{
-              display: "inline-block",
-              opacity: highlight ? 1 : 0,
-              minWidth: "0.6em",
-              ...(i === 1 ? { marginRight: "0.25em" } : {}),
-            }}
-          >
+          <span ref={ref} className={highlightClass} style={{ display: "inline-block" }}>
             {highlight || "\u00A0"}
           </span>
           {after}
@@ -194,37 +188,25 @@ function TypewriterQuote() {
   const reservedEm = 1.15 * 1.2 + 0.35 + 2 * 1.5;
 
   return (
-    <>
-      <style>{`
-        @keyframes highlight-pulse {
-          0%   { background-color: #B83A20; }
-          50%  { background-color: #ff6b4a; }
-          100% { background-color: #B83A20; }
-        }
-        .highlight-pulse {
-          animation: highlight-pulse 0.8s ease-in-out 1;
-        }
-      `}</style>
-      <p
-        className="hero-quote font-display italic font-semibold leading-[1.5] text-cream/95"
-        style={{
-          fontSize: "clamp(1.25rem, 1.8vw, 2rem)",
-          minHeight: `${reservedEm}em`,
-        }}
-        aria-label={ariaLabel}
-      >
-        {typewriterLines.map((_, i) => (
-          <span
-            key={i}
-            aria-hidden
-            className="block whitespace-nowrap"
-            style={i === 0 ? { fontSize: "1.15em", lineHeight: 1.2, marginBottom: "0.35em", fontWeight: 300 } : undefined}
-          >
-            {renderLine(i)}
-          </span>
-        ))}
-      </p>
-    </>
+    <p
+      className="hero-quote font-display italic font-semibold leading-[1.5] text-cream/95"
+      style={{
+        fontSize: "clamp(1.25rem, 1.8vw, 2rem)",
+        minHeight: `${reservedEm}em`,
+      }}
+      aria-label={ariaLabel}
+    >
+      {typewriterLines.map((_, i) => (
+        <span
+          key={i}
+          aria-hidden
+          className="block whitespace-nowrap"
+          style={i === 0 ? { fontSize: "1.15em", lineHeight: 1.2, marginBottom: "0.35em", fontWeight: 300 } : undefined}
+        >
+          {renderLine(i)}
+        </span>
+      ))}
+    </p>
   );
 }
 
@@ -718,8 +700,6 @@ function CasesSection() {
               onFocus={(e) => {
                 if (variant !== "slider") return;
                 setHoveredIndex(index);
-                // Prevent browser from auto-scrolling the carousel container
-                // when a card receives focus (e.g. on click).
                 const el = scrollerRef.current;
                 if (!el) return;
                 const left = el.scrollLeft;
@@ -844,27 +824,20 @@ function CasesSection() {
 // ============ Kompetencer with interactive tag popups ============
 
 const TAG_TO_SLUGS: Record<string, string[]> = {
-  // 01 — Indsigt / UX Research
   "Semistrukturerede interviews": ["wolt", "interaktiv-horesimulering"],
   Feltobservation: ["wolt", "interaktiv-horesimulering"],
   "Co-design": ["wolt", "interaktiv-horesimulering"],
   "Mixed methods": ["wolt", "interaktiv-horesimulering"],
   Facilitering: ["interaktiv-horesimulering", "amnesty-international"],
   Workshops: ["interaktiv-horesimulering", "amnesty-international"],
-
-  // 02 — Koncept / Service- & Konceptdesign
   Brugerrejser: ["boliga", "wolt"],
   "Touchpoint-mapping": ["boliga", "wolt"],
   "Participatorisk design": ["interaktiv-horesimulering"],
   Konceptvalidering: ["interaktiv-horesimulering"],
-
-  // 03 — Digital Strategi & Brand
   Kommunikationsstrategi: ["amnesty-international", "danmarks-naturfredningsforening", "art-spirit-coaching"],
   "Visuel identitet": ["amnesty-international", "danmarks-naturfredningsforening", "art-spirit-coaching"],
   Indholdsarkitektur: ["boliga", "danmarks-radio"],
   Positionering: ["boliga", "danmarks-radio"],
-
-  // 04 — Medie- & Lydproduktion
   "Redaktionel tilrettelæggelse": ["danmarks-radio", "ulla-dyrlov", "concerto-copenhagen"],
   Indholdsproduktion: ["danmarks-radio", "ulla-dyrlov", "concerto-copenhagen"],
   Postproduktion: ["danmarks-radio", "ulla-dyrlov"],
@@ -937,7 +910,6 @@ function KompetencerList() {
             className="group py-8 md:py-10 hover:bg-navy/40 transition-colors -mx-5 md:-mx-14 px-5 md:px-14"
           >
             <div className="grid grid-cols-1 md:grid-cols-12 md:gap-8">
-              {/* Left: number + title + sub */}
               <div className="md:col-span-4 min-w-0 flex items-baseline gap-4">
                 <span className="font-display text-2xl text-ember shrink-0">{c.no}</span>
                 <div className="min-w-0 flex-1">
@@ -947,10 +919,8 @@ function KompetencerList() {
                 </div>
               </div>
 
-              {/* Middle: description */}
               <p className="md:col-span-5 mt-3 md:mt-0 text-cream/80 leading-relaxed">{c.body}</p>
 
-              {/* Right: stacked tags */}
               <ul className="md:col-span-3 mt-6 md:mt-0 flex flex-col items-start gap-y-1">
                 {c.tags.map((t, i) => {
                   const slugs = TAG_TO_SLUGS[t] ?? [];
