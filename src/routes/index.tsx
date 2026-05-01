@@ -192,7 +192,7 @@ function Sidebar() {
             <span className="font-bold text-[#C0281E]">S</span>ørensen
           </span>
         </h1>
-        <p className="hero-subtitle text-base leading-relaxed lg:text-lg lg:leading-snug text-cream/85 font-display italic text-center">
+        <p className="hero-subtitle text-lg leading-relaxed lg:text-2xl lg:leading-snug text-cream/85 font-display italic text-center">
           Digital konsulent &amp; strateg.
         </p>
         <blockquote className="max-w-full w-full text-center mt-16 lg:mt-24 lg:-translate-y-[15px]">
