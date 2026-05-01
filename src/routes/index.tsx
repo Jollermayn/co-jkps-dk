@@ -275,7 +275,7 @@ function Index() {
               <div className="mb-16">
                 <Eyebrow>Uddannelse</Eyebrow>
                 <h2 className="font-display text-5xl md:text-7xl mt-6 leading-[0.95] tracking-tight">
-                  Et fagligt <span className="italic text-ember">ståsted</span>
+                  Mit faglige <span className="italic text-ember">ståsted</span>
                 </h2>
                 <p className="mt-8 max-w-2xl text-lg text-cream/75 leading-relaxed">
                   Hvor analytisk overblik møder en kreativ og praksisnær tilgang.
