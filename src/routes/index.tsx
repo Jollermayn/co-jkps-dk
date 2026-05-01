@@ -183,13 +183,10 @@ function Sidebar() {
       <div className="w-full flex flex-col gap-3 lg:gap-4 items-center text-center">
         <h1 className="font-display tracking-[-0.02em] font-medium text-center px-2 flex flex-col items-center leading-none">
           <span className="block text-[clamp(2.25rem,9vw,4.5rem)] leading-none">
-            <span className="font-bold text-[#C0281E]">J</span>onas
-          </span>
-          <span className="block text-[clamp(1.25rem,4.25vw,2.125rem)] font-bold text-[#C0281E] leading-none my-[0.15em]">
-            K.P.
+            Jonas
           </span>
           <span className="block text-[clamp(2.25rem,9vw,4.5rem)] leading-none -mt-[0.08em]">
-            <span className="font-bold text-[#C0281E]">S</span>ørensen
+            Sørensen
           </span>
         </h1>
         <p className="hero-subtitle text-lg leading-relaxed lg:text-2xl lg:leading-snug text-cream/85 font-display italic text-center">
