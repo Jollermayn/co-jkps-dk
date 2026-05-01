@@ -212,7 +212,7 @@ function Sidebar() {
           href="#kontakt"
           className="inline-flex items-center justify-center gap-2 text-[1.1rem] font-bold tracking-wide text-[#C0281E] underline underline-offset-4 hover:text-cream active:text-cream transition-colors duration-300"
         >
-          Lad os tales ved
+          Kontakt mig
         </a>
       </div>
     </aside>
