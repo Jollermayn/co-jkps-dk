@@ -171,7 +171,13 @@ function TypewriterQuote() {
   return (
     <p
       className="hero-quote font-display italic font-semibold leading-[1.5] text-cream/95"
-      style={{ fontSize: "clamp(1.25rem, 1.8vw, 2rem)", minHeight: `${reservedEm}em` }}
+      style={{
+        fontSize: "clamp(1.25rem, 1.8vw, 2rem)",
+        minHeight: `${reservedEm}em`,
+        background: "rgba(160, 36, 26, 0.08)",
+        borderLeft: "2px solid #B83A20",
+        padding: "0.75em 1em",
+      }}
       aria-label={ariaLabel}
     >
       {typewriterLines.map((_, i) => (
