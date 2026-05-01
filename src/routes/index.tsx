@@ -177,6 +177,8 @@ function TypewriterQuote() {
               }
             : {
                 display: "inline-block",
+                transform: "translateY(0) scale(1)",
+                transition: "transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)",
               };
 
       const highlightClass =
