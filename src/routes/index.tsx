@@ -444,6 +444,10 @@ function Index() {
                   Download CV (PDF) <span aria-hidden>↓</span>
                 </a>
               </div>
+
+              <div className="mt-20 md:mt-24">
+                <NameSignature />
+              </div>
             </div>
           </section>
         </div>
