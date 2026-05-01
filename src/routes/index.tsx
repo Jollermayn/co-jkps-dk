@@ -95,16 +95,16 @@ const TYPE_SPEED = 50;
 const LINE_PAUSE = 600;
 
 const typewriterLines = [
-  "The problem with Ai:",
+  "Ai paradox:",
   "Too much A",
   "&",
-  "Not enough i.",
+  "Not enough i",
 ];
 
 // For lines with a highlighted segment near the end, define [startFromEnd, length] of the red box.
 const HIGHLIGHT_RANGE: Record<number, { fromEnd: number; length: number }> = {
   1: { fromEnd: 1, length: 1 }, // "A" at end of line 2
-  3: { fromEnd: 2, length: 1 }, // "i" in "i." at end of line 4
+  3: { fromEnd: 1, length: 1 }, // "i" at end of line 4
 };
 
 function TypewriterQuote() {
