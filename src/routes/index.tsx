@@ -738,6 +738,14 @@ function CasesSection() {
                     </li>
                   ))}
                 </ul>
+                {variant === "slider" && (
+                  <span
+                    aria-hidden
+                    className="md:hidden mt-2 self-end inline-flex items-center gap-1 text-[10px] tracking-[0.15em] uppercase text-cream/55 font-semibold"
+                  >
+                    Læs mere <span className="text-[11px]">→</span>
+                  </span>
+                )}
               </div>
             </button>
           );
