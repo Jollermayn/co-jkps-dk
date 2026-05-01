@@ -97,14 +97,13 @@ const LINE_PAUSE = 600;
 const typewriterLines = [
   "Ai paradox:",
   "Too much A",
-  "&",
   "Not enough i",
 ];
 
 // For lines with a highlighted segment near the end, define [startFromEnd, length] of the red box.
 const HIGHLIGHT_RANGE: Record<number, { fromEnd: number; length: number }> = {
   1: { fromEnd: 1, length: 1 }, // "A" at end of line 2
-  3: { fromEnd: 1, length: 1 }, // "i" at end of line 4
+  2: { fromEnd: 1, length: 1 }, // "i" at end of line 3
 };
 
 function TypewriterQuote() {
@@ -156,8 +155,8 @@ function TypewriterQuote() {
   };
 
   // Reserve full height up-front so buttons below don't shift while typing.
-  // Line 1 = 1.6em * 1.2 lh + 0.35em margin; lines 2-4 = 1em * 1.5 lh each.
-  const reservedEm = 1.6 * 1.2 + 0.35 + 3 * 1.5;
+  // Line 1 = 1.6em * 1.2 lh + 0.35em margin; lines 2-3 = 1em * 1.5 lh each.
+  const reservedEm = 1.6 * 1.2 + 0.35 + 2 * 1.5;
   return (
     <p
       className="hero-quote font-display italic font-semibold leading-[1.5] text-cream/95"
