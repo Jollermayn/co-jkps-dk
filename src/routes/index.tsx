@@ -91,72 +91,64 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
   );
 }
 
-function TypewriterQuote() {
-  const ref = useRef<HTMLParagraphElement>(null);
-  const [started, setStarted] = useState(false);
+const TYPE_SPEED = 50;
+const LINE_PAUSE = 600;
 
-  const lines: { content: React.ReactNode; plain: string }[] = [
-    { content: "The problem with Ai is", plain: "The problem with Ai is" },
-    {
-      content: (
-        <>
-          when there's <span className="font-black text-[1.2em]">too much A</span>
-        </>
-      ),
-      plain: "when there's too much A",
-    },
-    {
-      content: (
-        <>
-          and{" "}
-          <span className="not-italic font-black text-cream bg-[#C0281E] whitespace-nowrap px-[6px] py-[2px]">
-            not enough i.
-          </span>
-        </>
-      ),
-      plain: "and not enough i.",
-    },
-  ];
+const typewriterLines = [
+  "The problem",
+  "with Ai",
+  "is",
+  "when there's too much A",
+  "and",
+  "not enough i.",
+];
+
+function TypewriterQuote() {
+  const [lineIdx, setLineIdx] = useState(0);
+  const [charIdx, setCharIdx] = useState(0);
 
   useEffect(() => {
-    const el = ref.current;
-    if (!el || started) return;
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const e of entries) {
-          if (e.isIntersecting) {
-            setStarted(true);
-            io.disconnect();
-            break;
-          }
-        }
-      },
-      { threshold: 0.4 },
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, [started]);
+    if (lineIdx >= typewriterLines.length) return;
+    const current = typewriterLines[lineIdx];
 
-  const ariaLabel = lines.map((l) => l.plain).join(" ");
+    if (charIdx < current.length) {
+      const t = setTimeout(() => setCharIdx((c) => c + 1), TYPE_SPEED);
+      return () => clearTimeout(t);
+    }
+    // line complete — pause then advance
+    const t = setTimeout(() => {
+      setLineIdx((i) => i + 1);
+      setCharIdx(0);
+    }, LINE_PAUSE);
+    return () => clearTimeout(t);
+  }, [lineIdx, charIdx]);
+
+  const ariaLabel = typewriterLines.join(" ");
+
+  const renderLine = (i: number) => {
+    if (i > lineIdx) return "\u00A0";
+    const full = typewriterLines[i];
+    const shown = i < lineIdx ? full : full.slice(0, charIdx);
+    if (i === 5) {
+      // "not enough i." — wrap whole line in red box; reveal characters as typed
+      return (
+        <span className="not-italic font-black text-cream bg-[#C0281E] whitespace-nowrap px-[6px] py-[2px]">
+          {shown || "\u00A0"}
+        </span>
+      );
+    }
+    return shown || "\u00A0";
+  };
 
   return (
     <p
-      ref={ref}
       className="hero-quote font-display italic font-semibold leading-[1.5] text-cream/95"
       style={{ fontSize: "clamp(1.1rem, 1.6vw, 1.8rem)" }}
       aria-label={ariaLabel}
     >
-      {lines.map((line, i) => (
-        <span
-          key={i}
-          aria-hidden
-          className="block whitespace-nowrap transition-opacity duration-[1400ms] ease-out"
-          style={{
-            opacity: started ? 1 : 0,
-            transitionDelay: started ? `${[400, 2400, 4200][i]}ms` : "0ms",
-          }}
-        >
-          {line.content}
+      {typewriterLines.map((_, i) => (
+        <span key={i} aria-hidden className="block whitespace-nowrap">
+          {renderLine(i)}
         </span>
       ))}
     </p>
