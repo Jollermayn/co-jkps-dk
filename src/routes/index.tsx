@@ -174,9 +174,6 @@ function TypewriterQuote() {
       style={{
         fontSize: "clamp(1.25rem, 1.8vw, 2rem)",
         minHeight: `${reservedEm}em`,
-        background: "rgba(160, 36, 26, 0.08)",
-        
-        padding: "0.75em 1em",
       }}
       aria-label={ariaLabel}
     >
@@ -185,7 +182,11 @@ function TypewriterQuote() {
           key={i}
           aria-hidden
           className="block whitespace-nowrap"
-          style={i === 0 ? { fontSize: "1.15em", lineHeight: 1.2, marginBottom: "0.35em" } : undefined}
+          style={
+            i === 0
+              ? { fontSize: "1.15em", lineHeight: 1.2, marginBottom: "0.35em", fontWeight: 300 }
+              : undefined
+          }
         >
           {renderLine(i)}
         </span>
