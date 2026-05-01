@@ -107,11 +107,23 @@
 }
 
 @media (max-width: 768px) {
+  main#top,
+  main#top > div,
   .hero-sidebar {
     width: 100% !important;
     min-width: 100% !important;
     max-width: 100% !important;
     box-sizing: border-box;
+  }
+
+  main#top,
+  main#top > div {
+    overflow-x: clip;
+  }
+
+  .hero-sidebar {
+    margin-right: 0 !important;
+    align-self: stretch !important;
   }
 }
 
