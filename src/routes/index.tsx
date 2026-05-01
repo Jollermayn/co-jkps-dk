@@ -177,7 +177,90 @@ function TypewriterQuote() {
   );
 }
 
-function Sidebar() {
+function NameReveal() {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const [stage, setStage] = useState(0);
+  // 0 = idle, 1 = Jonas/Sørensen visible, 2 = K.P. fading in,
+  // 3..6 = J, K, P, S light up red sequentially
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    let started = false;
+    const timeouts: number[] = [];
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !started) {
+            started = true;
+            setStage(1);
+            // Step 2: K.P. fade in after 2s delay
+            timeouts.push(window.setTimeout(() => setStage(2), 2000));
+            // Step 3: after K.P. fade-in completes (2000 + 800 = 2800ms),
+            // light up J, K, P, S with 0.3s between each.
+            timeouts.push(window.setTimeout(() => setStage(3), 2800));
+            timeouts.push(window.setTimeout(() => setStage(4), 3100));
+            timeouts.push(window.setTimeout(() => setStage(5), 3400));
+            timeouts.push(window.setTimeout(() => setStage(6), 3700));
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+    observer.observe(el);
+    return () => {
+      observer.disconnect();
+      timeouts.forEach((t) => window.clearTimeout(t));
+    };
+  }, []);
+
+  const redIf = (minStage: number) =>
+    stage >= minStage ? "text-[#C0281E]" : "text-cream";
+
+  return (
+    <section
+      ref={sectionRef}
+      aria-label="Jonas K.P. Sørensen"
+      className="w-full bg-[#0D1B2A] py-24 md:py-32 lg:py-40 relative z-30 overflow-hidden"
+    >
+      <h2 className="font-display tracking-[-0.02em] font-medium text-center px-6 flex flex-col items-center leading-none">
+        <span
+          className={
+            "block text-[clamp(3rem,12vw,8rem)] leading-none transition-opacity duration-700 ease-out " +
+            (stage >= 1 ? "opacity-100" : "opacity-0")
+          }
+        >
+          <span className={"font-bold transition-colors duration-500 " + redIf(3)}>J</span>
+          <span className="text-cream">onas</span>
+        </span>
+
+        <span
+          className={
+            "block text-[clamp(1.5rem,5vw,3rem)] font-bold leading-none my-[0.25em] transition-opacity duration-[800ms] ease-out " +
+            (stage >= 2 ? "opacity-100" : "opacity-0")
+          }
+        >
+          <span className={"transition-colors duration-500 " + redIf(4)}>K</span>
+          <span className="text-cream">.</span>
+          <span className={"transition-colors duration-500 " + redIf(5)}>P</span>
+          <span className="text-cream">.</span>
+        </span>
+
+        <span
+          className={
+            "block text-[clamp(3rem,12vw,8rem)] leading-none -mt-[0.05em] transition-opacity duration-700 ease-out " +
+            (stage >= 1 ? "opacity-100" : "opacity-0")
+          }
+        >
+          <span className={"font-bold transition-colors duration-500 " + redIf(6)}>S</span>
+          <span className="text-cream">ørensen</span>
+        </span>
+      </h2>
+    </section>
+  );
+}
+
   return (
     <aside className="hero-sidebar relative w-full min-w-0 max-w-full flex flex-col gap-16 lg:gap-12 lg:fixed lg:top-0 lg:right-0 lg:w-[40%] lg:h-screen lg:overflow-hidden px-6 md:px-14 lg:px-16 py-12 md:py-20 lg:py-16 border-b lg:border-b-0 lg:border-l border-cream/10 order-1 lg:order-last bg-[#0D1B2A] lg:z-20 lg:rounded-l-xl lg:shadow-[-8px_0_24px_rgba(0,0,0,0.25)] text-center items-center lg:justify-center">
       <div className="w-full flex flex-col gap-3 lg:gap-4 items-center text-center">
