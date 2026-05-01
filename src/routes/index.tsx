@@ -237,7 +237,7 @@ function Index() {
                 <p>
                   Fælles for alt mit arbejde er interessen for det øjeblik hvor noget abstrakt bliver konkret —
                   hvor en idé finder sin form, en oplevelse finder sit udtryk, en fortælling finder sin modtager.
-                  Jeg er mest på hjemmebane når disciplinerne overlapper, og tiltrukket af de projekter der ikke
+                  Jeg er på hjemmebane når disciplinerne overlapper, og tiltrukket af de projekter der ikke
                   lader sig løse med én faglighed alene.
                 </p>
                 <p className="text-cream/60 italic font-display">
