@@ -155,10 +155,13 @@ function TypewriterQuote() {
     return shown || "\u00A0";
   };
 
+  // Reserve full height up-front so buttons below don't shift while typing.
+  // Line 1 = 1.6em * 1.2 lh + 0.35em margin; lines 2-4 = 1em * 1.5 lh each.
+  const reservedEm = 1.6 * 1.2 + 0.35 + 3 * 1.5;
   return (
     <p
       className="hero-quote font-display italic font-semibold leading-[1.5] text-cream/95"
-      style={{ fontSize: "clamp(1.1rem, 1.6vw, 1.8rem)" }}
+      style={{ fontSize: "clamp(1.1rem, 1.6vw, 1.8rem)", minHeight: `${reservedEm}em` }}
       aria-label={ariaLabel}
     >
       {typewriterLines.map((_, i) => (
