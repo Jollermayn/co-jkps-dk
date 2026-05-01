@@ -95,7 +95,7 @@ const TYPE_SPEED = 50;
 const LINE_PAUSE = 600;
 
 const typewriterLines = [
-  "Ai paradox:",
+  "The Ai paradox:",
   "Too much A",
   "&",
   "Not enough i",
