@@ -106,6 +106,15 @@
   border-top: 1px solid color-mix(in oklab, var(--cream) 20%, transparent);
 }
 
+@media (max-width: 768px) {
+  .hero-sidebar {
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+  }
+}
+
 /* Short viewport adjustments for hero sidebar to prevent overflow/overlap */
 @media (min-width: 1024px) and (max-height: 750px) {
   .hero-sidebar {
