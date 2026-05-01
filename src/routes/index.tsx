@@ -155,10 +155,13 @@ function TypewriterQuote() {
     return shown || "\u00A0";
   };
 
+  // Reserve full height up-front so buttons below don't shift while typing.
+  // Line 1 = 1.6em * 1.2 lh + 0.35em margin; lines 2-4 = 1em * 1.5 lh each.
+  const reservedEm = 1.6 * 1.2 + 0.35 + 3 * 1.5;
   return (
     <p
       className="hero-quote font-display italic font-semibold leading-[1.5] text-cream/95"
-      style={{ fontSize: "clamp(1.1rem, 1.6vw, 1.8rem)" }}
+      style={{ fontSize: "clamp(1.1rem, 1.6vw, 1.8rem)", minHeight: `${reservedEm}em` }}
       aria-label={ariaLabel}
     >
       {typewriterLines.map((_, i) => (
@@ -177,8 +180,8 @@ function TypewriterQuote() {
 
 function Sidebar() {
   return (
-    <aside className="hero-sidebar relative w-full min-w-0 max-w-full self-stretch flex flex-col gap-16 lg:gap-12 lg:sticky lg:top-0 lg:min-h-screen lg:max-h-screen lg:overflow-y-auto px-6 md:px-14 lg:px-16 py-12 md:py-20 lg:py-12 border-b lg:border-b-0 lg:border-l border-cream/10 order-1 lg:order-last bg-[#0D1B2A] lg:z-20 lg:rounded-l-xl lg:shadow-[-8px_0_24px_rgba(0,0,0,0.25)] text-center items-center lg:justify-start">
-      <div className="w-full flex flex-col gap-10 lg:gap-6 items-center text-center">
+    <aside className="hero-sidebar relative w-full min-w-0 max-w-full self-stretch flex flex-col gap-16 lg:gap-20 lg:sticky lg:top-0 lg:min-h-screen lg:max-h-screen lg:overflow-y-auto px-6 md:px-14 lg:px-16 py-12 md:py-20 lg:py-16 border-b lg:border-b-0 lg:border-l border-cream/10 order-1 lg:order-last bg-[#0D1B2A] lg:z-20 lg:rounded-l-xl lg:shadow-[-8px_0_24px_rgba(0,0,0,0.25)] text-center items-center lg:justify-start">
+      <div className="w-full flex flex-col gap-10 lg:gap-10 items-center text-center">
         <h1 className="font-display leading-[0.95] tracking-[-0.02em] font-medium text-center px-2 flex flex-col items-center">
           <span className="block text-[clamp(2.25rem,9vw,4.5rem)]">
             <span className="font-bold text-[#C0281E]">J</span>onas
