@@ -95,7 +95,7 @@ const TYPE_SPEED = 50;
 const LINE_PAUSE = 600;
 
 const typewriterLines = [
-  "The Ai paradox:",
+  "Ai paradox:",
   "Too much A",
   "&",
   "Not enough i",
@@ -181,7 +181,7 @@ function TypewriterQuote() {
 function Sidebar() {
   return (
     <aside className="hero-sidebar relative w-full min-w-0 max-w-full self-stretch flex flex-col gap-16 lg:gap-20 lg:sticky lg:top-0 lg:min-h-screen lg:max-h-screen lg:overflow-y-auto px-6 md:px-14 lg:px-16 py-12 md:py-20 lg:py-16 border-b lg:border-b-0 lg:border-l border-cream/10 order-1 lg:order-last bg-[#0D1B2A] lg:z-20 lg:rounded-l-xl lg:shadow-[-8px_0_24px_rgba(0,0,0,0.25)] text-center items-center lg:justify-start">
-      <div className="w-full flex flex-col gap-10 lg:gap-10 items-center text-center">
+      <div className="w-full flex flex-col gap-3 lg:gap-4 items-center text-center">
         <h1 className="font-display tracking-[-0.02em] font-medium text-center px-2 flex flex-col items-center leading-none">
           <span className="block text-[clamp(2.25rem,9vw,4.5rem)] leading-none">
             <span className="font-bold text-[#C0281E]">J</span>onas
@@ -196,10 +196,10 @@ function Sidebar() {
         <p className="hero-subtitle text-base leading-relaxed lg:text-lg lg:leading-snug text-cream/85 font-display italic text-center">
           Digital konsulent &amp; strateg.
         </p>
+        <blockquote className="max-w-full w-full text-center mt-2 lg:mt-3">
+          <TypewriterQuote />
+        </blockquote>
       </div>
-      <blockquote className="max-w-full w-full text-center">
-        <TypewriterQuote />
-      </blockquote>
 
       <div className="flex flex-col items-center gap-6 lg:gap-3 w-full text-center">
         <a
