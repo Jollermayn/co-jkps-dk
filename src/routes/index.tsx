@@ -372,6 +372,7 @@ function Index() {
 
         {/* RIGHT — sticky sidebar */}
         <Sidebar />
+      </div>
 
       {/* NAME REVEAL */}
       <NameReveal />
