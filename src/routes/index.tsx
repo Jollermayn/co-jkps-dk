@@ -135,19 +135,19 @@ function TypewriterQuote() {
     const shown = i < lineIdx ? full : full.slice(0, charIdx);
     const range = HIGHLIGHT_RANGE[i];
     if (range) {
-      const start = full.length - range.fromEnd;
+      const start = range.fromStart !== undefined ? range.fromStart : full.length - (range.fromEnd ?? 0);
       const end = start + range.length;
       const before = shown.slice(0, Math.min(shown.length, start));
       const highlight = shown.length > start ? shown.slice(start, Math.min(shown.length, end)) : "";
       const after = shown.length > end ? shown.slice(end) : "";
+      const highlightClass =
+        range.style === "text"
+          ? "not-italic font-black text-[#B83A20]"
+          : "not-italic font-black text-[#F5F0E8] bg-[#B83A20] whitespace-nowrap px-[6px] py-[2px]";
       return (
         <>
           {before}
-          {highlight && (
-            <span className="not-italic font-black text-[#F5F0E8] bg-[#C0281E] whitespace-nowrap px-[6px] py-[2px]">
-              {highlight}
-            </span>
-          )}
+          {highlight && <span className={highlightClass}>{highlight}</span>}
           {after}
         </>
       );
