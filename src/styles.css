@@ -76,6 +76,7 @@
     overflow-x: hidden;
     width: 100%;
     max-width: 100vw;
+    position: relative;
   }
 
   body {
@@ -87,6 +88,7 @@
     overflow-x: hidden;
     width: 100%;
     max-width: 100vw;
+    position: relative;
   }
 
   body,
@@ -98,6 +100,7 @@
     width: 100%;
     max-width: 100vw;
     overflow-x: hidden;
+    position: relative;
   }
 
   ::selection {
@@ -129,6 +132,7 @@
   main#top,
   main#top > div,
   main#top > div > div,
+  main#top > footer,
   .hero-sidebar {
     width: 100% !important;
     min-width: 0 !important;
@@ -139,7 +143,8 @@
   #root,
   main#top,
   main#top > div,
-  main#top > div > div {
+  main#top > div > div,
+  main#top > footer {
     overflow-x: hidden;
   }
 
@@ -153,6 +158,17 @@
   .hero-sidebar {
     margin-right: 0 !important;
     align-self: stretch !important;
+  }
+
+  .cases-carousel {
+    padding-right: 3rem !important;
+    overscroll-behavior-x: contain;
+  }
+
+  .hero-quote,
+  .hero-quote > span {
+    white-space: normal !important;
+    overflow-wrap: anywhere;
   }
 }
 
