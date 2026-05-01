@@ -142,7 +142,8 @@ function TypewriterQuote() {
   return (
     <p
       ref={ref}
-      className="font-display italic font-semibold leading-[1.5] lg:leading-[1.5] text-cream/95 text-[1.4rem] lg:text-[1.8rem]"
+      className="font-display italic font-semibold leading-[1.5] text-cream/95"
+      style={{ fontSize: "clamp(1.2rem, 3vw, 2.5rem)" }}
       aria-label={ariaLabel}
     >
       {lines.map((line, i) => (
