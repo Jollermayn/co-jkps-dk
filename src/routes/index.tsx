@@ -160,7 +160,7 @@ function TypewriterQuote() {
   return (
     <p
       className="hero-quote font-display italic font-semibold leading-[1.5] text-cream/95"
-      style={{ fontSize: "clamp(1.1rem, 1.6vw, 1.8rem)", minHeight: `${reservedEm}em` }}
+      style={{ fontSize: "clamp(1.5rem, 2.2vw, 2.4rem)", minHeight: `${reservedEm}em` }}
       aria-label={ariaLabel}
     >
       {typewriterLines.map((_, i) => (
