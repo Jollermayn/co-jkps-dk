@@ -196,7 +196,12 @@ function TypewriterQuote() {
           {before}
           <span
             className={highlightClass}
-            style={{ ...meetStyle, opacity: highlight ? 1 : 0, minWidth: "0.6em" }}
+            style={{
+              ...meetStyle,
+              opacity: highlight ? 1 : 0,
+              minWidth: "0.6em",
+              ...(i === 1 ? { marginRight: "0.3em" } : {}),
+            }}
           >
             {highlight || "\u00A0"}
           </span>
