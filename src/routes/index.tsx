@@ -98,7 +98,7 @@ const typewriterLines = [
   "The problem with Ai",
   "is",
   "when there's too much A",
-  "and",
+  "&",
   "not enough i.",
 ];
 
