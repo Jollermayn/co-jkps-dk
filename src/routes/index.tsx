@@ -162,7 +162,12 @@ function TypewriterQuote() {
       aria-label={ariaLabel}
     >
       {typewriterLines.map((_, i) => (
-        <span key={i} aria-hidden className="block whitespace-nowrap">
+        <span
+          key={i}
+          aria-hidden
+          className="block whitespace-nowrap"
+          style={i === 0 ? { fontSize: "1.6em", lineHeight: 1.2, marginBottom: "0.35em" } : undefined}
+        >
           {renderLine(i)}
         </span>
       ))}
