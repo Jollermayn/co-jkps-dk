@@ -217,7 +217,7 @@ function NameSignature() {
     <div
       ref={ref}
       aria-label="Jonas K.P. Sørensen"
-      className="font-display tracking-[-0.02em] font-light leading-none flex flex-nowrap items-baseline justify-center gap-x-10 md:gap-x-12 text-[clamp(1rem,2.2vw,1.875rem)] whitespace-nowrap select-none"
+      className="font-display tracking-[-0.02em] font-light leading-none flex flex-nowrap items-baseline justify-end gap-x-8 md:gap-x-10 text-[clamp(1rem,2.2vw,1.875rem)] whitespace-nowrap select-none"
     >
       <span className={fade(1)}>
         <span className="text-[#C0281E]">J</span>
@@ -432,7 +432,7 @@ function Index() {
                 </a>
               </div>
 
-              <div className="mt-20 md:mt-24">
+              <div className="mt-20 md:mt-24 -mx-12 md:-mx-14">
                 <NameSignature />
               </div>
             </div>
