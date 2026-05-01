@@ -113,18 +113,24 @@ const HIGHLIGHT_RANGE: Record<
 function TypewriterQuote() {
   const [lineIdx, setLineIdx] = useState(0);
   const [charIdx, setCharIdx] = useState(0);
-  const [meetPhase, setMeetPhase] = useState<"idle" | "meet" | "done">("idle");
+  const highlightRefs = useRef<Record<number, HTMLSpanElement | null>>({});
 
   const done = lineIdx >= typewriterLines.length;
 
   useEffect(() => {
-    if (done) {
-      const t = setTimeout(() => {
-        setMeetPhase("meet");
-        setTimeout(() => setMeetPhase("done"), 700);
-      }, 400);
-      return () => clearTimeout(t);
-    }
+    if (!done) return;
+    const t = setTimeout(() => {
+      [1, 2].forEach((i) => {
+        const el = highlightRefs.current[i];
+        if (el) {
+          el.classList.remove("highlight-pulse");
+          // force reflow so the animation can replay if class lingered
+          void el.offsetWidth;
+          el.classList.add("highlight-pulse");
+        }
+      });
+    }, 400);
+    return () => clearTimeout(t);
   }, [done]);
 
   useEffect(() => {
@@ -155,9 +161,6 @@ function TypewriterQuote() {
       const before = shown.slice(0, Math.min(shown.length, start));
       const highlight = shown.length > start ? shown.slice(start, Math.min(shown.length, end)) : "";
       const after = shown.length > end ? shown.slice(end) : "";
-      const isComplete = highlight.length === range.length;
-
-      const shouldPulse = isComplete && range.style === "box" && (meetPhase === "meet" || meetPhase === "done");
 
       const highlightClass =
         range.style === "text"
@@ -168,7 +171,10 @@ function TypewriterQuote() {
         <>
           {before}
           <span
-            className={`${highlightClass}${shouldPulse ? " ai-color-pulse" : ""}`}
+            ref={(el) => {
+              if (range.style === "box") highlightRefs.current[i] = el;
+            }}
+            className={highlightClass}
             style={{
               display: "inline-block",
               opacity: highlight ? 1 : 0,
@@ -188,25 +194,37 @@ function TypewriterQuote() {
   const reservedEm = 1.15 * 1.2 + 0.35 + 2 * 1.5;
 
   return (
-    <p
-      className="hero-quote font-display italic font-semibold leading-[1.5] text-cream/95"
-      style={{
-        fontSize: "clamp(1.25rem, 1.8vw, 2rem)",
-        minHeight: `${reservedEm}em`,
-      }}
-      aria-label={ariaLabel}
-    >
-      {typewriterLines.map((_, i) => (
-        <span
-          key={i}
-          aria-hidden
-          className="block whitespace-nowrap"
-          style={i === 0 ? { fontSize: "1.15em", lineHeight: 1.2, marginBottom: "0.35em", fontWeight: 300 } : undefined}
-        >
-          {renderLine(i)}
-        </span>
-      ))}
-    </p>
+    <>
+      <style>{`
+        @keyframes highlight-pulse {
+          0%   { background-color: #B83A20; }
+          50%  { background-color: #ff6b4a; }
+          100% { background-color: #B83A20; }
+        }
+        .highlight-pulse {
+          animation: highlight-pulse 0.8s ease-in-out 1;
+        }
+      `}</style>
+      <p
+        className="hero-quote font-display italic font-semibold leading-[1.5] text-cream/95"
+        style={{
+          fontSize: "clamp(1.25rem, 1.8vw, 2rem)",
+          minHeight: `${reservedEm}em`,
+        }}
+        aria-label={ariaLabel}
+      >
+        {typewriterLines.map((_, i) => (
+          <span
+            key={i}
+            aria-hidden
+            className="block whitespace-nowrap"
+            style={i === 0 ? { fontSize: "1.15em", lineHeight: 1.2, marginBottom: "0.35em", fontWeight: 300 } : undefined}
+          >
+            {renderLine(i)}
+          </span>
+        ))}
+      </p>
+    </>
   );
 }
 
