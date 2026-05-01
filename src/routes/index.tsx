@@ -222,9 +222,9 @@ function Sidebar() {
 function Index() {
   return (
     <main id="top" className="w-full min-w-0 max-w-full overflow-x-clip text-cream lg:bg-[#0D1B2A]">
-      <div className="w-full min-w-0 max-w-full flex flex-col lg:grid lg:grid-cols-[60fr_40fr] lg:items-start">
+      <div className="w-full min-w-0 max-w-full flex flex-col lg:block">
         {/* LEFT — scrolling content */}
-        <div className="w-full min-w-0 max-w-full order-2 lg:order-none bg-navy-deep lg:mt-11 lg:rounded-t-xl lg:shadow-[0_-8px_24px_rgba(0,0,0,0.2)]">
+        <div className="w-full min-w-0 max-w-full order-2 lg:order-none bg-navy-deep lg:mt-11 lg:rounded-t-xl lg:shadow-[0_-8px_24px_rgba(0,0,0,0.2)] lg:mr-[40%]">
           {/* OM MIG */}
           <section id="om" className="py-16 md:py-20">
             <div className="px-12 md:px-14">
