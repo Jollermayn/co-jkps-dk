@@ -204,7 +204,7 @@ function Sidebar() {
         <a
           href="/jonas-kp-sorensen-cv.pdf"
           download
-          className="inline-flex items-center justify-center gap-3 text-sm font-semibold tracking-wide bg-[#F5F0E8] text-[#0D1B2A] hover:bg-cream transition-colors duration-200 ease-out"
+          className="group/cv inline-flex items-center justify-center gap-3 text-sm font-semibold tracking-wide bg-[#F5F0E8] text-[#0D1B2A] border border-[#F5F0E8] hover:bg-transparent hover:text-[#F5F0E8] hover:border-[#F5F0E8] transition-colors duration-300 ease-out"
           style={{ padding: "12px 28px", borderRadius: "50px" }}
         >
           Download CV (PDF)
@@ -363,7 +363,7 @@ function Index() {
                 <a
                   href="/jonas-kp-sorensen-cv.pdf"
                   download
-                  className="inline-flex items-center gap-3 text-sm font-semibold tracking-wide bg-[#F5F0E8] text-[#0D1B2A] hover:bg-cream transition-colors"
+                  className="inline-flex items-center gap-3 text-sm font-semibold tracking-wide bg-[#F5F0E8] text-[#0D1B2A] border border-[#F5F0E8] hover:bg-transparent hover:text-[#F5F0E8] hover:border-[#F5F0E8] transition-colors duration-300 ease-out"
                   style={{ padding: "12px 28px", borderRadius: "50px" }}
                 >
                   Download CV (PDF) <span aria-hidden>↓</span>
