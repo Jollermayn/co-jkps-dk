@@ -166,21 +166,19 @@ function TypewriterQuote() {
           : isComplete && meetPhase === "meet"
             ? {
                 display: "inline-block",
-                transform: i === 1 ? "translateX(1.5em) translateY(0.4em) scale(1.15)" : "translateX(-1.5em) translateY(-0.4em) scale(1.15)",
+                transform: "scale(1.15)",
                 transition: "transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.5s ease",
-                boxShadow: "0 0 14px rgba(184, 58, 32, 0.85)",
+                boxShadow: "0 0 16px rgba(184, 58, 32, 0.9)",
                 zIndex: 10,
                 position: "relative",
-                ...(i === 1 ? { marginRight: "0.15em" } : {}),
               }
             : isComplete && meetPhase === "done"
               ? {
                   display: "inline-block",
-                  transform: i === 1 ? "translateX(1.5em) translateY(0.4em) scale(1.15)" : "translateX(-1.5em) translateY(-0.4em) scale(1.15)",
+                  transform: "scale(1)",
                   transition: "transform 0.35s ease, box-shadow 0.35s ease",
                   boxShadow: "none",
                   position: "relative",
-                  ...(i === 1 ? { marginRight: "0.15em" } : {}),
                 }
               : {
                   display: "inline-block",
