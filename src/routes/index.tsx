@@ -134,19 +134,22 @@ function TypewriterQuote() {
     if (i > lineIdx) return "\u00A0";
     const full = typewriterLines[i];
     const shown = i < lineIdx ? full : full.slice(0, charIdx);
-    const trail = HIGHLIGHT_TRAIL[i];
-    if (trail) {
-      const splitAt = full.length - trail;
-      const plainShown = shown.slice(0, Math.min(shown.length, splitAt));
-      const highlightShown = shown.length > splitAt ? shown.slice(splitAt) : "";
+    const range = HIGHLIGHT_RANGE[i];
+    if (range) {
+      const start = full.length - range.fromEnd;
+      const end = start + range.length;
+      const before = shown.slice(0, Math.min(shown.length, start));
+      const highlight = shown.length > start ? shown.slice(start, Math.min(shown.length, end)) : "";
+      const after = shown.length > end ? shown.slice(end) : "";
       return (
         <>
-          {plainShown}
-          {highlightShown && (
+          {before}
+          {highlight && (
             <span className="not-italic font-black text-cream bg-[#C0281E] whitespace-nowrap px-[6px] py-[2px]">
-              {highlightShown}
+              {highlight}
             </span>
           )}
+          {after}
         </>
       );
     }
