@@ -195,7 +195,7 @@ function Sidebar() {
         <p className="hero-subtitle text-base leading-relaxed lg:text-lg lg:leading-snug text-cream/85 font-display italic text-center">
           Digital konsulent &amp; strateg.
         </p>
-        <blockquote className="max-w-full w-full text-center mt-2 lg:mt-3">
+        <blockquote className="max-w-full w-full text-center mt-6 lg:mt-10">
           <TypewriterQuote />
         </blockquote>
       </div>
