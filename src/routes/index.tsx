@@ -165,7 +165,7 @@ function TypewriterQuote() {
 
 function Sidebar() {
   return (
-    <aside className="hero-sidebar relative flex flex-col gap-10 lg:gap-12 lg:sticky lg:top-0 lg:min-h-screen lg:max-h-screen lg:overflow-y-auto px-6 md:px-14 lg:px-16 py-8 md:py-20 lg:py-12 border-b lg:border-b-0 lg:border-l border-cream/10 order-1 lg:order-last bg-[#0D1B2A] lg:z-20 lg:rounded-l-xl lg:shadow-[-8px_0_24px_rgba(0,0,0,0.25)] text-center items-center lg:justify-start">
+    <aside className="hero-sidebar relative w-full min-w-0 self-stretch flex flex-col gap-10 lg:gap-12 lg:sticky lg:top-0 lg:min-h-screen lg:max-h-screen lg:overflow-y-auto px-6 md:px-14 lg:px-16 py-8 md:py-20 lg:py-12 border-b lg:border-b-0 lg:border-l border-cream/10 order-1 lg:order-last bg-[#0D1B2A] lg:z-20 lg:rounded-l-xl lg:shadow-[-8px_0_24px_rgba(0,0,0,0.25)] text-center items-center lg:justify-start">
       <div className="w-full flex flex-col gap-6 items-center text-center">
         <h1 className="font-display text-[clamp(2.5rem,5vw,4.5rem)] leading-[0.95] tracking-[-0.02em] font-medium text-center">
           Jonas K.P. Sørensen
@@ -206,8 +206,8 @@ function Sidebar() {
 
 function Index() {
   return (
-    <main id="top" className="text-cream lg:bg-[#0D1B2A]">
-      <div className="flex flex-col lg:grid lg:grid-cols-[60fr_40fr] lg:items-start">
+    <main id="top" className="w-full min-w-0 overflow-x-clip text-cream lg:bg-[#0D1B2A]">
+      <div className="w-full min-w-0 flex flex-col lg:grid lg:grid-cols-[60fr_40fr] lg:items-start">
         {/* LEFT — scrolling content */}
         <div className="min-w-0 order-2 lg:order-none bg-navy-deep lg:mt-11 lg:rounded-t-xl lg:shadow-[0_-8px_24px_rgba(0,0,0,0.2)]">
           {/* OM MIG */}
