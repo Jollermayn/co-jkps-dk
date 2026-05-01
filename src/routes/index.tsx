@@ -179,12 +179,16 @@ function Sidebar() {
   return (
     <aside className="hero-sidebar relative w-full min-w-0 max-w-full self-stretch flex flex-col gap-10 lg:gap-12 lg:sticky lg:top-0 lg:min-h-screen lg:max-h-screen lg:overflow-y-auto px-6 md:px-14 lg:px-16 py-8 md:py-20 lg:py-12 border-b lg:border-b-0 lg:border-l border-cream/10 order-1 lg:order-last bg-[#0D1B2A] lg:z-20 lg:rounded-l-xl lg:shadow-[-8px_0_24px_rgba(0,0,0,0.25)] text-center items-center lg:justify-start">
       <div className="w-full flex flex-col gap-6 items-center text-center">
-        <h1 className="font-display text-[clamp(1.75rem,8vw,4.5rem)] leading-[0.95] tracking-[-0.02em] font-medium text-center whitespace-nowrap px-2">
-          <span className="font-bold text-[#C0281E]">J</span>onas
-          <span className="inline-block align-baseline mx-[0.15em] text-[0.55em] tracking-tight">
-            <span className="font-bold text-[#C0281E]">K</span>.<span className="font-bold text-[#C0281E]">P</span>.
+        <h1 className="font-display leading-[0.95] tracking-[-0.02em] font-medium text-center px-2 flex flex-col items-center">
+          <span className="block text-[clamp(2.25rem,9vw,4.5rem)]">
+            <span className="font-bold text-[#C0281E]">J</span>onas
           </span>
-          <span className="font-bold text-[#C0281E]">S</span>ørensen
+          <span className="block text-[clamp(1rem,3.5vw,1.75rem)] font-bold text-[#C0281E] my-[0.15em]">
+            K.P.
+          </span>
+          <span className="block text-[clamp(2.25rem,9vw,4.5rem)]">
+            <span className="font-bold text-[#C0281E]">S</span>ørensen
+          </span>
         </h1>
         <p className="hero-subtitle text-base leading-relaxed lg:text-lg lg:leading-snug text-cream/85 font-display italic text-center">
           Digital konsulent &amp; strateg.
