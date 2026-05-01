@@ -157,34 +157,7 @@ function TypewriterQuote() {
       const after = shown.length > end ? shown.slice(end) : "";
       const isComplete = highlight.length === range.length;
 
-      const meetStyle: React.CSSProperties =
-        range.style === "text"
-          ? {
-              display: "inline-block",
-              transform: "translateY(0) scale(1)",
-            }
-          : isComplete && meetPhase === "meet"
-            ? {
-                display: "inline-block",
-                transform: "scale(1.15)",
-                transition: "transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.5s ease",
-                boxShadow: "0 0 16px rgba(184, 58, 32, 0.9)",
-                zIndex: 10,
-                position: "relative",
-              }
-            : isComplete && meetPhase === "done"
-              ? {
-                  display: "inline-block",
-                  transform: "scale(1)",
-                  transition: "transform 0.35s ease, box-shadow 0.35s ease",
-                  boxShadow: "none",
-                  position: "relative",
-                }
-              : {
-                  display: "inline-block",
-                  transform: "translateY(0) scale(1)",
-                  transition: "transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)",
-                };
+      const shouldPulse = isComplete && range.style === "box" && (meetPhase === "meet" || meetPhase === "done");
 
       const highlightClass =
         range.style === "text"
@@ -195,12 +168,12 @@ function TypewriterQuote() {
         <>
           {before}
           <span
-            className={highlightClass}
+            className={`${highlightClass}${shouldPulse ? " ai-color-pulse" : ""}`}
             style={{
-              ...meetStyle,
+              display: "inline-block",
               opacity: highlight ? 1 : 0,
               minWidth: "0.6em",
-              ...(i === 1 ? { marginRight: "0.3em" } : {}),
+              ...(i === 1 ? { marginRight: "0.25em" } : {}),
             }}
           >
             {highlight || "\u00A0"}
@@ -214,46 +187,26 @@ function TypewriterQuote() {
 
   const reservedEm = 1.15 * 1.2 + 0.35 + 2 * 1.5;
 
-  const showAiOverlay = meetPhase === "meet" || meetPhase === "done";
-
   return (
-    <div className="relative inline-block w-full">
-      <p
-        className="hero-quote font-display italic font-semibold leading-[1.5] text-cream/95"
-        style={{
-          fontSize: "clamp(1.25rem, 1.8vw, 2rem)",
-          minHeight: `${reservedEm}em`,
-        }}
-        aria-label={ariaLabel}
-      >
-        {typewriterLines.map((_, i) => (
-          <span
-            key={i}
-            aria-hidden
-            className="block whitespace-nowrap"
-            style={i === 0 ? { fontSize: "1.15em", lineHeight: 1.2, marginBottom: "0.35em", fontWeight: 300 } : undefined}
-          >
-            {renderLine(i)}
-          </span>
-        ))}
-      </p>
-      <span
-        aria-hidden
-        className="not-italic font-black text-[#F5F0E8] bg-[#B83A20] whitespace-nowrap px-[6px] py-[2px] font-display"
-        style={{
-          position: "absolute",
-          right: "-0.5em",
-          top: "50%",
-          transform: "translateY(-50%)",
-          fontSize: "clamp(1.25rem, 1.8vw, 2rem)",
-          opacity: showAiOverlay ? 1 : 0,
-          transition: "opacity 0.6s ease",
-          pointerEvents: "none",
-        }}
-      >
-        Ai
-      </span>
-    </div>
+    <p
+      className="hero-quote font-display italic font-semibold leading-[1.5] text-cream/95"
+      style={{
+        fontSize: "clamp(1.25rem, 1.8vw, 2rem)",
+        minHeight: `${reservedEm}em`,
+      }}
+      aria-label={ariaLabel}
+    >
+      {typewriterLines.map((_, i) => (
+        <span
+          key={i}
+          aria-hidden
+          className="block whitespace-nowrap"
+          style={i === 0 ? { fontSize: "1.15em", lineHeight: 1.2, marginBottom: "0.35em", fontWeight: 300 } : undefined}
+        >
+          {renderLine(i)}
+        </span>
+      ))}
+    </p>
   );
 }
 

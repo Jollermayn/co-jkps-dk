@@ -272,3 +272,12 @@
   display: inline-block;
   animation: letter-meet 0.5s ease-in-out;
 }
+
+@keyframes ai-color-pulse {
+  0%   { background-color: #B83A20; }
+  50%  { background-color: #ff6b4a; }
+  100% { background-color: #B83A20; }
+}
+.ai-color-pulse {
+  animation: ai-color-pulse 0.7s ease-in-out 1;
+}
