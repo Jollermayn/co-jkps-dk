@@ -198,7 +198,7 @@ function Sidebar() {
         <TypewriterQuote />
       </blockquote>
 
-      <div className="flex flex-col items-center gap-3 w-full text-center">
+      <div className="flex flex-col items-center gap-6 lg:gap-3 w-full text-center">
         <a
           href="/jonas-kp-sorensen-cv.pdf"
           download
