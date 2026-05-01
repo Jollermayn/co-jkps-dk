@@ -193,7 +193,7 @@ function Sidebar() {
           </span>
         </h1>
         <p className="hero-subtitle text-lg leading-relaxed lg:text-2xl lg:leading-snug text-cream/85 font-display italic text-center">
-          Digital konsulent &amp; strateg.
+          Digital konsulent.
         </p>
         <blockquote className="max-w-full w-full text-center mt-16 lg:mt-24 lg:-translate-y-[15px]">
           <TypewriterQuote />
