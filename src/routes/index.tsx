@@ -165,7 +165,7 @@ function TypewriterQuote() {
 
 function Sidebar() {
   return (
-    <aside className="hero-sidebar relative w-full min-w-0 self-stretch flex flex-col gap-10 lg:gap-12 lg:sticky lg:top-0 lg:min-h-screen lg:max-h-screen lg:overflow-y-auto px-6 md:px-14 lg:px-16 py-8 md:py-20 lg:py-12 border-b lg:border-b-0 lg:border-l border-cream/10 order-1 lg:order-last bg-[#0D1B2A] lg:z-20 lg:rounded-l-xl lg:shadow-[-8px_0_24px_rgba(0,0,0,0.25)] text-center items-center lg:justify-start">
+    <aside className="hero-sidebar relative w-full min-w-0 max-w-full self-stretch flex flex-col gap-10 lg:gap-12 lg:sticky lg:top-0 lg:min-h-screen lg:max-h-screen lg:overflow-y-auto px-6 md:px-14 lg:px-16 py-8 md:py-20 lg:py-12 border-b lg:border-b-0 lg:border-l border-cream/10 order-1 lg:order-last bg-[#0D1B2A] lg:z-20 lg:rounded-l-xl lg:shadow-[-8px_0_24px_rgba(0,0,0,0.25)] text-center items-center lg:justify-start">
       <div className="w-full flex flex-col gap-6 items-center text-center">
         <h1 className="font-display text-[clamp(2.5rem,5vw,4.5rem)] leading-[0.95] tracking-[-0.02em] font-medium text-center">
           Jonas K.P. Sørensen
@@ -206,10 +206,10 @@ function Sidebar() {
 
 function Index() {
   return (
-    <main id="top" className="w-full min-w-0 overflow-x-clip text-cream lg:bg-[#0D1B2A]">
-      <div className="w-full min-w-0 flex flex-col lg:grid lg:grid-cols-[60fr_40fr] lg:items-start">
+    <main id="top" className="w-full min-w-0 max-w-full overflow-x-hidden text-cream lg:bg-[#0D1B2A]">
+      <div className="w-full min-w-0 max-w-full flex flex-col lg:grid lg:grid-cols-[60fr_40fr] lg:items-start">
         {/* LEFT — scrolling content */}
-        <div className="min-w-0 order-2 lg:order-none bg-navy-deep lg:mt-11 lg:rounded-t-xl lg:shadow-[0_-8px_24px_rgba(0,0,0,0.2)]">
+        <div className="w-full min-w-0 max-w-full order-2 lg:order-none bg-navy-deep lg:mt-11 lg:rounded-t-xl lg:shadow-[0_-8px_24px_rgba(0,0,0,0.2)]">
           {/* OM MIG */}
           <section id="om" className="py-16 md:py-20">
             <div className="px-12 md:px-14">
@@ -354,7 +354,7 @@ function Index() {
       </div>
 
       {/* FOOTER */}
-      <footer className="bg-navy-deep py-10 relative z-30">
+      <footer className="w-full max-w-full bg-navy-deep py-10 relative z-30 overflow-x-hidden">
         <div className="px-12 md:px-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-sm text-cream/55">
           <p>Jonas K.P. Sørensen · Digital konsulent &amp; strateg · Aarhus</p>
           <p>© {new Date().getFullYear()} · Selvstændig siden 2016</p>
@@ -565,7 +565,7 @@ function CasesSection() {
             </button>
 
             {filterOpen && (
-              <div className="absolute left-0 top-full mt-2 z-30 min-w-[260px] bg-navy-deep border border-cream/15 rounded-xl shadow-2xl p-3">
+              <div className="absolute left-0 top-full mt-2 z-30 w-[min(16.25rem,calc(100vw-6rem))] max-w-[calc(100vw-6rem)] min-w-0 bg-navy-deep border border-cream/15 rounded-xl shadow-2xl p-3">
                 <div className="eyebrow text-cream/50 px-2 pb-2">Kategorier</div>
                 <ul role="listbox" className="flex flex-col">
                   {FILTERS.map((f) => {
@@ -635,7 +635,7 @@ function CasesSection() {
           const meta = CASE_META[c.slug];
           const sizing =
             variant === "slider"
-              ? "snap-start shrink-0 w-[85vw] max-[428px]:w-[78vw] sm:w-[420px]"
+              ? "snap-start shrink-0 w-[calc(100vw-7rem)] max-w-[420px] sm:w-[420px]"
               : "w-full";
           const imgWrapperClass =
             variant === "slider"
@@ -750,12 +750,14 @@ function CasesSection() {
               </>
             ) : (
               <>
-                <div
-                  ref={scrollerRef}
-                  onScroll={handleScroll}
-                  className="flex gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth px-12 md:px-14 scroll-pl-12 md:scroll-pl-14 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-                >
+                <div className="w-full max-w-full overflow-x-hidden">
+                  <div
+                    ref={scrollerRef}
+                    onScroll={handleScroll}
+                    className="cases-carousel flex w-full max-w-full gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth px-12 md:px-14 scroll-pl-12 md:scroll-pl-14 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+                  >
                   {filtered.map((c, i) => renderCard(c, "slider", i))}
+                  </div>
                 </div>
 
                 {/* Progress indicator */}
