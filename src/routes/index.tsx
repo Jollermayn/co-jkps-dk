@@ -158,8 +158,9 @@ function TypewriterQuote() {
           ? "not-italic font-black text-[#B83A20]"
           : "not-italic font-black text-[#F5F0E8] bg-[#B83A20] whitespace-nowrap px-[6px] py-[2px]";
       const id = i === 1 ? ' id="tw-box-A"' : i === 2 ? ' id="tw-box-i"' : "";
+      const extraStyle = i === 1 ? ";margin-bottom:4px" : i === 2 ? ";margin-top:4px" : "";
       const hlContent = highlight || "&nbsp;";
-      return `${before}<span${id} class="${cls}" style="display:inline-block">${hlContent}</span>${after}`;
+      return `${before}<span${id} class="${cls}" style="display:inline-block${extraStyle}">${hlContent}</span>${after}`;
     };
 
     let elapsed = 0;
