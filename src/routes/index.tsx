@@ -170,7 +170,7 @@ function Sidebar() {
         <h1 className="font-display text-[clamp(2.5rem,5vw,4.5rem)] leading-[0.95] tracking-[-0.02em] font-medium text-center">
           Jonas K.P. Sørensen
         </h1>
-        <p className="text-base leading-relaxed lg:text-lg lg:leading-snug text-cream/85 font-display italic">
+        <p className="hero-subtitle text-base leading-relaxed lg:text-lg lg:leading-snug text-cream/85 font-display italic">
           Digital konsulent &amp; strateg.
         </p>
       </div>
