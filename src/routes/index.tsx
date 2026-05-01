@@ -110,6 +110,7 @@ const HIGHLIGHT_RANGE: Record<number, { fromEnd?: number; fromStart?: number; le
 function TypewriterQuote() {
   const [lineIdx, setLineIdx] = useState(0);
   const [charIdx, setCharIdx] = useState(0);
+  const [meetPulse, setMeetPulse] = useState(0);
 
   useEffect(() => {
     if (lineIdx >= typewriterLines.length) return;
@@ -127,6 +128,13 @@ function TypewriterQuote() {
     return () => clearTimeout(t);
   }, [lineIdx, charIdx]);
 
+  // After the full typewriter sequence finishes, trigger the "meeting" pulse on the highlighted letters.
+  useEffect(() => {
+    if (lineIdx < typewriterLines.length) return;
+    const t = setTimeout(() => setMeetPulse((n) => n + 1), 400);
+    return () => clearTimeout(t);
+  }, [lineIdx]);
+
   const ariaLabel = typewriterLines.join(" ");
 
   const renderLine = (i: number) => {
@@ -141,11 +149,15 @@ function TypewriterQuote() {
       const highlight = shown.length > start ? shown.slice(start, Math.min(shown.length, end)) : "";
       const after = shown.length > end ? shown.slice(end) : "";
       const isComplete = highlight.length === range.length;
-      const flashClass = isComplete
-        ? range.style === "text"
-          ? " letter-flash"
-          : " letter-flash-box"
-        : "";
+      const allDone = lineIdx >= typewriterLines.length;
+      const showMeet = isComplete && allDone && meetPulse > 0 && range.style !== "text";
+      const flashClass = showMeet
+        ? " letter-meet"
+        : isComplete
+          ? range.style === "text"
+            ? " letter-flash"
+            : " letter-flash-box"
+          : "";
       const highlightClass =
         (range.style === "text"
           ? "not-italic font-black text-[#B83A20]"
@@ -154,7 +166,7 @@ function TypewriterQuote() {
         <>
           {before}
           {highlight && (
-            <span key={`hl-${i}-${highlight.length}`} className={highlightClass}>
+            <span key={`hl-${i}-${highlight.length}-${showMeet ? meetPulse : 0}`} className={highlightClass}>
               {highlight}
             </span>
           )}
