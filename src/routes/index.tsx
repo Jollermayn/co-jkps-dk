@@ -155,12 +155,12 @@ function TypewriterQuote() {
   };
 
   // Reserve full height up-front so buttons below don't shift while typing.
-  // Line 1 = 1.6em * 1.2 lh + 0.35em margin; lines 2-3 = 1em * 1.5 lh each.
-  const reservedEm = 1.6 * 1.2 + 0.35 + 2 * 1.5;
+  // Line 1 = 1.15em * 1.2 lh + 0.35em margin; lines 2-3 = 1em * 1.5 lh each.
+  const reservedEm = 1.15 * 1.2 + 0.35 + 2 * 1.5;
   return (
     <p
       className="hero-quote font-display italic font-semibold leading-[1.5] text-cream/95"
-      style={{ fontSize: "clamp(1.5rem, 2.2vw, 2.4rem)", minHeight: `${reservedEm}em` }}
+      style={{ fontSize: "clamp(1.25rem, 1.8vw, 2rem)", minHeight: `${reservedEm}em` }}
       aria-label={ariaLabel}
     >
       {typewriterLines.map((_, i) => (
@@ -168,7 +168,7 @@ function TypewriterQuote() {
           key={i}
           aria-hidden
           className="block whitespace-nowrap"
-          style={i === 0 ? { fontSize: "1.6em", lineHeight: 1.2, marginBottom: "0.35em" } : undefined}
+          style={i === 0 ? { fontSize: "1.15em", lineHeight: 1.2, marginBottom: "0.35em" } : undefined}
         >
           {renderLine(i)}
         </span>
@@ -195,7 +195,7 @@ function Sidebar() {
         <p className="hero-subtitle text-base leading-relaxed lg:text-lg lg:leading-snug text-cream/85 font-display italic text-center">
           Digital konsulent &amp; strateg.
         </p>
-        <blockquote className="max-w-full w-full text-center mt-6 lg:mt-10">
+        <blockquote className="max-w-full w-full text-center mt-16 lg:mt-24">
           <TypewriterQuote />
         </blockquote>
       </div>
