@@ -140,14 +140,24 @@ function TypewriterQuote() {
       const before = shown.slice(0, Math.min(shown.length, start));
       const highlight = shown.length > start ? shown.slice(start, Math.min(shown.length, end)) : "";
       const after = shown.length > end ? shown.slice(end) : "";
+      const isComplete = highlight.length === range.length;
+      const flashClass = isComplete
+        ? range.style === "text"
+          ? " letter-flash"
+          : " letter-flash-box"
+        : "";
       const highlightClass =
-        range.style === "text"
+        (range.style === "text"
           ? "not-italic font-black text-[#B83A20]"
-          : "not-italic font-black text-[#F5F0E8] bg-[#B83A20] whitespace-nowrap px-[6px] py-[2px]";
+          : "not-italic font-black text-[#F5F0E8] bg-[#B83A20] whitespace-nowrap px-[6px] py-[2px]") + flashClass;
       return (
         <>
           {before}
-          {highlight && <span className={highlightClass}>{highlight}</span>}
+          {highlight && (
+            <span key={`hl-${i}-${highlight.length}`} className={highlightClass}>
+              {highlight}
+            </span>
+          )}
           {after}
         </>
       );
