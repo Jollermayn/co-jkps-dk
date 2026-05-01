@@ -378,8 +378,8 @@ function Index() {
       {/* FOOTER */}
       <footer className="w-full max-w-full bg-navy-deep py-10 relative z-30 overflow-x-hidden">
         <div className="px-12 md:px-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-sm text-cream/55">
-          <p>Jonas K.P. Sørensen · Digital konsulent &amp; strateg · Aarhus</p>
-          <p>© {new Date().getFullYear()} · Selvstændig siden 2016</p>
+          <p>Jonas K.P. Sørensen · Aarhus</p>
+          <p>© {new Date().getFullYear()}</p>
         </div>
       </footer>
     </main>
