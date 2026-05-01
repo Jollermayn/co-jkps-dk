@@ -200,7 +200,7 @@ function Sidebar() {
         </blockquote>
       </div>
 
-      <div className="flex flex-col items-center gap-6 lg:gap-3 w-full text-center lg:-translate-y-[5px]">
+      <div className="flex flex-col items-center gap-6 lg:gap-3 w-full text-center lg:translate-y-[15px]">
         <a
           href="/jonas-kp-sorensen-cv.pdf"
           download
