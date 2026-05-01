@@ -28,7 +28,7 @@ export const Route = createRootRoute({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1.0, maximum-scale=1.0" },
+      { name: "viewport", content: "width=device-width, initial-scale=1.0" },
       { title: "Jonas K.P. Sørensen — Digital konsulent" },
       { name: "description", content: "Portfolio" },
       { name: "author", content: "Jonas K.P. Sørensen" },
