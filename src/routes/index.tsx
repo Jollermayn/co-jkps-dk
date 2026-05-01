@@ -301,9 +301,16 @@ function Index() {
               <h2 className="font-display text-5xl md:text-8xl mt-8 leading-[0.9] tracking-tight">
                 Lad os <span className="italic text-ember">tales ved</span>
               </h2>
-              <p className="mt-8 max-w-xl text-cream/70 text-lg italic font-display">
-                Jeg er altid interesseret i nye samarbejder — store som små, kommercielle som kulturelle.
-              </p>
+              <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+                <img
+                  src={profilePhoto}
+                  alt="Jonas K.P. Sørensen"
+                  className="shrink-0 w-[120px] h-[120px] md:w-[140px] md:h-[140px] rounded-full object-cover shadow-[0_4px_16px_rgba(0,0,0,0.4)]"
+                />
+                <p className="max-w-xl text-cream/70 text-lg italic font-display">
+                  Jeg er altid interesseret i nye samarbejder — store som små, kommercielle som kulturelle.
+                </p>
+              </div>
 
               <div className="mt-16 grid grid-cols-12 gap-6 md:gap-10">
                 <div className="col-span-12 md:col-span-4">
