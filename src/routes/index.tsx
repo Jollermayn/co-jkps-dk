@@ -187,17 +187,10 @@ function Sidebar() {
       </blockquote>
 
       <div className="flex flex-col items-center gap-3 w-full text-center">
-        <div className="flex items-center justify-center gap-4">
-          <img
-            src={profilePhoto}
-            alt="Jonas K.P. Sørensen"
-            className="shrink-0 w-full max-w-[120px] lg:max-w-[150px] aspect-square rounded-full object-cover shadow-[0_4px_16px_rgba(0,0,0,0.4)] hover:scale-105 transition-all duration-[400ms] ease-out"
-          />
-        </div>
         <a
           href="/jonas-kp-sorensen-cv.pdf"
           download
-          className="mt-6 inline-flex items-center justify-center gap-3 px-5 py-3 text-sm tracking-wide rounded-full bg-[#0D1B2A] text-white transition-transform duration-200 ease-out hover:scale-[1.04]"
+          className="inline-flex items-center justify-center gap-3 px-5 py-3 text-sm tracking-wide rounded-full bg-[#0D1B2A] text-white transition-transform duration-200 ease-out hover:scale-[1.04]"
         >
           Download CV (PDF)
         </a>
