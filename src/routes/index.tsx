@@ -134,12 +134,20 @@ function TypewriterQuote() {
     if (i > lineIdx) return "\u00A0";
     const full = typewriterLines[i];
     const shown = i < lineIdx ? full : full.slice(0, charIdx);
-    if (i === 5) {
-      // "not enough i." — wrap whole line in red box; reveal characters as typed
+    const trail = HIGHLIGHT_TRAIL[i];
+    if (trail) {
+      const splitAt = full.length - trail;
+      const plainShown = shown.slice(0, Math.min(shown.length, splitAt));
+      const highlightShown = shown.length > splitAt ? shown.slice(splitAt) : "";
       return (
-        <span className="not-italic font-black text-cream bg-[#C0281E] whitespace-nowrap px-[6px] py-[2px]">
-          {shown || "\u00A0"}
-        </span>
+        <>
+          {plainShown}
+          {highlightShown && (
+            <span className="not-italic font-black text-cream bg-[#C0281E] whitespace-nowrap px-[6px] py-[2px]">
+              {highlightShown}
+            </span>
+          )}
+        </>
       );
     }
     return shown || "\u00A0";
