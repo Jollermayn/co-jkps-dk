@@ -180,6 +180,7 @@ function TypewriterQuote() {
 function NameSignature() {
   const ref = useRef<HTMLDivElement | null>(null);
   const [stage, setStage] = useState(0);
+  // 0 = idle, 1 = Jonas, 2 = + K, 3 = + .P., 4 = + Sørensen
 
   useEffect(() => {
     const el = ref.current;
@@ -192,11 +193,9 @@ function NameSignature() {
           if (entry.isIntersecting && !started) {
             started = true;
             setStage(1);
-            timeouts.push(window.setTimeout(() => setStage(2), 2000));
-            timeouts.push(window.setTimeout(() => setStage(3), 2800));
-            timeouts.push(window.setTimeout(() => setStage(4), 3100));
-            timeouts.push(window.setTimeout(() => setStage(5), 3400));
-            timeouts.push(window.setTimeout(() => setStage(6), 3700));
+            timeouts.push(window.setTimeout(() => setStage(2), 300));
+            timeouts.push(window.setTimeout(() => setStage(3), 600));
+            timeouts.push(window.setTimeout(() => setStage(4), 900));
             observer.disconnect();
           }
         });
@@ -210,44 +209,28 @@ function NameSignature() {
     };
   }, []);
 
-  const redIf = (minStage: number) =>
-    stage >= minStage ? "text-[#C0281E]" : "text-cream/90";
+  const fade = (minStage: number) =>
+    "inline-block transition-opacity duration-[400ms] ease-out " +
+    (stage >= minStage ? "opacity-100" : "opacity-0");
 
   return (
     <div
       ref={ref}
       aria-label="Jonas K.P. Sørensen"
-      className="font-display tracking-[-0.02em] font-light leading-[0.95] flex flex-col items-start select-none"
+      className="font-display tracking-[-0.02em] font-light leading-none flex flex-wrap items-baseline gap-x-[0.35em] text-[clamp(1.25rem,2.4vw,2rem)] select-none"
     >
-      <span
-        className={
-          "block text-[clamp(1.5rem,3.2vw,2.5rem)] transition-opacity duration-[900ms] ease-out " +
-          (stage >= 1 ? "opacity-100" : "opacity-0")
-        }
-      >
-        <span className={"transition-colors duration-[700ms] ease-out " + redIf(3)}>J</span>
+      <span className={fade(1)}>
+        <span className="text-[#C0281E]">J</span>
         <span className="text-cream/90">onas</span>
       </span>
-
-      <span
-        className={
-          "block text-[clamp(0.85rem,1.4vw,1.1rem)] font-normal tracking-[0.15em] my-[0.4em] transition-opacity duration-[800ms] ease-out " +
-          (stage >= 2 ? "opacity-100" : "opacity-0")
-        }
-      >
-        <span className={"transition-colors duration-[700ms] ease-out " + redIf(4)}>K</span>
+      <span className={fade(2) + " text-[#C0281E]"}>K</span>
+      <span className={fade(3)}>
         <span className="text-cream/90">.</span>
-        <span className={"transition-colors duration-[700ms] ease-out " + redIf(5)}>P</span>
+        <span className="text-[#C0281E]">P</span>
         <span className="text-cream/90">.</span>
       </span>
-
-      <span
-        className={
-          "block text-[clamp(1.5rem,3.2vw,2.5rem)] transition-opacity duration-[900ms] ease-out " +
-          (stage >= 1 ? "opacity-100" : "opacity-0")
-        }
-      >
-        <span className={"transition-colors duration-[700ms] ease-out " + redIf(6)}>S</span>
+      <span className={fade(4)}>
+        <span className="text-[#C0281E]">S</span>
         <span className="text-cream/90">ørensen</span>
       </span>
     </div>
