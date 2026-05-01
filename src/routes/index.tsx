@@ -100,10 +100,11 @@ const typewriterLines = [
   "Not enough i",
 ];
 
-// For lines with a highlighted segment near the end, define [startFromEnd, length] of the red box.
-const HIGHLIGHT_RANGE: Record<number, { fromEnd: number; length: number }> = {
-  1: { fromEnd: 1, length: 1 }, // "A" at end of line 2
-  2: { fromEnd: 1, length: 1 }, // "i" at end of line 3
+// For lines with a highlighted segment, define position/length and style.
+const HIGHLIGHT_RANGE: Record<number, { fromEnd?: number; fromStart?: number; length: number; style?: "box" | "text" }> = {
+  0: { fromStart: 4, length: 2, style: "text" }, // "Ai" in "The Ai paradox:"
+  1: { fromEnd: 1, length: 1, style: "box" }, // "A" at end of line 2
+  2: { fromEnd: 1, length: 1, style: "box" }, // "i" at end of line 3
 };
 
 function TypewriterQuote() {
