@@ -158,28 +158,33 @@ function TypewriterQuote() {
       const isComplete = highlight.length === range.length;
 
       const meetStyle: React.CSSProperties =
-        isComplete && meetPhase === "meet"
+        range.style === "text"
           ? {
               display: "inline-block",
-              transform: i === 1 ? "translateY(0.65em) scale(1.25)" : "translateY(-0.65em) scale(1.25)",
-              transition: "transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.5s ease",
-              boxShadow: "0 0 14px rgba(184, 58, 32, 0.85)",
-              zIndex: 10,
-              position: "relative",
+              transform: "translateY(0) scale(1)",
             }
-          : isComplete && meetPhase === "done"
+          : isComplete && meetPhase === "meet"
             ? {
                 display: "inline-block",
-                transform: "translateY(0) scale(1)",
-                transition: "transform 0.35s ease, box-shadow 0.35s ease",
-                boxShadow: "none",
+                transform: i === 1 ? "translateY(0.65em) scale(1.25)" : "translateY(-0.65em) scale(1.25)",
+                transition: "transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.5s ease",
+                boxShadow: "0 0 14px rgba(184, 58, 32, 0.85)",
+                zIndex: 10,
                 position: "relative",
               }
-            : {
-                display: "inline-block",
-                transform: "translateY(0) scale(1)",
-                transition: "transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)",
-              };
+            : isComplete && meetPhase === "done"
+              ? {
+                  display: "inline-block",
+                  transform: "translateY(0) scale(1)",
+                  transition: "transform 0.35s ease, box-shadow 0.35s ease",
+                  boxShadow: "none",
+                  position: "relative",
+                }
+              : {
+                  display: "inline-block",
+                  transform: "translateY(0) scale(1)",
+                  transition: "transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)",
+                };
 
       const highlightClass =
         range.style === "text"
