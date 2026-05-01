@@ -224,7 +224,7 @@ function Index() {
     <main id="top" className="w-full min-w-0 max-w-full overflow-x-clip text-cream lg:bg-[#0D1B2A]">
       <div className="w-full min-w-0 max-w-full flex flex-col lg:block">
         {/* LEFT — scrolling content */}
-        <div className="w-full min-w-0 max-w-full lg:max-w-[60%] lg:w-[60%] order-2 lg:order-none bg-navy-deep lg:mt-11 lg:rounded-t-xl lg:shadow-[0_-8px_24px_rgba(0,0,0,0.2)] lg:mr-[40%] overflow-hidden">
+        <div className="w-full min-w-0 max-w-full lg:max-w-[60%] lg:w-[60%] order-2 lg:order-none bg-navy-deep lg:mt-11 lg:rounded-t-xl lg:shadow-[0_-8px_24px_rgba(0,0,0,0.2)] lg:mr-[40%]">
           {/* OM MIG */}
           <section id="om" className="py-16 md:py-20">
             <div className="px-12 md:px-14">
@@ -972,7 +972,7 @@ function KompetencerList() {
                     {t}
                   </button>
                   {isOpen && hasCases && (
-                    <div className="absolute z-30 left-0 top-full mt-2 w-[min(18rem,calc(100vw-6rem))] max-w-[calc(100vw-6rem)] bg-navy-deep border border-cream/15 shadow-2xl p-4 animate-in fade-in slide-in-from-top-1 duration-150">
+                    <div className="absolute z-40 right-0 top-full mt-2 w-[min(18rem,calc(100vw-6rem))] max-w-[calc(100vw-6rem)] bg-navy-deep border border-cream/15 shadow-2xl p-4 animate-in fade-in slide-in-from-top-1 duration-150">
                       <div
                         className="text-cream/55 uppercase font-semibold mb-3"
                         style={{ fontSize: 9, letterSpacing: "0.18em" }}
