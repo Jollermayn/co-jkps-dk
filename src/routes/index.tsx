@@ -95,13 +95,18 @@ const TYPE_SPEED = 50;
 const LINE_PAUSE = 600;
 
 const typewriterLines = [
-  "The problem",
-  "with Ai",
+  "The problem with Ai",
   "is",
   "when there's too much A",
   "and",
   "not enough i.",
 ];
+
+// For lines with a trailing highlighted segment, define how many trailing chars get the red box.
+const HIGHLIGHT_TRAIL: Record<number, number> = {
+  2: 1, // "A" at end of line 3
+  4: 2, // "i." at end of line 5
+};
 
 function TypewriterQuote() {
   const [lineIdx, setLineIdx] = useState(0);
@@ -129,12 +134,20 @@ function TypewriterQuote() {
     if (i > lineIdx) return "\u00A0";
     const full = typewriterLines[i];
     const shown = i < lineIdx ? full : full.slice(0, charIdx);
-    if (i === 5) {
-      // "not enough i." — wrap whole line in red box; reveal characters as typed
+    const trail = HIGHLIGHT_TRAIL[i];
+    if (trail) {
+      const splitAt = full.length - trail;
+      const plainShown = shown.slice(0, Math.min(shown.length, splitAt));
+      const highlightShown = shown.length > splitAt ? shown.slice(splitAt) : "";
       return (
-        <span className="not-italic font-black text-cream bg-[#C0281E] whitespace-nowrap px-[6px] py-[2px]">
-          {shown || "\u00A0"}
-        </span>
+        <>
+          {plainShown}
+          {highlightShown && (
+            <span className="not-italic font-black text-cream bg-[#C0281E] whitespace-nowrap px-[6px] py-[2px]">
+              {highlightShown}
+            </span>
+          )}
+        </>
       );
     }
     return shown || "\u00A0";
