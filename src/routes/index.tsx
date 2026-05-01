@@ -432,7 +432,7 @@ function Index() {
                 </a>
               </div>
 
-              <div className="mt-20 md:mt-24">
+              <div className="mt-20 md:mt-24 -mx-12 md:-mx-14">
                 <NameSignature />
               </div>
             </div>
