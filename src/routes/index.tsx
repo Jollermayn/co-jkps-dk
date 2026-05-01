@@ -189,11 +189,12 @@ function TypewriterQuote() {
       return (
         <>
           {before}
-          {highlight && (
-            <span className={highlightClass} style={meetStyle}>
-              {highlight}
-            </span>
-          )}
+          <span
+            className={highlightClass}
+            style={{ ...meetStyle, opacity: highlight ? 1 : 0, minWidth: "0.6em" }}
+          >
+            {highlight || "\u00A0"}
+          </span>
           {after}
         </>
       );
