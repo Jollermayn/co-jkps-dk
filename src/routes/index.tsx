@@ -149,11 +149,15 @@ function TypewriterQuote() {
       const highlight = shown.length > start ? shown.slice(start, Math.min(shown.length, end)) : "";
       const after = shown.length > end ? shown.slice(end) : "";
       const isComplete = highlight.length === range.length;
-      const flashClass = isComplete
-        ? range.style === "text"
-          ? " letter-flash"
-          : " letter-flash-box"
-        : "";
+      const allDone = lineIdx >= typewriterLines.length;
+      const showMeet = isComplete && allDone && meetPulse > 0 && range.style !== "text";
+      const flashClass = showMeet
+        ? " letter-meet"
+        : isComplete
+          ? range.style === "text"
+            ? " letter-flash"
+            : " letter-flash-box"
+          : "";
       const highlightClass =
         (range.style === "text"
           ? "not-italic font-black text-[#B83A20]"
@@ -162,7 +166,7 @@ function TypewriterQuote() {
         <>
           {before}
           {highlight && (
-            <span key={`hl-${i}-${highlight.length}`} className={highlightClass}>
+            <span key={`hl-${i}-${highlight.length}-${showMeet ? meetPulse : 0}`} className={highlightClass}>
               {highlight}
             </span>
           )}
