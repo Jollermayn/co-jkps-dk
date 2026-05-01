@@ -86,7 +86,7 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
     <span className="inline-flex flex-col items-stretch w-fit cursor-default">
       <span className="eyebrow text-ember">{children}</span>
-      <span aria-hidden className="mt-1.5 block h-px w-1/2 bg-[#C0281E]" />
+      <span aria-hidden className="mt-1.5 block h-px w-1/2 bg-[#B83A20]" />
     </span>
   );
 }
@@ -100,10 +100,11 @@ const typewriterLines = [
   "Not enough i",
 ];
 
-// For lines with a highlighted segment near the end, define [startFromEnd, length] of the red box.
-const HIGHLIGHT_RANGE: Record<number, { fromEnd: number; length: number }> = {
-  1: { fromEnd: 1, length: 1 }, // "A" at end of line 2
-  2: { fromEnd: 1, length: 1 }, // "i" at end of line 3
+// For lines with a highlighted segment, define position/length and style.
+const HIGHLIGHT_RANGE: Record<number, { fromEnd?: number; fromStart?: number; length: number; style?: "box" | "text" }> = {
+  0: { fromStart: 4, length: 2, style: "text" }, // "Ai" in "The Ai paradox:"
+  1: { fromEnd: 1, length: 1, style: "box" }, // "A" at end of line 2
+  2: { fromEnd: 1, length: 1, style: "box" }, // "i" at end of line 3
 };
 
 function TypewriterQuote() {
@@ -134,19 +135,19 @@ function TypewriterQuote() {
     const shown = i < lineIdx ? full : full.slice(0, charIdx);
     const range = HIGHLIGHT_RANGE[i];
     if (range) {
-      const start = full.length - range.fromEnd;
+      const start = range.fromStart !== undefined ? range.fromStart : full.length - (range.fromEnd ?? 0);
       const end = start + range.length;
       const before = shown.slice(0, Math.min(shown.length, start));
       const highlight = shown.length > start ? shown.slice(start, Math.min(shown.length, end)) : "";
       const after = shown.length > end ? shown.slice(end) : "";
+      const highlightClass =
+        range.style === "text"
+          ? "not-italic font-black text-[#B83A20]"
+          : "not-italic font-black text-[#F5F0E8] bg-[#B83A20] whitespace-nowrap px-[6px] py-[2px]";
       return (
         <>
           {before}
-          {highlight && (
-            <span className="not-italic font-black text-[#F5F0E8] bg-[#C0281E] whitespace-nowrap px-[6px] py-[2px]">
-              {highlight}
-            </span>
-          )}
+          {highlight && <span className={highlightClass}>{highlight}</span>}
           {after}
         </>
       );
@@ -209,7 +210,7 @@ function Sidebar() {
         </a>
         <a
           href="#kontakt"
-          className="inline-flex items-center justify-center gap-2 text-[1.1rem] font-bold tracking-wide text-[#C0281E] underline underline-offset-4 hover:text-cream active:text-cream transition-colors duration-300"
+          className="inline-flex items-center justify-center gap-2 text-[1.1rem] font-bold tracking-wide text-[#B83A20] underline underline-offset-4 hover:text-cream active:text-cream transition-colors duration-300"
         >
           Kontakt mig
         </a>
@@ -627,7 +628,7 @@ function CasesSection() {
                 type="button"
                 aria-label="Forrige case"
                 onClick={showPreviousCase}
-                className="w-12 h-12 rounded-full border border-cream/25 text-cream flex items-center justify-center transition-colors hover:border-[#C0281E] hover:text-[#C0281E]"
+                className="w-12 h-12 rounded-full border border-cream/25 text-cream flex items-center justify-center transition-colors hover:border-[#B83A20] hover:text-[#B83A20]"
               >
                 <span aria-hidden className="text-xl leading-none">←</span>
               </button>
@@ -635,7 +636,7 @@ function CasesSection() {
                 type="button"
                 aria-label="Næste case"
                 onClick={showNextCase}
-                className="w-12 h-12 rounded-full border border-cream/25 text-cream flex items-center justify-center transition-colors hover:border-[#C0281E] hover:text-[#C0281E]"
+                className="w-12 h-12 rounded-full border border-cream/25 text-cream flex items-center justify-center transition-colors hover:border-[#B83A20] hover:text-[#B83A20]"
               >
                 <span aria-hidden className="text-xl leading-none">→</span>
               </button>
@@ -730,7 +731,7 @@ function CasesSection() {
                     <li
                       key={t}
                       className={
-                        "text-[10px] tracking-wide px-2.5 py-1 rounded-full border border-cream/20 text-cream/70 transition-[background-color,border-color,color] duration-[600ms] ease-in-out group-hover:bg-[#C0281E] group-hover:border-[#C0281E] group-hover:text-white hover:scale-[1.08] " +
+                        "text-[10px] tracking-wide px-2.5 py-1 rounded-full border border-cream/20 text-cream/70 transition-[background-color,border-color,color] duration-[600ms] ease-in-out group-hover:bg-[#B83A20] group-hover:border-[#B83A20] group-hover:text-white hover:scale-[1.08] " +
                         tagSize
                       }
                     >
@@ -741,7 +742,7 @@ function CasesSection() {
                 {variant === "slider" && (
                   <span
                     aria-hidden
-                    className="mt-2 self-end inline-flex items-center gap-1.5 text-[10px] tracking-[0.15em] uppercase text-cream font-semibold md:opacity-0 md:group-hover:opacity-100 md:group-focus-visible:opacity-100 md:hover:!text-[#C0281E] transition-[opacity,color] duration-[400ms] md:hover:duration-300 ease-out"
+                    className="mt-2 self-end inline-flex items-center gap-1.5 text-[10px] tracking-[0.15em] uppercase text-cream font-semibold md:opacity-0 md:group-hover:opacity-100 md:group-focus-visible:opacity-100 md:hover:!text-[#B83A20] transition-[opacity,color] duration-[400ms] md:hover:duration-300 ease-out"
                   >
                     <MousePointerClick className="w-3.5 h-3.5" strokeWidth={1.75} />
                     Se case
@@ -792,7 +793,7 @@ function CasesSection() {
                 <div className="px-12 md:px-14 mt-4 flex items-center gap-6">
                   <div className="flex-1 h-0.5 bg-cream/15 relative overflow-hidden rounded-full">
                     <div
-                      className="absolute inset-y-0 left-0 bg-[#C0281E] transition-[width] duration-300 ease-out rounded-full"
+                      className="absolute inset-y-0 left-0 bg-[#B83A20] transition-[width] duration-300 ease-out rounded-full"
                       style={{ width: `${progress}%` }}
                     />
                   </div>
@@ -973,9 +974,9 @@ function KompetencerList() {
                     className={
                       "text-left text-[11px] tracking-wide uppercase bg-transparent border-0 p-0 transition-colors " +
                       (hasCases
-                        ? "cursor-pointer hover:text-[#C0281E] "
+                        ? "cursor-pointer hover:text-[#B83A20] "
                         : "cursor-default ") +
-                      (isOpen ? "text-[#C0281E]" : "text-[#8899AA]")
+                      (isOpen ? "text-[#B83A20]" : "text-[#8899AA]")
                     }
                   >
                     {t}

@@ -192,12 +192,12 @@ function CaseDetail() {
             aria-label={`Forrige case: ${prev.client}`}
             className="group inline-flex items-center gap-4"
           >
-            <span className="w-12 h-12 rounded-full border border-cream/25 text-cream flex items-center justify-center transition-colors group-hover:border-[#C0281E] group-hover:text-[#C0281E]">
+            <span className="w-12 h-12 rounded-full border border-cream/25 text-cream flex items-center justify-center transition-colors group-hover:border-[#B83A20] group-hover:text-[#B83A20]">
               <span aria-hidden className="text-xl leading-none">←</span>
             </span>
             <span className="flex flex-col">
               <span className="eyebrow text-ember">Forrige case</span>
-              <span className="font-display text-xl md:text-2xl mt-1 group-hover:text-[#C0281E] transition-colors">
+              <span className="font-display text-xl md:text-2xl mt-1 group-hover:text-[#B83A20] transition-colors">
                 {prev.client}
               </span>
             </span>
@@ -217,12 +217,12 @@ function CaseDetail() {
             aria-label={`Næste case: ${next.client}`}
             className="group inline-flex items-center gap-4 md:flex-row-reverse md:text-right"
           >
-            <span className="w-12 h-12 rounded-full border border-cream/25 text-cream flex items-center justify-center transition-colors group-hover:border-[#C0281E] group-hover:text-[#C0281E]">
+            <span className="w-12 h-12 rounded-full border border-cream/25 text-cream flex items-center justify-center transition-colors group-hover:border-[#B83A20] group-hover:text-[#B83A20]">
               <span aria-hidden className="text-xl leading-none">→</span>
             </span>
             <span className="flex flex-col md:items-end">
               <span className="eyebrow text-ember">Næste case</span>
-              <span className="font-display text-xl md:text-2xl mt-1 group-hover:text-[#C0281E] transition-colors">
+              <span className="font-display text-xl md:text-2xl mt-1 group-hover:text-[#B83A20] transition-colors">
                 {next.client}
               </span>
             </span>

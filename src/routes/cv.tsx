@@ -124,11 +124,11 @@ function CVPage() {
             color: #0D1B2A !important;
           }
           .cv-header { background: #0D1B2A !important; color: #ffffff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-          .cv-footer { background: #C0281E !important; color: #ffffff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+          .cv-footer { background: #B83A20 !important; color: #ffffff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
           .cv-sidebar { background: #F4EFE6 !important; color: #0D1B2A !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
           .cv-section-title { color: #0D1B2A !important; border-color: #0D1B2A !important; }
           .cv-body-text, .cv-role, .cv-period, .cv-bullets li { color: #0D1B2A !important; }
-          .cv-company { color: #C0281E !important; }
+          .cv-company { color: #B83A20 !important; }
           .cv-tag { color: #0D1B2A !important; border-color: #0D1B2A !important; background: transparent !important; }
           .cv-case { background: #0D1B2A !important; color: #ffffff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
           .cv-page { page-break-inside: avoid; break-inside: avoid; }
@@ -161,7 +161,7 @@ function CVPage() {
             </h1>
             <p
               className="mt-1 text-[0.95rem] font-semibold"
-              style={{ color: "#C0281E" }}
+              style={{ color: "#B83A20" }}
             >
               Digital konsulent · Brugeroplevelse & Konceptudvikling
             </p>
@@ -190,7 +190,7 @@ function CVPage() {
                   {experience.map((job) => (
                     <li key={job.company}>
                       <div className="flex items-baseline justify-between gap-3">
-                        <h3 className="font-display text-[1rem] font-bold text-cream cv-company" style={{ color: "#C0281E" }}>
+                        <h3 className="font-display text-[1rem] font-bold text-cream cv-company" style={{ color: "#B83A20" }}>
                           {job.company}
                         </h3>
                         <span className="text-[0.72rem] uppercase tracking-wider text-cream/70 cv-period">
@@ -288,7 +288,7 @@ function CVPage() {
           {/* Footer */}
           <footer
             className="cv-footer px-10 py-6 text-center"
-            style={{ backgroundColor: "#C0281E" }}
+            style={{ backgroundColor: "#B83A20" }}
           >
             <p className="font-display text-[1.05rem] italic font-semibold text-cream leading-snug">
               „Teknologien er kun så god som den menneskelige oplevelse, den skaber.”
