@@ -95,13 +95,18 @@ const TYPE_SPEED = 50;
 const LINE_PAUSE = 600;
 
 const typewriterLines = [
-  "The problem",
-  "with Ai",
+  "The problem with Ai",
   "is",
   "when there's too much A",
   "and",
   "not enough i.",
 ];
+
+// For lines with a trailing highlighted segment, define how many trailing chars get the red box.
+const HIGHLIGHT_TRAIL: Record<number, number> = {
+  2: 1, // "A" at end of line 3
+  4: 2, // "i." at end of line 5
+};
 
 function TypewriterQuote() {
   const [lineIdx, setLineIdx] = useState(0);
