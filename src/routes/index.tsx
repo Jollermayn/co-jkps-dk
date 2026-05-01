@@ -157,34 +157,7 @@ function TypewriterQuote() {
       const after = shown.length > end ? shown.slice(end) : "";
       const isComplete = highlight.length === range.length;
 
-      const meetStyle: React.CSSProperties =
-        range.style === "text"
-          ? {
-              display: "inline-block",
-              transform: "translateY(0) scale(1)",
-            }
-          : isComplete && meetPhase === "meet"
-            ? {
-                display: "inline-block",
-                transform: "scale(1.15)",
-                transition: "transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.5s ease",
-                boxShadow: "0 0 16px rgba(184, 58, 32, 0.9)",
-                zIndex: 10,
-                position: "relative",
-              }
-            : isComplete && meetPhase === "done"
-              ? {
-                  display: "inline-block",
-                  transform: "scale(1)",
-                  transition: "transform 0.35s ease, box-shadow 0.35s ease",
-                  boxShadow: "none",
-                  position: "relative",
-                }
-              : {
-                  display: "inline-block",
-                  transform: "translateY(0) scale(1)",
-                  transition: "transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)",
-                };
+      const shouldPulse = isComplete && range.style === "box" && (meetPhase === "meet" || meetPhase === "done");
 
       const highlightClass =
         range.style === "text"
@@ -195,12 +168,12 @@ function TypewriterQuote() {
         <>
           {before}
           <span
-            className={highlightClass}
+            className={`${highlightClass}${shouldPulse ? " ai-color-pulse" : ""}`}
             style={{
-              ...meetStyle,
+              display: "inline-block",
               opacity: highlight ? 1 : 0,
               minWidth: "0.6em",
-              ...(i === 1 ? { marginRight: "0.3em" } : {}),
+              ...(i === 1 ? { marginRight: "0.25em" } : {}),
             }}
           >
             {highlight || "\u00A0"}
