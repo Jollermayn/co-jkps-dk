@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { SlidersHorizontal, X } from "lucide-react";
+import { SlidersHorizontal, X, MousePointerClick } from "lucide-react";
 import { caseStudies, type CaseStudy } from "@/data/cases";
 
 import { CaseModal } from "@/components/CaseModal";
@@ -741,9 +741,10 @@ function CasesSection() {
                 {variant === "slider" && (
                   <span
                     aria-hidden
-                    className="md:hidden mt-2 self-end inline-flex items-center gap-1 text-[10px] tracking-[0.15em] uppercase text-cream/55 font-semibold"
+                    className="md:hidden mt-2 self-end inline-flex items-center gap-1.5 text-[10px] tracking-[0.15em] uppercase text-cream font-semibold"
                   >
-                    Læs mere <span className="text-[11px]">→</span>
+                    <MousePointerClick className="w-3.5 h-3.5" strokeWidth={1.75} />
+                    Se case
                   </span>
                 )}
               </div>
