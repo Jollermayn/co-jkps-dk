@@ -372,7 +372,9 @@ function Index() {
 
         {/* RIGHT — sticky sidebar */}
         <Sidebar />
-      </div>
+
+      {/* NAME REVEAL */}
+      <NameReveal />
 
       {/* FOOTER */}
       <footer className="w-full max-w-full bg-navy-deep py-10 relative z-30 overflow-x-hidden">
