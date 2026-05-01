@@ -166,7 +166,7 @@ function TypewriterQuote() {
           : isComplete && meetPhase === "meet"
             ? {
                 display: "inline-block",
-                transform: i === 1 ? "translateX(2em) scale(1.25)" : "translateX(-2em) scale(1.25)",
+                transform: i === 1 ? "translate(0.4em, 0.4em) scale(1.15)" : "translate(0.4em, -0.4em) scale(1.15)",
                 transition: "transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.5s ease",
                 boxShadow: "0 0 14px rgba(184, 58, 32, 0.85)",
                 zIndex: 10,
