@@ -119,11 +119,9 @@ function TypewriterQuote() {
 
   useEffect(() => {
     if (done) {
-      // Typewriter færdig — start møde-animation efter 400ms
       const t = setTimeout(() => {
         setMeetPhase("meet");
-        // Efter 600ms er mødet "done" (bokse tilbage til normal)
-        setTimeout(() => setMeetPhase("done"), 600);
+        setTimeout(() => setMeetPhase("done"), 700);
       }, 400);
       return () => clearTimeout(t);
     }
@@ -150,6 +148,7 @@ function TypewriterQuote() {
     const full = typewriterLines[i];
     const shown = i < lineIdx ? full : full.slice(0, charIdx);
     const range = HIGHLIGHT_RANGE[i];
+
     if (range) {
       const start = range.fromStart !== undefined ? range.fromStart : full.length - (range.fromEnd ?? 0);
       const end = start + range.length;
@@ -158,24 +157,27 @@ function TypewriterQuote() {
       const after = shown.length > end ? shown.slice(end) : "";
       const isComplete = highlight.length === range.length;
 
-      // Møde-animation: A (linje 1) bevæger sig ned, i (linje 2) bevæger sig op
       const meetStyle: React.CSSProperties =
         isComplete && meetPhase === "meet"
           ? {
-              transform: i === 1 ? "translateY(0.6em) scale(1.3)" : "translateY(-0.6em) scale(1.3)",
-              transition: "transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease",
-              boxShadow: "0 0 12px rgba(184, 58, 32, 0.8)",
+              display: "inline-block",
+              transform: i === 1 ? "translateY(0.65em) scale(1.25)" : "translateY(-0.65em) scale(1.25)",
+              transition: "transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.5s ease",
+              boxShadow: "0 0 14px rgba(184, 58, 32, 0.85)",
               zIndex: 10,
-              position: "relative" as const,
+              position: "relative",
             }
           : isComplete && meetPhase === "done"
             ? {
+                display: "inline-block",
                 transform: "translateY(0) scale(1)",
-                transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                transition: "transform 0.35s ease, box-shadow 0.35s ease",
                 boxShadow: "none",
-                position: "relative" as const,
+                position: "relative",
               }
-            : {};
+            : {
+                display: "inline-block",
+              };
 
       const highlightClass =
         range.style === "text"
@@ -186,7 +188,7 @@ function TypewriterQuote() {
         <>
           {before}
           {highlight && (
-            <span key={`hl-${i}-${highlight.length}-${meetPhase}`} className={highlightClass} style={meetStyle}>
+            <span className={highlightClass} style={meetStyle}>
               {highlight}
             </span>
           )}
@@ -198,6 +200,7 @@ function TypewriterQuote() {
   };
 
   const reservedEm = 1.15 * 1.2 + 0.35 + 2 * 1.5;
+
   return (
     <p
       className="hero-quote font-display italic font-semibold leading-[1.5] text-cream/95"
