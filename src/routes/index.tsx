@@ -142,7 +142,8 @@ function TypewriterQuote() {
   return (
     <p
       ref={ref}
-      className="font-display italic font-semibold leading-[1.5] lg:leading-[1.5] text-cream/95 text-[1.4rem] lg:text-[1.8rem]"
+      className="font-display italic font-semibold leading-[1.5] text-cream/95"
+      style={{ fontSize: "clamp(1.2rem, 3vw, 2.5rem)" }}
       aria-label={ariaLabel}
     >
       {lines.map((line, i) => (
@@ -164,23 +165,20 @@ function TypewriterQuote() {
 
 function Sidebar() {
   return (
-    <aside className="relative flex flex-col gap-8 lg:gap-0 lg:justify-between lg:min-h-0 lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto px-6 md:px-14 lg:px-16 py-8 md:py-20 lg:pt-20 lg:pb-20 border-b lg:border-b-0 lg:border-l border-cream/10 order-1 lg:order-last bg-[#0D1B2A] lg:z-20 lg:rounded-l-xl lg:shadow-[-8px_0_24px_rgba(0,0,0,0.25)] text-center items-center">
-      <div className="w-full">
+    <aside className="relative flex flex-col gap-8 lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto px-6 md:px-14 lg:px-16 py-8 md:py-20 lg:py-16 border-b lg:border-b-0 lg:border-l border-cream/10 order-1 lg:order-last bg-[#0D1B2A] lg:z-20 lg:rounded-l-xl lg:shadow-[-8px_0_24px_rgba(0,0,0,0.25)] text-center items-center lg:justify-center">
+      <div className="w-full flex flex-col gap-6">
         <h1 className="font-display text-[clamp(2.5rem,5vw,4.5rem)] leading-[0.95] tracking-[-0.02em] font-medium text-center">
           Jonas K.P. Sørensen
         </h1>
-        <p className="mt-6 text-base leading-relaxed lg:text-lg lg:leading-snug text-cream/85 font-display italic">
+        <p className="text-base leading-relaxed lg:text-lg lg:leading-snug text-cream/85 font-display italic">
           Digital konsulent &amp; strateg.
         </p>
       </div>
-      <div className="flex flex-1 min-h-0 flex-col items-center justify-center gap-8 text-center py-10 lg:py-6 w-full">
-        
-        <blockquote className="max-w-full">
-          <TypewriterQuote />
-        </blockquote>
-      </div>
+      <blockquote className="max-w-full w-full">
+        <TypewriterQuote />
+      </blockquote>
 
-      <div className="mt-6 lg:mt-6 flex flex-col items-center gap-3 w-full text-center">
+      <div className="flex flex-col items-center gap-3 w-full text-center">
         <div className="flex items-center justify-center gap-4">
           <img
             src={profilePhoto}
