@@ -177,14 +177,12 @@ function TypewriterQuote() {
   );
 }
 
-function NameReveal() {
-  const sectionRef = useRef<HTMLElement | null>(null);
+function NameSignature() {
+  const ref = useRef<HTMLDivElement | null>(null);
   const [stage, setStage] = useState(0);
-  // 0 = idle, 1 = Jonas/Sørensen visible, 2 = K.P. fading in,
-  // 3..6 = J, K, P, S light up red sequentially
 
   useEffect(() => {
-    const el = sectionRef.current;
+    const el = ref.current;
     if (!el) return;
     let started = false;
     const timeouts: number[] = [];
@@ -194,10 +192,7 @@ function NameReveal() {
           if (entry.isIntersecting && !started) {
             started = true;
             setStage(1);
-            // Step 2: K.P. fade in after 2s delay
             timeouts.push(window.setTimeout(() => setStage(2), 2000));
-            // Step 3: after K.P. fade-in completes (2000 + 800 = 2800ms),
-            // light up J, K, P, S with 0.3s between each.
             timeouts.push(window.setTimeout(() => setStage(3), 2800));
             timeouts.push(window.setTimeout(() => setStage(4), 3100));
             timeouts.push(window.setTimeout(() => setStage(5), 3400));
@@ -206,7 +201,7 @@ function NameReveal() {
           }
         });
       },
-      { threshold: 0.4 }
+      { threshold: 0.5 }
     );
     observer.observe(el);
     return () => {
@@ -216,50 +211,49 @@ function NameReveal() {
   }, []);
 
   const redIf = (minStage: number) =>
-    stage >= minStage ? "text-[#C0281E]" : "text-cream";
+    stage >= minStage ? "text-[#C0281E]" : "text-cream/90";
 
   return (
-    <section
-      ref={sectionRef}
+    <div
+      ref={ref}
       aria-label="Jonas K.P. Sørensen"
-      className="w-full bg-[#0D1B2A] py-24 md:py-32 lg:py-40 relative z-30 overflow-hidden"
+      className="font-display tracking-[-0.02em] font-light leading-[0.95] flex flex-col items-start select-none"
     >
-      <h2 className="font-display tracking-[-0.02em] font-medium text-center px-6 flex flex-col items-center leading-none">
-        <span
-          className={
-            "block text-[clamp(3rem,12vw,8rem)] leading-none transition-opacity duration-700 ease-out " +
-            (stage >= 1 ? "opacity-100" : "opacity-0")
-          }
-        >
-          <span className={"font-bold transition-colors duration-500 " + redIf(3)}>J</span>
-          <span className="text-cream">onas</span>
-        </span>
+      <span
+        className={
+          "block text-[clamp(1.5rem,3.2vw,2.5rem)] transition-opacity duration-[900ms] ease-out " +
+          (stage >= 1 ? "opacity-100" : "opacity-0")
+        }
+      >
+        <span className={"transition-colors duration-[700ms] ease-out " + redIf(3)}>J</span>
+        <span className="text-cream/90">onas</span>
+      </span>
 
-        <span
-          className={
-            "block text-[clamp(1.5rem,5vw,3rem)] font-bold leading-none my-[0.25em] transition-opacity duration-[800ms] ease-out " +
-            (stage >= 2 ? "opacity-100" : "opacity-0")
-          }
-        >
-          <span className={"transition-colors duration-500 " + redIf(4)}>K</span>
-          <span className="text-cream">.</span>
-          <span className={"transition-colors duration-500 " + redIf(5)}>P</span>
-          <span className="text-cream">.</span>
-        </span>
+      <span
+        className={
+          "block text-[clamp(0.85rem,1.4vw,1.1rem)] font-normal tracking-[0.15em] my-[0.4em] transition-opacity duration-[800ms] ease-out " +
+          (stage >= 2 ? "opacity-100" : "opacity-0")
+        }
+      >
+        <span className={"transition-colors duration-[700ms] ease-out " + redIf(4)}>K</span>
+        <span className="text-cream/90">.</span>
+        <span className={"transition-colors duration-[700ms] ease-out " + redIf(5)}>P</span>
+        <span className="text-cream/90">.</span>
+      </span>
 
-        <span
-          className={
-            "block text-[clamp(3rem,12vw,8rem)] leading-none -mt-[0.05em] transition-opacity duration-700 ease-out " +
-            (stage >= 1 ? "opacity-100" : "opacity-0")
-          }
-        >
-          <span className={"font-bold transition-colors duration-500 " + redIf(6)}>S</span>
-          <span className="text-cream">ørensen</span>
-        </span>
-      </h2>
-    </section>
+      <span
+        className={
+          "block text-[clamp(1.5rem,3.2vw,2.5rem)] transition-opacity duration-[900ms] ease-out " +
+          (stage >= 1 ? "opacity-100" : "opacity-0")
+        }
+      >
+        <span className={"transition-colors duration-[700ms] ease-out " + redIf(6)}>S</span>
+        <span className="text-cream/90">ørensen</span>
+      </span>
+    </div>
   );
 }
+
 
 function Sidebar() {
   return (
