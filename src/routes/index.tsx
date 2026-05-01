@@ -155,8 +155,8 @@ function TypewriterQuote() {
   };
 
   // Reserve full height up-front so buttons below don't shift while typing.
-  // Line 1 = 1.6em * 1.2 lh + 0.35em margin; lines 2-3 = 1em * 1.5 lh each.
-  const reservedEm = 1.6 * 1.2 + 0.35 + 2 * 1.5;
+  // Line 1 = 1.15em * 1.2 lh + 0.35em margin; lines 2-3 = 1em * 1.5 lh each.
+  const reservedEm = 1.15 * 1.2 + 0.35 + 2 * 1.5;
   return (
     <p
       className="hero-quote font-display italic font-semibold leading-[1.5] text-cream/95"
