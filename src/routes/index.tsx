@@ -214,26 +214,46 @@ function TypewriterQuote() {
 
   const reservedEm = 1.15 * 1.2 + 0.35 + 2 * 1.5;
 
+  const showAiOverlay = meetPhase === "meet" || meetPhase === "done";
+
   return (
-    <p
-      className="hero-quote font-display italic font-semibold leading-[1.5] text-cream/95"
-      style={{
-        fontSize: "clamp(1.25rem, 1.8vw, 2rem)",
-        minHeight: `${reservedEm}em`,
-      }}
-      aria-label={ariaLabel}
-    >
-      {typewriterLines.map((_, i) => (
-        <span
-          key={i}
-          aria-hidden
-          className="block whitespace-nowrap"
-          style={i === 0 ? { fontSize: "1.15em", lineHeight: 1.2, marginBottom: "0.35em", fontWeight: 300 } : undefined}
-        >
-          {renderLine(i)}
-        </span>
-      ))}
-    </p>
+    <div className="relative inline-block w-full">
+      <p
+        className="hero-quote font-display italic font-semibold leading-[1.5] text-cream/95"
+        style={{
+          fontSize: "clamp(1.25rem, 1.8vw, 2rem)",
+          minHeight: `${reservedEm}em`,
+        }}
+        aria-label={ariaLabel}
+      >
+        {typewriterLines.map((_, i) => (
+          <span
+            key={i}
+            aria-hidden
+            className="block whitespace-nowrap"
+            style={i === 0 ? { fontSize: "1.15em", lineHeight: 1.2, marginBottom: "0.35em", fontWeight: 300 } : undefined}
+          >
+            {renderLine(i)}
+          </span>
+        ))}
+      </p>
+      <span
+        aria-hidden
+        className="not-italic font-black text-[#F5F0E8] bg-[#B83A20] whitespace-nowrap px-[6px] py-[2px] font-display"
+        style={{
+          position: "absolute",
+          right: "-0.5em",
+          top: "50%",
+          transform: "translateY(-50%)",
+          fontSize: "clamp(1.25rem, 1.8vw, 2rem)",
+          opacity: showAiOverlay ? 1 : 0,
+          transition: "opacity 0.6s ease",
+          pointerEvents: "none",
+        }}
+      >
+        Ai
+      </span>
+    </div>
   );
 }
 
