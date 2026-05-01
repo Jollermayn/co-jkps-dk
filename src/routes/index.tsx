@@ -166,7 +166,7 @@ function TypewriterQuote() {
           : isComplete && meetPhase === "meet"
             ? {
                 display: "inline-block",
-                transform: i === 1 ? "translate(0.4em, 0.4em) scale(1.15)" : "translate(0.4em, -0.4em) scale(1.15)",
+                transform: i === 1 ? "translateX(0.4em) scale(1.15)" : "translateX(-0.4em) scale(1.15)",
                 transition: "transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.5s ease",
                 boxShadow: "0 0 14px rgba(184, 58, 32, 0.85)",
                 zIndex: 10,
@@ -176,7 +176,7 @@ function TypewriterQuote() {
             : isComplete && meetPhase === "done"
               ? {
                   display: "inline-block",
-                  transform: i === 1 ? "translate(0.4em, 0.4em) scale(1.15)" : "translate(0.4em, -0.4em) scale(1.15)",
+                  transform: i === 1 ? "translateX(0.4em) scale(1.15)" : "translateX(-0.4em) scale(1.15)",
                   transition: "transform 0.35s ease, box-shadow 0.35s ease",
                   boxShadow: "none",
                   position: "relative",
