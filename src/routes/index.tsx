@@ -311,8 +311,8 @@ function Index() {
           {/* KONTAKT */}
           <section id="kontakt" className="py-16 md:py-20 relative overflow-hidden">
             <div className="px-12 md:px-14 relative">
-              <Eyebrow>Kontakt · Portfolio 2026</Eyebrow>
-              <h2 className="font-display text-5xl md:text-8xl mt-8 leading-[0.9] tracking-tight">
+              <Eyebrow>Kontakt</Eyebrow>
+              <h2 className="font-display text-5xl md:text-7xl mt-6 leading-[0.95] tracking-tight">
                 Lad os <span className="italic text-ember">tales ved</span>
               </h2>
               <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-6">
