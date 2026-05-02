@@ -1041,10 +1041,10 @@ function KompetencerList() {
                       {isOpen && hasCases && (
                         <div
                           style={{ zIndex: 9999 }}
-                          className="absolute top-full left-0 mt-2 w-[calc(100vw-2.5rem)] max-w-[calc(100vw-2.5rem)] md:w-[min(18rem,calc(100vw-6rem))] md:max-w-[calc(100vw-6rem)] bg-[#0D1B2A] border border-cream/20 shadow-2xl rounded-xl p-5 animate-in fade-in slide-in-from-top-1 duration-150"
+                          className="absolute top-full left-0 mt-2 w-[calc(100vw-2.5rem)] max-w-[calc(100vw-2.5rem)] min-w-[260px] md:w-[min(18rem,calc(100vw-6rem))] md:max-w-[calc(100vw-6rem)] bg-[#0D1B2A]/90 backdrop-blur-sm border border-cream/20 shadow-2xl rounded-xl p-5 animate-in fade-in slide-in-from-top-1 duration-150"
                         >
                           <div
-                            className="text-ember uppercase font-semibold mb-3"
+                            className="text-ember uppercase font-semibold mb-4"
                             style={{ fontSize: 9, letterSpacing: "0.18em" }}
                           >
                             Relaterede cases
