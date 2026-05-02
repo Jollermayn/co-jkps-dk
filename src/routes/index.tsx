@@ -345,8 +345,8 @@ function Index() {
               <h2 className="font-display text-5xl md:text-7xl mt-6 leading-[0.95] tracking-tight">
                 Lad os <span className="italic text-ember">tales ved</span>
               </h2>
-              <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-6">
-                <div className="group shrink-0 w-[120px] h-[120px] md:w-[140px] md:h-[140px] overflow-hidden rounded-full shadow-[0_4px_16px_rgba(0,0,0,0.4)]">
+              <div className="mt-8 flex flex-col sm:flex-row items-center gap-6">
+                <div className="group shrink-0 w-[200px] h-[200px] overflow-hidden rounded-full shadow-[0_4px_16px_rgba(0,0,0,0.4)]">
                   <img
                     src={profilePhoto}
                     alt="Jonas K.P. Sørensen"
