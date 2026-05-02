@@ -206,7 +206,7 @@ function TypewriterQuote() {
       animate("tw-box-i");
     }, elapsed + 400 + 600 + 100);
 
-    let pulseInterval: ReturnType<typeof setInterval> | undefined;
+    
     const pulseTimeouts: ReturnType<typeof setTimeout>[] = [];
     schedule(() => {
       const setGlow = (id: string, on: boolean) => {
