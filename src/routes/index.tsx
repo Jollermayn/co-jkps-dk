@@ -270,7 +270,7 @@ function TypewriterQuote() {
       className="hero-quote italic font-semibold leading-[1.5] text-cream/95 block w-full text-center"
       style={{
         fontFamily: "'Playfair Display', serif",
-        fontSize: "clamp(1.25rem, 1.8vw, 2rem)",
+        fontSize: "clamp(1.45rem, 2.1vw, 2.35rem)",
         minHeight: `${reservedEm}em`,
       }}
       aria-label={ariaLabel}
