@@ -206,24 +206,30 @@ function TypewriterQuote() {
     }, elapsed + 400 + 600 + 100);
 
     let pulseInterval: ReturnType<typeof setInterval> | undefined;
+    const pulseTimeouts: ReturnType<typeof setTimeout>[] = [];
     schedule(() => {
       const pulse = (id: string) => {
         const el = root.querySelector<HTMLElement>(`#${id}`);
         if (!el) return;
         el.style.transition = "box-shadow 0.4s ease";
         el.style.boxShadow = "0 0 12px rgba(184, 58, 32, 0.7)";
-        setTimeout(() => {
+        const t = setTimeout(() => {
+          el.style.transition = "box-shadow 0.4s ease";
           el.style.boxShadow = "none";
         }, 400);
+        pulseTimeouts.push(t);
       };
-      pulseInterval = setInterval(() => {
+      const runPulse = () => {
         pulse("tw-box-A");
         pulse("tw-box-i");
-      }, 6000);
+      };
+      runPulse();
+      pulseInterval = setInterval(runPulse, 6000);
     }, glowEnd + 1000);
 
     return () => {
       timeouts.forEach(clearTimeout);
+      pulseTimeouts.forEach(clearTimeout);
       if (pulseInterval) clearInterval(pulseInterval);
     };
   }, []);
