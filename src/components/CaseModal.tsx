@@ -121,7 +121,7 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
         </section>
 
         {/* Sections */}
-        <article className="px-6 md:px-10 py-10 md:py-14 space-y-10 md:space-y-12">
+        <article className="px-6 md:px-10 py-10 md:py-14 space-y-10 md:space-y-12 border-l-2 border-[#B83A20] pl-6 md:pl-16">
           <ModalSection title="Kontekst">
             <p className="text-base md:text-lg text-cream/85 leading-relaxed">{study.context}</p>
           </ModalSection>
