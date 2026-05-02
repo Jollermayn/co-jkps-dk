@@ -98,7 +98,7 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
 const TYPE_SPEED = 50;
 const LINE_PAUSE = 600;
 
-const typewriterLines = ["The Ai paradox:", "Too much Artificial", "Not enough intelligence"];
+const typewriterLines = ["The Ai paradox:", "Too much Artificial", "Not enough intelligence..."];
 
 const HIGHLIGHT_RANGE: Record<
   number,
