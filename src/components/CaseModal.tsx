@@ -4,6 +4,7 @@ import { caseStudies } from "@/data/cases";
 import { ApproachGrid } from "@/components/ApproachGrid";
 import woltHeatmap from "@/assets/wolt-heatmap.png";
 import boligaMockup from "@/assets/boliga-mockup.png";
+import horesimQuotes from "@/assets/horesim-quotes.png";
 
 type Props = {
   study: CaseStudy | null;
@@ -136,10 +137,14 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
             <p className="text-base md:text-lg text-cream/85 leading-relaxed">{study.challenge}</p>
           </ModalSection>
 
-          {study.slug === "interaktiv-horesimulering" && study.stemmerFraFeltet && (
+          {study.slug === "interaktiv-horesimulering" && (
             <div>
-              <span className="eyebrow text-ember tracking-[0.2em] block mb-10">— Stemmer fra feltet</span>
-              <ScatteredQuotes quotes={study.stemmerFraFeltet} />
+              <span className="eyebrow text-ember tracking-[0.2em] block mb-6">— Stemmer fra feltet</span>
+              <img
+                src={horesimQuotes}
+                alt="Citater fra hørehæmmede elever, lærere og eksperter"
+                className="mt-6 w-full h-auto"
+              />
             </div>
           )}
 
