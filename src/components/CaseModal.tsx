@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import type { CaseStudy } from "@/data/cases";
+import type { CaseStudy, StemFraFeltet } from "@/data/cases";
 import { caseStudies } from "@/data/cases";
 import { ApproachGrid } from "@/components/ApproachGrid";
 import woltHeatmap from "@/assets/wolt-heatmap.png";
@@ -15,14 +15,12 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
   const open = !!study;
   const panelRef = useRef<HTMLDivElement>(null);
 
-  // Reset scroll to top when navigating to a different case
   useEffect(() => {
     if (study && panelRef.current) {
       panelRef.current.scrollTo({ top: 0, behavior: "auto" });
     }
   }, [study?.slug]);
 
-  // Lock body scroll + Escape to close
   useEffect(() => {
     if (!open) return;
     const prevBodyOverflow = document.body.style.overflow;
@@ -58,7 +56,10 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
       />
 
       {/* Panel */}
-      <div ref={panelRef} className="relative ml-auto w-full md:w-[min(960px,92vw)] h-full bg-navy-deep text-cream overflow-y-auto shadow-2xl animate-in slide-in-from-right duration-300">
+      <div
+        ref={panelRef}
+        className="relative ml-auto w-full md:w-[min(960px,92vw)] h-full bg-navy-deep text-cream overflow-y-auto shadow-2xl animate-in slide-in-from-right duration-300"
+      >
         {/* Close */}
         <button
           type="button"
@@ -94,7 +95,9 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
                   aria-label={`Forrige case: ${prev.client}`}
                   className={`${btn} left-4`}
                 >
-                  <span aria-hidden className="text-xl leading-none">‹</span>
+                  <span aria-hidden className="text-xl leading-none">
+                    ‹
+                  </span>
                 </button>
                 <button
                   type="button"
@@ -102,7 +105,9 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
                   aria-label={`Næste case: ${next.client}`}
                   className={`${btn} right-4`}
                 >
-                  <span aria-hidden className="text-xl leading-none">›</span>
+                  <span aria-hidden className="text-xl leading-none">
+                    ›
+                  </span>
                 </button>
               </>
             );
@@ -112,9 +117,11 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
         {/* Title */}
         <section className="px-6 md:px-10 pt-10 md:pt-12 pb-8 border-b border-cream/10">
           <div className="flex items-center gap-3">
-            <span className="eyebrow text-[16px] font-semibold tracking-[0.22em] text-[#B83A20] opacity-100">{study.client}</span>
+            <span className="eyebrow text-[16px] font-semibold tracking-[0.22em] text-[#B83A20] opacity-100">
+              {study.client}
+            </span>
           </div>
-          <h2 className="font-display mt-6 text-[clamp(2rem,4.5vw,3.5rem)] leading-[0.98] tracking-[-0.02em] border-l-2 border-[#B83A20] pl-4">
+          <h2 className="font-display mt-6 text-[clamp(2rem,4.5vw,3.5rem)] leading-[0.98] tracking-[-0.02em]">
             {study.title}
           </h2>
         </section>
@@ -127,10 +134,10 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
 
           <ModalSection title="Udfordring">
             <p className="text-base md:text-lg text-cream/85 leading-relaxed">{study.challenge}</p>
-            {study.quotes && study.quotes.length > 0 && (
-              <div className="mt-10">
-                <span className="eyebrow text-ember tracking-[0.2em] block">— Stemmer fra feltet</span>
-                <ScatteredQuotes quotes={study.quotes} />
+            {study.slug === "interaktiv-horesimulering" && study.stemmerFraFeltet && (
+              <div className="mt-8">
+                <span className="eyebrow text-ember tracking-[0.2em] block mb-10">— Stemmer fra feltet</span>
+                <ScatteredQuotes quotes={study.stemmerFraFeltet} />
               </div>
             )}
           </ModalSection>
@@ -220,6 +227,50 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
   );
 }
 
+function ScatteredQuotes({ quotes }: { quotes: StemFraFeltet[] }) {
+  const indentMap = {
+    none: "ml-0",
+    mid: "ml-[20%]",
+    far: "ml-[38%]",
+  };
+
+  const maxWidthMap = {
+    sm: "max-w-[340px]",
+    md: "max-w-[400px]",
+    lg: "max-w-[500px]",
+  };
+
+  const sizeMap = {
+    sm: "text-base md:text-lg leading-snug",
+    md: "text-xl md:text-2xl leading-snug",
+    lg: "text-2xl md:text-[2rem] leading-tight",
+  };
+
+  function renderQuote(q: StemFraFeltet) {
+    if (!q.highlight) return <>{q.quote}</>;
+    const parts = q.quote.split(q.highlight);
+    if (parts.length < 2) return <>{q.quote}</>;
+    return (
+      <>
+        {parts[0]}
+        <span className="text-ember">{q.highlight}</span>
+        {parts[1]}
+      </>
+    );
+  }
+
+  return (
+    <div className="space-y-10">
+      {quotes.map((q, i) => (
+        <div key={i} className={`${indentMap[q.indent]} ${maxWidthMap[q.size]}`}>
+          <p className={`font-display italic text-cream/90 ${sizeMap[q.size]}`}>{renderQuote(q)}</p>
+          <p className="eyebrow text-cream/35 mt-3 text-[0.65rem] tracking-[0.18em]">— {q.attribution.toUpperCase()}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function ModalSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-8">
@@ -227,76 +278,6 @@ function ModalSection({ title, children }: { title: string; children: React.Reac
         <h3 className="font-display text-2xl md:text-3xl tracking-tight">{title}</h3>
       </div>
       <div className="md:col-span-9">{children}</div>
-    </div>
-  );
-}
-
-function ScatteredQuotes({
-  quotes,
-}: {
-  quotes: { text: string; author: string; emphasis?: string }[];
-}) {
-  // Per-quote absolute positions following the spec
-  const positions: {
-    style: React.CSSProperties;
-    fontSize: string;
-    textAlign: "left" | "right" | "center";
-    fullEmphasis?: boolean;
-  }[] = [
-    { style: { top: "3rem", left: 0, maxWidth: "22ch" }, fontSize: "1.8rem", textAlign: "left" },
-    { style: { top: "1rem", right: 0, maxWidth: "22ch" }, fontSize: "1.2rem", textAlign: "right" },
-    { style: { top: "44%", left: "50%", transform: "translate(-50%, -50%)", maxWidth: "26ch" }, fontSize: "2.2rem", textAlign: "center", fullEmphasis: true },
-    { style: { bottom: "3rem", left: 0, maxWidth: "22ch" }, fontSize: "1rem", textAlign: "left" },
-    { style: { bottom: "0.5rem", left: "50%", transform: "translateX(-50%)", maxWidth: "26ch" }, fontSize: "1.3rem", textAlign: "center" },
-  ];
-
-  const renderText = (text: string, emphasis?: string) => {
-    if (!emphasis) return text;
-    const idx = text.indexOf(emphasis);
-    if (idx === -1) return text;
-    return (
-      <>
-        {text.slice(0, idx)}
-        <span style={{ color: "#B83A20" }} className="not-italic font-medium">
-          {emphasis}
-        </span>
-        {text.slice(idx + emphasis.length)}
-      </>
-    );
-  };
-
-  return (
-    <div className="relative mt-6 w-full" style={{ minHeight: "500px" }}>
-      <span
-        className="absolute top-0 left-0 eyebrow text-[10px] tracking-[0.28em] font-semibold"
-        style={{ color: "#B83A20" }}
-      >
-        — STEMMER FRA FELTET
-      </span>
-
-      {quotes.map((q, i) => {
-        const p = positions[i] ?? positions[positions.length - 1];
-        return (
-          <figure
-            key={i}
-            className="absolute"
-            style={{ ...p.style, textAlign: p.textAlign }}
-          >
-            <blockquote
-              className="font-display italic leading-[1.15] tracking-[-0.01em]"
-              style={{
-                fontSize: p.fontSize,
-                color: p.fullEmphasis ? "#B83A20" : "rgb(245 240 230 / 0.95)",
-              }}
-            >
-              "{p.fullEmphasis ? q.text : renderText(q.text, q.emphasis)}"
-            </blockquote>
-            <figcaption className="mt-2 eyebrow text-[10px] tracking-[0.22em] text-cream/55 not-italic">
-              — {q.author}
-            </figcaption>
-          </figure>
-        );
-      })}
     </div>
   );
 }
