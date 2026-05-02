@@ -194,7 +194,7 @@ function TypewriterQuote() {
     };
   }, []);
 
-  const reservedEm = 1.15 * 1.2 + 0.35 + 2 * 1.5;
+  const reservedEm = 1.15 * 1.5 + 0.35 + 2 * 2.1;
   const ariaLabel = typewriterLines.join(" ");
 
   return (
