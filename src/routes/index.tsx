@@ -929,7 +929,7 @@ function KompetencerList() {
 
               <p className="md:col-span-6 mt-3 md:mt-0 text-cream/80 leading-relaxed">{c.body}</p>
 
-              <ul className="md:col-span-6 mt-4 md:mt-[-20px] flex flex-col items-start gap-2">
+              <ul className="md:col-span-6 mt-4 md:mt-[-20px]" style={{ columnCount: 2, columnGap: "8px" }}>
                 {c.tags.map((t) => {
                   const slugs = TAG_TO_SLUGS[t] ?? [];
                   const hasCases = slugs.length > 0;
@@ -939,7 +939,8 @@ function KompetencerList() {
                     <li
                       key={t}
                       ref={isOpen ? activeTagRef : undefined}
-                      className="relative inline-flex"
+                      className="relative"
+                      style={{ display: "inline-block", width: "100%", marginBottom: "8px", breakInside: "avoid" }}
                       onMouseEnter={() => {
                         if (!canHover || !hasCases) return;
                         cancelClose();
