@@ -98,15 +98,15 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
 const TYPE_SPEED = 50;
 const LINE_PAUSE = 600;
 
-const typewriterLines = ["The Ai paradox:", "Too much A", "Not enough i"];
+const typewriterLines = ["The Ai paradox:", "Too much Artificial", "Not enough intelligence"];
 
 const HIGHLIGHT_RANGE: Record<
   number,
   { fromEnd?: number; fromStart?: number; length: number; style?: "box" | "text" }
 > = {
   0: { fromStart: 4, length: 2, style: "text" },
-  1: { fromEnd: 1, length: 1, style: "box" },
-  2: { fromEnd: 1, length: 1, style: "box" },
+  1: { fromStart: 9, length: 1, style: "box" },
+  2: { fromStart: 11, length: 1, style: "box" },
 };
 
 function TypewriterQuote() {
@@ -160,7 +160,8 @@ function TypewriterQuote() {
       const id = i === 1 ? ' id="tw-box-A"' : i === 2 ? ' id="tw-box-i"' : "";
       const extraStyle = i === 1 ? ";margin-bottom:4px" : i === 2 ? ";margin-top:4px" : "";
       const hlContent = highlight || "&nbsp;";
-      return `${before}<span${id} class="${cls}" style="display:inline-block${extraStyle}">${hlContent}</span>${after}`;
+      const afterHTML = after ? `<span class="text-cream/40">${after}</span>` : "";
+      return `${before}<span${id} class="${cls}" style="display:inline-block${extraStyle}">${hlContent}</span>${afterHTML}`;
     };
 
     let elapsed = 0;
