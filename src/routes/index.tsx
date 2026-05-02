@@ -207,7 +207,7 @@ function TypewriterQuote() {
   return (
     <p
       ref={containerRef}
-      className="hero-quote font-display italic font-semibold leading-[1.5] text-cream/95"
+      className="hero-quote font-display italic font-semibold leading-[1.5] text-cream/95 inline-block text-left"
       style={{
         fontSize: "clamp(1.25rem, 1.8vw, 2rem)",
         minHeight: `${reservedEm}em`,
