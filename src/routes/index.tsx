@@ -222,7 +222,7 @@ function Sidebar() {
         <p className="hero-subtitle text-xl leading-relaxed lg:text-2xl lg:leading-snug text-cream/85 italic text-center" style={{ fontFamily: "'Playfair Display', serif" }}>
           Digital konsulent.
         </p>
-        <blockquote className="max-w-full w-full text-center mt-20 lg:mt-16 lg:-translate-y-[15px]">
+        <blockquote className="max-w-full w-full text-center mt-6 lg:mt-16 lg:-translate-y-[15px]">
           <TypewriterQuote />
         </blockquote>
       </div>
