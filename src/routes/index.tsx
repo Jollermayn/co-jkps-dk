@@ -926,7 +926,7 @@ function KompetencerList() {
                 </div>
               </div>
 
-              <p className="md:col-span-5 mt-3 md:mt-0 text-cream/80 leading-relaxed">{c.body}</p>
+              <p className="md:col-span-4 mt-3 md:mt-0 text-cream/80 leading-relaxed">{c.body}</p>
 
               <ul className="md:col-span-12 mt-4 md:mt-6 flex flex-wrap items-start gap-2">
                 {c.tags.map((t) => {
