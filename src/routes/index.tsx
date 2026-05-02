@@ -155,7 +155,7 @@ function TypewriterQuote() {
 
       const cls =
         range.style === "text"
-          ? "not-italic font-black text-[#B83A20]"
+          ? "not-italic font-black text-[#F5F0E8]"
           : "not-italic font-black text-[#F5F0E8] bg-[#B83A20] whitespace-nowrap px-[6px] py-[2px]";
       const id = i === 1 ? ' id="tw-box-A"' : i === 2 ? ' id="tw-box-i"' : "";
       const extraStyle = i === 1 ? ";margin-bottom:4px" : i === 2 ? ";margin-top:4px" : "";
