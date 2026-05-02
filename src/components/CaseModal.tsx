@@ -128,14 +128,10 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
 
           <ModalSection title="Udfordring">
             <p className="text-base md:text-lg text-cream/85 leading-relaxed">{study.challenge}</p>
-            {study.slug === "interaktiv-horesimulering" && (
-              <div className="mt-8">
+            {study.quotes && study.quotes.length > 0 && (
+              <div className="mt-10">
                 <span className="eyebrow text-ember tracking-[0.2em] block">— Stemmer fra feltet</span>
-                <img
-                  src={horesimQuotes}
-                  alt="Citater fra hørehæmmede elever, lærere og eksperter"
-                  className="mt-6 w-full h-auto"
-                />
+                <ScatteredQuotes quotes={study.quotes} />
               </div>
             )}
           </ModalSection>
