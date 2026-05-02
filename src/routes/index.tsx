@@ -825,17 +825,17 @@ function CasesSection() {
 // ============ Kompetencer with interactive tag popups ============
 
 const TAG_TO_SLUGS: Record<string, string[]> = {
-  "Semistrukturerede interviews": ["wolt", "interaktiv-horesimulering"],
+  Interviews: ["wolt", "interaktiv-horesimulering"],
   Feltobservation: ["wolt", "interaktiv-horesimulering"],
   "Co-design": ["wolt", "interaktiv-horesimulering"],
   "Mixed methods": ["wolt", "interaktiv-horesimulering"],
   Facilitering: ["interaktiv-horesimulering", "amnesty-international"],
   Workshops: ["interaktiv-horesimulering", "amnesty-international"],
   Brugerrejser: ["boliga", "wolt"],
-  "Touchpoint-mapping": ["boliga", "wolt"],
+  Touchpoints: ["boliga", "wolt"],
   "Participatorisk design": ["interaktiv-horesimulering"],
   Konceptvalidering: ["interaktiv-horesimulering"],
-  Kommunikationsstrategi: ["amnesty-international", "danmarks-naturfredningsforening", "art-spirit-coaching"],
+  Kommunikation: ["amnesty-international", "danmarks-naturfredningsforening", "art-spirit-coaching"],
   "Visuel identitet": ["amnesty-international", "danmarks-naturfredningsforening", "art-spirit-coaching"],
   Indholdsarkitektur: ["boliga", "danmarks-radio"],
   Positionering: ["boliga", "danmarks-radio"],
