@@ -346,11 +346,13 @@ function Index() {
                 Lad os <span className="italic text-ember">tales ved</span>
               </h2>
               <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-6">
-                <img
-                  src={profilePhoto}
-                  alt="Jonas K.P. Sørensen"
-                  className="shrink-0 w-[120px] h-[120px] md:w-[140px] md:h-[140px] rounded-full object-cover shadow-[0_4px_16px_rgba(0,0,0,0.4)]"
-                />
+                <div className="group shrink-0 w-[120px] h-[120px] md:w-[140px] md:h-[140px] overflow-hidden rounded-full shadow-[0_4px_16px_rgba(0,0,0,0.4)]">
+                  <img
+                    src={profilePhoto}
+                    alt="Jonas K.P. Sørensen"
+                    className="w-full h-full object-cover transition-all duration-[400ms] ease-out group-hover:scale-[1.06]"
+                  />
+                </div>
                 <p className="max-w-xl text-cream/70 text-lg italic font-display">
                   Jeg er altid interesseret i nye samarbejder — store som små, kommercielle som kulturelle.
                 </p>
