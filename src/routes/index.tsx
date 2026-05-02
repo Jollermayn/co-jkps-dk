@@ -977,7 +977,7 @@ function KompetencerList() {
                       {isOpen && hasCases && (
                         <div
                           style={{ zIndex: 9999 }}
-                          className="absolute top-full left-0 mt-2 w-[calc(100vw-2.5rem)] max-w-[calc(100vw-2.5rem)] md:top-0 md:left-full md:mt-0 md:ml-3 md:w-[min(18rem,calc(100vw-6rem))] md:max-w-[calc(100vw-6rem)] bg-navy-deep border border-cream/15 shadow-2xl p-4 animate-in fade-in slide-in-from-top-1 md:slide-in-from-left-1 md:slide-in-from-top-0 duration-150"
+                          className="absolute top-full left-0 mt-2 w-[calc(100vw-2.5rem)] max-w-[calc(100vw-2.5rem)] md:w-[min(18rem,calc(100vw-6rem))] md:max-w-[calc(100vw-6rem)] bg-navy-deep border border-cream/15 shadow-2xl p-4 animate-in fade-in slide-in-from-top-1 duration-150"
                         >
                           <div
                             className="text-cream/55 uppercase font-semibold mb-3"
