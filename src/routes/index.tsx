@@ -105,6 +105,7 @@ const HIGHLIGHT_RANGE: Record<
 function TypewriterQuote() {
   const containerRef = useRef<HTMLParagraphElement>(null);
   const mountedRef = useRef(false);
+  const pulseIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
     if (mountedRef.current) return;
