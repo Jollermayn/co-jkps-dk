@@ -920,7 +920,7 @@ function KompetencerList() {
               <div className="md:col-span-4 min-w-0 flex items-baseline gap-4">
                 <span className="font-display text-2xl text-ember shrink-0">{c.no}</span>
                 <div className="min-w-0 flex-1">
-                  <h3 className="font-display tracking-tight leading-tight max-w-full whitespace-nowrap [word-break:keep-all] [overflow-wrap:normal] [hyphens:none] text-[clamp(1.4rem,5.5vw,2.25rem)] md:text-4xl">
+                  <h3 className="font-display tracking-tight leading-tight max-w-full [word-break:normal] [overflow-wrap:break-word] [hyphens:none] text-[clamp(1.4rem,5.5vw,2.25rem)] md:text-4xl">
                     {c.title}
                   </h3>
                 </div>
