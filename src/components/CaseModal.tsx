@@ -115,7 +115,7 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
           <div className="flex items-center gap-3">
             <span className="eyebrow text-[16px] font-semibold tracking-[0.22em] text-[#B83A20] opacity-100">{study.client}</span>
           </div>
-          <h2 className="font-display mt-6 text-[clamp(2rem,4.5vw,3.5rem)] leading-[0.98] tracking-[-0.02em]">
+          <h2 className="font-display mt-6 text-[clamp(2rem,4.5vw,3.5rem)] leading-[0.98] tracking-[-0.02em] border-l-2 border-[#B83A20] pl-4">
             {study.title}
           </h2>
         </section>
