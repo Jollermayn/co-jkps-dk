@@ -311,7 +311,7 @@ function Sidebar() {
         </a>
       </div>
 
-      <nav className="flex flex-col gap-3 text-sm w-full">
+      <nav className="flex flex-col gap-3 text-sm w-full mt-12">
         {[
           ["Om mig", "om"],
           ["Cases", "cases"],
