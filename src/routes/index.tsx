@@ -105,6 +105,7 @@ const HIGHLIGHT_RANGE: Record<
 function TypewriterQuote() {
   const containerRef = useRef<HTMLParagraphElement>(null);
   const mountedRef = useRef(false);
+  const pulseIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
     if (mountedRef.current) return;
@@ -205,32 +206,43 @@ function TypewriterQuote() {
       animate("tw-box-i");
     }, elapsed + 400 + 600 + 100);
 
-    let pulseInterval: ReturnType<typeof setInterval> | undefined;
+    
     const pulseTimeouts: ReturnType<typeof setTimeout>[] = [];
     schedule(() => {
-      const pulse = (id: string) => {
+      const setGlow = (id: string, on: boolean) => {
         const el = root.querySelector<HTMLElement>(`#${id}`);
         if (!el) return;
-        el.style.transition = "box-shadow 0.4s ease";
-        el.style.boxShadow = "0 0 12px rgba(184, 58, 32, 0.7)";
-        const t = setTimeout(() => {
-          el.style.transition = "box-shadow 0.4s ease";
-          el.style.boxShadow = "none";
+        el.style.transition = "box-shadow 0.15s ease";
+        el.style.boxShadow = on ? "0 0 14px rgba(184, 58, 32, 0.9)" : "none";
+      };
+      const beat = () => {
+        setGlow("tw-box-A", true);
+        setGlow("tw-box-i", true);
+        const t1 = setTimeout(() => {
+          setGlow("tw-box-A", false);
+          setGlow("tw-box-i", false);
+        }, 200);
+        const t2 = setTimeout(() => {
+          setGlow("tw-box-A", true);
+          setGlow("tw-box-i", true);
         }, 400);
-        pulseTimeouts.push(t);
+        const t3 = setTimeout(() => {
+          setGlow("tw-box-A", false);
+          setGlow("tw-box-i", false);
+        }, 600);
+        pulseTimeouts.push(t1, t2, t3);
       };
-      const runPulse = () => {
-        pulse("tw-box-A");
-        pulse("tw-box-i");
-      };
-      runPulse();
-      pulseInterval = setInterval(runPulse, 6000);
+      beat();
+      pulseIntervalRef.current = setInterval(beat, 6000);
     }, glowEnd + 1000);
 
     return () => {
       timeouts.forEach(clearTimeout);
       pulseTimeouts.forEach(clearTimeout);
-      if (pulseInterval) clearInterval(pulseInterval);
+      if (pulseIntervalRef.current) {
+        clearInterval(pulseIntervalRef.current);
+        pulseIntervalRef.current = null;
+      }
     };
   }, []);
 
