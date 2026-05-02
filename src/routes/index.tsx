@@ -960,7 +960,7 @@ function KompetencerList() {
                           scheduleClose();
                         }}
                         aria-expanded={isOpen}
-                        style={{ padding: "3px 8px", fontSize: "9px", lineHeight: "1" }}
+                        style={{ padding: "4px 10px", fontSize: "10px", lineHeight: "1" }}
                         className={
                           "tracking-wide uppercase rounded-md border-none transition-colors " +
                           (hasCases ? "cursor-pointer hover:bg-[#B83A20] hover:text-[#F5F0E8] " : "cursor-default ") +
