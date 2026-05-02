@@ -928,8 +928,8 @@ function KompetencerList() {
 
               <p className="md:col-span-5 mt-3 md:mt-0 text-cream/80 leading-relaxed">{c.body}</p>
 
-              <ul className="md:col-span-3 mt-6 md:mt-0 flex flex-col items-start gap-y-1">
-                {c.tags.map((t, i) => {
+              <ul className="md:col-span-3 mt-6 md:mt-0 flex flex-wrap items-start gap-1.5">
+                {c.tags.map((t) => {
                   const slugs = TAG_TO_SLUGS[t] ?? [];
                   const hasCases = slugs.length > 0;
                   const isOpen = openTag === `${c.no}-${t}`;
@@ -938,7 +938,7 @@ function KompetencerList() {
                     <li
                       key={t}
                       ref={isOpen ? activeTagRef : undefined}
-                      className="relative inline-flex items-baseline"
+                      className="relative inline-flex"
                       onMouseEnter={() => {
                         if (!canHover || !hasCases) return;
                         cancelClose();
@@ -949,9 +949,6 @@ function KompetencerList() {
                         scheduleClose();
                       }}
                     >
-                      <span aria-hidden className="text-[#8899AA]/60 mr-1.5 select-none">
-                        ·
-                      </span>
                       <button
                         type="button"
                         disabled={!hasCases}
@@ -970,9 +967,9 @@ function KompetencerList() {
                         }}
                         aria-expanded={isOpen}
                         className={
-                          "text-left text-[11px] tracking-wide uppercase bg-transparent border-0 p-0 transition-colors " +
-                          (hasCases ? "cursor-pointer hover:text-[#B83A20] " : "cursor-default ") +
-                          (isOpen ? "text-[#B83A20]" : "text-[#8899AA]")
+                          "text-[10px] tracking-wide uppercase px-2.5 py-1 rounded-full border transition-colors " +
+                          (hasCases ? "cursor-pointer hover:border-[#B83A20] hover:text-[#B83A20] " : "cursor-default ") +
+                          (isOpen ? "border-[#B83A20] text-[#B83A20]" : "border-cream/20 text-cream/70")
                         }
                       >
                         {t}
