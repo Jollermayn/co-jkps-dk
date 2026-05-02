@@ -1,9 +1,10 @@
 import { useEffect, useRef } from "react";
-import type { CaseStudy, StemFraFeltet } from "@/data/cases";
+import type { CaseStudy } from "@/data/cases";
 import { caseStudies } from "@/data/cases";
 import { ApproachGrid } from "@/components/ApproachGrid";
 import woltHeatmap from "@/assets/wolt-heatmap.png";
 import boligaMockup from "@/assets/boliga-mockup.png";
+import horesimQuotes from "@/assets/horesim-quotes.png";
 
 type Props = {
   study: CaseStudy | null;
@@ -136,10 +137,14 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
             <p className="text-base md:text-lg text-cream/85 leading-relaxed">{study.challenge}</p>
           </ModalSection>
 
-          {study.slug === "interaktiv-horesimulering" && study.stemmerFraFeltet && (
+          {study.slug === "interaktiv-horesimulering" && (
             <div>
-              <span className="eyebrow text-ember tracking-[0.2em] block mb-10">— Stemmer fra feltet</span>
-              <ScatteredQuotes quotes={study.stemmerFraFeltet} />
+              <span className="eyebrow text-ember tracking-[0.2em] block mb-6">— Stemmer fra feltet</span>
+              <img
+                src={horesimQuotes}
+                alt="Citater fra hørehæmmede elever, lærere og eksperter"
+                className="mt-6 w-full h-auto"
+              />
             </div>
           )}
 
@@ -228,49 +233,6 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
   );
 }
 
-function ScatteredQuotes({ quotes }: { quotes: StemFraFeltet[] }) {
-  const indentMap = {
-    none: "ml-0",
-    mid: "ml-[20%]",
-    far: "ml-[38%]",
-  };
-
-  const maxWidthMap = {
-    sm: "max-w-[340px]",
-    md: "max-w-[400px]",
-    lg: "max-w-[500px]",
-  };
-
-  const sizeMap = {
-    sm: "text-base md:text-lg leading-snug",
-    md: "text-xl md:text-2xl leading-snug",
-    lg: "text-2xl md:text-[2rem] leading-tight",
-  };
-
-  function renderQuote(q: StemFraFeltet) {
-    if (!q.highlight) return <>{q.quote}</>;
-    const parts = q.quote.split(q.highlight);
-    if (parts.length < 2) return <>{q.quote}</>;
-    return (
-      <>
-        {parts[0]}
-        <span className="text-ember">{q.highlight}</span>
-        {parts[1]}
-      </>
-    );
-  }
-
-  return (
-    <div className="space-y-10">
-      {quotes.map((q, i) => (
-        <div key={i} className={`${indentMap[q.indent]} ${maxWidthMap[q.size]}`}>
-          <p className={`font-display italic text-cream/90 ${sizeMap[q.size]}`}>{renderQuote(q)}</p>
-          <p className="eyebrow text-cream/35 mt-3 text-[0.65rem] tracking-[0.18em]">— {q.attribution.toUpperCase()}</p>
-        </div>
-      ))}
-    </div>
-  );
-}
 
 function ModalSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
