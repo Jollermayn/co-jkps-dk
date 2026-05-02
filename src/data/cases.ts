@@ -18,6 +18,7 @@ export type CaseStudy = {
   role: string[];
   approach: string[];
   outcomes: string[];
+  quotes?: { text: string; author: string; emphasis: string }[];
 };
 
 export const caseStudies: CaseStudy[] = [
@@ -82,6 +83,12 @@ export const caseStudies: CaseStudy[] = [
       "Autentisk valideret af hørehæmmede deltagere",
       "Ansvaret for inklusion flyttes fra den enkelte elev til skolefællesskabet",
       "Øget empati og delt ansvar i klasserummet",
+    ],
+    quotes: [
+      { text: "Jeg vil ikke lade mit liv dikteres af et høretab.", author: "Emil, høreelev", emphasis: "ikke" },
+      { text: "De fleste hørebørn kommer fra en baggrund af kaos.", author: "Marie, elev", emphasis: "kaos" },
+      { text: "Usikkerhedens højborg.", author: "Viceforstander, Efterskole for hørehæmmede", emphasis: "Usikkerhedens højborg." },
+      { text: "Problematikken handler ikke om manglen på teknologi — men om brugernes interaktion med hjælpemidlerne.", author: "Audiologopædisk konsulent, Decibel", emphasis: "brugernes interaktion" },
     ],
   },
   {
