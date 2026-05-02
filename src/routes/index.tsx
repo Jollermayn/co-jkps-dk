@@ -207,8 +207,9 @@ function TypewriterQuote() {
   return (
     <p
       ref={containerRef}
-      className="hero-quote font-display italic font-semibold leading-[1.5] text-cream/95 inline-block text-left"
+      className="hero-quote italic font-semibold leading-[1.5] text-cream/95 inline-block text-left"
       style={{
+        fontFamily: "'Playfair Display', serif",
         fontSize: "clamp(1.25rem, 1.8vw, 2rem)",
         minHeight: `${reservedEm}em`,
       }}
@@ -228,7 +229,7 @@ function Sidebar() {
         <p className="hero-subtitle text-xl leading-relaxed lg:text-2xl lg:leading-snug text-cream/85 italic text-center" style={{ fontFamily: "'Playfair Display', serif" }}>
           Digital konsulent.
         </p>
-        <blockquote className="max-w-full w-full text-center mt-10 lg:mt-10 lg:-translate-y-[15px]">
+        <blockquote className="max-w-full w-full text-center mt-20 lg:mt-16 lg:-translate-y-[15px]">
           <TypewriterQuote />
         </blockquote>
       </div>
