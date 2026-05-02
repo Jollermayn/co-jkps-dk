@@ -294,22 +294,6 @@ function Sidebar() {
         </blockquote>
       </div>
 
-      <nav className="flex flex-col gap-3 text-sm w-full">
-        {[
-          ["Om mig", "om"],
-          ["Cases", "cases"],
-          ["Kompetencer", "kompetencer"],
-          ["Uddannelse", "uddannelse"],
-          ["Kontakt", "kontakt"],
-        ].map(([label, id], i) => (
-          <a key={id} href={`#${id}`} className="group flex items-center gap-4 text-cream/60 hover:text-cream transition-colors">
-            <span className="tabular-nums text-ember/70 text-xs">0{i + 1}</span>
-            <span className="h-px w-8 bg-cream/20 group-hover:w-16 group-hover:bg-ember transition-all duration-300" />
-            <span className="uppercase tracking-widest">{label}</span>
-          </a>
-        ))}
-      </nav>
-
       <div className="flex flex-col items-center gap-6 lg:gap-3 w-full text-center lg:translate-y-[15px]">
         <a
           href="/jonas-kp-sorensen-cv.pdf"
@@ -326,6 +310,22 @@ function Sidebar() {
           Kontakt mig
         </a>
       </div>
+
+      <nav className="flex flex-col gap-3 text-sm w-full">
+        {[
+          ["Om mig", "om"],
+          ["Cases", "cases"],
+          ["Kompetencer", "kompetencer"],
+          ["Uddannelse", "uddannelse"],
+          ["Kontakt", "kontakt"],
+        ].map(([label, id], i) => (
+          <a key={id} href={`#${id}`} className="group flex items-center gap-4 text-cream/60 hover:text-cream transition-colors">
+            <span className="tabular-nums text-ember/70 text-xs">0{i + 1}</span>
+            <span className="h-px w-8 bg-cream/20 group-hover:w-16 group-hover:bg-ember transition-all duration-300" />
+            <span className="uppercase tracking-widest">{label}</span>
+          </a>
+        ))}
+      </nav>
     </aside>
   );
 }
