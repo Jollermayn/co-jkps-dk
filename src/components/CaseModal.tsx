@@ -4,7 +4,6 @@ import { caseStudies } from "@/data/cases";
 import { ApproachGrid } from "@/components/ApproachGrid";
 import woltHeatmap from "@/assets/wolt-heatmap.png";
 import boligaMockup from "@/assets/boliga-mockup.png";
-import horesimQuotes from "@/assets/horesim-quotes.png";
 
 type Props = {
   study: CaseStudy | null;
@@ -228,6 +227,55 @@ function ModalSection({ title, children }: { title: string; children: React.Reac
         <h3 className="font-display text-2xl md:text-3xl tracking-tight">{title}</h3>
       </div>
       <div className="md:col-span-9">{children}</div>
+    </div>
+  );
+}
+
+function ScatteredQuotes({
+  quotes,
+}: {
+  quotes: { text: string; author: string; emphasis: string }[];
+}) {
+  // Alternating left/right alignment with varied sizes for a scattered editorial feel
+  const layouts = [
+    { align: "items-start", textAlign: "text-left", size: "text-2xl md:text-4xl", offset: "md:ml-0 md:mr-12" },
+    { align: "items-end", textAlign: "text-right", size: "text-lg md:text-2xl", offset: "md:ml-16 md:mr-0" },
+    { align: "items-start", textAlign: "text-left", size: "text-3xl md:text-5xl", offset: "md:ml-8 md:mr-20" },
+    { align: "items-end", textAlign: "text-right", size: "text-base md:text-xl", offset: "md:ml-24 md:mr-2" },
+  ];
+
+  const renderText = (text: string, emphasis: string) => {
+    if (!emphasis) return text;
+    const idx = text.indexOf(emphasis);
+    if (idx === -1) return text;
+    return (
+      <>
+        {text.slice(0, idx)}
+        <span style={{ color: "#B83A20" }} className="not-italic font-medium">
+          {emphasis}
+        </span>
+        {text.slice(idx + emphasis.length)}
+      </>
+    );
+  };
+
+  return (
+    <div className="mt-8 flex flex-col gap-10 md:gap-14">
+      {quotes.map((q, i) => {
+        const l = layouts[i % layouts.length];
+        return (
+          <figure key={i} className={`flex flex-col ${l.align} ${l.textAlign} ${l.offset}`}>
+            <blockquote
+              className={`font-display italic leading-[1.1] tracking-[-0.01em] text-cream/95 ${l.size} max-w-[28ch]`}
+            >
+              "{renderText(q.text, q.emphasis)}"
+            </blockquote>
+            <figcaption className="mt-3 eyebrow text-[11px] tracking-[0.2em] text-cream/60">
+              — {q.author}
+            </figcaption>
+          </figure>
+        );
+      })}
     </div>
   );
 }
