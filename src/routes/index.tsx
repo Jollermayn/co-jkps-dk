@@ -88,8 +88,8 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
   );
 }
 
-const TYPE_SPEED = 30;
-const LINE_PAUSE = 350;
+const TYPE_SPEED = 40;
+const LINE_PAUSE = 430;
 
 const typewriterLines = ["The Ai paradox:", "Too much Artificial", "Not enough intelligence..."];
 
