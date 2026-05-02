@@ -18,7 +18,7 @@ export type CaseStudy = {
   role: string[];
   approach: string[];
   outcomes: string[];
-  quotes?: { text: string; author: string; emphasis: string }[];
+  quotes?: { text: string; author: string; emphasis?: string }[];
 };
 
 export const caseStudies: CaseStudy[] = [
@@ -87,7 +87,8 @@ export const caseStudies: CaseStudy[] = [
     quotes: [
       { text: "Jeg vil ikke lade mit liv dikteres af et høretab.", author: "Emil, høreelev", emphasis: "ikke" },
       { text: "De fleste hørebørn kommer fra en baggrund af kaos.", author: "Marie, elev", emphasis: "kaos" },
-      { text: "Usikkerhedens højborg.", author: "Viceforstander, Efterskole for hørehæmmede", emphasis: "Usikkerhedens højborg." },
+      { text: "Usikkerhedens højborg.", author: "Viceforstander, Efterskole for hørehæmmede" },
+      { text: "Forestil jer en situation, hvor I følte jer udenfor eller ikke forstod, hvad der foregik. Hvordan føltes det?", author: "Lærer til klassen, efter simuleringen", emphasis: "Hvordan føltes det?" },
       { text: "Problematikken handler ikke om manglen på teknologi — men om brugernes interaktion med hjælpemidlerne.", author: "Audiologopædisk konsulent, Decibel", emphasis: "brugernes interaktion" },
     ],
   },
