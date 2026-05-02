@@ -189,6 +189,21 @@ function TypewriterQuote() {
       animate("tw-box-i");
     }, elapsed + 400);
 
+    schedule(() => {
+      const aBox = root.querySelector<HTMLElement>("#tw-box-A");
+      const iBox = root.querySelector<HTMLElement>("#tw-box-i");
+      if (!aBox || !iBox) return;
+      const aRect = aBox.getBoundingClientRect();
+      const iRect = iBox.getBoundingClientRect();
+      const aCenter = aRect.left + aRect.width / 2;
+      const iCenter = iRect.left + iRect.width / 2;
+      const dx = aCenter - iCenter;
+      const line2 = lineSpans[2];
+      if (!line2) return;
+      line2.style.transition = "transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)";
+      line2.style.transform = `translateX(${dx}px)`;
+    }, elapsed + 400 + 650 + 300);
+
     return () => {
       timeouts.forEach(clearTimeout);
     };
