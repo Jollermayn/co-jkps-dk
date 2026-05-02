@@ -928,7 +928,7 @@ function KompetencerList() {
 
               <p className="md:col-span-5 mt-3 md:mt-0 text-cream/80 leading-relaxed">{c.body}</p>
 
-              <ul className="md:col-span-5 md:col-start-5 mt-4 md:mt-4 flex flex-wrap items-start gap-x-2 gap-y-1 max-h-8 group-hover:max-h-40 overflow-hidden transition-[max-height] duration-300 ease-in-out">
+              <ul className="md:col-span-5 md:col-start-5 mt-4 md:mt-4 flex flex-wrap items-start gap-2 max-w-[480px] max-h-8 group-hover:max-h-40 overflow-hidden transition-[max-height] duration-300 ease-in-out">
                 {c.tags.map((t, i) => {
                   const slugs = TAG_TO_SLUGS[t] ?? [];
                   const hasCases = slugs.length > 0;
