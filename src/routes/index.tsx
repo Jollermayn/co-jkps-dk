@@ -222,8 +222,8 @@ function Sidebar() {
     <aside className="hero-sidebar relative w-full min-w-0 max-w-full flex flex-col gap-16 lg:gap-12 lg:fixed lg:top-0 lg:right-0 lg:w-[40%] lg:h-screen lg:overflow-hidden px-6 md:px-14 lg:px-16 py-12 md:py-20 lg:pt-[8vh] lg:pb-16 border-b lg:border-b-0 lg:border-l border-cream/10 order-1 lg:order-last bg-[#0D1B2A] lg:z-20 lg:rounded-l-xl lg:shadow-[-8px_0_24px_rgba(0,0,0,0.25)] text-center items-center lg:justify-start">
       <div className="w-full flex flex-col gap-3 lg:gap-4 items-center text-center">
         <h1 className="font-display tracking-[-0.02em] font-medium text-center px-2 flex flex-col items-center leading-none">
-          <span className="block text-[clamp(2.25rem,7.5vw,3.75rem)] leading-none" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700 }}>Jonas</span>
-          <span className="block text-[clamp(2.25rem,7.5vw,3.75rem)] leading-none -mt-[0.08em]" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700 }}>Sørensen</span>
+          <span className="block text-[clamp(3.5rem,10vw,6rem)] leading-none" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700 }}>Jonas</span>
+          <span className="block text-[clamp(3.5rem,10vw,6rem)] leading-none -mt-[0.08em]" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700 }}>Sørensen</span>
         </h1>
         <p className="hero-subtitle text-lg leading-relaxed lg:text-2xl lg:leading-snug text-cream/85 font-display italic text-center">
           Digital konsulent.
