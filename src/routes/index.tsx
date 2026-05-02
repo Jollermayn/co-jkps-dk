@@ -934,13 +934,11 @@ function KompetencerList() {
                   const hasCases = slugs.length > 0;
                   const isOpen = openTag === `${c.no}-${t}`;
                   const tagKey = `${c.no}-${t}`;
-                  const offsets = ["mt-0", "mt-2", "mt-1", "-mt-1", "mt-3", "mt-0", "-mt-2", "mt-1"];
-                  const offset = offsets[i % offsets.length];
                   return (
                     <li
                       key={t}
                       ref={isOpen ? activeTagRef : undefined}
-                      className={`relative inline-flex ${offset}`}
+                      className="relative inline-flex"
                       onMouseEnter={() => {
                         if (!canHover || !hasCases) return;
                         cancelClose();
