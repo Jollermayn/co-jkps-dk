@@ -226,7 +226,7 @@ function TypewriterQuote() {
       el.style.boxShadow = on ? "0 0 14px rgba(184, 58, 32, 0.9)" : "none";
     };
 
-    const runDoublePulse = () => {
+    const runFlash = () => {
       const aBox = aBoxRef.current;
       const iBox = iBoxRef.current;
       if (!aBox || !iBox) return;
@@ -240,23 +240,12 @@ function TypewriterQuote() {
       const t1 = setTimeout(() => {
         setGlow(aBox, false);
         setGlow(iBox, false);
-      }, 120);
-      const t2 = setTimeout(() => {
-        setGlow(aBox, true);
-        setGlow(iBox, true);
-      }, 240);
-      const t3 = setTimeout(() => {
-        setGlow(aBox, false);
-        setGlow(iBox, false);
-      }, 360);
+      }, 150);
 
-      pulseBeatTimeoutsRef.current = [t1, t2, t3];
+      pulseBeatTimeoutsRef.current = [t1];
     };
 
-    pulseStartTimeoutRef.current = setTimeout(() => {
-      runDoublePulse();
-      pulseIntervalRef.current = setInterval(runDoublePulse, 6000);
-    }, 4000);
+    pulseStartTimeoutRef.current = setTimeout(runFlash, 4000);
 
     return () => {
       if (pulseStartTimeoutRef.current) {
