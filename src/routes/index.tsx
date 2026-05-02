@@ -1049,7 +1049,7 @@ function KompetencerList() {
                           >
                             Relaterede cases
                           </div>
-                          <ul className="flex flex-col gap-2">
+                          <ul className="flex flex-col gap-3">
                             {slugs.map((slug) => {
                               const study = caseStudies.find((s) => s.slug === slug);
                               if (!study) return null;
