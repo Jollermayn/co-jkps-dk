@@ -1061,7 +1061,7 @@ function KompetencerList() {
                                       setOpenTag(null);
                                       setOpenCase(study);
                                     }}
-                                    className="group/case w-full text-left flex items-start gap-3 p-2 -mx-2 rounded hover:bg-cream/5 transition-colors"
+                                    className="group/case w-full text-left flex items-start gap-3 p-3 -mx-2 rounded hover:bg-cream/5 transition-colors"
                                   >
                                     <img
                                       src={study.image}
@@ -1069,7 +1069,7 @@ function KompetencerList() {
                                       className="w-14 h-14 object-cover shrink-0 grayscale group-hover/case:grayscale-0 transition-all duration-300"
                                     />
                                     <div className="min-w-0 flex-1">
-                                      <div className="text-sm font-display font-semibold text-cream leading-tight">
+                                      <div className="text-base font-display font-semibold text-cream leading-tight">
                                         {study.client}
                                       </div>
                                       <div className="text-xs text-cream/65 leading-snug mt-0.5 truncate">
