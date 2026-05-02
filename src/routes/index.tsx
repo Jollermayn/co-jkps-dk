@@ -160,7 +160,11 @@ function TypewriterQuote() {
       const id = i === 1 ? ' id="tw-box-A"' : i === 2 ? ' id="tw-box-i"' : "";
       const extraStyle = i === 1 ? ";margin-bottom:4px" : i === 2 ? ";margin-top:4px" : "";
       const hlContent = highlight || "&nbsp;";
-      const afterHTML = after ? `<span class="text-cream/40">${after}</span>` : "";
+      const afterHTML = after
+        ? range.style === "box"
+          ? `<span class="text-cream/40">${after}</span>`
+          : after
+        : "";
       return `${before}<span${id} class="${cls}" style="display:inline-block${extraStyle}">${hlContent}</span>${afterHTML}`;
     };
 
@@ -203,7 +207,7 @@ function TypewriterQuote() {
   return (
     <p
       ref={containerRef}
-      className="hero-quote font-display italic font-semibold leading-[1.5] text-cream/95"
+      className="hero-quote font-display italic font-semibold leading-[1.5] text-cream/95 inline-block text-left"
       style={{
         fontSize: "clamp(1.25rem, 1.8vw, 2rem)",
         minHeight: `${reservedEm}em`,
