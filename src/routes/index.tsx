@@ -916,7 +916,7 @@ function KompetencerList() {
             key={c.no}
             className="group py-8 md:py-10 hover:bg-navy/40 transition-colors -mx-5 md:-mx-14 px-5 md:px-14"
           >
-            <div className="grid grid-cols-1 md:grid-cols-12 md:gap-12 md:pl-10">
+            <div className="grid grid-cols-1 md:grid-cols-12 md:gap-12">
               <div className="md:col-span-5 min-w-0 flex items-baseline gap-4">
                 <span className="font-display text-2xl text-ember shrink-0">{c.no}</span>
                 <div className="min-w-0 flex-1">
