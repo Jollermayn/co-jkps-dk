@@ -1063,11 +1063,6 @@ function KompetencerList() {
                                     }}
                                     className="group/case w-full text-left flex items-start gap-3 p-3 -mx-2 rounded hover:bg-cream/5 transition-colors"
                                   >
-                                    <img
-                                      src={study.image}
-                                      alt=""
-                                      className="w-10 h-10 rounded-md object-cover shrink-0 grayscale group-hover/case:grayscale-0 transition-all duration-300"
-                                    />
                                     <div className="min-w-0 flex-1">
                                       <div className="text-base font-display font-semibold text-cream leading-tight">
                                         {study.client}
