@@ -917,7 +917,7 @@ function KompetencerList() {
             className="group py-8 md:py-10 hover:bg-navy/40 transition-colors -mx-5 md:-mx-14 px-5 md:px-14"
           >
             <div className="grid grid-cols-1 md:grid-cols-12 md:gap-12 md:pl-10">
-              <div className="md:col-span-4 min-w-0 flex items-baseline gap-4">
+              <div className="md:col-span-5 min-w-0 flex items-baseline gap-4">
                 <span className="font-display text-2xl text-ember shrink-0">{c.no}</span>
                 <div className="min-w-0 flex-1">
                   <h3 className="font-display tracking-tight leading-tight max-w-full [word-break:normal] [overflow-wrap:break-word] [hyphens:none] text-[clamp(1.4rem,5.5vw,2.25rem)] md:text-4xl">
@@ -926,7 +926,7 @@ function KompetencerList() {
                 </div>
               </div>
 
-              <p className="md:col-span-5 mt-3 md:mt-0 text-cream/80 leading-relaxed">{c.body}</p>
+              <p className="md:col-span-4 mt-3 md:mt-0 text-cream/80 leading-relaxed">{c.body}</p>
 
               <ul className="md:col-span-12 mt-4 md:mt-6 flex flex-wrap items-start gap-2">
                 {c.tags.map((t) => {
