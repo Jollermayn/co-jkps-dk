@@ -33,28 +33,21 @@ const competencies = [
     title: "UX Research",
     sub: "Research & Brugerinddragelse",
     body: "Dybdegående indsigt gennem interviews, observationer, co-design og brugertest. Jeg oversætter kompleks adfærd til handlebare designbeslutninger.",
-    tags: [
-      "Semistrukturerede interviews",
-      "Feltobservation",
-      "Co-design",
-      "Mixed methods",
-      "Facilitering",
-      "Workshops",
-    ],
+    tags: ["Interviews", "Feltobservation", "Co-design", "Mixed methods", "Facilitering", "Workshops"],
   },
   {
     no: "2",
     title: "Service- & Konceptdesign",
     sub: "Fra problem til realiserbart koncept",
     body: "Fra identifikation af problemet til et konkret, realiserbart koncept. Jeg designer brugerrejser, touchpoints og serviceoplevelser der skaber reel værdi.",
-    tags: ["Brugerrejser", "Touchpoint-mapping", "Participatorisk design", "Konceptvalidering"],
+    tags: ["Brugerrejser", "Touchpoints", "Participatorisk design", "Konceptvalidering"],
   },
   {
     no: "3",
     title: "Digital Strategi & Brand",
     sub: "Stemme, position og indhold",
     body: "Strategisk rådgivning om digital tilstedeværelse, indhold og positionering. Jeg hjælper organisationer med at finde og kommunikere deres unikke stemme.",
-    tags: ["Kommunikationsstrategi", "Visuel identitet", "Indholdsarkitektur", "Positionering"],
+    tags: ["Kommunikation", "Visuel identitet", "Indholdsarkitektur", "Positionering"],
   },
   {
     no: "4",
@@ -929,7 +922,7 @@ function KompetencerList() {
 
               <p className="md:col-span-6 mt-3 md:mt-0 text-cream/80 leading-relaxed">{c.body}</p>
 
-              <ul className="md:col-span-6 mt-4 md:mt-[-20px]" style={{ columnCount: 2, columnGap: "8px" }}>
+              <ul className="md:col-span-6 mt-4 md:mt-0 flex flex-wrap gap-2">
                 {c.tags.map((t) => {
                   const slugs = TAG_TO_SLUGS[t] ?? [];
                   const hasCases = slugs.length > 0;
@@ -939,8 +932,7 @@ function KompetencerList() {
                     <li
                       key={t}
                       ref={isOpen ? activeTagRef : undefined}
-                      className="relative"
-                      style={{ display: "inline-block", width: "100%", marginBottom: "8px", breakInside: "avoid" }}
+                      className="relative inline-flex"
                       onMouseEnter={() => {
                         if (!canHover || !hasCases) return;
                         cancelClose();
