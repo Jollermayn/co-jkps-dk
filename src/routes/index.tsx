@@ -240,15 +240,15 @@ function TypewriterQuote() {
       const t1 = setTimeout(() => {
         setGlow(aBox, false);
         setGlow(iBox, false);
-      }, 200);
+      }, 120);
       const t2 = setTimeout(() => {
         setGlow(aBox, true);
         setGlow(iBox, true);
-      }, 400);
+      }, 240);
       const t3 = setTimeout(() => {
         setGlow(aBox, false);
         setGlow(iBox, false);
-      }, 600);
+      }, 360);
 
       pulseBeatTimeoutsRef.current = [t1, t2, t3];
     };
