@@ -350,7 +350,7 @@ function Index() {
                   <img
                     src={profilePhoto}
                     alt="Jonas K.P. Sørensen"
-                    className="w-full h-full object-cover transition-all duration-[400ms] ease-out group-hover:scale-[1.06]"
+                    className="w-full h-full object-cover grayscale md:grayscale group-hover:grayscale-0 transition-all duration-[400ms] ease-out group-hover:scale-[1.06]"
                   />
                 </div>
                 <p className="max-w-xl text-cream/70 text-lg italic font-display">
