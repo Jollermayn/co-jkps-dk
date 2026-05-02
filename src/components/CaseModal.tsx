@@ -138,15 +138,20 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
           </ModalSection>
 
           {study.slug === "interaktiv-horesimulering" && (
-            <div>
-              <span className="eyebrow text-ember tracking-[0.2em] block mb-6">— Stemmer fra feltet</span>
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-8">
+            <div className="flex items-center gap-6">
+              <span
+                className="eyebrow text-ember tracking-[0.2em]"
+                style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
+              >
+                — Stemmer fra feltet
+              </span>
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-8 flex-1">
                 <div className="md:col-span-3" />
                 <div className="md:col-span-9">
                   <img
                     src={horesimQuotes}
                     alt="Citater fra hørehæmmede elever, lærere og eksperter"
-                    className="mt-6 w-full h-auto"
+                    className="w-full h-auto"
                   />
                 </div>
               </div>
