@@ -932,8 +932,7 @@ function KompetencerList() {
                     <li
                       key={t}
                       ref={isOpen ? activeTagRef : undefined}
-                      className="relative"
-                      style={{ display: "inline-block", width: "100%", marginBottom: "8px", breakInside: "avoid" }}
+                      className="relative inline-flex"
                       onMouseEnter={() => {
                         if (!canHover || !hasCases) return;
                         cancelClose();
