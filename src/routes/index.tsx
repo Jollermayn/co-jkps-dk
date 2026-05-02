@@ -162,7 +162,12 @@ function TypewriterQuote() {
       const hlContent = highlight || "&nbsp;";
       const afterHTML = after
         ? range.style === "box"
-          ? `<span class="text-cream/40">${after}</span>`
+          ? (() => {
+              const match = after.match(/^([A-Za-z]*)(.*)$/);
+              const muted = match?.[1] ?? after;
+              const rest = match?.[2] ?? "";
+              return `${muted ? `<span class="text-cream/40">${muted}</span>` : ""}${rest}`;
+            })()
           : after
         : "";
       return `${before}<span${id} class="${cls}" style="display:inline-block${extraStyle}">${hlContent}</span>${afterHTML}`;
