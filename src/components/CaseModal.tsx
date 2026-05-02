@@ -134,13 +134,14 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
 
           <ModalSection title="Udfordring">
             <p className="text-base md:text-lg text-cream/85 leading-relaxed">{study.challenge}</p>
-            {study.slug === "interaktiv-horesimulering" && study.stemmerFraFeltet && (
-              <div className="mt-8">
-                <span className="eyebrow text-ember tracking-[0.2em] block mb-10">— Stemmer fra feltet</span>
-                <ScatteredQuotes quotes={study.stemmerFraFeltet} />
-              </div>
-            )}
           </ModalSection>
+
+          {study.slug === "interaktiv-horesimulering" && study.stemmerFraFeltet && (
+            <div>
+              <span className="eyebrow text-ember tracking-[0.2em] block mb-10">— Stemmer fra feltet</span>
+              <ScatteredQuotes quotes={study.stemmerFraFeltet} />
+            </div>
+          )}
 
           <ModalSection title="Min rolle">
             <ul className="space-y-3">
