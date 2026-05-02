@@ -234,17 +234,23 @@ function ModalSection({ title, children }: { title: string; children: React.Reac
 function ScatteredQuotes({
   quotes,
 }: {
-  quotes: { text: string; author: string; emphasis: string }[];
+  quotes: { text: string; author: string; emphasis?: string }[];
 }) {
-  // Alternating left/right alignment with varied sizes for a scattered editorial feel
-  const layouts = [
-    { align: "items-start", textAlign: "text-left", size: "text-2xl md:text-4xl", offset: "md:ml-0 md:mr-12" },
-    { align: "items-end", textAlign: "text-right", size: "text-lg md:text-2xl", offset: "md:ml-16 md:mr-0" },
-    { align: "items-start", textAlign: "text-left", size: "text-3xl md:text-5xl", offset: "md:ml-8 md:mr-20" },
-    { align: "items-end", textAlign: "text-right", size: "text-base md:text-xl", offset: "md:ml-24 md:mr-2" },
+  // Per-quote absolute positions following the spec
+  const positions: {
+    style: React.CSSProperties;
+    fontSize: string;
+    textAlign: "left" | "right" | "center";
+    fullEmphasis?: boolean;
+  }[] = [
+    { style: { top: "3rem", left: 0, maxWidth: "22ch" }, fontSize: "1.8rem", textAlign: "left" },
+    { style: { top: "1rem", right: 0, maxWidth: "22ch" }, fontSize: "1.2rem", textAlign: "right" },
+    { style: { top: "44%", left: "50%", transform: "translate(-50%, -50%)", maxWidth: "26ch" }, fontSize: "2.2rem", textAlign: "center", fullEmphasis: true },
+    { style: { bottom: "3rem", left: 0, maxWidth: "22ch" }, fontSize: "1rem", textAlign: "left" },
+    { style: { bottom: "0.5rem", left: "50%", transform: "translateX(-50%)", maxWidth: "26ch" }, fontSize: "1.3rem", textAlign: "center" },
   ];
 
-  const renderText = (text: string, emphasis: string) => {
+  const renderText = (text: string, emphasis?: string) => {
     if (!emphasis) return text;
     const idx = text.indexOf(emphasis);
     if (idx === -1) return text;
@@ -260,17 +266,32 @@ function ScatteredQuotes({
   };
 
   return (
-    <div className="mt-8 flex flex-col gap-10 md:gap-14">
+    <div className="relative mt-6 w-full" style={{ minHeight: "500px" }}>
+      <span
+        className="absolute top-0 left-0 eyebrow text-[10px] tracking-[0.28em] font-semibold"
+        style={{ color: "#B83A20" }}
+      >
+        — STEMMER FRA FELTET
+      </span>
+
       {quotes.map((q, i) => {
-        const l = layouts[i % layouts.length];
+        const p = positions[i] ?? positions[positions.length - 1];
         return (
-          <figure key={i} className={`flex flex-col ${l.align} ${l.textAlign} ${l.offset}`}>
+          <figure
+            key={i}
+            className="absolute"
+            style={{ ...p.style, textAlign: p.textAlign }}
+          >
             <blockquote
-              className={`font-display italic leading-[1.1] tracking-[-0.01em] text-cream/95 ${l.size} max-w-[28ch]`}
+              className="font-display italic leading-[1.15] tracking-[-0.01em]"
+              style={{
+                fontSize: p.fontSize,
+                color: p.fullEmphasis ? "#B83A20" : "rgb(245 240 230 / 0.95)",
+              }}
             >
-              "{renderText(q.text, q.emphasis)}"
+              "{p.fullEmphasis ? q.text : renderText(q.text, q.emphasis)}"
             </blockquote>
-            <figcaption className="mt-3 eyebrow text-[11px] tracking-[0.2em] text-cream/60">
+            <figcaption className="mt-2 eyebrow text-[10px] tracking-[0.22em] text-cream/55 not-italic">
               — {q.author}
             </figcaption>
           </figure>
