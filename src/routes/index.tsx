@@ -1041,7 +1041,7 @@ function KompetencerList() {
                       {isOpen && hasCases && (
                         <div
                           style={{ zIndex: 9999 }}
-                          className="absolute top-full left-0 mt-2 w-[calc(100vw-2.5rem)] max-w-[calc(100vw-2.5rem)] min-w-[220px] md:w-[min(18rem,calc(100vw-6rem))] md:max-w-[calc(100vw-6rem)] bg-[#0D1B2A] border border-cream/10 border-l-2 border-l-[#B83A20] shadow-2xl rounded-xl p-5 animate-in fade-in slide-in-from-top-1 duration-150"
+                          className="absolute top-full left-0 mt-2 min-w-[200px] max-w-[220px] bg-[#0D1B2A] border border-cream/10 border-l-2 border-l-[#B83A20] shadow-2xl rounded-xl p-5 animate-in fade-in slide-in-from-top-1 duration-150"
                         >
                           <div
                             className="text-ember uppercase font-semibold mb-4"
@@ -1063,11 +1063,6 @@ function KompetencerList() {
                                     }}
                                     className="group/case w-full text-left flex items-start gap-3 p-3 -mx-2 rounded hover:bg-cream/5 transition-colors"
                                   >
-                                    <img
-                                      src={study.image}
-                                      alt=""
-                                      className="w-10 h-10 rounded-md object-cover shrink-0 grayscale group-hover/case:grayscale-0 transition-all duration-300"
-                                    />
                                     <div className="min-w-0 flex-1">
                                       <div className="text-base font-display font-semibold text-cream leading-tight">
                                         {study.client}
