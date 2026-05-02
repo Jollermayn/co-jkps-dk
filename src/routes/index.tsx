@@ -967,9 +967,9 @@ function KompetencerList() {
                         }}
                         aria-expanded={isOpen}
                         className={
-                          "text-[10px] tracking-wide uppercase px-2.5 py-1 rounded-full border transition-colors " +
-                          (hasCases ? "cursor-pointer hover:border-[#B83A20] hover:text-[#B83A20] " : "cursor-default ") +
-                          (isOpen ? "border-[#B83A20] text-[#B83A20]" : "border-cream/20 text-cream/70")
+                          "text-[10px] tracking-wide uppercase px-2.5 py-1 rounded-full border-none transition-colors " +
+                          (hasCases ? "cursor-pointer hover:bg-[#B83A20] hover:text-[#F5F0E8] " : "cursor-default ") +
+                          (isOpen ? "bg-[#B83A20] text-[#F5F0E8]" : "bg-[#F5F0E8] text-[#0D1B2A]")
                         }
                       >
                         {t}
