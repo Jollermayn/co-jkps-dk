@@ -265,14 +265,14 @@ function Index() {
               <Eyebrow>Om mig</Eyebrow>
               <div className="mt-8 max-w-3xl space-y-6 text-cream/80 text-lg leading-relaxed">
                 <p>
-                  Siden 2016 har jeg drevet egen konsulent- og medieproduktionsvirksomhed — med fokus på samspillet
-                  mellem mennesker, teknologi og forretning.
-                </p>
-                <p>
                   Fælles for alt mit arbejde er interessen for det øjeblik hvor noget abstrakt bliver konkret — hvor en
                   idé finder sin form, en oplevelse finder sit udtryk, en fortælling finder sin modtager. Jeg er på
                   hjemmebane når disciplinerne overlapper, og tiltrukket af de projekter der ikke lader sig løse med én
                   faglighed alene.
+                </p>
+                <p>
+                  Selvstændig konsulent siden 2016 — med klienter som DR, Amnesty International og Danmarks
+                  Naturfredningsforening.
                 </p>
                 <p className="text-cream/60 italic font-display">
                   Privat er jeg familiefar, naturmenneske og det, man nok ville kalde en seriøs lytter.
