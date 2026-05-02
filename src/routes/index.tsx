@@ -346,7 +346,7 @@ function Index() {
                 Lad os <span className="italic text-ember">tales ved</span>
               </h2>
               <div className="mt-8 flex flex-col sm:flex-row items-center gap-6">
-                <div className="group shrink-0 w-[200px] h-[200px] overflow-hidden rounded-full shadow-[0_4px_16px_rgba(0,0,0,0.4)]">
+                <div className="group shrink-0 w-[200px] h-[200px] overflow-hidden rounded-full ring-2 ring-[#F5F0E8]/30 shadow-[0_4px_16px_rgba(0,0,0,0.4)]">
                   <img
                     src={profilePhoto}
                     alt="Jonas K.P. Sørensen"
