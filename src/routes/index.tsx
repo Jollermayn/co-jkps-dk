@@ -1066,7 +1066,7 @@ function KompetencerList() {
                                     <img
                                       src={study.image}
                                       alt=""
-                                      className="w-12 h-12 object-cover shrink-0 grayscale group-hover/case:grayscale-0 transition-all duration-300"
+                                      className="w-14 h-14 object-cover shrink-0 grayscale group-hover/case:grayscale-0 transition-all duration-300"
                                     />
                                     <div className="min-w-0 flex-1">
                                       <div className="text-sm font-display font-semibold text-cream leading-tight">
