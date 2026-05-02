@@ -104,8 +104,12 @@ const HIGHLIGHT_RANGE: Record<
 
 function TypewriterQuote() {
   const containerRef = useRef<HTMLParagraphElement>(null);
+  const aBoxRef = useRef<HTMLSpanElement | null>(null);
+  const iBoxRef = useRef<HTMLSpanElement | null>(null);
   const mountedRef = useRef(false);
   const pulseIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const pulseStartTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const pulseBeatTimeoutsRef = useRef<ReturnType<typeof setTimeout>[]>([]);
 
   useEffect(() => {
     if (mountedRef.current) return;
@@ -189,7 +193,11 @@ function TypewriterQuote() {
       line2.style.transform = `translateX(${dx}px)`;
     }, elapsed + 400);
 
-    const glowEnd = elapsed + 400 + 600 + 100 + 650;
+    schedule(() => {
+      aBoxRef.current = root.querySelector<HTMLSpanElement>("#tw-box-A");
+      iBoxRef.current = root.querySelector<HTMLSpanElement>("#tw-box-i");
+    }, elapsed);
+
     schedule(() => {
       const animate = (id: string) => {
         const el = root.querySelector<HTMLElement>(`#${id}`);
@@ -206,39 +214,57 @@ function TypewriterQuote() {
       animate("tw-box-i");
     }, elapsed + 400 + 600 + 100);
 
-    
-    const pulseTimeouts: ReturnType<typeof setTimeout>[] = [];
-    schedule(() => {
-      const setGlow = (id: string, on: boolean) => {
-        const el = root.querySelector<HTMLElement>(`#${id}`);
-        if (!el) return;
-        el.style.transition = "box-shadow 0.15s ease";
-        el.style.boxShadow = on ? "0 0 14px rgba(184, 58, 32, 0.9)" : "none";
-      };
-      const beat = () => {
-        setGlow("tw-box-A", true);
-        setGlow("tw-box-i", true);
-        const t1 = setTimeout(() => {
-          setGlow("tw-box-A", false);
-          setGlow("tw-box-i", false);
-        }, 200);
-        const t2 = setTimeout(() => {
-          setGlow("tw-box-A", true);
-          setGlow("tw-box-i", true);
-        }, 400);
-        const t3 = setTimeout(() => {
-          setGlow("tw-box-A", false);
-          setGlow("tw-box-i", false);
-        }, 600);
-        pulseTimeouts.push(t1, t2, t3);
-      };
-      beat();
-      pulseIntervalRef.current = setInterval(beat, 6000);
-    }, glowEnd + 1000);
-
     return () => {
       timeouts.forEach(clearTimeout);
-      pulseTimeouts.forEach(clearTimeout);
+    };
+  }, []);
+
+  useEffect(() => {
+    const setGlow = (el: HTMLSpanElement | null, on: boolean) => {
+      if (!el) return;
+      el.style.transition = "box-shadow 0.15s ease";
+      el.style.boxShadow = on ? "0 0 14px rgba(184, 58, 32, 0.9)" : "none";
+    };
+
+    const runDoublePulse = () => {
+      const aBox = aBoxRef.current;
+      const iBox = iBoxRef.current;
+      if (!aBox || !iBox) return;
+
+      pulseBeatTimeoutsRef.current.forEach(clearTimeout);
+      pulseBeatTimeoutsRef.current = [];
+
+      setGlow(aBox, true);
+      setGlow(iBox, true);
+
+      const t1 = setTimeout(() => {
+        setGlow(aBox, false);
+        setGlow(iBox, false);
+      }, 200);
+      const t2 = setTimeout(() => {
+        setGlow(aBox, true);
+        setGlow(iBox, true);
+      }, 400);
+      const t3 = setTimeout(() => {
+        setGlow(aBox, false);
+        setGlow(iBox, false);
+      }, 600);
+
+      pulseBeatTimeoutsRef.current = [t1, t2, t3];
+    };
+
+    pulseStartTimeoutRef.current = setTimeout(() => {
+      runDoublePulse();
+      pulseIntervalRef.current = setInterval(runDoublePulse, 6000);
+    }, 4000);
+
+    return () => {
+      if (pulseStartTimeoutRef.current) {
+        clearTimeout(pulseStartTimeoutRef.current);
+        pulseStartTimeoutRef.current = null;
+      }
+      pulseBeatTimeoutsRef.current.forEach(clearTimeout);
+      pulseBeatTimeoutsRef.current = [];
       if (pulseIntervalRef.current) {
         clearInterval(pulseIntervalRef.current);
         pulseIntervalRef.current = null;
