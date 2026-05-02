@@ -8,6 +8,14 @@ import caseUlla from "@/assets/case-ulla.png";
 import caseConcerto from "@/assets/case-concerto.png";
 import caseArtSpirit from "@/assets/case-artspirit.png";
 
+export type StemFraFeltet = {
+  quote: string;
+  highlight?: string;
+  attribution: string;
+  size: "sm" | "md" | "lg";
+  indent: "none" | "mid" | "far";
+};
+
 export type CaseStudy = {
   slug: string;
   client: string;
@@ -18,7 +26,7 @@ export type CaseStudy = {
   role: string[];
   approach: string[];
   outcomes: string[];
-  quotes?: { text: string; author: string; emphasis?: string }[];
+  stemmerFraFeltet?: StemFraFeltet[];
 };
 
 export const caseStudies: CaseStudy[] = [
@@ -73,6 +81,44 @@ export const caseStudies: CaseStudy[] = [
       "Over 20% af hørehæmmede elever i den danske folkeskole oplever hyppig ensomhed mod under 4% blandt normalthørende. Der findes ingen nationale retningslinjer for inkluderende praksis.",
     challenge:
       "Eksisterende simuleringer viser hvad høretab gør ved lyden. Ikke hvad det gør ved mennesket — at miste tråden, gå glip af joken, stå udenfor fællesskabet.",
+    stemmerFraFeltet: [
+      {
+        quote: '"Jeg vil ikke lade mit liv dikteres af et høretab."',
+        highlight: "ikke",
+        attribution: "Emil, høreelev",
+        size: "lg",
+        indent: "none",
+      },
+      {
+        quote: '"De fleste hørebørn kommer fra en baggrund af kaos."',
+        highlight: "kaos",
+        attribution: "Marie, elev",
+        size: "md",
+        indent: "far",
+      },
+      {
+        quote: '"Usikkerhedens højborg."',
+        attribution: "Viceforstander, efterskole for hørehæmmede",
+        size: "lg",
+        indent: "mid",
+      },
+      {
+        quote:
+          '"Forestil jer en situation, hvor I følte jer udenfor eller ikke forstod, hvad der foregik. Hvordan føltes det?"',
+        highlight: "Hvordan føltes det?",
+        attribution: "Lærer til klassen, efter simuleringen",
+        size: "sm",
+        indent: "none",
+      },
+      {
+        quote:
+          '"Problematikken handler ikke om manglen på teknologi — men om brugernes interaktion med hjælpemidlerne."',
+        highlight: "brugernes interaktion",
+        attribution: "Audiologopædisk konsulent, Decibel",
+        size: "md",
+        indent: "far",
+      },
+    ],
     role: [
       "Gennemførte 8 dybdegående interviews med lærere, eksperter og hørehæmmede elever",
       "Faciliterede 2 co-design workshops på specialefterskole",
@@ -83,13 +129,6 @@ export const caseStudies: CaseStudy[] = [
       "Autentisk valideret af hørehæmmede deltagere",
       "Ansvaret for inklusion flyttes fra den enkelte elev til skolefællesskabet",
       "Øget empati og delt ansvar i klasserummet",
-    ],
-    quotes: [
-      { text: "Jeg vil ikke lade mit liv dikteres af et høretab.", author: "Emil, høreelev", emphasis: "ikke" },
-      { text: "De fleste hørebørn kommer fra en baggrund af kaos.", author: "Marie, elev", emphasis: "kaos" },
-      { text: "Usikkerhedens højborg.", author: "Viceforstander, Efterskole for hørehæmmede" },
-      { text: "Forestil jer en situation, hvor I følte jer udenfor eller ikke forstod, hvad der foregik. Hvordan føltes det?", author: "Lærer til klassen, efter simuleringen", emphasis: "Hvordan føltes det?" },
-      { text: "Problematikken handler ikke om manglen på teknologi — men om brugernes interaktion med hjælpemidlerne.", author: "Audiologopædisk konsulent, Decibel", emphasis: "brugernes interaktion" },
     ],
   },
   {
