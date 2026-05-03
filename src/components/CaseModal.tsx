@@ -78,6 +78,10 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
             alt={`${study.client} — ${study.title}`}
             className="w-full h-[240px] sm:h-[320px] md:h-[380px] object-cover"
           />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-32 md:h-40 bg-gradient-to-b from-transparent to-[#0D1B2A]"
+          />
           {(() => {
             const idx = caseStudies.findIndex((c) => c.slug === study.slug);
             if (idx === -1) return null;
@@ -138,11 +142,14 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
             {study.slug === "interaktiv-horesimulering" && (
               <>
                 <span className="eyebrow text-ember tracking-[0.2em] block mt-10">— Stemmer fra feltet</span>
-                <img
-                  src={horesimQuotes}
-                  alt="Citater fra hørehæmmede elever, lærere og eksperter"
-                  className="mt-6 w-full h-auto"
-                />
+                <div className="relative mt-6">
+                  <img
+                    src={horesimQuotes}
+                    alt="Citater fra hørehæmmede elever, lærere og eksperter"
+                    className="w-full h-auto"
+                  />
+                  <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-24 md:h-32 bg-gradient-to-b from-transparent to-[#0D1B2A]" />
+                </div>
               </>
             )}
           </ModalSection>
@@ -177,11 +184,14 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
             <div className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-8">
               <div className="md:col-span-3" />
               <div className="md:col-span-9 flex justify-start">
-                <img
-                  src={boligaMockup}
-                  alt="Boliga app mockups: vælg kommune, drømmebolig, boligtype og præferencer"
-                  className="w-full max-w-[480px] h-auto"
-                />
+                <div className="relative w-full max-w-[480px]">
+                  <img
+                    src={boligaMockup}
+                    alt="Boliga app mockups: vælg kommune, drømmebolig, boligtype og præferencer"
+                    className="w-full h-auto"
+                  />
+                  <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-24 md:h-32 bg-gradient-to-b from-transparent to-[#0D1B2A]" />
+                </div>
               </div>
             </div>
           )}
@@ -190,11 +200,14 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
             <div className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-8">
               <div className="md:col-span-3" />
               <div className="md:col-span-9 flex justify-start">
-                <img
-                  src={woltHeatmap}
-                  alt="Heatmap der viser efterspørgsel i realtid i København"
-                  className="w-full max-w-[480px] h-auto"
-                />
+                <div className="relative w-full max-w-[480px]">
+                  <img
+                    src={woltHeatmap}
+                    alt="Heatmap der viser efterspørgsel i realtid i København"
+                    className="w-full h-auto"
+                  />
+                  <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-24 md:h-32 bg-gradient-to-b from-transparent to-[#0D1B2A]" />
+                </div>
               </div>
             </div>
           )}
