@@ -59,14 +59,14 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
       {/* Panel */}
       <div
         ref={panelRef}
-        className="relative ml-auto w-full md:w-[min(960px,92vw)] h-full bg-navy-deep text-cream overflow-y-auto shadow-2xl animate-in slide-in-from-right duration-300"
+        className="relative ml-auto w-full md:w-[min(960px,92vw)] h-full bg-[#0D1B2A] text-cream overflow-y-auto shadow-2xl animate-in slide-in-from-right duration-300"
       >
         {/* Close */}
         <button
           type="button"
           onClick={onClose}
           aria-label="Luk"
-          className="sticky top-4 float-right mr-4 z-10 w-11 h-11 rounded-full bg-navy-deep/80 backdrop-blur border border-cream/20 text-cream flex items-center justify-center text-xl leading-none hover:border-ember hover:text-ember transition-colors"
+          className="sticky top-4 float-right mr-4 z-10 w-11 h-11 rounded-full bg-[#0D1B2A]/80 backdrop-blur border border-cream/20 text-cream flex items-center justify-center text-xl leading-none hover:border-ember hover:text-ember transition-colors"
         >
           ×
         </button>
