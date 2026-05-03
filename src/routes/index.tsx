@@ -313,21 +313,6 @@ function Sidebar() {
           </a>
         </div>
 
-        <nav className="hidden lg:flex flex-col gap-3 text-sm w-full mt-6">
-          {[
-            ["Om mig", "om"],
-            ["Cases", "cases"],
-            ["Kompetencer", "kompetencer"],
-            ["Uddannelse", "uddannelse"],
-            ["Kontakt", "kontakt"],
-          ].map(([label, id], i) => (
-            <a key={id} href={`#${id}`} className="group flex items-center gap-4 text-cream/60 hover:text-cream transition-colors">
-              <span className="tabular-nums text-ember/70 text-xs">0{i + 1}</span>
-              <span className="h-px w-8 bg-cream/20 group-hover:w-16 group-hover:bg-ember transition-all duration-300" />
-              <span className="uppercase tracking-widest">{label}</span>
-            </a>
-          ))}
-        </nav>
       </div>
     </aside>
   );
