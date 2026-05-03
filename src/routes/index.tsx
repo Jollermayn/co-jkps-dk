@@ -280,7 +280,7 @@ function TypewriterQuote() {
 
 function Sidebar() {
   return (
-    <aside className="hero-sidebar relative w-full min-w-0 max-w-full flex flex-col overflow-hidden lg:fixed lg:top-0 lg:right-0 lg:w-[40%] lg:h-screen px-6 md:px-14 lg:px-16 py-12 md:py-20 lg:pt-[8vh] lg:pb-16 border-b lg:border-b-0 lg:border-l border-cream/10 order-1 lg:order-last bg-[#0D1B2A] lg:z-20 lg:rounded-l-xl lg:shadow-[-8px_0_24px_rgba(0,0,0,0.25)] text-center items-center lg:justify-between gap-8 lg:gap-6">
+    <aside className="hero-sidebar relative w-full min-w-0 max-w-full flex flex-col overflow-hidden lg:fixed lg:top-0 lg:right-0 lg:w-[40%] lg:h-screen px-6 md:px-14 lg:px-16 py-12 md:py-20 lg:pt-[8vh] lg:pb-16 border-b lg:border-b-0 lg:border-l border-cream/10 order-1 lg:order-last bg-[#0D1B2A] lg:z-20 lg:rounded-l-xl lg:shadow-[-8px_0_24px_rgba(0,0,0,0.25)] text-center items-center gap-8 lg:gap-6">
       <div className="w-full flex flex-col items-center gap-8 lg:gap-6">
         <p className="text-xs uppercase tracking-[0.3em] text-ember mb-6">Portfolio</p>
         <div className="w-full flex flex-col gap-3 lg:gap-4 items-center text-center">
@@ -312,23 +312,23 @@ function Sidebar() {
             Kontakt mig
           </a>
         </div>
-      </div>
 
-      <nav className="hidden lg:flex flex-col gap-3 text-sm w-full">
-        {[
-          ["Om mig", "om"],
-          ["Cases", "cases"],
-          ["Kompetencer", "kompetencer"],
-          ["Uddannelse", "uddannelse"],
-          ["Kontakt", "kontakt"],
-        ].map(([label, id], i) => (
-          <a key={id} href={`#${id}`} className="group flex items-center gap-4 text-cream/60 hover:text-cream transition-colors">
-            <span className="tabular-nums text-ember/70 text-xs">0{i + 1}</span>
-            <span className="h-px w-8 bg-cream/20 group-hover:w-16 group-hover:bg-ember transition-all duration-300" />
-            <span className="uppercase tracking-widest">{label}</span>
-          </a>
-        ))}
-      </nav>
+        <nav className="hidden lg:flex flex-col gap-3 text-sm w-full mt-6">
+          {[
+            ["Om mig", "om"],
+            ["Cases", "cases"],
+            ["Kompetencer", "kompetencer"],
+            ["Uddannelse", "uddannelse"],
+            ["Kontakt", "kontakt"],
+          ].map(([label, id], i) => (
+            <a key={id} href={`#${id}`} className="group flex items-center gap-4 text-cream/60 hover:text-cream transition-colors">
+              <span className="tabular-nums text-ember/70 text-xs">0{i + 1}</span>
+              <span className="h-px w-8 bg-cream/20 group-hover:w-16 group-hover:bg-ember transition-all duration-300" />
+              <span className="uppercase tracking-widest">{label}</span>
+            </a>
+          ))}
+        </nav>
+      </div>
     </aside>
   );
 }
