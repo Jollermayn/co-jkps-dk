@@ -61,27 +61,26 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
         ref={panelRef}
         className="relative ml-auto w-full md:w-[min(960px,92vw)] h-full bg-[#0D1B2A] text-cream overflow-y-auto shadow-2xl animate-in slide-in-from-right duration-300"
       >
-        {/* Close */}
-        <button
-          type="button"
-          onClick={onClose}
-          aria-label="Luk"
-          className="sticky top-4 float-right mr-4 z-10 w-11 h-11 rounded-full bg-[#0D1B2A]/80 backdrop-blur border border-cream/20 text-cream flex items-center justify-center text-xl leading-none hover:border-ember hover:text-ember transition-colors"
-        >
-          ×
-        </button>
-
         {/* Hero image */}
         <figure className="relative w-full">
           <img
             src={study.image}
             alt={`${study.client} — ${study.title}`}
-            className="w-full h-[240px] sm:h-[320px] md:h-[380px] object-cover"
+            className="block w-full h-[240px] sm:h-[320px] md:h-[380px] object-cover"
           />
           <div
             aria-hidden
             className="pointer-events-none absolute inset-x-0 bottom-0 h-32 md:h-40 bg-gradient-to-b from-transparent to-[#0D1B2A]"
           />
+          {/* Close */}
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Luk"
+            className="absolute top-4 right-4 z-30 w-11 h-11 rounded-full bg-[#0D1B2A]/80 backdrop-blur border border-cream/20 text-cream flex items-center justify-center text-xl leading-none hover:border-ember hover:text-ember transition-colors"
+          >
+            ×
+          </button>
           {(() => {
             const idx = caseStudies.findIndex((c) => c.slug === study.slug);
             if (idx === -1) return null;
