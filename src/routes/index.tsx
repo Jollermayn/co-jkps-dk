@@ -717,14 +717,14 @@ function CasesSection() {
           </div>
           {/* Arrow nav — right side, same row as filter */}
           {!isGrid && (
-            <div className="hidden md:flex items-center gap-3">
+            <div className="hidden md:flex items-center gap-2">
               <button
                 type="button"
                 aria-label="Forrige case"
                 onClick={showPreviousCase}
-                className="w-12 h-12 rounded-full border border-cream/25 text-cream flex items-center justify-center transition-colors hover:border-[#B83A20] hover:text-[#B83A20]"
+                className="w-9 h-9 rounded-full border border-cream/25 text-cream flex items-center justify-center transition-colors hover:border-[#B83A20] hover:text-[#B83A20]"
               >
-                <span aria-hidden className="text-xl leading-none">
+                <span aria-hidden className="text-base leading-none">
                   ←
                 </span>
               </button>
@@ -732,9 +732,9 @@ function CasesSection() {
                 type="button"
                 aria-label="Næste case"
                 onClick={showNextCase}
-                className="w-12 h-12 rounded-full border border-cream/25 text-cream flex items-center justify-center transition-colors hover:border-[#B83A20] hover:text-[#B83A20]"
+                className="w-9 h-9 rounded-full border border-cream/25 text-cream flex items-center justify-center transition-colors hover:border-[#B83A20] hover:text-[#B83A20]"
               >
-                <span aria-hidden className="text-xl leading-none">
+                <span aria-hidden className="text-base leading-none">
                   →
                 </span>
               </button>
