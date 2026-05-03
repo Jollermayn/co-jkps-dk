@@ -312,7 +312,7 @@ function Sidebar() {
         </a>
       </div>
 
-      <nav className="flex flex-col gap-3 text-sm w-full mt-36">
+      <nav className="hidden lg:flex flex-col gap-3 text-sm w-full mt-36">
         {[
           ["Om mig", "om"],
           ["Cases", "cases"],
