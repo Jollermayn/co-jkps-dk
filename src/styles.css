@@ -168,10 +168,11 @@
     overscroll-behavior-x: contain;
   }
 
-  .hero-quote,
   .hero-quote > span {
-    white-space: normal !important;
-    overflow-wrap: anywhere;
+    white-space: nowrap !important;
+  }
+  .hero-quote {
+    font-size: clamp(1rem, 5.2vw, 1.6rem) !important;
   }
 }
 
