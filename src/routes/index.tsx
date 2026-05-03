@@ -280,39 +280,41 @@ function TypewriterQuote() {
 
 function Sidebar() {
   return (
-    <aside className="hero-sidebar relative w-full min-w-0 max-w-full flex flex-col gap-8 lg:gap-6 lg:fixed lg:top-0 lg:right-0 lg:w-[40%] lg:h-screen lg:overflow-hidden px-6 md:px-14 lg:px-16 py-12 md:py-20 lg:pt-[8vh] lg:pb-16 border-b lg:border-b-0 lg:border-l border-cream/10 order-1 lg:order-last bg-[#0D1B2A] lg:z-20 lg:rounded-l-xl lg:shadow-[-8px_0_24px_rgba(0,0,0,0.25)] text-center items-center lg:justify-start">
-      <p className="text-xs uppercase tracking-[0.3em] text-ember mb-6">Portfolio</p>
-      <div className="w-full flex flex-col gap-3 lg:gap-4 items-center text-center">
-        <h1 className="font-display tracking-[-0.02em] font-medium text-center px-2 flex flex-col items-center leading-none">
-          <span className="block text-[clamp(3.5rem,10vw,6rem)] leading-none" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700 }}>Jonas</span>
-          <span className="block text-[clamp(3.5rem,10vw,6rem)] leading-none -mt-[0.08em]" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700 }}>Sørensen</span>
-        </h1>
-        <p className="hero-subtitle text-xl leading-relaxed lg:text-2xl lg:leading-snug text-cream/85 italic text-center" style={{ fontFamily: "'Playfair Display', serif" }}>
-          Digital konsulent.
-        </p>
-        <blockquote className="max-w-full w-full text-center mt-6 lg:mt-16 lg:-translate-y-[15px]">
-          <TypewriterQuote />
-        </blockquote>
+    <aside className="hero-sidebar relative w-full min-w-0 max-w-full flex flex-col overflow-hidden lg:fixed lg:top-0 lg:right-0 lg:w-[40%] lg:h-screen px-6 md:px-14 lg:px-16 py-12 md:py-20 lg:pt-[8vh] lg:pb-16 border-b lg:border-b-0 lg:border-l border-cream/10 order-1 lg:order-last bg-[#0D1B2A] lg:z-20 lg:rounded-l-xl lg:shadow-[-8px_0_24px_rgba(0,0,0,0.25)] text-center items-center lg:justify-between gap-8 lg:gap-6">
+      <div className="w-full flex flex-col items-center gap-8 lg:gap-6">
+        <p className="text-xs uppercase tracking-[0.3em] text-ember mb-6">Portfolio</p>
+        <div className="w-full flex flex-col gap-3 lg:gap-4 items-center text-center">
+          <h1 className="font-display tracking-[-0.02em] font-medium text-center px-2 flex flex-col items-center leading-none">
+            <span className="block text-[clamp(3.5rem,10vw,6rem)] leading-none" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700 }}>Jonas</span>
+            <span className="block text-[clamp(3.5rem,10vw,6rem)] leading-none -mt-[0.08em]" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700 }}>Sørensen</span>
+          </h1>
+          <p className="hero-subtitle text-xl leading-relaxed lg:text-2xl lg:leading-snug text-cream/85 italic text-center" style={{ fontFamily: "'Playfair Display', serif" }}>
+            Digital konsulent.
+          </p>
+          <blockquote className="max-w-full w-full text-center mt-6 lg:mt-16 lg:-translate-y-[15px]">
+            <TypewriterQuote />
+          </blockquote>
+        </div>
+
+        <div className="flex flex-col items-center gap-6 lg:gap-3 w-full text-center lg:translate-y-[15px]">
+          <a
+            href="/jonas-kp-sorensen-cv.pdf"
+            download
+            className="group/cv inline-flex items-center justify-center gap-3 text-sm font-semibold tracking-wide bg-transparent text-[#F5F0E8] border-2 border-[#F5F0E8] hover:bg-[#F5F0E8] hover:text-[#0D1B2A] hover:border-[#F5F0E8] transition-all duration-300 ease-out"
+            style={{ padding: "12px 28px", borderRadius: "50px" }}
+          >
+            Download CV (PDF)
+          </a>
+          <a
+            href="#kontakt"
+            className="inline-flex items-center justify-center gap-2 text-[1.1rem] font-bold tracking-wide text-[#B83A20] underline underline-offset-4 hover:text-cream active:text-cream transition-colors duration-300"
+          >
+            Kontakt mig
+          </a>
+        </div>
       </div>
 
-      <div className="flex flex-col items-center gap-6 lg:gap-3 w-full text-center lg:translate-y-[15px]">
-        <a
-          href="/jonas-kp-sorensen-cv.pdf"
-          download
-          className="group/cv inline-flex items-center justify-center gap-3 text-sm font-semibold tracking-wide bg-transparent text-[#F5F0E8] border-2 border-[#F5F0E8] hover:bg-[#F5F0E8] hover:text-[#0D1B2A] hover:border-[#F5F0E8] transition-all duration-300 ease-out"
-          style={{ padding: "12px 28px", borderRadius: "50px" }}
-        >
-          Download CV (PDF)
-        </a>
-        <a
-          href="#kontakt"
-          className="inline-flex items-center justify-center gap-2 text-[1.1rem] font-bold tracking-wide text-[#B83A20] underline underline-offset-4 hover:text-cream active:text-cream transition-colors duration-300"
-        >
-          Kontakt mig
-        </a>
-      </div>
-
-      <nav className="hidden lg:flex flex-col gap-3 text-sm w-full mt-36">
+      <nav className="hidden lg:flex flex-col gap-3 text-sm w-full">
         {[
           ["Om mig", "om"],
           ["Cases", "cases"],
