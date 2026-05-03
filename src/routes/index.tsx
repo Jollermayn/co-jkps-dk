@@ -333,11 +333,12 @@ function Index() {
             <div className="px-12 md:px-14">
               <Eyebrow>Om mig</Eyebrow>
               <div className="mt-8 max-w-3xl space-y-6 text-cream/80 text-lg leading-relaxed">
-                <p>
+                <p className="text-xl md:text-2xl leading-relaxed text-cream font-light">
                   Fælles for alt mit arbejde er interessen for det øjeblik hvor noget abstrakt bliver konkret — hvor en
-                  idé finder sin form, en oplevelse finder sit udtryk, en fortælling finder sin modtager. Jeg er på
-                  hjemmebane når disciplinerne overlapper, og tiltrukket af de projekter der ikke lader sig løse med én
-                  faglighed alene.
+                  idé finder sin form, en oplevelse finder sit udtryk, en fortælling finder sin modtager.
+                </p>
+                <p>
+                  Jeg er på hjemmebane når disciplinerne overlapper, og tiltrukket af de projekter der ikke lader sig løse med én faglighed alene.
                 </p>
                 <p>
                   Selvstændig konsulent siden 2016 — med klienter som DR, Amnesty International og Danmarks
