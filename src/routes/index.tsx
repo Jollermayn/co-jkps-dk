@@ -30,31 +30,38 @@ export const Route = createFileRoute("/")({
 const competencies = [
   {
     no: "1",
+    title: "Læringsdesign & Børneformidling",
+    sub: "Indhold til børn og unge",
+    body: "Udvikling af læringsindhold og formidlingsværktøjer til børn og unge. Erfaring med co-design i skoleregi, AI-baserede formidlingsprojekter og lydlige læringsformater til målgruppen 7-12 år.",
+    tags: ["Børn og unge", "Digital dannelse", "Co-design", "Læringsindhold", "AI"],
+  },
+  {
+    no: "2",
     title: "UX Research",
     sub: "Research & Brugerinddragelse",
     body: "Dybdegående indsigt gennem interviews, observationer, co-design og brugertest. Jeg oversætter kompleks adfærd til handlebare designbeslutninger.",
     tags: ["Interviews", "Feltobservation", "Co-design", "Mixed methods", "Facilitering", "Workshops"],
   },
   {
-    no: "2",
+    no: "3",
+    title: "Medie- & Lydproduktion",
+    sub: "Fra studie til kanal",
+    body: "Professionel podcast-, video- og lydproduktion fra studie til kanal. Teknisk kompetence kombineret med journalistisk næse for det gode indhold.",
+    tags: ["Redaktionel tilrettelæggelse", "Postproduktion", "Indholdsproduktion"],
+  },
+  {
+    no: "4",
     title: "Service- & Konceptdesign",
     sub: "Fra problem til realiserbart koncept",
     body: "Fra identifikation af problemet til et konkret, realiserbart koncept. Jeg designer brugerrejser, touchpoints og serviceoplevelser der skaber reel værdi.",
     tags: ["Brugerrejser", "Touchpoints", "Participatorisk design", "Konceptvalidering"],
   },
   {
-    no: "3",
+    no: "5",
     title: "Digital Strategi & Brand",
     sub: "Stemme, position og indhold",
     body: "Strategisk rådgivning om digital tilstedeværelse, indhold og positionering. Jeg hjælper organisationer med at finde og kommunikere deres unikke stemme.",
     tags: ["Kommunikation", "Visuel identitet", "Indholdsarkitektur", "Positionering"],
-  },
-  {
-    no: "4",
-    title: "Medie- & Lydproduktion",
-    sub: "Fra studie til kanal",
-    body: "Professionel podcast-, video- og lydproduktion fra studie til kanal. Teknisk kompetence kombineret med journalistisk næse for det gode indhold.",
-    tags: ["Redaktionel tilrettelæggelse", "Postproduktion", "Indholdsproduktion"],
   },
 ];
 
