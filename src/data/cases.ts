@@ -29,7 +29,7 @@ export type CaseStudy = {
   stemmerFraFeltet?: StemFraFeltet[];
 };
 
-export const caseStudies: CaseStudy[] = [
+const caseStudiesUnordered: CaseStudy[] = [
   {
     slug: "wolt",
     client: "Wolt",
