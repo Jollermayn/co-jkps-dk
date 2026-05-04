@@ -296,13 +296,15 @@ function Sidebar() {
             <span className="block whitespace-nowrap text-[clamp(3.5rem,9vw,6rem)] leading-none -mt-[0.08em]" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700 }}>Sørensen</span>
           </h1>
           <p className="hero-subtitle text-xl leading-relaxed lg:text-2xl lg:leading-snug text-cream/85 italic text-center" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Digital konsulent.
+            Formidler · Læringsdesigner · Kreativ producer
           </p>
           <p className="text-xs md:text-sm uppercase tracking-[0.25em] text-cream/55 mt-1">
             UX · kommunikation · kreativ produktion
           </p>
           <blockquote className="max-w-full w-full text-center mt-6 lg:mt-16 lg:-translate-y-[15px]">
-            <TypewriterQuote />
+            <p className="text-cream/85 italic text-base md:text-lg leading-relaxed" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Teknologi opstår ikke af sig selv. Den er skabt af mennesker — og børn kan lære at forstå og forme den.
+            </p>
           </blockquote>
         </div>
 
