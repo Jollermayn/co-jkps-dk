@@ -30,38 +30,31 @@ export const Route = createFileRoute("/")({
 const competencies = [
   {
     no: "1",
-    title: "Læringsdesign & Børneformidling",
-    sub: "Indhold til børn og unge",
-    body: "Udvikling af læringsindhold og formidlingsværktøjer til børn og unge. Erfaring med co-design i skoleregi, AI-baserede formidlingsprojekter og lydlige læringsformater til målgruppen 7-12 år.",
-    tags: ["Børn og unge", "Digital dannelse", "Co-design", "Læringsindhold", "AI"],
-  },
-  {
-    no: "2",
     title: "UX Research",
     sub: "Research & Brugerinddragelse",
     body: "Dybdegående indsigt gennem interviews, observationer, co-design og brugertest. Jeg oversætter kompleks adfærd til handlebare designbeslutninger.",
     tags: ["Interviews", "Feltobservation", "Co-design", "Mixed methods", "Facilitering", "Workshops"],
   },
   {
-    no: "3",
-    title: "Medie- & Lydproduktion",
-    sub: "Fra studie til kanal",
-    body: "Professionel podcast-, video- og lydproduktion fra studie til kanal. Teknisk kompetence kombineret med journalistisk næse for det gode indhold.",
-    tags: ["Redaktionel tilrettelæggelse", "Postproduktion", "Indholdsproduktion"],
-  },
-  {
-    no: "4",
+    no: "2",
     title: "Service- & Konceptdesign",
     sub: "Fra problem til realiserbart koncept",
     body: "Fra identifikation af problemet til et konkret, realiserbart koncept. Jeg designer brugerrejser, touchpoints og serviceoplevelser der skaber reel værdi.",
     tags: ["Brugerrejser", "Touchpoints", "Participatorisk design", "Konceptvalidering"],
   },
   {
-    no: "5",
+    no: "3",
     title: "Digital Strategi & Brand",
     sub: "Stemme, position og indhold",
     body: "Strategisk rådgivning om digital tilstedeværelse, indhold og positionering. Jeg hjælper organisationer med at finde og kommunikere deres unikke stemme.",
     tags: ["Kommunikation", "Visuel identitet", "Indholdsarkitektur", "Positionering"],
+  },
+  {
+    no: "4",
+    title: "Medie- & Lydproduktion",
+    sub: "Fra studie til kanal",
+    body: "Professionel podcast-, video- og lydproduktion fra studie til kanal. Teknisk kompetence kombineret med journalistisk næse for det gode indhold.",
+    tags: ["Redaktionel tilrettelæggelse", "Postproduktion", "Indholdsproduktion"],
   },
 ];
 
@@ -296,15 +289,13 @@ function Sidebar() {
             <span className="block whitespace-nowrap text-[clamp(3.5rem,9vw,6rem)] leading-none -mt-[0.08em]" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700 }}>Sørensen</span>
           </h1>
           <p className="hero-subtitle text-xl leading-relaxed lg:text-2xl lg:leading-snug text-cream/85 italic text-center" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Formidler · Læringsdesigner · Kreativ producer
+            Digital konsulent.
           </p>
           <p className="text-xs md:text-sm uppercase tracking-[0.25em] text-cream/55 mt-1">
             UX · kommunikation · kreativ produktion
           </p>
           <blockquote className="max-w-full w-full text-center mt-6 lg:mt-16 lg:-translate-y-[15px]">
-            <p className="text-cream/85 italic text-base md:text-lg leading-relaxed" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Teknologi opstår ikke af sig selv. Den er skabt af mennesker — og børn kan lære at forstå og forme den.
-            </p>
+            <TypewriterQuote />
           </blockquote>
         </div>
 
@@ -414,18 +405,6 @@ function Index() {
                   </div>
                   <p className="col-span-12 lg:col-span-5 lg:col-start-auto col-start-3 md:col-start-2 lg:mt-0 mt-3 text-cream/80 leading-relaxed">
                     Praksisnær uddannelse i lyd, medieproduktion og kommunikation.
-                  </p>
-                </li>
-                <li className="py-8 md:py-10 grid grid-cols-12 gap-6">
-                  <span className="col-span-2 md:col-span-1 font-display text-2xl text-ember">03</span>
-                  <div className="col-span-10 md:col-span-11 lg:col-span-6">
-                    <h3 className="font-display text-2xl md:text-[1.7rem] tracking-tight leading-snug break-words [overflow-wrap:anywhere]">
-                      Sociologi & Kulturanalyse
-                    </h3>
-                    <p className="mt-2 text-sm text-cream/55 italic">Aarhus Universitet · 2010</p>
-                  </div>
-                  <p className="col-span-12 lg:col-span-5 lg:col-start-auto col-start-3 md:col-start-2 lg:mt-0 mt-3 text-cream/80 leading-relaxed">
-                    Første år af bacheloruddannelsen med fokus på samfundsanalyse, kulturforståelse og sociologisk metode.
                   </p>
                 </li>
               </ul>
