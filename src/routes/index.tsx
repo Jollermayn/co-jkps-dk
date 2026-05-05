@@ -968,7 +968,7 @@ const TAG_TO_SLUGS: Record<string, string[]> = {
   "Børn og unge": ["interaktiv-horesimulering", "ulla-dyrlov"],
   "Digital dannelse": ["interaktiv-horesimulering", "wolt"],
   Læringsindhold: ["ulla-dyrlov", "interaktiv-horesimulering"],
-  AI: ["wolt"],
+  AI: ["wolt", "interaktiv-horesimulering"],
 };
 
 const TAG_HEADLINES: Record<string, string> = {
