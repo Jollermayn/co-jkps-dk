@@ -527,11 +527,11 @@ const CASE_META: Record<string, { headline: string; tags: string[] }> = {
   },
   "interaktiv-horesimulering": {
     headline: "Inklusion i undervisningen",
-    tags: ["UX Research", "Co-Creation"],
+    tags: ["Læringsdesign", "Co-design", "Digital dannelse"],
   },
   "danmarks-radio": {
     headline: "Digitale og lydbaserede formater",
-    tags: ["Kommunikation"],
+    tags: ["Redaktionel tilrettelæggelse", "Lydbaseret formidling", "Broadcast"],
   },
   "amnesty-international": {
     headline: "Menneskerettigheder til konkret indhold",
@@ -539,11 +539,11 @@ const CASE_META: Record<string, { headline: string; tags: string[] }> = {
   },
   "danmarks-naturfredningsforening": {
     headline: "Bæredygtighed og brandudvikling",
-    tags: ["Kommunikation", "Brandudvikling"],
+    tags: ["Indholdsstrategi", "Ungeformidling", "Kommunikation"],
   },
   "ulla-dyrlov": {
     headline: "Koncept og platform fra bunden",
-    tags: ["Brandudvikling"],
+    tags: ["Læringsindhold", "Børn og forældre", "Podcastproduktion"],
   },
   "concerto-copenhagen": {
     headline: "Publikumsengagement gennem kulturformidling",
