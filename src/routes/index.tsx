@@ -519,7 +519,7 @@ type Filter = (typeof FILTERS)[number];
 const CASE_META: Record<string, { headline: string; tags: string[] }> = {
   wolt: {
     headline: "Fra usynlig algoritme til informeret bud",
-    tags: ["UX Research", "Service Design"],
+    tags: ["Konceptudvikling", "Algoritmekritik", "Digital dannelse"],
   },
   boliga: {
     headline: "Reduceret kompleksitet i boligsøgning",
