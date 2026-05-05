@@ -266,7 +266,9 @@ const _order = [
 ];
 
 export const caseStudies: CaseStudy[] = [
-  ..._order.map((s) => _allCases.find((c) => c.slug === s)!).filter(Boolean),
+  ..._order
+    .map((s) => _allCases.find((c) => c.slug === s))
+    .filter((c): c is CaseStudy => Boolean(c)),
   ..._allCases.filter((c) => !_order.includes(c.slug)),
 ];
 
