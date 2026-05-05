@@ -141,14 +141,14 @@ const _allCases: CaseStudy[] = [
     challenge:
       "At navigere i en stor, kompleks medieorganisation og levere teknisk og redaktionel kvalitet under tidspres i et professionelt broadcast-miljø.",
     role: [
+      "Koordinerede tværgående processer på tværs af redaktioner og sikrede fremdrift under stram tidsstyring",
       "Stod for podcastproduktion og postproduktion",
-      "Koordinerede på tværs af redaktioner og teams",
-      "Sikrede teknisk og redaktionel kvalitet i produktionen",
+      "Sikrede redaktionel og teknisk kvalitet i produktionen",
     ],
-    approach: ["Redaktionel tilrettelæggelse", "Postproduktion", "Tværgående koordinering"],
+    approach: ["Redaktionel tilrettelæggelse", "Tværgående koordinering", "Postproduktion"],
     outcomes: [
-      "Leveret broadcast-kvalitet indhold til Danmarks største medieplatform",
-      "Opbygget erfaring med professionel medieproduktion i stor skala",
+      "Koordinerede produktioner på tværs af flere DR-redaktioner",
+      "Sikrede redaktionel og teknisk kvalitet under stram tidsstyring i Danmarks største medieorganisation",
     ],
   },
   {
