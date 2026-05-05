@@ -285,3 +285,14 @@
 .ai-color-pulse {
   animation: ai-color-pulse 0.7s ease-in-out 1;
 }
+
+@keyframes arrow-bounce-down {
+  0%, 100% { transform: translateY(0); }
+  20%      { transform: translateY(3px); }
+  40%      { transform: translateY(0); }
+  60%      { transform: translateY(3px); }
+  80%      { transform: translateY(0); }
+}
+.group:hover .arrow-bounce-down {
+  animation: arrow-bounce-down 1.2s ease-in-out infinite;
+}
