@@ -348,7 +348,7 @@ function Index() {
                   Jeg er på hjemmebane når disciplinerne overlapper, og tiltrukket af de projekter der ikke lader sig løse med én faglighed alene.
                 </p>
                 <p>
-                  Selvstændig konsulent siden 2016 — med klienter som DR, Amnesty International og Danmarks
+                  De seneste ti år har jeg arbejdet selvstændigt med klienter som DR, Amnesty International og Danmarks
                   Naturfredningsforening. Med særlig interesse for formidling til børn og unge i skæringspunktet mellem teknologi, læring og menneskelig indsigt.
                 </p>
                 <p className="text-cream/60 italic font-display">
