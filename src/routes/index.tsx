@@ -296,7 +296,7 @@ function Sidebar() {
             <span className="block whitespace-nowrap text-[clamp(3.5rem,9vw,6rem)] leading-none -mt-[0.08em]" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700 }}>Sørensen</span>
           </h1>
           <p className="hero-subtitle text-xl leading-relaxed lg:text-2xl lg:leading-snug text-cream/85 italic text-center" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Redaktionel tilrettelægger & formidler
+            Redaktionel tilrettelægger <span style={{ fontFamily: "'Apple Chancery', 'Snell Roundhand', 'Zapfino', 'Adobe Caslon Pro', Garamond, Georgia, serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.15em", letterSpacing: "0.02em", verticalAlign: "-0.02em" }}>&amp;</span> formidler
           </p>
           <p className="text-xs md:text-sm uppercase tracking-[0.25em] text-cream/55 mt-1">
             Læring · Medier · Teknologi
