@@ -29,8 +29,7 @@ export type CaseStudy = {
   stemmerFraFeltet?: StemFraFeltet[];
 };
 
-export const caseStudies: CaseStudy[] = [
-  {
+const _wolt: CaseStudy = {
     slug: "wolt",
     client: "Wolt",
     title: "Fra usynlig algoritme til informeret bud",
