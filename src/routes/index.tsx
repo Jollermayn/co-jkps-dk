@@ -828,7 +828,7 @@ function CasesSection() {
               onBlur={() => variant === "slider" && setHoveredIndex(null)}
               className={
                 "group flex flex-col text-left rounded-lg border border-cream/10 bg-navy/30 hover:bg-[rgba(255,255,255,0.04)] overflow-hidden transition-all duration-300 ease-out hover:-translate-y-[3px] " +
-                (variant === "slider" ? "case-card-cursor " : "cursor-pointer ") +
+                "cursor-pointer " +
                 sizing
               }
             >

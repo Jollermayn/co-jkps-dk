@@ -297,8 +297,3 @@
   animation: arrow-bounce-down 1.2s ease-in-out infinite;
 }
 
-/* Custom cursor for case cards — circular badge with arrow */
-.case-card-cursor,
-.case-card-cursor * {
-  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 44 44'><circle cx='22' cy='22' r='20' fill='%23B83A20' stroke='%23F5F0E8' stroke-width='2'/><path d='M18 16 L26 22 L18 28 Z' fill='%23F5F0E8'/></svg>") 22 22, pointer;
-}
