@@ -37,31 +37,31 @@ const competencies = [
   },
   {
     no: "2",
-    title: "UX Research",
+    title: "Medie- & Lydproduktion",
+    sub: "Fra studie til kanal",
+    body: "Professionel podcast-, video- og lydproduktion fra studie til kanal. Teknisk kompetence kombineret med journalistisk næse for det gode indhold.",
+    tags: ["Redaktionel tilrettelæggelse", "Postproduktion", "Indholdsproduktion"],
+  },
+  {
+    no: "3",
+    title: "Brugerindsigt & Co-design",
     sub: "Research & Brugerinddragelse",
     body: "Dybdegående indsigt gennem interviews, observationer, co-design og brugertest. Jeg oversætter kompleks adfærd til handlebare designbeslutninger.",
     tags: ["Interviews", "Feltobservation", "Co-design", "Mixed methods", "Facilitering", "Workshops"],
   },
   {
-    no: "3",
-    title: "Service- & Konceptdesign",
+    no: "4",
+    title: "Konceptudvikling & Redaktionel udvikling",
     sub: "Fra problem til realiserbart koncept",
     body: "Fra identifikation af problemet til et konkret, realiserbart koncept. Jeg designer brugerrejser, touchpoints og serviceoplevelser der skaber reel værdi.",
     tags: ["Brugerrejser", "Touchpoints", "Participatorisk design", "Konceptvalidering"],
   },
   {
-    no: "4",
-    title: "Digital Strategi & Brand",
+    no: "5",
+    title: "Indholdsstrategi & Kommunikation",
     sub: "Stemme, position og indhold",
     body: "Strategisk rådgivning om digital tilstedeværelse, indhold og positionering. Jeg hjælper organisationer med at finde og kommunikere deres unikke stemme.",
     tags: ["Kommunikation", "Visuel identitet", "Indholdsarkitektur", "Positionering"],
-  },
-  {
-    no: "5",
-    title: "Medie- & Lydproduktion",
-    sub: "Fra studie til kanal",
-    body: "Professionel podcast-, video- og lydproduktion fra studie til kanal. Teknisk kompetence kombineret med journalistisk næse for det gode indhold.",
-    tags: ["Redaktionel tilrettelæggelse", "Postproduktion", "Indholdsproduktion"],
   },
 ];
 
