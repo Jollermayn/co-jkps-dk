@@ -263,8 +263,11 @@ const _order = [
   "interaktiv-horesimulering",
   "danmarks-radio",
   "ulla-dyrlov",
-  "danmarks-naturfredningsforening",
+  "concerto-copenhagen",
   "amnesty-international",
+  "danmarks-naturfredningsforening",
+  "boliga",
+  "wolt",
 ];
 
 export const caseStudies: CaseStudy[] = [
