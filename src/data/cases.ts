@@ -122,7 +122,7 @@ const _allCases: CaseStudy[] = [
     role: [
       "Gennemførte 8 dybdegående interviews med lærere, eksperter og hørehæmmede elever",
       "Faciliterede 2 co-design workshops på specialefterskole",
-      "Udviklede interaktiv binaural høretabssimulering",
+      "Anvendte AI til at generere speak og kalibrere binaurale lydscenarier baseret på audiologiske data",
     ],
     approach: ["Co-design", "Participatorisk design", "Konceptudvikling"],
     outcomes: [
