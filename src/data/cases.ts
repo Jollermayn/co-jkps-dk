@@ -29,7 +29,7 @@ export type CaseStudy = {
   stemmerFraFeltet?: StemFraFeltet[];
 };
 
-export const caseStudies: CaseStudy[] = [
+const _allCases: CaseStudy[] = [
   {
     slug: "wolt",
     client: "Wolt",
@@ -255,6 +255,21 @@ export const caseStudies: CaseStudy[] = [
       "Skalerbart fundament for fremtidig vækst",
     ],
   },
+];
+
+const _order = [
+  "interaktiv-horesimulering",
+  "danmarks-radio",
+  "ulla-dyrlov",
+  "danmarks-naturfredningsforening",
+  "amnesty-international",
+];
+
+export const caseStudies: CaseStudy[] = [
+  ..._order
+    .map((s) => _allCases.find((c) => c.slug === s))
+    .filter((c): c is CaseStudy => Boolean(c)),
+  ..._allCases.filter((c) => !_order.includes(c.slug)),
 ];
 
 export const getCaseBySlug = (slug: string) => caseStudies.find((c) => c.slug === slug);
