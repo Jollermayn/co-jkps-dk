@@ -199,17 +199,18 @@ const _allCases: CaseStudy[] = [
     context:
       "Ulla Dyrløv er TV-børnepsykolog og arbejder med børns trivsel og mentale sundhed. Samarbejdet handlede om at bygge en professionel lydidentitet og podcastplatform op fra bunden i hendes psykologpraksis.",
     challenge:
-      "At omsætte en psykologs faglige ekspertise til en tilgængelig og professionel lyddimension — fra fysisk studieopsætning til digitalt indhold der rammer forældre og børn.",
+      "At omsætte en psykologs faglige ekspertise til en tilgængelig og professionel lyddimension — fra fysisk studieopssætning til digitalt indhold der rammer forældre og børn. Fordi børn og forældre skulle mødes i kendte og trygge rammer, ikke i et fremmed studie.",
     role: [
       "Byggede et professionelt lydstudio op i hendes praksis",
       "Stod for podcastproduktion og postproduktion",
       "Koordinerede kreative processer og udviklede social media-koncept",
+      "Sikrede at optagelsesmiljøet matchede målgruppens præmisser",
     ],
     approach: ["Lydidentitet", "Studieopsætning", "Podcastproduktion", "Indholdsstrategi"],
     outcomes: [
       "Færdigt og fungerende lydstudio i psykologpraksis",
       "Professionel podcastproduktion målrettet forældre og børn",
-      "Sammenhængende social media-koncept",
+      "Indhold der tager udgangspunkt i børns og forældres egne præmisser",
     ],
   },
   {
