@@ -418,12 +418,12 @@ function Index() {
                   <span className="col-span-2 md:col-span-1 font-display text-2xl text-ember">03</span>
                   <div className="col-span-10 md:col-span-11 lg:col-span-6">
                     <h3 className="font-display text-2xl md:text-[1.7rem] tracking-snug leading-snug break-words [overflow-wrap:anywhere]">
-                      Sociologi & <span className="italic text-ember">Kulturanalyse</span>
+                      Sociologi & Kulturanalyse
                     </h3>
                     <p className="mt-2 text-sm text-cream/55 italic">Syddansk Universitet · 2011</p>
                   </div>
                   <p className="col-span-12 lg:col-span-5 lg:col-start-auto col-start-3 md:col-start-2 lg:mt-0 mt-3 text-cream/80 leading-relaxed">
-                    Første år af bacheloruddannelsen — et fundament i kulturteoretisk analyse, samfundsforståelse og sociologisk metode. Et blivende intellektuelt afsæt for den måde, jeg aflæser mennesker, kontekster og kulturelle strømninger på i mit virke i dag.
+                    Første år af bacheloren — et fagligt afsæt i kulturteori, samfundsanalyse og sociologisk metode.
                   </p>
                 </li>
               </ul>
