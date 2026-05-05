@@ -30,7 +30,7 @@ export const Route = createFileRoute("/")({
 const competencies = [
   {
     no: "1",
-    title: "Læringsdesign & Børneformidling",
+    title: "Læringsdesign & Formidling til børn og unge",
     sub: "Indhold og værktøjer til børn og unge",
     body: "Udvikling af læringsindhold og formidlingsværktøjer til børn og unge. Erfaring med co-design i skoleregi, AI-baserede formidlingsprojekter og lydlige læringsformater til målgruppen 7–12 år.",
     tags: ["Børn og unge", "Digital dannelse", "Co-design", "Læringsindhold", "AI"],
