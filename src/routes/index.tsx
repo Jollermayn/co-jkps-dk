@@ -616,16 +616,18 @@ function CasesSection() {
     });
   };
 
+  const SCROLL_STEP = 3;
+
   const showNextCase = () => {
     if (!filtered.length) return;
-    const next = (currentIndex + 1) % filtered.length;
+    const next = (currentIndex + SCROLL_STEP) % filtered.length;
     setCurrentIndex(next);
     scrollToIndex(next);
   };
 
   const showPreviousCase = () => {
     if (!filtered.length) return;
-    const prev = (currentIndex - 1 + filtered.length) % filtered.length;
+    const prev = (currentIndex - SCROLL_STEP + filtered.length) % filtered.length;
     setCurrentIndex(prev);
     scrollToIndex(prev);
   };
