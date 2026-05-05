@@ -179,7 +179,7 @@ const _allCases: CaseStudy[] = [
     context:
       "Danmarks Naturfredningsforening er Danmarks største naturorganisation. Samarbejdet tog udgangspunkt i Den Grønne Sommerhøjskole med fokus på bæredygtighed og naturformidling.",
     challenge:
-      "At skabe professionelt medievisuals og strategisk kommunikation der kunne formidle naturorganisationens kerneværdier til nye og yngre målgrupper.",
+      "At skabe professionelt medievisuals og strategisk kommunikation der kunne formidle naturorganisationens kerneværdier til nye og yngre målgrupper — særligt unge der skal møde naturen med nysgerrighed.",
     role: [
       "Stod for det samlede medieproduktionssetup — film, interview og branding video",
       "Producerede sociale medier-indhold og strategisk kommunikation",
