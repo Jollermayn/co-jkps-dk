@@ -349,7 +349,7 @@ function Index() {
                 </p>
                 <p>
                   Selvstændig konsulent siden 2016 — med klienter som DR, Amnesty International og Danmarks
-                  Naturfredningsforening.
+                  Naturfredningsforening. Med særlig interesse for formidling til børn og unge i skæringspunktet mellem teknologi, læring og menneskelig indsigt.
                 </p>
                 <p className="text-cream/60 italic font-display">
                   Privat er jeg familiefar, naturmenneske og det, man nok ville kalde en seriøs lytter.
