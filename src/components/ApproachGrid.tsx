@@ -57,7 +57,7 @@ const ICON_MAP: Record<string, LucideIcon> = {
 
 export function ApproachGrid({ tags }: { tags: string[] }) {
   return (
-    <div className="grid grid-cols-2 gap-3 md:gap-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
       {tags.map((tag) => {
         const Icon = ICON_MAP[tag.toLowerCase()] ?? TagIcon;
         return (
