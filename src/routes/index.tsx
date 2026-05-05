@@ -616,18 +616,20 @@ function CasesSection() {
     });
   };
 
-  const SCROLL_STEP = 3;
+  const SCROLL_STEP = 3; // matches fully-visible cards in the 3.5-card layout
 
   const showNextCase = () => {
     if (!filtered.length) return;
-    const next = (currentIndex + SCROLL_STEP) % filtered.length;
+    const last = filtered.length - 1;
+    const next = currentIndex >= last ? 0 : Math.min(currentIndex + SCROLL_STEP, last);
     setCurrentIndex(next);
     scrollToIndex(next);
   };
 
   const showPreviousCase = () => {
     if (!filtered.length) return;
-    const prev = (currentIndex - SCROLL_STEP + filtered.length) % filtered.length;
+    const last = filtered.length - 1;
+    const prev = currentIndex <= 0 ? last : Math.max(currentIndex - SCROLL_STEP, 0);
     setCurrentIndex(prev);
     scrollToIndex(prev);
   };
