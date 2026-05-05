@@ -555,7 +555,7 @@ const CASE_META: Record<string, { headline: string; tags: string[] }> = {
     tags: ["Redaktionel tilrettelæggelse", "Lydbaseret formidling", "Broadcast"],
   },
   "amnesty-international": {
-    headline: "Menneskerettigheder til konkret indhold",
+    headline: "Menneskerettigheder i lyd",
     tags: ["Kommunikation"],
   },
   "danmarks-naturfredningsforening": {
