@@ -34,6 +34,7 @@ const competencies = [
     sub: "Indhold og værktøjer til børn og unge",
     body: "Udvikling af læringsindhold og formidlingsværktøjer til børn og unge. Erfaring med co-design i skoleregi, AI-baserede formidlingsprojekter og lydlige læringsformater til målgruppen 7–12 år.",
     tags: ["Børn og unge", "Digital dannelse", "Co-design", "Læringsindhold", "AI"],
+    relatedCases: ["interaktiv-horesimulering", "ulla-dyrlov"],
   },
   {
     no: "2",
@@ -41,6 +42,7 @@ const competencies = [
     sub: "Fra studie til kanal",
     body: "Professionel podcast-, video- og lydproduktion fra studie til kanal. Teknisk kompetence kombineret med journalistisk næse for det gode indhold.",
     tags: ["Redaktionel tilrettelæggelse", "Postproduktion", "Indholdsproduktion"],
+    relatedCases: ["danmarks-radio", "ulla-dyrlov", "amnesty-international"],
   },
   {
     no: "3",
@@ -48,6 +50,7 @@ const competencies = [
     sub: "Research & Brugerinddragelse",
     body: "Dybdegående indsigt gennem interviews, observationer, co-design og brugertest. Jeg oversætter kompleks adfærd til handlebare designbeslutninger.",
     tags: ["Interviews", "Feltobservation", "Co-design", "Mixed methods", "Facilitering", "Workshops"],
+    relatedCases: ["interaktiv-horesimulering", "wolt"],
   },
   {
     no: "4",
@@ -55,6 +58,7 @@ const competencies = [
     sub: "Fra problem til realiserbart koncept",
     body: "Fra identifikation af problemet til et konkret, realiserbart koncept. Jeg designer brugerrejser, touchpoints og serviceoplevelser der skaber reel værdi.",
     tags: ["Brugerrejser", "Touchpoints", "Participatorisk design", "Konceptvalidering"],
+    relatedCases: ["wolt", "danmarks-naturfredningsforening", "ulla-dyrlov"],
   },
   {
     no: "5",
@@ -62,6 +66,7 @@ const competencies = [
     sub: "Stemme, position og indhold",
     body: "Strategisk rådgivning om digital tilstedeværelse, indhold og positionering. Jeg hjælper organisationer med at finde og kommunikere deres unikke stemme.",
     tags: ["Kommunikation", "Visuel identitet", "Indholdsarkitektur", "Positionering"],
+    relatedCases: ["amnesty-international", "danmarks-naturfredningsforening", "danmarks-radio"],
   },
 ];
 
@@ -1142,6 +1147,44 @@ function KompetencerList() {
                   );
                 })}
               </ul>
+
+              {c.relatedCases && c.relatedCases.length > 0 && (
+                <details className="md:col-span-12 mt-6 group/rel">
+                  <summary className="cursor-pointer list-none inline-flex items-center gap-2 text-ember uppercase font-semibold tracking-[0.22em] text-[10px] hover:text-[#B83A20] transition-colors">
+                    <span>Relaterede cases ({c.relatedCases.length})</span>
+                    <span aria-hidden className="transition-transform group-open/rel:rotate-180">▾</span>
+                  </summary>
+                  <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                    {c.relatedCases.map((slug) => {
+                      const study = caseStudies.find((s) => s.slug === slug);
+                      if (!study) return null;
+                      return (
+                        <li key={slug}>
+                          <button
+                            type="button"
+                            onClick={() => setOpenCase(study)}
+                            className="group/case w-full text-left flex items-start gap-3 p-3 rounded-lg border border-cream/10 bg-cream/5 hover:bg-cream/10 hover:border-cream/20 transition-colors"
+                          >
+                            <img
+                              src={study.image}
+                              alt=""
+                              className="w-14 h-14 rounded-md object-cover shrink-0 grayscale group-hover/case:grayscale-0 transition-all duration-300"
+                            />
+                            <div className="min-w-0 flex-1">
+                              <div className="text-sm font-display font-semibold text-cream leading-tight">
+                                {study.client}
+                              </div>
+                              <div className="text-xs text-cream/65 leading-snug mt-1 line-clamp-2">
+                                {study.title}
+                              </div>
+                            </div>
+                          </button>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </details>
+              )}
             </div>
           </li>
         ))}
