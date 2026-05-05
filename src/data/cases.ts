@@ -232,6 +232,7 @@ const _allCases: CaseStudy[] = [
       "Remixet afspillet på lastcykler over Dronning Louises Bro",
       "TV2-eksponering og bred mediedækning",
       "Ny relevant kontekst for klassisk musik til yngre målgrupper",
+      "Viste at kulturelt indhold kan nå unge uden at miste sin integritet",
     ],
   },
   {
