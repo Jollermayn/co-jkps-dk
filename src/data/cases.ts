@@ -29,7 +29,8 @@ export type CaseStudy = {
   stemmerFraFeltet?: StemFraFeltet[];
 };
 
-const _wolt: CaseStudy = {
+const _allCases: CaseStudy[] = [
+  {
     slug: "wolt",
     client: "Wolt",
     title: "Fra usynlig algoritme til informeret bud",
@@ -254,6 +255,19 @@ const _wolt: CaseStudy = {
       "Skalerbart fundament for fremtidig vækst",
     ],
   },
+];
+
+const _order = [
+  "interaktiv-horesimulering",
+  "danmarks-radio",
+  "ulla-dyrlov",
+  "danmarks-naturfredningsforening",
+  "amnesty-international",
+];
+
+export const caseStudies: CaseStudy[] = [
+  ..._order.map((s) => _allCases.find((c) => c.slug === s)!).filter(Boolean),
+  ..._allCases.filter((c) => !_order.includes(c.slug)),
 ];
 
 export const getCaseBySlug = (slug: string) => caseStudies.find((c) => c.slug === slug);
