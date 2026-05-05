@@ -124,9 +124,9 @@ const _allCases: CaseStudy[] = [
       "Faciliterede 2 co-design workshops på specialefterskole",
       "Udviklede interaktiv binaural høretabssimulering",
     ],
-    approach: ["Co-design", "Participatorisk design", "Concept Design", "Co-Creation"],
+    approach: ["Co-design", "Participatorisk design", "Konceptudvikling"],
     outcomes: [
-      "Autentisk valideret af hørehæmmede deltagere",
+      "Udviklet og testet i samarbejde med hørehæmmede elever",
       "Ansvaret for inklusion flyttes fra den enkelte elev til skolefællesskabet",
       "Øget empati og delt ansvar i klasserummet",
     ],
