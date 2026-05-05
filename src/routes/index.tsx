@@ -34,6 +34,7 @@ const competencies = [
     sub: "Indhold og værktøjer til børn og unge",
     body: "Udvikling af læringsindhold og formidlingsværktøjer til børn og unge. Erfaring med co-design i skoleregi, AI-baserede formidlingsprojekter og lydlige læringsformater til målgruppen 7–12 år.",
     tags: ["Børn og unge", "Digital dannelse", "Co-design", "Læringsindhold", "AI"],
+    relatedCases: ["interaktiv-horesimulering", "ulla-dyrlov"],
   },
   {
     no: "2",
@@ -41,6 +42,7 @@ const competencies = [
     sub: "Fra studie til kanal",
     body: "Professionel podcast-, video- og lydproduktion fra studie til kanal. Teknisk kompetence kombineret med journalistisk næse for det gode indhold.",
     tags: ["Redaktionel tilrettelæggelse", "Postproduktion", "Indholdsproduktion"],
+    relatedCases: ["danmarks-radio", "ulla-dyrlov", "amnesty-international"],
   },
   {
     no: "3",
@@ -48,6 +50,7 @@ const competencies = [
     sub: "Research & Brugerinddragelse",
     body: "Dybdegående indsigt gennem interviews, observationer, co-design og brugertest. Jeg oversætter kompleks adfærd til handlebare designbeslutninger.",
     tags: ["Interviews", "Feltobservation", "Co-design", "Mixed methods", "Facilitering", "Workshops"],
+    relatedCases: ["interaktiv-horesimulering", "wolt"],
   },
   {
     no: "4",
@@ -55,6 +58,7 @@ const competencies = [
     sub: "Fra problem til realiserbart koncept",
     body: "Fra identifikation af problemet til et konkret, realiserbart koncept. Jeg designer brugerrejser, touchpoints og serviceoplevelser der skaber reel værdi.",
     tags: ["Brugerrejser", "Touchpoints", "Participatorisk design", "Konceptvalidering"],
+    relatedCases: ["wolt", "danmarks-naturfredningsforening", "ulla-dyrlov"],
   },
   {
     no: "5",
@@ -62,6 +66,7 @@ const competencies = [
     sub: "Stemme, position og indhold",
     body: "Strategisk rådgivning om digital tilstedeværelse, indhold og positionering. Jeg hjælper organisationer med at finde og kommunikere deres unikke stemme.",
     tags: ["Kommunikation", "Visuel identitet", "Indholdsarkitektur", "Positionering"],
+    relatedCases: ["amnesty-international", "danmarks-naturfredningsforening", "danmarks-radio"],
   },
 ];
 
