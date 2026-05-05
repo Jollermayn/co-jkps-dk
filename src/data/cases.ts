@@ -163,12 +163,12 @@ const _allCases: CaseStudy[] = [
     role: [
       "Producerede podcast og lydindhold om menneskerettighedsspørgsmål",
       "Stod for redaktionel tilrettelæggelse og postproduktion",
-      "Formidlede komplekse temaer i et tilgængeligt format",
+      "Sikrede redaktionel integritet og faktuel præcision i produktionen",
     ],
     approach: ["Journalistisk formidling", "Podcastproduktion", "Redaktionel tilrettelæggelse"],
     outcomes: [
       "Tilgængeligt lydindhold om menneskerettigheder til bred dansk offentlighed",
-      "Styrket kommunikation af Amnestys kernebudskaber",
+      "Indhold der ikke gik på kompromis med den journalistiske integritet for at blive tilgængeligt",
     ],
   },
   {
