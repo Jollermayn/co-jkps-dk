@@ -512,7 +512,23 @@ function Index() {
   );
 }
 
-const FILTERS = ["Alle", "UX Research", "Service Design", "Kommunikation", "Brandudvikling", "Co-Creation"] as const;
+const FILTERS = [
+  "Alle",
+  "Læringsdesign",
+  "Co-design",
+  "Digital dannelse",
+  "Redaktionel tilrettelæggelse",
+  "Lydbaseret formidling",
+  "Broadcast",
+  "Læringsindhold",
+  "Børn og unge",
+  "Podcastproduktion",
+  "Indholdsstrategi",
+  "Ungeformidling",
+  "Kommunikation",
+  "Konceptudvikling",
+  "Algoritmekritik",
+] as const;
 
 type Filter = (typeof FILTERS)[number];
 
