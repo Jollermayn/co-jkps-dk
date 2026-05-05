@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { SlidersHorizontal, X, MousePointerClick, ArrowDown } from "lucide-react";
+import { SlidersHorizontal, X, MousePointerClick } from "lucide-react";
 import { caseStudies, type CaseStudy } from "@/data/cases";
 
 import { CaseModal } from "@/components/CaseModal";
@@ -828,6 +828,7 @@ function CasesSection() {
               onBlur={() => variant === "slider" && setHoveredIndex(null)}
               className={
                 "group flex flex-col text-left rounded-lg border border-cream/10 bg-navy/30 hover:bg-[rgba(255,255,255,0.04)] overflow-hidden transition-all duration-300 ease-out hover:-translate-y-[3px] " +
+                (variant === "slider" ? "case-card-cursor " : "cursor-pointer ") +
                 sizing
               }
             >
@@ -872,7 +873,6 @@ function CasesSection() {
                   >
                     <MousePointerClick className="w-3.5 h-3.5" strokeWidth={1.75} />
                     Se case
-                    <ArrowDown className="w-3.5 h-3.5 arrow-bounce-down" strokeWidth={2} />
                   </span>
                 )}
               </div>
