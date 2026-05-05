@@ -567,7 +567,7 @@ const CASE_META: Record<string, { headline: string; tags: string[] }> = {
     tags: ["Læringsindhold", "Børn og forældre", "Podcastproduktion"],
   },
   "concerto-copenhagen": {
-    headline: "Publikumsengagement gennem kulturformidling",
+    headline: "Bach til en ny generation",
     tags: ["Brandudvikling", "Kommunikation"],
   },
   "art-spirit-coaching": {
