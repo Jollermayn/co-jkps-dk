@@ -301,7 +301,7 @@ function Sidebar() {
 
         <div className="flex flex-col items-center gap-6 lg:gap-3 w-full text-center lg:translate-y-[15px]">
           <a
-            href="/Jonas_Sorensen_CV.pdf#zoom=70"
+            href="/Jonas_Sorensen_CV.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="group/cv inline-flex items-center justify-center gap-3 text-sm font-semibold tracking-wide bg-transparent text-[#F5F0E8] border-2 border-[#F5F0E8] hover:bg-[#F5F0E8] hover:text-[#0D1B2A] hover:border-[#F5F0E8] transition-all duration-300 ease-out"
@@ -465,7 +465,7 @@ function Index() {
 
               <div className="mt-16 flex justify-center">
                 <a
-                  href="/Jonas_Sorensen_CV.pdf#zoom=70"
+                  href="/Jonas_Sorensen_CV.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-3 text-sm font-semibold tracking-wide bg-transparent text-[#F5F0E8] border-2 border-[#F5F0E8] hover:bg-[#F5F0E8] hover:text-[#0D1B2A] hover:border-[#F5F0E8] transition-all duration-300 ease-out"
