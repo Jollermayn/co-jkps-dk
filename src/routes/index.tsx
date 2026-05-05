@@ -1015,9 +1015,9 @@ function KompetencerList() {
                 </div>
               </div>
 
-              <p className="md:col-span-6 mt-3 md:mt-0 text-cream/80 leading-relaxed">{c.body}</p>
+              <p className="md:col-span-12 mt-3 md:mt-4 text-cream/80 leading-relaxed">{c.body}</p>
 
-              <ul className="md:col-span-6 mt-4 md:mt-0 self-start flex flex-wrap gap-2">
+              <ul className="md:col-span-12 mt-4 md:mt-5 self-start flex flex-wrap gap-2">
                 {c.tags.map((t) => {
                   const slugs = TAG_TO_SLUGS[t] ?? [];
                   const hasCases = slugs.length > 0;
