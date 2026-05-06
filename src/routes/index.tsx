@@ -393,7 +393,7 @@ function Index() {
                   Tre <span className="italic text-ember">spor</span>
                 </h2>
                 <p className="mt-8 max-w-2xl text-lg text-cream/75 leading-relaxed">
-                  Bag det professionelle arbejde ligger et bredere fundament — tre spor der tilsammen former den måde jeg tænker, skaber og kommunikerer på.
+                  Bag det professionelle arbejde ligger tre spor der former hinanden — og tilsammen er grundlaget for den måde jeg skaber på.
                 </p>
               </div>
 
