@@ -7,6 +7,12 @@ import caseDN from "@/assets/case-dn.png";
 import caseUlla from "@/assets/case-ulla.png";
 import caseConcerto from "@/assets/case-concerto.png";
 import caseArtSpirit from "@/assets/case-artspirit.png";
+import caseNye1 from "@/assets/case-nye-1.png";
+import caseNye2 from "@/assets/case-nye-2.png";
+import caseNye3 from "@/assets/case-nye-3.png";
+import caseNye4 from "@/assets/case-nye-4.png";
+import caseNye5 from "@/assets/case-nye-5.png";
+import caseNye6 from "@/assets/case-nye-6.png";
 
 export type StemFraFeltet = {
   quote: string;
@@ -27,6 +33,9 @@ export type CaseStudy = {
   approach: string[];
   outcomes: string[];
   stemmerFraFeltet?: StemFraFeltet[];
+  gallery?: string[];
+  status?: "ongoing";
+  statusLabel?: string;
 };
 
 const _allCases: CaseStudy[] = [
