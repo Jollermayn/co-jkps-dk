@@ -477,7 +477,7 @@ function Index() {
                     ),
                   },
                   {
-                    title: "Kreativitet",
+                    title: "Lyd & Musik",
                     tagline: "Lyden og udtrykket",
                     description:
                       "Komponist, musiker og sangskriver med arbejde for kunstnere, kortfilm og reklame.",
