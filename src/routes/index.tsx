@@ -1063,50 +1063,8 @@ const TAG_HEADLINES: Record<string, string> = {
 };
 
 function KompetencerList() {
-  const [openTag, setOpenTag] = useState<string | null>(null);
   const [openCase, setOpenCase] = useState<CaseStudy | null>(null);
-  const [canHover, setCanHover] = useState(false);
-  const activeTagRef = useRef<HTMLLIElement>(null);
-  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const mql = window.matchMedia("(hover: hover) and (pointer: fine)");
-    const update = () => setCanHover(mql.matches);
-    update();
-    mql.addEventListener("change", update);
-    return () => mql.removeEventListener("change", update);
-  }, []);
-
-  const cancelClose = () => {
-    if (closeTimer.current) {
-      clearTimeout(closeTimer.current);
-      closeTimer.current = null;
-    }
-  };
-  const scheduleClose = () => {
-    cancelClose();
-    closeTimer.current = setTimeout(() => setOpenTag(null), 140);
-  };
-
-  useEffect(() => {
-    if (!openTag || canHover) return;
-    const onDocClick = (e: MouseEvent) => {
-      const node = activeTagRef.current;
-      if (node && !node.contains(e.target as Node)) {
-        setOpenTag(null);
-      }
-    };
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpenTag(null);
-    };
-    document.addEventListener("click", onDocClick);
-    document.addEventListener("keydown", onKey);
-    return () => {
-      document.removeEventListener("click", onDocClick);
-      document.removeEventListener("keydown", onKey);
-    };
-  }, [openTag, canHover]);
 
   return (
     <>
