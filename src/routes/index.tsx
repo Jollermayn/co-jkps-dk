@@ -399,7 +399,7 @@ function Index() {
                   {
                     title: "Kreativ udøver",
                     description:
-                      "Komponist, musiker og sangskriver. Har arbejdet med et utal af kunstnere og leveret musik til kortfilm og reklame.",
+                      "Komponist, musiker og sangskriver. Har arbejdet med et hav af kunstnere og leveret musik til kortfilm og reklame.",
                   },
                   {
                     title: "Digital & Kommunikation",
