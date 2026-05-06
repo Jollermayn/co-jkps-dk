@@ -460,17 +460,17 @@ function Index() {
                       <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-20 h-20 md:w-24 md:h-24 text-cream">
                         {[0, 60, 120, 180, 240, 300].map((deg) => {
                           const rad = (deg * Math.PI) / 180;
-                          const x = 50 + Math.cos(rad) * 32;
-                          const y = 50 + Math.sin(rad) * 32;
+                          const x = 50 + Math.cos(rad) * 22;
+                          const y = 50 + Math.sin(rad) * 22;
                           return <line key={deg} x1="50" y1="50" x2={x} y2={y} />;
                         })}
                         {[0, 60, 120, 180, 240, 300].map((deg) => {
                           const rad = (deg * Math.PI) / 180;
-                          const x = 50 + Math.cos(rad) * 32;
-                          const y = 50 + Math.sin(rad) * 32;
-                          return <circle key={deg} cx={x} cy={y} r="4" fill="none" stroke="currentColor" />;
+                          const x = 50 + Math.cos(rad) * 22;
+                          const y = 50 + Math.sin(rad) * 22;
+                          return <circle key={deg} cx={x} cy={y} r="3" fill="none" stroke="currentColor" />;
                         })}
-                        <circle cx="50" cy="50" r="4" stroke="none" className="fill-ember" />
+                        <circle cx="50" cy="50" r="3" stroke="none" className="fill-ember" />
                       </svg>
                     ),
                   },
