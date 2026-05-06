@@ -449,7 +449,7 @@ function Index() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 md:divide-x md:divide-ember/40 relative">
+              <div className="grid grid-cols-1 md:grid-cols-3 md:divide-x md:divide-ember/40 relative md:pt-24">
                 {[
                   {
                     title: "Digital & Kommunikation",
@@ -512,17 +512,17 @@ function Index() {
                   {i === 0 && (
                     <svg
                       aria-hidden
-                      viewBox="0 0 300 80"
+                      viewBox="0 0 300 100"
                       preserveAspectRatio="none"
-                      className="hidden md:block absolute left-0 right-0 pointer-events-none z-10"
-                      style={{ top: "9.5rem", height: "5rem" }}
+                      className="hidden md:block absolute left-0 right-0 top-0 pointer-events-none z-10"
+                      style={{ height: "6rem" }}
                     >
                       <g fill="none" stroke="currentColor" strokeWidth="1" strokeDasharray="3 4" strokeLinecap="round" className="text-cream/50">
-                        <path d="M 50 0 C 70 25, 130 55, 150 70" />
-                        <path d="M 150 0 C 150 25, 150 55, 150 70" />
-                        <path d="M 250 0 C 230 25, 170 55, 150 70" />
+                        <path d="M 150 18 C 130 40, 90 70, 50 95" />
+                        <path d="M 150 18 C 150 45, 150 70, 150 95" />
+                        <path d="M 150 18 C 170 40, 210 70, 250 95" />
                       </g>
-                      <circle cx="150" cy="70" r="5" className="fill-ember" />
+                      <circle cx="150" cy="12" r="5" className="fill-ember" />
                     </svg>
                   )}
                   <div
