@@ -54,19 +54,55 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
   const onTouchStart = (e: React.TouchEvent) => {
     if (!isMobile) return;
     const el = panelRef.current;
-    if (!el || el.scrollTop > 0) return;
+    if (!el) return;
     touchStartY.current = e.touches[0].clientY;
+    touchStartX.current = e.touches[0].clientX;
     touchActive.current = true;
+    axis.current = null;
   };
   const onTouchMove = (e: React.TouchEvent) => {
-    if (!touchActive.current || touchStartY.current == null) return;
+    if (!touchActive.current || touchStartY.current == null || touchStartX.current == null) return;
     const dy = e.touches[0].clientY - touchStartY.current;
-    if (dy > 0) setDragY(dy);
+    const dx = e.touches[0].clientX - touchStartX.current;
+    if (axis.current == null) {
+      if (Math.abs(dx) < 8 && Math.abs(dy) < 8) return;
+      // horizontal swipes always allowed; vertical only when scrolled to top
+      if (Math.abs(dx) > Math.abs(dy)) {
+        axis.current = "h";
+      } else {
+        const el = panelRef.current;
+        if (!el || el.scrollTop > 0 || dy < 0) {
+          touchActive.current = false;
+          return;
+        }
+        axis.current = "v";
+      }
+    }
+    if (axis.current === "v" && dy > 0) setDragY(dy);
   };
-  const onTouchEnd = () => {
+  const onTouchEnd = (e: React.TouchEvent) => {
     if (!touchActive.current) return;
+    const endX = e.changedTouches[0]?.clientX ?? touchStartX.current ?? 0;
+    const startX = touchStartX.current ?? 0;
+    const dx = endX - startX;
+    const wasAxis = axis.current;
     touchActive.current = false;
     touchStartY.current = null;
+    touchStartX.current = null;
+    axis.current = null;
+
+    if (wasAxis === "h" && Math.abs(dx) > 60) {
+      const idx = caseStudies.findIndex((c) => c.slug === study.slug);
+      if (idx !== -1 && onNavigate) {
+        const target =
+          dx < 0
+            ? caseStudies[(idx + 1) % caseStudies.length]
+            : caseStudies[(idx - 1 + caseStudies.length) % caseStudies.length];
+        onNavigate(target);
+      }
+      return;
+    }
+
     if (dragY > 120) {
       setClosing(true);
       setDragY(window.innerHeight);
