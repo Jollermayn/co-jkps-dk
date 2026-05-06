@@ -396,42 +396,45 @@ function Index() {
               </div>
 
               <ul className="divide-y divide-cream/10 border-y border-cream/10">
-                <li className="py-8 md:py-10 grid grid-cols-12 gap-x-6 gap-y-2 md:gap-6">
-                  <span className="col-span-2 md:col-span-1 font-display text-2xl text-ember">01</span>
-                  <div className="col-span-10 md:col-span-11 lg:col-span-6">
-                    <h3 className="font-display text-2xl md:text-[1.7rem] tracking-tight leading-snug break-words [overflow-wrap:anywhere]">
-                      Cand.it · Digital Design og Interaktive Teknologier
-                    </h3>
-                    <p className="mt-1 md:mt-2 text-sm text-cream/55 italic leading-snug">IT-Universitetet København · 2024</p>
-                  </div>
-                  <p className="col-span-10 col-start-3 md:col-span-11 md:col-start-2 lg:col-span-5 lg:col-start-auto lg:mt-0 mt-2 md:mt-3 text-cream/80 leading-relaxed">
-                    Tværfagligt kandidatprogram med fokus på interaktionsdesign, UX research og digitale teknologier.
-                  </p>
-                </li>
-                <li className="py-8 md:py-10 grid grid-cols-12 gap-x-6 gap-y-2 md:gap-6">
-                  <span className="col-span-2 md:col-span-1 font-display text-2xl text-ember">02</span>
-                  <div className="col-span-10 md:col-span-11 lg:col-span-6">
-                    <h3 className="font-display text-2xl md:text-[1.7rem] tracking-snug leading-snug break-words [overflow-wrap:anywhere]">
-                      Professionsbachelor · Medie- og sonokommunikation
-                    </h3>
-                    <p className="mt-1 md:mt-2 text-sm text-cream/55 italic leading-snug">Sonic College · 2016</p>
-                  </div>
-                  <p className="col-span-10 col-start-3 md:col-span-11 md:col-start-2 lg:col-span-5 lg:col-start-auto lg:mt-0 mt-2 md:mt-3 text-cream/80 leading-relaxed">
-                    Praksisnær uddannelse i lyd, medieproduktion og kommunikation.
-                  </p>
-                </li>
-                <li className="py-8 md:py-10 grid grid-cols-12 gap-x-6 gap-y-2 md:gap-6">
-                  <span className="col-span-2 md:col-span-1 font-display text-2xl text-ember">03</span>
-                  <div className="col-span-10 md:col-span-11 lg:col-span-6">
-                    <h3 className="font-display text-2xl md:text-[1.7rem] tracking-snug leading-snug break-words [overflow-wrap:anywhere]">
-                      Sociologi & Kulturanalyse
-                    </h3>
-                    <p className="mt-1 md:mt-2 text-sm text-cream/55 italic leading-snug">Syddansk Universitet · 2011</p>
-                  </div>
-                  <p className="col-span-10 col-start-3 md:col-span-11 md:col-start-2 lg:col-span-5 lg:col-start-auto lg:mt-0 mt-2 md:mt-3 text-cream/80 leading-relaxed">
-                    Første år af bacheloren — et fagligt afsæt i kulturteori, samfundsanalyse og sociologisk metode.
-                  </p>
-                </li>
+                {[
+                  {
+                    no: "01",
+                    title: "Cand.it · Digital Design og Interaktive Teknologier",
+                    meta: "IT-Universitetet København · 2024",
+                    body: "Tværfagligt kandidatprogram med fokus på interaktionsdesign, UX research og digitale teknologier.",
+                  },
+                  {
+                    no: "02",
+                    title: "Professionsbachelor · Medie- og sonokommunikation",
+                    meta: "Sonic College · 2016",
+                    body: "Praksisnær uddannelse i lyd, medieproduktion og kommunikation.",
+                  },
+                  {
+                    no: "03",
+                    title: "Sociologi & Kulturanalyse",
+                    meta: "Syddansk Universitet · 2011",
+                    body: "Første år af bacheloren — et fagligt afsæt i kulturteori, samfundsanalyse og sociologisk metode.",
+                  },
+                ].map((e) => (
+                  <li
+                    key={e.no}
+                    className="group py-5 md:py-6 hover:bg-navy/40 transition-colors -mx-5 md:-mx-14 px-5 md:px-14"
+                  >
+                    <div className="grid grid-cols-1 md:grid-cols-12 md:gap-12 md:gap-y-3">
+                      <div className="md:col-span-12 min-w-0 flex items-baseline gap-4">
+                        <span className="font-display text-2xl text-ember shrink-0">{e.no}</span>
+                        <div className="min-w-0 flex-1">
+                          <h3 className="font-display tracking-tight leading-tight max-w-full [word-break:normal] [overflow-wrap:break-word] [hyphens:none] text-[clamp(1.3rem,5vw,2rem)] md:text-[2rem]">
+                            {e.title}
+                          </h3>
+                          <p className="mt-1 md:mt-2 text-sm text-cream/55 italic leading-snug">{e.meta}</p>
+                        </div>
+                      </div>
+
+                      <p className="md:col-span-12 mt-2 text-sm md:text-[0.95rem] text-cream/80 leading-snug">{e.body}</p>
+                    </div>
+                  </li>
+                ))}
               </ul>
             </div>
           </section>
