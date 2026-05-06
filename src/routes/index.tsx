@@ -420,18 +420,15 @@ function Index() {
                     key={e.no}
                     className="group py-5 md:py-6 hover:bg-navy/40 transition-colors -mx-5 md:-mx-14 px-5 md:px-14"
                   >
-                    <div className="grid grid-cols-1 md:grid-cols-12 md:gap-12 md:gap-y-3">
-                      <div className="md:col-span-12 min-w-0 flex items-baseline gap-4">
-                        <span className="font-display text-2xl text-ember shrink-0">{e.no}</span>
-                        <div className="min-w-0 flex-1">
-                          <h3 className="font-display tracking-tight leading-tight max-w-full [word-break:normal] [overflow-wrap:break-word] [hyphens:none] text-[clamp(1.3rem,5vw,2rem)] md:text-[2rem]">
-                            {e.title}
-                          </h3>
-                          <p className="mt-1 md:mt-2 text-sm text-cream/55 italic leading-snug">{e.meta}</p>
-                        </div>
+                    <div className="min-w-0 flex items-baseline gap-4">
+                      <span className="font-display text-2xl text-ember shrink-0">{e.no}</span>
+                      <div className="min-w-0 flex-1">
+                        <h3 className="font-display tracking-tight leading-tight max-w-full [word-break:normal] [overflow-wrap:break-word] [hyphens:none] text-[clamp(1.3rem,5vw,2rem)] md:text-[2rem]">
+                          {e.title}
+                        </h3>
+                        <p className="mt-1 md:mt-2 text-sm text-cream/55 italic leading-snug">{e.meta}</p>
+                        <p className="mt-2 text-sm md:text-[0.95rem] text-cream/80 leading-snug">{e.body}</p>
                       </div>
-
-                      <p className="md:col-span-12 mt-2 text-sm md:text-[0.95rem] text-cream/80 leading-snug">{e.body}</p>
                     </div>
                   </li>
                 ))}
@@ -1104,30 +1101,26 @@ function KompetencerList() {
             key={c.no}
             className="group py-5 md:py-6 hover:bg-navy/40 transition-colors -mx-5 md:-mx-14 px-5 md:px-14"
           >
-            <div className="grid grid-cols-1 md:grid-cols-12 md:gap-12 md:gap-y-3">
-              <div className="md:col-span-12 min-w-0 flex items-baseline gap-4">
-                <span className="font-display text-2xl text-ember shrink-0">{c.no}</span>
-                <div className="min-w-0 flex-1">
-                  <h3 className="font-display tracking-tight leading-tight max-w-full [word-break:normal] [overflow-wrap:break-word] [hyphens:none] text-[clamp(1.3rem,5vw,2rem)] md:text-[2rem]">
-                    {c.title}
-                  </h3>
-                </div>
+            <div className="min-w-0 flex items-baseline gap-4">
+              <span className="font-display text-2xl text-ember shrink-0">{c.no}</span>
+              <div className="min-w-0 flex-1">
+                <h3 className="font-display tracking-tight leading-tight max-w-full [word-break:normal] [overflow-wrap:break-word] [hyphens:none] text-[clamp(1.3rem,5vw,2rem)] md:text-[2rem]">
+                  {c.title}
+                </h3>
+                <p className="mt-2 text-sm md:text-[0.95rem] text-cream/80 leading-snug">{c.body}</p>
+                <ul className="mt-2 flex flex-wrap gap-1.5">
+                  {c.tags.map((t) => (
+                    <li key={t} className="inline-flex">
+                      <span
+                        style={{ padding: "4px 10px", fontSize: "10px", lineHeight: "1" }}
+                        className="tracking-wide uppercase rounded-md bg-[#F5F0E8]/40 text-[#F5F0E8]"
+                      >
+                        {t}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-
-              <p className="md:col-span-12 mt-2 text-sm md:text-[0.95rem] text-cream/80 leading-snug">{c.body}</p>
-
-              <ul className="md:col-span-12 mt-2 self-start flex flex-wrap gap-1.5">
-                {c.tags.map((t) => (
-                  <li key={t} className="inline-flex">
-                    <span
-                      style={{ padding: "4px 10px", fontSize: "10px", lineHeight: "1" }}
-                      className="tracking-wide uppercase rounded-md bg-[#F5F0E8]/40 text-[#F5F0E8]"
-                    >
-                      {t}
-                    </span>
-                  </li>
-                ))}
-              </ul>
             </div>
           </li>
         ))}
