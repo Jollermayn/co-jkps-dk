@@ -404,7 +404,7 @@ function Index() {
                     </h3>
                     <p className="mt-2 text-sm text-cream/55 italic">IT-Universitetet København · 2024</p>
                   </div>
-                  <p className="col-span-12 lg:col-span-5 lg:col-start-auto col-start-3 md:col-start-2 lg:mt-0 mt-3 text-cream/80 leading-relaxed">
+                  <p className="col-span-10 col-start-3 md:col-span-11 md:col-start-2 lg:col-span-5 lg:col-start-auto lg:mt-0 mt-3 text-cream/80 leading-relaxed">
                     Tværfagligt kandidatprogram med fokus på interaktionsdesign, UX research og digitale teknologier.
                   </p>
                 </li>
@@ -416,7 +416,7 @@ function Index() {
                     </h3>
                     <p className="mt-2 text-sm text-cream/55 italic">Sonic College · 2016</p>
                   </div>
-                  <p className="col-span-12 lg:col-span-5 lg:col-start-auto col-start-3 md:col-start-2 lg:mt-0 mt-3 text-cream/80 leading-relaxed">
+                  <p className="col-span-10 col-start-3 md:col-span-11 md:col-start-2 lg:col-span-5 lg:col-start-auto lg:mt-0 mt-3 text-cream/80 leading-relaxed">
                     Praksisnær uddannelse i lyd, medieproduktion og kommunikation.
                   </p>
                 </li>
@@ -428,7 +428,7 @@ function Index() {
                     </h3>
                     <p className="mt-2 text-sm text-cream/55 italic">Syddansk Universitet · 2011</p>
                   </div>
-                  <p className="col-span-12 lg:col-span-5 lg:col-start-auto col-start-3 md:col-start-2 lg:mt-0 mt-3 text-cream/80 leading-relaxed">
+                  <p className="col-span-10 col-start-3 md:col-span-11 md:col-start-2 lg:col-span-5 lg:col-start-auto lg:mt-0 mt-3 text-cream/80 leading-relaxed">
                     Første år af bacheloren — et fagligt afsæt i kulturteori, samfundsanalyse og sociologisk metode.
                   </p>
                 </li>
