@@ -24,6 +24,8 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
     if (study && panelRef.current) {
       panelRef.current.scrollTo({ top: 0, behavior: "auto" });
     }
+    setDragY(0);
+    setClosing(false);
   }, [study?.slug]);
 
   useEffect(() => {
