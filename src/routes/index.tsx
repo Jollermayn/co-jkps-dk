@@ -453,8 +453,9 @@ function Index() {
                 {[
                   {
                     title: "Teknologi",
+                    tagline: "Det digitale lag",
                     description:
-                      "Ti år med læringsdesign, redaktionel tilrettelæggelse og medieproduktion for organisationer som DR, Amnesty International og Danmarks Naturfredningsforening.",
+                      "Ti år med læringsdesign, medieproduktion og redaktionel tilrettelæggelse for DR, Amnesty og Danmarks Naturfredningsforening.",
                     icon: (
                       <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-20 h-20 md:w-24 md:h-24 text-cream">
                         <line x1="25" y1="30" x2="60" y2="20" />
@@ -477,8 +478,9 @@ function Index() {
                   },
                   {
                     title: "Kreativitet",
+                    tagline: "Lyden og udtrykket",
                     description:
-                      "Komponist, musiker og sangskriver. Har arbejdet med et hav af kunstnere og leveret musik til kortfilm og reklame.",
+                      "Komponist, musiker og sangskriver med arbejde for kunstnere, kortfilm og reklame.",
                     icon: (
                       <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" className="w-20 h-20 md:w-24 md:h-24 text-cream">
                         {[18, 26, 34, 42, 50, 58, 66, 74, 82].map((x, i) => {
@@ -494,8 +496,9 @@ function Index() {
                   },
                   {
                     title: "Kommunikation",
+                    tagline: "Brobyggeren",
                     description:
-                      "Brobyggeren mellem de to — der oversætter kompleksitet til oplevelse og håndværk til indhold der rammer.",
+                      "Oversætter kompleksitet til oplevelse — og håndværk til indhold der rammer.",
                     icon: (
                       <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-20 h-20 md:w-24 md:h-24 text-cream">
                         <defs>
@@ -516,10 +519,13 @@ function Index() {
                       <div className="w-32 h-32 md:w-36 md:h-36 flex items-center justify-center mb-6 shrink-0">
                         {item.icon}
                       </div>
-                      <h3 className="font-display text-2xl md:text-[1.7rem] tracking-tight leading-snug text-center min-h-[2.5rem] md:min-h-[2.6rem]">
+                      <h3 className="font-display text-2xl md:text-[1.7rem] tracking-tight leading-snug text-center">
                         {item.title}
                       </h3>
-                      <p className="mt-3 text-cream/80 leading-relaxed text-left self-stretch">
+                      <p className="mt-2 italic text-cream/60 text-sm text-center">
+                        {item.tagline}
+                      </p>
+                      <p className="mt-3 text-cream/80 leading-relaxed text-center self-stretch">
                         {item.description}
                       </p>
                     </div>
