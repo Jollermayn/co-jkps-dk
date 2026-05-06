@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { CaseStudy } from "@/data/cases";
 import { caseStudies } from "@/data/cases";
 import { ApproachGrid } from "@/components/ApproachGrid";
@@ -15,6 +15,10 @@ type Props = {
 export function CaseModal({ study, onClose, onNavigate }: Props) {
   const open = !!study;
   const panelRef = useRef<HTMLDivElement>(null);
+  const touchStartY = useRef<number | null>(null);
+  const touchActive = useRef(false);
+  const [dragY, setDragY] = useState(0);
+  const [closing, setClosing] = useState(false);
 
   useEffect(() => {
     if (study && panelRef.current) {
