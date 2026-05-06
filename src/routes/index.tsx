@@ -449,25 +449,7 @@ function Index() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 md:divide-x md:divide-ember/40 relative md:pt-28">
-                <svg
-                  aria-hidden
-                  viewBox="0 0 300 100"
-                  preserveAspectRatio="none"
-                  className="hidden md:block absolute inset-x-0 top-0 w-full pointer-events-none z-10"
-                  style={{ height: "7rem" }}
-                >
-                  <g fill="none" stroke="currentColor" strokeWidth="1" strokeDasharray="3 4" strokeLinecap="round" className="text-cream/50" vectorEffect="non-scaling-stroke">
-                    <path d="M 150 18 C 110 35, 130 65, 80 78 S 60 92, 50 98" />
-                    <path d="M 150 18 C 158 38, 142 60, 152 78 S 148 92, 150 98" />
-                    <path d="M 150 18 C 190 35, 170 65, 220 78 S 240 92, 250 98" />
-                  </g>
-                </svg>
-                <span
-                  aria-hidden
-                  className="hidden md:block absolute left-1/2 pointer-events-none z-20 rounded-full bg-ember"
-                  style={{ top: "0rem", width: "15px", height: "15px", transform: "translateX(calc(-50% - 4px))" }}
-                />
+              <div className="grid grid-cols-1 md:grid-cols-3 md:divide-x md:divide-ember/40 relative">
                 {[
                   {
                     title: "Digital & Kommunikation",
