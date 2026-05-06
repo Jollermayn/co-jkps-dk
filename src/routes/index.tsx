@@ -449,7 +449,7 @@ function Index() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 md:divide-x md:divide-ember/40">
+              <div className="grid grid-cols-1 md:grid-cols-3 md:divide-x md:divide-ember/40 relative">
                 {[
                   {
                     title: "Digital & Kommunikation",
