@@ -640,7 +640,7 @@ const CASE_META: Record<string, { headline: string; tags: string[] }> = {
     tags: ["Brandudvikling", "Strategisk kommunikation", "Konceptudvikling"],
   },
   "musikfaellesskabet-i-nye": {
-    headline: "En borgerdrevet musikskole fra bunden",
+    headline: "En borgerdrevet musikskole",
     tags: ["Lydproduktion", "Konceptudvikling", "Læringsdesign"],
   },
   "lydboger-til-born-med-adhd": {

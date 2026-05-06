@@ -273,7 +273,7 @@ const _allCases: CaseStudy[] = [
   {
     slug: "musikfaellesskabet-i-nye",
     client: "Musikfællesskabet i Nye",
-    title: "En borgerdrevet musikskole fra bunden",
+    title: "En borgerdrevet musikskole",
     image: caseNyeHero,
     gallery: [caseNyeVaerkstedet, caseNye2, caseNye1, caseNye3, caseNye4, caseNye5, caseNye6, caseNye7],
     context:
