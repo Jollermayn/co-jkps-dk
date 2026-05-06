@@ -469,7 +469,7 @@ function Index() {
                         <circle cx="25" cy="30" r="3.5" fill="currentColor" stroke="none" />
                         <circle cx="60" cy="20" r="3.5" fill="currentColor" stroke="none" />
                         <circle cx="80" cy="45" r="3.5" fill="currentColor" stroke="none" />
-                        <circle cx="50" cy="55" r="4" className="text-ember" stroke="none" fill="currentColor" />
+                        <circle cx="50" cy="55" r="4" stroke="none" fill="currentColor" />
                         <circle cx="30" cy="75" r="3.5" fill="currentColor" stroke="none" />
                         <circle cx="70" cy="80" r="3.5" fill="currentColor" stroke="none" />
                       </svg>
@@ -493,7 +493,6 @@ function Index() {
                               y1={50 - h / 2}
                               x2={x}
                               y2={50 + h / 2}
-                              className={isAccent ? "text-ember" : ""}
                               strokeWidth={isAccent ? 2 : 1.5}
                             />
                           );
@@ -511,7 +510,6 @@ function Index() {
                         <circle cx="62" cy="50" r="22" />
                         <path
                           d="M 50 31.6 A 22 22 0 0 1 50 68.4 A 22 22 0 0 1 50 31.6 Z"
-                          className="text-ember"
                           fill="currentColor"
                           fillOpacity="0.25"
                           stroke="currentColor"
