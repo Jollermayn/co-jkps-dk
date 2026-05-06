@@ -458,9 +458,9 @@ function Index() {
                   style={{ height: "7rem" }}
                 >
                   <g fill="none" stroke="currentColor" strokeWidth="1" strokeDasharray="3 4" strokeLinecap="round" className="text-cream/50" vectorEffect="non-scaling-stroke">
-                    <path d="M 150 18 C 130 40, 90 70, 50 98" />
-                    <path d="M 150 18 C 150 45, 150 72, 150 98" />
-                    <path d="M 150 18 C 170 40, 210 70, 250 98" />
+                    <path d="M 150 18 C 110 35, 130 65, 80 78 S 60 92, 50 98" />
+                    <path d="M 150 18 C 158 38, 142 60, 152 78 S 148 92, 150 98" />
+                    <path d="M 150 18 C 190 35, 170 65, 220 78 S 240 92, 250 98" />
                   </g>
                 </svg>
                 <span
