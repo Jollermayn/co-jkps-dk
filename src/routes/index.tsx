@@ -519,20 +519,14 @@ function Index() {
 
 const FILTERS = [
   "Alle",
-  "Læringsdesign",
-  "Co-design",
-  "Digital dannelse",
-  "Redaktionel tilrettelæggelse",
-  "Lydbaseret formidling",
-  "Broadcast",
-  "Læringsindhold",
+  "Lydproduktion",
   "Børn og unge",
-  "Podcastproduktion",
-  "Indholdsstrategi",
-  "Ungeformidling",
-  "Kommunikation",
+  "Læringsdesign",
+  "Digital design",
+  "Strategisk kommunikation",
+  "Brandudvikling",
   "Konceptudvikling",
-  "Algoritmekritik",
+  "Medieproduktion",
 ] as const;
 
 type Filter = (typeof FILTERS)[number];
@@ -540,39 +534,39 @@ type Filter = (typeof FILTERS)[number];
 const CASE_META: Record<string, { headline: string; tags: string[] }> = {
   wolt: {
     headline: "Fra usynlig algoritme til informeret bud",
-    tags: ["Konceptudvikling", "Algoritmekritik", "Digital dannelse"],
+    tags: ["Digital design", "Konceptudvikling"],
   },
   boliga: {
     headline: "Reduceret kompleksitet i boligsøgning",
-    tags: ["UX Research", "Product Design"],
+    tags: ["Digital design"],
   },
   "interaktiv-horesimulering": {
     headline: "Inklusion i undervisningen",
-    tags: ["Læringsdesign", "Co-design", "Digital dannelse", "Børn og unge"],
+    tags: ["Læringsdesign", "Børn og unge", "Konceptudvikling"],
   },
   "danmarks-radio": {
     headline: "Digitale og lydbaserede formater",
-    tags: ["Redaktionel tilrettelæggelse", "Lydbaseret formidling", "Broadcast", "Børn og unge"],
+    tags: ["Lydproduktion", "Børn og unge", "Medieproduktion"],
   },
   "amnesty-international": {
     headline: "Menneskerettigheder i lyd",
-    tags: ["Kommunikation"],
+    tags: ["Lydproduktion", "Medieproduktion"],
   },
   "danmarks-naturfredningsforening": {
     headline: "Bæredygtighed og brandudvikling",
-    tags: ["Indholdsstrategi", "Ungeformidling", "Kommunikation"],
+    tags: ["Medieproduktion", "Strategisk kommunikation", "Brandudvikling"],
   },
   "ulla-dyrlov": {
     headline: "Koncept og platform fra bunden",
-    tags: ["Læringsindhold", "Børn og unge", "Podcastproduktion"],
+    tags: ["Lydproduktion", "Børn og unge", "Brandudvikling"],
   },
   "concerto-copenhagen": {
     headline: "Bach til en ny generation",
-    tags: ["Brandudvikling", "Kommunikation", "Børn og unge"],
+    tags: ["Lydproduktion", "Børn og unge", "Strategisk kommunikation"],
   },
   "art-spirit-coaching": {
     headline: "Brand og koncept fra idé til lancering",
-    tags: ["Brandudvikling"],
+    tags: ["Brandudvikling", "Strategisk kommunikation", "Konceptudvikling"],
   },
 };
 
