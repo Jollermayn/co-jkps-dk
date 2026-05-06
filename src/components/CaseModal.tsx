@@ -61,38 +61,17 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
         ref={panelRef}
         className="relative ml-auto w-full md:w-[min(960px,92vw)] h-full bg-[#0D1B2A] text-cream overflow-y-auto shadow-2xl animate-in slide-in-from-right duration-300"
       >
-        {/* Hero image or gallery */}
+        {/* Hero image */}
         <figure className="relative w-full">
-          {study.gallery && study.gallery.length > 0 ? (
-            <div className="relative">
-              <div className="flex w-full overflow-x-auto snap-x snap-mandatory gap-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden bg-[#0D1B2A]">
-                {study.gallery.map((src, i) => (
-                  <img
-                    key={i}
-                    src={src}
-                    alt={`${study.client} — billede ${i + 1}`}
-                    className="snap-start shrink-0 w-[88%] sm:w-[70%] md:w-[60%] h-[240px] sm:h-[320px] md:h-[380px] object-cover rounded-md"
-                  />
-                ))}
-              </div>
-              <div
-                aria-hidden
-                className="pointer-events-none absolute inset-x-0 bottom-0 h-32 md:h-40 bg-gradient-to-b from-transparent to-[#0D1B2A]"
-              />
-            </div>
-          ) : (
-            <>
-              <img
-                src={study.image}
-                alt={`${study.client} — ${study.title}`}
-                className="block w-full h-[240px] sm:h-[320px] md:h-[380px] object-cover"
-              />
-              <div
-                aria-hidden
-                className="pointer-events-none absolute inset-x-0 bottom-0 h-32 md:h-40 bg-gradient-to-b from-transparent to-[#0D1B2A]"
-              />
-            </>
-          )}
+          <img
+            src={study.image}
+            alt={`${study.client} — ${study.title}`}
+            className="block w-full h-[240px] sm:h-[320px] md:h-[380px] object-cover"
+          />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-32 md:h-40 bg-gradient-to-b from-transparent to-[#0D1B2A]"
+          />
           {/* Close */}
           <button
             type="button"
@@ -235,6 +214,20 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
                   <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-24 md:h-32 bg-gradient-to-b from-transparent to-[#0D1B2A]" />
                 </div>
               </div>
+            </div>
+          )}
+
+          {study.gallery && study.gallery.length > 0 && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+              {study.gallery.map((src, i) => (
+                <img
+                  key={i}
+                  src={src}
+                  alt={`${study.client} — billede ${i + 2}`}
+                  loading="lazy"
+                  className="w-full h-auto rounded-md object-cover"
+                />
+              ))}
             </div>
           )}
 
