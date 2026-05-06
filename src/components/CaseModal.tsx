@@ -217,6 +217,20 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
             </div>
           )}
 
+          {study.gallery && study.gallery.length > 0 && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+              {study.gallery.map((src, i) => (
+                <img
+                  key={i}
+                  src={src}
+                  alt={`${study.client} — billede ${i + 2}`}
+                  loading="lazy"
+                  className="w-full h-auto rounded-md object-cover"
+                />
+              ))}
+            </div>
+          )}
+
           {(() => {
             const idx = caseStudies.findIndex((c) => c.slug === study.slug);
             if (idx === -1) return null;
