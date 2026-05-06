@@ -273,8 +273,6 @@ const _allCases: CaseStudy[] = [
     title: "En borgerdrevet musikskole fra bunden",
     image: caseNye1,
     gallery: [caseNye1, caseNye2, caseNye3, caseNye4, caseNye5, caseNye6, caseNye7],
-    status: "ongoing",
-    statusLabel: "Igangværende projekt",
     context:
       "I den nyetablerede by Nye nord for Aarhus opstår et fællesskabsdrevet musikhus i et tidligere møbelværksted — med plads til undervisning, sammenspil og koncerter for alle aldre og niveauer.",
     challenge:
