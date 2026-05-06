@@ -516,7 +516,7 @@ function Index() {
                     className={`flex flex-col items-center ${i === 0 ? "md:pr-8" : i === 2 ? "md:pl-8" : "md:px-8"} ${i > 0 ? "mt-12 md:mt-0" : ""}`}
                   >
                     <div className="w-full max-w-[220px] flex flex-col items-center">
-                      <div className="w-32 h-32 md:w-36 md:h-36 flex items-center justify-center mb-6 shrink-0 transition-all duration-300 ease-out hover:scale-[1.06] hover:[filter:drop-shadow(0_0_14px_var(--ember))]">
+                      <div className="w-28 h-28 md:w-32 md:h-32 flex items-center justify-center mb-2 md:mb-3 shrink-0 transition-all duration-300 ease-out hover:scale-[1.06] hover:[filter:drop-shadow(0_0_14px_var(--ember))]">
                         {item.icon}
                       </div>
                       <h3 className="font-display text-xl md:text-2xl tracking-tight leading-snug text-center whitespace-nowrap">
