@@ -141,10 +141,16 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
 
         {/* Title */}
         <section className="px-6 md:px-10 pt-10 md:pt-12 pb-8 border-b border-cream/10">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 flex-wrap">
             <span className="eyebrow text-[16px] font-semibold tracking-[0.22em] text-[#B83A20] opacity-100">
               {study.client}
             </span>
+            {study.status === "ongoing" && (
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-cream/40 text-[10px] tracking-[0.15em] uppercase text-cream/85 font-semibold">
+                <span className="h-1.5 w-1.5 rounded-full bg-ember animate-pulse" />
+                {study.statusLabel ?? "Igangværende projekt"}
+              </span>
+            )}
           </div>
           <h2 className="font-display mt-6 text-[clamp(2rem,4.5vw,3.5rem)] leading-[0.98] tracking-[-0.02em]">
             {study.title}
