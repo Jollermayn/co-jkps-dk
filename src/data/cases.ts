@@ -266,8 +266,9 @@ const _order = [
   "concerto-copenhagen",
   "amnesty-international",
   "danmarks-naturfredningsforening",
-  "boliga",
   "wolt",
+  "art-spirit-coaching",
+  "boliga",
 ];
 
 export const caseStudies: CaseStudy[] = [
