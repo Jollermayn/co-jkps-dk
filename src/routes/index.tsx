@@ -466,7 +466,7 @@ function Index() {
                 <span
                   aria-hidden
                   className="hidden md:block absolute left-1/2 -translate-x-1/2 rounded-full bg-ember pointer-events-none z-20"
-                  style={{ top: "0.5rem", width: "15px", height: "15px" }}
+                  style={{ top: "-0.5rem", width: "15px", height: "15px" }}
                 />
                 {[
                   {
