@@ -16,7 +16,9 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
   const open = !!study;
   const panelRef = useRef<HTMLDivElement>(null);
   const touchStartY = useRef<number | null>(null);
+  const touchStartX = useRef<number | null>(null);
   const touchActive = useRef(false);
+  const axis = useRef<"v" | "h" | null>(null);
   const [dragY, setDragY] = useState(0);
   const [closing, setClosing] = useState(false);
 
