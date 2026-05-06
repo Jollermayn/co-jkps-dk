@@ -45,6 +45,33 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
 
   if (!study) return null;
 
+  const isMobile = typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    if (!isMobile) return;
+    const el = panelRef.current;
+    if (!el || el.scrollTop > 0) return;
+    touchStartY.current = e.touches[0].clientY;
+    touchActive.current = true;
+  };
+  const onTouchMove = (e: React.TouchEvent) => {
+    if (!touchActive.current || touchStartY.current == null) return;
+    const dy = e.touches[0].clientY - touchStartY.current;
+    if (dy > 0) setDragY(dy);
+  };
+  const onTouchEnd = () => {
+    if (!touchActive.current) return;
+    touchActive.current = false;
+    touchStartY.current = null;
+    if (dragY > 120) {
+      setClosing(true);
+      setDragY(window.innerHeight);
+      window.setTimeout(() => onClose(), 280);
+    } else {
+      setDragY(0);
+    }
+  };
+
   return (
     <div
       role="dialog"
@@ -58,12 +85,21 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
         aria-label="Luk case"
         onClick={onClose}
         className="absolute inset-0 bg-[rgba(0,0,0,0.6)] cursor-default"
+        style={{ opacity: dragY > 0 ? Math.max(0, 1 - dragY / 400) : undefined }}
       />
 
       {/* Panel */}
       <div
         ref={panelRef}
-        className="relative ml-auto w-full md:w-[min(960px,92vw)] h-full bg-[#0D1B2A] text-cream overflow-y-auto shadow-2xl animate-in slide-in-from-right duration-300"
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+        onTouchCancel={onTouchEnd}
+        style={{
+          transform: dragY > 0 ? `translateY(${dragY}px)` : undefined,
+          transition: touchActive.current ? "none" : closing || dragY === 0 ? "transform 280ms ease-out" : undefined,
+        }}
+        className="relative ml-auto w-full md:w-[min(960px,92vw)] h-full bg-[#0D1B2A] text-cream overflow-y-auto shadow-2xl animate-in slide-in-from-right duration-300 overscroll-contain"
       >
         {/* Hero image */}
         <figure className="relative w-full">
