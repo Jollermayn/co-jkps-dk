@@ -458,21 +458,19 @@ function Index() {
                       "Ti år med læringsdesign, medieproduktion og redaktionel tilrettelæggelse for DR, Amnesty og Danmarks Naturfredningsforening.",
                     icon: (
                       <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-20 h-20 md:w-24 md:h-24 text-cream">
-                        <line x1="25" y1="30" x2="60" y2="20" />
-                        <line x1="25" y1="30" x2="50" y2="55" />
-                        <line x1="25" y1="30" x2="30" y2="75" />
-                        <line x1="60" y1="20" x2="80" y2="45" />
-                        <line x1="50" y1="55" x2="80" y2="45" />
-                        <line x1="50" y1="55" x2="70" y2="80" />
-                        <line x1="30" y1="75" x2="50" y2="55" />
-                        <line x1="30" y1="75" x2="70" y2="80" />
-                        <line x1="80" y1="45" x2="70" y2="80" />
-                        <circle cx="25" cy="30" r="3.5" fill="currentColor" stroke="none" />
-                        <circle cx="60" cy="20" r="3.5" fill="currentColor" stroke="none" />
-                        <circle cx="80" cy="45" r="3.5" fill="currentColor" stroke="none" />
-                        <circle cx="50" cy="55" r="5" stroke="none" className="fill-ember" />
-                        <circle cx="30" cy="75" r="3.5" fill="currentColor" stroke="none" />
-                        <circle cx="70" cy="80" r="3.5" fill="currentColor" stroke="none" />
+                        {[0, 60, 120, 180, 240, 300].map((deg) => {
+                          const rad = (deg * Math.PI) / 180;
+                          const x = 50 + Math.cos(rad) * 32;
+                          const y = 50 + Math.sin(rad) * 32;
+                          return <line key={deg} x1="50" y1="50" x2={x} y2={y} />;
+                        })}
+                        {[0, 60, 120, 180, 240, 300].map((deg) => {
+                          const rad = (deg * Math.PI) / 180;
+                          const x = 50 + Math.cos(rad) * 32;
+                          const y = 50 + Math.sin(rad) * 32;
+                          return <circle key={deg} cx={x} cy={y} r="4" fill="none" stroke="currentColor" />;
+                        })}
+                        <circle cx="50" cy="50" r="4" stroke="none" className="fill-ember" />
                       </svg>
                     ),
                   },
