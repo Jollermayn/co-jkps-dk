@@ -452,7 +452,7 @@ function Index() {
               <div className="grid grid-cols-1 md:grid-cols-3 md:divide-x md:divide-ember/40 relative">
                 {[
                   {
-                    title: "Digital & Kommunikation",
+                    title: "Teknologi",
                     description:
                       "Ti år med læringsdesign, redaktionel tilrettelæggelse og medieproduktion for organisationer som DR, Amnesty International og Danmarks Naturfredningsforening.",
                     icon: (
@@ -476,7 +476,7 @@ function Index() {
                     ),
                   },
                   {
-                    title: "Kreativ udøver",
+                    title: "Kreativitet",
                     description:
                       "Komponist, musiker og sangskriver. Har arbejdet med et hav af kunstnere og leveret musik til kortfilm og reklame.",
                     icon: (
@@ -493,7 +493,7 @@ function Index() {
                     ),
                   },
                   {
-                    title: "Formidler",
+                    title: "Kommunikation",
                     description:
                       "Brobyggeren mellem de to — der oversætter kompleksitet til oplevelse og håndværk til indhold der rammer.",
                     icon: (
