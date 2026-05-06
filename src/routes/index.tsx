@@ -5,6 +5,7 @@ import { caseStudies, type CaseStudy } from "@/data/cases";
 
 import { CaseModal } from "@/components/CaseModal";
 import profilePhoto from "@/assets/profile-photo.png";
+import baggrundKreativ from "@/assets/baggrund-kreativ.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -403,16 +404,19 @@ function Index() {
                     title: "Kreativ udøver",
                     description:
                       "Komponist, musiker og sangskriver. Har arbejdet med et hav af kunstnere og leveret musik til kortfilm og reklame.",
+                    image: baggrundKreativ,
                   },
                   {
                     title: "Digital & Kommunikation",
                     description:
                       "Ti år med læringsdesign, redaktionel tilrettelæggelse og medieproduktion for organisationer som DR, Amnesty International og Danmarks Naturfredningsforening.",
+                    image: null,
                   },
                   {
                     title: "Formidler",
                     description:
                       "Brobyggeren mellem de to — der oversætter kompleksitet til oplevelse og håndværk til indhold der rammer.",
+                    image: null,
                   },
                 ].map((item) => (
                   <div key={item.title} className="flex flex-col items-start text-left">
@@ -423,7 +427,15 @@ function Index() {
                       >
                         [
                       </span>
-                      <div className="w-32 h-32 md:w-36 md:h-36 rounded-full bg-cream/10 ring-1 ring-cream/20" />
+                      <div className="w-32 h-32 md:w-36 md:h-36 rounded-full bg-cream/10 ring-1 ring-cream/20 overflow-hidden">
+                        {item.image && (
+                          <img
+                            src={item.image}
+                            alt={item.title}
+                            className="w-full h-full object-cover"
+                          />
+                        )}
+                      </div>
                       <span
                         aria-hidden
                         className="font-display text-6xl md:text-7xl leading-none text-ember/90 select-none -ml-1"
