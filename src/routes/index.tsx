@@ -1129,106 +1129,16 @@ function KompetencerList() {
               <p className="md:col-span-12 mt-2 text-sm md:text-[0.95rem] text-cream/80 leading-snug">{c.body}</p>
 
               <ul className="md:col-span-12 mt-2 self-start flex flex-wrap gap-1.5">
-                {c.tags.map((t) => {
-                  const slugs = TAG_TO_SLUGS[t] ?? [];
-                  const hasCases = slugs.length > 0;
-                  const isOpen = openTag === `${c.no}-${t}`;
-                  const tagKey = `${c.no}-${t}`;
-                  return (
-                    <li
-                      key={t}
-                      ref={isOpen ? activeTagRef : undefined}
-                      className="relative inline-flex"
-                      onMouseEnter={() => {
-                        if (!canHover || !hasCases) return;
-                        cancelClose();
-                        setOpenTag(tagKey);
-                      }}
-                      onMouseLeave={() => {
-                        if (!canHover) return;
-                        scheduleClose();
-                      }}
+                {c.tags.map((t) => (
+                  <li key={t} className="inline-flex">
+                    <span
+                      style={{ padding: "4px 10px", fontSize: "10px", lineHeight: "1" }}
+                      className="tracking-wide uppercase rounded-md bg-[#F5F0E8]/40 text-[#F5F0E8]"
                     >
-                      <button
-                        type="button"
-                        disabled={!hasCases}
-                        onClick={() => {
-                          if (canHover) return;
-                          setOpenTag(isOpen ? null : tagKey);
-                        }}
-                        onFocus={() => {
-                          if (!canHover || !hasCases) return;
-                          cancelClose();
-                          setOpenTag(tagKey);
-                        }}
-                        onBlur={() => {
-                          if (!canHover) return;
-                          scheduleClose();
-                        }}
-                        aria-expanded={isOpen}
-                        style={{ padding: "4px 10px", fontSize: "10px", lineHeight: "1" }}
-                        className={
-                          "tracking-wide uppercase rounded-md border-none transition-colors " +
-                          (hasCases ? "cursor-pointer hover:bg-[#B83A20] hover:text-[#F5F0E8] " : "cursor-default ") +
-                          (isOpen ? "bg-[#B83A20] text-[#F5F0E8]" : "bg-[#F5F0E8]/40 text-[#F5F0E8]")
-                        }
-                      >
-                        {t}
-                      </button>
-                      {isOpen && hasCases && (
-                        <div
-                          style={{ zIndex: 9999 }}
-                          className="absolute top-full left-0 mt-2 min-w-[200px] max-w-[220px] bg-[#0D1B2A]/85 backdrop-blur-md border border-cream/10 border-l-2 border-l-[#B83A20] shadow-2xl rounded-xl p-5 animate-in fade-in slide-in-from-top-1 duration-150"
-                        >
-                          <div
-                            className="text-ember uppercase font-semibold mb-4"
-                            style={{ fontSize: 8, letterSpacing: "0.28em" }}
-                          >
-                            Relaterede cases
-                          </div>
-                          <ul className="flex flex-col gap-3">
-                            {slugs.map((slug) => {
-                              const study = caseStudies.find((s) => s.slug === slug);
-                              if (!study) return null;
-                              return (
-                                <li key={slug}>
-                                  <button
-                                    type="button"
-                                    onClick={() => {
-                                      setOpenTag(null);
-                                      setOpenCase(study);
-                                    }}
-                                    className="group/case w-full text-left flex items-start gap-3 p-3 -mx-2 rounded hover:bg-cream/5 transition-colors"
-                                  >
-                                    <img
-                                      src={study.image}
-                                      alt=""
-                                      className="w-10 h-10 rounded-md object-cover shrink-0 grayscale group-hover/case:grayscale-0 transition-all duration-300"
-                                    />
-                                    <div className="min-w-0 flex-1">
-                                      <div className="text-base font-display font-semibold text-cream leading-tight">
-                                        {study.client}
-                                      </div>
-                                      <div className="text-xs text-cream/65 leading-snug mt-0.5 truncate">
-                                        {TAG_HEADLINES[slug] ?? study.title}
-                                      </div>
-                                    </div>
-                                    <span
-                                      aria-hidden
-                                      className="text-cream/40 group-hover/case:text-ember transition-colors text-sm"
-                                    >
-                                      ↗
-                                    </span>
-                                  </button>
-                                </li>
-                              );
-                            })}
-                          </ul>
-                        </div>
-                      )}
-                    </li>
-                  );
-                })}
+                      {t}
+                    </span>
+                  </li>
+                ))}
               </ul>
 
               {c.relatedCases && c.relatedCases.length > 0 && (
