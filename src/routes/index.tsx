@@ -1098,44 +1098,6 @@ function KompetencerList() {
                   </li>
                 ))}
               </ul>
-
-              {c.relatedCases && c.relatedCases.length > 0 && (
-                <details className="md:col-span-12 mt-1 group/rel">
-                  <summary className="cursor-pointer list-none inline-flex items-center gap-2 text-ember uppercase font-semibold tracking-[0.22em] text-[10px] hover:text-[#B83A20] transition-colors">
-                    <span>Relaterede cases ({c.relatedCases.length})</span>
-                    <span aria-hidden className="transition-transform group-open/rel:rotate-180">▾</span>
-                  </summary>
-                  <ul className="mt-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                    {c.relatedCases.map((slug) => {
-                      const study = caseStudies.find((s) => s.slug === slug);
-                      if (!study) return null;
-                      return (
-                        <li key={slug}>
-                          <button
-                            type="button"
-                            onClick={() => setOpenCase(study)}
-                            className="group/case w-full text-left flex items-start gap-3 p-3 rounded-lg border border-cream/10 bg-cream/5 hover:bg-cream/10 hover:border-cream/20 transition-colors"
-                          >
-                            <img
-                              src={study.image}
-                              alt=""
-                              className="w-14 h-14 rounded-md object-cover shrink-0 grayscale group-hover/case:grayscale-0 transition-all duration-300"
-                            />
-                            <div className="min-w-0 flex-1">
-                              <div className="text-sm font-display font-semibold text-cream leading-tight">
-                                {study.client}
-                              </div>
-                              <div className="text-xs text-cream/65 leading-snug mt-1 line-clamp-2">
-                                {study.title}
-                              </div>
-                            </div>
-                          </button>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </details>
-              )}
             </div>
           </li>
         ))}
