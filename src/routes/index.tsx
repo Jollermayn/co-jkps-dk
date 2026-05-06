@@ -427,7 +427,15 @@ function Index() {
                       >
                         [
                       </span>
-                      <div className="w-32 h-32 md:w-36 md:h-36 rounded-full bg-cream/10 ring-1 ring-cream/20" />
+                      <div className="w-32 h-32 md:w-36 md:h-36 rounded-full bg-cream/10 ring-1 ring-cream/20 overflow-hidden">
+                        {item.image && (
+                          <img
+                            src={item.image}
+                            alt={item.title}
+                            className="w-full h-full object-cover"
+                          />
+                        )}
+                      </div>
                       <span
                         aria-hidden
                         className="font-display text-6xl md:text-7xl leading-none text-ember/90 select-none -ml-1"
