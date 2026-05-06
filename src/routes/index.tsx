@@ -548,11 +548,11 @@ const CASE_META: Record<string, { headline: string; tags: string[] }> = {
   },
   "interaktiv-horesimulering": {
     headline: "Inklusion i undervisningen",
-    tags: ["Læringsdesign", "Co-design", "Digital dannelse"],
+    tags: ["Læringsdesign", "Co-design", "Digital dannelse", "Børn og unge"],
   },
   "danmarks-radio": {
     headline: "Digitale og lydbaserede formater",
-    tags: ["Redaktionel tilrettelæggelse", "Lydbaseret formidling", "Broadcast"],
+    tags: ["Redaktionel tilrettelæggelse", "Lydbaseret formidling", "Broadcast", "Børn og unge"],
   },
   "amnesty-international": {
     headline: "Menneskerettigheder i lyd",
