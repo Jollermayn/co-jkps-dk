@@ -497,7 +497,11 @@ function Index() {
                     description:
                       "Brobyggeren mellem de to — der oversætter kompleksitet til oplevelse og håndværk til indhold der rammer.",
                     icon: (
-                      <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-20 h-20 md:w-24 md:h-24 text-ember">
+                      <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-20 h-20 md:w-24 md:h-24 text-cream">
+                        <defs>
+                          <clipPath id="venn-left"><circle cx="38" cy="50" r="22" /></clipPath>
+                        </defs>
+                        <circle cx="62" cy="50" r="22" className="fill-ember" stroke="none" clipPath="url(#venn-left)" />
                         <circle cx="38" cy="50" r="22" />
                         <circle cx="62" cy="50" r="22" />
                       </svg>
