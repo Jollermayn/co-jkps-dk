@@ -439,7 +439,7 @@ function Index() {
           {/* BAGGRUND */}
           <section id="baggrund" className="py-16 md:py-20">
             <div className="px-5 md:px-14">
-              <div className="mb-12 md:mb-16">
+              <div className="mb-6 md:mb-10">
                 <Eyebrow>Baggrund</Eyebrow>
                 <h2 className="font-display text-5xl md:text-7xl mt-6 leading-[0.95] tracking-tight">
                   Tre <span className="italic text-ember">aner</span>
