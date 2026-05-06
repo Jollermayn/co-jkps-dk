@@ -508,7 +508,7 @@ function Index() {
                     ),
                   },
                 ].map((item, i) => (
-                  <>
+                  <React.Fragment key={item.title}>
                   {i === 0 && (
                     <svg
                       aria-hidden
