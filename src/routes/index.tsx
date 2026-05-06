@@ -456,7 +456,7 @@ function Index() {
                     description:
                       "Ti år med læringsdesign, redaktionel tilrettelæggelse og medieproduktion for organisationer som DR, Amnesty International og Danmarks Naturfredningsforening.",
                     icon: (
-                      <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-20 h-20 md:w-24 md:h-24 text-ember">
+                      <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-20 h-20 md:w-24 md:h-24 text-cream">
                         <line x1="25" y1="30" x2="60" y2="20" />
                         <line x1="25" y1="30" x2="50" y2="55" />
                         <line x1="25" y1="30" x2="30" y2="75" />
@@ -469,7 +469,7 @@ function Index() {
                         <circle cx="25" cy="30" r="3.5" fill="currentColor" stroke="none" />
                         <circle cx="60" cy="20" r="3.5" fill="currentColor" stroke="none" />
                         <circle cx="80" cy="45" r="3.5" fill="currentColor" stroke="none" />
-                        <circle cx="50" cy="55" r="4" stroke="none" fill="currentColor" />
+                        <circle cx="50" cy="55" r="5" stroke="none" className="fill-ember" />
                         <circle cx="30" cy="75" r="3.5" fill="currentColor" stroke="none" />
                         <circle cx="70" cy="80" r="3.5" fill="currentColor" stroke="none" />
                       </svg>
