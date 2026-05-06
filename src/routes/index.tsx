@@ -476,7 +476,7 @@ function Index() {
                   },
                   {
                     title: "Lyd & Musik",
-                    tagline: "Lyden og udtrykket",
+                    tagline: "Det soniske lag",
                     description:
                       "Komponist, musiker og sangskriver med arbejde for kunstnere, kortfilm og reklame.",
                     icon: (
@@ -494,7 +494,7 @@ function Index() {
                   },
                   {
                     title: "Kommunikation",
-                    tagline: "Brobyggeren",
+                    tagline: "Det menneskelige lag",
                     description:
                       "Oversætter kompleksitet til oplevelse — og håndværk til indhold der rammer.",
                     icon: (
