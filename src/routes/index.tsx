@@ -462,8 +462,12 @@ function Index() {
                     <path d="M 150 18 C 150 45, 150 72, 150 98" />
                     <path d="M 150 18 C 170 40, 210 70, 250 98" />
                   </g>
-                  <circle cx="150" cy="12" r="5" className="fill-ember" />
                 </svg>
+                <span
+                  aria-hidden
+                  className="hidden md:block absolute left-1/2 -translate-x-1/2 rounded-full bg-ember pointer-events-none z-20"
+                  style={{ top: "0.5rem", width: "15px", height: "15px" }}
+                />
                 {[
                   {
                     title: "Digital & Kommunikation",
