@@ -480,12 +480,13 @@ function Index() {
                     description:
                       "Komponist, musiker og sangskriver. Har arbejdet med et hav af kunstnere og leveret musik til kortfilm og reklame.",
                     icon: (
-                      <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" className="w-20 h-20 md:w-24 md:h-24 text-ember">
+                      <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" className="w-20 h-20 md:w-24 md:h-24 text-cream">
                         {[18, 26, 34, 42, 50, 58, 66, 74, 82].map((x, i) => {
                           const heights = [10, 22, 16, 32, 44, 32, 16, 22, 10];
                           const h = heights[i];
+                          const isCenter = i === 4;
                           return (
-                            <line key={x} x1={x} y1={50 - h / 2} x2={x} y2={50 + h / 2} strokeWidth={i === 4 ? 2 : 1.5} />
+                            <line key={x} x1={x} y1={50 - h / 2} x2={x} y2={50 + h / 2} strokeWidth={isCenter ? 2.5 : 1.5} className={isCenter ? "stroke-ember" : undefined} />
                           );
                         })}
                       </svg>
