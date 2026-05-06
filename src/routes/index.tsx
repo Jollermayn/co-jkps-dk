@@ -508,6 +508,23 @@ function Index() {
                     ),
                   },
                 ].map((item, i) => (
+                  <>
+                  {i === 0 && (
+                    <svg
+                      aria-hidden
+                      viewBox="0 0 300 80"
+                      preserveAspectRatio="none"
+                      className="hidden md:block absolute left-0 right-0 pointer-events-none z-10"
+                      style={{ top: "9.5rem", height: "5rem" }}
+                    >
+                      <g fill="none" stroke="currentColor" strokeWidth="1" strokeDasharray="3 4" strokeLinecap="round" className="text-cream/50">
+                        <path d="M 50 0 C 70 25, 130 55, 150 70" />
+                        <path d="M 150 0 C 150 25, 150 55, 150 70" />
+                        <path d="M 250 0 C 230 25, 170 55, 150 70" />
+                      </g>
+                      <circle cx="150" cy="70" r="5" className="fill-ember" />
+                    </svg>
+                  )}
                   <div
                     key={item.title}
                     className={`flex flex-col items-start text-left ${i === 0 ? "md:pr-8" : i === 2 ? "md:pl-8" : "md:px-8"} ${i > 0 ? "mt-12 md:mt-0" : ""}`}
