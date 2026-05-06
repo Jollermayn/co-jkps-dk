@@ -15,6 +15,7 @@ import caseNye5 from "@/assets/case-nye-5.png";
 import caseNye6 from "@/assets/case-nye-6.png";
 import caseNye7 from "@/assets/case-nye-7.png";
 import caseNyeHero from "@/assets/case-nye-hero.png";
+import caseNyeVaerkstedet from "@/assets/case-nye-vaerkstedet.png";
 
 export type StemFraFeltet = {
   quote: string;
@@ -273,7 +274,7 @@ const _allCases: CaseStudy[] = [
     client: "Musikfællesskabet i Nye",
     title: "En borgerdrevet musikskole fra bunden",
     image: caseNyeHero,
-    gallery: [caseNye2, caseNye1, caseNye3, caseNye4, caseNye5, caseNye6, caseNye7],
+    gallery: [caseNyeVaerkstedet, caseNye2, caseNye1, caseNye3, caseNye4, caseNye5, caseNye6, caseNye7],
     context:
       "I den nyetablerede by Nye nord for Aarhus opstår et fællesskabsdrevet musikhus i et tidligere møbelværksted — med plads til undervisning, sammenspil og koncerter for alle aldre og niveauer.",
     challenge:
