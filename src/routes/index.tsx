@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Fragment, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { SlidersHorizontal, X, MousePointerClick } from "lucide-react";
 import { caseStudies, type CaseStudy } from "@/data/cases";
 
