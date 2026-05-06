@@ -568,6 +568,10 @@ const CASE_META: Record<string, { headline: string; tags: string[] }> = {
     headline: "Brand og koncept fra idé til lancering",
     tags: ["Brandudvikling", "Strategisk kommunikation", "Konceptudvikling"],
   },
+  "musikfaellesskabet-i-nye": {
+    headline: "En borgerdrevet musikskole fra bunden",
+    tags: ["Lydproduktion", "Konceptudvikling", "Læringsdesign"],
+  },
 };
 
 function CasesSection() {
