@@ -384,6 +384,62 @@ function Index() {
             </div>
           </section>
 
+          {/* BAGGRUND */}
+          <section id="baggrund" className="py-16 md:py-20">
+            <div className="px-5 md:px-14">
+              <div className="mb-12 md:mb-16">
+                <Eyebrow>Baggrund</Eyebrow>
+                <h2 className="font-display text-5xl md:text-7xl mt-6 leading-[0.95] tracking-tight">
+                  Tre <span className="italic text-ember">spor</span>
+                </h2>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+                {[
+                  {
+                    title: "Kreativ udøver",
+                    description:
+                      "Komponist, musiker og sangskriver. Har arbejdet med et utal af kunstnere og leveret musik til kortfilm og reklame.",
+                  },
+                  {
+                    title: "Digital & Kommunikation",
+                    description:
+                      "Ti år med læringsdesign, redaktionel tilrettelæggelse og medieproduktion for organisationer som DR, Amnesty International og Danmarks Naturfredningsforening.",
+                  },
+                  {
+                    title: "Formidler",
+                    description:
+                      "Brobyggeren mellem de to — der oversætter kompleksitet til oplevelse og håndværk til indhold der rammer.",
+                  },
+                ].map((item) => (
+                  <div key={item.title} className="flex flex-col items-center text-center">
+                    <div className="flex items-center justify-center gap-3 md:gap-4 mb-6">
+                      <span
+                        aria-hidden
+                        className="font-display text-5xl md:text-6xl leading-none text-ember/90 select-none"
+                      >
+                        [
+                      </span>
+                      <div className="w-32 h-32 md:w-36 md:h-36 rounded-full bg-cream/10 ring-1 ring-cream/20" />
+                      <span
+                        aria-hidden
+                        className="font-display text-5xl md:text-6xl leading-none text-ember/90 select-none"
+                      >
+                        ]
+                      </span>
+                    </div>
+                    <h3 className="font-display text-2xl md:text-[1.7rem] tracking-tight leading-snug">
+                      {item.title}
+                    </h3>
+                    <p className="mt-3 max-w-xs text-cream/80 leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
           {/* UDDANNELSE */}
           <section id="uddannelse" className="py-16 md:py-20">
             <div className="px-12 md:px-14">
