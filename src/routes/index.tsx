@@ -449,7 +449,7 @@ function Index() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 md:divide-x md:divide-ember/40 relative">
+              <div className="grid grid-cols-1 md:grid-cols-3 md:divide-x md:divide-ember/40 relative md:items-start">
                 {[
                   {
                     title: "Teknologi",
@@ -510,12 +510,12 @@ function Index() {
                 ].map((item, i) => (
                   <div
                     key={item.title}
-                    className={`flex flex-col items-start text-left ${i === 0 ? "md:pr-8" : i === 2 ? "md:pl-8" : "md:px-8"} ${i > 0 ? "mt-12 md:mt-0" : ""}`}
+                    className={`flex flex-col items-start justify-start text-left ${i === 0 ? "md:pr-8" : i === 2 ? "md:pl-8" : "md:px-8"} ${i > 0 ? "mt-12 md:mt-0" : ""}`}
                   >
-                    <div className="self-center w-32 h-32 md:w-36 md:h-36 flex items-center justify-center mb-6">
+                    <div className="self-center w-32 h-32 md:w-36 md:h-36 flex items-center justify-center mb-6 shrink-0">
                       {item.icon}
                     </div>
-                    <h3 className="font-display text-2xl md:text-[1.7rem] tracking-tight leading-snug">
+                    <h3 className="font-display text-2xl md:text-[1.7rem] tracking-tight leading-snug min-h-[2.5rem] md:min-h-[2.6rem]">
                       {item.title}
                     </h3>
                     <p className="mt-3 text-cream/80 leading-relaxed">
