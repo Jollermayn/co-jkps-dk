@@ -469,7 +469,7 @@ function Index() {
                         <circle cx="25" cy="30" r="3.5" fill="currentColor" stroke="none" />
                         <circle cx="60" cy="20" r="3.5" fill="currentColor" stroke="none" />
                         <circle cx="80" cy="45" r="3.5" fill="currentColor" stroke="none" />
-                        <circle cx="50" cy="55" r="4" className="text-ember" stroke="none" fill="currentColor" />
+                        <circle cx="50" cy="55" r="4" stroke="none" fill="currentColor" />
                         <circle cx="30" cy="75" r="3.5" fill="currentColor" stroke="none" />
                         <circle cx="70" cy="80" r="3.5" fill="currentColor" stroke="none" />
                       </svg>
