@@ -548,11 +548,11 @@ const CASE_META: Record<string, { headline: string; tags: string[] }> = {
   },
   "interaktiv-horesimulering": {
     headline: "Inklusion i undervisningen",
-    tags: ["Læringsdesign", "Co-design", "Digital dannelse"],
+    tags: ["Læringsdesign", "Co-design", "Digital dannelse", "Børn og unge"],
   },
   "danmarks-radio": {
     headline: "Digitale og lydbaserede formater",
-    tags: ["Redaktionel tilrettelæggelse", "Lydbaseret formidling", "Broadcast"],
+    tags: ["Redaktionel tilrettelæggelse", "Lydbaseret formidling", "Broadcast", "Børn og unge"],
   },
   "amnesty-international": {
     headline: "Menneskerettigheder i lyd",
@@ -564,11 +564,11 @@ const CASE_META: Record<string, { headline: string; tags: string[] }> = {
   },
   "ulla-dyrlov": {
     headline: "Koncept og platform fra bunden",
-    tags: ["Læringsindhold", "Børn og forældre", "Podcastproduktion"],
+    tags: ["Læringsindhold", "Børn og unge", "Podcastproduktion"],
   },
   "concerto-copenhagen": {
     headline: "Bach til en ny generation",
-    tags: ["Brandudvikling", "Kommunikation"],
+    tags: ["Brandudvikling", "Kommunikation", "Børn og unge"],
   },
   "art-spirit-coaching": {
     headline: "Brand og koncept fra idé til lancering",
