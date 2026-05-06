@@ -5,7 +5,7 @@ import { caseStudies, type CaseStudy } from "@/data/cases";
 
 import { CaseModal } from "@/components/CaseModal";
 import profilePhoto from "@/assets/profile-photo.png";
-import baggrundKreativ from "@/assets/baggrund-kreativ.png";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -455,19 +455,70 @@ function Index() {
                     title: "Digital & Kommunikation",
                     description:
                       "Ti år med læringsdesign, redaktionel tilrettelæggelse og medieproduktion for organisationer som DR, Amnesty International og Danmarks Naturfredningsforening.",
-                    image: null,
+                    icon: (
+                      <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-20 h-20 md:w-24 md:h-24 text-cream/85">
+                        <line x1="25" y1="30" x2="60" y2="20" />
+                        <line x1="25" y1="30" x2="50" y2="55" />
+                        <line x1="25" y1="30" x2="30" y2="75" />
+                        <line x1="60" y1="20" x2="80" y2="45" />
+                        <line x1="50" y1="55" x2="80" y2="45" />
+                        <line x1="50" y1="55" x2="70" y2="80" />
+                        <line x1="30" y1="75" x2="50" y2="55" />
+                        <line x1="30" y1="75" x2="70" y2="80" />
+                        <line x1="80" y1="45" x2="70" y2="80" />
+                        <circle cx="25" cy="30" r="3.5" fill="currentColor" stroke="none" />
+                        <circle cx="60" cy="20" r="3.5" fill="currentColor" stroke="none" />
+                        <circle cx="80" cy="45" r="3.5" fill="currentColor" stroke="none" />
+                        <circle cx="50" cy="55" r="4" className="text-ember" stroke="none" fill="currentColor" />
+                        <circle cx="30" cy="75" r="3.5" fill="currentColor" stroke="none" />
+                        <circle cx="70" cy="80" r="3.5" fill="currentColor" stroke="none" />
+                      </svg>
+                    ),
                   },
                   {
                     title: "Kreativ udøver",
                     description:
                       "Komponist, musiker og sangskriver. Har arbejdet med et hav af kunstnere og leveret musik til kortfilm og reklame.",
-                    image: baggrundKreativ,
+                    icon: (
+                      <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" className="w-20 h-20 md:w-24 md:h-24 text-cream/85">
+                        <line x1="14" y1="50" x2="14" y2="50" />
+                        {[18, 26, 34, 42, 50, 58, 66, 74, 82].map((x, i) => {
+                          const heights = [10, 22, 16, 32, 44, 32, 16, 22, 10];
+                          const h = heights[i];
+                          const isAccent = i === 4;
+                          return (
+                            <line
+                              key={x}
+                              x1={x}
+                              y1={50 - h / 2}
+                              x2={x}
+                              y2={50 + h / 2}
+                              className={isAccent ? "text-ember" : ""}
+                              strokeWidth={isAccent ? 2 : 1.5}
+                            />
+                          );
+                        })}
+                      </svg>
+                    ),
                   },
                   {
                     title: "Formidler",
                     description:
                       "Brobyggeren mellem de to — der oversætter kompleksitet til oplevelse og håndværk til indhold der rammer.",
-                    image: null,
+                    icon: (
+                      <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-20 h-20 md:w-24 md:h-24 text-cream/85">
+                        <circle cx="38" cy="50" r="22" />
+                        <circle cx="62" cy="50" r="22" />
+                        <path
+                          d="M 50 31.6 A 22 22 0 0 1 50 68.4 A 22 22 0 0 1 50 31.6 Z"
+                          className="text-ember"
+                          fill="currentColor"
+                          fillOpacity="0.25"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                        />
+                      </svg>
+                    ),
                   },
                 ].map((item) => (
                   <div key={item.title} className="flex flex-col items-start text-left">
@@ -478,14 +529,8 @@ function Index() {
                       >
                         [
                       </span>
-                      <div className="w-32 h-32 md:w-36 md:h-36 rounded-full bg-cream/10 ring-1 ring-cream/20 overflow-hidden">
-                        {item.image && (
-                          <img
-                            src={item.image}
-                            alt={item.title}
-                            className="w-full h-full object-cover"
-                          />
-                        )}
+                      <div className="w-32 h-32 md:w-36 md:h-36 flex items-center justify-center">
+                        {item.icon}
                       </div>
                       <span
                         aria-hidden
