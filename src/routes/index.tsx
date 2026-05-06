@@ -568,6 +568,10 @@ const CASE_META: Record<string, { headline: string; tags: string[] }> = {
     headline: "Brand og koncept fra idé til lancering",
     tags: ["Brandudvikling", "Strategisk kommunikation", "Konceptudvikling"],
   },
+  "musikfaellesskabet-i-nye": {
+    headline: "En borgerdrevet musikskole fra bunden",
+    tags: ["Lydproduktion", "Konceptudvikling", "Læringsdesign"],
+  },
 };
 
 function CasesSection() {
@@ -831,13 +835,19 @@ function CasesSection() {
                 sizing
               }
             >
-              <div className={imgWrapperClass}>
+              <div className={imgWrapperClass + " relative"}>
                 <img
                   src={c.image}
                   alt={`${c.client} — ${meta?.headline ?? c.title}`}
                   loading="lazy"
                   className={imgClass}
                 />
+                {c.status === "ongoing" && (
+                  <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-cream/40 bg-[#0D1B2A]/70 backdrop-blur text-[10px] tracking-[0.15em] uppercase text-cream/90 font-semibold">
+                    <span className="h-1.5 w-1.5 rounded-full bg-ember animate-pulse" />
+                    {c.statusLabel ?? "Igangværende"}
+                  </span>
+                )}
               </div>
               <div className={bodyPadding}>
                 <span

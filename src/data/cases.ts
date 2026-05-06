@@ -7,6 +7,12 @@ import caseDN from "@/assets/case-dn.png";
 import caseUlla from "@/assets/case-ulla.png";
 import caseConcerto from "@/assets/case-concerto.png";
 import caseArtSpirit from "@/assets/case-artspirit.png";
+import caseNye1 from "@/assets/case-nye-1.png";
+import caseNye2 from "@/assets/case-nye-2.png";
+import caseNye3 from "@/assets/case-nye-3.png";
+import caseNye4 from "@/assets/case-nye-4.png";
+import caseNye5 from "@/assets/case-nye-5.png";
+import caseNye6 from "@/assets/case-nye-6.png";
 
 export type StemFraFeltet = {
   quote: string;
@@ -27,6 +33,9 @@ export type CaseStudy = {
   approach: string[];
   outcomes: string[];
   stemmerFraFeltet?: StemFraFeltet[];
+  gallery?: string[];
+  status?: "ongoing";
+  statusLabel?: string;
 };
 
 const _allCases: CaseStudy[] = [
@@ -257,6 +266,28 @@ const _allCases: CaseStudy[] = [
       "Skalerbart fundament for fremtidig vækst",
     ],
   },
+  {
+    slug: "musikfaellesskabet-i-nye",
+    client: "Musikfællesskabet i Nye",
+    title: "En borgerdrevet musikskole fra bunden",
+    image: caseNye1,
+    gallery: [caseNye1, caseNye2, caseNye3, caseNye4, caseNye5, caseNye6],
+    status: "ongoing",
+    statusLabel: "Igangværende projekt",
+    context:
+      "I den nyetablerede by Nye nord for Aarhus opstår et fællesskabsdrevet musikhus i et tidligere møbelværksted — med plads til undervisning, sammenspil og koncerter for alle aldre og niveauer.",
+    challenge:
+      "At skabe et musikhus drevet af fællesskabet — fra koncept og rumlig vision til lydstudio og undervisning — i et eksisterende møbelværksted.",
+    role: [
+      "Medkonceptualisering af musikskolens vision og rum",
+      "Ansvarlig for design og opsætning af det komplette lydstudio",
+      "Underviser og workshop-facilitator",
+    ],
+    approach: ["Konceptudvikling", "Lyddesign", "Læringsdesign", "Fællesskabsdrevet udvikling"],
+    outcomes: [
+      "Projektet er indsendt til Realdania/Underværker og afventer bedømmelse",
+    ],
+  },
 ];
 
 const _order = [
@@ -264,6 +295,7 @@ const _order = [
   "danmarks-radio",
   "ulla-dyrlov",
   "concerto-copenhagen",
+  "musikfaellesskabet-i-nye",
   "amnesty-international",
   "danmarks-naturfredningsforening",
   "wolt",

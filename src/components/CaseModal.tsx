@@ -61,17 +61,38 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
         ref={panelRef}
         className="relative ml-auto w-full md:w-[min(960px,92vw)] h-full bg-[#0D1B2A] text-cream overflow-y-auto shadow-2xl animate-in slide-in-from-right duration-300"
       >
-        {/* Hero image */}
+        {/* Hero image or gallery */}
         <figure className="relative w-full">
-          <img
-            src={study.image}
-            alt={`${study.client} — ${study.title}`}
-            className="block w-full h-[240px] sm:h-[320px] md:h-[380px] object-cover"
-          />
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-x-0 bottom-0 h-32 md:h-40 bg-gradient-to-b from-transparent to-[#0D1B2A]"
-          />
+          {study.gallery && study.gallery.length > 0 ? (
+            <div className="relative">
+              <div className="flex w-full overflow-x-auto snap-x snap-mandatory gap-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden bg-[#0D1B2A]">
+                {study.gallery.map((src, i) => (
+                  <img
+                    key={i}
+                    src={src}
+                    alt={`${study.client} — billede ${i + 1}`}
+                    className="snap-start shrink-0 w-[88%] sm:w-[70%] md:w-[60%] h-[240px] sm:h-[320px] md:h-[380px] object-cover rounded-md"
+                  />
+                ))}
+              </div>
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-x-0 bottom-0 h-32 md:h-40 bg-gradient-to-b from-transparent to-[#0D1B2A]"
+              />
+            </div>
+          ) : (
+            <>
+              <img
+                src={study.image}
+                alt={`${study.client} — ${study.title}`}
+                className="block w-full h-[240px] sm:h-[320px] md:h-[380px] object-cover"
+              />
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-x-0 bottom-0 h-32 md:h-40 bg-gradient-to-b from-transparent to-[#0D1B2A]"
+              />
+            </>
+          )}
           {/* Close */}
           <button
             type="button"
@@ -120,10 +141,16 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
 
         {/* Title */}
         <section className="px-6 md:px-10 pt-10 md:pt-12 pb-8 border-b border-cream/10">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 flex-wrap">
             <span className="eyebrow text-[16px] font-semibold tracking-[0.22em] text-[#B83A20] opacity-100">
               {study.client}
             </span>
+            {study.status === "ongoing" && (
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-cream/40 text-[10px] tracking-[0.15em] uppercase text-cream/85 font-semibold">
+                <span className="h-1.5 w-1.5 rounded-full bg-ember animate-pulse" />
+                {study.statusLabel ?? "Igangværende projekt"}
+              </span>
+            )}
           </div>
           <h2 className="font-display mt-6 text-[clamp(2rem,4.5vw,3.5rem)] leading-[0.98] tracking-[-0.02em]">
             {study.title}
