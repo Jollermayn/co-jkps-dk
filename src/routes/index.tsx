@@ -1232,12 +1232,12 @@ function KompetencerList() {
               </ul>
 
               {c.relatedCases && c.relatedCases.length > 0 && (
-                <details className="md:col-span-12 mt-2 group/rel">
+                <details className="md:col-span-12 mt-1 group/rel">
                   <summary className="cursor-pointer list-none inline-flex items-center gap-2 text-ember uppercase font-semibold tracking-[0.22em] text-[10px] hover:text-[#B83A20] transition-colors">
                     <span>Relaterede cases ({c.relatedCases.length})</span>
                     <span aria-hidden className="transition-transform group-open/rel:rotate-180">▾</span>
                   </summary>
-                  <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                  <ul className="mt-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                     {c.relatedCases.map((slug) => {
                       const study = caseStudies.find((s) => s.slug === slug);
                       if (!study) return null;
