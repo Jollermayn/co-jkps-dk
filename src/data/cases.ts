@@ -295,6 +295,7 @@ const _order = [
   "danmarks-radio",
   "ulla-dyrlov",
   "concerto-copenhagen",
+  "musikfaellesskabet-i-nye",
   "amnesty-international",
   "danmarks-naturfredningsforening",
   "wolt",
