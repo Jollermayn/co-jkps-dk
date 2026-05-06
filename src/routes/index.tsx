@@ -493,7 +493,6 @@ function Index() {
                               y1={50 - h / 2}
                               x2={x}
                               y2={50 + h / 2}
-                              className={isAccent ? "text-ember" : ""}
                               strokeWidth={isAccent ? 2 : 1.5}
                             />
                           );
