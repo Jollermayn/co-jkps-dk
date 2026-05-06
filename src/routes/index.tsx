@@ -451,7 +451,7 @@ function Index() {
                   />
                 </div>
                 <p className="max-w-xl text-cream/70 text-lg italic font-display">
-                  Jeg er altid interesseret i nye samarbejder — store som små, kommercielle som kulturelle.
+                  Jeg er altid interesseret i nye samarbejder — store som små, kommercielle som kulturelle. Særligt inden for læringsindhold, medieproduktion og formidling til børn og unge.
                 </p>
               </div>
 
