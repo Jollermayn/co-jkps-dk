@@ -449,7 +449,21 @@ function Index() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 md:divide-x md:divide-ember/40 relative md:pt-24">
+              <div className="grid grid-cols-1 md:grid-cols-3 md:divide-x md:divide-ember/40 relative md:pt-28">
+                <svg
+                  aria-hidden
+                  viewBox="0 0 300 100"
+                  preserveAspectRatio="none"
+                  className="hidden md:block absolute inset-x-0 top-0 w-full pointer-events-none z-10"
+                  style={{ height: "7rem" }}
+                >
+                  <g fill="none" stroke="currentColor" strokeWidth="1" strokeDasharray="3 4" strokeLinecap="round" className="text-cream/50" vectorEffect="non-scaling-stroke">
+                    <path d="M 150 18 C 130 40, 90 70, 50 98" />
+                    <path d="M 150 18 C 150 45, 150 72, 150 98" />
+                    <path d="M 150 18 C 170 40, 210 70, 250 98" />
+                  </g>
+                  <circle cx="150" cy="12" r="5" className="fill-ember" />
+                </svg>
                 {[
                   {
                     title: "Digital & Kommunikation",
@@ -508,24 +522,8 @@ function Index() {
                     ),
                   },
                 ].map((item, i) => (
-                  <Fragment key={item.title}>
-                  {i === 0 && (
-                    <svg
-                      aria-hidden
-                      viewBox="0 0 300 100"
-                      preserveAspectRatio="none"
-                      className="hidden md:block absolute left-0 right-0 top-0 pointer-events-none z-10"
-                      style={{ height: "6rem" }}
-                    >
-                      <g fill="none" stroke="currentColor" strokeWidth="1" strokeDasharray="3 4" strokeLinecap="round" className="text-cream/50">
-                        <path d="M 150 18 C 130 40, 90 70, 50 95" />
-                        <path d="M 150 18 C 150 45, 150 70, 150 95" />
-                        <path d="M 150 18 C 170 40, 210 70, 250 95" />
-                      </g>
-                      <circle cx="150" cy="12" r="5" className="fill-ember" />
-                    </svg>
-                  )}
                   <div
+                    key={item.title}
                     className={`flex flex-col items-start text-left ${i === 0 ? "md:pr-8" : i === 2 ? "md:pl-8" : "md:px-8"} ${i > 0 ? "mt-12 md:mt-0" : ""}`}
                   >
                     <div className="self-center w-32 h-32 md:w-36 md:h-36 flex items-center justify-center mb-6">
@@ -538,7 +536,6 @@ function Index() {
                       {item.description}
                     </p>
                   </div>
-                  </Fragment>
                 ))}
               </div>
             </div>
