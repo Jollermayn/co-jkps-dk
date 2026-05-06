@@ -387,7 +387,7 @@ function Index() {
 
           {/* UDDANNELSE */}
           <section id="uddannelse" className="py-16 md:py-20">
-            <div className="px-12 md:px-14">
+            <div className="px-5 md:px-14">
               <div className="mb-16">
                 <Eyebrow>Uddannelse</Eyebrow>
                 <h2 className="font-display text-5xl md:text-7xl mt-6 leading-[0.95] tracking-tight">
