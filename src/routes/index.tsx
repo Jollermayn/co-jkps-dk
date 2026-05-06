@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { SlidersHorizontal, X, MousePointerClick } from "lucide-react";
 import { caseStudies, type CaseStudy } from "@/data/cases";
 
@@ -449,7 +449,7 @@ function Index() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 md:divide-x md:divide-ember/40">
+              <div className="grid grid-cols-1 md:grid-cols-3 md:divide-x md:divide-ember/40 relative">
                 {[
                   {
                     title: "Digital & Kommunikation",
@@ -508,8 +508,24 @@ function Index() {
                     ),
                   },
                 ].map((item, i) => (
+                  <Fragment key={item.title}>
+                  {i === 0 && (
+                    <svg
+                      aria-hidden
+                      viewBox="0 0 300 80"
+                      preserveAspectRatio="none"
+                      className="hidden md:block absolute left-0 right-0 pointer-events-none z-10"
+                      style={{ top: "9.5rem", height: "5rem" }}
+                    >
+                      <g fill="none" stroke="currentColor" strokeWidth="1" strokeDasharray="3 4" strokeLinecap="round" className="text-cream/50">
+                        <path d="M 50 0 C 70 25, 130 55, 150 70" />
+                        <path d="M 150 0 C 150 25, 150 55, 150 70" />
+                        <path d="M 250 0 C 230 25, 170 55, 150 70" />
+                      </g>
+                      <circle cx="150" cy="70" r="5" className="fill-ember" />
+                    </svg>
+                  )}
                   <div
-                    key={item.title}
                     className={`flex flex-col items-start text-left ${i === 0 ? "md:pr-8" : i === 2 ? "md:pl-8" : "md:px-8"} ${i > 0 ? "mt-12 md:mt-0" : ""}`}
                   >
                     <div className="self-center w-32 h-32 md:w-36 md:h-36 flex items-center justify-center mb-6">
@@ -522,6 +538,7 @@ function Index() {
                       {item.description}
                     </p>
                   </div>
+                  </Fragment>
                 ))}
               </div>
             </div>
