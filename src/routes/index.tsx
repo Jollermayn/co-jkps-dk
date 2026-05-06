@@ -412,18 +412,18 @@ function Index() {
                       "Brobyggeren mellem de to — der oversætter kompleksitet til oplevelse og håndværk til indhold der rammer.",
                   },
                 ].map((item) => (
-                  <div key={item.title} className="flex flex-col items-center text-center">
-                    <div className="flex items-center justify-center gap-3 md:gap-4 mb-6">
+                  <div key={item.title} className="flex flex-col items-start text-left">
+                    <div className="self-center flex items-center justify-center gap-1 mb-6">
                       <span
                         aria-hidden
-                        className="font-display text-5xl md:text-6xl leading-none text-ember/90 select-none"
+                        className="font-display text-6xl md:text-7xl leading-none text-ember/90 select-none -mr-1"
                       >
                         [
                       </span>
                       <div className="w-32 h-32 md:w-36 md:h-36 rounded-full bg-cream/10 ring-1 ring-cream/20" />
                       <span
                         aria-hidden
-                        className="font-display text-5xl md:text-6xl leading-none text-ember/90 select-none"
+                        className="font-display text-6xl md:text-7xl leading-none text-ember/90 select-none -ml-1"
                       >
                         ]
                       </span>
@@ -431,7 +431,7 @@ function Index() {
                     <h3 className="font-display text-2xl md:text-[1.7rem] tracking-tight leading-snug">
                       {item.title}
                     </h3>
-                    <p className="mt-3 max-w-xs text-cream/80 leading-relaxed">
+                    <p className="mt-3 text-cream/80 leading-relaxed">
                       {item.description}
                     </p>
                   </div>
