@@ -452,16 +452,16 @@ function Index() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
                 {[
                   {
-                    title: "Kreativ udøver",
-                    description:
-                      "Komponist, musiker og sangskriver. Har arbejdet med et hav af kunstnere og leveret musik til kortfilm og reklame.",
-                    image: baggrundKreativ,
-                  },
-                  {
                     title: "Digital & Kommunikation",
                     description:
                       "Ti år med læringsdesign, redaktionel tilrettelæggelse og medieproduktion for organisationer som DR, Amnesty International og Danmarks Naturfredningsforening.",
                     image: null,
+                  },
+                  {
+                    title: "Kreativ udøver",
+                    description:
+                      "Komponist, musiker og sangskriver. Har arbejdet med et hav af kunstnere og leveret musik til kortfilm og reklame.",
+                    image: baggrundKreativ,
                   },
                   {
                     title: "Formidler",
