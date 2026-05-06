@@ -16,6 +16,7 @@ import caseNye6 from "@/assets/case-nye-6.png";
 import caseNye7 from "@/assets/case-nye-7.png";
 import caseNyeHero from "@/assets/case-nye-hero.png";
 import caseNyeVaerkstedet from "@/assets/case-nye-vaerkstedet.png";
+import caseLydbogerAdhd from "@/assets/case-lydboger-adhd.jpg";
 
 export type StemFraFeltet = {
   quote: string;
@@ -289,12 +290,35 @@ const _allCases: CaseStudy[] = [
       "Projektet er indsendt til Realdania/Underværker og afventer bedømmelse",
     ],
   },
+  {
+    slug: "lydboger-til-born-med-adhd",
+    client: "Lydbøger til børn med ADHD",
+    title: "Lydbøger til børn med ADHD",
+    image: caseLydbogerAdhd,
+    context:
+      "Børn med ADHD kæmper ofte med traditionelle læringsformater. Ikke fordi de ikke kan lære, men fordi formaterne ikke er designet til dem. Projektet undersøgte hvordan lydbaserede formater kan blive et reelt lærings- og aflastningsværktøj for børn i alderen 7-12 år.",
+    challenge:
+      "At kortlægge hvilke auditive og narrative egenskaber der skaber ro og fordybelse frem for stimulering, og omsætte den viden til et koncept der kunne realiseres i samarbejde med fagfolk og målgruppe.",
+    role: [
+      "Empirisk research med pædagoger, didaktikere og specialister",
+      "Brugerinddragende metode med børn og forældre",
+      "Konceptudvikling og prototype for lydbaseret læringsformat",
+      "Iterativ afprøvning og videreudvikling baseret på indsigt fra felten",
+    ],
+    approach: ["Læringsdesign", "Lydbaseret formidling", "Brugerinddragelse", "Konceptudvikling"],
+    outcomes: [
+      "Dokumenteret uopfyldt behov i markedet for lydbaserede læringsværktøjer",
+      "Koncept for auditiv fordybelse tilpasset børn med ADHD",
+      "Indsigt i hvordan narrativ struktur og lyd kan erstatte forklaring med oplevelse",
+    ],
+  },
 ];
 
 const _order = [
   "interaktiv-horesimulering",
   "danmarks-radio",
   "ulla-dyrlov",
+  "lydboger-til-born-med-adhd",
   "musikfaellesskabet-i-nye",
   "concerto-copenhagen",
   "amnesty-international",
