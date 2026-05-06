@@ -465,8 +465,8 @@ function Index() {
                 </svg>
                 <span
                   aria-hidden
-                  className="hidden md:block absolute left-1/2 -translate-x-1/2 rounded-full bg-ember pointer-events-none z-20"
-                  style={{ top: "-0.5rem", width: "15px", height: "15px" }}
+                  className="hidden md:block absolute left-1/2 pointer-events-none z-20 rounded-full bg-ember"
+                  style={{ top: "0rem", width: "15px", height: "15px", transform: "translateX(calc(-50% - 4px))" }}
                 />
                 {[
                   {
