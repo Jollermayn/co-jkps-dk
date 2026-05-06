@@ -519,7 +519,7 @@ function Index() {
                       <div className="w-32 h-32 md:w-36 md:h-36 flex items-center justify-center mb-6 shrink-0">
                         {item.icon}
                       </div>
-                      <h3 className="font-display text-2xl md:text-[1.7rem] tracking-tight leading-snug text-center">
+                      <h3 className="font-display text-xl md:text-2xl tracking-tight leading-snug text-center whitespace-nowrap">
                         {item.title}
                       </h3>
                       <p className="mt-2 italic text-cream/60 text-sm text-center">
