@@ -507,12 +507,8 @@ function Index() {
                     key={item.title}
                     className={`flex flex-col items-start text-left ${i === 0 ? "md:pr-8" : i === 2 ? "md:pl-8" : "md:px-8"} ${i > 0 ? "mt-12 md:mt-0" : ""}`}
                   >
-                    <div className="self-center flex items-center justify-center gap-1 mb-6">
-                      <span aria-hidden className="font-display text-6xl md:text-7xl leading-none text-ember/90 select-none -mr-1">[</span>
-                      <div className="w-32 h-32 md:w-36 md:h-36 flex items-center justify-center">
-                        {item.icon}
-                      </div>
-                      <span aria-hidden className="font-display text-6xl md:text-7xl leading-none text-ember/90 select-none -ml-1">]</span>
+                    <div className="self-center w-32 h-32 md:w-36 md:h-36 flex items-center justify-center mb-6">
+                      {item.icon}
                     </div>
                     <h3 className="font-display text-2xl md:text-[1.7rem] tracking-tight leading-snug">
                       {item.title}
