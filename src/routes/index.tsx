@@ -510,17 +510,19 @@ function Index() {
                 ].map((item, i) => (
                   <div
                     key={item.title}
-                    className={`flex flex-col items-center justify-start text-center ${i === 0 ? "md:pr-8" : i === 2 ? "md:pl-8" : "md:px-8"} ${i > 0 ? "mt-12 md:mt-0" : ""}`}
+                    className={`flex flex-col items-center ${i === 0 ? "md:pr-8" : i === 2 ? "md:pl-8" : "md:px-8"} ${i > 0 ? "mt-12 md:mt-0" : ""}`}
                   >
-                    <div className="w-32 h-32 md:w-36 md:h-36 flex items-center justify-center mb-6 shrink-0">
-                      {item.icon}
+                    <div className="w-full max-w-[220px] flex flex-col items-center">
+                      <div className="w-32 h-32 md:w-36 md:h-36 flex items-center justify-center mb-6 shrink-0">
+                        {item.icon}
+                      </div>
+                      <h3 className="font-display text-2xl md:text-[1.7rem] tracking-tight leading-snug text-center min-h-[2.5rem] md:min-h-[2.6rem]">
+                        {item.title}
+                      </h3>
+                      <p className="mt-3 text-cream/80 leading-relaxed text-left self-stretch">
+                        {item.description}
+                      </p>
                     </div>
-                    <h3 className="font-display text-2xl md:text-[1.7rem] tracking-tight leading-snug min-h-[2.5rem] md:min-h-[2.6rem]">
-                      {item.title}
-                    </h3>
-                    <p className="mt-3 text-cream/80 leading-relaxed">
-                      {item.description}
-                    </p>
                   </div>
                 ))}
               </div>
