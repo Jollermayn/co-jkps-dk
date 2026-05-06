@@ -510,7 +510,6 @@ function Index() {
                         <circle cx="62" cy="50" r="22" />
                         <path
                           d="M 50 31.6 A 22 22 0 0 1 50 68.4 A 22 22 0 0 1 50 31.6 Z"
-                          className="text-ember"
                           fill="currentColor"
                           fillOpacity="0.25"
                           stroke="currentColor"
