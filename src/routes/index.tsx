@@ -526,7 +526,6 @@ function Index() {
                     </svg>
                   )}
                   <div
-                    key={item.title}
                     className={`flex flex-col items-start text-left ${i === 0 ? "md:pr-8" : i === 2 ? "md:pl-8" : "md:px-8"} ${i > 0 ? "mt-12 md:mt-0" : ""}`}
                   >
                     <div className="self-center w-32 h-32 md:w-36 md:h-36 flex items-center justify-center mb-6">
@@ -539,6 +538,7 @@ function Index() {
                       {item.description}
                     </p>
                   </div>
+                  </React.Fragment>
                 ))}
               </div>
             </div>
