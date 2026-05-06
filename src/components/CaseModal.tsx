@@ -218,16 +218,26 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
           )}
 
           {study.gallery && study.gallery.length > 0 && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-              {study.gallery.map((src, i) => (
-                <img
-                  key={i}
-                  src={src}
-                  alt={`${study.client} — billede ${i + 2}`}
-                  loading="lazy"
-                  className="w-full h-auto rounded-md object-cover"
-                />
-              ))}
+            <div className="space-y-4 md:space-y-6">
+              <img
+                src={study.gallery[0]}
+                alt={`${study.client} — billede 2`}
+                loading="lazy"
+                className="w-full h-auto rounded-md"
+              />
+              {study.gallery.length > 1 && (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                  {study.gallery.slice(1).map((src, i) => (
+                    <img
+                      key={i}
+                      src={src}
+                      alt={`${study.client} — billede ${i + 3}`}
+                      loading="lazy"
+                      className="w-full h-auto rounded-md object-cover"
+                    />
+                  ))}
+                </div>
+              )}
             </div>
           )}
 
