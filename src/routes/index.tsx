@@ -508,7 +508,7 @@ function Index() {
                     ),
                   },
                 ].map((item, i) => (
-                  <React.Fragment key={item.title}>
+                  <Fragment key={item.title}>
                   {i === 0 && (
                     <svg
                       aria-hidden
@@ -538,7 +538,7 @@ function Index() {
                       {item.description}
                     </p>
                   </div>
-                  </React.Fragment>
+                  </Fragment>
                 ))}
               </div>
             </div>
