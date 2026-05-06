@@ -404,16 +404,19 @@ function Index() {
                     title: "Kreativ udøver",
                     description:
                       "Komponist, musiker og sangskriver. Har arbejdet med et hav af kunstnere og leveret musik til kortfilm og reklame.",
+                    image: baggrundKreativ,
                   },
                   {
                     title: "Digital & Kommunikation",
                     description:
                       "Ti år med læringsdesign, redaktionel tilrettelæggelse og medieproduktion for organisationer som DR, Amnesty International og Danmarks Naturfredningsforening.",
+                    image: null,
                   },
                   {
                     title: "Formidler",
                     description:
                       "Brobyggeren mellem de to — der oversætter kompleksitet til oplevelse og håndværk til indhold der rammer.",
+                    image: null,
                   },
                 ].map((item) => (
                   <div key={item.title} className="flex flex-col items-start text-left">
