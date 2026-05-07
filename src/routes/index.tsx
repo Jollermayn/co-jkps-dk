@@ -350,6 +350,8 @@ function Sidebar() {
           </p>
         </div>
 
+        <CodeParadoxBlock />
+
         <div className="flex flex-col items-center gap-6 lg:gap-3 w-full text-center lg:translate-y-[15px]">
           <a
             href="/Jonas_Sorensen_CV.pdf"
@@ -366,9 +368,8 @@ function Sidebar() {
           >
             Kontakt mig
           </a>
+          
         </div>
-
-        <CodeParadoxBlock />
 
       </div>
     </aside>
