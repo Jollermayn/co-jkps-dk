@@ -212,10 +212,20 @@ function CodeParadoxBlock() {
           el = line2StringRef.current;
           cursorParent = line2CursorRef.current;
           break;
-        case "l3":
-          el = line3Ref.current;
-          cursorParent = line3CursorRef.current;
-          break;
+        case "l3": {
+          // Distribute s.text across prefix(grey)/word(red)/suffix(grey)
+          const PRE = "// Not enough ";
+          const WORD_LEN = "intelligence".length;
+          const t = s.text;
+          const prefixText = t.slice(0, Math.min(t.length, PRE.length));
+          const wordText = t.length > PRE.length ? t.slice(PRE.length, PRE.length + WORD_LEN) : "";
+          const suffixText = t.length > PRE.length + WORD_LEN ? t.slice(PRE.length + WORD_LEN) : "";
+          if (line3PrefixRef.current) line3PrefixRef.current.textContent = prefixText;
+          if (line3WordRef.current) line3WordRef.current.textContent = wordText;
+          if (line3SuffixRef.current) line3SuffixRef.current.textContent = suffixText;
+          if (line3CursorRef.current) placeCursor(line3CursorRef.current, Math.max(60, s.delay - 20));
+          return;
+        }
       }
       if (!el) return;
       el.textContent = s.text;
