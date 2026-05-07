@@ -137,6 +137,27 @@ function TypewriterQuote() {
       return t;
     };
 
+    if (!document.getElementById("tw-cursor-style")) {
+      const styleEl = document.createElement("style");
+      styleEl.id = "tw-cursor-style";
+      styleEl.textContent =
+        "@keyframes tw-blink{0%,49%{opacity:1}50%,100%{opacity:0}}.tw-cursor{display:inline-block;margin-left:2px;font-weight:300;color:currentColor;animation:tw-blink 1s steps(1,end) infinite}.tw-cursor.is-typing{animation:none;opacity:1}";
+      document.head.appendChild(styleEl);
+    }
+
+    const cursor = document.createElement("span");
+    cursor.setAttribute("aria-hidden", "true");
+    cursor.className = "tw-cursor";
+    cursor.textContent = "|";
+    let cursorBlinkTimer: ReturnType<typeof setTimeout> | null = null;
+    const placeCursor = (lineEl: HTMLSpanElement) => {
+      lineEl.appendChild(cursor);
+      cursor.classList.add("is-typing");
+      if (cursorBlinkTimer) clearTimeout(cursorBlinkTimer);
+      cursorBlinkTimer = setTimeout(() => cursor.classList.remove("is-typing"), TYPE_SPEED + 60);
+      timeouts.push(cursorBlinkTimer);
+    };
+
     const lineSpans: HTMLSpanElement[] = typewriterLines.map((_, i) => {
       const span = document.createElement("span");
       span.setAttribute("aria-hidden", "true");
