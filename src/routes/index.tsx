@@ -278,7 +278,7 @@ function CodeParadoxBlock() {
   }, []);
 
   const monoFamily =
-    "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace";
+    "'VT323', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace";
 
   return (
     <section
