@@ -298,7 +298,7 @@ function CodeParadoxBlock() {
         ref={windowRef}
         className="tw-window"
         style={{
-          width: "560px",
+          width: "min(560px, 90vw)",
           maxWidth: "100%",
           background: "#000000",
           border: "1px solid #2a2a2a",
@@ -325,7 +325,7 @@ function CodeParadoxBlock() {
           <span style={{ width: 12, height: 12, borderRadius: "50%", background: "#FFBD2E", display: "inline-block" }} />
           <span style={{ width: 12, height: 12, borderRadius: "50%", background: "#27C93F", display: "inline-block" }} />
         </div>
-        <div className="tw-content" style={{ padding: "40px 48px", lineHeight: 1.8, minHeight: "144px" }}>
+        <div className="tw-content" style={{ padding: "40px 48px", lineHeight: 1.8, minHeight: "144px", overflow: "hidden" }}>
           <div ref={line1Ref} className="tw-line tw-line-1" style={{ display: "flex", alignItems: "baseline", flexWrap: "nowrap", fontSize: "26px", lineHeight: 1.8, height: "46.8px", whiteSpace: "nowrap" }}>
             <span ref={line1PrefixRef} style={{ color: "#6A737D", whiteSpace: "pre" }} />
             <span ref={line1TitleRef} style={{ color: "#FFFFFF", fontWeight: 600, whiteSpace: "pre" }} />
