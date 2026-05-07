@@ -287,6 +287,7 @@ function CodeParadoxBlock() {
       className="w-full flex flex-col items-center"
       style={{ padding: "48px 24px", background: "transparent" }}
     >
+      <style dangerouslySetInnerHTML={{ __html: TW_CURSOR_CSS }} />
       <div
         ref={windowRef}
         style={{
