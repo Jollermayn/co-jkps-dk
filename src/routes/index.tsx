@@ -600,52 +600,52 @@ function Index() {
           </section>
 
           {/* KONTAKT */}
-          <section id="kontakt" className="py-16 md:py-20 relative overflow-hidden" style={{ backgroundColor: "#0D1B2A" }}>
+          <section id="kontakt" className="py-16 md:py-20 relative overflow-hidden text-white" style={{ backgroundColor: "#C0281E" }}>
             <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-10" style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.18), rgba(0,0,0,0))" }} />
             <div className="px-12 md:px-14 relative">
               <Eyebrow>Kontakt</Eyebrow>
-              <h2 className="font-display text-5xl md:text-7xl mt-6 leading-[0.95] tracking-tight">
-                Lad os <span className="italic text-ember">tales ved</span>
+              <h2 className="font-display text-5xl md:text-7xl mt-6 leading-[0.95] tracking-tight text-white">
+                Lad os <span className="italic text-white/90">tales ved</span>
               </h2>
               <div className="mt-8 flex flex-col sm:flex-row items-center gap-6">
-                <div className="group shrink-0 w-[200px] h-[200px] overflow-hidden rounded-full ring-2 ring-[#F5F0E8]/30 shadow-[0_4px_16px_rgba(0,0,0,0.4)]">
+                <div className="group shrink-0 w-[200px] h-[200px] overflow-hidden rounded-full ring-2 ring-white/40 shadow-[0_4px_16px_rgba(0,0,0,0.4)]">
                   <img
                     src={profilePhoto}
                     alt="Jonas K.P. Sørensen"
                     className="w-full h-full object-cover brightness-90 saturate-75 group-hover:brightness-100 group-hover:saturate-100 transition-all duration-[400ms] ease-out group-hover:scale-[1.06]"
                   />
                 </div>
-                <p className="max-w-xl text-cream/70 text-lg italic font-display">
+                <p className="max-w-xl text-white/90 text-lg italic font-display">
                   Jeg er altid interesseret i nye samarbejder — store som små, kommercielle som kulturelle. Særligt inden for læringsindhold, medieproduktion og formidling til børn og unge.
                 </p>
               </div>
 
               <div className="mt-16 grid grid-cols-12 gap-6 md:gap-10">
                 <div className="col-span-12 md:col-span-4">
-                  <span className="eyebrow text-ember">Email</span>
+                  <span className="eyebrow text-white/80">Email</span>
                   <a
                     href="mailto:Jonas@jkps.dk"
-                    className="block mt-3 font-display text-xl md:text-2xl hover:text-ember transition-colors break-all"
+                    className="block mt-3 font-display text-xl md:text-2xl text-white hover:text-white/80 transition-colors break-all"
                   >
                     Jonas@jkps.dk
                   </a>
                 </div>
                 <div className="col-span-12 md:col-span-4">
-                  <span className="eyebrow text-ember">Telefon</span>
+                  <span className="eyebrow text-white/80">Telefon</span>
                   <a
                     href="tel:+4560959596"
-                    className="block mt-3 font-display text-xl md:text-2xl hover:text-ember transition-colors"
+                    className="block mt-3 font-display text-xl md:text-2xl text-white hover:text-white/80 transition-colors"
                   >
                     +45 60 95 95 96
                   </a>
                 </div>
                 <div className="col-span-12 md:col-span-4">
-                  <span className="eyebrow text-ember">LinkedIn</span>
+                  <span className="eyebrow text-white/80">LinkedIn</span>
                   <a
                     href="https://www.linkedin.com/in/jonaskps/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block mt-3 font-display text-xl md:text-2xl hover:text-ember transition-colors"
+                    className="block mt-3 font-display text-xl md:text-2xl text-white hover:text-white/80 transition-colors"
                   >
                     Find mig på LinkedIn
                   </a>
@@ -657,7 +657,7 @@ function Index() {
                   href="/Jonas_Sorensen_CV.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 text-sm font-semibold tracking-wide bg-transparent text-[#F5F0E8] border-2 border-[#F5F0E8] hover:bg-[#F5F0E8] hover:text-[#0D1B2A] hover:border-[#F5F0E8] transition-all duration-300 ease-out"
+                  className="inline-flex items-center gap-3 text-sm font-semibold tracking-wide bg-transparent text-white border-2 border-white hover:bg-white hover:text-[#C0281E] transition-all duration-300 ease-out"
                   style={{ padding: "12px 28px", borderRadius: "50px" }}
                 >
                   Download CV (PDF) <span aria-hidden>↓</span>
