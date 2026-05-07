@@ -415,7 +415,7 @@ function Index() {
                   Privat er jeg familiefar, naturmenneske og det, man nok ville kalde en seriøs lytter.
                 </p>
                 <p className="italic font-display text-cream" style={{ fontSize: "24px", lineHeight: 1.4, marginTop: "32px" }}>
-                  <span style={{ whiteSpace: "nowrap" }}>"Tomorrow belongs to those who can hear it coming."</span><br />— Bowie, 1974
+                  "Tomorrow belongs to those who can hear it coming."<br />— Bowie, 1974
                 </p>
               </div>
             </div>
