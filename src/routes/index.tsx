@@ -111,7 +111,7 @@ function CodeParadoxBlock() {
   const line3CursorRef = useRef<HTMLSpanElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const windowRef = useRef<HTMLDivElement>(null);
-  const lineDrawRef = useRef<HTMLDivElement>(null);
+  
   const line1CursorRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
