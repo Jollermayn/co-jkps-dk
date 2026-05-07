@@ -200,17 +200,64 @@ function TypewriterQuote() {
       return `${before}<span${id} class="${cls}" style="display:inline-block${extraStyle}">${hlContent}</span>${afterHTML}`;
     };
 
+    const rand = (min: number, max: number) => min + Math.random() * (max - min);
+    const charDelay = (line: string, idx: number) => {
+      let d = rand(30, 75);
+      // slow down toward end of line, like finishing a thought
+      const fromEnd = line.length - idx;
+      if (fromEnd <= 3) d += rand(40, 110);
+      // small "thinking" pause after a space
+      if (idx > 0 && line[idx - 1] === " ") d += rand(90, 240);
+      // occasional mid-word hesitation
+      if (Math.random() < 0.07) d += rand(140, 320);
+      return d;
+    };
+
+    // Typo plan: on line 1 ("Too much Artificial"), mistype char at index 6
+    // (the 'c' in "much") as 'v', notice it, backspace, retype correctly.
+    const TYPO_LINE = 1;
+    const TYPO_INDEX = 6;
+    const TYPO_WRONG = "v";
+
     let elapsed = 0;
     typewriterLines.forEach((line, i) => {
       for (let c = 0; c <= line.length; c++) {
         const charsShown = c;
+        const isTypoStep = i === TYPO_LINE && c === TYPO_INDEX + 1;
+
+        if (isTypoStep) {
+          // Render the wrong character
+          const wrongText = line.slice(0, TYPO_INDEX) + TYPO_WRONG;
+          schedule(() => {
+            lineSpans[i].textContent = wrongText;
+            placeCursor(lineSpans[i]);
+          }, elapsed);
+          elapsed += charDelay(line, c);
+          // Brief "noticing the typo" pause
+          elapsed += rand(220, 420);
+          // Backspace the wrong character
+          schedule(() => {
+            lineSpans[i].innerHTML = buildLineHTML(i, TYPO_INDEX);
+            placeCursor(lineSpans[i]);
+          }, elapsed);
+          elapsed += rand(120, 220);
+          // Retype the correct character
+          schedule(() => {
+            lineSpans[i].innerHTML = buildLineHTML(i, charsShown);
+            placeCursor(lineSpans[i]);
+          }, elapsed);
+          elapsed += charDelay(line, c) + rand(40, 120);
+          continue;
+        }
+
         schedule(() => {
           lineSpans[i].innerHTML = buildLineHTML(i, charsShown);
           placeCursor(lineSpans[i]);
         }, elapsed);
-        elapsed += TYPE_SPEED;
+        elapsed += charDelay(line, c);
       }
-      elapsed += LINE_PAUSE;
+      // Longer, uneven pause between lines
+      elapsed += rand(550, 1150);
     });
 
     schedule(() => {
