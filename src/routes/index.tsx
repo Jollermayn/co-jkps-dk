@@ -351,123 +351,6 @@ function TypewriterQuote() {
   );
 }
 
-function ThanksTypewriter() {
-  const lineRef = useRef<HTMLParagraphElement>(null);
-
-  useEffect(() => {
-    const el = lineRef.current;
-    if (!el) return;
-
-    if (!document.getElementById("tw-cursor-style")) {
-      const styleEl = document.createElement("style");
-      styleEl.id = "tw-cursor-style";
-      styleEl.textContent =
-        "@keyframes tw-blink{0%,49.9%{opacity:1}50%,100%{opacity:0}}.tw-cursor{display:inline-block;margin-left:2px;font-weight:300;color:currentColor;animation:tw-blink 1.06s steps(1,end) infinite}.tw-cursor.is-typing{animation:none;opacity:1}";
-      document.head.appendChild(styleEl);
-    }
-
-    const cursor = document.createElement("span");
-    cursor.setAttribute("aria-hidden", "true");
-    cursor.className = "tw-cursor";
-    cursor.textContent = "|";
-    el.appendChild(cursor);
-
-    let started = false;
-    let rafId = 0;
-    let cancelled = false;
-    const timeouts: ReturnType<typeof setTimeout>[] = [];
-    let blinkTimer: ReturnType<typeof setTimeout> | null = null;
-
-    const message = "Tak for din tid.";
-    const rand = (min: number, max: number) => min + Math.random() * (max - min);
-    const charDelay = () => {
-      const r = Math.random();
-      if (r < 0.05) return rand(300, 500);
-      if (r < 0.18) return rand(180, 280);
-      return rand(80, 130);
-    };
-
-    type Step = { text: string; delay: number };
-    const steps: Step[] = [];
-    for (let c = 1; c <= message.length; c++) {
-      steps.push({ text: message.slice(0, c), delay: charDelay() });
-    }
-
-    const setText = (txt: string) => {
-      // Replace text content while keeping cursor as last child
-      while (el.firstChild && el.firstChild !== cursor) el.removeChild(el.firstChild);
-      el.insertBefore(document.createTextNode(txt), cursor);
-    };
-
-    const holdSolid = (ms: number) => {
-      cursor.classList.add("is-typing");
-      if (blinkTimer) clearTimeout(blinkTimer);
-      blinkTimer = setTimeout(() => cursor.classList.remove("is-typing"), ms);
-      timeouts.push(blinkTimer);
-    };
-
-    let stepIdx = 0;
-    let nextAt = 0;
-
-    const tick = (now: number) => {
-      if (cancelled) return;
-      while (stepIdx < steps.length && now >= nextAt) {
-        const s = steps[stepIdx];
-        setText(s.text);
-        holdSolid(Math.max(60, s.delay - 20));
-        nextAt += s.delay;
-        stepIdx++;
-      }
-      if (stepIdx < steps.length) {
-        rafId = requestAnimationFrame(tick);
-      } else {
-        cursor.classList.remove("is-typing");
-      }
-    };
-
-    const start = () => {
-      if (started) return;
-      started = true;
-      // Brief beat before typing begins (cursor blinks during)
-      const t = setTimeout(() => {
-        nextAt = performance.now();
-        rafId = requestAnimationFrame(tick);
-      }, 450);
-      timeouts.push(t);
-    };
-
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const e of entries) {
-          if (e.isIntersecting) {
-            start();
-            io.disconnect();
-            break;
-          }
-        }
-      },
-      { threshold: 0.6 },
-    );
-    io.observe(el);
-
-    return () => {
-      cancelled = true;
-      cancelAnimationFrame(rafId);
-      timeouts.forEach(clearTimeout);
-      io.disconnect();
-    };
-  }, []);
-
-  return (
-    <p
-      ref={lineRef}
-      aria-label="Tak for din tid."
-      className="italic text-cream/95 mt-2 text-base md:text-lg"
-      style={{ fontFamily: "'Playfair Display', serif" }}
-    />
-  );
-}
-
 function Sidebar() {
   return (
     <aside className="hero-sidebar relative w-full min-w-0 max-w-full flex flex-col lg:overflow-y-auto lg:fixed lg:top-0 lg:right-0 lg:w-[40%] lg:h-screen px-6 md:px-14 lg:px-16 py-12 md:py-20 lg:pt-[6vh] lg:pb-10 border-b lg:border-b-0 lg:border-l border-cream/10 order-1 lg:order-last bg-[#0D1B2A] lg:z-20 lg:rounded-l-xl lg:shadow-[-8px_0_24px_rgba(0,0,0,0.25)] text-center items-center gap-8 lg:gap-6">
@@ -505,7 +388,7 @@ function Sidebar() {
           >
             Kontakt mig
           </a>
-          <ThanksTypewriter />
+          
         </div>
 
       </div>
