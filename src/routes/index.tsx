@@ -251,7 +251,7 @@ function CodeParadoxBlock() {
       const beginT = setTimeout(() => {
         nextAt = performance.now();
         rafId = requestAnimationFrame(tick);
-      }, 5000);
+      }, 3500);
       timeouts.push(beginT);
     };
 
