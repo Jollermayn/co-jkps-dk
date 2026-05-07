@@ -83,14 +83,14 @@ export function TagWithCases({ tag, excludeSlug, variant = "skill", onSelectCase
         (open
           ? "bg-ember border-ember text-cream"
           : hasCases
-            ? "border-cream/25 text-cream/80 hover:border-ember hover:text-cream cursor-pointer"
-            : "border-cream/15 text-cream/50 cursor-default")
+            ? "border-cream/25 text-cream hover:border-ember hover:text-cream cursor-pointer"
+            : "border-cream/15 text-cream/80 cursor-default")
       : "text-[11px] tracking-wide uppercase border px-2.5 py-1 transition-colors " +
         (open
           ? "bg-ember border-ember text-cream"
           : hasCases
-            ? "border-cream/20 text-cream/70 hover:border-ember hover:text-cream cursor-pointer"
-            : "border-cream/10 text-cream/40 cursor-default");
+            ? "border-cream/20 text-cream hover:border-ember hover:text-cream cursor-pointer"
+            : "border-cream/10 text-cream/70 cursor-default");
 
   return (
     <li
