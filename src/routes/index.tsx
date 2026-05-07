@@ -311,6 +311,8 @@ function TypewriterQuote() {
     rafId = requestAnimationFrame(tick);
 
     return () => {
+      cancelled = true;
+      cancelAnimationFrame(rafId);
       timeouts.forEach(clearTimeout);
     };
   }, []);
