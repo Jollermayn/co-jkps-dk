@@ -145,7 +145,9 @@ function CodeParadoxBlock() {
       if (line1PrefixRef.current) line1PrefixRef.current.textContent = L1_PREFIX;
       if (line1TitleRef.current) line1TitleRef.current.textContent = L1_TITLE;
       if (line2StringRef.current) line2StringRef.current.textContent = L2S;
-      if (line3Ref.current) line3Ref.current.textContent = L3;
+      if (line3PrefixRef.current) line3PrefixRef.current.textContent = "// Not enough ";
+      if (line3WordRef.current) line3WordRef.current.textContent = "intelligence";
+      if (line3SuffixRef.current) line3SuffixRef.current.textContent = "...";
       return;
     }
 
