@@ -243,7 +243,7 @@ function CodeParadoxBlock() {
       if (started) return;
       started = true;
       // Park cursor on line 1 and let it blink before typing begins
-      if (line1Ref.current) line1Ref.current.appendChild(cursor);
+      if (line1CursorRef.current) line1CursorRef.current.appendChild(cursor);
       const t = setTimeout(() => {
         nextAt = performance.now();
         rafId = requestAnimationFrame(tick);
