@@ -213,24 +213,30 @@ function TypewriterQuote() {
     type Step = { line: number; text: string; delay: number };
     const steps: Step[] = [];
 
-    // Single typo on line 1 ("Too much Artificial"): after "Too much Artific"
-    // type "iaals", read 600ms, backspace 5 at 150ms each, then continue.
-    const TYPO_LINE = 1;
-    const TYPO_AT = 16;
-    const WRONG_SUFFIX = "iaals";
+    // Two deliberate typos:
+    //  Line 1 "Too much Artificial": after "Too much Artific" type "iaals",
+    //    pause 600ms, backspace 5 at 150ms, retype "ial".
+    //  Line 2 "Not enough intelligence...": after "Not enough intelli" type
+    //    "ggenc", pause 600ms, backspace 5 at 150ms, retype "gence...".
+    const TYPOS: Record<number, { at: number; wrong: string }> = {
+      1: { at: 16, wrong: "iaals" },
+      2: { at: 18, wrong: "ggenc" },
+    };
 
     typewriterLines.forEach((line, i) => {
+      const typo = TYPOS[i];
       for (let c = 1; c <= line.length; c++) {
-        if (i === TYPO_LINE && c === TYPO_AT + 1) {
-          const base = line.slice(0, TYPO_AT);
-          for (let k = 1; k <= WRONG_SUFFIX.length; k++) {
-            steps.push({ line: i, text: base + WRONG_SUFFIX.slice(0, k), delay: 95 });
+        if (typo && c === typo.at + 1) {
+          const base = line.slice(0, typo.at);
+          // Confident typing of the wrong suffix
+          for (let k = 1; k <= typo.wrong.length; k++) {
+            steps.push({ line: i, text: base + typo.wrong.slice(0, k), delay: 95 });
           }
-          // Read it back
+          // Hold 600ms — read it back
           steps[steps.length - 1].delay += 600;
-          // Backspace 5 at calm 150ms
-          for (let k = WRONG_SUFFIX.length - 1; k >= 0; k--) {
-            steps.push({ line: i, text: base + WRONG_SUFFIX.slice(0, k), delay: 150 });
+          // Steady 150ms backspace × 5
+          for (let k = typo.wrong.length - 1; k >= 0; k--) {
+            steps.push({ line: i, text: base + typo.wrong.slice(0, k), delay: 150 });
           }
         }
         const isLast = c === line.length;
