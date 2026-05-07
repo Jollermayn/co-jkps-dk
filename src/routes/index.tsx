@@ -174,47 +174,46 @@ function CodeParadoxBlock() {
     const WRONG = "ggenc";
     // Type prefix
     for (let c = 1; c <= PREFIX.length; c++) {
-      steps.push({ target: "l3", text: PREFIX.slice(0, c), cursorOn: section, delay: charDelay() });
+      steps.push({ target: "l3", text: PREFIX.slice(0, c), delay: charDelay() });
     }
     // Confident wrong suffix
     for (let k = 1; k <= WRONG.length; k++) {
-      steps.push({ target: "l3", text: PREFIX + WRONG.slice(0, k), cursorOn: section, delay: 95 });
+      steps.push({ target: "l3", text: PREFIX + WRONG.slice(0, k), delay: 95 });
     }
     // Hold 600ms
     steps[steps.length - 1].delay += 600;
     // Backspace ×5 at 150ms
     for (let k = WRONG.length - 1; k >= 0; k--) {
-      steps.push({ target: "l3", text: PREFIX + WRONG.slice(0, k), cursorOn: section, delay: 150 });
+      steps.push({ target: "l3", text: PREFIX + WRONG.slice(0, k), delay: 150 });
     }
     // Resume from PREFIX (length 21) up to L3.length
     for (let c = PREFIX.length + 1; c <= L3.length; c++) {
-      steps.push({ target: "l3", text: L3.slice(0, c), cursorOn: section, delay: charDelay() });
+      steps.push({ target: "l3", text: L3.slice(0, c), delay: charDelay() });
     }
 
     const writeStep = (s: Step) => {
       let el: HTMLElement | null = null;
+      let cursorParent: HTMLElement | null = null;
       switch (s.target) {
-        case "l1":
-          el = line1Ref.current;
+        case "l1p":
+          el = line1PrefixRef.current;
+          cursorParent = line1CursorRef.current;
           break;
-        case "l2k":
-          el = line2KeywordRef.current;
+        case "l1t":
+          el = line1TitleRef.current;
+          cursorParent = line1CursorRef.current;
           break;
         case "l2s":
           el = line2StringRef.current;
+          cursorParent = cursorContainerRef.current;
           break;
         case "l3":
           el = line3Ref.current;
+          cursorParent = line3Ref.current;
           break;
       }
       if (!el) return;
       el.textContent = s.text;
-      // Cursor sits at end of the active line
-      const cursorParent = (s.target === "l1"
-        ? line1Ref.current
-        : s.target === "l3"
-          ? line3Ref.current
-          : cursorContainerRef.current) as HTMLElement | null;
       if (cursorParent) placeCursor(cursorParent, Math.max(60, s.delay - 20));
     };
 
