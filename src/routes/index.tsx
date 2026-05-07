@@ -283,25 +283,51 @@ function CodeParadoxBlock() {
     <section
       ref={sectionRef}
       aria-label="The AI paradox"
-      className="w-screen relative left-1/2 -translate-x-1/2"
-      style={{
-        background: "#000000",
-        padding: "64px 48px",
-        fontFamily:
-          "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
-        fontSize: "20px",
-        lineHeight: 1.7,
-        textAlign: "left",
-        contain: "layout paint",
-      }}
+      className="w-full flex justify-center"
+      style={{ padding: "48px 24px", background: "transparent" }}
     >
-      <div ref={line1Ref} style={{ color: "#6A737D", minHeight: "1.7em" }} />
-      <div style={{ minHeight: "1.7em" }}>
-        <span ref={line2KeywordRef} style={{ color: "#C0281E" }} />
-        <span ref={line2StringRef} style={{ color: "#98C379" }} />
-        <span ref={cursorContainerRef} />
+      <div
+        style={{
+          width: "480px",
+          maxWidth: "100%",
+          background: "#000000",
+          border: "1px solid #2a2a2a",
+          borderRadius: "10px",
+          boxShadow: "0 20px 50px rgba(0,0,0,0.45)",
+          overflow: "hidden",
+          fontFamily:
+            "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
+          fontSize: "16px",
+          lineHeight: 1.7,
+          textAlign: "left",
+          contain: "layout paint",
+        }}
+      >
+        <div
+          aria-hidden="true"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 8,
+            padding: "10px 14px",
+            background: "#1a1a1a",
+            borderBottom: "1px solid #2a2a2a",
+          }}
+        >
+          <span style={{ width: 12, height: 12, borderRadius: "50%", background: "#FF5F56", display: "inline-block" }} />
+          <span style={{ width: 12, height: 12, borderRadius: "50%", background: "#FFBD2E", display: "inline-block" }} />
+          <span style={{ width: 12, height: 12, borderRadius: "50%", background: "#27C93F", display: "inline-block" }} />
+        </div>
+        <div style={{ padding: "32px" }}>
+          <div ref={line1Ref} style={{ color: "#6A737D", minHeight: "1.7em" }} />
+          <div style={{ minHeight: "1.7em" }}>
+            <span ref={line2KeywordRef} style={{ color: "#C0281E" }} />
+            <span ref={line2StringRef} style={{ color: "#98C379" }} />
+            <span ref={cursorContainerRef} />
+          </div>
+          <div ref={line3Ref} style={{ color: "#6A737D", minHeight: "1.7em" }} />
+        </div>
       </div>
-      <div ref={line3Ref} style={{ color: "#6A737D", minHeight: "1.7em" }} />
     </section>
   );
 }
