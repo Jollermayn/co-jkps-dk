@@ -325,17 +325,17 @@ function CodeParadoxBlock() {
           <span style={{ width: 12, height: 12, borderRadius: "50%", background: "#FFBD2E", display: "inline-block" }} />
           <span style={{ width: 12, height: 12, borderRadius: "50%", background: "#27C93F", display: "inline-block" }} />
         </div>
-        <div className="tw-content" style={{ padding: "40px 48px", lineHeight: 1.8 }}>
-          <div ref={line1Ref} className="tw-line tw-line-1" style={{ display: "flex", alignItems: "baseline", flexWrap: "nowrap", fontSize: "clamp(12px, 1.8vw, 20px)", lineHeight: 1.8, whiteSpace: "nowrap" }}>
+        <div className="tw-content" style={{ padding: "40px 48px", lineHeight: 1.8, minHeight: "calc(clamp(12px, 1.8vw, 20px) * 1.8 * 3)" }}>
+          <div ref={line1Ref} className="tw-line tw-line-1" style={{ display: "flex", alignItems: "baseline", flexWrap: "nowrap", fontSize: "clamp(12px, 1.8vw, 20px)", lineHeight: 1.8, height: "calc(clamp(12px, 1.8vw, 20px) * 1.8)", whiteSpace: "nowrap" }}>
             <span ref={line1PrefixRef} style={{ color: "#6A737D", whiteSpace: "pre" }} />
             <span ref={line1TitleRef} style={{ color: "#FFFFFF", fontWeight: 600, whiteSpace: "pre" }} />
             <span ref={line1CursorRef}><span aria-hidden="true" className="tw-cursor">|</span></span>
           </div>
-          <div className="tw-line" style={{ fontSize: "clamp(12px, 1.8vw, 20px)", lineHeight: 1.8, whiteSpace: "nowrap", paddingLeft: "3ch" }}>
+          <div className="tw-line" style={{ fontSize: "clamp(12px, 1.8vw, 20px)", lineHeight: 1.8, height: "calc(clamp(12px, 1.8vw, 20px) * 1.8)", whiteSpace: "nowrap", paddingLeft: "3ch" }}>
             <span ref={line2StringRef} style={{ color: "#98C379", whiteSpace: "pre" }} />
             <span ref={line2CursorRef} />
           </div>
-          <div ref={line3Ref} className="tw-line tw-line-3" style={{ fontSize: "clamp(12px, 1.8vw, 20px)", lineHeight: 1.8, whiteSpace: "nowrap" }}>
+          <div ref={line3Ref} className="tw-line tw-line-3" style={{ fontSize: "clamp(12px, 1.8vw, 20px)", lineHeight: 1.8, height: "calc(clamp(12px, 1.8vw, 20px) * 1.8)", whiteSpace: "nowrap" }}>
             <span ref={line3PrefixRef} style={{ color: "#6A737D", whiteSpace: "pre" }} />
             <span ref={line3WordRef} style={{ color: "#C0281E", whiteSpace: "pre" }} />
             <span ref={line3SuffixRef} style={{ color: "#6A737D", whiteSpace: "pre" }} />
