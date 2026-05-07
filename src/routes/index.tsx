@@ -111,6 +111,9 @@ function CodeParadoxBlock() {
   const line2StringRef = useRef<HTMLSpanElement>(null);
   const line2CursorRef = useRef<HTMLSpanElement>(null);
   const line3Ref = useRef<HTMLDivElement>(null);
+  const line3PrefixRef = useRef<HTMLSpanElement>(null);
+  const line3WordRef = useRef<HTMLSpanElement>(null);
+  const line3SuffixRef = useRef<HTMLSpanElement>(null);
   const line3CursorRef = useRef<HTMLSpanElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const windowRef = useRef<HTMLDivElement>(null);
