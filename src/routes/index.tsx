@@ -105,16 +105,25 @@ function CodeParadoxBlock() {
   const line1Ref = useRef<HTMLDivElement>(null);
   const line1PrefixRef = useRef<HTMLSpanElement>(null);
   const line1TitleRef = useRef<HTMLSpanElement>(null);
-  const line2KeywordRef = useRef<HTMLSpanElement>(null);
   const line2StringRef = useRef<HTMLSpanElement>(null);
+  const line2CursorRef = useRef<HTMLSpanElement>(null);
   const line3Ref = useRef<HTMLDivElement>(null);
+  const line3CursorRef = useRef<HTMLSpanElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
-  const cursorContainerRef = useRef<HTMLSpanElement>(null);
+  const windowRef = useRef<HTMLDivElement>(null);
+  const lineDrawRef = useRef<HTMLDivElement>(null);
   const line1CursorRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     const section = sectionRef.current;
-    if (!section) return;
+    const win = windowRef.current;
+    const lineDraw = lineDrawRef.current;
+    if (!section || !win || !lineDraw) return;
+
+    const reduceMotion =
+      typeof window !== "undefined" &&
+      window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     if (!document.getElementById("tw-cursor-style")) {
       const styleEl = document.createElement("style");
@@ -124,10 +133,29 @@ function CodeParadoxBlock() {
       document.head.appendChild(styleEl);
     }
 
+    const L1_PREFIX = "// ";
+    const L1_TITLE = "The Ai paradox:";
+    const L2S = '"Too much Artificial"';
+    const L3 = "// Not enough intelligence...";
+
     const cursor = document.createElement("span");
     cursor.setAttribute("aria-hidden", "true");
     cursor.className = "tw-cursor";
     cursor.textContent = "|";
+
+    const timeouts: ReturnType<typeof setTimeout>[] = [];
+
+    // Reduced motion: show everything immediately, no cursor, no animations
+    if (reduceMotion) {
+      lineDraw.style.transform = "scaleX(1)";
+      win.style.maxHeight = "none";
+      win.style.opacity = "1";
+      if (line1PrefixRef.current) line1PrefixRef.current.textContent = L1_PREFIX;
+      if (line1TitleRef.current) line1TitleRef.current.textContent = L1_TITLE;
+      if (line2StringRef.current) line2StringRef.current.textContent = L2S;
+      if (line3Ref.current) line3Ref.current.textContent = L3;
+      return;
+    }
 
     let blinkTimer: ReturnType<typeof setTimeout> | null = null;
     const placeCursor = (parent: HTMLElement, holdMs: number) => {
@@ -138,20 +166,13 @@ function CodeParadoxBlock() {
       timeouts.push(blinkTimer);
     };
 
-    // Targets per "channel": each step writes text into a target element
     type Target = "l1p" | "l1t" | "l2s" | "l3";
     type Step = { target: Target; text: string; delay: number };
 
     const rand = (min: number, max: number) => min + Math.random() * (max - min);
-    const charDelay = () => rand(75, 105);
-
-    const L1_PREFIX = "// ";
-    const L1_TITLE = "The Ai paradox:";
-    const L2S = '"Too much Artificial"';
-    const L3 = "// Not enough intelligence...";
+    const charDelay = () => rand(80, 100) + rand(-15, 15);
 
     const steps: Step[] = [];
-
     const pushTyping = (target: Target, full: string) => {
       for (let c = 1; c <= full.length; c++) {
         steps.push({ target, text: full.slice(0, c), delay: charDelay() });
@@ -163,30 +184,23 @@ function CodeParadoxBlock() {
     pushTyping("l1t", L1_TITLE);
     if (steps.length) steps[steps.length - 1].delay += 400;
 
-    // Line 2: green string only
+    // Line 2
+    pushTyping("l2s", L2S);
     if (steps.length) steps[steps.length - 1].delay += 400;
 
-    // Line 3 — with typo "Intelliggenc" after "// Not enough intelli"
-    // L3 = "// Not enough intelligence..."
-    const TYPO_AT = 18; // length of "// Not enough inte" => actually compute: "// Not enough intelli" = 21
-    // recompute: indexOf "lligence" — keep it simple, hardcode prefix
-    const PREFIX = "// Not enough intelli"; // 21 chars
+    // Line 3 with typo
+    const PREFIX = "// Not enough intelli";
     const WRONG = "ggenc";
-    // Type prefix
     for (let c = 1; c <= PREFIX.length; c++) {
       steps.push({ target: "l3", text: PREFIX.slice(0, c), delay: charDelay() });
     }
-    // Confident wrong suffix
     for (let k = 1; k <= WRONG.length; k++) {
       steps.push({ target: "l3", text: PREFIX + WRONG.slice(0, k), delay: 95 });
     }
-    // Hold 600ms
     steps[steps.length - 1].delay += 600;
-    // Backspace ×5 at 150ms
     for (let k = WRONG.length - 1; k >= 0; k--) {
       steps.push({ target: "l3", text: PREFIX + WRONG.slice(0, k), delay: 150 });
     }
-    // Resume from PREFIX (length 21) up to L3.length
     for (let c = PREFIX.length + 1; c <= L3.length; c++) {
       steps.push({ target: "l3", text: L3.slice(0, c), delay: charDelay() });
     }
@@ -205,11 +219,11 @@ function CodeParadoxBlock() {
           break;
         case "l2s":
           el = line2StringRef.current;
-          cursorParent = cursorContainerRef.current;
+          cursorParent = line2CursorRef.current;
           break;
         case "l3":
           el = line3Ref.current;
-          cursorParent = line3Ref.current;
+          cursorParent = line3CursorRef.current;
           break;
       }
       if (!el) return;
@@ -222,7 +236,6 @@ function CodeParadoxBlock() {
     let started = false;
     let stepIdx = 0;
     let nextAt = 0;
-    const timeouts: ReturnType<typeof setTimeout>[] = [];
 
     const tick = (now: number) => {
       if (cancelled) return;
@@ -248,13 +261,29 @@ function CodeParadoxBlock() {
     const start = () => {
       if (started) return;
       started = true;
-      // Park cursor on line 1 and let it blink before typing begins
-      if (line1CursorRef.current) line1CursorRef.current.appendChild(cursor);
-      const t = setTimeout(() => {
-        nextAt = performance.now();
-        rafId = requestAnimationFrame(tick);
+
+      // 1) Draw horizontal line left→right (600ms)
+      requestAnimationFrame(() => {
+        lineDraw.style.transform = "scaleX(1)";
+      });
+
+      // 2) After line draw, unfold window downward (400ms ease-out)
+      const unfoldT = setTimeout(() => {
+        win.style.maxHeight = "1000px";
+        win.style.opacity = "1";
       }, 600);
-      timeouts.push(t);
+      timeouts.push(unfoldT);
+
+      // 3) Park cursor and start typing after unfold completes
+      const typeT = setTimeout(() => {
+        if (line1CursorRef.current) line1CursorRef.current.appendChild(cursor);
+        const beginT = setTimeout(() => {
+          nextAt = performance.now();
+          rafId = requestAnimationFrame(tick);
+        }, 300);
+        timeouts.push(beginT);
+      }, 1000);
+      timeouts.push(typeT);
     };
 
     const io = new IntersectionObserver(
@@ -279,14 +308,33 @@ function CodeParadoxBlock() {
     };
   }, []);
 
+  const monoFamily =
+    "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace";
+
   return (
     <section
       ref={sectionRef}
       aria-label="The AI paradox"
-      className="w-full flex justify-center"
+      className="w-full flex flex-col items-center"
       style={{ padding: "48px 24px", background: "transparent" }}
     >
+      {/* Horizontal line draw */}
       <div
+        aria-hidden="true"
+        ref={lineDrawRef}
+        style={{
+          width: "480px",
+          maxWidth: "100%",
+          height: "1px",
+          background: "#000000",
+          transform: "scaleX(0)",
+          transformOrigin: "left center",
+          transition: "transform 600ms ease-out",
+          marginBottom: "12px",
+        }}
+      />
+      <div
+        ref={windowRef}
         style={{
           width: "480px",
           maxWidth: "100%",
@@ -295,12 +343,12 @@ function CodeParadoxBlock() {
           borderRadius: "10px",
           boxShadow: "0 20px 50px rgba(0,0,0,0.45)",
           overflow: "hidden",
-          fontFamily:
-            "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
-          fontSize: "16px",
-          lineHeight: 1.7,
+          fontFamily: monoFamily,
           textAlign: "left",
           contain: "layout paint",
+          maxHeight: "0px",
+          opacity: 0,
+          transition: "max-height 400ms ease-out, opacity 400ms ease-out",
         }}
       >
         <div
@@ -318,18 +366,20 @@ function CodeParadoxBlock() {
           <span style={{ width: 12, height: 12, borderRadius: "50%", background: "#FFBD2E", display: "inline-block" }} />
           <span style={{ width: 12, height: 12, borderRadius: "50%", background: "#27C93F", display: "inline-block" }} />
         </div>
-        <div style={{ padding: "32px" }}>
-          <div ref={line1Ref} style={{ minHeight: "1.7em", display: "flex", alignItems: "baseline", flexWrap: "wrap" }}>
+        <div style={{ padding: "40px", lineHeight: 1.8 }}>
+          <div ref={line1Ref} style={{ display: "flex", alignItems: "baseline", flexWrap: "wrap", fontSize: "24px", lineHeight: 1.8 }}>
             <span ref={line1PrefixRef} style={{ color: "#6A737D" }} />
-            <span ref={line1TitleRef} style={{ color: "#FFFFFF", fontSize: "24px", fontWeight: 600 }} />
+            <span ref={line1TitleRef} style={{ color: "#FFFFFF", fontWeight: 600 }} />
             <span ref={line1CursorRef} />
           </div>
-          <div style={{ minHeight: "1.7em" }}>
-            <span ref={line2KeywordRef} style={{ color: "#C0281E" }} />
+          <div style={{ fontSize: "20px", lineHeight: 1.8 }}>
             <span ref={line2StringRef} style={{ color: "#98C379" }} />
-            <span ref={cursorContainerRef} />
+            <span ref={line2CursorRef} />
           </div>
-          <div ref={line3Ref} style={{ color: "#6A737D", minHeight: "1.7em" }} />
+          <div style={{ fontSize: "20px", lineHeight: 1.8, color: "#6A737D" }}>
+            <span ref={line3Ref} />
+            <span ref={line3CursorRef} />
+          </div>
         </div>
       </div>
     </section>
