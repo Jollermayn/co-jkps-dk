@@ -283,13 +283,13 @@ function CodeParadoxBlock() {
     <section
       ref={sectionRef}
       aria-label="The AI paradox"
-      className="w-full"
+      className="w-screen relative left-1/2 -translate-x-1/2"
       style={{
         background: "#000000",
-        padding: "48px 40px",
+        padding: "64px 48px",
         fontFamily:
           "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
-        fontSize: "18px",
+        fontSize: "20px",
         lineHeight: 1.7,
         textAlign: "left",
         contain: "layout paint",
