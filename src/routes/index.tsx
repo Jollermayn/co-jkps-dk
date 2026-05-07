@@ -141,7 +141,7 @@ function TypewriterQuote() {
       const styleEl = document.createElement("style");
       styleEl.id = "tw-cursor-style";
       styleEl.textContent =
-        "@keyframes tw-blink{0%,49%{opacity:1}50%,100%{opacity:0}}.tw-cursor{display:inline-block;margin-left:2px;font-weight:300;color:currentColor;animation:tw-blink 1s steps(1,end) infinite}.tw-cursor.is-typing{animation:none;opacity:1}";
+        "@keyframes tw-blink{0%,49.9%{opacity:1}50%,100%{opacity:0}}.tw-cursor{display:inline-block;margin-left:2px;font-weight:300;color:currentColor;animation:tw-blink 1.06s steps(1,end) infinite}.tw-cursor.is-typing{animation:none;opacity:1}";
       document.head.appendChild(styleEl);
     }
 
@@ -150,11 +150,11 @@ function TypewriterQuote() {
     cursor.className = "tw-cursor";
     cursor.textContent = "|";
     let cursorBlinkTimer: ReturnType<typeof setTimeout> | null = null;
-    const placeCursor = (lineEl: HTMLSpanElement) => {
-      lineEl.appendChild(cursor);
+    const placeCursor = (lineEl: HTMLSpanElement, holdMs = 140) => {
+      if (cursor.parentElement !== lineEl) lineEl.appendChild(cursor);
       cursor.classList.add("is-typing");
       if (cursorBlinkTimer) clearTimeout(cursorBlinkTimer);
-      cursorBlinkTimer = setTimeout(() => cursor.classList.remove("is-typing"), TYPE_SPEED + 60);
+      cursorBlinkTimer = setTimeout(() => cursor.classList.remove("is-typing"), holdMs);
       timeouts.push(cursorBlinkTimer);
     };
 
@@ -201,63 +201,25 @@ function TypewriterQuote() {
     };
 
     const rand = (min: number, max: number) => min + Math.random() * (max - min);
-    const charDelay = (line: string, idx: number) => {
-      let d = rand(30, 75);
-      // slow down toward end of line, like finishing a thought
-      const fromEnd = line.length - idx;
-      if (fromEnd <= 3) d += rand(40, 110);
-      // small "thinking" pause after a space
-      if (idx > 0 && line[idx - 1] === " ") d += rand(90, 240);
-      // occasional mid-word hesitation
-      if (Math.random() < 0.07) d += rand(140, 320);
-      return d;
+    const charDelay = () => {
+      const r = Math.random();
+      if (r < 0.03) return rand(400, 600); // rare thinking pause
+      if (r < 0.13) return rand(200, 300); // occasional hesitation
+      return rand(80, 120); // normal typing
     };
-
-    // Typo plan: on line 1 ("Too much Artificial"), mistype char at index 6
-    // (the 'c' in "much") as 'v', notice it, backspace, retype correctly.
-    const TYPO_LINE = 1;
-    const TYPO_INDEX = 6;
-    const TYPO_WRONG = "v";
 
     let elapsed = 0;
     typewriterLines.forEach((line, i) => {
       for (let c = 0; c <= line.length; c++) {
         const charsShown = c;
-        const isTypoStep = i === TYPO_LINE && c === TYPO_INDEX + 1;
-
-        if (isTypoStep) {
-          // Render the wrong character
-          const wrongText = line.slice(0, TYPO_INDEX) + TYPO_WRONG;
-          schedule(() => {
-            lineSpans[i].textContent = wrongText;
-            placeCursor(lineSpans[i]);
-          }, elapsed);
-          elapsed += charDelay(line, c);
-          // Brief "noticing the typo" pause
-          elapsed += rand(220, 420);
-          // Backspace the wrong character
-          schedule(() => {
-            lineSpans[i].innerHTML = buildLineHTML(i, TYPO_INDEX);
-            placeCursor(lineSpans[i]);
-          }, elapsed);
-          elapsed += rand(120, 220);
-          // Retype the correct character
-          schedule(() => {
-            lineSpans[i].innerHTML = buildLineHTML(i, charsShown);
-            placeCursor(lineSpans[i]);
-          }, elapsed);
-          elapsed += charDelay(line, c) + rand(40, 120);
-          continue;
-        }
-
+        const nextDelay = c < line.length ? charDelay() : rand(800, 1200);
         schedule(() => {
           lineSpans[i].innerHTML = buildLineHTML(i, charsShown);
-          placeCursor(lineSpans[i]);
+          // Hold the cursor solid through the next interval, then resume blinking
+          placeCursor(lineSpans[i], Math.max(60, nextDelay - 20));
         }, elapsed);
-        elapsed += charDelay(line, c);
+        elapsed += nextDelay;
       }
-      // Longer, uneven pause between lines
-      elapsed += rand(550, 1150);
     });
 
     schedule(() => {
