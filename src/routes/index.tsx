@@ -101,28 +101,14 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
   );
 }
 
-const TYPE_SPEED = 40;
-const LINE_PAUSE = 430;
+const TYPE_SPEED = 90;
+const LINE_PAUSE = 700;
 
 const typewriterLines = ["The Ai paradox:", "Too much Artificial", "Not enough intelligence..."];
 
-const HIGHLIGHT_RANGE: Record<
-  number,
-  { fromEnd?: number; fromStart?: number; length: number; style?: "box" | "text" }
-> = {
-  0: { fromStart: 4, length: 2, style: "text" },
-  1: { fromStart: 9, length: 1, style: "box" },
-  2: { fromStart: 11, length: 1, style: "box" },
-};
-
 function TypewriterQuote() {
   const containerRef = useRef<HTMLParagraphElement>(null);
-  const aBoxRef = useRef<HTMLSpanElement | null>(null);
-  const iBoxRef = useRef<HTMLSpanElement | null>(null);
   const mountedRef = useRef(false);
-  const pulseIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
-  const pulseStartTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const pulseBeatTimeoutsRef = useRef<ReturnType<typeof setTimeout>[]>([]);
 
   useEffect(() => {
     if (mountedRef.current) return;
@@ -134,7 +120,6 @@ function TypewriterQuote() {
     const schedule = (fn: () => void, ms: number) => {
       const t = setTimeout(fn, ms);
       timeouts.push(t);
-      return t;
     };
 
     const lineSpans: HTMLSpanElement[] = typewriterLines.map((_, i) => {
@@ -142,148 +127,40 @@ function TypewriterQuote() {
       span.setAttribute("aria-hidden", "true");
       span.className = "block whitespace-nowrap";
       if (i === 0) {
-        span.style.fontSize = "1.15em";
-        span.style.lineHeight = "1.2";
         span.style.marginBottom = "0.35em";
-        span.style.fontWeight = "300";
       }
       span.innerHTML = "&nbsp;";
       root.appendChild(span);
       return span;
     });
 
-    const buildLineHTML = (i: number, charsShown: number): string => {
-      const full = typewriterLines[i];
-      const shown = full.slice(0, charsShown);
-      const range = HIGHLIGHT_RANGE[i];
-      if (!range) return shown || "&nbsp;";
-
-      const start = range.fromStart !== undefined ? range.fromStart : full.length - (range.fromEnd ?? 0);
-      const end = start + range.length;
-      const before = shown.slice(0, Math.min(shown.length, start));
-      const highlight = shown.length > start ? shown.slice(start, Math.min(shown.length, end)) : "";
-      const after = shown.length > end ? shown.slice(end) : "";
-
-      const cls =
-        range.style === "text"
-          ? "not-italic font-black text-[#F5F0E8]"
-          : "not-italic font-black text-[#F5F0E8] bg-[#B83A20] whitespace-nowrap px-[6px] py-[2px]";
-      const id = i === 1 ? ' id="tw-box-A"' : i === 2 ? ' id="tw-box-i"' : "";
-      const extraStyle = i === 1 ? ";margin-bottom:4px" : i === 2 ? ";margin-top:4px" : "";
-      const hlContent = highlight || "&nbsp;";
-      const afterHTML = after
-        ? range.style === "box"
-          ? `<span class="text-cream/40">${after}</span>`
-          : after
-        : "";
-      return `${before}<span${id} class="${cls}" style="display:inline-block${extraStyle}">${hlContent}</span>${afterHTML}`;
-    };
-
     let elapsed = 0;
     typewriterLines.forEach((line, i) => {
       for (let c = 0; c <= line.length; c++) {
         const charsShown = c;
         schedule(() => {
-          lineSpans[i].innerHTML = buildLineHTML(i, charsShown);
+          lineSpans[i].textContent = line.slice(0, charsShown) || "\u00A0";
         }, elapsed);
         elapsed += TYPE_SPEED;
       }
       elapsed += LINE_PAUSE;
     });
 
-    schedule(() => {
-      const aBox = root.querySelector<HTMLElement>("#tw-box-A");
-      const iBox = root.querySelector<HTMLElement>("#tw-box-i");
-      if (!aBox || !iBox) return;
-      const aRect = aBox.getBoundingClientRect();
-      const iRect = iBox.getBoundingClientRect();
-      const aCenter = aRect.left + aRect.width / 2;
-      const iCenter = iRect.left + iRect.width / 2;
-      const dx = aCenter - iCenter;
-      const line2 = lineSpans[2];
-      if (!line2) return;
-      line2.style.transition = "transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)";
-      line2.style.transform = `translateX(${dx}px)`;
-    }, elapsed + 400);
-
-    schedule(() => {
-      aBoxRef.current = root.querySelector<HTMLSpanElement>("#tw-box-A");
-      iBoxRef.current = root.querySelector<HTMLSpanElement>("#tw-box-i");
-    }, elapsed);
-
-    schedule(() => {
-      const animate = (id: string) => {
-        const el = root.querySelector<HTMLElement>(`#${id}`);
-        if (!el) return;
-        el.style.transition = "box-shadow 0.5s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)";
-        el.style.boxShadow = "0 0 20px rgba(184, 58, 32, 0.95)";
-        el.style.transform = "scale(1.12)";
-        setTimeout(() => {
-          el.style.transform = "scale(1)";
-          el.style.boxShadow = "0 0 8px rgba(184, 58, 32, 0.45)";
-        }, 650);
-      };
-      animate("tw-box-A");
-      animate("tw-box-i");
-    }, elapsed + 400 + 600 + 100);
-
     return () => {
       timeouts.forEach(clearTimeout);
     };
   }, []);
 
-  useEffect(() => {
-    const setGlow = (el: HTMLSpanElement | null, on: boolean) => {
-      if (!el) return;
-      el.style.transition = "box-shadow 0.15s ease";
-      el.style.boxShadow = on ? "0 0 14px rgba(184, 58, 32, 0.9)" : "none";
-    };
-
-    const runFlash = () => {
-      const aBox = aBoxRef.current;
-      const iBox = iBoxRef.current;
-      if (!aBox || !iBox) return;
-
-      pulseBeatTimeoutsRef.current.forEach(clearTimeout);
-      pulseBeatTimeoutsRef.current = [];
-
-      setGlow(aBox, true);
-      setGlow(iBox, true);
-
-      const t1 = setTimeout(() => {
-        setGlow(aBox, false);
-        setGlow(iBox, false);
-      }, 150);
-
-      pulseBeatTimeoutsRef.current = [t1];
-    };
-
-    pulseStartTimeoutRef.current = setTimeout(runFlash, 4000);
-
-    return () => {
-      if (pulseStartTimeoutRef.current) {
-        clearTimeout(pulseStartTimeoutRef.current);
-        pulseStartTimeoutRef.current = null;
-      }
-      pulseBeatTimeoutsRef.current.forEach(clearTimeout);
-      pulseBeatTimeoutsRef.current = [];
-      if (pulseIntervalRef.current) {
-        clearInterval(pulseIntervalRef.current);
-        pulseIntervalRef.current = null;
-      }
-    };
-  }, []);
-
-  const reservedEm = 1.15 * 1.5 + 0.35 + 2 * 2.1;
+  const reservedEm = 1.5 + 0.35 + 2 * 1.5;
   const ariaLabel = typewriterLines.join(" ");
 
   return (
     <p
       ref={containerRef}
-      className="hero-quote italic font-semibold leading-[1.5] text-cream/95 block w-full text-center"
+      className="hero-quote italic font-normal leading-[1.5] text-cream/90 block w-full text-center"
       style={{
         fontFamily: "'Playfair Display', serif",
-        fontSize: "clamp(1.45rem, 2.1vw, 2.35rem)",
+        fontSize: "clamp(1.35rem, 1.9vw, 2.1rem)",
         minHeight: `${reservedEm}em`,
       }}
       aria-label={ariaLabel}
