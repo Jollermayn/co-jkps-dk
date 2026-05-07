@@ -268,44 +268,14 @@ function TypewriterQuote() {
     };
 
     const finish = () => {
-      // Reveal styled HTML (red boxes around A and i) simultaneously
-      typewriterLines.forEach((_, i) => {
-        lineSpans[i].innerHTML = buildLineHTML(i, typewriterLines[i].length);
-      });
-      placeCursor(lineSpans[lineSpans.length - 1], 60);
-
-      // Align line 2 "i" box under line 1 "A" box
-      schedule(() => {
-        const aBox = root.querySelector<HTMLElement>("#tw-box-A");
-        const iBox = root.querySelector<HTMLElement>("#tw-box-i");
-        if (!aBox || !iBox) return;
-        const aRect = aBox.getBoundingClientRect();
-        const iRect = iBox.getBoundingClientRect();
-        const dx = aRect.left + aRect.width / 2 - (iRect.left + iRect.width / 2);
-        const line2 = lineSpans[2];
-        if (!line2) return;
-        line2.style.transition = "transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)";
-        line2.style.transform = `translateX(${dx}px)`;
-      }, 400);
-
-      aBoxRef.current = root.querySelector<HTMLSpanElement>("#tw-box-A");
-      iBoxRef.current = root.querySelector<HTMLSpanElement>("#tw-box-i");
-
-      schedule(() => {
-        const animate = (id: string) => {
-          const el = root.querySelector<HTMLElement>(`#${id}`);
-          if (!el) return;
-          el.style.transition = "box-shadow 0.5s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)";
-          el.style.boxShadow = "0 0 20px rgba(184, 58, 32, 0.95)";
-          el.style.transform = "scale(1.12)";
-          setTimeout(() => {
-            el.style.transform = "scale(1)";
-            el.style.boxShadow = "0 0 8px rgba(184, 58, 32, 0.45)";
-          }, 650);
-        };
-        animate("tw-box-A");
-        animate("tw-box-i");
-      }, 400 + 600 + 100);
+      // Animation complete: leave text as-is, let cursor blink steadily.
+      const lastLine = lineSpans[lineSpans.length - 1];
+      if (cursor.parentElement !== lastLine) lastLine.appendChild(cursor);
+      cursor.classList.remove("is-typing");
+      if (cursorBlinkTimer) {
+        clearTimeout(cursorBlinkTimer);
+        cursorBlinkTimer = null;
+      }
     };
 
     rafId = requestAnimationFrame(tick);
