@@ -318,7 +318,7 @@ function CodeParadoxBlock() {
           <span style={{ width: 12, height: 12, borderRadius: "50%", background: "#FFBD2E", display: "inline-block" }} />
           <span style={{ width: 12, height: 12, borderRadius: "50%", background: "#27C93F", display: "inline-block" }} />
         </div>
-        <div style={{ padding: "40px", lineHeight: 1.8, minHeight: "152px" }}>
+        <div style={{ padding: "40px 48px", lineHeight: 1.8, minHeight: "152px" }}>
           <div ref={line1Ref} style={{ display: "flex", alignItems: "baseline", flexWrap: "nowrap", fontSize: "24px", lineHeight: 1.8, height: "43.2px", whiteSpace: "nowrap" }}>
             <span ref={line1PrefixRef} style={{ color: "#6A737D", whiteSpace: "pre" }} />
             <span ref={line1TitleRef} style={{ color: "#FFFFFF", fontWeight: 600, whiteSpace: "pre" }} />
