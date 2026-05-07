@@ -336,11 +336,13 @@ function TypewriterQuote() {
   return (
     <p
       ref={containerRef}
-      className="hero-quote italic font-semibold leading-[1.5] text-cream/95 block w-full text-left"
+      className="hero-quote italic font-semibold leading-[1.5] text-cream/95 block text-left"
       style={{
         fontFamily: "'Playfair Display', serif",
         fontSize: "clamp(1.45rem, 2.1vw, 2.35rem)",
         minHeight: `${reservedEm}em`,
+        width: "15em",
+        maxWidth: "100%",
       }}
       aria-label={ariaLabel}
     />
