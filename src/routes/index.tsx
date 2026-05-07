@@ -260,7 +260,7 @@ function TypewriterQuote() {
       typewriterLines.forEach((_, i) => {
         lineSpans[i].innerHTML = buildLineHTML(i, typewriterLines[i].length);
       });
-      placeCursor(lineSpans[lineSpans.length - 1], 99999);
+      placeCursor(lineSpans[lineSpans.length - 1], 60);
     }, elapsed);
 
     schedule(() => {
