@@ -278,7 +278,7 @@ function CodeParadoxBlock() {
   }, []);
 
   const monoFamily =
-    "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace";
+    "'VT323', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace";
 
   return (
     <section
@@ -318,17 +318,17 @@ function CodeParadoxBlock() {
           <span style={{ width: 12, height: 12, borderRadius: "50%", background: "#FFBD2E", display: "inline-block" }} />
           <span style={{ width: 12, height: 12, borderRadius: "50%", background: "#27C93F", display: "inline-block" }} />
         </div>
-        <div style={{ padding: "40px 48px", lineHeight: 1.8, minHeight: "152px" }}>
-          <div ref={line1Ref} style={{ display: "flex", alignItems: "baseline", flexWrap: "nowrap", fontSize: "24px", lineHeight: 1.8, height: "43.2px", whiteSpace: "nowrap" }}>
+        <div style={{ padding: "40px 48px", lineHeight: 1.8, minHeight: "144px" }}>
+          <div ref={line1Ref} style={{ display: "flex", alignItems: "baseline", flexWrap: "nowrap", fontSize: "26px", lineHeight: 1.8, height: "46.8px", whiteSpace: "nowrap" }}>
             <span ref={line1PrefixRef} style={{ color: "#6A737D", whiteSpace: "pre" }} />
             <span ref={line1TitleRef} style={{ color: "#FFFFFF", fontWeight: 600, whiteSpace: "pre" }} />
             <span ref={line1CursorRef}><span aria-hidden="true" className="tw-cursor">|</span></span>
           </div>
-          <div style={{ fontSize: "20px", lineHeight: 1.8, height: "36px", whiteSpace: "nowrap" }}>
+          <div style={{ fontSize: "26px", lineHeight: 1.8, height: "46.8px", whiteSpace: "nowrap" }}>
             <span ref={line2StringRef} style={{ color: "#98C379", whiteSpace: "pre" }} />
             <span ref={line2CursorRef} />
           </div>
-          <div style={{ fontSize: "20px", lineHeight: 1.8, color: "#6A737D", height: "36px", whiteSpace: "nowrap" }}>
+          <div style={{ fontSize: "26px", lineHeight: 1.8, color: "#6A737D", height: "46.8px", whiteSpace: "nowrap" }}>
             <span ref={line3Ref} style={{ whiteSpace: "pre" }} />
             <span ref={line3CursorRef} />
           </div>
