@@ -200,6 +200,11 @@ function TypewriterQuote() {
       return `${before}<span${id} class="${cls}" style="display:inline-block${extraStyle}">${hlContent}</span>${afterHTML}`;
     };
 
+    const plainLineHTML = (i: number, charsShown: number): string => {
+      const shown = typewriterLines[i].slice(0, charsShown);
+      return shown || "&nbsp;";
+    };
+
     const rand = (min: number, max: number) => min + Math.random() * (max - min);
     const charDelay = () => {
       const r = Math.random();
@@ -209,7 +214,7 @@ function TypewriterQuote() {
     };
 
     // Single typo: on line 1 "Too much Artificial", after "Too much Artific"
-    // type "iaals" instead of "ial", stare 400ms, backspace 5, then continue.
+    // type "iaals" instead of "ial", read 600ms, backspace 5 at 150ms, continue.
     const TYPO_LINE = 1;
     const TYPO_AT = 16; // chars rendered before divergence
     const WRONG_SUFFIX = "iaals";
@@ -217,26 +222,22 @@ function TypewriterQuote() {
     let elapsed = 0;
     typewriterLines.forEach((line, i) => {
       for (let c = 0; c <= line.length; c++) {
-        // Inject typo right before the would-be c=17 step
         if (i === TYPO_LINE && c === TYPO_AT + 1) {
-          const baseHTML = buildLineHTML(i, TYPO_AT);
-          // Type the wrong suffix at confident, steady speed (no hesitation)
+          const baseText = line.slice(0, TYPO_AT);
           for (let k = 1; k <= WRONG_SUFFIX.length; k++) {
             const partial = WRONG_SUFFIX.slice(0, k);
             const d = 95;
             schedule(() => {
-              lineSpans[i].innerHTML = baseHTML + partial;
+              lineSpans[i].innerHTML = baseText + partial;
               placeCursor(lineSpans[i], d - 20);
             }, elapsed);
             elapsed += d;
           }
-          // Read it back
           elapsed += 600;
-          // Backspace 5 times at calm 150ms cadence
           for (let k = WRONG_SUFFIX.length - 1; k >= 0; k--) {
             const partial = WRONG_SUFFIX.slice(0, k);
             schedule(() => {
-              lineSpans[i].innerHTML = baseHTML + partial;
+              lineSpans[i].innerHTML = baseText + partial;
               placeCursor(lineSpans[i], 130);
             }, elapsed);
             elapsed += 150;
@@ -247,12 +248,20 @@ function TypewriterQuote() {
         const isLast = c === line.length;
         const nextDelay = !isLast ? charDelay() : rand(800, 1200);
         schedule(() => {
-          lineSpans[i].innerHTML = buildLineHTML(i, charsShown);
+          lineSpans[i].innerHTML = plainLineHTML(i, charsShown);
           placeCursor(lineSpans[i], Math.max(60, nextDelay - 20));
         }, elapsed);
         elapsed += nextDelay;
       }
     });
+
+    // Reveal styled boxes simultaneously after the last character is typed
+    schedule(() => {
+      typewriterLines.forEach((_, i) => {
+        lineSpans[i].innerHTML = buildLineHTML(i, typewriterLines[i].length);
+      });
+      placeCursor(lineSpans[lineSpans.length - 1], 99999);
+    }, elapsed);
 
     schedule(() => {
       const aBox = root.querySelector<HTMLElement>("#tw-box-A");
