@@ -464,7 +464,7 @@ function Index() {
                     no: "01",
                     title: "Cand.it · Digital Design og Interaktive Teknologier",
                     meta: "IT-Universitetet København · 2024",
-                    body: "Tværfagligt kandidatprogram med fokus på interaktionsdesign, UX research og digitale teknologier.",
+                    body: "Kandidatprogram med generativ AI som omdrejningspunkt, undersøgt gennem UX research og interaktionsdesign.",
                   },
                   {
                     no: "02",
