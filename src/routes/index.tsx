@@ -103,11 +103,14 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
 
 function CodeParadoxBlock() {
   const line1Ref = useRef<HTMLDivElement>(null);
+  const line1PrefixRef = useRef<HTMLSpanElement>(null);
+  const line1TitleRef = useRef<HTMLSpanElement>(null);
   const line2KeywordRef = useRef<HTMLSpanElement>(null);
   const line2StringRef = useRef<HTMLSpanElement>(null);
   const line3Ref = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const cursorContainerRef = useRef<HTMLSpanElement>(null);
+  const line1CursorRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -136,39 +139,31 @@ function CodeParadoxBlock() {
     };
 
     // Targets per "channel": each step writes text into a target element
-    type Target = "l1" | "l2k" | "l2s" | "l3";
-    type Step = { target: Target; text: string; cursorOn: HTMLElement; delay: number };
+    type Target = "l1p" | "l1t" | "l2s" | "l3";
+    type Step = { target: Target; text: string; delay: number };
 
     const rand = (min: number, max: number) => min + Math.random() * (max - min);
     const charDelay = () => rand(75, 105);
 
-    const L1 = "// The Ai paradox:";
-    const L2K = "return ";
+    const L1_PREFIX = "// ";
+    const L1_TITLE = "The Ai paradox:";
     const L2S = '"Too much Artificial"';
     const L3 = "// Not enough intelligence...";
 
     const steps: Step[] = [];
 
-    const pushTyping = (target: Target, full: string, holderEl: () => HTMLElement) => {
+    const pushTyping = (target: Target, full: string) => {
       for (let c = 1; c <= full.length; c++) {
-        steps.push({
-          target,
-          text: full.slice(0, c),
-          // Cursor parent is captured lazily; assigned at run time
-          cursorOn: section,
-          delay: charDelay(),
-        });
+        steps.push({ target, text: full.slice(0, c), delay: charDelay() });
       }
     };
 
     // Line 1
-    pushTyping("l1", L1, () => line1Ref.current!);
-    // 400ms line break
+    pushTyping("l1p", L1_PREFIX);
+    pushTyping("l1t", L1_TITLE);
     if (steps.length) steps[steps.length - 1].delay += 400;
 
-    // Line 2: keyword first, then string
-    
-    pushTyping("l2s", L2S, () => line2StringRef.current!);
+    // Line 2: green string only
     if (steps.length) steps[steps.length - 1].delay += 400;
 
     // Line 3 — with typo "Intelliggenc" after "// Not enough intelli"
@@ -179,47 +174,46 @@ function CodeParadoxBlock() {
     const WRONG = "ggenc";
     // Type prefix
     for (let c = 1; c <= PREFIX.length; c++) {
-      steps.push({ target: "l3", text: PREFIX.slice(0, c), cursorOn: section, delay: charDelay() });
+      steps.push({ target: "l3", text: PREFIX.slice(0, c), delay: charDelay() });
     }
     // Confident wrong suffix
     for (let k = 1; k <= WRONG.length; k++) {
-      steps.push({ target: "l3", text: PREFIX + WRONG.slice(0, k), cursorOn: section, delay: 95 });
+      steps.push({ target: "l3", text: PREFIX + WRONG.slice(0, k), delay: 95 });
     }
     // Hold 600ms
     steps[steps.length - 1].delay += 600;
     // Backspace ×5 at 150ms
     for (let k = WRONG.length - 1; k >= 0; k--) {
-      steps.push({ target: "l3", text: PREFIX + WRONG.slice(0, k), cursorOn: section, delay: 150 });
+      steps.push({ target: "l3", text: PREFIX + WRONG.slice(0, k), delay: 150 });
     }
     // Resume from PREFIX (length 21) up to L3.length
     for (let c = PREFIX.length + 1; c <= L3.length; c++) {
-      steps.push({ target: "l3", text: L3.slice(0, c), cursorOn: section, delay: charDelay() });
+      steps.push({ target: "l3", text: L3.slice(0, c), delay: charDelay() });
     }
 
     const writeStep = (s: Step) => {
       let el: HTMLElement | null = null;
+      let cursorParent: HTMLElement | null = null;
       switch (s.target) {
-        case "l1":
-          el = line1Ref.current;
+        case "l1p":
+          el = line1PrefixRef.current;
+          cursorParent = line1CursorRef.current;
           break;
-        case "l2k":
-          el = line2KeywordRef.current;
+        case "l1t":
+          el = line1TitleRef.current;
+          cursorParent = line1CursorRef.current;
           break;
         case "l2s":
           el = line2StringRef.current;
+          cursorParent = cursorContainerRef.current;
           break;
         case "l3":
           el = line3Ref.current;
+          cursorParent = line3Ref.current;
           break;
       }
       if (!el) return;
       el.textContent = s.text;
-      // Cursor sits at end of the active line
-      const cursorParent = (s.target === "l1"
-        ? line1Ref.current
-        : s.target === "l3"
-          ? line3Ref.current
-          : cursorContainerRef.current) as HTMLElement | null;
       if (cursorParent) placeCursor(cursorParent, Math.max(60, s.delay - 20));
     };
 
@@ -249,7 +243,7 @@ function CodeParadoxBlock() {
       if (started) return;
       started = true;
       // Park cursor on line 1 and let it blink before typing begins
-      if (line1Ref.current) line1Ref.current.appendChild(cursor);
+      if (line1CursorRef.current) line1CursorRef.current.appendChild(cursor);
       const t = setTimeout(() => {
         nextAt = performance.now();
         rafId = requestAnimationFrame(tick);
@@ -319,7 +313,11 @@ function CodeParadoxBlock() {
           <span style={{ width: 12, height: 12, borderRadius: "50%", background: "#27C93F", display: "inline-block" }} />
         </div>
         <div style={{ padding: "32px" }}>
-          <div ref={line1Ref} style={{ color: "#6A737D", minHeight: "1.7em" }} />
+          <div ref={line1Ref} style={{ minHeight: "1.7em", display: "flex", alignItems: "baseline", flexWrap: "wrap" }}>
+            <span ref={line1PrefixRef} style={{ color: "#6A737D" }} />
+            <span ref={line1TitleRef} style={{ color: "#FFFFFF", fontSize: "24px", fontWeight: 600 }} />
+            <span ref={line1CursorRef} />
+          </div>
           <div style={{ minHeight: "1.7em" }}>
             <span ref={line2KeywordRef} style={{ color: "#C0281E" }} />
             <span ref={line2StringRef} style={{ color: "#98C379" }} />
