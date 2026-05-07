@@ -414,7 +414,7 @@ function Index() {
                 <p className="text-cream/60 italic font-display">
                   Privat er jeg familiefar, naturmenneske og det, man nok ville kalde en seriøs lytter.
                 </p>
-                <p className="text-center italic font-display text-cream mx-auto" style={{ fontSize: "24px", lineHeight: 1.4, marginTop: "32px" }}>
+                <p className="italic font-display text-cream" style={{ fontSize: "24px", lineHeight: 1.4, marginTop: "32px" }}>
                   <span style={{ whiteSpace: "nowrap" }}>"Tomorrow belongs to those who can hear it coming."</span><br />— Bowie, 1974
                 </p>
               </div>
