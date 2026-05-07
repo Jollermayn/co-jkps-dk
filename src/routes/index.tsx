@@ -366,8 +366,13 @@ function Sidebar() {
             <p className="text-xs md:text-sm uppercase tracking-[0.25em] text-cream/55 mt-1 text-left">
               Læring · Medier · Teknologi
             </p>
-            <blockquote className="text-left mt-6 lg:mt-16 lg:-translate-y-[15px]">
-              <TypewriterQuote />
+            <blockquote
+              className="relative text-left mt-6 lg:mt-16 lg:-translate-y-[15px]"
+              style={{ width: "15em", maxWidth: "100%", height: "9.4em", contain: "layout paint" }}
+            >
+              <div className="absolute inset-0">
+                <TypewriterQuote />
+              </div>
             </blockquote>
           </div>
         </div>
