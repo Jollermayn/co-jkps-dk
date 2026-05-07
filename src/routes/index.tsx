@@ -414,11 +414,10 @@ function Index() {
                 <p className="text-cream/60 italic font-display">
                   Privat er jeg familiefar, naturmenneske og det, man nok ville kalde en seriøs lytter.
                 </p>
+                <p className="text-center italic font-display text-cream mx-auto" style={{ fontSize: "24px", lineHeight: 1.4, marginTop: "32px" }}>
+                  <span style={{ whiteSpace: "nowrap" }}>"Tomorrow belongs to those who can hear it coming."</span><br />— Bowie, 1974
+                </p>
               </div>
-              <div aria-hidden="true" className="mx-auto bg-cream/25" style={{ width: "60px", height: "1px", marginTop: "32px", marginBottom: "24px" }} />
-              <p className="text-center italic font-display text-cream mx-auto" style={{ fontSize: "24px", lineHeight: 1.4, maxWidth: "700px" }}>
-                <span style={{ whiteSpace: "nowrap" }}>"Tomorrow belongs to those who can hear it coming."</span><br />— Bowie, 1974
-              </p>
             </div>
           </section>
           {/* CASES */}
