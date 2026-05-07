@@ -226,11 +226,10 @@ function TypewriterQuote() {
 
         // After the final 'l' of "Artificial" is rendered, insert the typo.
         if (i === TYPO_LINE && isLast) {
-          // Render extra 'l'
-          const wrong = line + "l";
+          // Render extra 'l' while preserving the highlighted box
           const typeDelay = rand(80, 120);
           schedule(() => {
-            lineSpans[i].textContent = wrong;
+            lineSpans[i].innerHTML = buildLineHTML(i, line.length) + "l";
             placeCursor(lineSpans[i], 320);
           }, elapsed);
           elapsed += typeDelay + 300; // notice the mistake
