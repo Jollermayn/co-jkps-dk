@@ -116,9 +116,7 @@ function CodeParadoxBlock() {
 
   useEffect(() => {
     const section = sectionRef.current;
-    const win = windowRef.current;
-    const lineDraw = lineDrawRef.current;
-    if (!section || !win || !lineDraw) return;
+    if (!section) return;
 
     const reduceMotion =
       typeof window !== "undefined" &&
@@ -145,17 +143,16 @@ function CodeParadoxBlock() {
 
     const timeouts: ReturnType<typeof setTimeout>[] = [];
 
-    // Reduced motion: show everything immediately, no cursor, no animations
     if (reduceMotion) {
-      lineDraw.style.transform = "scaleX(1)";
-      win.style.maxHeight = "none";
-      win.style.opacity = "1";
       if (line1PrefixRef.current) line1PrefixRef.current.textContent = L1_PREFIX;
       if (line1TitleRef.current) line1TitleRef.current.textContent = L1_TITLE;
       if (line2StringRef.current) line2StringRef.current.textContent = L2S;
       if (line3Ref.current) line3Ref.current.textContent = L3;
       return;
     }
+
+    // Park cursor on line 1 immediately so it blinks from page load
+    if (line1CursorRef.current) line1CursorRef.current.appendChild(cursor);
 
     let blinkTimer: ReturnType<typeof setTimeout> | null = null;
     const placeCursor = (parent: HTMLElement, holdMs: number) => {
@@ -179,16 +176,13 @@ function CodeParadoxBlock() {
       }
     };
 
-    // Line 1
     pushTyping("l1p", L1_PREFIX);
     pushTyping("l1t", L1_TITLE);
     if (steps.length) steps[steps.length - 1].delay += 400;
 
-    // Line 2
     pushTyping("l2s", L2S);
     if (steps.length) steps[steps.length - 1].delay += 400;
 
-    // Line 3 with typo
     const PREFIX = "// Not enough intelli";
     const WRONG = "ggenc";
     for (let c = 1; c <= PREFIX.length; c++) {
@@ -261,29 +255,12 @@ function CodeParadoxBlock() {
     const start = () => {
       if (started) return;
       started = true;
-
-      // 1) Draw horizontal line left→right (600ms)
-      requestAnimationFrame(() => {
-        lineDraw.style.transform = "scaleX(1)";
-      });
-
-      // 2) After line draw, unfold window downward (400ms ease-out)
-      const unfoldT = setTimeout(() => {
-        win.style.maxHeight = "1000px";
-        win.style.opacity = "1";
-      }, 600);
-      timeouts.push(unfoldT);
-
-      // 3) Park cursor and start typing after unfold completes
-      const typeT = setTimeout(() => {
-        if (line1CursorRef.current) line1CursorRef.current.appendChild(cursor);
-        const beginT = setTimeout(() => {
-          nextAt = performance.now();
-          rafId = requestAnimationFrame(tick);
-        }, 300);
-        timeouts.push(beginT);
-      }, 1000);
-      timeouts.push(typeT);
+      // Wait 5s with cursor blinking, then begin typing
+      const beginT = setTimeout(() => {
+        nextAt = performance.now();
+        rafId = requestAnimationFrame(tick);
+      }, 5000);
+      timeouts.push(beginT);
     };
 
     const io = new IntersectionObserver(
