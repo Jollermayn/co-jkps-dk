@@ -273,25 +273,12 @@ function CodeParadoxBlock() {
       timeouts.push(beginT);
     };
 
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const e of entries) {
-          if (e.isIntersecting) {
-            start();
-            io.disconnect();
-            break;
-          }
-        }
-      },
-      { threshold: 0.35 },
-    );
-    io.observe(section);
+    start();
 
     return () => {
       cancelled = true;
       cancelAnimationFrame(rafId);
       timeouts.forEach(clearTimeout);
-      io.disconnect();
     };
   }, []);
 
