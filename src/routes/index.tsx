@@ -313,7 +313,11 @@ function CodeParadoxBlock() {
           <span style={{ width: 12, height: 12, borderRadius: "50%", background: "#27C93F", display: "inline-block" }} />
         </div>
         <div style={{ padding: "32px" }}>
-          <div ref={line1Ref} style={{ color: "#6A737D", minHeight: "1.7em" }} />
+          <div ref={line1Ref} style={{ minHeight: "1.7em", display: "flex", alignItems: "baseline", flexWrap: "wrap" }}>
+            <span ref={line1PrefixRef} style={{ color: "#6A737D" }} />
+            <span ref={line1TitleRef} style={{ color: "#FFFFFF", fontSize: "24px", fontWeight: 600 }} />
+            <span ref={line1CursorRef} />
+          </div>
           <div style={{ minHeight: "1.7em" }}>
             <span ref={line2KeywordRef} style={{ color: "#C0281E" }} />
             <span ref={line2StringRef} style={{ color: "#98C379" }} />
