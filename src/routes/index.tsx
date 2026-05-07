@@ -208,13 +208,44 @@ function TypewriterQuote() {
       return rand(80, 120); // normal typing
     };
 
-    // Single typo: line 1 "Too much Artificial" — type an extra 'l' after
-    // "Artificial", pause 300ms, then backspace once.
+    // Single typo: on line 1 "Too much Artificial", after "Too much Artific"
+    // type "iaals" instead of "ial", stare 400ms, backspace 5, then continue.
     const TYPO_LINE = 1;
+    const TYPO_AT = 16; // chars rendered before divergence
+    const WRONG_SUFFIX = "iaals";
 
     let elapsed = 0;
     typewriterLines.forEach((line, i) => {
       for (let c = 0; c <= line.length; c++) {
+        // Inject typo right before the would-be c=17 step
+        if (i === TYPO_LINE && c === TYPO_AT + 1) {
+          const baseHTML = buildLineHTML(i, TYPO_AT);
+          // Type the wrong suffix one char at a time
+          for (let k = 1; k <= WRONG_SUFFIX.length; k++) {
+            const partial = WRONG_SUFFIX.slice(0, k);
+            const d = charDelay();
+            schedule(() => {
+              lineSpans[i].innerHTML = baseHTML + partial;
+              placeCursor(lineSpans[i], Math.max(60, d - 20));
+            }, elapsed);
+            elapsed += d;
+          }
+          // Stare at the mistake
+          elapsed += 400;
+          // Backspace 5 times back to "Too much Artific"
+          for (let k = WRONG_SUFFIX.length - 1; k >= 0; k--) {
+            const partial = WRONG_SUFFIX.slice(0, k);
+            const d = rand(70, 130);
+            schedule(() => {
+              lineSpans[i].innerHTML = baseHTML + partial;
+              placeCursor(lineSpans[i], Math.max(60, d - 20));
+            }, elapsed);
+            elapsed += d;
+          }
+          // Small recover beat before retyping
+          elapsed += rand(120, 220);
+        }
+
         const charsShown = c;
         const isLast = c === line.length;
         const nextDelay = !isLast ? charDelay() : rand(800, 1200);
@@ -223,23 +254,6 @@ function TypewriterQuote() {
           placeCursor(lineSpans[i], Math.max(60, nextDelay - 20));
         }, elapsed);
         elapsed += nextDelay;
-
-        // After the final 'l' of "Artificial" is rendered, insert the typo.
-        if (i === TYPO_LINE && isLast) {
-          // Render extra 'l' while preserving the highlighted box
-          const typeDelay = rand(80, 120);
-          schedule(() => {
-            lineSpans[i].innerHTML = buildLineHTML(i, line.length) + "l";
-            placeCursor(lineSpans[i], 320);
-          }, elapsed);
-          elapsed += typeDelay + 300; // notice the mistake
-          // Backspace once
-          schedule(() => {
-            lineSpans[i].innerHTML = buildLineHTML(i, line.length);
-            placeCursor(lineSpans[i], rand(600, 900));
-          }, elapsed);
-          elapsed += rand(800, 1200);
-        }
       }
     });
 
