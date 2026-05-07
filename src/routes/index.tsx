@@ -200,11 +200,6 @@ function TypewriterQuote() {
       return `${before}<span${id} class="${cls}" style="display:inline-block${extraStyle}">${hlContent}</span>${afterHTML}`;
     };
 
-    const plainLineHTML = (i: number, charsShown: number): string => {
-      const shown = typewriterLines[i].slice(0, charsShown);
-      return shown || "&nbsp;";
-    };
-
     const rand = (min: number, max: number) => min + Math.random() * (max - min);
     const charDelay = () => {
       const r = Math.random();
@@ -213,93 +208,111 @@ function TypewriterQuote() {
       return rand(80, 120); // normal typing
     };
 
-    // Single typo: on line 1 "Too much Artificial", after "Too much Artific"
-    // type "iaals" instead of "ial", read 600ms, backspace 5 at 150ms, continue.
+    // Build the full step sequence upfront. Each step sets one line's text
+    // and waits `delay` ms before the next step.
+    type Step = { line: number; text: string; delay: number };
+    const steps: Step[] = [];
+
+    // Single typo on line 1 ("Too much Artificial"): after "Too much Artific"
+    // type "iaals", read 600ms, backspace 5 at 150ms each, then continue.
     const TYPO_LINE = 1;
-    const TYPO_AT = 16; // chars rendered before divergence
+    const TYPO_AT = 16;
     const WRONG_SUFFIX = "iaals";
 
-    let elapsed = 0;
     typewriterLines.forEach((line, i) => {
-      for (let c = 0; c <= line.length; c++) {
+      for (let c = 1; c <= line.length; c++) {
         if (i === TYPO_LINE && c === TYPO_AT + 1) {
-          const baseText = line.slice(0, TYPO_AT);
+          const base = line.slice(0, TYPO_AT);
           for (let k = 1; k <= WRONG_SUFFIX.length; k++) {
-            const partial = WRONG_SUFFIX.slice(0, k);
-            const d = 95;
-            schedule(() => {
-              lineSpans[i].innerHTML = baseText + partial;
-              placeCursor(lineSpans[i], d - 20);
-            }, elapsed);
-            elapsed += d;
+            steps.push({ line: i, text: base + WRONG_SUFFIX.slice(0, k), delay: 95 });
           }
-          elapsed += 600;
+          // Read it back
+          steps[steps.length - 1].delay += 600;
+          // Backspace 5 at calm 150ms
           for (let k = WRONG_SUFFIX.length - 1; k >= 0; k--) {
-            const partial = WRONG_SUFFIX.slice(0, k);
-            schedule(() => {
-              lineSpans[i].innerHTML = baseText + partial;
-              placeCursor(lineSpans[i], 130);
-            }, elapsed);
-            elapsed += 150;
+            steps.push({ line: i, text: base + WRONG_SUFFIX.slice(0, k), delay: 150 });
           }
         }
-
-        const charsShown = c;
         const isLast = c === line.length;
-        const nextDelay = !isLast ? charDelay() : rand(800, 1200);
-        schedule(() => {
-          lineSpans[i].innerHTML = plainLineHTML(i, charsShown);
-          placeCursor(lineSpans[i], Math.max(60, nextDelay - 20));
-        }, elapsed);
-        elapsed += nextDelay;
+        steps.push({
+          line: i,
+          text: line.slice(0, c),
+          delay: isLast ? rand(800, 1200) : charDelay(),
+        });
       }
     });
 
-    // Reveal styled boxes simultaneously after the last character is typed
-    schedule(() => {
+    // rAF-driven runner. We mutate textContent + cursor placement directly,
+    // never touching React state.
+    let rafId = 0;
+    let cancelled = false;
+    let stepIdx = 0;
+    let nextAt = performance.now();
+
+    const tick = (now: number) => {
+      if (cancelled) return;
+      // Advance through any steps whose time has come this frame
+      while (stepIdx < steps.length && now >= nextAt) {
+        const s = steps[stepIdx];
+        const lineEl = lineSpans[s.line];
+        lineEl.textContent = s.text || "\u00a0";
+        placeCursor(lineEl, Math.max(60, s.delay - 20));
+        nextAt += s.delay;
+        stepIdx++;
+      }
+      if (stepIdx < steps.length) {
+        rafId = requestAnimationFrame(tick);
+      } else {
+        finish();
+      }
+    };
+
+    const finish = () => {
+      // Reveal styled HTML (red boxes around A and i) simultaneously
       typewriterLines.forEach((_, i) => {
         lineSpans[i].innerHTML = buildLineHTML(i, typewriterLines[i].length);
       });
       placeCursor(lineSpans[lineSpans.length - 1], 60);
-    }, elapsed);
 
-    schedule(() => {
-      const aBox = root.querySelector<HTMLElement>("#tw-box-A");
-      const iBox = root.querySelector<HTMLElement>("#tw-box-i");
-      if (!aBox || !iBox) return;
-      const aRect = aBox.getBoundingClientRect();
-      const iRect = iBox.getBoundingClientRect();
-      const aCenter = aRect.left + aRect.width / 2;
-      const iCenter = iRect.left + iRect.width / 2;
-      const dx = aCenter - iCenter;
-      const line2 = lineSpans[2];
-      if (!line2) return;
-      line2.style.transition = "transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)";
-      line2.style.transform = `translateX(${dx}px)`;
-    }, elapsed + 400);
+      // Align line 2 "i" box under line 1 "A" box
+      schedule(() => {
+        const aBox = root.querySelector<HTMLElement>("#tw-box-A");
+        const iBox = root.querySelector<HTMLElement>("#tw-box-i");
+        if (!aBox || !iBox) return;
+        const aRect = aBox.getBoundingClientRect();
+        const iRect = iBox.getBoundingClientRect();
+        const dx = aRect.left + aRect.width / 2 - (iRect.left + iRect.width / 2);
+        const line2 = lineSpans[2];
+        if (!line2) return;
+        line2.style.transition = "transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)";
+        line2.style.transform = `translateX(${dx}px)`;
+      }, 400);
 
-    schedule(() => {
       aBoxRef.current = root.querySelector<HTMLSpanElement>("#tw-box-A");
       iBoxRef.current = root.querySelector<HTMLSpanElement>("#tw-box-i");
-    }, elapsed);
 
-    schedule(() => {
-      const animate = (id: string) => {
-        const el = root.querySelector<HTMLElement>(`#${id}`);
-        if (!el) return;
-        el.style.transition = "box-shadow 0.5s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)";
-        el.style.boxShadow = "0 0 20px rgba(184, 58, 32, 0.95)";
-        el.style.transform = "scale(1.12)";
-        setTimeout(() => {
-          el.style.transform = "scale(1)";
-          el.style.boxShadow = "0 0 8px rgba(184, 58, 32, 0.45)";
-        }, 650);
-      };
-      animate("tw-box-A");
-      animate("tw-box-i");
-    }, elapsed + 400 + 600 + 100);
+      schedule(() => {
+        const animate = (id: string) => {
+          const el = root.querySelector<HTMLElement>(`#${id}`);
+          if (!el) return;
+          el.style.transition = "box-shadow 0.5s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)";
+          el.style.boxShadow = "0 0 20px rgba(184, 58, 32, 0.95)";
+          el.style.transform = "scale(1.12)";
+          setTimeout(() => {
+            el.style.transform = "scale(1)";
+            el.style.boxShadow = "0 0 8px rgba(184, 58, 32, 0.45)";
+          }, 650);
+        };
+        animate("tw-box-A");
+        animate("tw-box-i");
+      }, 400 + 600 + 100);
+    };
+
+    rafId = requestAnimationFrame(tick);
 
     return () => {
+      cancelled = true;
+      cancelAnimationFrame(rafId);
       timeouts.forEach(clearTimeout);
     };
   }, []);
