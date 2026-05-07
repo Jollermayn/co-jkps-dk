@@ -416,10 +416,14 @@ function Index() {
                 <p className="text-cream/60 italic font-display">
                   Privat er jeg familiefar, naturmenneske og det, man nok ville kalde en seriøs lytter.
                 </p>
-                <p className="text-cream/60 italic font-display text-base">
-                  De bedste løsninger opstår ofte, når man giver ordet til dem, der bliver overhørt.
-                </p>
               </div>
+            </div>
+          </section>
+          <section aria-label="Citat" style={{ paddingTop: "80px", paddingBottom: "80px" }}>
+            <div className="px-12 md:px-14">
+              <p className="font-display italic text-cream/75 text-center mx-auto max-w-3xl" style={{ fontSize: "clamp(28px, 3vw, 32px)", lineHeight: 1.4 }}>
+                De bedste løsninger opstår ofte, når man giver ordet til dem, der bliver overhørt.
+              </p>
             </div>
           </section>
           {/* CASES */}
