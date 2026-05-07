@@ -277,13 +277,13 @@ const _allCases: CaseStudy[] = [
     image: caseNyeHero,
     gallery: [caseNyeVaerkstedet, caseNye2, caseNye1, caseNye3, caseNye4, caseNye5, caseNye6],
     context:
-      "I den nyetablerede by Nye nord for Aarhus opstår et fællesskabsdrevet musikhus i et tidligere møbelværksted — med plads til undervisning, sammenspil og koncerter for alle aldre og niveauer.",
+      "I den nyetablerede by Nye nord for Aarhus opstår et fællesskabsdrevet musikhus i et tidligere møbelværksted — med plads til undervisning, sammenspil og koncerter for alle aldre og niveauer. Med særligt fokus på at skabe grobund for børn og unges kreative udfoldelse i en by uden etablerede kulturtilbud.",
     challenge:
       "At skabe et musikhus drevet af fællesskabet — fra koncept og rumlig vision til lydstudio og undervisning — i et eksisterende møbelværksted.",
     role: [
       "Medkonceptualisering af musikskolens vision og rum",
       "Ansvarlig for design og opsætning af det komplette lydstudio",
-      "Underviser og workshop-facilitator",
+      "Underviser og workshop-facilitator med fokus på børn og unges musikalske og kreative udvikling",
     ],
     approach: ["Konceptudvikling", "Lyddesign", "Læringsdesign", "Fællesskabsdrevet udvikling"],
     outcomes: [
