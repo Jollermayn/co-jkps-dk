@@ -388,6 +388,7 @@ function Sidebar() {
           >
             Kontakt mig
           </a>
+          <ThanksTypewriter />
         </div>
 
       </div>
