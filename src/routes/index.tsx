@@ -139,39 +139,31 @@ function CodeParadoxBlock() {
     };
 
     // Targets per "channel": each step writes text into a target element
-    type Target = "l1" | "l2k" | "l2s" | "l3";
-    type Step = { target: Target; text: string; cursorOn: HTMLElement; delay: number };
+    type Target = "l1p" | "l1t" | "l2s" | "l3";
+    type Step = { target: Target; text: string; delay: number };
 
     const rand = (min: number, max: number) => min + Math.random() * (max - min);
     const charDelay = () => rand(75, 105);
 
-    const L1 = "// The Ai paradox:";
-    const L2K = "return ";
+    const L1_PREFIX = "// ";
+    const L1_TITLE = "The Ai paradox:";
     const L2S = '"Too much Artificial"';
     const L3 = "// Not enough intelligence...";
 
     const steps: Step[] = [];
 
-    const pushTyping = (target: Target, full: string, holderEl: () => HTMLElement) => {
+    const pushTyping = (target: Target, full: string) => {
       for (let c = 1; c <= full.length; c++) {
-        steps.push({
-          target,
-          text: full.slice(0, c),
-          // Cursor parent is captured lazily; assigned at run time
-          cursorOn: section,
-          delay: charDelay(),
-        });
+        steps.push({ target, text: full.slice(0, c), delay: charDelay() });
       }
     };
 
     // Line 1
-    pushTyping("l1", L1, () => line1Ref.current!);
-    // 400ms line break
+    pushTyping("l1p", L1_PREFIX);
+    pushTyping("l1t", L1_TITLE);
     if (steps.length) steps[steps.length - 1].delay += 400;
 
-    // Line 2: keyword first, then string
-    
-    pushTyping("l2s", L2S, () => line2StringRef.current!);
+    // Line 2: green string only
     if (steps.length) steps[steps.length - 1].delay += 400;
 
     // Line 3 — with typo "Intelliggenc" after "// Not enough intelli"
