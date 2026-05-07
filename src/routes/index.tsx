@@ -421,14 +421,6 @@ function Index() {
               </p>
             </div>
           </section>
-          <section aria-label="Citat" style={{ paddingTop: "20px", paddingBottom: "40px" }}>
-            <div className="px-12 md:px-14">
-              <div aria-hidden="true" className="mx-auto bg-cream/25" style={{ width: "60px", height: "1px", marginBottom: "32px" }} />
-              <p className="font-display italic text-cream/75 text-center mx-auto max-w-3xl" style={{ fontSize: "clamp(28px, 3vw, 32px)", lineHeight: 1.4 }}>
-                De bedste løsninger opstår ofte, når man giver ordet til dem, der bliver overhørt.
-              </p>
-            </div>
-          </section>
           {/* CASES */}
           <CasesSection />
 
