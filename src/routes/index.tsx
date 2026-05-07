@@ -300,14 +300,13 @@ function CodeParadoxBlock() {
         style={{
           width: "min(560px, 90vw)",
           maxWidth: "100%",
+          height: "auto",
           background: "#000000",
           border: "1px solid #2a2a2a",
           borderRadius: "10px",
           boxShadow: "0 20px 50px rgba(0,0,0,0.45)",
-          overflow: "hidden",
           fontFamily: monoFamily,
           textAlign: "left",
-          contain: "layout paint",
         }}
       >
         <div
