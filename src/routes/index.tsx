@@ -593,8 +593,8 @@ function Index() {
                   </div>
                 ))}
               </div>
-              <p className="text-center italic font-display text-cream mx-auto max-w-5xl" style={{ fontSize: "clamp(28px, 3vw, 32px)", lineHeight: 1.4, paddingTop: "48px" }}>
-                "Tomorrow belongs to those who can hear it coming."<br />— Bowie, 1974
+              <p className="text-center italic font-display text-cream mx-auto" style={{ fontSize: "clamp(28px, 3vw, 32px)", lineHeight: 1.4, paddingTop: "48px", maxWidth: "none" }}>
+                <span style={{ whiteSpace: "nowrap" }}>"Tomorrow belongs to those who can hear it coming."</span><br />— Bowie, 1974
               </p>
             </div>
           </section>
