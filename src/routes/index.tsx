@@ -295,21 +295,6 @@ function CodeParadoxBlock() {
       className="w-full flex flex-col items-center"
       style={{ padding: "48px 24px", background: "transparent" }}
     >
-      {/* Horizontal line draw */}
-      <div
-        aria-hidden="true"
-        ref={lineDrawRef}
-        style={{
-          width: "480px",
-          maxWidth: "100%",
-          height: "1px",
-          background: "#000000",
-          transform: "scaleX(0)",
-          transformOrigin: "left center",
-          transition: "transform 600ms ease-out",
-          marginBottom: "12px",
-        }}
-      />
       <div
         ref={windowRef}
         style={{
@@ -323,9 +308,6 @@ function CodeParadoxBlock() {
           fontFamily: monoFamily,
           textAlign: "left",
           contain: "layout paint",
-          maxHeight: "0px",
-          opacity: 0,
-          transition: "max-height 400ms ease-out, opacity 400ms ease-out",
         }}
       >
         <div
@@ -344,41 +326,19 @@ function CodeParadoxBlock() {
           <span style={{ width: 12, height: 12, borderRadius: "50%", background: "#27C93F", display: "inline-block" }} />
         </div>
         <div style={{ padding: "40px", lineHeight: 1.8 }}>
-          <div ref={line1Ref} style={{ display: "flex", alignItems: "baseline", flexWrap: "wrap", fontSize: "24px", lineHeight: 1.8 }}>
+          <div ref={line1Ref} style={{ display: "flex", alignItems: "baseline", flexWrap: "wrap", fontSize: "24px", lineHeight: 1.8, minHeight: "calc(24px * 1.8)" }}>
             <span ref={line1PrefixRef} style={{ color: "#6A737D" }} />
             <span ref={line1TitleRef} style={{ color: "#FFFFFF", fontWeight: 600 }} />
             <span ref={line1CursorRef} />
           </div>
-          <div style={{ fontSize: "20px", lineHeight: 1.8 }}>
+          <div style={{ fontSize: "20px", lineHeight: 1.8, minHeight: "calc(20px * 1.8)" }}>
             <span ref={line2StringRef} style={{ color: "#98C379" }} />
             <span ref={line2CursorRef} />
           </div>
-          <div style={{ fontSize: "20px", lineHeight: 1.8, color: "#6A737D" }}>
+          <div style={{ fontSize: "20px", lineHeight: 1.8, color: "#6A737D", minHeight: "calc(20px * 1.8)" }}>
             <span ref={line3Ref} />
             <span ref={line3CursorRef} />
           </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Sidebar() {
-  return (
-    <aside className="hero-sidebar relative w-full min-w-0 max-w-full flex flex-col lg:overflow-y-auto lg:fixed lg:top-0 lg:right-0 lg:w-[40%] lg:h-screen px-6 md:px-14 lg:px-16 py-12 md:py-20 lg:pt-[6vh] lg:pb-10 border-b lg:border-b-0 lg:border-l border-cream/10 order-1 lg:order-last bg-[#0D1B2A] lg:z-20 lg:rounded-l-xl lg:shadow-[-8px_0_24px_rgba(0,0,0,0.25)] text-center items-center gap-8 lg:gap-6">
-      <div className="w-full flex flex-col items-center gap-8 lg:gap-6">
-        <p className="text-xs uppercase tracking-[0.3em] text-ember mb-6">Portfolio</p>
-        <div className="w-full flex flex-col gap-3 lg:gap-4 items-center text-center">
-          <h1 className="font-display tracking-[-0.02em] font-medium text-center px-2 flex flex-col items-center leading-none">
-            <span className="block whitespace-nowrap text-[clamp(3.5rem,9vw,6rem)] leading-none" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700 }}>Jonas</span>
-            <span className="block whitespace-nowrap text-[clamp(3.5rem,9vw,6rem)] leading-none -mt-[0.08em]" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700 }}>Sørensen</span>
-          </h1>
-          <p className="hero-subtitle text-xl leading-relaxed lg:text-2xl lg:leading-snug text-cream/85 italic text-center" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Redaktionel tilrettelægger <span style={{ fontFamily: "'Apple Chancery', 'Snell Roundhand', 'Zapfino', 'Adobe Caslon Pro', Garamond, Georgia, serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.15em", letterSpacing: "0.02em", verticalAlign: "-0.02em" }}>&amp;</span> formidler
-          </p>
-          <p className="text-xs md:text-sm uppercase tracking-[0.25em] text-cream/55 mt-1">
-            Læring · Medier · Teknologi
-          </p>
         </div>
 
         <CodeParadoxBlock />
