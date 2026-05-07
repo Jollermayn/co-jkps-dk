@@ -298,7 +298,7 @@ function CodeParadoxBlock() {
         ref={windowRef}
         className="tw-window"
         style={{
-          width: "560px",
+          width: "min(560px, 90vw)",
           maxWidth: "100%",
           background: "#000000",
           border: "1px solid #2a2a2a",
