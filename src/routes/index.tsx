@@ -102,7 +102,8 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
 }
 
 const TW_CURSOR_CSS =
-  "@keyframes tw-blink{0%,49.9%{opacity:1}50%,100%{opacity:0}}.tw-cursor{display:inline-block;margin-left:2px;font-weight:400;color:#F5F0E8;animation:tw-blink 1.06s steps(1,end) infinite}.tw-cursor.is-typing{animation:none;opacity:1}";
+  "@keyframes tw-blink{0%,49.9%{opacity:1}50%,100%{opacity:0}}.tw-cursor{display:inline-block;margin-left:2px;font-weight:400;color:#F5F0E8;animation:tw-blink 1.06s steps(1,end) infinite}.tw-cursor.is-typing{animation:none;opacity:1}" +
+  "@media (max-width:480px){.tw-window{width:90% !important}.tw-content{padding:20px 16px !important}.tw-line{font-size:14px !important;height:25.2px !important}.tw-line-1{font-size:14px !important;height:25.2px !important}.tw-content{min-height:auto !important}}";
 
 function CodeParadoxBlock() {
   const line1Ref = useRef<HTMLDivElement>(null);
