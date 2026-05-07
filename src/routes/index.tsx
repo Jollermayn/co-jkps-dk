@@ -322,7 +322,7 @@ function CodeParadoxBlock() {
           <div ref={line1Ref} style={{ display: "flex", alignItems: "baseline", flexWrap: "nowrap", fontSize: "24px", lineHeight: 1.8, height: "43.2px", whiteSpace: "nowrap" }}>
             <span ref={line1PrefixRef} style={{ color: "#6A737D", whiteSpace: "pre" }} />
             <span ref={line1TitleRef} style={{ color: "#FFFFFF", fontWeight: 600, whiteSpace: "pre" }} />
-            <span ref={line1CursorRef} />
+            <span ref={line1CursorRef}><span aria-hidden="true" className="tw-cursor">|</span></span>
           </div>
           <div style={{ fontSize: "20px", lineHeight: 1.8, height: "36px", whiteSpace: "nowrap" }}>
             <span ref={line2StringRef} style={{ color: "#98C379", whiteSpace: "pre" }} />
