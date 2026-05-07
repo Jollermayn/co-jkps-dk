@@ -600,7 +600,7 @@ function Index() {
           </section>
 
           {/* KONTAKT */}
-          <section id="kontakt" className="py-16 md:py-20 relative overflow-hidden">
+          <section id="kontakt" className="py-16 md:py-20 relative overflow-hidden" style={{ backgroundColor: "#0B0F1A" }}>
             <div className="px-12 md:px-14 relative">
               <Eyebrow>Kontakt</Eyebrow>
               <h2 className="font-display text-5xl md:text-7xl mt-6 leading-[0.95] tracking-tight">
