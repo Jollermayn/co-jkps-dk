@@ -236,6 +236,12 @@ function CodeParadoxBlock() {
         rafId = requestAnimationFrame(tick);
       } else {
         cursor.classList.remove("is-typing");
+        cursor.style.transition = "opacity 800ms ease-out";
+        cursor.style.opacity = "0";
+        const removeT = setTimeout(() => {
+          cursor.remove();
+        }, 850);
+        timeouts.push(removeT);
       }
     };
 
