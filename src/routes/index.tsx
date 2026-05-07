@@ -206,6 +206,7 @@ function TypewriterQuote() {
         const charsShown = c;
         schedule(() => {
           lineSpans[i].innerHTML = buildLineHTML(i, charsShown);
+          placeCursor(lineSpans[i]);
         }, elapsed);
         elapsed += TYPE_SPEED;
       }
