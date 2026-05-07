@@ -406,7 +406,7 @@ function Index() {
                   Fælles for alt mit arbejde er interessen for det øjeblik hvor noget abstrakt bliver konkret — hvor en idé finder sin form, en oplevelse finder sit udtryk, en fortælling finder sin modtager.
                 </p>
                 <p>
-                  Jeg er på hjemmebane når disciplinerne overlapper, og tiltrukket af de projekter der ikke lader sig løse med én faglighed alene. Jeg befinder mig i feltet mellem akademisk forståelse og praktisk produktion — og er mest værdifuld der hvor forskning skal blive til oplevelser børn og unge faktisk møder.
+                  Jeg er på hjemmebane når disciplinerne overlapper, og tiltrukket af de projekter der ikke lader sig løse med én faglighed alene. De bedste løsninger opstår ofte når man giver ordet til dem, der bliver overhørt.
                 </p>
                 <p>
                   De seneste ti år har jeg arbejdet selvstændigt med klienter som bl.a. DR, Amnesty International og Danmarks Naturfredningsforening — med særlig interesse for formidling til børn og unge i skæringspunktet mellem teknologi, læring og menneskelig indsigt.
