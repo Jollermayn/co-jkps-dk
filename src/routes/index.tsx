@@ -201,12 +201,7 @@ function TypewriterQuote() {
     };
 
     const rand = (min: number, max: number) => min + Math.random() * (max - min);
-    const charDelay = () => {
-      const r = Math.random();
-      if (r < 0.03) return rand(400, 600); // rare thinking pause
-      if (r < 0.13) return rand(200, 300); // occasional hesitation
-      return rand(80, 120); // normal typing
-    };
+    const charDelay = () => rand(75, 105); // smooth, confident, ±15ms
 
     // Build the full step sequence upfront. Each step sets one line's text
     // and waits `delay` ms before the next step.
