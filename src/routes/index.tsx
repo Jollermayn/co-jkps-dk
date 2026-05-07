@@ -404,9 +404,6 @@ function Index() {
               </div>
             </div>
           </section>
-
-          <CodeParadoxBlock />
-
           {/* CASES */}
           <CasesSection />
 
