@@ -103,11 +103,14 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
 
 function CodeParadoxBlock() {
   const line1Ref = useRef<HTMLDivElement>(null);
+  const line1PrefixRef = useRef<HTMLSpanElement>(null);
+  const line1TitleRef = useRef<HTMLSpanElement>(null);
   const line2KeywordRef = useRef<HTMLSpanElement>(null);
   const line2StringRef = useRef<HTMLSpanElement>(null);
   const line3Ref = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const cursorContainerRef = useRef<HTMLSpanElement>(null);
+  const line1CursorRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     const section = sectionRef.current;
