@@ -275,7 +275,7 @@ const _allCases: CaseStudy[] = [
     client: "Musikfællesskabet i Nye",
     title: "En borgerdrevet musikskole",
     image: caseNyeHero,
-    gallery: [caseNyeVaerkstedet, caseNye2, caseNye1, caseNye3, caseNye4, caseNye5, caseNye6, caseNye7],
+    gallery: [caseNyeVaerkstedet, caseNye2, caseNye1, caseNye3, caseNye4, caseNye5, caseNye6],
     context:
       "I den nyetablerede by Nye nord for Aarhus opstår et fællesskabsdrevet musikhus i et tidligere møbelværksted — med plads til undervisning, sammenspil og koncerter for alle aldre og niveauer.",
     challenge:
