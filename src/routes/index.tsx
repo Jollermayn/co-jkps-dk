@@ -103,7 +103,7 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
 
 const TW_CURSOR_CSS =
   "@keyframes tw-blink{0%,49.9%{opacity:1}50%,100%{opacity:0}}.tw-cursor{display:inline-block;margin-left:2px;font-weight:400;color:#F5F0E8;animation:tw-blink 1.06s steps(1,end) infinite}.tw-cursor.is-typing{animation:none;opacity:1}" +
-  "@media (max-width:480px){.tw-window{width:90% !important}.tw-content{padding:20px 16px !important;min-height:auto !important}.tw-line{font-size:14px !important;height:25.2px !important}.tw-line-1{font-size:14px !important;height:25.2px !important}.tw-line-3{margin-top:0 !important;line-height:2 !important;height:28px !important}}";
+  "@media (max-width:480px){.tw-content{padding:20px 16px !important}}";
 
 function CodeParadoxBlock() {
   const line1Ref = useRef<HTMLDivElement>(null);
@@ -298,13 +298,14 @@ function CodeParadoxBlock() {
         ref={windowRef}
         className="tw-window"
         style={{
-          width: "min(560px, 90vw)",
+          width: "min(480px, 90vw)",
           maxWidth: "100%",
           height: "auto",
           background: "#000000",
           border: "1px solid #2a2a2a",
           borderRadius: "10px",
           boxShadow: "0 20px 50px rgba(0,0,0,0.45)",
+          overflow: "hidden",
           fontFamily: monoFamily,
           textAlign: "left",
         }}
@@ -325,16 +326,16 @@ function CodeParadoxBlock() {
           <span style={{ width: 12, height: 12, borderRadius: "50%", background: "#27C93F", display: "inline-block" }} />
         </div>
         <div className="tw-content" style={{ padding: "40px 48px", lineHeight: 1.8 }}>
-          <div ref={line1Ref} className="tw-line tw-line-1" style={{ display: "flex", alignItems: "baseline", flexWrap: "nowrap", fontSize: "26px", lineHeight: 1.8, height: "46.8px", whiteSpace: "nowrap" }}>
+          <div ref={line1Ref} className="tw-line tw-line-1" style={{ display: "flex", alignItems: "baseline", flexWrap: "nowrap", fontSize: "clamp(12px, 1.8vw, 20px)", lineHeight: 1.8, whiteSpace: "nowrap" }}>
             <span ref={line1PrefixRef} style={{ color: "#6A737D", whiteSpace: "pre" }} />
             <span ref={line1TitleRef} style={{ color: "#FFFFFF", fontWeight: 600, whiteSpace: "pre" }} />
             <span ref={line1CursorRef}><span aria-hidden="true" className="tw-cursor">|</span></span>
           </div>
-          <div className="tw-line" style={{ fontSize: "26px", lineHeight: 1.8, height: "46.8px", whiteSpace: "nowrap", paddingLeft: "3ch" }}>
+          <div className="tw-line" style={{ fontSize: "clamp(12px, 1.8vw, 20px)", lineHeight: 1.8, whiteSpace: "nowrap", paddingLeft: "3ch" }}>
             <span ref={line2StringRef} style={{ color: "#98C379", whiteSpace: "pre" }} />
             <span ref={line2CursorRef} />
           </div>
-          <div ref={line3Ref} className="tw-line tw-line-3" style={{ fontSize: "26px", lineHeight: 1.8, height: "46.8px", whiteSpace: "nowrap", marginTop: "-16px" }}>
+          <div ref={line3Ref} className="tw-line tw-line-3" style={{ fontSize: "clamp(12px, 1.8vw, 20px)", lineHeight: 1.8, whiteSpace: "nowrap" }}>
             <span ref={line3PrefixRef} style={{ color: "#6A737D", whiteSpace: "pre" }} />
             <span ref={line3WordRef} style={{ color: "#C0281E", whiteSpace: "pre" }} />
             <span ref={line3SuffixRef} style={{ color: "#6A737D", whiteSpace: "pre" }} />
