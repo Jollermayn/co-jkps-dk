@@ -362,19 +362,9 @@ function Sidebar() {
           <p className="hero-subtitle text-xl leading-relaxed lg:text-2xl lg:leading-snug text-cream/85 italic text-center" style={{ fontFamily: "'Playfair Display', serif" }}>
             Redaktionel tilrettelægger <span style={{ fontFamily: "'Apple Chancery', 'Snell Roundhand', 'Zapfino', 'Adobe Caslon Pro', Garamond, Georgia, serif", fontStyle: "italic", fontWeight: 400, fontSize: "1.15em", letterSpacing: "0.02em", verticalAlign: "-0.02em" }}>&amp;</span> formidler
           </p>
-          <div className="w-fit max-w-full mx-auto">
-            <p className="text-xs md:text-sm uppercase tracking-[0.25em] text-cream/55 mt-1 text-left">
-              Læring · Medier · Teknologi
-            </p>
-            <blockquote
-              className="relative text-left mt-6 lg:mt-16 lg:-translate-y-[15px]"
-              style={{ width: "15em", maxWidth: "100%", height: "9.4em", contain: "layout paint" }}
-            >
-              <div className="absolute inset-0">
-                <TypewriterQuote />
-              </div>
-            </blockquote>
-          </div>
+          <p className="text-xs md:text-sm uppercase tracking-[0.25em] text-cream/55 mt-1">
+            Læring · Medier · Teknologi
+          </p>
         </div>
 
         <div className="flex flex-col items-center gap-6 lg:gap-3 w-full text-center lg:translate-y-[15px]">
