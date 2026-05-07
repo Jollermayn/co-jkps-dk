@@ -101,47 +101,23 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
   );
 }
 
-const TYPE_SPEED = 40;
-const LINE_PAUSE = 430;
-
-const typewriterLines = ["The Ai paradox:", "Too much Artificial", "Not enough intelligence..."];
-
-const HIGHLIGHT_RANGE: Record<
-  number,
-  { fromEnd?: number; fromStart?: number; length: number; style?: "box" | "text" }
-> = {
-  0: { fromStart: 4, length: 2, style: "text" },
-  1: { fromStart: 9, length: 1, style: "box" },
-  2: { fromStart: 11, length: 1, style: "box" },
-};
-
-function TypewriterQuote() {
-  const containerRef = useRef<HTMLParagraphElement>(null);
-  const aBoxRef = useRef<HTMLSpanElement | null>(null);
-  const iBoxRef = useRef<HTMLSpanElement | null>(null);
-  const mountedRef = useRef(false);
-  const pulseIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
-  const pulseStartTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const pulseBeatTimeoutsRef = useRef<ReturnType<typeof setTimeout>[]>([]);
+function CodeParadoxBlock() {
+  const line1Ref = useRef<HTMLDivElement>(null);
+  const line2KeywordRef = useRef<HTMLSpanElement>(null);
+  const line2StringRef = useRef<HTMLSpanElement>(null);
+  const line3Ref = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const cursorContainerRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    if (mountedRef.current) return;
-    mountedRef.current = true;
-    const root = containerRef.current;
-    if (!root) return;
-
-    const timeouts: ReturnType<typeof setTimeout>[] = [];
-    const schedule = (fn: () => void, ms: number) => {
-      const t = setTimeout(fn, ms);
-      timeouts.push(t);
-      return t;
-    };
+    const section = sectionRef.current;
+    if (!section) return;
 
     if (!document.getElementById("tw-cursor-style")) {
       const styleEl = document.createElement("style");
       styleEl.id = "tw-cursor-style";
       styleEl.textContent =
-        "@keyframes tw-blink{0%,49.9%{opacity:1}50%,100%{opacity:0}}.tw-cursor{display:inline-block;margin-left:2px;font-weight:300;color:currentColor;animation:tw-blink 1.06s steps(1,end) infinite}.tw-cursor.is-typing{animation:none;opacity:1}";
+        "@keyframes tw-blink{0%,49.9%{opacity:1}50%,100%{opacity:0}}.tw-cursor{display:inline-block;margin-left:2px;font-weight:400;color:#F5F0E8;animation:tw-blink 1.06s steps(1,end) infinite}.tw-cursor.is-typing{animation:none;opacity:1}";
       document.head.appendChild(styleEl);
     }
 
@@ -149,207 +125,187 @@ function TypewriterQuote() {
     cursor.setAttribute("aria-hidden", "true");
     cursor.className = "tw-cursor";
     cursor.textContent = "|";
-    let cursorBlinkTimer: ReturnType<typeof setTimeout> | null = null;
-    const placeCursor = (lineEl: HTMLSpanElement, holdMs = 140) => {
-      if (cursor.parentElement !== lineEl) lineEl.appendChild(cursor);
+
+    let blinkTimer: ReturnType<typeof setTimeout> | null = null;
+    const placeCursor = (parent: HTMLElement, holdMs: number) => {
+      if (cursor.parentElement !== parent) parent.appendChild(cursor);
       cursor.classList.add("is-typing");
-      if (cursorBlinkTimer) clearTimeout(cursorBlinkTimer);
-      cursorBlinkTimer = setTimeout(() => cursor.classList.remove("is-typing"), holdMs);
-      timeouts.push(cursorBlinkTimer);
+      if (blinkTimer) clearTimeout(blinkTimer);
+      blinkTimer = setTimeout(() => cursor.classList.remove("is-typing"), holdMs);
+      timeouts.push(blinkTimer);
     };
 
-    const lineSpans: HTMLSpanElement[] = typewriterLines.map((_, i) => {
-      const span = document.createElement("span");
-      span.setAttribute("aria-hidden", "true");
-      span.className = "block whitespace-nowrap";
-      if (i === 0) {
-        span.style.fontSize = "1.15em";
-        span.style.lineHeight = "1.2";
-        span.style.marginBottom = "0.35em";
-        span.style.fontWeight = "300";
-      }
-      span.innerHTML = "&nbsp;";
-      root.appendChild(span);
-      return span;
-    });
-
-    const buildLineHTML = (i: number, charsShown: number): string => {
-      const full = typewriterLines[i];
-      const shown = full.slice(0, charsShown);
-      const range = HIGHLIGHT_RANGE[i];
-      if (!range) return shown || "&nbsp;";
-
-      const start = range.fromStart !== undefined ? range.fromStart : full.length - (range.fromEnd ?? 0);
-      const end = start + range.length;
-      const before = shown.slice(0, Math.min(shown.length, start));
-      const highlight = shown.length > start ? shown.slice(start, Math.min(shown.length, end)) : "";
-      const after = shown.length > end ? shown.slice(end) : "";
-
-      const cls =
-        range.style === "text"
-          ? "not-italic font-black text-[#F5F0E8]"
-          : "not-italic font-black text-[#F5F0E8] bg-[#B83A20] whitespace-nowrap px-[6px] py-[2px]";
-      const id = i === 1 ? ' id="tw-box-A"' : i === 2 ? ' id="tw-box-i"' : "";
-      const extraStyle = i === 1 ? ";margin-bottom:4px" : i === 2 ? ";margin-top:4px" : "";
-      const hlContent = highlight || "&nbsp;";
-      const afterHTML = after
-        ? range.style === "box"
-          ? `<span class="text-cream/40">${after}</span>`
-          : after
-        : "";
-      return `${before}<span${id} class="${cls}" style="display:inline-block${extraStyle}">${hlContent}</span>${afterHTML}`;
-    };
+    // Targets per "channel": each step writes text into a target element
+    type Target = "l1" | "l2k" | "l2s" | "l3";
+    type Step = { target: Target; text: string; cursorOn: HTMLElement; delay: number };
 
     const rand = (min: number, max: number) => min + Math.random() * (max - min);
-    const charDelay = () => rand(75, 105); // smooth, confident, ±15ms
+    const charDelay = () => rand(75, 105);
 
-    // Build the full step sequence upfront. Each step sets one line's text
-    // and waits `delay` ms before the next step.
-    type Step = { line: number; text: string; delay: number };
+    const L1 = "// The Ai paradox:";
+    const L2K = "return ";
+    const L2S = '"Too much Artificial"';
+    const L3 = "// Not enough intelligence...";
+
     const steps: Step[] = [];
 
-    // Two deliberate typos:
-    //  Line 1 "Too much Artificial": after "Too much Artific" type "iaals",
-    //    pause 600ms, backspace 5 at 150ms, retype "ial".
-    //  Line 2 "Not enough intelligence...": after "Not enough intelli" type
-    //    "ggenc", pause 600ms, backspace 5 at 150ms, retype "gence...".
-    const TYPOS: Record<number, { at: number; wrong: string }> = {
-      2: { at: 18, wrong: "ggenc" },
-    };
-
-    typewriterLines.forEach((line, i) => {
-      const typo = TYPOS[i];
-      for (let c = 1; c <= line.length; c++) {
-        if (typo && c === typo.at + 1) {
-          const base = line.slice(0, typo.at);
-          // Confident typing of the wrong suffix
-          for (let k = 1; k <= typo.wrong.length; k++) {
-            steps.push({ line: i, text: base + typo.wrong.slice(0, k), delay: 95 });
-          }
-          // Hold 600ms — read it back
-          steps[steps.length - 1].delay += 600;
-          // Steady 150ms backspace × 5
-          for (let k = typo.wrong.length - 1; k >= 0; k--) {
-            steps.push({ line: i, text: base + typo.wrong.slice(0, k), delay: 150 });
-          }
-        }
-        const isLast = c === line.length;
-        const isLastLine = i === typewriterLines.length - 1;
+    const pushTyping = (target: Target, full: string, holderEl: () => HTMLElement) => {
+      for (let c = 1; c <= full.length; c++) {
         steps.push({
-          line: i,
-          text: line.slice(0, c),
-          delay: isLast && !isLastLine ? charDelay() + 400 : charDelay(),
+          target,
+          text: full.slice(0, c),
+          // Cursor parent is captured lazily; assigned at run time
+          cursorOn: section,
+          delay: charDelay(),
         });
       }
-    });
+    };
 
-    // rAF-driven runner. We mutate textContent + cursor placement directly,
-    // never touching React state.
+    // Line 1
+    pushTyping("l1", L1, () => line1Ref.current!);
+    // 400ms line break
+    if (steps.length) steps[steps.length - 1].delay += 400;
+
+    // Line 2: keyword first, then string
+    pushTyping("l2k", L2K, () => line2KeywordRef.current!);
+    pushTyping("l2s", L2S, () => line2StringRef.current!);
+    if (steps.length) steps[steps.length - 1].delay += 400;
+
+    // Line 3 — with typo "Intelliggenc" after "// Not enough intelli"
+    // L3 = "// Not enough intelligence..."
+    const TYPO_AT = 18; // length of "// Not enough inte" => actually compute: "// Not enough intelli" = 21
+    // recompute: indexOf "lligence" — keep it simple, hardcode prefix
+    const PREFIX = "// Not enough intelli"; // 21 chars
+    const WRONG = "ggenc";
+    // Type prefix
+    for (let c = 1; c <= PREFIX.length; c++) {
+      steps.push({ target: "l3", text: PREFIX.slice(0, c), cursorOn: section, delay: charDelay() });
+    }
+    // Confident wrong suffix
+    for (let k = 1; k <= WRONG.length; k++) {
+      steps.push({ target: "l3", text: PREFIX + WRONG.slice(0, k), cursorOn: section, delay: 95 });
+    }
+    // Hold 600ms
+    steps[steps.length - 1].delay += 600;
+    // Backspace ×5 at 150ms
+    for (let k = WRONG.length - 1; k >= 0; k--) {
+      steps.push({ target: "l3", text: PREFIX + WRONG.slice(0, k), cursorOn: section, delay: 150 });
+    }
+    // Resume from PREFIX (length 21) up to L3.length
+    for (let c = PREFIX.length + 1; c <= L3.length; c++) {
+      steps.push({ target: "l3", text: L3.slice(0, c), cursorOn: section, delay: charDelay() });
+    }
+
+    const writeStep = (s: Step) => {
+      let el: HTMLElement | null = null;
+      switch (s.target) {
+        case "l1":
+          el = line1Ref.current;
+          break;
+        case "l2k":
+          el = line2KeywordRef.current;
+          break;
+        case "l2s":
+          el = line2StringRef.current;
+          break;
+        case "l3":
+          el = line3Ref.current;
+          break;
+      }
+      if (!el) return;
+      el.textContent = s.text;
+      // Cursor sits at end of the active line
+      const cursorParent = (s.target === "l1"
+        ? line1Ref.current
+        : s.target === "l3"
+          ? line3Ref.current
+          : cursorContainerRef.current) as HTMLElement | null;
+      if (cursorParent) placeCursor(cursorParent, Math.max(60, s.delay - 20));
+    };
+
     let rafId = 0;
     let cancelled = false;
+    let started = false;
     let stepIdx = 0;
-    let nextAt = performance.now();
+    let nextAt = 0;
+    const timeouts: ReturnType<typeof setTimeout>[] = [];
 
     const tick = (now: number) => {
       if (cancelled) return;
-      // Advance through any steps whose time has come this frame
       while (stepIdx < steps.length && now >= nextAt) {
         const s = steps[stepIdx];
-        const lineEl = lineSpans[s.line];
-        lineEl.textContent = s.text || "\u00a0";
-        placeCursor(lineEl, Math.max(60, s.delay - 20));
+        writeStep(s);
         nextAt += s.delay;
         stepIdx++;
       }
       if (stepIdx < steps.length) {
         rafId = requestAnimationFrame(tick);
       } else {
-        finish();
+        cursor.classList.remove("is-typing");
       }
     };
 
-    const finish = () => {
-      // Animation complete: leave text as-is, let cursor blink steadily.
-      const lastLine = lineSpans[lineSpans.length - 1];
-      if (cursor.parentElement !== lastLine) lastLine.appendChild(cursor);
-      cursor.classList.remove("is-typing");
-      if (cursorBlinkTimer) {
-        clearTimeout(cursorBlinkTimer);
-        cursorBlinkTimer = null;
-      }
+    const start = () => {
+      if (started) return;
+      started = true;
+      // Park cursor on line 1 and let it blink before typing begins
+      if (line1Ref.current) line1Ref.current.appendChild(cursor);
+      const t = setTimeout(() => {
+        nextAt = performance.now();
+        rafId = requestAnimationFrame(tick);
+      }, 600);
+      timeouts.push(t);
     };
 
-    rafId = requestAnimationFrame(tick);
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            start();
+            io.disconnect();
+            break;
+          }
+        }
+      },
+      { threshold: 0.35 },
+    );
+    io.observe(section);
 
     return () => {
       cancelled = true;
       cancelAnimationFrame(rafId);
       timeouts.forEach(clearTimeout);
+      io.disconnect();
     };
   }, []);
-
-  useEffect(() => {
-    const setGlow = (el: HTMLSpanElement | null, on: boolean) => {
-      if (!el) return;
-      el.style.transition = "box-shadow 0.15s ease";
-      el.style.boxShadow = on ? "0 0 14px rgba(184, 58, 32, 0.9)" : "none";
-    };
-
-    const runFlash = () => {
-      const aBox = aBoxRef.current;
-      const iBox = iBoxRef.current;
-      if (!aBox || !iBox) return;
-
-      pulseBeatTimeoutsRef.current.forEach(clearTimeout);
-      pulseBeatTimeoutsRef.current = [];
-
-      setGlow(aBox, true);
-      setGlow(iBox, true);
-
-      const t1 = setTimeout(() => {
-        setGlow(aBox, false);
-        setGlow(iBox, false);
-      }, 150);
-
-      pulseBeatTimeoutsRef.current = [t1];
-    };
-
-    pulseStartTimeoutRef.current = setTimeout(runFlash, 4000);
-
-    return () => {
-      if (pulseStartTimeoutRef.current) {
-        clearTimeout(pulseStartTimeoutRef.current);
-        pulseStartTimeoutRef.current = null;
-      }
-      pulseBeatTimeoutsRef.current.forEach(clearTimeout);
-      pulseBeatTimeoutsRef.current = [];
-      if (pulseIntervalRef.current) {
-        clearInterval(pulseIntervalRef.current);
-        pulseIntervalRef.current = null;
-      }
-    };
-  }, []);
-
-  const reservedEm = 1.15 * 1.5 + 0.35 + 2 * 2.1;
-  const ariaLabel = typewriterLines.join(" ");
 
   return (
-    <p
-      ref={containerRef}
-      className="hero-quote italic font-semibold leading-[1.5] text-cream/95 block text-left"
+    <section
+      ref={sectionRef}
+      aria-label="The AI paradox"
+      className="w-full"
       style={{
-        fontFamily: "'Playfair Display', serif",
-        fontSize: "clamp(1.45rem, 2.1vw, 2.35rem)",
-        minHeight: `${reservedEm}em`,
-        width: "15em",
-        maxWidth: "100%",
+        background: "#000000",
+        padding: "48px 40px",
+        fontFamily:
+          "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
+        fontSize: "18px",
+        lineHeight: 1.7,
+        textAlign: "left",
+        contain: "layout paint",
       }}
-      aria-label={ariaLabel}
-    />
+    >
+      <div ref={line1Ref} style={{ color: "#6A737D", minHeight: "1.7em" }} />
+      <div style={{ minHeight: "1.7em" }}>
+        <span ref={line2KeywordRef} style={{ color: "#C0281E" }} />
+        <span ref={line2StringRef} style={{ color: "#98C379" }} />
+        <span ref={cursorContainerRef} />
+      </div>
+      <div ref={line3Ref} style={{ color: "#6A737D", minHeight: "1.7em" }} />
+    </section>
   );
 }
 
-function Sidebar() {
   return (
     <aside className="hero-sidebar relative w-full min-w-0 max-w-full flex flex-col lg:overflow-y-auto lg:fixed lg:top-0 lg:right-0 lg:w-[40%] lg:h-screen px-6 md:px-14 lg:px-16 py-12 md:py-20 lg:pt-[6vh] lg:pb-10 border-b lg:border-b-0 lg:border-l border-cream/10 order-1 lg:order-last bg-[#0D1B2A] lg:z-20 lg:rounded-l-xl lg:shadow-[-8px_0_24px_rgba(0,0,0,0.25)] text-center items-center gap-8 lg:gap-6">
       <div className="w-full flex flex-col items-center gap-8 lg:gap-6">
