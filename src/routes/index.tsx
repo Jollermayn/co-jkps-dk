@@ -220,30 +220,27 @@ function TypewriterQuote() {
         // Inject typo right before the would-be c=17 step
         if (i === TYPO_LINE && c === TYPO_AT + 1) {
           const baseHTML = buildLineHTML(i, TYPO_AT);
-          // Type the wrong suffix one char at a time
+          // Type the wrong suffix at confident, steady speed (no hesitation)
           for (let k = 1; k <= WRONG_SUFFIX.length; k++) {
             const partial = WRONG_SUFFIX.slice(0, k);
-            const d = charDelay();
+            const d = 95;
             schedule(() => {
               lineSpans[i].innerHTML = baseHTML + partial;
-              placeCursor(lineSpans[i], Math.max(60, d - 20));
+              placeCursor(lineSpans[i], d - 20);
             }, elapsed);
             elapsed += d;
           }
-          // Stare at the mistake
-          elapsed += 400;
-          // Backspace 5 times back to "Too much Artific"
+          // Read it back
+          elapsed += 600;
+          // Backspace 5 times at calm 150ms cadence
           for (let k = WRONG_SUFFIX.length - 1; k >= 0; k--) {
             const partial = WRONG_SUFFIX.slice(0, k);
-            const d = rand(70, 130);
             schedule(() => {
               lineSpans[i].innerHTML = baseHTML + partial;
-              placeCursor(lineSpans[i], Math.max(60, d - 20));
+              placeCursor(lineSpans[i], 130);
             }, elapsed);
-            elapsed += d;
+            elapsed += 150;
           }
-          // Small recover beat before retyping
-          elapsed += rand(120, 220);
         }
 
         const charsShown = c;
