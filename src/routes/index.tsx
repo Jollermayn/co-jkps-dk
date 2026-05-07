@@ -233,10 +233,12 @@ function TypewriterQuote() {
             steps.push({ line: i, text: base + typo.wrong.slice(0, k), delay: 150 });
           }
         }
+        const isLast = c === line.length;
+        const isLastLine = i === typewriterLines.length - 1;
         steps.push({
           line: i,
           text: line.slice(0, c),
-          delay: charDelay(),
+          delay: isLast && !isLastLine ? charDelay() + 400 : charDelay(),
         });
       }
     });
