@@ -343,8 +343,10 @@ function CodeParadoxBlock() {
             <span ref={line2StringRef} style={{ color: "#98C379", whiteSpace: "pre" }} />
             <span ref={line2CursorRef} />
           </div>
-          <div style={{ fontSize: "26px", lineHeight: 1.8, color: "#6A737D", height: "46.8px", whiteSpace: "nowrap" }}>
-            <span ref={line3Ref} style={{ whiteSpace: "pre" }} />
+          <div ref={line3Ref} style={{ fontSize: "26px", lineHeight: 1.8, height: "46.8px", whiteSpace: "nowrap" }}>
+            <span ref={line3PrefixRef} style={{ color: "#6A737D", whiteSpace: "pre" }} />
+            <span ref={line3WordRef} style={{ color: "#C0281E", whiteSpace: "pre" }} />
+            <span ref={line3SuffixRef} style={{ color: "#6A737D", whiteSpace: "pre" }} />
             <span ref={line3CursorRef} />
           </div>
         </div>
