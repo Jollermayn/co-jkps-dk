@@ -167,7 +167,7 @@ function CodeParadoxBlock() {
     if (steps.length) steps[steps.length - 1].delay += 400;
 
     // Line 2: keyword first, then string
-    pushTyping("l2k", L2K, () => line2KeywordRef.current!);
+    
     pushTyping("l2s", L2S, () => line2StringRef.current!);
     if (steps.length) steps[steps.length - 1].delay += 400;
 
