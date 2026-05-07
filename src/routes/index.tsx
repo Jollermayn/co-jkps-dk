@@ -662,7 +662,7 @@ function Index() {
       </div>
 
       {/* FOOTER — only under left content column so sidebar reaches the bottom */}
-      <footer className="w-full max-w-full lg:w-[60%] lg:max-w-[60%] py-10 relative z-10 overflow-x-hidden" style={{ backgroundColor: "#0D1B2A", borderTop: "1.5px solid #C0281E" }}>
+      <footer className="w-full max-w-full lg:w-[60%] lg:max-w-[60%] py-10 relative z-10 overflow-x-hidden" style={{ backgroundColor: "#0D1B2A", borderTop: "1.5px solid rgba(255,255,255,0.15)" }}>
         <div className="px-12 md:px-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-sm text-cream/55">
           <p>Jonas K.P. Sørensen · Redaktionel tilrettelægger & formidler · Aarhus</p>
           <p>© {new Date().getFullYear()}</p>
