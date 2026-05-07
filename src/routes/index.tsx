@@ -363,7 +363,7 @@ function Sidebar() {
           <p className="text-xs md:text-sm uppercase tracking-[0.25em] text-cream/55 mt-1">
             Læring · Medier · Teknologi
           </p>
-          <blockquote className="max-w-full w-full text-center mt-6 lg:mt-16 lg:-translate-y-[15px]">
+          <blockquote className="w-fit max-w-full mx-auto text-left mt-6 lg:mt-16 lg:-translate-y-[15px]">
             <TypewriterQuote />
           </blockquote>
         </div>
