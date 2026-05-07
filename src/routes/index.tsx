@@ -219,7 +219,6 @@ function TypewriterQuote() {
     //  Line 2 "Not enough intelligence...": after "Not enough intelli" type
     //    "ggenc", pause 600ms, backspace 5 at 150ms, retype "gence...".
     const TYPOS: Record<number, { at: number; wrong: string }> = {
-      1: { at: 16, wrong: "iaals" },
       2: { at: 18, wrong: "ggenc" },
     };
 
