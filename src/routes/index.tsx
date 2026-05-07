@@ -123,36 +123,25 @@ function CodeParadoxBlock() {
       window.matchMedia &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    if (!document.getElementById("tw-cursor-style")) {
-      const styleEl = document.createElement("style");
-      styleEl.id = "tw-cursor-style";
-      styleEl.textContent =
-        "@keyframes tw-blink{0%,49.9%{opacity:1}50%,100%{opacity:0}}.tw-cursor{display:inline-block;margin-left:2px;font-weight:400;color:#F5F0E8;animation:tw-blink 1.06s steps(1,end) infinite}.tw-cursor.is-typing{animation:none;opacity:1}";
-      document.head.appendChild(styleEl);
-    }
-
     const L1_PREFIX = "// ";
     const L1_TITLE = "The Ai paradox:";
     const L2S = '"Too much Artificial"';
     const L3 = "// Not enough intelligence...";
 
-    const cursor = document.createElement("span");
-    cursor.setAttribute("aria-hidden", "true");
-    cursor.className = "tw-cursor";
-    cursor.textContent = "|";
+    // Reuse the statically-rendered cursor (visible from first paint)
+    const cursor = line1CursorRef.current?.querySelector<HTMLSpanElement>(".tw-cursor");
+    if (!cursor) return;
 
     const timeouts: ReturnType<typeof setTimeout>[] = [];
 
     if (reduceMotion) {
+      cursor.remove();
       if (line1PrefixRef.current) line1PrefixRef.current.textContent = L1_PREFIX;
       if (line1TitleRef.current) line1TitleRef.current.textContent = L1_TITLE;
       if (line2StringRef.current) line2StringRef.current.textContent = L2S;
       if (line3Ref.current) line3Ref.current.textContent = L3;
       return;
     }
-
-    // Park cursor on line 1 immediately so it blinks from page load
-    if (line1CursorRef.current) line1CursorRef.current.appendChild(cursor);
 
     let blinkTimer: ReturnType<typeof setTimeout> | null = null;
     const placeCursor = (parent: HTMLElement, holdMs: number) => {
