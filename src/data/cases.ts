@@ -256,18 +256,18 @@ const _allCases: CaseStudy[] = [
     context:
       "Art Spirit Coaching er en coaching- og psykoterapipraksis ledet af Steen Lykke, der arbejder med mindfulness og personlig udvikling — både individuelt og på hold i retreatsettings.",
     challenge:
-      "At bygge en sammenhængende brand- og platformsidentitet op fra bunden for en praksis der opererede uden digital tilstedeværelse.",
+      "At bygge en sammenhængende brand- og platformsidentitet op fra bunden for en praksis der opererede uden digital tilstedeværelse — og forankre den i reel viden om målgruppen.",
     role: [
-      "Udviklede brandidentitet, positionering og kommunikationsstrategi fra bunden",
+      "Gennemførte dybdegående interviews med klienter, fagpersoner og læger for at afdække værdifulde indsigter om målgruppens behov og bevæggrunde",
+      "Udviklede brandidentitet, positionering og kommunikationsstrategi på baggrund af disse indsigter",
+      "Producerede medieindhold der skabte konkrete forbindelser til nye samarbejdspartnere og målgrupper",
       "Definerede kernekoncept og omsatte det til en digital og servicebaseret platform",
-      "Designede brugerrejser og indholdsstrategi",
-      "Skabte skalerbart fundament for løbende kommunikation og vækst",
     ],
     approach: ["Brandudvikling", "Konceptdesign", "Brugerrejser", "Indholdsstrategi", "Platformsudvikling"],
     outcomes: [
-      "Sammenhængende brandidentitet fra koncept til eksekvering",
-      "Funktionel digital platform med klar kommunikation",
-      "Skalerbart fundament for fremtidig vækst",
+      "Brandidentitet forankret i reel viden om klienter og fagmiljø — ikke antagelser",
+      "Medieproduktioner der åbnede døre til nye samarbejder og forbindelser",
+      "En praksis uden digital tilstedeværelse fik et fundament den kunne vokse fra",
     ],
   },
   {
