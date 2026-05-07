@@ -593,6 +593,9 @@ function Index() {
                   </div>
                 ))}
               </div>
+              <p className="text-center italic font-display text-cream" style={{ fontSize: "18px", paddingTop: "48px" }}>
+                "Tomorrow belongs to those who can hear it coming." — Bowie
+              </p>
             </div>
           </section>
 
