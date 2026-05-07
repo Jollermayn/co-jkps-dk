@@ -208,17 +208,39 @@ function TypewriterQuote() {
       return rand(80, 120); // normal typing
     };
 
+    // Single typo: line 1 "Too much Artificial" — type an extra 'l' after
+    // "Artificial", pause 300ms, then backspace once.
+    const TYPO_LINE = 1;
+
     let elapsed = 0;
     typewriterLines.forEach((line, i) => {
       for (let c = 0; c <= line.length; c++) {
         const charsShown = c;
-        const nextDelay = c < line.length ? charDelay() : rand(800, 1200);
+        const isLast = c === line.length;
+        const nextDelay = !isLast ? charDelay() : rand(800, 1200);
         schedule(() => {
           lineSpans[i].innerHTML = buildLineHTML(i, charsShown);
-          // Hold the cursor solid through the next interval, then resume blinking
           placeCursor(lineSpans[i], Math.max(60, nextDelay - 20));
         }, elapsed);
         elapsed += nextDelay;
+
+        // After the final 'l' of "Artificial" is rendered, insert the typo.
+        if (i === TYPO_LINE && isLast) {
+          // Render extra 'l'
+          const wrong = line + "l";
+          const typeDelay = rand(80, 120);
+          schedule(() => {
+            lineSpans[i].textContent = wrong;
+            placeCursor(lineSpans[i], 320);
+          }, elapsed);
+          elapsed += typeDelay + 300; // notice the mistake
+          // Backspace once
+          schedule(() => {
+            lineSpans[i].innerHTML = buildLineHTML(i, line.length);
+            placeCursor(lineSpans[i], rand(600, 900));
+          }, elapsed);
+          elapsed += rand(800, 1200);
+        }
       }
     });
 
