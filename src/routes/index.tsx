@@ -111,6 +111,9 @@ function CodeParadoxBlock() {
   const line2StringRef = useRef<HTMLSpanElement>(null);
   const line2CursorRef = useRef<HTMLSpanElement>(null);
   const line3Ref = useRef<HTMLDivElement>(null);
+  const line3PrefixRef = useRef<HTMLSpanElement>(null);
+  const line3WordRef = useRef<HTMLSpanElement>(null);
+  const line3SuffixRef = useRef<HTMLSpanElement>(null);
   const line3CursorRef = useRef<HTMLSpanElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const windowRef = useRef<HTMLDivElement>(null);
@@ -142,7 +145,9 @@ function CodeParadoxBlock() {
       if (line1PrefixRef.current) line1PrefixRef.current.textContent = L1_PREFIX;
       if (line1TitleRef.current) line1TitleRef.current.textContent = L1_TITLE;
       if (line2StringRef.current) line2StringRef.current.textContent = L2S;
-      if (line3Ref.current) line3Ref.current.textContent = L3;
+      if (line3PrefixRef.current) line3PrefixRef.current.textContent = "// Not enough ";
+      if (line3WordRef.current) line3WordRef.current.textContent = "intelligence";
+      if (line3SuffixRef.current) line3SuffixRef.current.textContent = "...";
       return;
     }
 
@@ -207,10 +212,20 @@ function CodeParadoxBlock() {
           el = line2StringRef.current;
           cursorParent = line2CursorRef.current;
           break;
-        case "l3":
-          el = line3Ref.current;
-          cursorParent = line3CursorRef.current;
-          break;
+        case "l3": {
+          // Distribute s.text across prefix(grey)/word(red)/suffix(grey)
+          const PRE = "// Not enough ";
+          const WORD_LEN = "intelligence".length;
+          const t = s.text;
+          const prefixText = t.slice(0, Math.min(t.length, PRE.length));
+          const wordText = t.length > PRE.length ? t.slice(PRE.length, PRE.length + WORD_LEN) : "";
+          const suffixText = t.length > PRE.length + WORD_LEN ? t.slice(PRE.length + WORD_LEN) : "";
+          if (line3PrefixRef.current) line3PrefixRef.current.textContent = prefixText;
+          if (line3WordRef.current) line3WordRef.current.textContent = wordText;
+          if (line3SuffixRef.current) line3SuffixRef.current.textContent = suffixText;
+          if (line3CursorRef.current) placeCursor(line3CursorRef.current, Math.max(60, s.delay - 20));
+          return;
+        }
       }
       if (!el) return;
       el.textContent = s.text;
@@ -328,8 +343,10 @@ function CodeParadoxBlock() {
             <span ref={line2StringRef} style={{ color: "#98C379", whiteSpace: "pre" }} />
             <span ref={line2CursorRef} />
           </div>
-          <div style={{ fontSize: "26px", lineHeight: 1.8, color: "#6A737D", height: "46.8px", whiteSpace: "nowrap" }}>
-            <span ref={line3Ref} style={{ whiteSpace: "pre" }} />
+          <div ref={line3Ref} style={{ fontSize: "26px", lineHeight: 1.8, height: "46.8px", whiteSpace: "nowrap" }}>
+            <span ref={line3PrefixRef} style={{ color: "#6A737D", whiteSpace: "pre" }} />
+            <span ref={line3WordRef} style={{ color: "#C0281E", whiteSpace: "pre" }} />
+            <span ref={line3SuffixRef} style={{ color: "#6A737D", whiteSpace: "pre" }} />
             <span ref={line3CursorRef} />
           </div>
         </div>
