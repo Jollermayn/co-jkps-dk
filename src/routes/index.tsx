@@ -407,7 +407,7 @@ function Index() {
                   idé finder sin form, en oplevelse finder sit udtryk, en fortælling finder sin modtager.
                 </p>
                 <p>
-                  Jeg er på hjemmebane når disciplinerne overlapper, og tiltrukket af de projekter der ikke lader sig løse med én faglighed alene.
+                  Jeg er på hjemmebane når disciplinerne overlapper, og tiltrukket af de projekter der ikke lader sig løse med én faglighed alene — herunder projekter hvor digital forståelse er en forudsætning for det gode resultat.
                 </p>
                 <p>
                   De seneste ti år har jeg arbejdet selvstændigt med klienter som DR, Amnesty International og Danmarks
