@@ -377,6 +377,8 @@ function Index() {
             </div>
           </section>
 
+          <CodeParadoxBlock />
+
           {/* CASES */}
           <CasesSection />
 
