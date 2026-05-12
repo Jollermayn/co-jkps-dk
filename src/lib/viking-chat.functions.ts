@@ -21,42 +21,43 @@ export const askVikingChat = createServerFn({ method: "POST" })
     return { messages };
   })
   .handler(async ({ data }) => {
-    const apiKey = process.env.ANTHROPIC_API_KEY;
+    const apiKey = process.env.LOVABLE_API_KEY;
     if (!apiKey) {
-      return { reply: "", error: "ANTHROPIC_API_KEY mangler." };
+      return { reply: "", error: "AI-tjenesten er ikke konfigureret." };
     }
 
     try {
-      const res = await fetch("https://api.anthropic.com/v1/messages", {
+      const res = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
         method: "POST",
         headers: {
           "content-type": "application/json",
-          "x-api-key": apiKey,
-          "anthropic-version": "2023-06-01",
+          authorization: `Bearer ${apiKey}`,
         },
         body: JSON.stringify({
-          model: "claude-sonnet-4-20250514",
-          max_tokens: 400,
-          system: SYSTEM_PROMPT,
-          messages: data.messages,
+          model: "google/gemini-3-flash-preview",
+          messages: [
+            { role: "system", content: SYSTEM_PROMPT },
+            ...data.messages,
+          ],
         }),
       });
 
       if (!res.ok) {
         const text = await res.text();
-        console.error("Anthropic error", res.status, text);
-        return { reply: "", error: `Anthropic API fejl (${res.status}).` };
+        console.error("AI gateway error", res.status, text);
+        if (res.status === 429) {
+          return { reply: "", error: "For mange forespørgsler — prøv igen om lidt." };
+        }
+        if (res.status === 402) {
+          return { reply: "", error: "AI-kreditter opbrugt." };
+        }
+        return { reply: "", error: `AI-tjeneste fejl (${res.status}).` };
       }
 
       const json = (await res.json()) as {
-        content?: Array<{ type: string; text?: string }>;
+        choices?: Array<{ message?: { content?: string } }>;
       };
-      const reply =
-        json.content
-          ?.filter((c) => c.type === "text")
-          .map((c) => c.text ?? "")
-          .join("\n")
-          .trim() ?? "";
+      const reply = json.choices?.[0]?.message?.content?.trim() ?? "";
 
       return { reply, error: null as string | null };
     } catch (err) {
