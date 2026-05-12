@@ -10,6 +10,7 @@ const SUGGESTIONS = [
   "Hvorfor LinkedIn?",
   "Hvorfor illustration?",
   "Strategien bag åbningen?",
+  "Hvordan kontakter jeg Jonas?",
 ];
 
 export default function VikingChat() {
