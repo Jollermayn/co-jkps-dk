@@ -44,11 +44,20 @@ function VikingDanmarkPage() {
         <h1 className="mt-3 font-display text-[2.4rem] sm:text-[3rem] font-bold leading-[1.05] tracking-tight">
           VikingDanmark
         </h1>
-        <img
-          src={heroImage}
-          alt="Moderne malkekvægsstald om natten med overvågningskamera"
-          className="mt-8 w-full rounded-md"
-        />
+        <div className="relative mt-8 overflow-hidden rounded-md">
+          <img
+            src={heroImage}
+            alt="Moderne malkekvægsstald om natten med overvågningskamera"
+            className="block w-full"
+          />
+          <div
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/70 via-black/30 to-transparent"
+            aria-hidden
+          />
+          <p className="absolute bottom-4 left-5 sm:bottom-6 sm:left-7 font-serif italic text-white text-[18px] leading-snug">
+            Klokken er 02.14. Kameraet er vågen.
+          </p>
+        </div>
         <p className="mt-8 text-[1.05rem] leading-relaxed text-cream/85 max-w-2xl">
           To deliverables for <span className="font-semibold text-cream">Viking SmartFarming</span> —
           et AI-baseret stald­overvågnings­system til mælkeproducenter. Udarbejdet som del af min
