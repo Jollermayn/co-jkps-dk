@@ -511,7 +511,7 @@ function Index() {
                     title: "Teknologi",
                     tagline: "Det digitale lag",
                     description:
-                      "Ti år med læringsdesign, medieproduktion og redaktionel tilrettelæggelse for bl.a. DR, Amnesty og Danmarks Naturfredningsforening.",
+                      "Ti år med UX research, servicedesign og digitale leverancer for organisationer som DR, Amnesty International og Danmarks Naturfredningsforening.",
                     icon: (
                       <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-20 h-20 md:w-24 md:h-24 text-cream">
                         {[0, 60, 120, 180, 240, 300].map((deg) => {
@@ -534,7 +534,7 @@ function Index() {
                     title: "Lyd & Musik",
                     tagline: "Det soniske lag",
                     description:
-                      "Komponist, musiker og sangskriver med arbejde for kunstnere, kortfilm og reklame.",
+                      "Musiker, komponist og sangskriver. Det soniske lag former forståelsen af rytme, struktur og det der ikke siges direkte.",
                     icon: (
                       <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" className="w-20 h-20 md:w-24 md:h-24 text-cream">
                         {[18, 26, 34, 42, 50, 58, 66, 74, 82].map((x, i) => {
