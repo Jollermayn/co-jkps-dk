@@ -168,21 +168,21 @@ const _allCases: CaseStudy[] = [
   {
     slug: "amnesty-international",
     client: "Amnesty International",
-    title: "Menneskerettigheder formidlet i lyd",
+    title: "Kompleksitet omsat til gennemslagskraft",
     image: caseAmnesty,
     context:
-      "Amnesty International er en af verdens førende menneskerettighedsorganisationer. Samarbejdet handlede om journalistisk formidling af komplekse menneskerettighedsspørgsmål til en bred dansk offentlighed.",
+      "Amnesty International er en af verdens førende menneskerettighedsorganisationer. Opgaven var at omsætte juridisk og politisk komplekse menneskerettighedsspørgsmål til indhold der rammer en bred dansk offentlighed — uden at miste præcision eller integritet.",
     challenge:
-      "At gøre tunge menneskerettighedstemaer tilgængelige og engagerende gennem podcast og lydproduktion uden at kompromittere den journalistiske integritet.",
+      "Hvordan kommunikerer man om emner der er både politisk følsomme og fagligt tunge — på en måde der engagerer frem for fremmedgør?",
     role: [
-      "Producerede podcast og lydindhold om menneskerettighedsspørgsmål",
-      "Stod for redaktionel tilrettelæggelse og postproduktion",
-      "Sikrede redaktionel integritet og faktuel præcision i produktionen",
+      "Afdækkede kommunikationsbehov og målgruppeindsigt i samarbejde med redaktionen",
+      "Omsatte komplekse temaer til tilgængeligt indhold på tværs af platforme",
+      "Sikrede sammenhæng mellem organisationens faglige integritet og den brede formidling",
     ],
-    approach: ["Journalistisk formidling", "Podcastproduktion", "Redaktionel tilrettelæggelse"],
+    approach: ["Strategisk kommunikation", "Indholdsudvikling", "Målgruppeanalyse", "Redaktionel koordinering"],
     outcomes: [
-      "Tilgængeligt lydindhold om menneskerettigheder til bred dansk offentlighed",
-      "Indhold der ikke gik på kompromis med den journalistiske integritet for at blive tilgængeligt",
+      "Indhold der nåede en bred dansk offentlighed uden at kompromittere den faglige præcision",
+      "Styrket sammenhæng mellem Amnestys budskaber og den faktiske brugeroplevelse",
     ],
   },
   {
