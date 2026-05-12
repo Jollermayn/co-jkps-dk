@@ -239,7 +239,7 @@ const _allCases: CaseStudy[] = [
     challenge:
       "Hvordan gør man barokmusik relevant for en yngre målgruppe og skaber en kampagne der rækker ud over de traditionelle koncertsale?",
     role: [
-      "Projektleder for strategisk kommunikation og kampagneudvikling",
+      "Drev strategisk kommunikation og kampagneudvikling",
       "Koordinerede aktivering på Dronning Louises Bro og i TV2-samarbejde",
       "Omsatte et kunstnerisk koncept til en kampagne med bred mediedækning",
     ],
