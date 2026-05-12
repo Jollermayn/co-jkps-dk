@@ -116,7 +116,7 @@ function VikingDanmarkPage() {
 
             {/* Email footer */}
             <div className="border-t border-navy-deep/10 px-6 py-4 text-[0.7rem] text-navy-deep/55">
-              VikingDanmark · Ebeltoftvej 16 · 8960 Randers SØ
+              VikingDanmark · Agro Food Park 12 · 8200 Aarhus N
             </div>
           </article>
         </section>
