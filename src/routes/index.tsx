@@ -990,7 +990,7 @@ function CasesSection() {
               }}
               onBlur={() => variant === "slider" && setHoveredIndex(null)}
               className={
-                "group flex flex-col text-left rounded-lg border border-cream/10 bg-navy/30 hover:bg-[rgba(255,255,255,0.04)] overflow-hidden transition-all duration-300 ease-out hover:-translate-y-[3px] " +
+                "group relative flex flex-col text-left rounded-lg border border-cream/10 bg-navy/30 hover:bg-[rgba(255,255,255,0.04)] overflow-hidden transition-all duration-300 ease-out hover:-translate-y-[3px] " +
                 "cursor-pointer " +
                 sizing
               }
@@ -1066,6 +1066,14 @@ function CasesSection() {
                   </span>
                 )}
               </div>
+              {variant === "slider" && (
+                <span
+                  aria-hidden
+                  className="sm:hidden absolute bottom-2 left-3 text-cream/40 font-mono tabular-nums text-[10px] tracking-[0.1em] pointer-events-none"
+                >
+                  {index + 1} / {total}
+                </span>
+              )}
             </button>
           );
         };
@@ -1105,7 +1113,7 @@ function CasesSection() {
                 </div>
 
                 {/* Progress indicator */}
-                <div className="px-12 md:px-14 mt-4 flex items-center gap-6">
+                <div className="hidden sm:flex px-12 md:px-14 mt-4 items-center gap-6">
                   <div className="flex-1 h-0.5 bg-cream/15 relative overflow-hidden rounded-full">
                     <div
                       className="absolute inset-y-0 left-0 bg-[#B83A20] transition-[width] duration-300 ease-out rounded-full"
