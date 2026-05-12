@@ -17,6 +17,7 @@ import caseNye7 from "@/assets/case-nye-7.png";
 import caseNyeHero from "@/assets/case-nye-hero.png";
 import caseNyeVaerkstedet from "@/assets/case-nye-vaerkstedet.png";
 import caseLydbogerAdhd from "@/assets/case-lydboger-adhd.jpg";
+import caseItuDesignlab from "@/assets/case-itu-designlab.jpg";
 
 export type StemFraFeltet = {
   quote: string;
@@ -312,11 +313,41 @@ const _allCases: CaseStudy[] = [
       "Indsigt i hvordan narrativ struktur og lyd kan erstatte forklaring med oplevelse",
     ],
   },
+  {
+    slug: "itu-designlab",
+    client: "ITU / DESIGNLAB",
+    title: "Generativ AI som brobygger mellem minder og mennesker",
+    image: caseItuDesignlab,
+    context:
+      "Professionelle plejere bruger reminiscensterapi til at styrke livskvaliteten hos borgere med demens — men kortlægning af den enkeltes livshistorie er ressourcekrævende og afhænger af pårørendes hukommelse og tilgængelighed.",
+    challenge:
+      "Kan generativ AI skabe personaliserede, lydbaserede livsfortællinger fra personlige data — og dermed styrke reminiscensarbejdet uden at kompromittere værdighed og etik?",
+    role: [
+      "Gennemførte ekspertinterviews med fagprofessionelle i ældreplejen",
+      "Designede og testede lydbaserede prototyper med binaural lydteknik",
+      "Anvendte Wizard of Oz-metoden til at simulere AI-interaktion under brugertest",
+      "Itererede konceptet gennem tre designrunder baseret på tematisk analyse",
+    ],
+    approach: [
+      "Spekulativt design",
+      "Research through Design",
+      "Mixed methods",
+      "Wizard of Oz",
+      "Binaural lyddesign",
+      "Generativ AI (ElevenLabs)",
+    ],
+    outcomes: [
+      "Prototype valideret af domæneeksperter som potentielt samtalefacilitator i plejepraksis",
+      "Konceptramme for etisk ansvarlig brug af AI-genererede stemmer og lydscenarier",
+      "Indsigt i hvordan AI kan understøtte fagprofessionelle uden at erstatte den menneskelige relation",
+    ],
+  },
 ];
 
 const _order = [
   "boliga",
   "wolt",
+  "itu-designlab",
   "danmarks-radio",
   "amnesty-international",
   "danmarks-naturfredningsforening",
