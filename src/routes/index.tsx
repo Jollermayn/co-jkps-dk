@@ -1010,7 +1010,7 @@ function CasesSection() {
                   className={"text-cream/60 uppercase font-semibold " + clientSize}
                   style={{ fontSize: 9, letterSpacing: "0.18em" }}
                 >
-                  {c.client}
+                  {c.slug === "musikfaellesskabet-i-nye" ? "Sideløbende projekt · " + c.client : c.client}
                 </span>
                 <h3
                   className={"font-display font-bold text-cream leading-snug " + headlineSize}
