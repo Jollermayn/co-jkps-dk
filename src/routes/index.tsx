@@ -463,7 +463,7 @@ function Index() {
                     no: "02",
                     title: "Professionsbachelor · Medie- og sonokommunikation",
                     meta: "Sonic College · 2016",
-                    body: "Praksisnær uddannelse i lyd, medieproduktion og kommunikation.",
+                    body: "Tværfaglig uddannelse i kommunikation, medieproduktion og digital formidling med stærkt praktisk fundament.",
                   },
                   {
                     no: "03",
