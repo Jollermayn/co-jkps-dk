@@ -315,7 +315,7 @@ const _allCases: CaseStudy[] = [
   },
   {
     slug: "itu-designlab",
-    client: "ITU / DESIGNLAB",
+    client: "DESIGNLAB",
     title: "Generativ AI som brobygger mellem minder og mennesker",
     image: caseItuDesignlab,
     context:
