@@ -208,23 +208,22 @@ const _allCases: CaseStudy[] = [
   {
     slug: "ulla-dyrlov",
     client: "Ulla Dyrløv",
-    title: "Lydidentitet og podcastplatform",
+    title: "Fra idé til færdig platform — helhedsleverance for selvstændig fagprofessionel",
     image: caseUlla,
     context:
-      "Ulla Dyrløv er TV-børnepsykolog og arbejder med børns trivsel og mentale sundhed. Samarbejdet handlede om at bygge en professionel lydidentitet og podcastplatform op fra bunden i hendes psykologpraksis.",
+      "Ulla Dyrløv er TV-børnepsykolog og foredragsholder med en etableret faglig profil. Opgaven var at omsætte hendes ekspertise til en sammenhængende digital tilstedeværelse — fra koncept til færdig leverance.",
     challenge:
-      "At omsætte en psykologs faglige ekspertise til en tilgængelig og professionel lyddimension — fra fysisk studieopssætning til digitalt indhold der rammer forældre og børn. Fordi børn og forældre skulle mødes i kendte og trygge rammer, ikke i et fremmed studie.",
+      "Hvordan bygger man en professionel platform fra bunden der formidler kompleks faglig viden på en måde der møder målgruppen — børn og forældre — i deres egne præmisser?",
     role: [
-      "Byggede et professionelt lydstudio op i hendes praksis",
-      "Stod for podcastproduktion og postproduktion",
-      "Koordinerede kreative processer og udviklede social media-koncept",
-      "Sikrede at optagelsesmiljøet matchede målgruppens præmisser",
+      "Afdækkede behov og udviklede konceptet i tæt samarbejde med kunden",
+      "Tog ansvar for hele leverancen fra strategi til eksekvering",
+      "Sikrede sammenhæng mellem afsender, budskab og målgruppe på tværs af platforme",
     ],
-    approach: ["Lydidentitet", "Studieopsætning", "Podcastproduktion", "Indholdsstrategi"],
+    approach: ["Konceptudvikling", "Behovsafdækning", "Indholdsstrategi", "Platformsudvikling"],
     outcomes: [
-      "Færdigt og fungerende lydstudio i psykologpraksis",
-      "Professionel podcastproduktion målrettet forældre og børn",
-      "Indhold der tager udgangspunkt i børns og forældres egne præmisser",
+      "Komplet digital platform klar til lancering",
+      "Kommunikation og indhold målrettet børn og forældre der tager udgangspunkt i målgruppens egne præmisser",
+      "Selvstændig leverance fra første brief til færdigt produkt",
     ],
   },
   {
