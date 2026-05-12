@@ -1069,7 +1069,7 @@ function CasesSection() {
               {variant === "slider" && (
                 <span
                   aria-hidden
-                  className="sm:hidden absolute bottom-2 left-3 text-cream/40 font-mono tabular-nums text-[10px] tracking-[0.1em] pointer-events-none"
+                  className="sm:hidden absolute bottom-2 right-3 text-cream/45 font-mono tabular-nums text-[9px] tracking-[0.1em] pointer-events-none"
                 >
                   {index + 1} / {total}
                 </span>
