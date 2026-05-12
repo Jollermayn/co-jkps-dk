@@ -1029,7 +1029,19 @@ function CasesSection() {
                   className={"font-display font-bold text-cream leading-snug " + headlineSize}
                   style={{ fontSize: 18 }}
                 >
-                  {meta?.headline ?? c.title}
+                  {c.slug === "interaktiv-horesimulering" ? (
+                    <>
+                      <span className="sm:hidden">Når teknologi ikke er svaret</span>
+                      <span className="hidden sm:inline">{meta?.headline ?? c.title}</span>
+                    </>
+                  ) : c.slug === "danmarks-radio" ? (
+                    <>
+                      <span className="sm:hidden">Digitale formater · DR</span>
+                      <span className="hidden sm:inline">{meta?.headline ?? c.title}</span>
+                    </>
+                  ) : (
+                    meta?.headline ?? c.title
+                  )}
                 </h3>
                 <ul className="flex flex-wrap gap-1.5 mt-1">
                   {(meta?.tags ?? []).map((t) => (
