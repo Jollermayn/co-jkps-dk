@@ -728,7 +728,7 @@ const CASE_META: Record<string, { headline: string; tags: string[] }> = {
     tags: ["Lydproduktion", "Konceptudvikling", "Læringsdesign"],
   },
   "lydboger-til-born-med-adhd": {
-    headline: "Lydbøger til børn med ADHD",
+    headline: "Når formatet ikke passer — design af auditiv fordybelse til børn med ADHD",
     tags: ["Læringsdesign", "Børn og unge", "Lydbaseret formidling"],
   },
 };
