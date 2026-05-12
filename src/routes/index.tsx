@@ -532,9 +532,9 @@ function Index() {
                   },
                   {
                     title: "Lyd & Musik",
-                    tagline: "Det soniske lag",
+                    tagline: "Det kreative lag",
                     description:
-                      "Musiker, komponist og sangskriver. Det soniske lag former forståelsen af rytme, struktur og det der ikke siges direkte.",
+                      "Musiker, komponist og sangskriver. Det kreative lag former evnen til at tænke uden for det åbenlyse — og finde løsninger der ikke lå i problemformuleringen.",
                     icon: (
                       <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" className="w-20 h-20 md:w-24 md:h-24 text-cream">
                         {[18, 26, 34, 42, 50, 58, 66, 74, 82].map((x, i) => {
