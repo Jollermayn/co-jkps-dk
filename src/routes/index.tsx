@@ -531,7 +531,7 @@ function Index() {
                     title: "Kommunikation",
                     tagline: "Det menneskelige lag",
                     description:
-                      "Oversætter kompleksitet til oplevelse — og håndværk til indhold der rammer.",
+                      "Strategisk kommunikation på tværs af organisationer og målgrupper — fra komplekse menneskerettighedstemaer til kommercielle produkter. Evnen til at oversætte det svære til noget der faktisk rammer.",
                     icon: (
                       <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-20 h-20 md:w-24 md:h-24 text-cream">
                         <defs>
