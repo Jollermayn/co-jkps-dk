@@ -334,7 +334,7 @@ const _allCases: CaseStudy[] = [
       "Mixed methods",
       "Wizard of Oz",
       "Binaural lyddesign",
-      "Generativ AI (ElevenLabs)",
+      "Generativ AI",
     ],
     outcomes: [
       "Prototype valideret af domæneeksperter som potentielt samtalefacilitator i plejepraksis",
