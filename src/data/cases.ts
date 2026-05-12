@@ -312,6 +312,7 @@ const _allCases: CaseStudy[] = [
       "Koncept for auditiv fordybelse tilpasset børn med ADHD",
       "Indsigt i hvordan narrativ struktur og lyd kan erstatte forklaring med oplevelse",
     ],
+  },
   {
     slug: "itu-designlab",
     client: "ITU / DESIGNLAB",
