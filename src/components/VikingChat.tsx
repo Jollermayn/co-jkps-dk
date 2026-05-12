@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { useServerFn } from "@tanstack/react-start";
-import { MessageSquare, X } from "lucide-react";
+import { X } from "lucide-react";
 import { askVikingChat } from "@/lib/viking-chat.functions";
 
 type Msg = { role: "user" | "assistant"; content: string };
