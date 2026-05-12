@@ -19,7 +19,19 @@ export default function VikingChat() {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [showTooltip, setShowTooltip] = useState(false);
+  const [hasInteracted, setHasInteracted] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (hasInteracted) return;
+    const showTimer = setTimeout(() => setShowTooltip(true), 3000);
+    const hideTimer = setTimeout(() => setShowTooltip(false), 8000);
+    return () => {
+      clearTimeout(showTimer);
+      clearTimeout(hideTimer);
+    };
+  }, [hasInteracted]);
 
   useEffect(() => {
     if (!open) return;
@@ -165,17 +177,48 @@ export default function VikingChat() {
       )}
 
       {/* Floating trigger */}
-      <button
-        type="button"
-        onClick={() => setOpen((v) => !v)}
-        aria-expanded={open}
-        aria-label={open ? "Luk chat" : "Spørg om casen"}
-        className="inline-flex items-center gap-2 rounded-full px-5 py-3 text-[0.92rem] font-semibold text-cream shadow-2xl ring-1 ring-black/20 hover:opacity-95 transition-opacity"
-        style={{ backgroundColor: "#B83A20" }}
-      >
-        {open ? <X size={18} /> : <MessageSquare size={18} />}
-        <span>{open ? "Luk" : "Spørg om casen"}</span>
-      </button>
+      <div className="relative">
+        {/* Tooltip */}
+        {!open && showTooltip && (
+          <div
+            className="absolute bottom-full right-0 mb-3 whitespace-nowrap rounded-md px-3 py-1.5 text-[0.8rem] font-medium text-cream shadow-lg animate-fade-in pointer-events-none"
+            style={{ backgroundColor: "#0D1B2A" }}
+            role="tooltip"
+          >
+            Prøv mig →
+            <span
+              className="absolute -bottom-1 right-6 h-2 w-2 rotate-45"
+              style={{ backgroundColor: "#0D1B2A" }}
+              aria-hidden
+            />
+          </div>
+        )}
+
+        {/* Pulse ring */}
+        {!open && (
+          <span
+            className="absolute inset-0 rounded-full animate-ping opacity-60 pointer-events-none"
+            style={{ backgroundColor: "#B83A20", animationDuration: "2.4s" }}
+            aria-hidden
+          />
+        )}
+
+        <button
+          type="button"
+          onClick={() => {
+            setOpen((v) => !v);
+            setHasInteracted(true);
+            setShowTooltip(false);
+          }}
+          aria-expanded={open}
+          aria-label={open ? "Luk chat" : "Spørg om casen"}
+          className="relative inline-flex items-center gap-2 rounded-full px-5 py-3 text-[0.92rem] font-semibold text-cream shadow-2xl ring-1 ring-black/20 hover:opacity-95 transition-opacity"
+          style={{ backgroundColor: "#B83A20" }}
+        >
+          {open ? <X size={18} /> : <MessageSquare size={18} />}
+          <span>{open ? "Luk" : "Spørg om casen"}</span>
+        </button>
+      </div>
     </div>
   );
 }
