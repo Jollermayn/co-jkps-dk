@@ -59,9 +59,9 @@ function VikingDanmarkPage() {
           </p>
         </div>
         <p className="mt-8 text-[1.05rem] leading-relaxed text-cream/85 max-w-2xl">
-          To deliverables for <span className="font-semibold text-cream">Viking SmartFarming</span> —
-          et AI-baseret stald­overvågnings­system til mælkeproducenter. Udarbejdet som del af min
-          ansøgning til VikingDanmark.
+          En kampagne udviklet af Jonas K.P. Sørensen til VikingDanmarks forretningsområde{" "}
+          <span className="font-semibold text-cream">Viking SmartFarming</span> — et AI-baseret
+          stald­overvågnings­system til mælkeproducenter.
         </p>
       </header>
 
