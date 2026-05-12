@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import heroImage from "@/assets/vikingdanmark-hero.png";
 
 export const Route = createFileRoute("/vikingdanmark")({
   head: () => ({
@@ -38,7 +39,12 @@ function VikingDanmarkPage() {
         <h1 className="mt-3 font-display text-[2.4rem] sm:text-[3rem] font-bold leading-[1.05] tracking-tight">
           VikingDanmark
         </h1>
-        <p className="mt-4 text-[1.05rem] leading-relaxed text-cream/85 max-w-2xl">
+        <img
+          src={heroImage}
+          alt="Moderne malkekvægsstald om natten med overvågningskamera"
+          className="mt-8 w-full rounded-md"
+        />
+        <p className="mt-8 text-[1.05rem] leading-relaxed text-cream/85 max-w-2xl">
           To deliverables for <span className="font-semibold text-cream">Viking SmartFarming</span> —
           et AI-baseret stald­overvågnings­system til mælkeproducenter. Udarbejdet som del af min
           ansøgning til VikingDanmark.
