@@ -531,7 +531,7 @@ function Index() {
                     ),
                   },
                   {
-                    title: "Lyd & Musik",
+                    title: "Kreativitet",
                     tagline: "Det kreative lag",
                     description:
                       "Musiker, komponist og sangskriver. Det kreative lag former evnen til at tænke uden for det åbenlyse — og finde løsninger der ikke lå i problemformuleringen.",
