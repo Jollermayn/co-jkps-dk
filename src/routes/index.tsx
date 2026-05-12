@@ -959,7 +959,7 @@ function CasesSection() {
               : "w-full overflow-hidden bg-navy h-[250px]";
           const bodyPadding =
             variant === "slider"
-              ? "p-6 max-[428px]:p-4 flex flex-col gap-3 max-[428px]:gap-2"
+              ? "p-5 max-[428px]:p-4 flex flex-col gap-3 max-[428px]:gap-2 flex-1 min-w-0"
               : "p-6 flex flex-col gap-3";
           const clientSize = variant === "slider" ? "max-[428px]:!text-[10px]" : "";
           const headlineSize = variant === "slider" ? "max-[428px]:!text-[15px]" : "";
@@ -1059,7 +1059,7 @@ function CasesSection() {
                 {variant === "slider" && (
                   <span
                     aria-hidden
-                    className="mt-2 self-end inline-flex items-center gap-1.5 text-[10px] tracking-[0.15em] uppercase text-cream font-semibold md:opacity-0 md:group-hover:opacity-100 md:group-focus-visible:opacity-100 md:hover:!text-[#B83A20] transition-[opacity,color] duration-[400ms] md:hover:duration-300 ease-out"
+                    className="mt-auto pt-2 self-end inline-flex items-center gap-1.5 text-[10px] tracking-[0.15em] uppercase text-cream font-semibold md:opacity-0 md:group-hover:opacity-100 md:group-focus-visible:opacity-100 md:hover:!text-[#B83A20] transition-[opacity,color] duration-[400ms] md:hover:duration-300 ease-out"
                   >
                     <MousePointerClick className="w-3.5 h-3.5" strokeWidth={1.75} />
                     Se case
