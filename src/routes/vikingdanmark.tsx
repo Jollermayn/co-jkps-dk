@@ -69,9 +69,6 @@ function VikingDanmarkPage() {
               <h3 className="mt-3 font-display text-[1.5rem] sm:text-[1.75rem] font-bold leading-tight text-navy-deep">
                 Kameraet så det, du ikke nåede
               </h3>
-              <p className="mt-1.5 text-[0.78rem] text-navy-deep/60">
-                Til: Lars · Fra: Viking SmartFarming
-              </p>
             </div>
 
             {/* Email body */}
