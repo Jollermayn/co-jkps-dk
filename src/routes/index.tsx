@@ -671,14 +671,14 @@ function Index() {
 
 const FILTERS = [
   "Alle",
-  "Lydproduktion",
-  "Børn og unge",
-  "Læringsdesign",
-  "Digital design",
+  "UX Research",
+  "Servicedesign",
+  "Generativ AI",
   "Strategisk kommunikation",
-  "Brandudvikling",
   "Konceptudvikling",
-  "Medieproduktion",
+  "Forretningsudvikling",
+  "Brandudvikling",
+  "Sideløbende projekt",
 ] as const;
 
 type Filter = (typeof FILTERS)[number];
@@ -686,47 +686,51 @@ type Filter = (typeof FILTERS)[number];
 const CASE_META: Record<string, { headline: string; tags: string[] }> = {
   wolt: {
     headline: "Fra usynlig algoritme til informeret bud",
-    tags: ["Digital design", "Konceptudvikling"],
+    tags: ["UX Research", "Servicedesign", "Konceptudvikling"],
   },
   boliga: {
     headline: "Reduceret kompleksitet i boligsøgning",
-    tags: ["Digital design"],
+    tags: ["UX Research", "Servicedesign"],
+  },
+  "itu-designlab": {
+    headline: "Generativ AI som brobygger mellem minder og mennesker",
+    tags: ["Generativ AI", "UX Research", "Konceptudvikling"],
   },
   "interaktiv-horesimulering": {
     headline: "Når teknologi ikke er svaret — men mennesket er",
-    tags: ["Læringsdesign", "Børn og unge", "Konceptudvikling"],
+    tags: ["UX Research", "Konceptudvikling"],
   },
   "danmarks-radio": {
     headline: "Digitale og lydbaserede formater",
-    tags: ["Lydproduktion", "Børn og unge", "Medieproduktion"],
+    tags: ["Strategisk kommunikation", "Konceptudvikling"],
   },
   "amnesty-international": {
     headline: "Følsomme emner — skarp formidling",
-    tags: ["Lydproduktion", "Medieproduktion"],
+    tags: ["Strategisk kommunikation"],
   },
   "danmarks-naturfredningsforening": {
     headline: "Bæredygtighed og brandudvikling",
-    tags: ["Medieproduktion", "Strategisk kommunikation", "Brandudvikling"],
+    tags: ["Strategisk kommunikation", "Brandudvikling"],
   },
   "ulla-dyrlov": {
     headline: "Koncept og platform fra bunden",
-    tags: ["Lydproduktion", "Børn og unge", "Brandudvikling"],
+    tags: ["Brandudvikling", "Konceptudvikling"],
   },
   "concerto-copenhagen": {
     headline: "Bach til en ny generation",
-    tags: ["Lydproduktion", "Børn og unge", "Strategisk kommunikation"],
+    tags: ["Strategisk kommunikation", "Konceptudvikling"],
   },
   "art-spirit-coaching": {
     headline: "Brand og koncept fra idé til lancering",
-    tags: ["Brandudvikling", "Strategisk kommunikation", "Konceptudvikling"],
+    tags: ["Brandudvikling", "Konceptudvikling", "Forretningsudvikling"],
   },
   "musikfaellesskabet-i-nye": {
     headline: "En borgerdrevet musikskole",
-    tags: ["Lydproduktion", "Konceptudvikling", "Læringsdesign"],
+    tags: ["Sideløbende projekt", "Konceptudvikling"],
   },
   "lydboger-til-born-med-adhd": {
     headline: "Når formatet ikke passer — design af auditiv fordybelse til børn med ADHD",
-    tags: ["Læringsdesign", "Børn og unge", "Lydbaseret formidling"],
+    tags: ["Sideløbende projekt", "Konceptudvikling"],
   },
 };
 
