@@ -185,7 +185,7 @@ export default function VikingChat() {
             style={{ backgroundColor: "#0D1B2A" }}
             role="tooltip"
           >
-            Prøv mig →
+            Spørg mig om de strategiske valg →
             <span
               className="absolute -bottom-1 right-6 h-2 w-2 rotate-45"
               style={{ backgroundColor: "#0D1B2A" }}
@@ -194,13 +194,20 @@ export default function VikingChat() {
           </div>
         )}
 
-        {/* Pulse ring */}
+        {/* Pulse ring — stronger, slower */}
         {!open && (
-          <span
-            className="absolute inset-0 rounded-full animate-ping opacity-60 pointer-events-none"
-            style={{ backgroundColor: "#B83A20", animationDuration: "2.4s" }}
-            aria-hidden
-          />
+          <>
+            <span
+              className="absolute inset-0 rounded-full animate-ping pointer-events-none"
+              style={{ backgroundColor: "#B83A20", opacity: 0.5, animationDuration: "2.8s" }}
+              aria-hidden
+            />
+            <span
+              className="absolute inset-0 rounded-full ring-2 ring-[#B83A20]/70 animate-ping pointer-events-none"
+              style={{ animationDuration: "2.8s", animationDelay: "0.6s" }}
+              aria-hidden
+            />
+          </>
         )}
 
         <button
@@ -212,11 +219,24 @@ export default function VikingChat() {
           }}
           aria-expanded={open}
           aria-label={open ? "Luk chat" : "Spørg om casen"}
-          className="relative inline-flex items-center gap-2 rounded-full px-5 py-3 text-[0.92rem] font-semibold text-cream shadow-2xl ring-1 ring-black/20 hover:opacity-95 transition-opacity"
+          className="relative inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-[1rem] font-semibold text-cream shadow-2xl ring-1 ring-black/20 hover:opacity-95 transition-opacity"
           style={{ backgroundColor: "#B83A20" }}
         >
-          {open ? <X size={18} /> : <MessageSquare size={18} />}
-          <span>{open ? "Luk" : "Spørg om casen"}</span>
+          {open ? (
+            <>
+              <X size={18} />
+              <span>Luk</span>
+            </>
+          ) : (
+            <span>💬 Jonas' AI er klar</span>
+          )}
+          {/* Notification dot */}
+          {!open && (
+            <span className="absolute -top-1 -right-1 flex h-3.5 w-3.5" aria-hidden>
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-500 opacity-75" />
+              <span className="relative inline-flex h-3.5 w-3.5 rounded-full bg-red-500 ring-2 ring-cream" />
+            </span>
+          )}
         </button>
       </div>
     </div>
