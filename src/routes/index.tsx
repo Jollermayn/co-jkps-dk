@@ -403,19 +403,16 @@ function Index() {
               <Eyebrow>Om mig</Eyebrow>
               <div className="mt-8 max-w-3xl space-y-6 text-cream/80 text-lg leading-relaxed">
                 <p className="text-xl md:text-2xl leading-relaxed text-cream font-light">
-                  Fælles for alt mit arbejde er interessen for det øjeblik hvor noget komplekst bliver håndgribeligt — hvor et behov finder sin form, en løsning finder sin bruger.
+                  Jeg har mere end 10 års erfaring med digitale produkter og brugeroplevelser på tværs af public service, civilsamfund og kommercielle virksomheder, med projekter for blandt andre Danmarks Radio, Amnesty International og Danmarks Naturfredningsforening.
                 </p>
                 <p>
-                  Jeg er på hjemmebane når disciplinerne overlapper, og tiltrukket af de projekter der ikke lader sig løse med én faglighed alene. De bedste løsninger opstår ofte når man taler med dem der faktisk skal bruge dem.
+                  Mit arbejde tager udgangspunkt i menneskelig adfærd. Ikke hvad mennesker siger de gør, men hvad de faktisk gør. Det er ofte forskellen på løsninger der fungerer i teorien, og løsninger der fungerer i praksis og skaber reel værdi for både bruger og forretning.
                 </p>
                 <p>
-                  De seneste ti år har jeg arbejdet med digitale produkter og brugeroplevelser på tværs af public service, civilsamfund og kommercielle virksomheder — med klienter som DR, Amnesty International og Danmarks Naturfredningsforening.
+                  Baggrunden i kreativ formidling har udviklet evnen til at identificere sammenhænge på tværs og omsætte kompleksitet til konkrete løsninger. Kombineret med et fagligt fundament i UX, servicedesign og digital forretningsudvikling er det en distinkt tilgang til arbejdet med teknologi og mennesker.
                 </p>
-                <p className="text-cream/60 italic font-display">
-                  Privat er jeg familiefar, naturmenneske og det, man nok ville kalde en seriøs lytter.
-                </p>
-                <p className="italic font-display text-cream" style={{ fontSize: "24px", lineHeight: 1.4, marginTop: "32px" }}>
-                  "Tomorrow belongs to those who can hear it coming."<br />— Bowie, 1974
+                <p>
+                  Jeg er uddannet Cand.IT i Digital Design & Interactive Technologies fra IT-Universitetet i København.
                 </p>
               </div>
             </div>
