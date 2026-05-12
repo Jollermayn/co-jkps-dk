@@ -212,20 +212,8 @@ function VikingDanmarkPage() {
             </div>
           </article>
         </section>
-
-        {/* Bag om casen — AI chat */}
-        <section>
-          <div className="mb-5">
-            <h2 className="font-display text-[1.4rem] font-bold tracking-tight">
-              Bag om casen
-            </h2>
-            <p className="mt-1.5 text-[0.95rem] text-cream/70">
-              Nysgerrig på de strategiske valg? Spørg løs.
-            </p>
-          </div>
-          <VikingChat />
-        </section>
       </main>
+      <VikingChat />
     </div>
   );
 }
