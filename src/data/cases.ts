@@ -188,21 +188,21 @@ const _allCases: CaseStudy[] = [
   {
     slug: "danmarks-naturfredningsforening",
     client: "Danmarks Naturfredningsforening",
-    title: "Naturformidling og strategisk kommunikation",
+    title: "Strategisk kommunikation for Danmarks største naturorganisation",
     image: caseDN,
     context:
-      "Danmarks Naturfredningsforening er Danmarks største naturorganisation. Samarbejdet tog udgangspunkt i Den Grønne Sommerhøjskole med fokus på bæredygtighed og naturformidling.",
+      "Danmarks Naturfredningsforening er Danmarks største naturorganisation med mere end 130.000 medlemmer. Opgaven var at styrke organisationens kommunikation og digitale tilstedeværelse med fokus på at nå nye og yngre målgrupper.",
     challenge:
-      "At skabe professionelt medievisuals og strategisk kommunikation der kunne formidle naturorganisationens kerneværdier til nye og yngre målgrupper — særligt unge der skal møde naturen med nysgerrighed.",
+      "Hvordan omsætter man komplekse bæredygtighedsdagsordener til kommunikation der engagerer — uden at miste organisationens faglige tyngde?",
     role: [
-      "Stod for det samlede medieproduktionssetup — film, interview og branding video",
-      "Producerede sociale medier-indhold og strategisk kommunikation",
-      "Var kommunikationsansvarlig under Den Grønne Sommerhøjskole",
+      "Havde det samlede kommunikationsansvar og koordinerede på tværs af interne og eksterne interessenter",
+      "Udviklede og eksekverede kommunikationsstrategi målrettet nye målgrupper",
+      "Omsatte faglige budskaber til tilgængeligt indhold på tværs af platforme og formater",
     ],
-    approach: ["Videoproduktion", "Brandudvikling", "Strategisk kommunikation", "So-me indhold"],
+    approach: ["Strategisk kommunikation", "Stakeholdermanagement", "Indholdsudvikling", "Målgruppeanalyse"],
     outcomes: [
-      "Professionelt filmet interview- og brandingmateriale",
-      "Styrket digital tilstedeværelse og kommunikation om bæredygtighed",
+      "Styrket digital tilstedeværelse og øget engagement hos yngre målgrupper",
+      "Sammenhængende kommunikationsstrategi på tværs af platforme",
     ],
   },
   {
