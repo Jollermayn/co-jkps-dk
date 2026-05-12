@@ -136,13 +136,16 @@ const _allCases: CaseStudy[] = [
     role: [
       "Gennemførte 8 dybdegående interviews med lærere, eksperter og hørehæmmede elever",
       "Faciliterede 2 co-design workshops på specialefterskole",
-      "Anvendte AI til at generere speak og kalibrere binaurale lydscenarier baseret på audiologiske data",
+      "Anvendte generativ AI til at skabe og kalibrere personaliserede lydscenarier baseret på audiologiske data",
+      "Promptede og itererede AI-genereret speak til at matche individuelle høreprofiler",
+      "Designede interaktivt simuleringskoncept testet direkte med målgruppen",
     ],
-    approach: ["Co-design", "Participatorisk design", "Konceptudvikling"],
+    approach: ["Co-design", "Participatorisk design", "Konceptudvikling", "Generativ AI", "Binaural lyddesign", "Spekulativt design"],
     outcomes: [
-      "Udviklet og testet i samarbejde med hørehæmmede elever",
+      "Udviklet og testet i samarbejde med hørehæmmede elever og fagprofessionelle",
       "Ansvaret for inklusion flyttes fra den enkelte elev til skolefællesskabet",
       "Øget empati og delt ansvar i klasserummet",
+      "Dokumenteret effekt på læreres forståelse af hørehæmmede elevers oplevelse",
     ],
   },
   {
