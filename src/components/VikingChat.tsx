@@ -132,22 +132,20 @@ export default function VikingChat() {
             {error && <p className="text-[0.82rem] text-red-700">{error}</p>}
           </div>
 
-          {/* Suggestions */}
-          {messages.length === 0 && (
-            <div className="flex flex-wrap gap-1.5 px-4 pb-3">
-              {SUGGESTIONS.map((q) => (
-                <button
-                  key={q}
-                  type="button"
-                  onClick={() => send(q)}
-                  disabled={loading}
-                  className="rounded-full border border-navy-deep/20 px-3 py-1 text-[0.78rem] text-navy-deep/80 hover:bg-navy-deep hover:text-cream hover:border-navy-deep transition-colors disabled:opacity-50"
-                >
-                  {q}
-                </button>
-              ))}
-            </div>
-          )}
+          {/* Suggestions — always visible */}
+          <div className="flex flex-wrap gap-1.5 px-4 pb-3">
+            {SUGGESTIONS.map((q) => (
+              <button
+                key={q}
+                type="button"
+                onClick={() => send(q)}
+                disabled={loading}
+                className="rounded-full border border-navy-deep/20 px-3 py-1 text-[0.78rem] text-navy-deep/80 hover:bg-navy-deep hover:text-cream hover:border-navy-deep transition-colors disabled:opacity-50"
+              >
+                {q}
+              </button>
+            ))}
+          </div>
 
           {/* Input */}
           <form
