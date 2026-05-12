@@ -70,8 +70,8 @@ function VikingDanmarkPage() {
         {/* Deliverable 1 — Newsletter */}
         <section>
           <div className="flex items-baseline justify-between gap-4 mb-5">
-            <h2 className="font-display text-[1.4rem] font-bold tracking-tight">
-              Deliverable 1
+            <h2 className="font-display text-[1.5rem] sm:text-[1.55rem] font-bold tracking-tight">
+              Nyhedsbrev
             </h2>
             <span className="text-[0.7rem] uppercase tracking-[0.2em] text-cream/55">
               Nyhedsbrev
@@ -142,8 +142,8 @@ function VikingDanmarkPage() {
         {/* Deliverable 2 — LinkedIn */}
         <section>
           <div className="flex items-baseline justify-between gap-4 mb-5">
-            <h2 className="font-display text-[1.4rem] font-bold tracking-tight">
-              Deliverable 2
+            <h2 className="font-display text-[1.5rem] sm:text-[1.55rem] font-bold tracking-tight">
+              LinkedIn-opslag
             </h2>
             <span className="text-[0.7rem] uppercase tracking-[0.2em] text-cream/55">
               LinkedIn · organisk opslag
