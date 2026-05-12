@@ -107,8 +107,9 @@ function VikingDanmarkPage() {
 
               <div className="pt-3">
                 <a
-                  href="#"
-                  onClick={(e) => e.preventDefault()}
+                  href="https://www.vikingdanmark.dk"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-block rounded-sm px-5 py-3 text-[0.92rem] font-semibold text-cream transition-opacity hover:opacity-90"
                   style={{ backgroundColor: "#B83A20" }}
                 >
