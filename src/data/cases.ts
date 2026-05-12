@@ -235,19 +235,18 @@ const _allCases: CaseStudy[] = [
     title: "Bach remixet for en ny generation",
     image: caseConcerto,
     context:
-      "Concerto Copenhagen er et af Danmarks førende barokensembler. Samarbejdet handlede om at skabe en remix af Johann Sebastian Bachs B minor Messe og bruge den som løftestang til at engagere unge i klassisk musik.",
+      "Concerto Copenhagen er et af Danmarks førende barokensembler. Opgaven var at skabe kulturel relevans for et kunstnerisk produkt med 300 års historik — og nå en ny generation uden at kompromittere det kunstneriske udtryk.",
     challenge:
-      "At gøre barokmusik relevant for en yngre målgruppe uden at kompromittere det kunstneriske udtryk — og skabe en kampagne der kunne nå ud over de traditionelle koncertsale.",
+      "Hvordan gør man barokmusik relevant for en yngre målgruppe og skaber en kampagne der rækker ud over de traditionelle koncertsale?",
     role: [
-      "Fungerede som projektleder for strategisk kommunikation",
-      "Producerede remix af Bachs B minor Messe",
+      "Projektleder for strategisk kommunikation og kampagneudvikling",
       "Koordinerede aktivering på Dronning Louises Bro og i TV2-samarbejde",
+      "Omsatte et kunstnerisk koncept til en kampagne med bred mediedækning",
     ],
-    approach: ["Strategisk kommunikation", "Musikproduktion", "Kampagneudvikling", "Projektledelse"],
+    approach: ["Strategisk kommunikation", "Kampagneudvikling", "Aktivering", "Projektledelse"],
     outcomes: [
-      "Remixet afspillet på lastcykler over Dronning Louises Bro",
-      "TV2-eksponering og bred mediedækning",
-      "Ny relevant kontekst for klassisk musik til yngre målgrupper",
+      "Remixet afspillet på lastcykler over Dronning Louises Bro med bred mediedækning",
+      "TV2-eksponering og ny relevant kontekst for klassisk musik til yngre målgrupper",
       "Viste at kulturelt indhold kan nå unge uden at miste sin integritet",
     ],
   },
