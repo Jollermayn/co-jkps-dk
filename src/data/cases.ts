@@ -88,13 +88,13 @@ const _allCases: CaseStudy[] = [
   },
   {
     slug: "interaktiv-horesimulering",
-    client: "Interaktiv høresimulering",
-    title: "Inklusion i undervisningen",
+    client: "FAGLIGT SAMARBEJDE · SPECIALEFTERSKOLE & AUDIOLOGER",
+    title: "Når teknologi ikke er svaret — men mennesket er",
     image: caseHearing,
     context:
-      "Over 20% af hørehæmmede elever i den danske folkeskole oplever hyppig ensomhed mod under 4% blandt normalthørende. Der findes ingen nationale retningslinjer for inkluderende praksis.",
+      "Over 20% af hørehæmmede elever i den danske folkeskole oplever hyppig ensomhed mod under 4% blandt normalthørende. Der findes ingen nationale retningslinjer for inkluderende praksis — og eksisterende teknologiske løsninger adresserer lyden, ikke oplevelsen.",
     challenge:
-      "Eksisterende simuleringer viser hvad høretab gør ved lyden. Ikke hvad det gør ved mennesket — at miste tråden, gå glip af joken, stå udenfor fællesskabet.",
+      "Eksisterende simuleringer viser hvad høretab gør ved lyden. Ikke hvad det gør ved mennesket — at miste tråden, gå glip af joken, stå udenfor fællesskabet. Hvordan designer man empati ind i et klasserum?",
     stemmerFraFeltet: [
       {
         quote: '"Jeg vil ikke lade mit liv dikteres af et høretab."',
