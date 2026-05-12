@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
 import heroImage from "@/assets/vikingdanmark-hero.png";
 
 export const Route = createFileRoute("/vikingdanmark")({
@@ -17,6 +18,9 @@ export const Route = createFileRoute("/vikingdanmark")({
 });
 
 function VikingDanmarkPage() {
+  const [liked, setLiked] = useState(false);
+  const baseLikes = 47;
+  const likeCount = baseLikes + (liked ? 1 : 0);
   return (
     <div
       className="min-h-screen text-cream"
@@ -184,12 +188,26 @@ function VikingDanmarkPage() {
               </p>
             </div>
 
+            {/* LinkedIn reactions count */}
+            <div className="mt-3 flex items-center gap-1.5 px-5 pb-2 text-[0.78rem] text-navy-deep/65">
+              <span aria-hidden>👍</span>
+              <span>{likeCount}</span>
+            </div>
+
             {/* LinkedIn engagement bar */}
-            <div className="mt-3 flex items-center justify-between border-t border-navy-deep/10 px-5 py-2 text-[0.78rem] font-semibold text-navy-deep/65">
-              <span>👍 Synes godt om</span>
-              <span>💬 Kommentér</span>
-              <span>🔁 Del</span>
-              <span>📨 Send</span>
+            <div className="flex items-center justify-between border-t border-navy-deep/10 px-5 py-2 text-[0.78rem] font-semibold">
+              <button
+                type="button"
+                onClick={() => setLiked((v) => !v)}
+                className={`transition-colors ${liked ? "" : "text-navy-deep/65 hover:text-navy-deep"}`}
+                style={liked ? { color: "#0a66c2" } : undefined}
+                aria-pressed={liked}
+              >
+                👍 Synes godt om
+              </button>
+              <span className="text-navy-deep/65">💬 Kommentér</span>
+              <span className="text-navy-deep/65">🔁 Del</span>
+              <span className="text-navy-deep/65">📨 Send</span>
             </div>
           </article>
         </section>
