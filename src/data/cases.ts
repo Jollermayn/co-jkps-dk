@@ -308,7 +308,7 @@ const _allCases: CaseStudy[] = [
       "Konceptudvikling og prototype for lydbaseret læringsformat",
       "Iterativ afprøvning og videreudvikling baseret på indsigt fra felten",
     ],
-    approach: ["Læringsdesign", "Lydbaseret formidling", "Brugerinddragelse", "Konceptudvikling"],
+    approach: ["Brugerinddragelse", "Empirisk research", "Konceptudvikling", "Iterativ prototyping"],
     outcomes: [
       "Dokumenteret uopfyldt behov i markedet for lydbaserede læringsværktøjer",
       "Koncept for auditiv fordybelse tilpasset børn med ADHD",
