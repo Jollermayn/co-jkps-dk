@@ -1018,7 +1018,7 @@ function CasesSection() {
                     "Sideløbende projekt · " + c.client
                   ) : c.slug === "danmarks-naturfredningsforening" ? (
                     <>
-                      <span className="sm:hidden">Naturfredningsforeningen</span>
+                      <span className="sm:hidden">Naturfrednings-foreningen</span>
                       <span className="hidden sm:inline">{c.client}</span>
                     </>
                   ) : (
