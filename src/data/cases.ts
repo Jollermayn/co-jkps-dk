@@ -245,7 +245,7 @@ const _allCases: CaseStudy[] = [
     ],
     approach: ["Strategisk kommunikation", "Kampagneudvikling", "Aktivering", "Projektledelse"],
     outcomes: [
-      "Remixet afspillet på lastcykler over Dronning Louises Bro med bred mediedækning",
+      "Remixet afspillet på ladcykler over Dronning Louises Bro med bred mediedækning",
       "TV2-eksponering og ny relevant kontekst for klassisk musik til yngre målgrupper",
       "Viste at kulturelt indhold kan nå unge uden at miste sin integritet",
     ],
