@@ -403,13 +403,13 @@ function Index() {
               <Eyebrow>Om mig</Eyebrow>
               <div className="mt-8 max-w-3xl space-y-6 text-cream/80 text-lg leading-relaxed">
                 <p className="text-xl md:text-2xl leading-relaxed text-cream font-light">
-                  Fælles for alt mit arbejde er interessen for det øjeblik hvor noget abstrakt bliver konkret — hvor en idé finder sin form, en oplevelse finder sit udtryk, en fortælling finder sin modtager.
+                  Fælles for alt mit arbejde er interessen for det øjeblik hvor noget komplekst bliver håndgribeligt — hvor et behov finder sin form, en løsning finder sin bruger.
                 </p>
                 <p>
-                  Jeg er på hjemmebane når disciplinerne overlapper, og tiltrukket af de projekter der ikke lader sig løse med én faglighed alene. De bedste løsninger opstår ofte når man giver ordet til dem, der bliver overhørt.
+                  Jeg er på hjemmebane når disciplinerne overlapper, og tiltrukket af de projekter der ikke lader sig løse med én faglighed alene. De bedste løsninger opstår ofte når man taler med dem der faktisk skal bruge dem.
                 </p>
                 <p>
-                  De seneste ti år har jeg arbejdet selvstændigt med klienter som bl.a. DR, Amnesty International og Danmarks Naturfredningsforening — med særlig interesse for formidling til børn og unge i skæringspunktet mellem teknologi, læring og menneskelig indsigt.
+                  De seneste ti år har jeg arbejdet med digitale produkter og brugeroplevelser på tværs af public service, civilsamfund og kommercielle virksomheder — med klienter som DR, Amnesty International og Danmarks Naturfredningsforening.
                 </p>
                 <p className="text-cream/60 italic font-display">
                   Privat er jeg familiefar, naturmenneske og det, man nok ville kalde en seriøs lytter.
