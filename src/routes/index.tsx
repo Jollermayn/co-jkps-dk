@@ -701,7 +701,7 @@ const CASE_META: Record<string, { headline: string; tags: string[] }> = {
     tags: ["Lydproduktion", "Børn og unge", "Medieproduktion"],
   },
   "amnesty-international": {
-    headline: "Menneskerettigheder i lyd",
+    headline: "Følsomme emner — skarp formidling",
     tags: ["Lydproduktion", "Medieproduktion"],
   },
   "danmarks-naturfredningsforening": {
