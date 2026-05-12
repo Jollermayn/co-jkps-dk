@@ -253,23 +253,23 @@ const _allCases: CaseStudy[] = [
   {
     slug: "art-spirit-coaching",
     client: "Art Spirit Coaching — Insight Consulting",
-    title: "Brand- og platformsidentitet fra bunden",
+    title: "Brand og platform for en praksis der var før sin tid",
     image: caseArtSpirit,
     context:
-      "Art Spirit Coaching er en coaching- og psykoterapipraksis ledet af Steen Lykke, der arbejder med mindfulness og personlig udvikling — både individuelt og på hold i retreatsettings.",
+      "Art Spirit Coaching er en praksis ledet af Steen Lykke, der tidligt identificerede stress som en samfundsmæssig pandemi og arbejdede målrettet med resiliens og stressforebyggelse — på et tidspunkt hvor det endnu ikke var en anerkendt dagsorden. Praksis kombinerede mindfulness, personlig udvikling og retreatforløb for både enkeltpersoner og organisationer.",
     challenge:
-      "At bygge en sammenhængende brand- og platformsidentitet op fra bunden for en praksis der opererede uden digital tilstedeværelse — og forankre den i reel viden om målgruppen.",
+      "At bygge en sammenhængende brand- og platformsidentitet op fra bunden for en praksis med en stærk faglig vision — og forankre den i reel viden om målgruppen frem for antagelser.",
     role: [
       "Gennemførte dybdegående interviews med klienter, fagpersoner og læger for at afdække værdifulde indsigter om målgruppens behov og bevæggrunde",
       "Udviklede brandidentitet, positionering og kommunikationsstrategi på baggrund af disse indsigter",
-      "Producerede medieindhold der skabte konkrete forbindelser til nye samarbejdspartnere og målgrupper",
       "Definerede kernekoncept og omsatte det til en digital og servicebaseret platform",
+      "Producerede indhold der skabte konkrete forbindelser til nye samarbejdspartnere og målgrupper",
     ],
-    approach: ["Brandudvikling", "Konceptdesign", "Brugerrejser", "Indholdsstrategi", "Platformsudvikling"],
+    approach: ["Brugerindsigt", "Brandudvikling", "Konceptdesign", "Platformsudvikling", "Indholdsstrategi"],
     outcomes: [
       "Brandidentitet forankret i reel viden om klienter og fagmiljø — ikke antagelser",
-      "Medieproduktioner der åbnede døre til nye samarbejder og forbindelser",
       "En praksis uden digital tilstedeværelse fik et fundament den kunne vokse fra",
+      "Synliggjorde en dagsorden om stress og resiliens der siden er blevet en af tidens mest presserende samfundsudfordringer",
     ],
   },
   {
