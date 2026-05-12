@@ -1059,21 +1059,21 @@ function CasesSection() {
                 {variant === "slider" && (
                   <span
                     aria-hidden
-                    className="mt-auto pt-2 self-start sm:self-end inline-flex items-center gap-1.5 text-[10px] tracking-[0.15em] uppercase text-cream font-semibold md:opacity-0 md:group-hover:opacity-100 md:group-focus-visible:opacity-100 md:hover:!text-[#B83A20] transition-[opacity,color] duration-[400ms] md:hover:duration-300 ease-out"
+                    className="mt-auto pt-2 self-center sm:self-end inline-flex items-center gap-1.5 text-[10px] tracking-[0.15em] uppercase text-cream font-semibold md:opacity-0 md:group-hover:opacity-100 md:group-focus-visible:opacity-100 md:hover:!text-[#B83A20] transition-[opacity,color] duration-[400ms] md:hover:duration-300 ease-out"
                   >
                     <MousePointerClick className="w-3.5 h-3.5" strokeWidth={1.75} />
                     Se case
                   </span>
                 )}
+                {variant === "slider" && (
+                  <span
+                    aria-hidden
+                    className="sm:hidden self-center mt-3 text-cream/45 font-mono tabular-nums text-[9px] tracking-[0.1em] pointer-events-none"
+                  >
+                    {index + 1} / {total}
+                  </span>
+                )}
               </div>
-              {variant === "slider" && (
-                <span
-                  aria-hidden
-                  className="sm:hidden absolute bottom-2 right-3 text-cream/45 font-mono tabular-nums text-[9px] tracking-[0.1em] pointer-events-none"
-                >
-                  {index + 1} / {total}
-                </span>
-              )}
             </button>
           );
         };
