@@ -296,7 +296,7 @@ const _allCases: CaseStudy[] = [
   {
     slug: "lydboger-til-born-med-adhd",
     client: "Lydbøger til børn med ADHD",
-    title: "Lydbøger til børn med ADHD",
+    title: "Når formatet ikke passer — design af auditiv fordybelse til børn med ADHD",
     image: caseLydbogerAdhd,
     context:
       "Børn med ADHD kæmper ofte med traditionelle læringsformater. Ikke fordi de ikke kan lære, men fordi formaterne ikke er designet til dem. Projektet undersøgte hvordan lydbaserede formater kan blive et reelt lærings- og aflastningsværktøj for børn i alderen 7-12 år.",
