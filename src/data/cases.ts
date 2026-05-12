@@ -88,13 +88,13 @@ const _allCases: CaseStudy[] = [
   },
   {
     slug: "interaktiv-horesimulering",
-    client: "Interaktiv høresimulering",
-    title: "Inklusion i undervisningen",
+    client: "FAGLIGT SAMARBEJDE · SPECIALEFTERSKOLE & AUDIOLOGER",
+    title: "Når teknologi ikke er svaret — men mennesket er",
     image: caseHearing,
     context:
-      "Over 20% af hørehæmmede elever i den danske folkeskole oplever hyppig ensomhed mod under 4% blandt normalthørende. Der findes ingen nationale retningslinjer for inkluderende praksis.",
+      "Over 20% af hørehæmmede elever i den danske folkeskole oplever hyppig ensomhed mod under 4% blandt normalthørende. Der findes ingen nationale retningslinjer for inkluderende praksis — og eksisterende teknologiske løsninger adresserer lyden, ikke oplevelsen.",
     challenge:
-      "Eksisterende simuleringer viser hvad høretab gør ved lyden. Ikke hvad det gør ved mennesket — at miste tråden, gå glip af joken, stå udenfor fællesskabet.",
+      "Eksisterende simuleringer viser hvad høretab gør ved lyden. Ikke hvad det gør ved mennesket — at miste tråden, gå glip af joken, stå udenfor fællesskabet. Hvordan designer man empati ind i et klasserum?",
     stemmerFraFeltet: [
       {
         quote: '"Jeg vil ikke lade mit liv dikteres af et høretab."',
@@ -136,13 +136,16 @@ const _allCases: CaseStudy[] = [
     role: [
       "Gennemførte 8 dybdegående interviews med lærere, eksperter og hørehæmmede elever",
       "Faciliterede 2 co-design workshops på specialefterskole",
-      "Anvendte AI til at generere speak og kalibrere binaurale lydscenarier baseret på audiologiske data",
+      "Anvendte generativ AI til at skabe og kalibrere personaliserede lydscenarier baseret på audiologiske data",
+      "Promptede og itererede AI-genereret speak til at matche individuelle høreprofiler",
+      "Designede interaktivt simuleringskoncept testet direkte med målgruppen",
     ],
-    approach: ["Co-design", "Participatorisk design", "Konceptudvikling"],
+    approach: ["Co-design", "Participatorisk design", "Konceptudvikling", "Generativ AI", "Binaural lyddesign", "Spekulativt design"],
     outcomes: [
-      "Udviklet og testet i samarbejde med hørehæmmede elever",
+      "Udviklet og testet i samarbejde med hørehæmmede elever og fagprofessionelle",
       "Ansvaret for inklusion flyttes fra den enkelte elev til skolefællesskabet",
       "Øget empati og delt ansvar i klasserummet",
+      "Dokumenteret effekt på læreres forståelse af hørehæmmede elevers oplevelse",
     ],
   },
   {
