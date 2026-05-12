@@ -105,7 +105,7 @@ function CaseDetail() {
         <div className="mx-auto max-w-[1400px] px-6 md:px-10 grid grid-cols-12 gap-6 md:gap-10">
           <div className="col-span-12 md:col-span-8">
             <div className="flex items-center gap-3">
-              <span className="eyebrow text-ember">{study.client}</span>
+              <span className="eyebrow text-ember">{study.slug === "musikfaellesskabet-i-nye" ? "Sideløbende projekt · " + study.client : study.client}</span>
             </div>
             <h1 className="font-display mt-8 text-[clamp(2.5rem,6vw,5.5rem)] leading-[0.95] tracking-[-0.02em]">
               {study.title}
