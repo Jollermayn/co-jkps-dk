@@ -57,7 +57,7 @@ export const TAG_TO_SLUGS: Record<string, string[]> = {
 export const TAG_HEADLINES: Record<string, string> = {
   wolt: "Fra usynlig algoritme til informeret bud",
   boliga: "Reduceret kompleksitet i boligsøgning",
-  "interaktiv-horesimulering": "Inklusion i undervisningen",
+  "interaktiv-horesimulering": "Når teknologi ikke er svaret — men mennesket er",
   "danmarks-radio": "Digitale og lydbaserede formater",
   "amnesty-international": "Menneskerettigheder til konkret indhold",
   "danmarks-naturfredningsforening": "Bæredygtighed og brandudvikling",
