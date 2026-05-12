@@ -17,6 +17,7 @@ import caseNye7 from "@/assets/case-nye-7.png";
 import caseNyeHero from "@/assets/case-nye-hero.png";
 import caseNyeVaerkstedet from "@/assets/case-nye-vaerkstedet.png";
 import caseLydbogerAdhd from "@/assets/case-lydboger-adhd.jpg";
+import caseItuDesignlab from "@/assets/case-itu-designlab.jpg";
 
 export type StemFraFeltet = {
   quote: string;
