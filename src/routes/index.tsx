@@ -403,16 +403,21 @@ function Index() {
               <Eyebrow>Om mig</Eyebrow>
               <div className="mt-8 max-w-3xl space-y-6 text-cream/80 text-lg leading-relaxed">
                 <p className="text-xl md:text-2xl leading-relaxed text-cream font-light">
-                  Jeg har mere end 10 års erfaring med digitale produkter og brugeroplevelser på tværs af public service, civilsamfund og kommercielle virksomheder, med projekter for blandt andre Danmarks Radio, Amnesty International og Danmarks Naturfredningsforening.
+                  Mere end 10 års erfaring med at drive projekter og leverancer tæt på kunden — på tværs af public service, civilsamfund og kommercielle virksomheder, med projekter for blandt andre Danmarks Radio, Amnesty International og Danmarks Naturfredningsforening.
                 </p>
                 <p>
-                  Mit arbejde tager udgangspunkt i menneskelig adfærd. Ikke hvad mennesker siger de gør, men hvad de faktisk gør. Det er ofte forskellen på løsninger der fungerer i teorien, og løsninger der fungerer i praksis og skaber reel værdi for både bruger og forretning.
-                </p>
-                <p>
-                  Baggrunden i kreativ formidling har udviklet evnen til at identificere sammenhænge på tværs og omsætte kompleksitet til konkrete løsninger. Kombineret med et fagligt fundament i UX, servicedesign og digital forretningsudvikling er det en distinkt tilgang til arbejdet med teknologi og mennesker.
+                  Jeg arbejder i krydsfeltet mellem teknologi, forretning og mennesker. Jeg er vant til at koordinere komplekse forløb, holde overblik under pres og sikre at det der bliver lovet, også bliver leveret.
                 </p>
                 <p>
                   Jeg er uddannet Cand.IT i Digital Design & Interactive Technologies fra IT-Universitetet i København.
+                </p>
+                <p className="italic text-cream/60">
+                  Privat er jeg familiefar, naturmenneske og det, man nok ville kalde en seriøs lytter.
+                </p>
+                <p className="font-display italic text-cream">
+                  &ldquo;Tomorrow belongs to those who can hear it coming.&rdquo;
+                  <br />
+                  — Bowie, 1974
                 </p>
               </div>
             </div>
