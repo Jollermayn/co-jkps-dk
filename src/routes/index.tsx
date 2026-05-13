@@ -414,7 +414,7 @@ function Index() {
                 <p className="italic text-cream/60">
                   Privat er jeg familiefar, naturmenneske og det, man nok ville kalde en seriøs lytter.
                 </p>
-                <p className="font-display italic text-cream">
+                <p className="font-display italic text-cream text-xl md:text-2xl leading-relaxed">
                   &ldquo;Tomorrow belongs to those who can hear it coming.&rdquo;
                   <br />
                   — Bowie, 1974
