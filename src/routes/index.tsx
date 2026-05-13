@@ -31,22 +31,6 @@ export const Route = createFileRoute("/")({
 const competencies = [
   {
     no: "1",
-    title: "UX Research & Brugerindsigt",
-    sub: "Research & Brugerinddragelse",
-    body: "Dybdegående indsigt gennem interviews, feltobservation, co-design og brugertest. Jeg oversætter kompleks adfærd til handlebare beslutninger for både design og forretning.",
-    tags: ["Interviews", "Feltobservation", "Co-design", "Mixed methods", "Workshops"],
-    relatedCases: ["interaktiv-horesimulering", "wolt", "boliga"],
-  },
-  {
-    no: "2",
-    title: "Servicedesign & Konceptudvikling",
-    sub: "Fra problem til realiserbart koncept",
-    body: "Fra identifikation af problemet til et konkret, realiserbart koncept. Jeg designer brugerrejser, touchpoints og serviceoplevelser der skaber reel værdi for bruger og organisation.",
-    tags: ["Brugerrejser", "Touchpoints", "Servicedesign", "Konceptvalidering"],
-    relatedCases: ["wolt", "boliga", "ulla-dyrlov"],
-  },
-  {
-    no: "3",
     title: "Forretningsforståelse & Rådgivning",
     sub: "Bruger møder forretning",
     body: "Jeg arbejder i krydsfeltet mellem brugerbehov og forretningsmål — og hjælper organisationer med at omsætte indsigt til konkrete beslutninger og løsninger.",
@@ -54,7 +38,7 @@ const competencies = [
     relatedCases: ["wolt", "boliga", "art-spirit-coaching"],
   },
   {
-    no: "4",
+    no: "2",
     title: "Digital Design & Produktion",
     sub: "Fra koncept til færdig leverance",
     body: "Tværfaglig produktion fra koncept til færdig leverance. Teknisk kompetence kombineret med sans for kommunikation og brugervenlighed.",
@@ -62,12 +46,28 @@ const competencies = [
     relatedCases: ["ulla-dyrlov", "art-spirit-coaching", "danmarks-radio"],
   },
   {
-    no: "5",
+    no: "3",
     title: "Formidling & Kommunikation",
     sub: "Stemme, position og indhold",
     body: "Strategisk rådgivning om digital tilstedeværelse, indhold og positionering. Erfaring med at kommunikere komplekse emner til brede målgrupper på tværs af platforme.",
     tags: ["Kommunikation", "Indholdsarkitektur", "Positionering", "Formidling"],
     relatedCases: ["amnesty-international", "danmarks-naturfredningsforening", "danmarks-radio"],
+  },
+  {
+    no: "4",
+    title: "UX Research & Brugerindsigt",
+    sub: "Research & Brugerinddragelse",
+    body: "Dybdegående indsigt gennem interviews, feltobservation, co-design og brugertest. Jeg oversætter kompleks adfærd til handlebare beslutninger for både design og forretning.",
+    tags: ["Interviews", "Feltobservation", "Co-design", "Mixed methods", "Workshops"],
+    relatedCases: ["interaktiv-horesimulering", "wolt", "boliga"],
+  },
+  {
+    no: "5",
+    title: "Servicedesign & Konceptudvikling",
+    sub: "Fra problem til realiserbart koncept",
+    body: "Fra identifikation af problemet til et konkret, realiserbart koncept. Jeg designer brugerrejser, touchpoints og serviceoplevelser der skaber reel værdi for bruger og organisation.",
+    tags: ["Brugerrejser", "Touchpoints", "Servicedesign", "Konceptvalidering"],
+    relatedCases: ["wolt", "boliga", "ulla-dyrlov"],
   },
 ];
 
