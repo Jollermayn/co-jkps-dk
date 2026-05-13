@@ -402,7 +402,7 @@ function Index() {
             <div className="px-12 md:px-14">
               <Eyebrow>Om mig</Eyebrow>
               <div className="mt-8 max-w-3xl space-y-6 text-cream/80 text-lg leading-relaxed">
-                <p className="text-xl md:text-2xl leading-relaxed text-cream font-light">
+                <p className="text-xl md:text-2xl leading-snug text-cream font-light">
                   Mere end 10 års erfaring med at drive projekter og leverancer tæt på kunden — på tværs af public service, civilsamfund og kommercielle virksomheder, med projekter for blandt andre Danmarks Radio, Amnesty International og Danmarks Naturfredningsforening.
                 </p>
                 <p>
