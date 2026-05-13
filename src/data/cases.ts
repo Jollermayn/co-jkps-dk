@@ -346,17 +346,13 @@ const _allCases: CaseStudy[] = [
 ];
 
 const _order = [
-  "boliga",
-  "wolt",
-  "itu-designlab",
-  "interaktiv-horesimulering",
   "danmarks-radio",
-  "amnesty-international",
+  "boliga",
   "danmarks-naturfredningsforening",
-  "ulla-dyrlov",
   "concerto-copenhagen",
-  "art-spirit-coaching",
-  "musikfaellesskabet-i-nye",
+  "amnesty-international",
+  "ulla-dyrlov",
+  "interaktiv-horesimulering",
 ];
 
 export const caseStudies: CaseStudy[] = [
