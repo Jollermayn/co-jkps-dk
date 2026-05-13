@@ -35,12 +35,12 @@ export const Route = createRootRoute({
       { property: "og:title", content: "Jonas K.P. Sørensen — Digital konsulent" },
       { property: "og:description", content: "Portfolio" },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
+      { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Lovable" },
       { name: "twitter:title", content: "Jonas K.P. Sørensen — Digital konsulent" },
       { name: "twitter:description", content: "Portfolio" },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c8f6c13a-af14-4749-a111-6fa4a0a6759a/id-preview-a882fba6--fb880b8b-71ad-4b1c-a6aa-889472c6ed80.lovable.app-1777564929866.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c8f6c13a-af14-4749-a111-6fa4a0a6759a/id-preview-a882fba6--fb880b8b-71ad-4b1c-a6aa-889472c6ed80.lovable.app-1777564929866.png" },
+      { property: "og:image", content: "https://www.jkps.dk/og-thumbnail.png" },
+      { name: "twitter:image", content: "https://www.jkps.dk/og-thumbnail.png" },
     ],
     links: [
       {
