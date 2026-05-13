@@ -7,6 +7,7 @@ export const Route = createFileRoute("/vikingdanmark")({
   head: () => ({
     meta: [
       { title: "VikingDanmark — Case · Jonas K.P. Sørensen" },
+      { property: "og:title", content: "Kampagnecase · Viking SmartFarming · Jonas K.P. Sørensen" },
       {
         name: "description",
         content:
