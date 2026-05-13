@@ -52,7 +52,6 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
   const isMobile = typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches;
 
   const onTouchStart = (e: React.TouchEvent) => {
-    if (!isMobile) return;
     const el = panelRef.current;
     if (!el) return;
     touchStartY.current = e.touches[0].clientY;
@@ -66,12 +65,12 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
     const dx = e.touches[0].clientX - touchStartX.current;
     if (axis.current == null) {
       if (Math.abs(dx) < 8 && Math.abs(dy) < 8) return;
-      // horizontal swipes always allowed; vertical only when scrolled to top
+      // horizontal swipes always allowed; vertical drag-to-close only on mobile when scrolled to top
       if (Math.abs(dx) > Math.abs(dy)) {
         axis.current = "h";
       } else {
         const el = panelRef.current;
-        if (!el || el.scrollTop > 0 || dy < 0) {
+        if (!isMobile || !el || el.scrollTop > 0 || dy < 0) {
           touchActive.current = false;
           return;
         }
