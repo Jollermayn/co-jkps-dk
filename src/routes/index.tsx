@@ -358,7 +358,7 @@ function Sidebar() {
             <span className="block whitespace-nowrap text-[clamp(3.5rem,9vw,6rem)] leading-none -mt-[0.08em]" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700 }}>Sørensen</span>
           </h1>
           <p className="text-xs md:text-sm uppercase tracking-[0.25em] text-cream/55 mt-1">
-            UX · Servicedesign · Forretning · Digital Design
+            IT-konsulent · Projektledelse · Forretning · Digital Design
           </p>
           <p className="hero-subtitle text-xl leading-relaxed lg:text-2xl lg:leading-snug text-cream/85 italic text-center" style={{ fontFamily: "'Playfair Display', serif" }}>
             Jeg arbejder i krydsfeltet mellem teknologi, forretning og menneskelig adfærd — fra de første brugerindsigter til færdig løsning.
