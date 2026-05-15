@@ -160,10 +160,7 @@ function Index() {
               <Eyebrow>Om mig</Eyebrow>
               <div className="mt-8 max-w-3xl space-y-6 text-cream/80 text-lg leading-relaxed">
                 <p className="text-xl md:text-2xl leading-snug text-cream font-light">
-                  Jeg har arbejdet selvstændigt siden 2016 med UX research, servicedesign og konceptudvikling — på tværs af public service, civilsamfund og kommercielle virksomheder.
-                </p>
-                <p>
-                  Jeg er uddannet cand.it i Digital Design og Interaktive Teknologier fra IT-Universitetet i København.
+                  Jeg har arbejdet selvstændigt siden 2016 med UX research, servicedesign og konceptudvikling — på tværs af public service, civilsamfund og kommercielle virksomheder. Med en kandidat i Digital Design og Interaktive Teknologier fra ITU som fagligt fundament.
                 </p>
                 <p className="italic text-cream/60">
                   Privat er jeg familiefar, naturmenneske og det, man nok ville kalde en seriøs lytter.
