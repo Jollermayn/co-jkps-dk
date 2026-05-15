@@ -35,24 +35,55 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
   );
 }
 
+const phases = [
+  {
+    no: "01",
+    title: "Research & indsigt",
+    body: "Jeg starter med mennesket bag problemet. Interviews, feltobservation, co-design.",
+    body2: "Ikke hvad folk siger de gør — men hvad de faktisk gør.",
+  },
+  {
+    no: "02",
+    title: "Konceptudvikling",
+    body: "Indsigten bliver til konkrete løsningsforslag. Brugerrejser, touchpoints og servicedesign.",
+    body2: "Fra abstrakt til realiserbart.",
+  },
+  {
+    no: "03",
+    title: "Design & eksekvering",
+    body: "Konceptet bliver til færdigt visuelt output. Figma, Adobe, digitale prototyper.",
+    body2: "Hele vejen til færdigt produkt.",
+  },
+  {
+    no: "04",
+    title: "Formidling & implementering",
+    body: "Det færdige design skal lande hos dem der skal bruge det.",
+    body2: "Kommunikation der giver mening i hverdagen.",
+  },
+];
+
 const cards = [
   {
     no: "01",
+    phaseRef: "Fase 01",
     title: "AI-strategi one-pager",
     body: "Et scanbart A4-dokument til direktionen. Tre kolonner: Hvor vi er nu / Hvor vi vil hen / Hvordan vi kommer der.",
   },
   {
     no: "02",
+    phaseRef: "Fase 02 + 03",
     title: "Onboarding-flow",
     body: "Fem skærmbilleder der guider nye medarbejdere fra fremmed til fortrolig med Vind Consultings digitale værktøjer.",
   },
   {
     no: "03",
+    phaseRef: "Fase 03",
     title: "Tone of voice guide",
     body: "Internt sprog der gør det digitale konkret. Ikke hvad vi siger — men hvordan vi siger det.",
   },
   {
     no: "04",
+    phaseRef: "Fase 04",
     title: "Kommunikationskit",
     body: "Tre skabeloner til forandringskommunikation: all-hands slide, intern nyhedsbrev-intro og one-pager til nyt værktøj.",
   },
