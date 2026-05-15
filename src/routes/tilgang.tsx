@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, X, Users, Bot, BarChart3, ArrowRight } from "lucide-react";
+import vindAiStrategiOnePager from "@/assets/vind-ai-strategi-onepager.png";
 
 export const Route = createFileRoute("/tilgang")({
   head: () => ({
@@ -92,29 +93,12 @@ const cards = [
 /* ---------- HOVER PREVIEWS (compact, fill image area) ---------- */
 
 function PreviewOnePager() {
-  const cols = [
-    { h: "Hvor vi er nu", bullets: ["Adoption på 23%", "Værktøjer rullet ud", "Mangler kultur"] },
-    { h: "Hvor vi vil hen", bullets: ["AI som hverdag", "Fælles sprog", "Målbar værdi"] },
-    { h: "Hvordan vi kommer der", bullets: ["Onboarding", "Use cases", "Måling pr. kvartal"] },
-  ];
   return (
-    <div className="absolute inset-0 p-3 flex gap-1.5" style={{ backgroundColor: "#F5F0E8" }}>
-      {cols.map((c, i) => (
-        <div key={c.h} className="flex-1 flex flex-col p-2" style={{ backgroundColor: "#FFFFFF", borderTop: `2px solid ${RED}` }}>
-          <span className="text-[7px] uppercase tracking-[0.25em] font-bold" style={{ color: RED }}>0{i + 1}</span>
-          <span className="mt-1 text-[9px] font-bold leading-tight" style={{ color: NAVY, fontFamily: "'Playfair Display', serif" }}>{c.h}</span>
-          <div className="mt-2 h-px w-full" style={{ backgroundColor: NAVY, opacity: 0.15 }} />
-          <ul className="mt-2 space-y-1">
-            {c.bullets.map((b) => (
-              <li key={b} className="flex items-start gap-1 text-[7px] leading-tight" style={{ color: NAVY }}>
-                <span style={{ color: RED }}>·</span>
-                <span className="opacity-80">{b}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
-    </div>
+    <img
+      src={vindAiStrategiOnePager}
+      alt="AI-strategi one-pager til Vind Consulting"
+      className="absolute inset-0 w-full h-full object-cover"
+    />
   );
 }
 
