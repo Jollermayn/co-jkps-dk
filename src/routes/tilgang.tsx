@@ -782,7 +782,7 @@ function TilgangPage() {
               <article>
                 <span
                   className="font-display block"
-                  style={{ color: RED, fontSize: "4rem", opacity: 0.3, lineHeight: 1, marginBottom: -16 }}
+                  style={{ display: "block", color: RED, fontSize: "3rem", opacity: 0.3, lineHeight: 1, marginBottom: -8 }}
                 >
                   {c.n}
                 </span>
