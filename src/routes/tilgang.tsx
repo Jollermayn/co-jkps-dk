@@ -673,14 +673,18 @@ function TilgangPage() {
     },
   ];
 
-  const metaRow = (label: string, text: string) => (
-    <div className="flex flex-col sm:flex-row sm:gap-4 py-2" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
-      <span className="uppercase font-semibold shrink-0" style={{ color: RED, fontSize: "0.7rem", letterSpacing: "0.15em", minWidth: 96, paddingTop: 4 }}>
-        {label}
-      </span>
-      <span className="text-white" style={{ fontSize: "0.9rem", lineHeight: 1.6, opacity: 0.9 }}>{text}</span>
-    </div>
-  );
+  const metaRow = (label: string, text: string, dark = false) => {
+    const baseColor = dark ? "#0A1628" : "#FFFFFF";
+    const borderColor = dark ? "rgba(10,22,40,0.12)" : "rgba(255,255,255,0.08)";
+    return (
+      <div className="flex flex-col sm:flex-row sm:gap-4 py-2" style={{ borderTop: `1px solid ${borderColor}` }}>
+        <span className="uppercase font-semibold shrink-0" style={{ color: RED, fontSize: "0.7rem", letterSpacing: "0.15em", minWidth: 96, paddingTop: 4 }}>
+          {label}
+        </span>
+        <span style={{ color: baseColor, fontSize: "0.9rem", lineHeight: 1.6, opacity: dark ? 0.85 : 0.9 }}>{text}</span>
+      </div>
+    );
+  };
 
   return (
     <main className="min-h-screen bg-[#0D1B2A] text-cream">
@@ -737,66 +741,66 @@ function TilgangPage() {
       </section>
 
       {/* SECTION 3 — KONTEKST */}
-      <section style={{ padding: 48 }}>
+      <section style={{ padding: "80px 48px", backgroundColor: "#F5F3EE" }}>
         <div style={{ height: 1, width: "100%", background: RED, marginBottom: 48 }} aria-hidden />
         <div className="flex flex-wrap gap-x-16 gap-y-8">
           {contextStats.map((s) => (
             <div key={s.label} className="flex flex-col">
               <span className="font-display leading-none" style={{ color: RED, fontSize: "3rem" }}>{s.stat}</span>
-              <span className="mt-2 uppercase text-white/70" style={{ fontSize: "0.7rem", letterSpacing: "0.2em" }}>{s.label}</span>
+              <span className="mt-2 uppercase" style={{ color: "#0A1628", opacity: 0.7, fontSize: "0.7rem", letterSpacing: "0.2em" }}>{s.label}</span>
             </div>
           ))}
         </div>
-        <p className="text-white" style={{ opacity: 0.6, fontSize: "0.85rem", lineHeight: 1.7, maxWidth: 480, marginTop: 24 }}>
+        <p style={{ color: "#0A1628", opacity: 0.6, fontSize: "0.85rem", lineHeight: 1.7, maxWidth: 480, marginTop: 24 }}>
           Vind Consulting. Strategirådgivning, 80 medarbejdere, Aarhus og København. AI-værktøjer rullet ud på tværs — 23% aktiv brug. Kløften mellem ambition og hverdag er målbar og voksende.
         </p>
         <div style={{ height: 1, width: "100%", background: RED, marginTop: 48 }} aria-hidden />
       </section>
 
-      {/* SECTION 4 — FIRE UDFORDRINGER */}
-      <section>
-        <p className="uppercase font-semibold" style={{ color: RED, fontSize: "0.75rem", letterSpacing: "0.15em", padding: "80px 48px 40px" }}>
-          Udfordringerne
-        </p>
-        <h2 className="font-display text-white leading-tight" style={{ fontSize: "2rem", padding: "0 48px", marginBottom: 64 }}>
-          Fire situationer. Én fælles bevægelse.
-        </h2>
-        <div className="flex flex-col" style={{ gap: 120 }}>
-          {challenges.map((c) => (
-            <article key={c.n}>
-              <div style={{ maxWidth: 480, paddingLeft: 48, paddingRight: 24 }}>
-                <span
-                  className="font-display block"
-                  style={{ color: RED, fontSize: "4rem", opacity: 0.3, lineHeight: 1, marginBottom: -16 }}
-                >
-                  {c.n}
-                </span>
-                <h2 className="font-display text-white leading-tight" style={{ fontSize: "1.8rem", marginBottom: 8 }}>
-                  {c.h2}
-                </h2>
-                <p className="italic" style={{ color: RED, fontSize: "0.9rem", lineHeight: 1.7, marginBottom: 24 }}>
-                  {c.label}
+      {/* SECTION 4-7 — FIRE UDFORDRINGER (alternating bg) */}
+      {challenges.map((c, idx) => {
+        const dark = idx % 2 === 1;
+        const bg = dark ? NAVY : "#F5F3EE";
+        const fg = dark ? "#FFFFFF" : "#0A1628";
+        return (
+          <section key={c.n} style={{ padding: "80px 48px", backgroundColor: bg }}>
+            {idx === 0 && (
+              <>
+                <p className="uppercase font-semibold" style={{ color: RED, fontSize: "0.75rem", letterSpacing: "0.15em", marginBottom: 16 }}>
+                  Udfordringerne
                 </p>
-                <div className="flex flex-col">
-                  {metaRow("Udfordringen", c.udfordringen)}
-                  {metaRow("Løsningen", c.losningen)}
-                  {metaRow("Resultatet", c.resultatet)}
-                </div>
+                <h2 className="font-display leading-tight" style={{ color: fg, fontSize: "2rem", marginBottom: 64 }}>
+                  Fire situationer. Én fælles bevægelse.
+                </h2>
+              </>
+            )}
+            <article style={{ maxWidth: 680 }}>
+              <span
+                className="font-display block"
+                style={{ color: RED, fontSize: "4rem", opacity: 0.3, lineHeight: 1, marginBottom: -16 }}
+              >
+                {c.n}
+              </span>
+              <h2 className="font-display leading-tight" style={{ color: fg, fontSize: "1.8rem", marginBottom: 8 }}>
+                {c.h2}
+              </h2>
+              <p className="italic" style={{ color: RED, fontSize: "0.9rem", lineHeight: 1.7, marginBottom: 24 }}>
+                {c.label}
+              </p>
+              <div className="flex flex-col">
+                {metaRow("Udfordringen", c.udfordringen, !dark)}
+                {metaRow("Løsningen", c.losningen, !dark)}
+                {metaRow("Resultatet", c.resultatet, !dark)}
               </div>
-              <div
-                className="relative w-full overflow-hidden mt-12 h-[260px] md:h-[420px]"
-                style={{ backgroundColor: NAVY }}
-                aria-hidden
-              />
             </article>
-          ))}
-        </div>
-      </section>
+          </section>
+        );
+      })}
 
-      {/* SECTION 5 — RESULTATER */}
-      <section style={{ padding: "80px 48px" }}>
-        <div style={{ height: 1, width: "100%", background: RED, marginBottom: 48 }} aria-hidden />
-        <p className="uppercase font-semibold" style={{ color: RED, fontSize: "0.75rem", letterSpacing: "0.15em", marginBottom: 16 }}>
+      {/* SECTION 8 — RESULTATER */}
+      <section style={{ padding: "80px 48px", backgroundColor: "#8B1A13" }}>
+        <div style={{ height: 1, width: "100%", background: "rgba(255,255,255,0.2)", marginBottom: 48 }} aria-hidden />
+        <p className="uppercase font-semibold text-white" style={{ opacity: 0.6, fontSize: "0.75rem", letterSpacing: "0.15em", marginBottom: 16 }}>
           Resultatet
         </p>
         <h2 className="font-display text-white" style={{ fontSize: "2rem", marginBottom: 32 }}>
@@ -808,15 +812,15 @@ function TilgangPage() {
         <div className="flex flex-wrap gap-x-16 gap-y-8">
           {resultStats.map((s) => (
             <div key={s.label} className="flex flex-col">
-              <span className="font-display leading-none" style={{ color: RED, fontSize: "3rem" }}>{s.stat}</span>
-              <span className="mt-2 uppercase text-white/70" style={{ fontSize: "0.7rem", letterSpacing: "0.2em" }}>{s.label}</span>
+              <span className="font-display text-white leading-none" style={{ fontSize: "3rem" }}>{s.stat}</span>
+              <span className="mt-2 uppercase text-white" style={{ opacity: 0.6, fontSize: "0.7rem", letterSpacing: "0.2em" }}>{s.label}</span>
             </div>
           ))}
         </div>
       </section>
 
-      {/* SECTION 6 — CTA */}
-      <section style={{ padding: "80px 48px", backgroundColor: "#0F2035" }}>
+      {/* SECTION 9 — CTA */}
+      <section style={{ padding: "80px 48px", backgroundColor: NAVY }}>
         <h2 className="font-display text-white" style={{ fontSize: "1.8rem", maxWidth: 560, marginBottom: 16 }}>
           Kender du en af disse situationer?
         </h2>
@@ -833,7 +837,7 @@ function TilgangPage() {
           </a>
           <Link
             to="/"
-            className="font-display inline-flex items-center justify-center border-2 border-white text-white transition-colors hover:bg-white hover:text-[#0A1628]"
+            className="font-display inline-flex items-center justify-center text-white transition-opacity hover:opacity-80"
             style={{ padding: "16px 40px", fontSize: "1rem" }}
           >
             ← Tilbage til portfolio
