@@ -117,6 +117,10 @@ function Sidebar() {
           </p>
         </div>
 
+        <div className="shrink-0 w-[160px] h-[160px] overflow-hidden rounded-full ring-2 ring-[#F5F0E8]/30 shadow-[0_4px_16px_rgba(0,0,0,0.4)]">
+          <img src={profilePhoto} alt="Jonas K.P. Sørensen" className="w-full h-full object-cover" />
+        </div>
+
         <p className="font-display italic text-cream text-xl md:text-2xl leading-relaxed text-center">
           &ldquo;Too much artificial &mdash; not enough intelligence.&rdquo;
         </p>
