@@ -771,7 +771,7 @@ function TilgangPage() {
       </nav>
       {/* SECTION 1 — HERO BANNER (full-screen) */}
       <div
-        className="relative w-full overflow-hidden h-[50vh] md:h-[70vh]"
+        className="relative w-full overflow-hidden h-[50vh] md:h-[70vh] tilgang-hero"
         style={{ backgroundColor: NAVY }}
       >
         <div
