@@ -102,7 +102,7 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
       return;
     }
 
-    if (dragY > 120) {
+    if (dragY > 80) {
       setClosing(true);
       setDragY(window.innerHeight);
       window.setTimeout(() => onClose(), 280);
@@ -116,7 +116,7 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
       role="dialog"
       aria-modal="true"
       aria-label={`Case: ${study.client} — ${study.title}`}
-      className="fixed inset-0 z-[100] flex justify-end animate-in fade-in duration-200"
+      className="fixed inset-0 z-[100] flex items-end justify-center md:items-stretch md:justify-end animate-in fade-in duration-200"
     >
       {/* Backdrop */}
       <button
@@ -138,8 +138,12 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
           transform: dragY > 0 ? `translateY(${dragY}px)` : undefined,
           transition: touchActive.current ? "none" : closing || dragY === 0 ? "transform 280ms ease-out" : undefined,
         }}
-        className="relative ml-auto w-full md:w-[min(960px,92vw)] h-full bg-[#0D1B2A] text-cream overflow-y-auto shadow-2xl animate-in slide-in-from-right duration-300 overscroll-contain"
+        className="relative w-full h-[92vh] rounded-t-2xl md:rounded-none md:ml-auto md:w-[min(960px,92vw)] md:h-full bg-[#0D1B2A] text-cream overflow-y-auto shadow-2xl animate-in slide-in-from-bottom md:slide-in-from-right md:slide-in-from-bottom-0 duration-300 overscroll-contain"
       >
+        {/* Mobile drag handle */}
+        <div className="md:hidden sticky top-0 z-30 flex justify-center pt-3 pb-2 bg-[#0D1B2A]">
+          <span aria-hidden className="block w-10 h-1 rounded-full bg-white/30" />
+        </div>
         {/* Hero image */}
         <figure className="relative w-full">
           <img
@@ -151,12 +155,12 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
             aria-hidden
             className="pointer-events-none absolute inset-x-0 bottom-0 h-32 md:h-40 bg-gradient-to-b from-transparent to-[#0D1B2A]"
           />
-          {/* Close */}
+          {/* Close (desktop only) */}
           <button
             type="button"
             onClick={onClose}
             aria-label="Luk"
-            className="absolute top-4 right-4 z-30 w-11 h-11 rounded-full bg-[#0D1B2A]/80 backdrop-blur border border-cream/20 text-cream flex items-center justify-center text-xl leading-none hover:border-ember hover:text-ember transition-colors"
+            className="hidden md:flex absolute top-4 right-4 z-30 w-11 h-11 rounded-full bg-[#0D1B2A]/80 backdrop-blur border border-cream/20 text-cream items-center justify-center text-xl leading-none hover:border-ember hover:text-ember transition-colors"
           >
             ×
           </button>
