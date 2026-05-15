@@ -134,7 +134,7 @@ function CVPage() {
               Digital konsulent
             </p>
             <p className="mt-1 text-[0.78rem] tracking-wide text-[#F4EFE6]/70">
-              UX Research & Servicedesign · Selvstændig siden 2016
+              UX · Servicedesign · Forretning
             </p>
 
             <div className="mt-10 w-[140px] h-[180px] overflow-hidden rounded-md">
