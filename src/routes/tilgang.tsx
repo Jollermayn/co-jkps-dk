@@ -656,28 +656,29 @@ function TilgangPage() {
           </div>
 
           {/* PROCESS TIMELINE */}
-          <div className="mt-20 md:mt-28">
+          <div className="mt-10 md:mt-14">
+            <div className="h-px w-16 mb-4" style={{ background: RED }} aria-hidden />
             <p className="text-[11px] uppercase tracking-[0.3em] font-semibold text-cream/55">Proces</p>
             <h3 className="font-display text-3xl md:text-5xl tracking-tight leading-tight mt-4 max-w-3xl">
               Fra <span className="italic text-ember">kløft</span> til fælles sprog.
             </h3>
 
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-4">
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-x-10 md:gap-y-12">
               {[
                 { n: "01", title: "Kortlægning", body: "Interviews med ledelse og medarbejdere. Afdækning af kløft mellem strategi og hverdag." },
                 { n: "02", title: "Indsigt", body: "Medarbejderne oplevede AI som noget der skete for dem — ikke med dem." },
                 { n: "03", title: "Design", body: "Fire konkrete leverancer designet til at bygge bro." },
                 { n: "04", title: "Formidling", body: "Sprog og skabeloner der gør det digitale meningsfuldt i hverdagen." },
               ].map((step, i, arr) => (
-                <div key={step.n} className="relative flex flex-col">
+                <div key={step.n} className="relative flex flex-col md:min-h-[120px]">
                   <div className="flex items-center gap-3">
                     <span className="font-display text-sm tracking-[0.2em]" style={{ color: RED }}>{step.n}</span>
                     <div className="flex-1 h-px bg-cream/15" aria-hidden />
-                    {i < arr.length - 1 && (
+                    {i % 2 === 0 && i < arr.length - 1 && (
                       <span className="hidden md:inline text-cream/30 text-lg" aria-hidden>→</span>
                     )}
                   </div>
-                  <h4 className="font-display text-2xl md:text-3xl tracking-tight leading-tight mt-5">
+                  <h4 className="font-display tracking-tight leading-tight mt-5" style={{ fontSize: "1.4rem" }}>
                     {step.title}
                   </h4>
                   <p className="mt-3 text-sm text-cream/75 leading-relaxed">{step.body}</p>
@@ -685,6 +686,7 @@ function TilgangPage() {
               ))}
             </div>
           </div>
+
 
           {/* DELIVERABLES */}
           <div className="mt-20 md:mt-28">
