@@ -33,9 +33,9 @@ const expertise = [
 
 const experience = [
   {
-    name: "Wolt",
-    tags: "SERVICE DESIGN · UX RESEARCH · CO-DESIGN",
-    body: "Mixed methods research med interviews, media-go-alongs og feltobservation. Designede tre interventioner i Wolt Partner-appen om transparens og rettigheder.",
+    name: "Boliga",
+    tags: "PRODUCT DESIGN · UX RESEARCH · DATAANALYSE",
+    body: "Analyserede brugsdata fra 6,5 mio. månedlige interaktioner på Danmarks største boligplatform. Designede personaliseret onboarding-flow valideret af product owner.",
   },
   {
     name: "Danmarks Radio",
@@ -43,9 +43,9 @@ const experience = [
     body: "Koordinerede tværgående processer på tværs af redaktioner i Danmarks største medieorganisation. Sikrede redaktionel og teknisk kvalitet under stram tidsstyring.",
   },
   {
-    name: "Boliga",
-    tags: "PRODUCT DESIGN · UX RESEARCH · DATAANALYSE",
-    body: "Analyserede brugsdata fra 6,5 mio. månedlige interaktioner på Danmarks største boligplatform. Designede personaliseret onboarding-flow valideret af product owner.",
+    name: "Wolt",
+    tags: "SERVICE DESIGN · UX RESEARCH · CO-DESIGN",
+    body: "Mixed methods research med interviews, media-go-alongs og feltobservation. Designede tre interventioner i Wolt Partner-appen om transparens og rettigheder.",
   },
   {
     name: "Danmarks Naturfredningsforening",
@@ -77,8 +77,8 @@ const education = [
   },
   {
     title: "Sociologi & Kulturanalyse",
-    meta: "SYDDANSK UNIVERSITET · 2011",
-    body: "",
+    meta: "SYDDANSK UNIVERSITET. 2011",
+    body: "Første år af bacheloren — fagligt afsæt i kulturteori, samfundsanalyse og sociologisk metode.",
   },
 ];
 
@@ -112,7 +112,7 @@ function CVPage() {
           onClick={() => window.print()}
           className="no-print fixed top-6 right-6 z-50 rounded-full bg-[#C0281E] px-5 py-2.5 text-sm font-semibold text-[#F4EFE6] shadow-lg hover:opacity-90 transition-opacity"
         >
-          Download CV
+          Print / Gem som PDF
         </button>
 
         <article
@@ -134,7 +134,7 @@ function CVPage() {
               Digital konsulent
             </p>
             <p className="mt-1 text-[0.78rem] tracking-wide text-[#F4EFE6]/70">
-              UX Research & Servicedesign · Selvstændig siden 2016
+              UX · Servicedesign · Forretning
             </p>
 
             <div className="mt-10 w-[140px] h-[180px] overflow-hidden rounded-md">
@@ -146,7 +146,7 @@ function CVPage() {
                 Portfolio: www.jkps.dk
               </p>
               <p className="mt-12 font-display italic text-[0.85rem] text-[#F4EFE6]/70" style={{ fontFamily: "'Playfair Display', serif" }}>
-                – Aarhus –
+                - Aarhus -
               </p>
             </div>
           </aside>
