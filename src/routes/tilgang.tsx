@@ -741,7 +741,7 @@ function TilgangPage() {
           .tilgang-challenge-h2 { font-size: 1.5rem !important; font-weight: 700 !important; line-height: 1.3 !important; }
           .tilgang-label { font-size: 0.7rem !important; letter-spacing: 0.2em !important; margin-bottom: 12px !important; }
           .tilgang-body { font-size: 1rem !important; line-height: 1.8 !important; }
-          .tilgang-hero { padding-top: 56px !important; }
+          .tilgang-hero { padding-top: 48px !important; }
         }
       `}</style>
       {/* MOBILE NAV BAR */}
