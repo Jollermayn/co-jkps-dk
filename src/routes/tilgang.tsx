@@ -674,20 +674,68 @@ function TilgangPage() {
 
       <section className="pb-20 md:pb-28 px-5 md:px-14">
         <div className="border-t border-cream/10 pt-16 md:pt-24">
-          <Eyebrow>I praksis</Eyebrow>
-          <div className="mt-6 flex flex-col gap-3">
-            <p className="text-xs uppercase tracking-[0.25em] text-cream/55">Konceptprojekt</p>
-            <h2 className="font-display text-4xl md:text-6xl leading-[0.95] tracking-tight">
-              Vind Consulting <span className="italic text-ember">· Digital transformation</span>
-            </h2>
-            <p className="font-display italic text-cream/90 text-xl md:text-2xl mt-2">
-              80 medarbejdere. Fuld investering. 23% adoption.
-            </p>
+          {/* INTRO */}
+          <p className="text-[11px] uppercase tracking-[0.3em] font-semibold" style={{ color: RED }}>
+            Vind Consulting · Konceptprojekt
+          </p>
+          <h2 className="font-display text-4xl md:text-6xl lg:text-7xl leading-[0.95] tracking-tight mt-6 max-w-5xl">
+            Da værktøjerne var på plads <span className="italic text-ember">— men kulturen ikke var.</span>
+          </h2>
+
+          <div className="mt-12 grid grid-cols-3 gap-4 md:gap-8 border-y border-cream/10 py-8 md:py-10">
+            {[
+              { stat: "80", label: "medarbejdere" },
+              { stat: "23%", label: "adoption" },
+              { stat: "4", label: "leverancer" },
+            ].map((s) => (
+              <div key={s.label} className="flex flex-col">
+                <span className="font-display text-4xl md:text-6xl lg:text-7xl tracking-tight leading-none" style={{ color: RED }}>
+                  {s.stat}
+                </span>
+                <span className="mt-2 md:mt-3 text-xs md:text-sm uppercase tracking-[0.2em] text-cream/60">
+                  {s.label}
+                </span>
+              </div>
+            ))}
           </div>
 
-          <p className="mt-8 max-w-3xl text-base md:text-lg text-cream/80 leading-relaxed">
-            Vind Consulting havde værktøjerne. De manglede kulturen. AI-værktøjer rullet ud til 80 medarbejdere. Adoption på 23%. Ledelsen kommunikerede strategi — medarbejderne oplevede støj. Opgaven var at designe broen — fire konkrete leverancer der oversætter ambition til hverdag.
-          </p>
+          {/* PROCESS TIMELINE */}
+          <div className="mt-20 md:mt-28">
+            <p className="text-[11px] uppercase tracking-[0.3em] font-semibold text-cream/55">Proces</p>
+            <h3 className="font-display text-3xl md:text-5xl tracking-tight leading-tight mt-4 max-w-3xl">
+              Fra <span className="italic text-ember">kløft</span> til fælles sprog.
+            </h3>
+
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-4">
+              {[
+                { n: "01", title: "Kortlægning", body: "Interviews med ledelse og medarbejdere. Afdækning af kløft mellem strategi og hverdag." },
+                { n: "02", title: "Indsigt", body: "Medarbejderne oplevede AI som noget der skete for dem — ikke med dem." },
+                { n: "03", title: "Design", body: "Fire konkrete leverancer designet til at bygge bro." },
+                { n: "04", title: "Formidling", body: "Sprog og skabeloner der gør det digitale meningsfuldt i hverdagen." },
+              ].map((step, i, arr) => (
+                <div key={step.n} className="relative flex flex-col">
+                  <div className="flex items-center gap-3">
+                    <span className="font-display text-sm tracking-[0.2em]" style={{ color: RED }}>{step.n}</span>
+                    <div className="flex-1 h-px bg-cream/15" aria-hidden />
+                    {i < arr.length - 1 && (
+                      <span className="hidden md:inline text-cream/30 text-lg" aria-hidden>→</span>
+                    )}
+                  </div>
+                  <h4 className="font-display text-2xl md:text-3xl tracking-tight leading-tight mt-5">
+                    {step.title}
+                  </h4>
+                  <p className="mt-3 text-sm text-cream/75 leading-relaxed">{step.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* DELIVERABLES */}
+          <div className="mt-20 md:mt-28">
+            <p className="text-[11px] uppercase tracking-[0.3em] font-semibold text-cream/55">Leverancer</p>
+            <h3 className="font-display text-3xl md:text-5xl tracking-tight leading-tight mt-4 max-w-3xl">
+              Fire spor — <span className="italic text-ember">ét fælles sprog.</span>
+            </h3>
 
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-start">
             {cards.map((card) => (
@@ -732,9 +780,38 @@ function TilgangPage() {
             ))}
           </div>
 
-          <p className="mt-10 text-sm text-cream/55 italic">
-            Konceptprojekt · Servicedesign · Konceptudvikling · Strategisk kommunikation
-          </p>
+            <p className="mt-10 text-sm text-cream/55 italic">
+              Konceptprojekt · Servicedesign · Konceptudvikling · Strategisk kommunikation
+            </p>
+          </div>
+
+          {/* RESULTS */}
+          <div className="mt-20 md:mt-28">
+            <p className="text-[11px] uppercase tracking-[0.3em] font-semibold text-cream/55">Resultater</p>
+            <h3 className="font-display text-3xl md:text-5xl tracking-tight leading-tight mt-4 max-w-3xl">
+              Hvad det <span className="italic text-ember">flyttede.</span>
+            </h3>
+
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-px bg-cream/10 border border-cream/10">
+              {[
+                { stat: "54%", label: "undervurderet arbejdsdistance", note: "Wolt-metodikken anvendt her" },
+                { stat: "3", label: "kommunikationsspor designet", note: "Strategi · onboarding · tone" },
+                { stat: "1", label: "fælles sprog om AI", note: "Fra støj til samtale" },
+              ].map((r) => (
+                <div key={r.label} className="bg-[#0D1B2A] p-8 md:p-10 flex flex-col">
+                  <span className="font-display text-5xl md:text-7xl tracking-tight leading-none" style={{ color: RED }}>
+                    {r.stat}
+                  </span>
+                  <span className="mt-4 font-display text-xl md:text-2xl tracking-tight leading-snug text-cream">
+                    {r.label}
+                  </span>
+                  <span className="mt-3 text-xs uppercase tracking-[0.2em] text-cream/50">
+                    {r.note}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
