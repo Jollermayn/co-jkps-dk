@@ -137,7 +137,10 @@ function Sidebar() {
           >
             Kontakt mig
           </a>
-          
+
+          <div className="shrink-0 w-[160px] h-[160px] overflow-hidden rounded-full ring-2 ring-[#F5F0E8]/30 shadow-[0_4px_16px_rgba(0,0,0,0.4)] mt-6 lg:mt-8">
+            <img src={profilePhoto} alt="Jonas K.P. Sørensen" className="w-full h-full object-cover" />
+          </div>
         </div>
 
       </div>
