@@ -36,6 +36,7 @@ export type CaseStudy = {
   challenge: string;
   role: string[];
   approach: string[];
+  solution?: string[];
   outcomes: string[];
   stemmerFraFeltet?: StemFraFeltet[];
   gallery?: string[];
