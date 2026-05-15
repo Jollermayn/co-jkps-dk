@@ -780,9 +780,38 @@ function TilgangPage() {
             ))}
           </div>
 
-          <p className="mt-10 text-sm text-cream/55 italic">
-            Konceptprojekt · Servicedesign · Konceptudvikling · Strategisk kommunikation
-          </p>
+            <p className="mt-10 text-sm text-cream/55 italic">
+              Konceptprojekt · Servicedesign · Konceptudvikling · Strategisk kommunikation
+            </p>
+          </div>
+
+          {/* RESULTS */}
+          <div className="mt-20 md:mt-28">
+            <p className="text-[11px] uppercase tracking-[0.3em] font-semibold text-cream/55">Resultater</p>
+            <h3 className="font-display text-3xl md:text-5xl tracking-tight leading-tight mt-4 max-w-3xl">
+              Hvad det <span className="italic text-ember">flyttede.</span>
+            </h3>
+
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-px bg-cream/10 border border-cream/10">
+              {[
+                { stat: "54%", label: "undervurderet arbejdsdistance", note: "Wolt-metodikken anvendt her" },
+                { stat: "3", label: "kommunikationsspor designet", note: "Strategi · onboarding · tone" },
+                { stat: "1", label: "fælles sprog om AI", note: "Fra støj til samtale" },
+              ].map((r) => (
+                <div key={r.label} className="bg-[#0D1B2A] p-8 md:p-10 flex flex-col">
+                  <span className="font-display text-5xl md:text-7xl tracking-tight leading-none" style={{ color: RED }}>
+                    {r.stat}
+                  </span>
+                  <span className="mt-4 font-display text-xl md:text-2xl tracking-tight leading-snug text-cream">
+                    {r.label}
+                  </span>
+                  <span className="mt-3 text-xs uppercase tracking-[0.2em] text-cream/50">
+                    {r.note}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
