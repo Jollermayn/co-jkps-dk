@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export const Route = createFileRoute("/tilgang")({
   head: () => ({
@@ -55,39 +55,6 @@ const cards = [
   },
 ];
 
-function Modal({ open, onClose, title, children }: { open: boolean; onClose: () => void; title: string; children: React.ReactNode }) {
-  useEffect(() => {
-    if (!open) return;
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
-    document.addEventListener("keydown", onKey);
-    return () => {
-      document.body.style.overflow = prev;
-      document.removeEventListener("keydown", onKey);
-    };
-  }, [open, onClose]);
-
-  if (!open) return null;
-  return (
-    <div className="fixed inset-0 z-[100] flex items-start md:items-center justify-center p-0 md:p-6" role="dialog" aria-modal="true">
-      <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={onClose} />
-      <div className="relative w-full md:max-w-5xl max-h-screen md:max-h-[90vh] overflow-y-auto bg-[#0D1B2A] border border-cream/10 md:rounded-lg shadow-2xl">
-        <button
-          onClick={onClose}
-          aria-label="Luk"
-          className="sticky top-4 float-right mr-4 mt-4 z-10 w-10 h-10 inline-flex items-center justify-center rounded-full bg-cream/10 hover:bg-cream/20 text-cream transition-colors"
-        >
-          <X className="w-5 h-5" />
-        </button>
-        <div className="p-6 md:p-12">
-          <h3 className="font-display text-3xl md:text-5xl tracking-tight leading-[1.05]">{title}</h3>
-          <div className="mt-8">{children}</div>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 function OnePagerContent() {
   const cols = [
@@ -304,9 +271,14 @@ function KommunikationskitContent() {
   );
 }
 
-function TilgangPage() {
-  const [openCard, setOpenCard] = useState<string | null>(null);
+const cardContent: Record<string, React.ReactNode> = {
+  "01": <OnePagerContent />,
+  "02": <OnboardingContent />,
+  "03": <ToneOfVoiceContent />,
+  "04": <KommunikationskitContent />,
+};
 
+function TilgangPage() {
   return (
     <main className="min-h-screen bg-[#0D1B2A] text-cream">
       <section className="pt-20 md:pt-28 pb-12 md:pb-16 px-5 md:px-14">
@@ -333,18 +305,17 @@ function TilgangPage() {
             Vind Consulting havde værktøjerne. De manglede kulturen. AI-værktøjer rullet ud til 80 medarbejdere. Adoption på 23%. Ledelsen kommunikerede strategi — medarbejderne oplevede støj. Opgaven var at designe broen — fire konkrete leverancer der oversætter ambition til hverdag.
           </p>
 
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-start">
             {cards.map((card) => (
-              <button
+              <div
                 key={card.no}
-                type="button"
-                onClick={() => setOpenCard(card.no)}
-                className="group flex flex-col text-left border border-cream/10 bg-cream/[0.02] hover:bg-cream/[0.05] hover:border-cream/20 transition-all cursor-pointer"
+                tabIndex={0}
+                className="group flex flex-col border border-cream/10 bg-cream/[0.02] hover:bg-cream/[0.04] hover:border-cream/20 focus-within:bg-cream/[0.04] focus-within:border-cream/20 transition-colors outline-none"
               >
                 <div className="relative aspect-[4/3] w-full overflow-hidden bg-gradient-to-br from-cream/5 to-cream/[0.02] border-b border-cream/10">
                   <span className="absolute top-4 left-4 font-display text-2xl text-ember">{card.no}</span>
-                  <span className="absolute bottom-4 right-4 text-[10px] uppercase tracking-[0.25em] text-cream/40 group-hover:text-ember transition-colors">
-                    Se mere →
+                  <span className="absolute bottom-4 right-4 text-[10px] uppercase tracking-[0.25em] text-cream/40 group-hover:text-ember group-focus-within:text-ember transition-colors">
+                    Hover for detaljer
                   </span>
                 </div>
                 <div className="p-6 md:p-8">
@@ -354,8 +325,15 @@ function TilgangPage() {
                   <p className="mt-3 text-sm md:text-base text-cream/75 leading-relaxed">
                     {card.body}
                   </p>
+                  <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] group-focus-within:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out">
+                    <div className="overflow-hidden">
+                      <div className="mt-6 pt-6 border-t border-cream/10 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 delay-150">
+                        {cardContent[card.no]}
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </button>
+              </div>
             ))}
           </div>
 
@@ -383,18 +361,6 @@ function TilgangPage() {
         </div>
       </section>
 
-      <Modal open={openCard === "01"} onClose={() => setOpenCard(null)} title="AI-strategi one-pager">
-        <OnePagerContent />
-      </Modal>
-      <Modal open={openCard === "02"} onClose={() => setOpenCard(null)} title="Onboarding-flow">
-        <OnboardingContent />
-      </Modal>
-      <Modal open={openCard === "03"} onClose={() => setOpenCard(null)} title="Tone of voice guide">
-        <ToneOfVoiceContent />
-      </Modal>
-      <Modal open={openCard === "04"} onClose={() => setOpenCard(null)} title="Kommunikationskit">
-        <KommunikationskitContent />
-      </Modal>
     </main>
   );
 }
