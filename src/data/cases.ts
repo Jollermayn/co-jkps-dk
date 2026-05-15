@@ -273,7 +273,7 @@ const _allCases: CaseStudy[] = [
     approach: ["Brugerindsigt", "Brandudvikling", "Konceptdesign", "Platformsudvikling", "Indholdsstrategi"],
     outcomes: [
       "Brandidentitet forankret i reel viden om klienter og fagmiljø — ikke antagelser",
-      "En praksis uden digital tilstedeværelse fik et fundament den kunne vokse fra",
+      "Fra nul digital tilstedeværelse til en sammenhængende brand- og platformsidentitet klar til lancering",
       "Synliggjorde en dagsorden om stress og resiliens der siden er blevet en af tidens mest presserende samfundsudfordringer",
     ],
   },
