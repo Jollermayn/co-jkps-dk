@@ -148,7 +148,7 @@ const _allCases: CaseStudy[] = [
     outcomes: [
       "Udviklet og testet i samarbejde med hørehæmmede elever og fagprofessionelle",
       "Ansvaret for inklusion flyttes fra den enkelte elev til skolefællesskabet",
-      "Øget empati og delt ansvar i klasserummet",
+      "Lærere ændrede sprog og tilgang til hørehæmmede elever efter simuleringen",
       "Dokumenteret effekt på læreres forståelse af hørehæmmede elevers oplevelse",
     ],
   },
