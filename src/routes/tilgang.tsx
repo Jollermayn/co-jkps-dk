@@ -673,17 +673,62 @@ function TilgangPage() {
     },
   ];
 
-  const metaRow = (label: string, text: string, dark = false) => {
+  const metaRow = (label: string, text: string, dark = false, last = false) => {
     const baseColor = dark ? "#0A1628" : "#FFFFFF";
-    const borderColor = dark ? "rgba(10,22,40,0.12)" : "rgba(255,255,255,0.08)";
+    const borderColor = dark ? RED : "rgba(255,255,255,0.1)";
     return (
-      <div className="flex flex-col sm:flex-row sm:gap-4 py-3" style={{ borderTop: `1px solid ${borderColor}` }}>
-        <span className="uppercase font-semibold" style={{ color: RED, fontSize: "0.7rem", letterSpacing: "0.15em", width: 140, minWidth: 140, flexShrink: 0, paddingTop: 4 }}>
+      <div
+        className="flex flex-col sm:flex-row sm:gap-6"
+        style={{
+          borderTop: `1px solid ${borderColor}`,
+          paddingTop: 20,
+          paddingBottom: last ? 0 : 20,
+          marginBottom: last ? 0 : 20,
+          gap: 8,
+        }}
+      >
+        <span
+          className="uppercase font-semibold"
+          style={{
+            color: RED,
+            fontSize: "0.7rem",
+            letterSpacing: "0.15em",
+            width: 140,
+            minWidth: 140,
+            flexShrink: 0,
+            paddingTop: 4,
+          }}
+        >
           {label}
         </span>
-        <span style={{ color: baseColor, fontSize: "0.9rem", lineHeight: 1.6, opacity: dark ? 0.85 : 0.9, flex: 1, maxWidth: 420 }}>{text}</span>
+        <span
+          style={{
+            color: baseColor,
+            fontSize: "1.1rem",
+            lineHeight: 1.9,
+            opacity: dark ? 0.85 : 0.9,
+            flex: 1,
+            maxWidth: 420,
+          }}
+        >
+          {text}
+        </span>
       </div>
     );
+  };
+
+  const sectionPadding: React.CSSProperties = {
+    paddingTop: "clamp(64px, 10vw, 100px)",
+    paddingBottom: "clamp(64px, 10vw, 100px)",
+    paddingLeft: 0,
+    paddingRight: 0,
+  };
+  const innerCol: React.CSSProperties = {
+    maxWidth: 600,
+    margin: "0 auto",
+    padding: "0 24px",
+    textAlign: "left",
+    width: "100%",
   };
 
   return (
@@ -699,7 +744,7 @@ function TilgangPage() {
           style={{ background: "linear-gradient(to right, rgba(10,22,40,0.9) 0%, rgba(10,22,40,0) 100%)" }}
         />
         <div className="relative h-full flex items-center">
-          <div style={{ maxWidth: 600, margin: "0 auto", padding: "0 24px", width: "100%", textAlign: "left" }}>
+          <div style={innerCol}>
             <p className="uppercase font-semibold" style={{ color: RED, letterSpacing: "0.15em", fontSize: "0.75rem" }}>
               Vind Consulting · Konceptprojekt
             </p>
@@ -716,35 +761,36 @@ function TilgangPage() {
       </div>
 
       {/* SECTION 2 — DESIGNERENS ANSVAR */}
-      <section style={{ padding: "80px 0" }}>
-        <div style={{ maxWidth: 600, margin: "0 auto", padding: "0 24px", textAlign: "left" }}>
-          <p className="text-white" style={{ opacity: 0.85, fontSize: "1.15rem", lineHeight: 1.9, marginBottom: 24 }}>
-            Der er én fejlantagelse der går igen.
-          </p>
-          <p className="text-white" style={{ opacity: 0.85, fontSize: "1.15rem", lineHeight: 1.9, marginBottom: 24 }}>
-            På tværs af brancher, organisationsstørrelser og ambitionsniveauer. I strategidokumenter, implementeringsplaner og kommunikationskampagner.
-          </p>
-          <p className="italic text-white" style={{ opacity: 0.85, fontSize: "1.15rem", lineHeight: 1.9, marginBottom: 24 }}>
-            Hvis vi sender det, har de fået det. Hvis vi installerer det, bruger de det. Hvis vi skriver det, forstår de det.
-          </p>
-          <p className="text-white" style={{ opacity: 0.85, fontSize: "1.15rem", lineHeight: 1.9, marginBottom: 24 }}>
-            Det er ikke udtryk for ligegyldighed. Det er udtryk for manglende indsigt i hvordan mennesker faktisk forholder sig til forandring — og hvad der skal til for at noget nyt bliver meningsfuldt i en hverdag der i forvejen stiller mange krav.
-          </p>
-          <p className="text-white" style={{ fontSize: "1.2rem", lineHeight: 1.9, marginBottom: 24 }}>
-            Organisationer er designet til at producere output. Færre er designet til at sikre at outputtet lander hos det menneske det handler om.
-          </p>
-          <p className="text-white" style={{ opacity: 0.85, fontSize: "1.15rem", lineHeight: 1.9, marginBottom: 24 }}>
-            Det er præcis det øjeblik jeg arbejder i.
-          </p>
-          <p className="italic text-white" style={{ opacity: 0.7, fontSize: "1.15rem", lineHeight: 1.9 }}>
-            De fire situationer herunder er ikke fire isolerede problemer. De er fire udtryk for den samme grundlæggende udfordring: systemer der er designet til organisationen — ikke til mennesket i den.
-          </p>
+      <section style={sectionPadding}>
+        <div style={innerCol}>
+          {[
+            { text: "Der er én fejlantagelse der går igen." },
+            { text: "På tværs af brancher, organisationsstørrelser og ambitionsniveauer. I strategidokumenter, implementeringsplaner og kommunikationskampagner." },
+            { text: "Hvis vi sender det, har de fået det. Hvis vi installerer det, bruger de det. Hvis vi skriver det, forstår de det.", italic: true },
+            { text: "Det er ikke udtryk for ligegyldighed. Det er udtryk for manglende indsigt i hvordan mennesker faktisk forholder sig til forandring — og hvad der skal til for at noget nyt bliver meningsfuldt i en hverdag der i forvejen stiller mange krav." },
+            { text: "Organisationer er designet til at producere output. Færre er designet til at sikre at outputtet lander hos det menneske det handler om.", lead: true },
+            { text: "Det er præcis det øjeblik jeg arbejder i." },
+            { text: "De fire situationer herunder er ikke fire isolerede problemer. De er fire udtryk for den samme grundlæggende udfordring: systemer der er designet til organisationen — ikke til mennesket i den.", italic: true, muted: true },
+          ].map((p, i, arr) => (
+            <p
+              key={i}
+              className={`text-white${p.italic ? " italic" : ""}`}
+              style={{
+                opacity: p.lead ? 1 : p.muted ? 0.7 : 0.85,
+                fontSize: p.lead ? "1.2rem" : "1.1rem",
+                lineHeight: 1.9,
+                marginBottom: i === arr.length - 1 ? 0 : "1.5em",
+              }}
+            >
+              {p.text}
+            </p>
+          ))}
         </div>
       </section>
 
       {/* SECTION 3 — KONTEKST */}
-      <section style={{ padding: "80px 0", backgroundColor: "#F5F3EE" }}>
-        <div style={{ maxWidth: 600, margin: "0 auto", padding: "0 24px", textAlign: "left" }}>
+      <section style={{ ...sectionPadding, backgroundColor: "#F5F3EE" }}>
+        <div style={innerCol}>
           <div style={{ height: 1, width: "100%", background: RED, marginBottom: 48 }} aria-hidden />
           <div className="flex flex-wrap gap-x-16 gap-y-8">
             {contextStats.map((s) => (
@@ -754,7 +800,7 @@ function TilgangPage() {
               </div>
             ))}
           </div>
-          <p style={{ color: "#0A1628", opacity: 0.6, fontSize: "0.85rem", lineHeight: 1.7, marginTop: 24 }}>
+          <p style={{ color: "#0A1628", opacity: 0.6, fontSize: "1.1rem", lineHeight: 1.9, marginTop: 32 }}>
             Vind Consulting. Strategirådgivning, 80 medarbejdere, Aarhus og København. AI-værktøjer rullet ud på tværs — 23% aktiv brug. Kløften mellem ambition og hverdag er målbar og voksende.
           </p>
           <div style={{ height: 1, width: "100%", background: RED, marginTop: 48 }} aria-hidden />
@@ -767,35 +813,49 @@ function TilgangPage() {
         const bg = dark ? NAVY : "#F5F3EE";
         const fg = dark ? "#FFFFFF" : "#0A1628";
         return (
-          <section key={c.n} style={{ padding: "80px 0", backgroundColor: bg }}>
-            <div style={{ maxWidth: 600, margin: "0 auto", padding: "0 24px", textAlign: "left" }}>
+          <section key={c.n} style={{ ...sectionPadding, backgroundColor: bg }}>
+            <div style={innerCol}>
               {idx === 0 && (
                 <>
-                  <p className="uppercase font-semibold" style={{ color: RED, fontSize: "0.75rem", letterSpacing: "0.15em", marginBottom: 16 }}>
+                  <p className="uppercase font-semibold" style={{ color: RED, fontSize: "0.75rem", letterSpacing: "0.15em", marginBottom: 24 }}>
                     Udfordringerne
                   </p>
-                  <h2 className="font-display leading-tight" style={{ color: fg, fontSize: "2rem", marginBottom: 64 }}>
+                  <h2 className="font-display leading-tight" style={{ color: fg, fontSize: "clamp(1.6rem, 3vw, 2rem)", marginBottom: 80 }}>
                     Fire situationer. Én fælles bevægelse.
                   </h2>
                 </>
               )}
               <article>
                 <span
-                  className="font-display block"
-                  style={{ display: "block", color: RED, fontSize: "3rem", opacity: 0.3, lineHeight: 1, marginBottom: -8 }}
+                  className="font-display"
+                  style={{
+                    display: "block",
+                    color: RED,
+                    fontSize: "5rem",
+                    opacity: 0.15,
+                    lineHeight: 1,
+                    letterSpacing: "-0.02em",
+                    marginBottom: 0,
+                  }}
                 >
                   {c.n}
                 </span>
-                <h2 className="font-display leading-tight" style={{ color: fg, fontSize: "1.8rem", marginBottom: 8 }}>
+                <h2
+                  className="font-display leading-tight"
+                  style={{ color: fg, fontSize: "clamp(1.4rem, 5vw, 1.8rem)", marginTop: 0, marginBottom: 8 }}
+                >
                   {c.h2}
                 </h2>
-                <p className="italic" style={{ color: RED, fontSize: "0.9rem", lineHeight: 1.7, marginBottom: 24 }}>
+                <p
+                  className="italic"
+                  style={{ color: RED, fontSize: "0.95rem", lineHeight: 1.7, marginTop: 8, marginBottom: 32 }}
+                >
                   {c.label}
                 </p>
-                <div className="flex flex-col">
+                <div className="flex flex-col" style={{ marginTop: 40 }}>
                   {metaRow("Udfordringen", c.udfordringen, !dark)}
                   {metaRow("Løsningen", c.losningen, !dark)}
-                  {metaRow("Resultatet", c.resultatet, !dark)}
+                  {metaRow("Resultatet", c.resultatet, !dark, true)}
                 </div>
               </article>
             </div>
@@ -804,54 +864,91 @@ function TilgangPage() {
       })}
 
       {/* SECTION 8 — RESULTATER */}
-      <section style={{ padding: "80px 0", backgroundColor: "#8B1A13" }}>
-        <div style={{ maxWidth: 600, margin: "0 auto", padding: "0 24px", textAlign: "left" }}>
+      <section style={{ ...sectionPadding, backgroundColor: "#8B1A13" }}>
+        <div style={innerCol}>
           <div style={{ height: 1, width: "100%", background: "rgba(255,255,255,0.2)", marginBottom: 48 }} aria-hidden />
-          <p className="uppercase font-semibold text-white" style={{ opacity: 0.6, fontSize: "0.75rem", letterSpacing: "0.15em", marginBottom: 16 }}>
+          <p className="uppercase font-semibold text-white" style={{ opacity: 0.6, fontSize: "0.75rem", letterSpacing: "0.2em", marginBottom: 24 }}>
             Resultatet
           </p>
-          <h2 className="font-display text-white" style={{ fontSize: "2rem", marginBottom: 32 }}>
+          <h2 className="font-display text-white" style={{ fontSize: "clamp(1.8rem, 3vw, 2.4rem)", marginBottom: 48 }}>
             Hvad det flyttede.
           </h2>
-          <p className="text-white" style={{ opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.8, marginBottom: 48 }}>
-            Konceptprojektet dokumenterede en undervurderet arbejdsdistance på 54% — samme metodikken som Wolt-casen. Fire udfordringer kortlagt, designet og testet. Ét fælles sprog om AI, fra støj til samtale.
-          </p>
-          <div className="flex flex-wrap gap-x-16 gap-y-8">
-            {resultStats.map((s) => (
-              <div key={s.label} className="flex flex-col">
-                <span className="font-display text-white leading-none" style={{ fontSize: "3rem" }}>{s.stat}</span>
-                <span className="mt-2 uppercase text-white" style={{ opacity: 0.6, fontSize: "0.7rem", letterSpacing: "0.2em" }}>{s.label}</span>
+          <div className="flex flex-col sm:flex-row" style={{ gap: 32 }}>
+            {resultStats.map((s, i) => (
+              <div
+                key={s.label}
+                className="flex flex-col"
+                style={{
+                  flex: 1,
+                  paddingLeft: i === 0 ? 0 : 24,
+                  borderLeft: i === 0 ? "none" : "1px solid rgba(255,255,255,0.15)",
+                }}
+              >
+                <span
+                  className="font-display text-white leading-none"
+                  style={{ fontSize: "clamp(3rem, 6vw, 4rem)" }}
+                >
+                  {s.stat}
+                </span>
+                <span
+                  className="mt-3 uppercase text-white"
+                  style={{ opacity: 0.6, fontSize: "0.7rem", letterSpacing: "0.2em" }}
+                >
+                  {s.label}
+                </span>
               </div>
             ))}
           </div>
+          <p
+            className="text-white"
+            style={{ opacity: 0.8, fontSize: "1rem", lineHeight: 1.9, maxWidth: 480, marginTop: 48 }}
+          >
+            Konceptprojektet dokumenterede en undervurderet arbejdsdistance på 54% — samme metodikken som Wolt-casen. Fire udfordringer kortlagt, designet og testet. Ét fælles sprog om AI, fra støj til samtale.
+          </p>
         </div>
       </section>
 
       {/* SECTION 9 — CTA */}
-      <section style={{ padding: "80px 0", backgroundColor: NAVY }}>
-        <div style={{ maxWidth: 600, margin: "0 auto", padding: "0 24px", textAlign: "left" }}>
-          <h2 className="font-display text-white" style={{ fontSize: "1.8rem", marginBottom: 16 }}>
+      <section style={{ ...sectionPadding, backgroundColor: NAVY }}>
+        <div style={innerCol}>
+          <h2
+            className="font-display text-white"
+            style={{ fontSize: "clamp(1.8rem, 3vw, 2.4rem)", maxWidth: 480, marginBottom: 16, lineHeight: 1.2 }}
+          >
             Kender du en af disse situationer?
           </h2>
-          <p className="text-white" style={{ opacity: 0.7, fontSize: "1rem", marginBottom: 40 }}>
+          <p
+            className="text-white"
+            style={{ opacity: 0.7, fontSize: "1.1rem", lineHeight: 1.9, maxWidth: 400, marginBottom: 48 }}
+          >
             Så er det præcis det jeg arbejder med. Ikke som acceleration — men som oversættelse. Mellem det organisationen vil, og det mennesket forstår.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <a
-              href="mailto:Jonas@jkps.dk"
-              className="font-display inline-flex items-center justify-center text-white transition-opacity hover:opacity-90"
-              style={{ padding: "16px 40px", fontSize: "1rem", backgroundColor: RED }}
-            >
-              Kontakt mig
-            </a>
-            <Link
-              to="/"
-              className="font-display inline-flex items-center justify-center text-white transition-opacity hover:opacity-80"
-              style={{ padding: "16px 40px", fontSize: "1rem" }}
-            >
-              ← Tilbage til portfolio
-            </Link>
-          </div>
+          <a
+            href="mailto:Jonas@jkps.dk"
+            className="font-display inline-flex items-center justify-center text-white"
+            style={{
+              padding: "16px 48px",
+              fontSize: "1rem",
+              letterSpacing: "0.05em",
+              backgroundColor: RED,
+              border: "none",
+              borderRadius: 2,
+            }}
+          >
+            Kontakt mig
+          </a>
+          <Link
+            to="/"
+            className="text-white"
+            style={{
+              display: "block",
+              marginTop: 24,
+              opacity: 0.5,
+              fontSize: "0.9rem",
+            }}
+          >
+            ← Tilbage til portfolio
+          </Link>
         </div>
       </section>
 
