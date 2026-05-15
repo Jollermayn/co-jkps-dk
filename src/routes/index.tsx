@@ -217,8 +217,8 @@ function Index() {
                 <div className="mt-12 md:mt-14 flex justify-center">
                   <Link
                     to="/tilgang"
-                    className="inline-flex items-center justify-center border-2 hover:bg-[#C0281E] hover:text-cream transition-colors duration-300"
-                    style={{ color: "#C0281E", borderColor: "#C0281E", padding: "12px 24px", fontSize: "1rem" }}
+                    className="inline-flex items-center justify-center border-2 text-[#C0281E] border-[#C0281E] hover:bg-[#C0281E] hover:text-white transition-colors duration-300"
+                    style={{ padding: "12px 24px", fontSize: "1rem" }}
                   >
                     Se hvordan jeg arbejder →
                   </Link>
