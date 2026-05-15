@@ -346,6 +346,7 @@ const _allCases: CaseStudy[] = [
 ];
 
 const _order = [
+  "wolt",
   "danmarks-radio",
   "boliga",
   "danmarks-naturfredningsforening",
