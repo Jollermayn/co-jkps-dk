@@ -55,39 +55,6 @@ const cards = [
   },
 ];
 
-function Modal({ open, onClose, title, children }: { open: boolean; onClose: () => void; title: string; children: React.ReactNode }) {
-  useEffect(() => {
-    if (!open) return;
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
-    document.addEventListener("keydown", onKey);
-    return () => {
-      document.body.style.overflow = prev;
-      document.removeEventListener("keydown", onKey);
-    };
-  }, [open, onClose]);
-
-  if (!open) return null;
-  return (
-    <div className="fixed inset-0 z-[100] flex items-start md:items-center justify-center p-0 md:p-6" role="dialog" aria-modal="true">
-      <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={onClose} />
-      <div className="relative w-full md:max-w-5xl max-h-screen md:max-h-[90vh] overflow-y-auto bg-[#0D1B2A] border border-cream/10 md:rounded-lg shadow-2xl">
-        <button
-          onClick={onClose}
-          aria-label="Luk"
-          className="sticky top-4 float-right mr-4 mt-4 z-10 w-10 h-10 inline-flex items-center justify-center rounded-full bg-cream/10 hover:bg-cream/20 text-cream transition-colors"
-        >
-          <X className="w-5 h-5" />
-        </button>
-        <div className="p-6 md:p-12">
-          <h3 className="font-display text-3xl md:text-5xl tracking-tight leading-[1.05]">{title}</h3>
-          <div className="mt-8">{children}</div>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 function OnePagerContent() {
   const cols = [
