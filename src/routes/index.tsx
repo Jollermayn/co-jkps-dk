@@ -795,6 +795,11 @@ function CasesSection() {
                     meta?.headline ?? c.title
                   )}
                 </h3>
+                {c.slug === "wolt" && (
+                  <p className="mt-1.5 text-xs md:text-sm text-cream/60 italic leading-snug">
+                    Løn beregnet som 2,7 km — faktisk rute 5,9 km.
+                  </p>
+                )}
                 <ul className="flex flex-wrap gap-1.5 mt-1">
                   {(meta?.tags ?? []).map((t) => (
                     <li
