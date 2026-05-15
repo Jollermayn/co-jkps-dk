@@ -30,32 +30,7 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
   );
 }
 
-const phases = [
-  {
-    no: "01",
-    title: "Research & indsigt",
-    body: "Jeg starter med at forstå mennesket bag problemet. Interviews, feltobservation, co-design og mixed methods. Ikke hvad folk siger de gør — men hvad de faktisk gør.",
-    cases: ["Wolt", "Høresimulering"],
-  },
-  {
-    no: "02",
-    title: "Konceptudvikling",
-    body: "Indsigten omsættes til konkrete idéer og løsningsforslag. Brugerrejser, touchpoints og servicedesign. Fra abstrakt problem til realiserbart koncept.",
-    cases: ["Boliga", "Art Spirit Coaching"],
-  },
-  {
-    no: "03",
-    title: "Design & eksekvering",
-    body: "Konceptet bliver til et færdigt visuelt output. Figma, Adobe, digitale prototyper. Jeg leverer hele vejen til færdigt produkt.",
-    cases: ["Boliga", "Wolt"],
-  },
-  {
-    no: "04",
-    title: "Formidling & implementering",
-    body: "Det færdige design skal lande hos dem der skal bruge det. Kommunikation der giver mening i hverdagen.",
-    cases: ["DR", "Amnesty", "Danmarks Naturfredningsforening"],
-  },
-];
+
 
 function TilgangPage() {
   return (
