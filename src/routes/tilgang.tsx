@@ -741,11 +741,37 @@ function TilgangPage() {
           .tilgang-challenge-h2 { font-size: 1.5rem !important; font-weight: 700 !important; line-height: 1.3 !important; }
           .tilgang-label { font-size: 0.7rem !important; letter-spacing: 0.2em !important; margin-bottom: 12px !important; }
           .tilgang-body { font-size: 1rem !important; line-height: 1.8 !important; }
+          .tilgang-hero { padding-top: 56px !important; }
         }
       `}</style>
+      {/* MOBILE NAV BAR */}
+      <nav
+        className="md:hidden fixed top-0 left-0 right-0 flex items-center justify-between"
+        style={{
+          zIndex: 100,
+          backgroundColor: "#0A1628",
+          height: 56,
+          padding: "0 24px",
+        }}
+      >
+        <Link
+          to="/"
+          className="text-white"
+          style={{ fontFamily: "serif", fontSize: "1rem" }}
+        >
+          jkps.dk
+        </Link>
+        <Link
+          to="/"
+          className="flex items-center gap-1"
+          style={{ fontSize: "0.9rem", color: "#C0281E" }}
+        >
+          ← Tilbage
+        </Link>
+      </nav>
       {/* SECTION 1 — HERO BANNER (full-screen) */}
       <div
-        className="relative w-full overflow-hidden h-[50vh] md:h-[70vh]"
+        className="relative w-full overflow-hidden h-[50vh] md:h-[70vh] tilgang-hero"
         style={{ backgroundColor: NAVY }}
       >
         <div
