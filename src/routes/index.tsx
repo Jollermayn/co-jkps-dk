@@ -182,14 +182,11 @@ function Index() {
                 <h2 className="font-display text-5xl md:text-7xl mt-6 leading-[0.95] tracking-tight">
                   Hvad jeg <span className="italic">bringer</span>
                 </h2>
-                <p className="mt-8 max-w-2xl text-lg text-cream/75 leading-relaxed">
-                  Jeg arbejder i skæringsfeltet mellem strategi, design og teknologi — og bringer alle tre perspektiver
-                  ind i hvert projekt.
+                <p style={{ color: "white", opacity: 0.85, fontSize: "1.05rem", lineHeight: 1.8, maxWidth: 560 }}>
+                  Jeg arbejder i skæringsfeltet mellem strategi, design og teknologi — hvor problemerne lever.
                 </p>
-                <p style={{ color: "white", opacity: 0.85, fontSize: "1rem", fontStyle: "italic", lineHeight: 2, maxWidth: 560, marginBottom: 40 }}>
-                  Indsigt er kun værdifuld hvis den omsættes.<br />
-                  Design er kun stærkt hvis det er forankret.<br />
-                  Strategi er kun relevant hvis den lander.
+                <p style={{ color: "white", fontStyle: "italic", opacity: 0.75, fontSize: "1rem", lineHeight: 2, maxWidth: 560, marginTop: 16 }}>
+                  Indsigt omsættes. Design forankres. Strategi lander.
                 </p>
               </div>
 
