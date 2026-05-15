@@ -135,7 +135,7 @@ function CaseDetail() {
             )}
           </Section>
 
-          <Section label="Min rolle" title="Min rolle">
+          <Section label="Min rolle" title={study.slug === "wolt" ? "Tilgangen" : "Min rolle"}>
             <ul className="space-y-4">
               {study.role.map((r: string) => (
                 <li key={r} className="flex items-start gap-4 text-lg text-cream/85 leading-relaxed">
@@ -149,6 +149,29 @@ function CaseDetail() {
           <Section label="Tilgang" title="Tilgang">
             <ApproachGrid tags={study.approach} />
           </Section>
+
+          {study.slug === "wolt" && (
+            <div className="flex justify-start">
+              <img
+                src={woltHeatmap}
+                alt="Heatmap der viser efterspørgsel i realtid i København"
+                className="w-full max-w-[480px] h-auto"
+              />
+            </div>
+          )}
+
+          {study.solution && study.solution.length > 0 && (
+            <Section label="Løsning" title="Løsningen">
+              <ul className="space-y-4">
+                {study.solution.map((s: string) => (
+                  <li key={s} className="flex items-start gap-4 text-lg text-cream/85 leading-relaxed">
+                    <span className="text-ember shrink-0 leading-relaxed">—</span>
+                    <span>{s}</span>
+                  </li>
+                ))}
+              </ul>
+            </Section>
+          )}
 
           <Section label="Resultater" title="Resultater">
             <ul className="space-y-4">
@@ -166,16 +189,6 @@ function CaseDetail() {
               <img
                 src={boligaMockup}
                 alt="Boliga app mockups: vælg kommune, drømmebolig, boligtype og præferencer"
-                className="w-full max-w-[480px] h-auto"
-              />
-            </div>
-          )}
-
-          {study.slug === "wolt" && (
-            <div className="flex justify-start">
-              <img
-                src={woltHeatmap}
-                alt="Heatmap der viser efterspørgsel i realtid i København"
                 className="w-full max-w-[480px] h-auto"
               />
             </div>
