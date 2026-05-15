@@ -717,19 +717,25 @@ function TilgangPage() {
       <section style={{ padding: "80px 48px" }}>
         <div style={{ maxWidth: 680 }}>
           <p className="text-white" style={{ opacity: 0.85, fontSize: "1.15rem", lineHeight: 1.9, marginBottom: 24 }}>
-            Der rulles mere ud end nogensinde. Hurtigere end nogensinde. AI-værktøjer, digitale platforme, nye systemer — implementeret i industriel skala, ofte uden at nogen har spurgt dem det handler om.
+            Der er én fejlantagelse der går igen.
           </p>
           <p className="text-white" style={{ opacity: 0.85, fontSize: "1.15rem", lineHeight: 1.9, marginBottom: 24 }}>
-            Design bruges for ofte som acceleration. Flere features, mere volumen, hurtigere levering.
+            På tværs af brancher, organisationsstørrelser og ambitionsniveauer. I strategidokumenter, implementeringsplaner og kommunikationskampagner.
+          </p>
+          <p className="italic text-white" style={{ opacity: 0.85, fontSize: "1.15rem", lineHeight: 1.9, marginBottom: 24 }}>
+            Hvis vi sender det, har de fået det. Hvis vi installerer det, bruger de det. Hvis vi skriver det, forstår de det.
+          </p>
+          <p className="text-white" style={{ opacity: 0.85, fontSize: "1.15rem", lineHeight: 1.9, marginBottom: 24 }}>
+            Det er ikke udtryk for ligegyldighed. Det er udtryk for manglende indsigt i hvordan mennesker faktisk forholder sig til forandring — og hvad der skal til for at noget nyt bliver meningsfuldt i en hverdag der i forvejen stiller mange krav.
           </p>
           <p className="text-white" style={{ fontSize: "1.2rem", lineHeight: 1.9, marginBottom: 24 }}>
-            Jeg arbejder med det der sker bagefter. Det øjeblik hvor teknologien møder mennesket — og enten skaber mening eller støj.
+            Organisationer er designet til at producere output. Færre er designet til at sikre at outputtet lander hos det menneske det handler om.
           </p>
           <p className="text-white" style={{ opacity: 0.85, fontSize: "1.15rem", lineHeight: 1.9, marginBottom: 24 }}>
-            Fordi når en organisation designer sine systemer, designer den også sine betingelser. For hvordan medarbejdere møder forandring. For om budskaber lander eller drukner. For om teknologi opleves som noget der sker med dem — eller for dem.
+            Det er præcis det øjeblik jeg arbejder i.
           </p>
           <p className="italic text-white" style={{ opacity: 0.7, fontSize: "1.15rem", lineHeight: 1.9 }}>
-            Det er fire af de udfordringer jeg møder oftest. Og hvad god designtænkning gør ved dem.
+            De fire situationer herunder er ikke fire isolerede problemer. De er fire udtryk for den samme grundlæggende udfordring: systemer der er designet til organisationen — ikke til mennesket i den.
           </p>
         </div>
       </section>
