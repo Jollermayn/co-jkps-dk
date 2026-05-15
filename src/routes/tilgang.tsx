@@ -743,6 +743,7 @@ function TilgangPage() {
           .tilgang-body { font-size: 1rem !important; line-height: 1.8 !important; }
           .tilgang-hero { min-height: auto !important; height: auto !important; padding-top: 64px !important; padding-bottom: 40px !important; }
           .tilgang-hero h1 { margin-top: 0 !important; padding: 0 24px !important; font-size: 1.4rem !important; font-weight: 700 !important; line-height: 1.3 !important; text-align: left !important; }
+          .tilgang-quote { text-align: left !important; padding-left: 24px !important; padding-right: 24px !important; margin-left: 0 !important; margin-right: auto !important; }
         }
       `}</style>
       {/* MOBILE NAV BAR */}
