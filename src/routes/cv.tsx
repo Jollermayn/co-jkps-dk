@@ -189,7 +189,7 @@ function CVPage() {
         .cv-page, .cv-sidebar, .cv-content { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
       `}</style>
 
-      <div className="cv-root flex flex-col items-center gap-6 min-h-screen bg-[#e5e5e5] py-10 px-4">
+      <div className="cv-root flex flex-col items-center gap-6 min-h-screen bg-[#1f1d1b] py-10 px-4">
         <button
           type="button"
           onClick={() => window.print()}
