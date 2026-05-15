@@ -626,55 +626,65 @@ function Modal({ open, onClose, title, children }: { open: boolean; onClose: () 
 function TilgangPage() {
   const [openCard, setOpenCard] = useState<string | null>(null);
 
-  const deliverables = [
-    {
-      no: "01",
-      phase: "FASE 01",
-      title: "AI-strategi one-pager",
-      body: "Et scanbart A4-dokument til direktionen. Tre kolonner: Hvor vi er nu / Hvor vi vil hen / Hvordan vi kommer der.",
-      preview: <PreviewOnePager />,
-    },
-    {
-      no: "02",
-      phase: "FASE 02 + 03",
-      title: "Onboarding-flow",
-      body: "Fem skærmbilleder der guider nye medarbejdere fra fremmed til fortrolig med Vind Consultings digitale værktøjer.",
-      preview: <PreviewOnboarding />,
-    },
-    {
-      no: "03",
-      phase: "FASE 03",
-      title: "Tone of voice guide",
-      body: "Internt sprog der gør det digitale konkret. Ikke hvad vi siger — men hvordan vi siger det.",
-      preview: <PreviewToneOfVoice />,
-    },
-    {
-      no: "04",
-      phase: "FASE 04",
-      title: "Kommunikationskit",
-      body: "Tre skabeloner til forandringskommunikation: all-hands slide, intern nyhedsbrev-intro og one-pager til nyt værktøj.",
-      preview: <PreviewKommunikationskit />,
-    },
-  ];
-
   const contextStats = [
     { stat: "80", label: "Medarbejdere" },
     { stat: "23%", label: "Adoption" },
-    { stat: "4", label: "Leverancer" },
+    { stat: "4", label: "Udfordringer" },
   ];
 
   const resultStats = [
     { stat: "54%", label: "Undervurderet arbejdsdistance" },
-    { stat: "3", label: "Kommunikationsspor" },
+    { stat: "4", label: "Udfordringer designet" },
     { stat: "1", label: "Fælles sprog om AI" },
   ];
 
-  const approach = [
-    { n: "01", title: "Kortlægning", body: "Interviews med ledelse og medarbejdere på tværs af afdelinger. Afdækning af den konkrete kløft mellem det strategiske niveau og hverdagens praksis." },
-    { n: "02", title: "Indsigt", body: "Medarbejderne oplevede AI som noget der skete for dem — ikke med dem. Manglen på et fælles sprog gjorde adoption umulig." },
-    { n: "03", title: "Design", body: "Fire konkrete leverancer designet til at bygge bro: fra strategidokument til onboarding-flow, tone of voice guide og kommunikationskit." },
-    { n: "04", title: "Formidling", body: "Sprog og skabeloner der oversætter det digitale til noget meningsfuldt i hverdagen — uden jargon, uden buzzwords." },
+  const challenges = [
+    {
+      n: "01",
+      title: "Teknologi der rulles ud — men ikke lander.",
+      intro: "Når implementering sker fra toppen, uden at medarbejderne har været med til at definere hvad det betyder for dem.",
+      kontekst: "Nye AI-værktøjer implementeret på tværs af organisationen. Lav adoption trods høj investering.",
+      udfordring: "Skab reel mening og adoption — uden at reducere det til en træningsdag.",
+      tilgang: "Kortlægning · Medarbejderinterviews · Co-design · Onboarding-flow",
+      resultat: "Medarbejderne møder det nye værktøj dag 1 — ikke strategi-dag.",
+    },
+    {
+      n: "02",
+      title: "Kommunikation der taler udenom.",
+      intro: "Budskabet er sendt. Men det er formuleret til én modtager — og distribueret til alle.",
+      kontekst: "Intern kommunikation om digitale forandringer når ikke frem på tværs af roller og afdelinger.",
+      udfordring: "Oversæt det strategiske til noget der giver mening i det daglige arbejde.",
+      tilgang: "Tone of voice-udvikling · Sprogkortlægning · IKKE/MEN-strukturering",
+      resultat: "Et fælles sprog om det digitale — på tværs af roller og afdelinger.",
+    },
+    {
+      n: "03",
+      title: "Strategien fylder 40 sider. Ingen læser den.",
+      intro: "Beslutningen er taget. Dokumentet er skrevet. Men mellemlederne ved ikke hvad de skal videreformidle.",
+      kontekst: "En godkendt AI-strategi der ikke omsættes til handling på medarbejderniveau.",
+      udfordring: "Gør det komplekse scanbart — uden at miste præcisionen.",
+      tilgang: "Informationsarkitektur · Visuel strukturering · Direkte brugertest med målgruppen",
+      resultat: "En one-pager der besvarer tre spørgsmål på ét minut: Hvor vi er nu · Hvor vi vil hen · Hvordan vi kommer der.",
+    },
+    {
+      n: "04",
+      title: "Alle kommunikerer forskelligt om det samme.",
+      intro: "Et nyt værktøj skal præsenteres på tværs af afdelinger. Der er ingen fælles ramme — og ingen fælles stemme.",
+      kontekst: "Forandringskommunikation uden koordinering skaber støj og modstand.",
+      udfordring: "Skab konsistens uden at dræbe det lokale ejerskab.",
+      tilgang: "Skabelonudvikling · Stakeholder alignment · Test på tværs af afdelinger",
+      resultat: "Tre skabeloner med fælles ramme — og plads til den lokale stemme.",
+    },
   ];
+
+  const metaRow = (label: string, text: string) => (
+    <div className="flex flex-col sm:flex-row sm:gap-4 py-2" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
+      <span className="uppercase font-semibold shrink-0" style={{ color: RED, fontSize: "0.7rem", letterSpacing: "0.15em", minWidth: 96, paddingTop: 4 }}>
+        {label}
+      </span>
+      <span className="text-white" style={{ fontSize: "0.9rem", lineHeight: 1.6, opacity: 0.9 }}>{text}</span>
+    </div>
+  );
 
   return (
     <main className="min-h-screen bg-[#0D1B2A] text-cream">
@@ -686,7 +696,7 @@ function TilgangPage() {
         <div
           className="absolute inset-0"
           aria-hidden
-          style={{ background: "linear-gradient(to right, rgba(10,22,40,0.85) 0%, rgba(10,22,40,0) 100%)" }}
+          style={{ background: "linear-gradient(to right, rgba(10,22,40,0.9) 0%, rgba(10,22,40,0) 100%)" }}
         />
         <div className="relative h-full flex flex-col justify-center max-w-5xl" style={{ paddingLeft: 48, paddingRight: 24 }}>
           <p className="uppercase font-semibold" style={{ color: RED, letterSpacing: "0.15em", fontSize: "0.75rem" }}>
@@ -694,7 +704,7 @@ function TilgangPage() {
           </p>
           <h1
             className="font-display text-white leading-[1.05] tracking-tight"
-            style={{ fontSize: "clamp(2rem, 4vw, 3.2rem)", marginTop: 16 }}
+            style={{ fontSize: "clamp(2rem, 4vw, 3rem)", marginTop: 16 }}
           >
             De fleste organisationer har ikke et AI-problem.
             <br />
@@ -703,27 +713,30 @@ function TilgangPage() {
         </div>
       </div>
 
-      {/* SECTION 2 — THE PROBLEM */}
+      {/* SECTION 2 — DESIGNERENS ANSVAR */}
       <section style={{ padding: "80px 48px" }}>
-        <h2 className="font-display text-white" style={{ fontSize: "2.2rem", marginBottom: 32 }}>
-          Problemet.
-        </h2>
-        <p className="text-white" style={{ opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.8, maxWidth: 640 }}>
-          Værktøjerne er på plads. Strategien er godkendt. Men et sted mellem direktionsgangen og hverdagen går meningen tabt — og medarbejderne ved ikke hvad det egentlig kræver af dem.
-          <br /><br />
-          Det er det øjeblik jeg arbejder i.
-        </p>
+        <div style={{ maxWidth: 680 }}>
+          <p className="text-white" style={{ opacity: 0.85, fontSize: "1.15rem", lineHeight: 1.9, marginBottom: 24 }}>
+            Der rulles mere ud end nogensinde. Hurtigere end nogensinde. AI-værktøjer, digitale platforme, nye systemer — implementeret i industriel skala, ofte uden at nogen har spurgt dem det handler om.
+          </p>
+          <p className="text-white" style={{ opacity: 0.85, fontSize: "1.15rem", lineHeight: 1.9, marginBottom: 24 }}>
+            Design bruges for ofte som acceleration. Flere features, mere volumen, hurtigere levering.
+          </p>
+          <p className="text-white" style={{ fontSize: "1.2rem", lineHeight: 1.9, marginBottom: 24 }}>
+            Jeg arbejder med det der sker bagefter. Det øjeblik hvor teknologien møder mennesket — og enten skaber mening eller støj.
+          </p>
+          <p className="text-white" style={{ opacity: 0.85, fontSize: "1.15rem", lineHeight: 1.9, marginBottom: 24 }}>
+            Fordi når en organisation designer sine systemer, designer den også sine betingelser. For hvordan medarbejdere møder forandring. For om budskaber lander eller drukner. For om teknologi opleves som noget der sker med dem — eller for dem.
+          </p>
+          <p className="italic text-white" style={{ opacity: 0.7, fontSize: "1.15rem", lineHeight: 1.9 }}>
+            Det er fire af de udfordringer jeg møder oftest. Og hvad god designtænkning gør ved dem.
+          </p>
+        </div>
       </section>
 
-      {/* SECTION 3 — THE CONTEXT */}
+      {/* SECTION 3 — KONTEKST */}
       <section style={{ padding: 48 }}>
         <div style={{ height: 1, width: "100%", background: RED, marginBottom: 48 }} aria-hidden />
-        <h2 className="font-display text-white" style={{ fontSize: "2.2rem", marginBottom: 24 }}>
-          Konteksten.
-        </h2>
-        <p className="text-white" style={{ opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.8, maxWidth: 640, marginBottom: 40 }}>
-          Vind Consulting. 80 medarbejdere fordelt på Aarhus og København. AI-værktøjer rullet ud på tværs af organisationen — men kun 23% af medarbejderne bruger dem aktivt. Kløften mellem ledelsens ambition og hverdagens praksis er målbar og voksende.
-        </p>
         <div className="flex flex-wrap gap-x-16 gap-y-8">
           {contextStats.map((s) => (
             <div key={s.label} className="flex flex-col">
@@ -732,75 +745,64 @@ function TilgangPage() {
             </div>
           ))}
         </div>
+        <p className="text-white" style={{ opacity: 0.6, fontSize: "0.85rem", lineHeight: 1.7, maxWidth: 480, marginTop: 24 }}>
+          Vind Consulting. Strategirådgivning, 80 medarbejdere, Aarhus og København. AI-værktøjer rullet ud på tværs — 23% aktiv brug. Kløften mellem ambition og hverdag er målbar og voksende.
+        </p>
+        <div style={{ height: 1, width: "100%", background: RED, marginTop: 48 }} aria-hidden />
       </section>
 
-      {/* SECTION 4 — THE APPROACH */}
-      <section style={{ padding: "80px 48px" }}>
-        <div style={{ height: 1, width: "100%", background: RED, marginBottom: 48 }} aria-hidden />
-        <h2 className="font-display text-white" style={{ fontSize: "2.2rem", marginBottom: 40 }}>
-          Tilgangen.
+      {/* SECTION 4 — FIRE UDFORDRINGER */}
+      <section>
+        <p className="uppercase font-semibold" style={{ color: RED, fontSize: "0.75rem", letterSpacing: "0.15em", padding: "80px 48px 40px" }}>
+          Udfordringerne
+        </p>
+        <h2 className="font-display text-white leading-tight" style={{ fontSize: "2rem", padding: "0 48px", marginBottom: 64 }}>
+          Fire situationer. Én fælles bevægelse.
         </h2>
-        <div className="flex flex-col" style={{ gap: 40, maxWidth: 640 }}>
-          {approach.map((a) => (
-            <div key={a.n} style={{ borderLeft: `2px solid ${RED}`, paddingLeft: 24 }}>
-              <h3 className="font-display text-white leading-tight" style={{ fontSize: "1.4rem" }}>
-                <span style={{ color: RED, fontWeight: 700 }}>{a.n}</span> — {a.title}
-              </h3>
-              <p className="text-white mt-3" style={{ opacity: 0.85, fontSize: "1rem", lineHeight: 1.8 }}>
-                {a.body}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* SECTION 5 — THE WORK */}
-      <section style={{ paddingTop: 80 }}>
-        <div style={{ height: 1, width: "100%", background: RED, marginBottom: 48 }} aria-hidden />
-        <h2 className="font-display text-white" style={{ fontSize: "2.2rem", padding: "0 48px", marginBottom: 48 }}>
-          Arbejdet.
-        </h2>
-        <div className="flex flex-col" style={{ gap: 80 }}>
-          {deliverables.map((d) => (
-            <article key={d.no}>
-              <p className="uppercase font-semibold" style={{ color: RED, fontSize: "0.75rem", letterSpacing: "0.15em", padding: "0 48px" }}>
-                {d.phase}
-              </p>
-              <h3 className="font-display text-white leading-tight" style={{ fontSize: "1.6rem", padding: "0 48px", margin: "8px 0 16px" }}>
-                {d.title}
-              </h3>
-              <p className="text-white" style={{ opacity: 0.85, fontSize: "1rem", lineHeight: 1.7, maxWidth: 640, padding: "0 48px", marginBottom: 16 }}>
-                {d.body}
-              </p>
-              <div style={{ padding: "0 48px", marginBottom: 24 }}>
-                <button
-                  type="button"
-                  onClick={() => setOpenCard(d.no)}
-                  className="uppercase font-semibold hover:opacity-80 transition-opacity"
-                  style={{ color: RED, fontSize: "0.75rem", letterSpacing: "0.2em" }}
+        <div className="flex flex-col" style={{ gap: 120 }}>
+          {challenges.map((c) => (
+            <article key={c.n}>
+              <div style={{ maxWidth: 480, paddingLeft: 48, paddingRight: 24 }}>
+                <span
+                  className="font-display block"
+                  style={{ color: RED, fontSize: "4rem", opacity: 0.3, lineHeight: 1, marginBottom: -16 }}
                 >
-                  Se mere →
-                </button>
+                  {c.n}
+                </span>
+                <h3 className="font-display text-white leading-tight" style={{ fontSize: "1.8rem", marginBottom: 8 }}>
+                  {c.title}
+                </h3>
+                <p className="italic text-white" style={{ opacity: 0.7, fontSize: "1rem", lineHeight: 1.7, marginBottom: 24 }}>
+                  {c.intro}
+                </p>
+                <div className="flex flex-col">
+                  {metaRow("Kontekst", c.kontekst)}
+                  {metaRow("Udfordring", c.udfordring)}
+                  {metaRow("Tilgang", c.tilgang)}
+                  {metaRow("Resultat", c.resultat)}
+                </div>
               </div>
               <div
-                className="relative w-full overflow-hidden h-[260px] md:h-[400px]"
+                className="relative w-full overflow-hidden mt-12 h-[260px] md:h-[420px]"
                 style={{ backgroundColor: NAVY }}
-              >
-                {d.preview}
-              </div>
+                aria-hidden
+              />
             </article>
           ))}
         </div>
       </section>
 
-      {/* SECTION 6 — THE RESULTS */}
+      {/* SECTION 5 — RESULTATER */}
       <section style={{ padding: "80px 48px" }}>
         <div style={{ height: 1, width: "100%", background: RED, marginBottom: 48 }} aria-hidden />
-        <h2 className="font-display text-white" style={{ fontSize: "2.2rem", marginBottom: 32 }}>
-          Resultatet.
+        <p className="uppercase font-semibold" style={{ color: RED, fontSize: "0.75rem", letterSpacing: "0.15em", marginBottom: 16 }}>
+          Resultatet
+        </p>
+        <h2 className="font-display text-white" style={{ fontSize: "2rem", marginBottom: 32 }}>
+          Hvad det flyttede.
         </h2>
         <p className="text-white" style={{ opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.8, maxWidth: 640, marginBottom: 48 }}>
-          Konceptprojektet dokumenterede en undervurderet arbejdsdistance på 54% — samme metodikken som Wolt-casen. Tre kommunikationsspor designet og testet. Ét fælles sprog om AI, fra støj til samtale.
+          Konceptprojektet dokumenterede en undervurderet arbejdsdistance på 54% — samme metodikken som Wolt-casen. Fire udfordringer kortlagt, designet og testet. Ét fælles sprog om AI, fra støj til samtale.
         </p>
         <div className="flex flex-wrap gap-x-16 gap-y-8">
           {resultStats.map((s) => (
@@ -812,23 +814,29 @@ function TilgangPage() {
         </div>
       </section>
 
-      {/* SECTION 7 — CTA */}
-      <section style={{ padding: "64px 48px" }}>
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-          <Link
-            to="/"
-            className="font-display hover:opacity-80 transition-opacity"
-            style={{ color: RED, fontSize: "1rem" }}
-          >
-            ← Tilbage til portfolio
-          </Link>
+      {/* SECTION 6 — CTA */}
+      <section style={{ padding: "80px 48px", backgroundColor: "#0F2035" }}>
+        <h2 className="font-display text-white" style={{ fontSize: "1.8rem", maxWidth: 560, marginBottom: 16 }}>
+          Kender du en af disse situationer?
+        </h2>
+        <p className="text-white" style={{ opacity: 0.7, fontSize: "1rem", maxWidth: 480, marginBottom: 40 }}>
+          Så er det præcis det jeg arbejder med.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4">
           <a
             href="mailto:Jonas@jkps.dk"
-            className="inline-flex items-center justify-center border-2 border-white text-white hover:bg-white hover:text-[#0A1628] transition-colors"
-            style={{ padding: "12px 32px", fontSize: "0.95rem", letterSpacing: "0.05em" }}
+            className="font-display inline-flex items-center justify-center text-white transition-opacity hover:opacity-90"
+            style={{ padding: "16px 40px", fontSize: "1rem", backgroundColor: RED }}
           >
             Kontakt mig
           </a>
+          <Link
+            to="/"
+            className="font-display inline-flex items-center justify-center border-2 border-white text-white transition-colors hover:bg-white hover:text-[#0A1628]"
+            style={{ padding: "16px 40px", fontSize: "1rem" }}
+          >
+            ← Tilbage til portfolio
+          </Link>
         </div>
       </section>
 
