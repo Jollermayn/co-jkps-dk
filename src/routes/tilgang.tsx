@@ -694,12 +694,15 @@ function TilgangPage() {
             </h3>
 
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-start">
-            {cards.map((card) => (
-              <div key={card.no} className="relative">
+            {cards.map((card, idx) => (
+              <div
+                key={card.no}
+                className={`relative ${idx < 2 ? "md:col-span-2" : ""}`}
+              >
                 <button
                   type="button"
                   onClick={() => setOpenCard(card.no)}
-                  className="group w-full flex flex-col text-left border border-cream/10 bg-cream/[0.02] hover:bg-cream/[0.04] hover:border-cream/20 focus:bg-cream/[0.04] focus:border-cream/20 transition-colors outline-none cursor-pointer p-6 md:p-8"
+                  className={`group w-full flex flex-col text-left border border-cream/10 bg-cream/[0.02] hover:bg-cream/[0.04] hover:border-cream/20 focus:bg-cream/[0.04] focus:border-cream/20 transition-colors outline-none cursor-pointer p-6 md:p-8 ${idx < 2 ? "md:min-h-[320px]" : ""}`}
                 >
                   <div className="flex items-baseline justify-between gap-4">
                     <div className="flex flex-col">
