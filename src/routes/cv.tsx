@@ -117,6 +117,28 @@ function ExperienceItem({ name, tags, body }: { name: string; tags: string; body
   );
 }
 
+function SidebarHeader() {
+  return (
+    <>
+      <h1
+        className="font-display font-bold leading-[1.05] tracking-tight"
+        style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.6rem" }}
+      >
+        Jonas K.P.<br />Sørensen
+      </h1>
+      <p
+        className="mt-4 font-display text-[1.1rem]"
+        style={{ fontFamily: "'Playfair Display', serif" }}
+      >
+        Digital konsulent
+      </p>
+      <p className="mt-1 text-[0.78rem] tracking-wide text-[#F4EFE6]/70">
+        UX Research & Servicedesign · Selvstændig siden 2016
+      </p>
+    </>
+  );
+}
+
 function SidebarBottom() {
   return (
     <div className="mt-auto flex flex-col items-center text-center">
@@ -182,21 +204,7 @@ function CVPage() {
             className="cv-sidebar relative flex flex-col text-[#F4EFE6] px-8 py-10"
             style={{ backgroundColor: "#0A1628" }}
           >
-            <h1
-              className="font-display font-bold leading-[1.05] tracking-tight"
-              style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.6rem" }}
-            >
-              Jonas<br />K.P.<br />Sørensen
-            </h1>
-            <p
-              className="mt-4 font-display text-[1.1rem]"
-              style={{ fontFamily: "'Playfair Display', serif" }}
-            >
-              Digital konsulent
-            </p>
-            <p className="mt-1 text-[0.78rem] tracking-wide text-[#F4EFE6]/70">
-              UX · Servicedesign · Forretning
-            </p>
+            <SidebarHeader />
 
             <div className="mt-10 w-[140px] h-[180px] overflow-hidden rounded-md">
               <img src={profilePhoto} alt="Jonas K.P. Sørensen" className="w-full h-full object-cover" />
@@ -262,6 +270,7 @@ function CVPage() {
             className="cv-sidebar relative flex flex-col text-[#F4EFE6] px-8 py-10"
             style={{ backgroundColor: "#0A1628" }}
           >
+            <SidebarHeader />
             <SidebarBottom />
           </aside>
 
