@@ -733,6 +733,15 @@ function TilgangPage() {
 
   return (
     <main className="min-h-screen bg-[#0D1B2A] text-cream">
+      <style>{`
+        @media (max-width: 768px) {
+          .tilgang-section { padding: 64px 24px !important; }
+          .tilgang-section-h2 { font-size: 1.8rem !important; font-weight: 700 !important; line-height: 1.2 !important; margin-bottom: 24px !important; }
+          .tilgang-challenge-h2 { font-size: 1.5rem !important; font-weight: 700 !important; line-height: 1.3 !important; }
+          .tilgang-label { font-size: 0.7rem !important; letter-spacing: 0.2em !important; margin-bottom: 12px !important; }
+          .tilgang-body { font-size: 1rem !important; line-height: 1.8 !important; }
+        }
+      `}</style>
       {/* SECTION 1 — HERO BANNER (full-screen) */}
       <div
         className="relative w-full overflow-hidden h-[50vh] md:h-[70vh]"
