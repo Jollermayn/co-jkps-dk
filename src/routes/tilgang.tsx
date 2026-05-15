@@ -756,12 +756,8 @@ function TilgangPage() {
             }}
           >
             <h1
-              className="font-display text-white"
-              style={{
-                fontSize: "clamp(2.2rem, 5vw, 3.8rem)",
-                fontWeight: 600,
-                lineHeight: 1.2,
-              }}
+              className="font-display text-white text-center max-w-full break-normal overflow-visible text-[1.6rem] leading-[1.3] md:text-[clamp(2.2rem,5vw,3.8rem)] md:leading-[1.2]"
+              style={{ fontWeight: 600 }}
             >
               De fleste organisationer har ikke et forandringsproblem.
               <span
@@ -776,10 +772,10 @@ function TilgangPage() {
       </div>
 
       {/* METADATA BAR */}
-      <div style={{ backgroundColor: "#0D1F35", padding: "40px 48px" }}>
+      <div className="py-8 px-6 md:py-10 md:px-12" style={{ backgroundColor: "#0D1F35" }}>
         <div
-          className="flex flex-col md:flex-row md:justify-center md:items-stretch"
-          style={{ gap: 24, maxWidth: 1100, margin: "0 auto" }}
+          className="flex flex-col md:flex-row md:justify-center md:items-stretch gap-5 md:gap-6"
+          style={{ maxWidth: 1100, margin: "0 auto" }}
         >
           {[
             {
@@ -797,7 +793,7 @@ function TilgangPage() {
           ].map((col, i) => (
             <div
               key={col.label}
-              className={`flex-1 md:px-8 text-left ${i > 0 ? "md:border-l md:border-white/10" : ""}`}
+              className={`flex-1 px-6 md:px-8 text-left ${i > 0 ? "md:border-l md:border-white/10" : ""}`}
             >
               <p
                 className="uppercase md-divider"
