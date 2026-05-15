@@ -9,12 +9,19 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as VindConsultingOnboardingRouteImport } from './routes/vind-consulting-onboarding'
 import { Route as VikingdanmarkRouteImport } from './routes/vikingdanmark'
 import { Route as TilgangRouteImport } from './routes/tilgang'
 import { Route as CvRouteImport } from './routes/cv'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CasesSlugRouteImport } from './routes/cases.$slug'
 
+const VindConsultingOnboardingRoute =
+  VindConsultingOnboardingRouteImport.update({
+    id: '/vind-consulting-onboarding',
+    path: '/vind-consulting-onboarding',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const VikingdanmarkRoute = VikingdanmarkRouteImport.update({
   id: '/vikingdanmark',
   path: '/vikingdanmark',
@@ -46,6 +53,7 @@ export interface FileRoutesByFullPath {
   '/cv': typeof CvRoute
   '/tilgang': typeof TilgangRoute
   '/vikingdanmark': typeof VikingdanmarkRoute
+  '/vind-consulting-onboarding': typeof VindConsultingOnboardingRoute
   '/cases/$slug': typeof CasesSlugRoute
 }
 export interface FileRoutesByTo {
@@ -53,6 +61,7 @@ export interface FileRoutesByTo {
   '/cv': typeof CvRoute
   '/tilgang': typeof TilgangRoute
   '/vikingdanmark': typeof VikingdanmarkRoute
+  '/vind-consulting-onboarding': typeof VindConsultingOnboardingRoute
   '/cases/$slug': typeof CasesSlugRoute
 }
 export interface FileRoutesById {
@@ -61,14 +70,34 @@ export interface FileRoutesById {
   '/cv': typeof CvRoute
   '/tilgang': typeof TilgangRoute
   '/vikingdanmark': typeof VikingdanmarkRoute
+  '/vind-consulting-onboarding': typeof VindConsultingOnboardingRoute
   '/cases/$slug': typeof CasesSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/cv' | '/tilgang' | '/vikingdanmark' | '/cases/$slug'
+  fullPaths:
+    | '/'
+    | '/cv'
+    | '/tilgang'
+    | '/vikingdanmark'
+    | '/vind-consulting-onboarding'
+    | '/cases/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/cv' | '/tilgang' | '/vikingdanmark' | '/cases/$slug'
-  id: '__root__' | '/' | '/cv' | '/tilgang' | '/vikingdanmark' | '/cases/$slug'
+  to:
+    | '/'
+    | '/cv'
+    | '/tilgang'
+    | '/vikingdanmark'
+    | '/vind-consulting-onboarding'
+    | '/cases/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/cv'
+    | '/tilgang'
+    | '/vikingdanmark'
+    | '/vind-consulting-onboarding'
+    | '/cases/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -76,11 +105,19 @@ export interface RootRouteChildren {
   CvRoute: typeof CvRoute
   TilgangRoute: typeof TilgangRoute
   VikingdanmarkRoute: typeof VikingdanmarkRoute
+  VindConsultingOnboardingRoute: typeof VindConsultingOnboardingRoute
   CasesSlugRoute: typeof CasesSlugRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/vind-consulting-onboarding': {
+      id: '/vind-consulting-onboarding'
+      path: '/vind-consulting-onboarding'
+      fullPath: '/vind-consulting-onboarding'
+      preLoaderRoute: typeof VindConsultingOnboardingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/vikingdanmark': {
       id: '/vikingdanmark'
       path: '/vikingdanmark'
@@ -124,8 +161,18 @@ const rootRouteChildren: RootRouteChildren = {
   CvRoute: CvRoute,
   TilgangRoute: TilgangRoute,
   VikingdanmarkRoute: VikingdanmarkRoute,
+  VindConsultingOnboardingRoute: VindConsultingOnboardingRoute,
   CasesSlugRoute: CasesSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
+}
