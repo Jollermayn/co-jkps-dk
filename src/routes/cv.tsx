@@ -187,13 +187,29 @@ function CVPage() {
           .no-print { display: none !important; }
         }
         .cv-page, .cv-sidebar, .cv-content { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        @media (max-width: 768px) {
+          html, body { overflow-x: hidden; max-width: 100vw; }
+          .cv-root { padding: 0 24px !important; max-width: 100vw; overflow-x: hidden; }
+          .cv-page {
+            width: 100% !important;
+            max-width: 100% !important;
+            height: auto !important;
+            grid-template-columns: 1fr !important;
+            transform: none !important;
+            box-sizing: border-box;
+          }
+          .cv-sidebar, .cv-content { padding: 24px !important; box-sizing: border-box; }
+          .cv-content p, .cv-content li { font-size: 0.95rem !important; line-height: 1.7 !important; word-break: break-word; }
+          .cv-content h3 { font-size: clamp(1.2rem, 4vw, 1.6rem) !important; line-height: 1.3 !important; }
+          .cv-print-btn { top: 12px !important; right: 12px !important; font-size: 0.85rem !important; padding: 10px 16px !important; z-index: 100 !important; }
+        }
       `}</style>
 
       <div className="cv-root flex flex-col items-center gap-6 min-h-screen bg-[#1f1d1b] py-10 px-4">
         <button
           type="button"
           onClick={() => window.print()}
-          className="no-print fixed top-6 right-6 z-50 rounded-full bg-[#C0281E] px-5 py-2.5 text-sm font-semibold text-[#F4EFE6] shadow-lg hover:opacity-90 transition-opacity"
+          className="cv-print-btn no-print fixed top-6 right-6 z-50 rounded-full bg-[#C0281E] px-5 py-2.5 text-sm font-semibold text-[#F4EFE6] shadow-lg hover:opacity-90 transition-opacity"
         >
           Print / Gem som PDF
         </button>
