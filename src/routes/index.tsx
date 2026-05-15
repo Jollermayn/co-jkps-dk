@@ -118,7 +118,7 @@ function Sidebar() {
         </div>
 
         <p className="font-display italic text-cream text-xl md:text-2xl leading-relaxed text-center mt-6 lg:mt-8 mb-6 lg:mb-8">
-          &ldquo;Too much artificial &mdash; not enough intelligence.&rdquo;
+          &ldquo;For meget &lsquo;Artificial&rsquo; &mdash; for lidt &lsquo;Intelligence&rsquo;.&rdquo;
         </p>
 
         <div className="flex flex-col items-center gap-6 lg:gap-3 w-full text-center lg:translate-y-[15px]">
