@@ -86,7 +86,7 @@ const _allCases: CaseStudy[] = [
     approach: ["UX Research", "Brugerrejser", "Dataanalyse", "Product Design"],
     outcomes: [
       "Personaliseret flow der bringer relevante boliger frem fra start",
-      "Reduceret kognitiv belastning",
+      "Brugerne fandt relevante boliger hurtigere og med færre klik",
       "Valideret af Boligas product owner",
     ],
   },
