@@ -779,10 +779,6 @@ function TilgangPage() {
         >
           {[
             {
-              label: "KONTEKST",
-              value: "Strategirådgivning · 80 medarbejdere",
-            },
-            {
               label: "DOMÆNE",
               value: "Digital transformation · AI-implementering",
             },
