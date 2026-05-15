@@ -120,7 +120,9 @@ function Sidebar() {
           </p>
         </div>
 
-        <CodeParadoxBlock />
+        <p className="font-display italic text-cream text-xl md:text-2xl leading-relaxed text-center">
+          &ldquo;Too much artificial &mdash; not enough intelligence.&rdquo;
+        </p>
 
         <div className="flex flex-col items-center gap-6 lg:gap-3 w-full text-center lg:translate-y-[15px]">
           <a
