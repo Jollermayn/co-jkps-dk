@@ -115,9 +115,6 @@ function Sidebar() {
           <p className="text-xs md:text-sm uppercase tracking-[0.25em] text-cream/55 mt-1">
             Digital konsulent · UX Research & Servicedesign · Selvstændig siden 2016
           </p>
-          <p className="hero-subtitle text-xl leading-relaxed lg:text-2xl lg:leading-snug text-cream/85 italic text-center" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Jeg arbejder i krydsfeltet mellem teknologi, forretning og menneskelig adfærd — fra de første brugerindsigter til færdig løsning.
-          </p>
         </div>
 
         <p className="font-display italic text-cream text-xl md:text-2xl leading-relaxed text-center">
