@@ -641,9 +641,14 @@ function TilgangPage() {
                 </div>
                 <div className="p-6 md:p-8">
                   <div className="flex items-baseline justify-between gap-4">
-                    <h3 className="font-display text-xl md:text-2xl tracking-tight leading-tight">
-                      {card.title}
-                    </h3>
+                    <div className="flex flex-col">
+                      <span className="text-[10px] uppercase tracking-[0.25em] font-semibold" style={{ color: RED }}>
+                        {card.phaseRef}
+                      </span>
+                      <h3 className="font-display text-xl md:text-2xl tracking-tight leading-tight mt-2">
+                        {card.title}
+                      </h3>
+                    </div>
                     <span className="text-[10px] uppercase tracking-[0.25em] text-cream/40 group-hover:text-ember transition-colors shrink-0">
                       Se mere →
                     </span>
