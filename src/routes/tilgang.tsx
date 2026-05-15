@@ -35,24 +35,55 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
   );
 }
 
+const phases = [
+  {
+    no: "01",
+    title: "Research & indsigt",
+    body: "Jeg starter med mennesket bag problemet. Interviews, feltobservation, co-design.",
+    body2: "Ikke hvad folk siger de gør — men hvad de faktisk gør.",
+  },
+  {
+    no: "02",
+    title: "Konceptudvikling",
+    body: "Indsigten bliver til konkrete løsningsforslag. Brugerrejser, touchpoints og servicedesign.",
+    body2: "Fra abstrakt til realiserbart.",
+  },
+  {
+    no: "03",
+    title: "Design & eksekvering",
+    body: "Konceptet bliver til færdigt visuelt output. Figma, Adobe, digitale prototyper.",
+    body2: "Hele vejen til færdigt produkt.",
+  },
+  {
+    no: "04",
+    title: "Formidling & implementering",
+    body: "Det færdige design skal lande hos dem der skal bruge det.",
+    body2: "Kommunikation der giver mening i hverdagen.",
+  },
+];
+
 const cards = [
   {
     no: "01",
+    phaseRef: "Fase 01",
     title: "AI-strategi one-pager",
     body: "Et scanbart A4-dokument til direktionen. Tre kolonner: Hvor vi er nu / Hvor vi vil hen / Hvordan vi kommer der.",
   },
   {
     no: "02",
+    phaseRef: "Fase 02 + 03",
     title: "Onboarding-flow",
     body: "Fem skærmbilleder der guider nye medarbejdere fra fremmed til fortrolig med Vind Consultings digitale værktøjer.",
   },
   {
     no: "03",
+    phaseRef: "Fase 03",
     title: "Tone of voice guide",
     body: "Internt sprog der gør det digitale konkret. Ikke hvad vi siger — men hvordan vi siger det.",
   },
   {
     no: "04",
+    phaseRef: "Fase 04",
     title: "Kommunikationskit",
     body: "Tre skabeloner til forandringskommunikation: all-hands slide, intern nyhedsbrev-intro og one-pager til nyt værktøj.",
   },
@@ -547,6 +578,27 @@ function TilgangPage() {
         <h1 className="font-display text-5xl md:text-7xl mt-6 leading-[0.95] tracking-tight max-w-4xl">
           Fra <span className="italic text-ember">indsigt</span> til <span className="italic">output</span>
         </h1>
+        <p className="mt-8 max-w-2xl text-base md:text-lg text-cream/75 leading-relaxed">
+          Jeg arbejder altid i fire faser — uanset opgavens størrelse. Her er hvordan jeg tænker, og hvad det ser ud som i praksis.
+        </p>
+      </section>
+
+      {/* SECTION 2 — De fire faser */}
+      <section className="pb-20 md:pb-28 px-5 md:px-14">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-6 relative">
+          <div className="hidden md:block absolute top-3 left-0 right-0 h-px bg-cream/15" aria-hidden />
+          {phases.map((p) => (
+            <div key={p.no} className="relative flex flex-col">
+              <div className="hidden md:block absolute -top-1 left-0 w-2 h-2 rounded-full" style={{ backgroundColor: RED }} aria-hidden />
+              <span className="font-display text-xl md:pt-6" style={{ color: RED }}>{p.no}</span>
+              <h3 className="font-display text-2xl md:text-[1.6rem] tracking-tight leading-tight mt-3">
+                {p.title}
+              </h3>
+              <p className="mt-4 text-sm text-cream/80 leading-relaxed">{p.body}</p>
+              <p className="mt-2 text-sm text-cream/60 leading-relaxed italic">{p.body2}</p>
+            </div>
+          ))}
+        </div>
       </section>
 
       <section className="pb-20 md:pb-28 px-5 md:px-14">
@@ -589,9 +641,14 @@ function TilgangPage() {
                 </div>
                 <div className="p-6 md:p-8">
                   <div className="flex items-baseline justify-between gap-4">
-                    <h3 className="font-display text-xl md:text-2xl tracking-tight leading-tight">
-                      {card.title}
-                    </h3>
+                    <div className="flex flex-col">
+                      <span className="text-[10px] uppercase tracking-[0.25em] font-semibold" style={{ color: RED }}>
+                        {card.phaseRef}
+                      </span>
+                      <h3 className="font-display text-xl md:text-2xl tracking-tight leading-tight mt-2">
+                        {card.title}
+                      </h3>
+                    </div>
                     <span className="text-[10px] uppercase tracking-[0.25em] text-cream/40 group-hover:text-ember transition-colors shrink-0">
                       Se mere →
                     </span>
