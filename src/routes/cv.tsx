@@ -85,9 +85,9 @@ const education = [
   },
 ];
 
-function Pill({ children }: { children: React.ReactNode }) {
+function Pill({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
-    <span className="inline-block rounded-full border border-[#0D1B2A]/70 px-3 py-[3px] text-[0.78rem] leading-tight text-[#0D1B2A]">
+    <span className={`inline-block rounded-full border border-[#0D1B2A]/70 px-3 py-[3px] text-[0.78rem] leading-tight text-[#0D1B2A] ${className || ""}`}>
       {children}
     </span>
   );
@@ -202,6 +202,9 @@ function CVPage() {
           .cv-content p, .cv-content li { font-size: 0.95rem !important; line-height: 1.7 !important; word-break: break-word; }
           .cv-content h3 { font-size: clamp(1.2rem, 4vw, 1.6rem) !important; line-height: 1.3 !important; }
           .cv-print-btn { top: 12px !important; right: 12px !important; font-size: 0.85rem !important; padding: 10px 16px !important; z-index: 100 !important; }
+          .expertise-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+          .expertise-pills { display: flex !important; flex-wrap: wrap !important; gap: 8px !important; width: 100% !important; flex-direction: row !important; align-items: flex-start !important; }
+          .expertise-pill { white-space: nowrap !important; padding: 6px 14px !important; border-radius: 20px !important; font-size: 0.85rem !important; border: 1px solid #0A1628 !important; color: #0A1628 !important; background: transparent !important; }
         }
       `}</style>
 
@@ -255,18 +258,18 @@ function CVPage() {
 
             <section className="mt-7">
               <SectionLabel>EKSPERTISE</SectionLabel>
-              <div className="mt-4 grid grid-cols-3 gap-5">
+              <div className="mt-4 grid grid-cols-3 gap-5 expertise-grid">
                 {expertise.map((col) => (
-                  <div key={col.title}>
+                  <div key={col.title} className="expertise-group">
                     <h3
-                      className="font-display font-bold text-[1rem] text-[#0D1B2A] mb-3"
+                      className="font-display font-bold text-[1rem] text-[#0D1B2A] mb-3 expertise-group-title"
                       style={{ fontFamily: "'Playfair Display', serif" }}
                     >
                       {col.title}
                     </h3>
-                    <div className="flex flex-col items-start gap-1.5">
+                    <div className="flex flex-col items-start gap-1.5 expertise-pills">
                       {col.items.map((it) => (
-                        <Pill key={it}>{it}</Pill>
+                        <Pill key={it} className="expertise-pill">{it}</Pill>
                       ))}
                     </div>
                   </div>
@@ -291,7 +294,6 @@ function CVPage() {
             className="cv-sidebar relative flex flex-col text-[#F4EFE6] px-8 py-10"
             style={{ backgroundColor: "#0A1628" }}
           >
-            <SidebarHeader />
             <SidebarBottom />
           </aside>
 
