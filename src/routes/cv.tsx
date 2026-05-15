@@ -206,8 +206,13 @@ function CVPage() {
           >
             <SidebarHeader />
 
-            <div className="mt-10 w-[140px] h-[180px] overflow-hidden rounded-md">
-              <img src={profilePhoto} alt="Jonas K.P. Sørensen" className="w-full h-full object-cover" />
+            <div className="mt-10 mx-auto w-[170px] h-[170px] overflow-hidden rounded-full ring-1 ring-[#F4EFE6]/20">
+              <img
+                src={profilePhoto}
+                alt="Jonas K.P. Sørensen"
+                className="w-full h-full object-cover"
+                style={{ objectPosition: "center top" }}
+              />
             </div>
 
             <SidebarBottom />
