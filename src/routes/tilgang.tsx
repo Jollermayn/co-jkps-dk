@@ -698,24 +698,26 @@ function TilgangPage() {
           aria-hidden
           style={{ background: "linear-gradient(to right, rgba(10,22,40,0.9) 0%, rgba(10,22,40,0) 100%)" }}
         />
-        <div className="relative h-full flex flex-col justify-center max-w-5xl" style={{ paddingLeft: 48, paddingRight: 24 }}>
-          <p className="uppercase font-semibold" style={{ color: RED, letterSpacing: "0.15em", fontSize: "0.75rem" }}>
-            Vind Consulting · Konceptprojekt
-          </p>
-          <h1
-            className="font-display text-white leading-[1.05] tracking-tight"
-            style={{ fontSize: "clamp(2rem, 4vw, 3rem)", marginTop: 16 }}
-          >
-            De fleste organisationer har ikke et AI-problem.
-            <br />
-            <span className="italic" style={{ color: RED }}>De har et oversættelsesproblem.</span>
-          </h1>
+        <div className="relative h-full flex items-center">
+          <div style={{ maxWidth: 600, margin: "0 auto", padding: "0 24px", width: "100%", textAlign: "left" }}>
+            <p className="uppercase font-semibold" style={{ color: RED, letterSpacing: "0.15em", fontSize: "0.75rem" }}>
+              Vind Consulting · Konceptprojekt
+            </p>
+            <h1
+              className="font-display text-white leading-[1.05] tracking-tight"
+              style={{ fontSize: "clamp(2rem, 4vw, 3rem)", marginTop: 16 }}
+            >
+              De fleste organisationer har ikke et AI-problem.
+              <br />
+              <span className="italic" style={{ color: RED }}>De har et oversættelsesproblem.</span>
+            </h1>
+          </div>
         </div>
       </div>
 
       {/* SECTION 2 — DESIGNERENS ANSVAR */}
-      <section style={{ padding: "80px 48px" }}>
-        <div style={{ maxWidth: 680 }}>
+      <section style={{ padding: "80px 0" }}>
+        <div style={{ maxWidth: 600, margin: "0 auto", padding: "0 24px", textAlign: "left" }}>
           <p className="text-white" style={{ opacity: 0.85, fontSize: "1.15rem", lineHeight: 1.9, marginBottom: 24 }}>
             Der er én fejlantagelse der går igen.
           </p>
@@ -741,20 +743,22 @@ function TilgangPage() {
       </section>
 
       {/* SECTION 3 — KONTEKST */}
-      <section style={{ padding: "80px 48px", backgroundColor: "#F5F3EE" }}>
-        <div style={{ height: 1, width: "100%", background: RED, marginBottom: 48 }} aria-hidden />
-        <div className="flex flex-wrap gap-x-16 gap-y-8">
-          {contextStats.map((s) => (
-            <div key={s.label} className="flex flex-col">
-              <span className="font-display leading-none" style={{ color: RED, fontSize: "3rem" }}>{s.stat}</span>
-              <span className="mt-2 uppercase" style={{ color: "#0A1628", opacity: 0.7, fontSize: "0.7rem", letterSpacing: "0.2em" }}>{s.label}</span>
-            </div>
-          ))}
+      <section style={{ padding: "80px 0", backgroundColor: "#F5F3EE" }}>
+        <div style={{ maxWidth: 600, margin: "0 auto", padding: "0 24px", textAlign: "left" }}>
+          <div style={{ height: 1, width: "100%", background: RED, marginBottom: 48 }} aria-hidden />
+          <div className="flex flex-wrap gap-x-16 gap-y-8">
+            {contextStats.map((s) => (
+              <div key={s.label} className="flex flex-col">
+                <span className="font-display leading-none" style={{ color: RED, fontSize: "3rem" }}>{s.stat}</span>
+                <span className="mt-2 uppercase" style={{ color: "#0A1628", opacity: 0.7, fontSize: "0.7rem", letterSpacing: "0.2em" }}>{s.label}</span>
+              </div>
+            ))}
+          </div>
+          <p style={{ color: "#0A1628", opacity: 0.6, fontSize: "0.85rem", lineHeight: 1.7, marginTop: 24 }}>
+            Vind Consulting. Strategirådgivning, 80 medarbejdere, Aarhus og København. AI-værktøjer rullet ud på tværs — 23% aktiv brug. Kløften mellem ambition og hverdag er målbar og voksende.
+          </p>
+          <div style={{ height: 1, width: "100%", background: RED, marginTop: 48 }} aria-hidden />
         </div>
-        <p style={{ color: "#0A1628", opacity: 0.6, fontSize: "0.85rem", lineHeight: 1.7, maxWidth: 480, marginTop: 24 }}>
-          Vind Consulting. Strategirådgivning, 80 medarbejdere, Aarhus og København. AI-værktøjer rullet ud på tværs — 23% aktiv brug. Kløften mellem ambition og hverdag er målbar og voksende.
-        </p>
-        <div style={{ height: 1, width: "100%", background: RED, marginTop: 48 }} aria-hidden />
       </section>
 
       {/* SECTION 4-7 — FIRE UDFORDRINGER (alternating bg) */}
@@ -763,85 +767,91 @@ function TilgangPage() {
         const bg = dark ? NAVY : "#F5F3EE";
         const fg = dark ? "#FFFFFF" : "#0A1628";
         return (
-          <section key={c.n} style={{ padding: "80px 48px", backgroundColor: bg }}>
-            {idx === 0 && (
-              <>
-                <p className="uppercase font-semibold" style={{ color: RED, fontSize: "0.75rem", letterSpacing: "0.15em", marginBottom: 16 }}>
-                  Udfordringerne
-                </p>
-                <h2 className="font-display leading-tight" style={{ color: fg, fontSize: "2rem", marginBottom: 64 }}>
-                  Fire situationer. Én fælles bevægelse.
+          <section key={c.n} style={{ padding: "80px 0", backgroundColor: bg }}>
+            <div style={{ maxWidth: 600, margin: "0 auto", padding: "0 24px", textAlign: "left" }}>
+              {idx === 0 && (
+                <>
+                  <p className="uppercase font-semibold" style={{ color: RED, fontSize: "0.75rem", letterSpacing: "0.15em", marginBottom: 16 }}>
+                    Udfordringerne
+                  </p>
+                  <h2 className="font-display leading-tight" style={{ color: fg, fontSize: "2rem", marginBottom: 64 }}>
+                    Fire situationer. Én fælles bevægelse.
+                  </h2>
+                </>
+              )}
+              <article>
+                <span
+                  className="font-display block"
+                  style={{ color: RED, fontSize: "4rem", opacity: 0.3, lineHeight: 1, marginBottom: -16 }}
+                >
+                  {c.n}
+                </span>
+                <h2 className="font-display leading-tight" style={{ color: fg, fontSize: "1.8rem", marginBottom: 8 }}>
+                  {c.h2}
                 </h2>
-              </>
-            )}
-            <article style={{ maxWidth: 680 }}>
-              <span
-                className="font-display block"
-                style={{ color: RED, fontSize: "4rem", opacity: 0.3, lineHeight: 1, marginBottom: -16 }}
-              >
-                {c.n}
-              </span>
-              <h2 className="font-display leading-tight" style={{ color: fg, fontSize: "1.8rem", marginBottom: 8 }}>
-                {c.h2}
-              </h2>
-              <p className="italic" style={{ color: RED, fontSize: "0.9rem", lineHeight: 1.7, marginBottom: 24 }}>
-                {c.label}
-              </p>
-              <div className="flex flex-col">
-                {metaRow("Udfordringen", c.udfordringen, !dark)}
-                {metaRow("Løsningen", c.losningen, !dark)}
-                {metaRow("Resultatet", c.resultatet, !dark)}
-              </div>
-            </article>
+                <p className="italic" style={{ color: RED, fontSize: "0.9rem", lineHeight: 1.7, marginBottom: 24 }}>
+                  {c.label}
+                </p>
+                <div className="flex flex-col">
+                  {metaRow("Udfordringen", c.udfordringen, !dark)}
+                  {metaRow("Løsningen", c.losningen, !dark)}
+                  {metaRow("Resultatet", c.resultatet, !dark)}
+                </div>
+              </article>
+            </div>
           </section>
         );
       })}
 
       {/* SECTION 8 — RESULTATER */}
-      <section style={{ padding: "80px 48px", backgroundColor: "#8B1A13" }}>
-        <div style={{ height: 1, width: "100%", background: "rgba(255,255,255,0.2)", marginBottom: 48 }} aria-hidden />
-        <p className="uppercase font-semibold text-white" style={{ opacity: 0.6, fontSize: "0.75rem", letterSpacing: "0.15em", marginBottom: 16 }}>
-          Resultatet
-        </p>
-        <h2 className="font-display text-white" style={{ fontSize: "2rem", marginBottom: 32 }}>
-          Hvad det flyttede.
-        </h2>
-        <p className="text-white" style={{ opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.8, maxWidth: 640, marginBottom: 48 }}>
-          Konceptprojektet dokumenterede en undervurderet arbejdsdistance på 54% — samme metodikken som Wolt-casen. Fire udfordringer kortlagt, designet og testet. Ét fælles sprog om AI, fra støj til samtale.
-        </p>
-        <div className="flex flex-wrap gap-x-16 gap-y-8">
-          {resultStats.map((s) => (
-            <div key={s.label} className="flex flex-col">
-              <span className="font-display text-white leading-none" style={{ fontSize: "3rem" }}>{s.stat}</span>
-              <span className="mt-2 uppercase text-white" style={{ opacity: 0.6, fontSize: "0.7rem", letterSpacing: "0.2em" }}>{s.label}</span>
-            </div>
-          ))}
+      <section style={{ padding: "80px 0", backgroundColor: "#8B1A13" }}>
+        <div style={{ maxWidth: 600, margin: "0 auto", padding: "0 24px", textAlign: "left" }}>
+          <div style={{ height: 1, width: "100%", background: "rgba(255,255,255,0.2)", marginBottom: 48 }} aria-hidden />
+          <p className="uppercase font-semibold text-white" style={{ opacity: 0.6, fontSize: "0.75rem", letterSpacing: "0.15em", marginBottom: 16 }}>
+            Resultatet
+          </p>
+          <h2 className="font-display text-white" style={{ fontSize: "2rem", marginBottom: 32 }}>
+            Hvad det flyttede.
+          </h2>
+          <p className="text-white" style={{ opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.8, marginBottom: 48 }}>
+            Konceptprojektet dokumenterede en undervurderet arbejdsdistance på 54% — samme metodikken som Wolt-casen. Fire udfordringer kortlagt, designet og testet. Ét fælles sprog om AI, fra støj til samtale.
+          </p>
+          <div className="flex flex-wrap gap-x-16 gap-y-8">
+            {resultStats.map((s) => (
+              <div key={s.label} className="flex flex-col">
+                <span className="font-display text-white leading-none" style={{ fontSize: "3rem" }}>{s.stat}</span>
+                <span className="mt-2 uppercase text-white" style={{ opacity: 0.6, fontSize: "0.7rem", letterSpacing: "0.2em" }}>{s.label}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* SECTION 9 — CTA */}
-      <section style={{ padding: "80px 48px", backgroundColor: NAVY }}>
-        <h2 className="font-display text-white" style={{ fontSize: "1.8rem", maxWidth: 560, marginBottom: 16 }}>
-          Kender du en af disse situationer?
-        </h2>
-        <p className="text-white" style={{ opacity: 0.7, fontSize: "1rem", maxWidth: 480, marginBottom: 40 }}>
-          Så er det præcis det jeg arbejder med. Ikke som acceleration — men som oversættelse. Mellem det organisationen vil, og det mennesket forstår.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4">
-          <a
-            href="mailto:Jonas@jkps.dk"
-            className="font-display inline-flex items-center justify-center text-white transition-opacity hover:opacity-90"
-            style={{ padding: "16px 40px", fontSize: "1rem", backgroundColor: RED }}
-          >
-            Kontakt mig
-          </a>
-          <Link
-            to="/"
-            className="font-display inline-flex items-center justify-center text-white transition-opacity hover:opacity-80"
-            style={{ padding: "16px 40px", fontSize: "1rem" }}
-          >
-            ← Tilbage til portfolio
-          </Link>
+      <section style={{ padding: "80px 0", backgroundColor: NAVY }}>
+        <div style={{ maxWidth: 600, margin: "0 auto", padding: "0 24px", textAlign: "left" }}>
+          <h2 className="font-display text-white" style={{ fontSize: "1.8rem", marginBottom: 16 }}>
+            Kender du en af disse situationer?
+          </h2>
+          <p className="text-white" style={{ opacity: 0.7, fontSize: "1rem", marginBottom: 40 }}>
+            Så er det præcis det jeg arbejder med. Ikke som acceleration — men som oversættelse. Mellem det organisationen vil, og det mennesket forstår.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <a
+              href="mailto:Jonas@jkps.dk"
+              className="font-display inline-flex items-center justify-center text-white transition-opacity hover:opacity-90"
+              style={{ padding: "16px 40px", fontSize: "1rem", backgroundColor: RED }}
+            >
+              Kontakt mig
+            </a>
+            <Link
+              to="/"
+              className="font-display inline-flex items-center justify-center text-white transition-opacity hover:opacity-80"
+              style={{ padding: "16px 40px", fontSize: "1rem" }}
+            >
+              ← Tilbage til portfolio
+            </Link>
+          </div>
         </div>
       </section>
 
