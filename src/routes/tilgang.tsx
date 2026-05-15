@@ -641,39 +641,35 @@ function TilgangPage() {
   const challenges = [
     {
       n: "01",
-      title: "Teknologi der rulles ud — men ikke lander.",
-      intro: "Når implementering sker fra toppen, uden at medarbejderne har været med til at definere hvad det betyder for dem.",
-      kontekst: "Nye AI-værktøjer implementeret på tværs af organisationen. Lav adoption trods høj investering.",
-      udfordring: "Skab reel mening og adoption — uden at reducere det til en træningsdag.",
-      tilgang: "Kortlægning · Medarbejderinterviews · Co-design · Onboarding-flow",
-      resultat: "Medarbejderne møder det nye værktøj dag 1 — ikke strategi-dag.",
+      h2: "Hvordan får man medarbejderne til at tage nye digitale værktøjer til sig?",
+      label: "Den klassiske fejlantagelse: Adgang er nok.",
+      udfordringen: "De fleste organisationer tror at adoption følger af adgang. Hvis værktøjet er installeret og der er lavet en træningsdag, er jobbet gjort. Men adoption handler ikke om adgang — det handler om mening. Og mening kan ikke installeres.",
+      losningen: "Kortlægning af kløften mellem ledelsens forventning og medarbejderens hverdag. Co-design af et onboarding-flow der møder medarbejderen hvor de er — ikke hvor strategien gerne vil have dem.",
+      resultatet: "Medarbejderne møder det nye værktøj dag 1 med en forståelse af hvad det betyder for dem personligt — ikke for organisationen generelt. Adoption stiger ikke fordi der er pres på. Men fordi der er mening i det. Og organisationer der skaber mening tidligt, bruger færre ressourcer på at rette op på modstand senere.",
     },
     {
       n: "02",
-      title: "Kommunikation der taler udenom.",
-      intro: "Budskabet er sendt. Men det er formuleret til én modtager — og distribueret til alle.",
-      kontekst: "Intern kommunikation om digitale forandringer når ikke frem på tværs af roller og afdelinger.",
-      udfordring: "Oversæt det strategiske til noget der giver mening i det daglige arbejde.",
-      tilgang: "Tone of voice-udvikling · Sprogkortlægning · IKKE/MEN-strukturering",
-      resultat: "Et fælles sprog om det digitale — på tværs af roller og afdelinger.",
+      h2: "Hvordan kommunikerer man forandring så det faktisk lander?",
+      label: "Den klassiske fejlantagelse: Afsendelse er kommunikation.",
+      udfordringen: "Intern kommunikation om digitale forandringer er designet til afsenderen — ikke modtageren. Formuleret i ledelsens sprog, distribueret i ledelsens kanaler, målt på om den er sendt — ikke på om den er forstået. Det er ikke kommunikation. Det er distribution.",
+      losningen: "Tone of voice-udvikling der oversætter det strategiske til hverdagssprog. En IKKE/MEN-struktur der tvinger organisationen til at tage stilling til hvad de faktisk vil sige — og hvordan det lyder for dem der skal høre det.",
+      resultatet: "Et fælles sprog om det digitale — på tværs af roller, afdelinger og anciennitet. Fra distribution til dialog. Når medarbejderne forstår budskabet i deres eget sprog, behøver ledelsen ikke gentage det. Forandringen begynder at bevæge sig selv.",
     },
     {
       n: "03",
-      title: "Strategien fylder 40 sider. Ingen læser den.",
-      intro: "Beslutningen er taget. Dokumentet er skrevet. Men mellemlederne ved ikke hvad de skal videreformidle.",
-      kontekst: "En godkendt AI-strategi der ikke omsættes til handling på medarbejderniveau.",
-      udfordring: "Gør det komplekse scanbart — uden at miste præcisionen.",
-      tilgang: "Informationsarkitektur · Visuel strukturering · Direkte brugertest med målgruppen",
-      resultat: "En one-pager der besvarer tre spørgsmål på ét minut: Hvor vi er nu · Hvor vi vil hen · Hvordan vi kommer der.",
+      h2: "Hvordan gør man en 40-siders strategi til noget folk bruger?",
+      label: "Den klassiske fejlantagelse: En god strategi taler for sig selv.",
+      udfordringen: "Det gør den ikke. En strategi der ikke kan formidles på ét minut bliver ikke formidlet — den bliver arkiveret. Mellemlederne ved ikke hvad de skal videreformidle. Medarbejderne ved ikke hvad det kræver af dem. Dokumentet er skrevet til systemet. Ikke til mennesket der skal bruge det.",
+      losningen: "Informationsarkitektur og visuel strukturering der reducerer en kompleks strategi til tre spørgsmål: Hvor vi er nu. Hvor vi vil hen. Hvordan vi kommer der. Testet direkte med målgruppen inden udrulning.",
+      resultatet: "En one-pager der læses på ét minut — og huskes dagen efter. Når kompleksiteten oversættes til tre klare spørgsmål, holder mellemlederne op med at tolke og begynder at handle. Strategien går fra dokument til retning.",
     },
     {
       n: "04",
-      title: "Alle kommunikerer forskelligt om det samme.",
-      intro: "Et nyt værktøj skal præsenteres på tværs af afdelinger. Der er ingen fælles ramme — og ingen fælles stemme.",
-      kontekst: "Forandringskommunikation uden koordinering skaber støj og modstand.",
-      udfordring: "Skab konsistens uden at dræbe det lokale ejerskab.",
-      tilgang: "Skabelonudvikling · Stakeholder alignment · Test på tværs af afdelinger",
-      resultat: "Tre skabeloner med fælles ramme — og plads til den lokale stemme.",
+      h2: "Hvordan skaber man en fælles stemme på tværs af en organisation?",
+      label: "Den klassiske fejlantagelse: Konsistens betyder at alle siger det samme.",
+      udfordringen: "Når alle afdelinger kommunikerer det samme budskab med de samme ord i den samme tone — lyder det ikke konsistent. Det lyder kontrolleret. Og mennesker kan mærke forskellen. Konsistens handler ikke om fælles manuskript. Det handler om fælles retning — og lokalt ejerskab af vejen derhen.",
+      losningen: "Et kommunikationskit med tre skabeloner til forandringskommunikation. Fælles ramme, lokalt råderum. Testet på tværs af afdelinger før udrulning.",
+      resultatet: "Organisationen taler med én stemme — uden at lyde som om nogen har skrevet den for dem. Når kommunikationen føles lokal og ægte, øges tilliden til forandringen. Og tillid er det der afgør om et nyt værktøj, en ny strategi eller en ny retning rent faktisk får ben at gå på.",
     },
   ];
 
@@ -717,19 +713,25 @@ function TilgangPage() {
       <section style={{ padding: "80px 48px" }}>
         <div style={{ maxWidth: 680 }}>
           <p className="text-white" style={{ opacity: 0.85, fontSize: "1.15rem", lineHeight: 1.9, marginBottom: 24 }}>
-            Der rulles mere ud end nogensinde. Hurtigere end nogensinde. AI-værktøjer, digitale platforme, nye systemer — implementeret i industriel skala, ofte uden at nogen har spurgt dem det handler om.
+            Der er én fejlantagelse der går igen.
           </p>
           <p className="text-white" style={{ opacity: 0.85, fontSize: "1.15rem", lineHeight: 1.9, marginBottom: 24 }}>
-            Design bruges for ofte som acceleration. Flere features, mere volumen, hurtigere levering.
+            På tværs af brancher, organisationsstørrelser og ambitionsniveauer. I strategidokumenter, implementeringsplaner og kommunikationskampagner.
+          </p>
+          <p className="italic text-white" style={{ opacity: 0.85, fontSize: "1.15rem", lineHeight: 1.9, marginBottom: 24 }}>
+            Hvis vi sender det, har de fået det. Hvis vi installerer det, bruger de det. Hvis vi skriver det, forstår de det.
+          </p>
+          <p className="text-white" style={{ opacity: 0.85, fontSize: "1.15rem", lineHeight: 1.9, marginBottom: 24 }}>
+            Det er ikke udtryk for ligegyldighed. Det er udtryk for manglende indsigt i hvordan mennesker faktisk forholder sig til forandring — og hvad der skal til for at noget nyt bliver meningsfuldt i en hverdag der i forvejen stiller mange krav.
           </p>
           <p className="text-white" style={{ fontSize: "1.2rem", lineHeight: 1.9, marginBottom: 24 }}>
-            Jeg arbejder med det der sker bagefter. Det øjeblik hvor teknologien møder mennesket — og enten skaber mening eller støj.
+            Organisationer er designet til at producere output. Færre er designet til at sikre at outputtet lander hos det menneske det handler om.
           </p>
           <p className="text-white" style={{ opacity: 0.85, fontSize: "1.15rem", lineHeight: 1.9, marginBottom: 24 }}>
-            Fordi når en organisation designer sine systemer, designer den også sine betingelser. For hvordan medarbejdere møder forandring. For om budskaber lander eller drukner. For om teknologi opleves som noget der sker med dem — eller for dem.
+            Det er præcis det øjeblik jeg arbejder i.
           </p>
           <p className="italic text-white" style={{ opacity: 0.7, fontSize: "1.15rem", lineHeight: 1.9 }}>
-            Det er fire af de udfordringer jeg møder oftest. Og hvad god designtænkning gør ved dem.
+            De fire situationer herunder er ikke fire isolerede problemer. De er fire udtryk for den samme grundlæggende udfordring: systemer der er designet til organisationen — ikke til mennesket i den.
           </p>
         </div>
       </section>
@@ -769,17 +771,16 @@ function TilgangPage() {
                 >
                   {c.n}
                 </span>
-                <h3 className="font-display text-white leading-tight" style={{ fontSize: "1.8rem", marginBottom: 8 }}>
-                  {c.title}
-                </h3>
-                <p className="italic text-white" style={{ opacity: 0.7, fontSize: "1rem", lineHeight: 1.7, marginBottom: 24 }}>
-                  {c.intro}
+                <h2 className="font-display text-white leading-tight" style={{ fontSize: "1.8rem", marginBottom: 8 }}>
+                  {c.h2}
+                </h2>
+                <p className="italic" style={{ color: RED, fontSize: "0.9rem", lineHeight: 1.7, marginBottom: 24 }}>
+                  {c.label}
                 </p>
                 <div className="flex flex-col">
-                  {metaRow("Kontekst", c.kontekst)}
-                  {metaRow("Udfordring", c.udfordring)}
-                  {metaRow("Tilgang", c.tilgang)}
-                  {metaRow("Resultat", c.resultat)}
+                  {metaRow("Udfordringen", c.udfordringen)}
+                  {metaRow("Løsningen", c.losningen)}
+                  {metaRow("Resultatet", c.resultatet)}
                 </div>
               </div>
               <div
@@ -820,7 +821,7 @@ function TilgangPage() {
           Kender du en af disse situationer?
         </h2>
         <p className="text-white" style={{ opacity: 0.7, fontSize: "1rem", maxWidth: 480, marginBottom: 40 }}>
-          Så er det præcis det jeg arbejder med.
+          Så er det præcis det jeg arbejder med. Ikke som acceleration — men som oversættelse. Mellem det organisationen vil, og det mennesket forstår.
         </p>
         <div className="flex flex-col sm:flex-row gap-4">
           <a
