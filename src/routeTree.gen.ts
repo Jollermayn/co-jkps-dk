@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as VindConsultingOnboardingRouteImport } from './routes/vind-consulting-onboarding'
+import { Route as VindConsultingAiStrategiRouteImport } from './routes/vind-consulting-ai-strategi'
 import { Route as VikingdanmarkRouteImport } from './routes/vikingdanmark'
 import { Route as TilgangRouteImport } from './routes/tilgang'
 import { Route as CvRouteImport } from './routes/cv'
@@ -20,6 +21,12 @@ const VindConsultingOnboardingRoute =
   VindConsultingOnboardingRouteImport.update({
     id: '/vind-consulting-onboarding',
     path: '/vind-consulting-onboarding',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const VindConsultingAiStrategiRoute =
+  VindConsultingAiStrategiRouteImport.update({
+    id: '/vind-consulting-ai-strategi',
+    path: '/vind-consulting-ai-strategi',
     getParentRoute: () => rootRouteImport,
   } as any)
 const VikingdanmarkRoute = VikingdanmarkRouteImport.update({
@@ -53,6 +60,7 @@ export interface FileRoutesByFullPath {
   '/cv': typeof CvRoute
   '/tilgang': typeof TilgangRoute
   '/vikingdanmark': typeof VikingdanmarkRoute
+  '/vind-consulting-ai-strategi': typeof VindConsultingAiStrategiRoute
   '/vind-consulting-onboarding': typeof VindConsultingOnboardingRoute
   '/cases/$slug': typeof CasesSlugRoute
 }
@@ -61,6 +69,7 @@ export interface FileRoutesByTo {
   '/cv': typeof CvRoute
   '/tilgang': typeof TilgangRoute
   '/vikingdanmark': typeof VikingdanmarkRoute
+  '/vind-consulting-ai-strategi': typeof VindConsultingAiStrategiRoute
   '/vind-consulting-onboarding': typeof VindConsultingOnboardingRoute
   '/cases/$slug': typeof CasesSlugRoute
 }
@@ -70,6 +79,7 @@ export interface FileRoutesById {
   '/cv': typeof CvRoute
   '/tilgang': typeof TilgangRoute
   '/vikingdanmark': typeof VikingdanmarkRoute
+  '/vind-consulting-ai-strategi': typeof VindConsultingAiStrategiRoute
   '/vind-consulting-onboarding': typeof VindConsultingOnboardingRoute
   '/cases/$slug': typeof CasesSlugRoute
 }
@@ -80,6 +90,7 @@ export interface FileRouteTypes {
     | '/cv'
     | '/tilgang'
     | '/vikingdanmark'
+    | '/vind-consulting-ai-strategi'
     | '/vind-consulting-onboarding'
     | '/cases/$slug'
   fileRoutesByTo: FileRoutesByTo
@@ -88,6 +99,7 @@ export interface FileRouteTypes {
     | '/cv'
     | '/tilgang'
     | '/vikingdanmark'
+    | '/vind-consulting-ai-strategi'
     | '/vind-consulting-onboarding'
     | '/cases/$slug'
   id:
@@ -96,6 +108,7 @@ export interface FileRouteTypes {
     | '/cv'
     | '/tilgang'
     | '/vikingdanmark'
+    | '/vind-consulting-ai-strategi'
     | '/vind-consulting-onboarding'
     | '/cases/$slug'
   fileRoutesById: FileRoutesById
@@ -105,6 +118,7 @@ export interface RootRouteChildren {
   CvRoute: typeof CvRoute
   TilgangRoute: typeof TilgangRoute
   VikingdanmarkRoute: typeof VikingdanmarkRoute
+  VindConsultingAiStrategiRoute: typeof VindConsultingAiStrategiRoute
   VindConsultingOnboardingRoute: typeof VindConsultingOnboardingRoute
   CasesSlugRoute: typeof CasesSlugRoute
 }
@@ -116,6 +130,13 @@ declare module '@tanstack/react-router' {
       path: '/vind-consulting-onboarding'
       fullPath: '/vind-consulting-onboarding'
       preLoaderRoute: typeof VindConsultingOnboardingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/vind-consulting-ai-strategi': {
+      id: '/vind-consulting-ai-strategi'
+      path: '/vind-consulting-ai-strategi'
+      fullPath: '/vind-consulting-ai-strategi'
+      preLoaderRoute: typeof VindConsultingAiStrategiRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/vikingdanmark': {
@@ -161,6 +182,7 @@ const rootRouteChildren: RootRouteChildren = {
   CvRoute: CvRoute,
   TilgangRoute: TilgangRoute,
   VikingdanmarkRoute: VikingdanmarkRoute,
+  VindConsultingAiStrategiRoute: VindConsultingAiStrategiRoute,
   VindConsultingOnboardingRoute: VindConsultingOnboardingRoute,
   CasesSlugRoute: CasesSlugRoute,
 }
