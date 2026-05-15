@@ -197,15 +197,14 @@ function Index() {
                 <p className="uppercase tracking-[0.35em] font-semibold" style={{ color: "#C0281E", fontSize: "1.4rem" }}>
                   Min tilgang
                 </p>
-                <div className="mt-12 md:mt-14 mx-auto font-display text-white" style={{ maxWidth: 520, fontSize: "1.3rem", lineHeight: 1.7 }}>
-                  <p>Organisationer er designet til at producere output.</p>
-                  <p className="italic" style={{ color: "#C0281E" }}>Færre sikrer at det lander.</p>
-                </div>
-                <div className="mt-12 md:mt-14 flex justify-center">
+                <p className="italic text-white/70 text-center mx-auto" style={{ maxWidth: 520, fontSize: "1.1rem", marginBottom: 32, fontFamily: "'Playfair Display', serif", lineHeight: 1.7 }}>
+                  Hvad sker der i det øjeblik forandring møder mennesket?
+                </p>
+                <div className="flex justify-center">
                   <Link
                     to="/tilgang"
-                    className="inline-flex items-center justify-center border-2 text-[#C0281E] border-[#C0281E] hover:bg-[#C0281E] hover:text-white transition-colors duration-300"
-                    style={{ padding: "12px 24px", fontSize: "1rem" }}
+                    className="inline-flex items-center justify-center text-[#C0281E] hover:opacity-80 transition-opacity duration-300"
+                    style={{ fontSize: "1rem", letterSpacing: "0.05em" }}
                   >
                     Se hvordan jeg tænker om det →
                   </Link>
