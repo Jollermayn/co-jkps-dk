@@ -771,17 +771,16 @@ function TilgangPage() {
                 >
                   {c.n}
                 </span>
-                <h3 className="font-display text-white leading-tight" style={{ fontSize: "1.8rem", marginBottom: 8 }}>
-                  {c.title}
-                </h3>
-                <p className="italic text-white" style={{ opacity: 0.7, fontSize: "1rem", lineHeight: 1.7, marginBottom: 24 }}>
-                  {c.intro}
+                <h2 className="font-display text-white leading-tight" style={{ fontSize: "1.8rem", marginBottom: 8 }}>
+                  {c.h2}
+                </h2>
+                <p className="italic" style={{ color: RED, fontSize: "0.9rem", lineHeight: 1.7, marginBottom: 24 }}>
+                  {c.label}
                 </p>
                 <div className="flex flex-col">
-                  {metaRow("Kontekst", c.kontekst)}
-                  {metaRow("Udfordring", c.udfordring)}
-                  {metaRow("Tilgang", c.tilgang)}
-                  {metaRow("Resultat", c.resultat)}
+                  {metaRow("Udfordringen", c.udfordringen)}
+                  {metaRow("Løsningen", c.losningen)}
+                  {metaRow("Resultatet", c.resultatet)}
                 </div>
               </div>
               <div
