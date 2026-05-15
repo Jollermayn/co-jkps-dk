@@ -225,7 +225,7 @@ function Index() {
                     no: "03",
                     title: "Sociologi & Kulturanalyse",
                     meta: "Syddansk Universitet · 2011",
-                    body: "Første år af bacheloren — et fagligt afsæt i kulturteori, samfundsanalyse og sociologisk metode.",
+                    body: "",
                   },
                 ].map((e) => (
                   <li
@@ -239,7 +239,7 @@ function Index() {
                           {e.title}
                         </h3>
                         <p className="mt-1 md:mt-2 text-sm text-cream/55 italic leading-snug">{e.meta}</p>
-                        <p className="mt-2 text-sm md:text-[0.95rem] text-cream/80 leading-snug">{e.body}</p>
+                        {e.body && <p className="mt-2 text-sm md:text-[0.95rem] text-cream/80 leading-snug">{e.body}</p>}
                       </div>
                     </div>
                   </li>
