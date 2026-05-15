@@ -33,9 +33,9 @@ const expertise = [
 
 const experience = [
   {
-    name: "Wolt",
-    tags: "SERVICE DESIGN · UX RESEARCH · CO-DESIGN",
-    body: "Mixed methods research med interviews, media-go-alongs og feltobservation. Designede tre interventioner i Wolt Partner-appen om transparens og rettigheder.",
+    name: "Boliga",
+    tags: "PRODUCT DESIGN · UX RESEARCH · DATAANALYSE",
+    body: "Analyserede brugsdata fra 6,5 mio. månedlige interaktioner på Danmarks største boligplatform. Designede personaliseret onboarding-flow valideret af product owner.",
   },
   {
     name: "Danmarks Radio",
@@ -43,9 +43,9 @@ const experience = [
     body: "Koordinerede tværgående processer på tværs af redaktioner i Danmarks største medieorganisation. Sikrede redaktionel og teknisk kvalitet under stram tidsstyring.",
   },
   {
-    name: "Boliga",
-    tags: "PRODUCT DESIGN · UX RESEARCH · DATAANALYSE",
-    body: "Analyserede brugsdata fra 6,5 mio. månedlige interaktioner på Danmarks største boligplatform. Designede personaliseret onboarding-flow valideret af product owner.",
+    name: "Wolt",
+    tags: "SERVICE DESIGN · UX RESEARCH · CO-DESIGN",
+    body: "Mixed methods research med interviews, media-go-alongs og feltobservation. Designede tre interventioner i Wolt Partner-appen om transparens og rettigheder.",
   },
   {
     name: "Danmarks Naturfredningsforening",
@@ -77,8 +77,8 @@ const education = [
   },
   {
     title: "Sociologi & Kulturanalyse",
-    meta: "SYDDANSK UNIVERSITET · 2011",
-    body: "",
+    meta: "SYDDANSK UNIVERSITET. 2011",
+    body: "Første år af bacheloren — fagligt afsæt i kulturteori, samfundsanalyse og sociologisk metode.",
   },
 ];
 
