@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as VikingdanmarkRouteImport } from './routes/vikingdanmark'
+import { Route as TilgangRouteImport } from './routes/tilgang'
 import { Route as CvRouteImport } from './routes/cv'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CasesSlugRouteImport } from './routes/cases.$slug'
@@ -17,6 +18,11 @@ import { Route as CasesSlugRouteImport } from './routes/cases.$slug'
 const VikingdanmarkRoute = VikingdanmarkRouteImport.update({
   id: '/vikingdanmark',
   path: '/vikingdanmark',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TilgangRoute = TilgangRouteImport.update({
+  id: '/tilgang',
+  path: '/tilgang',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CvRoute = CvRouteImport.update({
@@ -38,12 +44,14 @@ const CasesSlugRoute = CasesSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/cv': typeof CvRoute
+  '/tilgang': typeof TilgangRoute
   '/vikingdanmark': typeof VikingdanmarkRoute
   '/cases/$slug': typeof CasesSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/cv': typeof CvRoute
+  '/tilgang': typeof TilgangRoute
   '/vikingdanmark': typeof VikingdanmarkRoute
   '/cases/$slug': typeof CasesSlugRoute
 }
@@ -51,20 +59,22 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/cv': typeof CvRoute
+  '/tilgang': typeof TilgangRoute
   '/vikingdanmark': typeof VikingdanmarkRoute
   '/cases/$slug': typeof CasesSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/cv' | '/vikingdanmark' | '/cases/$slug'
+  fullPaths: '/' | '/cv' | '/tilgang' | '/vikingdanmark' | '/cases/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/cv' | '/vikingdanmark' | '/cases/$slug'
-  id: '__root__' | '/' | '/cv' | '/vikingdanmark' | '/cases/$slug'
+  to: '/' | '/cv' | '/tilgang' | '/vikingdanmark' | '/cases/$slug'
+  id: '__root__' | '/' | '/cv' | '/tilgang' | '/vikingdanmark' | '/cases/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CvRoute: typeof CvRoute
+  TilgangRoute: typeof TilgangRoute
   VikingdanmarkRoute: typeof VikingdanmarkRoute
   CasesSlugRoute: typeof CasesSlugRoute
 }
@@ -76,6 +86,13 @@ declare module '@tanstack/react-router' {
       path: '/vikingdanmark'
       fullPath: '/vikingdanmark'
       preLoaderRoute: typeof VikingdanmarkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tilgang': {
+      id: '/tilgang'
+      path: '/tilgang'
+      fullPath: '/tilgang'
+      preLoaderRoute: typeof TilgangRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cv': {
@@ -105,6 +122,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CvRoute: CvRoute,
+  TilgangRoute: TilgangRoute,
   VikingdanmarkRoute: VikingdanmarkRoute,
   CasesSlugRoute: CasesSlugRoute,
 }
