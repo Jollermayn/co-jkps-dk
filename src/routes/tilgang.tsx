@@ -891,10 +891,10 @@ function TilgangPage() {
             <div style={innerCol}>
               {idx === 0 && (
                 <>
-                  <p className="uppercase font-semibold" style={{ color: RED, fontSize: "0.75rem", letterSpacing: "0.15em", marginBottom: 24 }}>
+                  <p className="uppercase font-semibold tilgang-label" style={{ color: RED, fontSize: "0.75rem", letterSpacing: "0.15em", marginBottom: 24 }}>
                     Udfordringerne
                   </p>
-                  <h2 className="font-display leading-tight" style={{ color: fg, fontSize: "clamp(1.6rem, 3vw, 2rem)", marginBottom: 80 }}>
+                  <h2 className="font-display leading-tight tilgang-section-h2" style={{ color: fg, fontSize: "clamp(1.6rem, 3vw, 2rem)", marginBottom: 80 }}>
                     Fire situationer. Én fælles bevægelse.
                   </h2>
                 </>
@@ -941,10 +941,10 @@ function TilgangPage() {
       <section className="tilgang-section" style={{ ...sectionPadding, backgroundColor: "#8B1A13" }}>
         <div style={innerCol}>
           <div style={{ height: 1, width: "100%", background: "rgba(255,255,255,0.2)", marginBottom: 48 }} aria-hidden />
-          <p className="uppercase font-semibold text-white" style={{ opacity: 0.6, fontSize: "0.75rem", letterSpacing: "0.2em", marginBottom: 24 }}>
+          <p className="uppercase font-semibold text-white tilgang-label" style={{ opacity: 0.6, fontSize: "0.75rem", letterSpacing: "0.2em", marginBottom: 24 }}>
             Resultatet
           </p>
-          <h2 className="font-display text-white" style={{ fontSize: "clamp(1.8rem, 3vw, 2.4rem)", marginBottom: 48 }}>
+          <h2 className="font-display text-white tilgang-section-h2" style={{ fontSize: "clamp(1.8rem, 3vw, 2.4rem)", marginBottom: 48 }}>
             Hvad det flyttede.
           </h2>
           <div className="flex flex-col sm:flex-row" style={{ gap: 32 }}>
