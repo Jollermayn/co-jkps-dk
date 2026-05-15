@@ -780,7 +780,7 @@ function TilgangPage() {
           {[
             {
               label: "KONTEKST",
-              value: "Konceptprojekt · Strategirådgivning",
+              value: "Strategirådgivning · 80 medarbejdere",
             },
             {
               label: "DOMÆNE",
