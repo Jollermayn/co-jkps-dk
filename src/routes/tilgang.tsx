@@ -304,9 +304,14 @@ function KommunikationskitContent() {
   );
 }
 
-function TilgangPage() {
-  const [openCard, setOpenCard] = useState<string | null>(null);
+const cardContent: Record<string, React.ReactNode> = {
+  "01": <OnePagerContent />,
+  "02": <OnboardingContent />,
+  "03": <ToneOfVoiceContent />,
+  "04": <KommunikationskitContent />,
+};
 
+function TilgangPage() {
   return (
     <main className="min-h-screen bg-[#0D1B2A] text-cream">
       <section className="pt-20 md:pt-28 pb-12 md:pb-16 px-5 md:px-14">
@@ -333,18 +338,17 @@ function TilgangPage() {
             Vind Consulting havde værktøjerne. De manglede kulturen. AI-værktøjer rullet ud til 80 medarbejdere. Adoption på 23%. Ledelsen kommunikerede strategi — medarbejderne oplevede støj. Opgaven var at designe broen — fire konkrete leverancer der oversætter ambition til hverdag.
           </p>
 
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-start">
             {cards.map((card) => (
-              <button
+              <div
                 key={card.no}
-                type="button"
-                onClick={() => setOpenCard(card.no)}
-                className="group flex flex-col text-left border border-cream/10 bg-cream/[0.02] hover:bg-cream/[0.05] hover:border-cream/20 transition-all cursor-pointer"
+                tabIndex={0}
+                className="group flex flex-col border border-cream/10 bg-cream/[0.02] hover:bg-cream/[0.04] hover:border-cream/20 focus-within:bg-cream/[0.04] focus-within:border-cream/20 transition-colors outline-none"
               >
                 <div className="relative aspect-[4/3] w-full overflow-hidden bg-gradient-to-br from-cream/5 to-cream/[0.02] border-b border-cream/10">
                   <span className="absolute top-4 left-4 font-display text-2xl text-ember">{card.no}</span>
-                  <span className="absolute bottom-4 right-4 text-[10px] uppercase tracking-[0.25em] text-cream/40 group-hover:text-ember transition-colors">
-                    Se mere →
+                  <span className="absolute bottom-4 right-4 text-[10px] uppercase tracking-[0.25em] text-cream/40 group-hover:text-ember group-focus-within:text-ember transition-colors">
+                    Hover for detaljer
                   </span>
                 </div>
                 <div className="p-6 md:p-8">
@@ -354,8 +358,15 @@ function TilgangPage() {
                   <p className="mt-3 text-sm md:text-base text-cream/75 leading-relaxed">
                     {card.body}
                   </p>
+                  <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] group-focus-within:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out">
+                    <div className="overflow-hidden">
+                      <div className="mt-6 pt-6 border-t border-cream/10 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 delay-150">
+                        {cardContent[card.no]}
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </button>
+              </div>
             ))}
           </div>
 
