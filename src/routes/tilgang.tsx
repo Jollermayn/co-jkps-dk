@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, X, Users, Bot, BarChart3, ArrowRight } from "lucide-react";
 
 export const Route = createFileRoute("/tilgang")({
   head: () => ({
@@ -257,145 +257,179 @@ function OnePagerContent() {
   );
 }
 
-function OnboardingContent() {
-  const screens = [
-    {
-      t: "Velkommen",
-      body: (
-        <div className="flex flex-col items-center text-center gap-4">
-          <div className="text-[10px] uppercase tracking-[0.3em] text-cream/50">Vind Consulting</div>
-          <h5 className="font-display text-2xl text-cream">Velkommen til Vind Consulting</h5>
-          <p className="text-sm text-cream/75 leading-relaxed">Lad os gøre det digitale konkret. På tre minutter.</p>
-          <button className="mt-4 px-5 py-2.5 rounded-full text-white text-xs font-semibold tracking-wide" style={{ backgroundColor: RED }}>
-            Kom i gang →
-          </button>
-        </div>
-      ),
-    },
-    {
-      t: "Dine tre værktøjer",
-      body: (
-        <div className="flex flex-col gap-4">
-          <h5 className="font-display text-xl text-cream">Dine tre værktøjer</h5>
-          {[
-            { n: "Teams", d: "Sådan samarbejder vi på tværs." },
-            { n: "Copilot", d: "Din digitale kollega — ikke din erstatning." },
-            { n: "Power BI", d: "Din data, gjort visuel og handlingsklar." },
-          ].map((tool) => (
-            <div key={tool.n} className="border border-cream/15 rounded p-3">
-              <div className="text-[10px] uppercase tracking-[0.25em] font-bold" style={{ color: RED }}>{tool.n}</div>
-              <p className="mt-1 text-xs text-cream/80 leading-snug">{tool.d}</p>
-            </div>
-          ))}
-        </div>
-      ),
-    },
-    {
-      t: "Din første uge",
-      body: (
-        <div className="flex flex-col gap-4">
-          <h5 className="font-display text-xl text-cream">Din første uge</h5>
-          <ol className="relative pl-6 space-y-5">
-            <span className="absolute left-[7px] top-2 bottom-2 w-px" style={{ backgroundColor: "rgba(245,240,232,0.2)" }} />
-            {[
-              { d: "Dag 1", t: "Setup & login. Du er online inden frokost." },
-              { d: "Dag 2", t: "Workshop: Copilot i din hverdag." },
-              { d: "Dag 3", t: "Du leverer dit første konkrete output." },
-            ].map((d) => (
-              <li key={d.d} className="relative">
-                <span className="absolute -left-6 top-1 w-3 h-3 rounded-full" style={{ backgroundColor: RED }} />
-                <div className="text-[10px] uppercase tracking-[0.25em] font-bold text-cream/60">{d.d}</div>
-                <p className="mt-0.5 text-xs text-cream/85 leading-snug">{d.t}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      ),
-    },
-    {
-      t: "Spørgsmål?",
-      body: (
-        <div className="flex flex-col gap-4">
-          <h5 className="font-display text-xl text-cream">Spørgsmål?</h5>
-          <ul className="space-y-3">
-            {[
-              "Skriv i #ai-help på Teams — vi svarer samme dag.",
-              "Booking: 30 min med en Copilot-mentor.",
-              "Månedlige drop-ins: torsdag kl. 14.",
-            ].map((b) => (
-              <li key={b} className="flex gap-2.5 text-xs text-cream/85 leading-snug">
-                <span className="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0" style={{ backgroundColor: RED }} />
-                <span>{b}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ),
-    },
-    {
-      t: "Du er klar",
-      body: (
-        <div className="flex flex-col items-center text-center gap-4">
-          <div className="text-[10px] uppercase tracking-[0.3em] text-cream/50">Klar</div>
-          <h5 className="font-display text-2xl text-cream">Du er klar.</h5>
-          <p className="font-display italic text-cream/85 text-base leading-relaxed">
-            "Teknologien er her for at hjælpe dig.<br />Ikke omvendt."
-          </p>
-          <button className="mt-4 px-5 py-2.5 rounded-full text-white text-xs font-semibold tracking-wide" style={{ backgroundColor: RED }}>
-            Start dagen
-          </button>
-        </div>
-      ),
-    },
-  ];
-  const [step, setStep] = useState(0);
+function OnboardingLogo({ size = 44 }: { size?: number }) {
   return (
-    <div>
-      <div className="flex items-center justify-center gap-4 md:gap-6">
-        <button
-          onClick={() => setStep((s) => Math.max(0, s - 1))}
-          disabled={step === 0}
-          className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-cream/10 hover:bg-cream/20 disabled:opacity-30 disabled:cursor-not-allowed text-cream transition-colors"
-          aria-label="Forrige"
-        >
-          <ChevronLeft className="w-5 h-5" />
-        </button>
-        <div
-          className="relative w-[280px] h-[560px] rounded-[2.5rem] border-[6px] shadow-2xl overflow-hidden flex flex-col"
-          style={{ backgroundColor: NAVY, borderColor: "rgba(245,240,232,0.2)" }}
-        >
-          <div className="h-1" style={{ backgroundColor: "rgba(245,240,232,0.1)" }}>
-            <div className="h-full transition-all" style={{ width: `${((step + 1) / screens.length) * 100}%`, backgroundColor: RED }} />
+    <div
+      className="flex items-center justify-center rounded-xl font-bold text-white"
+      style={{
+        width: size,
+        height: size,
+        background: NAVY,
+        fontFamily: "'Inter', system-ui, sans-serif",
+        letterSpacing: "-0.02em",
+        fontSize: size * 0.45,
+      }}
+    >
+      V
+    </div>
+  );
+}
+
+function OnboardingPrimaryButton({ children, onClick }: { children: React.ReactNode; onClick: () => void }) {
+  return (
+    <button
+      onClick={onClick}
+      className="w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-full font-semibold text-white text-[15px] tracking-wide transition-transform active:scale-[0.98]"
+      style={{ background: RED, fontFamily: "'Inter', system-ui, sans-serif" }}
+    >
+      {children}
+    </button>
+  );
+}
+
+function OnboardingContent() {
+  const [step, setStep] = useState(0);
+  const total = 5;
+  const next = () => setStep((s) => Math.min(s + 1, total - 1));
+  const restart = () => setStep(0);
+
+  const ScreenWelcome = (
+    <div className="flex flex-col items-center text-center px-7 pt-20 pb-10 h-full" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
+      <OnboardingLogo size={64} />
+      <h1 className="mt-6 text-[28px] font-bold leading-tight" style={{ color: NAVY, letterSpacing: "-0.02em" }}>
+        Velkommen til <br /> Vind Consulting
+      </h1>
+      <p className="mt-4 text-[15px] text-slate-600 leading-relaxed max-w-[260px]">
+        Vi glæder os til at have dig med på holdet — lad os få dig godt i gang.
+      </p>
+    </div>
+  );
+
+  const tools = [
+    { icon: Users, title: "Microsoft Teams", desc: "Kommunikation og samarbejde med kolleger og kunder." },
+    { icon: Bot, title: "Copilot", desc: "Din AI-assistent til research, skrivning og analyse." },
+    { icon: BarChart3, title: "Power BI", desc: "Datavisualisering og rapporter til kundeleverancer." },
+  ];
+  const ScreenTools = (
+    <div className="flex flex-col px-7 pt-16 pb-8 h-full" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
+      <h2 className="text-[24px] font-bold leading-tight" style={{ color: NAVY, letterSpacing: "-0.02em" }}>Dine værktøjer</h2>
+      <p className="mt-2 text-[14px] text-slate-600">Tre platforme du vil bruge dagligt.</p>
+      <div className="mt-7 space-y-5">
+        {tools.map(({ icon: Icon, title, desc }) => (
+          <div key={title} className="flex gap-4">
+            <div className="shrink-0 w-11 h-11 rounded-xl flex items-center justify-center" style={{ background: `${RED}14`, color: RED }}>
+              <Icon size={22} strokeWidth={2} />
+            </div>
+            <div className="min-w-0">
+              <h3 className="text-[15px] font-semibold" style={{ color: NAVY }}>{title}</h3>
+              <p className="mt-1 text-[13px] text-slate-600 leading-snug">{desc}</p>
+            </div>
           </div>
-          <div className="flex-1 p-6 flex flex-col justify-center">
-            <span className="text-[10px] uppercase tracking-[0.3em] text-cream/50 text-center mb-4">
-              Skærm {step + 1} / {screens.length}
-            </span>
-            {screens[step].body}
-          </div>
-        </div>
-        <button
-          onClick={() => setStep((s) => Math.min(screens.length - 1, s + 1))}
-          disabled={step === screens.length - 1}
-          className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-cream/10 hover:bg-cream/20 disabled:opacity-30 disabled:cursor-not-allowed text-cream transition-colors"
-          aria-label="Næste"
-        >
-          <ChevronRight className="w-5 h-5" />
-        </button>
-      </div>
-      <div className="mt-6 flex items-center justify-center gap-2">
-        {screens.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setStep(i)}
-            className="h-1.5 rounded-full transition-all"
-            style={{
-              width: i === step ? 32 : 6,
-              backgroundColor: i === step ? RED : "rgba(245,240,232,0.3)",
-            }}
-            aria-label={`Gå til skærm ${i + 1}`}
-          />
         ))}
+      </div>
+    </div>
+  );
+
+  const days = [
+    { day: "Mandag", title: "Velkomst & opsætning", desc: "Møde HR, udlevering af udstyr og adgange." },
+    { day: "Tirsdag", title: "Møde dit team", desc: "Introduktion til kolleger og igangværende projekter." },
+    { day: "Onsdag", title: "Første kundemøde", desc: "Lyt med på et kundemøde sammen med din makker." },
+  ];
+  const ScreenFirstWeek = (
+    <div className="flex flex-col px-7 pt-16 pb-8 h-full" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
+      <h2 className="text-[24px] font-bold leading-tight" style={{ color: NAVY, letterSpacing: "-0.02em" }}>Din første uge</h2>
+      <p className="mt-2 text-[14px] text-slate-600">Sådan ser de første dage ud.</p>
+      <div className="mt-8 relative">
+        <div className="absolute left-[7px] top-2 bottom-2 w-px bg-slate-200" />
+        <ul className="space-y-7">
+          {days.map((d) => (
+            <li key={d.day} className="relative pl-8">
+              <span className="absolute left-0 top-1.5 w-[15px] h-[15px] rounded-full" style={{ background: RED, boxShadow: "0 0 0 4px white" }} />
+              <p className="text-[12px] font-semibold uppercase tracking-wider" style={{ color: RED }}>{d.day}</p>
+              <h3 className="mt-1 text-[15px] font-semibold" style={{ color: NAVY }}>{d.title}</h3>
+              <p className="mt-1 text-[13px] text-slate-600 leading-snug">{d.desc}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+
+  const qItems = [
+    "Skriv til din nærmeste leder — vi er her for at hjælpe.",
+    "Brug #onboarding-kanalen i Teams til hurtige spørgsmål.",
+    "Bogstavelig talt ingen spørgsmål er for små.",
+  ];
+  const ScreenQuestions = (
+    <div className="flex flex-col px-7 pt-16 pb-8 h-full text-white" style={{ background: NAVY, fontFamily: "'Inter', system-ui, sans-serif" }}>
+      <h2 className="text-[24px] font-bold leading-tight" style={{ letterSpacing: "-0.02em" }}>Spørgsmål?</h2>
+      <p className="mt-2 text-[14px] text-white/70">Vi gør det nemt at række ud.</p>
+      <ul className="mt-8 space-y-5">
+        {qItems.map((t, i) => (
+          <li key={i} className="flex gap-3">
+            <span className="mt-2 shrink-0 w-1.5 h-1.5 rounded-full" style={{ background: RED }} />
+            <span className="text-[14px] leading-relaxed text-white/90">{t}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+
+  const ScreenReady = (
+    <div className="flex flex-col items-center text-center px-7 pt-20 pb-10 h-full" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
+      <OnboardingLogo size={64} />
+      <h1 className="mt-6 text-[32px] font-bold leading-tight" style={{ color: NAVY, letterSpacing: "-0.03em" }}>Du er klar.</h1>
+      <p className="mt-6 text-[15px] italic text-slate-600 leading-relaxed max-w-[280px]">
+        &ldquo;Den bedste måde at forudsige fremtiden på er at skabe den.&rdquo;
+      </p>
+      <p className="mt-2 text-[12px] text-slate-400 uppercase tracking-wider">— Peter Drucker</p>
+      <div className="mt-auto w-full pt-10">
+        <OnboardingPrimaryButton onClick={restart}>Kom i gang</OnboardingPrimaryButton>
+      </div>
+    </div>
+  );
+
+  const screens = [ScreenWelcome, ScreenTools, ScreenFirstWeek, ScreenQuestions, ScreenReady];
+  const isDark = step === 3;
+  const isLast = step === total - 1;
+
+  return (
+    <div
+      className="w-full flex items-center justify-center py-8 px-4 rounded-md"
+      style={{ background: "#E8EAEE", fontFamily: "'Inter', system-ui, sans-serif" }}
+    >
+      <div
+        className="relative"
+        style={{
+          width: 390,
+          height: 800,
+          background: "#0A1628",
+          borderRadius: 48,
+          padding: 12,
+          boxShadow: "0 30px 60px -15px rgba(10, 22, 40, 0.45), 0 0 0 2px rgba(0,0,0,0.6) inset",
+        }}
+      >
+        <div
+          className="relative w-full h-full overflow-hidden flex flex-col"
+          style={{ borderRadius: 36, background: isDark ? NAVY : "#ffffff" }}
+        >
+          <div className="absolute top-2 left-1/2 -translate-x-1/2 z-20 rounded-full" style={{ width: 110, height: 28, background: "#0A1628" }} />
+          <div className="absolute top-12 left-6 right-6 z-10 flex gap-1.5">
+            {Array.from({ length: total }).map((_, i) => (
+              <div key={i} className="flex-1 h-1 rounded-full overflow-hidden" style={{ background: isDark ? "rgba(255,255,255,0.18)" : "#E5E7EB" }}>
+                <div className="h-full transition-all duration-300" style={{ width: i <= step ? "100%" : "0%", background: RED }} />
+              </div>
+            ))}
+          </div>
+          <div className="flex-1 overflow-y-auto">{screens[step]}</div>
+          {!isLast && (
+            <div className="px-7 pb-8 pt-2" style={{ background: isDark ? NAVY : "#ffffff" }}>
+              <OnboardingPrimaryButton onClick={next}>
+                Næste <ArrowRight size={16} strokeWidth={2.5} />
+              </OnboardingPrimaryButton>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
