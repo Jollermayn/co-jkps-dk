@@ -394,18 +394,6 @@ function TilgangPage() {
         </div>
       </section>
 
-      <Modal open={openCard === "01"} onClose={() => setOpenCard(null)} title="AI-strategi one-pager">
-        <OnePagerContent />
-      </Modal>
-      <Modal open={openCard === "02"} onClose={() => setOpenCard(null)} title="Onboarding-flow">
-        <OnboardingContent />
-      </Modal>
-      <Modal open={openCard === "03"} onClose={() => setOpenCard(null)} title="Tone of voice guide">
-        <ToneOfVoiceContent />
-      </Modal>
-      <Modal open={openCard === "04"} onClose={() => setOpenCard(null)} title="Kommunikationskit">
-        <KommunikationskitContent />
-      </Modal>
     </main>
   );
 }
