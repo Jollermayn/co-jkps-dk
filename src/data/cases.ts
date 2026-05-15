@@ -354,11 +354,11 @@ const _order = [
   "wolt",
   "danmarks-radio",
   "boliga",
-  "danmarks-naturfredningsforening",
+  "itu-designlab",
   "amnesty-international",
-  "concerto-copenhagen",
-  "ulla-dyrlov",
   "interaktiv-horesimulering",
+  "ulla-dyrlov",
+  "art-spirit-coaching",
 ];
 
 export const caseStudies: CaseStudy[] = [
