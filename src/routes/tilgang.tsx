@@ -748,15 +748,15 @@ function TilgangPage() {
         />
         <div className="relative h-full flex items-center justify-center">
           <div
+            className="text-left md:text-center"
             style={{
               maxWidth: 800,
               margin: "0 auto",
               padding: "0 24px",
-              textAlign: "center",
             }}
           >
             <h1
-              className="font-display text-white text-center max-w-full break-normal overflow-visible text-[1.6rem] leading-[1.3] md:text-[clamp(2.2rem,5vw,3.8rem)] md:leading-[1.2]"
+              className="font-display text-white text-left md:text-center max-w-full break-normal overflow-visible text-[1.6rem] leading-[1.3] md:text-[clamp(2.2rem,5vw,3.8rem)] md:leading-[1.2]"
               style={{ fontWeight: 600 }}
             >
               De fleste organisationer har ikke et forandringsproblem.
