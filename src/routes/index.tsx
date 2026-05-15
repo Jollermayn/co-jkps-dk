@@ -160,7 +160,7 @@ function Index() {
               <Eyebrow>Om mig</Eyebrow>
               <div className="mt-8 max-w-3xl space-y-6 text-cream/80 text-lg leading-relaxed">
                 <p className="text-xl md:text-2xl leading-snug text-cream font-light">
-                  Mere end 10 års erfaring med at drive projekter og leverancer tæt på kunden — på tværs af public service, civilsamfund og kommercielle virksomheder, med projekter for blandt andre Danmarks Radio, Amnesty International og Danmarks Naturfredningsforening.
+                  Jeg har arbejdet selvstændigt siden 2016 med UX research, servicedesign og konceptudvikling — på tværs af public service, civilsamfund og kommercielle virksomheder.
                 </p>
                 <p>
                   Jeg er uddannet Cand.IT i Digital Design & Interactive Technologies fra IT-Universitetet i København.
