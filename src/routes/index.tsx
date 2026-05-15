@@ -179,6 +179,24 @@ function Index() {
           {/* CASES */}
           <CasesSection />
 
+          {/* MIN TILGANG */}
+          <section id="tilgang" className="py-16 md:py-20">
+            <div className="px-5 md:px-14">
+              <Eyebrow>Min tilgang</Eyebrow>
+              <h2 className="font-display text-3xl md:text-5xl mt-6 leading-[1.1] tracking-tight max-w-3xl">
+                Jeg arbejder i fire faser — fra første indsigt til færdigt output.
+              </h2>
+              <div className="mt-8">
+                <Link
+                  to="/tilgang"
+                  className="inline-flex items-center gap-2 text-[1.1rem] font-bold tracking-wide text-[#B83A20] underline underline-offset-4 hover:text-cream active:text-cream transition-colors duration-300"
+                >
+                  Se min tilgang <span aria-hidden>→</span>
+                </Link>
+              </div>
+            </div>
+          </section>
+
           {/* KOMPETENCER */}
           <section id="kompetencer" className="py-16 md:py-20">
             <div className="px-5 md:px-14">
