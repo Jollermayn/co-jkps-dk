@@ -208,8 +208,9 @@ const _allCases: CaseStudy[] = [
     ],
     approach: ["Strategisk kommunikation", "Stakeholdermanagement", "Indholdsudvikling", "Målgruppeanalyse"],
     outcomes: [
-      "Styrket digital tilstedeværelse og øget engagement hos yngre målgrupper",
-      "Sammenhængende kommunikationsstrategi på tværs af platforme",
+      "→ Kommunikationsstrategi der nåede yngre målgrupper på tværs af sociale medier og digitale platforme",
+      "→ Faglige budskaber om biodiversitet og klimaforandringer gjort tilgængelige uden at kompromittere organisationens troværdighed",
+      "→ Styrket digital tilstedeværelse med sammenhængende indhold på tværs af kanaler",
     ],
   },
   {
