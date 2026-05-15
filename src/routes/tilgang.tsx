@@ -809,17 +809,7 @@ function TilgangPage() {
           ].map((col, i) => (
             <div
               key={col.label}
-              className="flex-1 md:px-8 text-left"
-              style={
-                i > 0
-                  ? {
-                      borderLeft:
-                        typeof window !== "undefined" && window.innerWidth >= 768
-                          ? "1px solid rgba(255,255,255,0.1)"
-                          : undefined,
-                    }
-                  : undefined
-              }
+              className={`flex-1 md:px-8 text-left ${i > 0 ? "md:border-l md:border-white/10" : ""}`}
             >
               <p
                 className="uppercase md-divider"
