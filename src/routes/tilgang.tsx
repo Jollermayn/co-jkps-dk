@@ -677,11 +677,11 @@ function TilgangPage() {
     const baseColor = dark ? "#0A1628" : "#FFFFFF";
     const borderColor = dark ? "rgba(10,22,40,0.12)" : "rgba(255,255,255,0.08)";
     return (
-      <div className="flex flex-col sm:flex-row sm:gap-4 py-2" style={{ borderTop: `1px solid ${borderColor}` }}>
-        <span className="uppercase font-semibold shrink-0" style={{ color: RED, fontSize: "0.7rem", letterSpacing: "0.15em", minWidth: 96, paddingTop: 4 }}>
+      <div className="flex flex-col sm:flex-row sm:gap-4 py-3" style={{ borderTop: `1px solid ${borderColor}` }}>
+        <span className="uppercase font-semibold" style={{ color: RED, fontSize: "0.7rem", letterSpacing: "0.15em", width: 140, minWidth: 140, flexShrink: 0, paddingTop: 4 }}>
           {label}
         </span>
-        <span style={{ color: baseColor, fontSize: "0.9rem", lineHeight: 1.6, opacity: dark ? 0.85 : 0.9 }}>{text}</span>
+        <span style={{ color: baseColor, fontSize: "0.9rem", lineHeight: 1.6, opacity: dark ? 0.85 : 0.9, flex: 1, maxWidth: 420 }}>{text}</span>
       </div>
     );
   };
@@ -782,7 +782,7 @@ function TilgangPage() {
               <article>
                 <span
                   className="font-display block"
-                  style={{ color: RED, fontSize: "4rem", opacity: 0.3, lineHeight: 1, marginBottom: -16 }}
+                  style={{ display: "block", color: RED, fontSize: "3rem", opacity: 0.3, lineHeight: 1, marginBottom: -8 }}
                 >
                   {c.n}
                 </span>
