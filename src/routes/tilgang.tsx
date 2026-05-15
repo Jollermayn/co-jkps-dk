@@ -626,198 +626,206 @@ function Modal({ open, onClose, title, children }: { open: boolean; onClose: () 
 function TilgangPage() {
   const [openCard, setOpenCard] = useState<string | null>(null);
 
+  const deliverables = [
+    {
+      no: "01",
+      phase: "FASE 01",
+      title: "AI-strategi one-pager",
+      body: "Et scanbart A4-dokument til direktionen. Tre kolonner: Hvor vi er nu / Hvor vi vil hen / Hvordan vi kommer der.",
+      preview: <PreviewOnePager />,
+    },
+    {
+      no: "02",
+      phase: "FASE 02 + 03",
+      title: "Onboarding-flow",
+      body: "Fem skærmbilleder der guider nye medarbejdere fra fremmed til fortrolig med Vind Consultings digitale værktøjer.",
+      preview: <PreviewOnboarding />,
+    },
+    {
+      no: "03",
+      phase: "FASE 03",
+      title: "Tone of voice guide",
+      body: "Internt sprog der gør det digitale konkret. Ikke hvad vi siger — men hvordan vi siger det.",
+      preview: <PreviewToneOfVoice />,
+    },
+    {
+      no: "04",
+      phase: "FASE 04",
+      title: "Kommunikationskit",
+      body: "Tre skabeloner til forandringskommunikation: all-hands slide, intern nyhedsbrev-intro og one-pager til nyt værktøj.",
+      preview: <PreviewKommunikationskit />,
+    },
+  ];
+
+  const contextStats = [
+    { stat: "80", label: "Medarbejdere" },
+    { stat: "23%", label: "Adoption" },
+    { stat: "4", label: "Leverancer" },
+  ];
+
+  const resultStats = [
+    { stat: "54%", label: "Undervurderet arbejdsdistance" },
+    { stat: "3", label: "Kommunikationsspor" },
+    { stat: "1", label: "Fælles sprog om AI" },
+  ];
+
+  const approach = [
+    { n: "01", title: "Kortlægning", body: "Interviews med ledelse og medarbejdere på tværs af afdelinger. Afdækning af den konkrete kløft mellem det strategiske niveau og hverdagens praksis." },
+    { n: "02", title: "Indsigt", body: "Medarbejderne oplevede AI som noget der skete for dem — ikke med dem. Manglen på et fælles sprog gjorde adoption umulig." },
+    { n: "03", title: "Design", body: "Fire konkrete leverancer designet til at bygge bro: fra strategidokument til onboarding-flow, tone of voice guide og kommunikationskit." },
+    { n: "04", title: "Formidling", body: "Sprog og skabeloner der oversætter det digitale til noget meningsfuldt i hverdagen — uden jargon, uden buzzwords." },
+  ];
+
   return (
     <main className="min-h-screen bg-[#0D1B2A] text-cream">
-      {/* HERO BANNER */}
+      {/* SECTION 1 — HERO BANNER */}
       <div
-        className="relative w-full h-[200px] md:h-[280px] overflow-hidden"
-        style={{ backgroundColor: "#0A1628" }}
+        className="relative w-full overflow-hidden h-[220px] md:h-[320px]"
+        style={{ backgroundColor: NAVY }}
       >
         <div
           className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(to right, rgba(10,22,40,0.8) 0%, rgba(10,22,40,0) 100%)",
-          }}
           aria-hidden
+          style={{ background: "linear-gradient(to right, rgba(10,22,40,0.85) 0%, rgba(10,22,40,0) 100%)" }}
         />
-        <div className="relative h-full px-5 md:px-14 flex flex-col justify-center max-w-5xl">
-          <p
-            className="uppercase font-semibold"
-            style={{ color: RED, letterSpacing: "0.15em", fontSize: "0.75rem" }}
-          >
+        <div className="relative h-full flex flex-col justify-center max-w-5xl" style={{ paddingLeft: 48, paddingRight: 24 }}>
+          <p className="uppercase font-semibold" style={{ color: RED, letterSpacing: "0.15em", fontSize: "0.75rem" }}>
             Vind Consulting · Konceptprojekt
           </p>
           <h1
-            className="font-display text-white leading-[1.05] tracking-tight mt-4"
-            style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}
+            className="font-display text-white leading-[1.05] tracking-tight"
+            style={{ fontSize: "clamp(2rem, 4vw, 3.2rem)", marginTop: 16 }}
           >
             De fleste organisationer har ikke et AI-problem.
             <br />
-            <span className="italic" style={{ color: RED }}>
-              De har et oversættelsesproblem.
-            </span>
+            <span className="italic" style={{ color: RED }}>De har et oversættelsesproblem.</span>
           </h1>
         </div>
       </div>
 
-      <section className="pt-12 md:pt-16 pb-20 md:pb-28 px-5 md:px-14">
-        <div>
-          {/* INTRO */}
-          <h2 className="font-display text-4xl md:text-6xl lg:text-7xl leading-[0.95] tracking-tight max-w-5xl">
-            Da værktøjerne var på plads <span className="italic text-ember">— men kulturen ikke var.</span>
-          </h2>
+      {/* SECTION 2 — THE PROBLEM */}
+      <section style={{ padding: "80px 48px" }}>
+        <h2 className="font-display text-white" style={{ fontSize: "2.2rem", marginBottom: 32 }}>
+          The problem.
+        </h2>
+        <p className="text-white" style={{ opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.8, maxWidth: 640 }}>
+          Værktøjerne er på plads. Strategien er godkendt. Men et sted mellem direktionsgangen og hverdagen går meningen tabt — og medarbejderne ved ikke hvad det egentlig kræver af dem.
+          <br /><br />
+          Det er det øjeblik jeg arbejder i.
+        </p>
+      </section>
 
-
-          <div className="mt-12 grid grid-cols-3 gap-4 md:gap-8 border-y border-cream/10 py-8 md:py-10">
-            {[
-              { stat: "80", label: "medarbejdere" },
-              { stat: "23%", label: "adoption" },
-              { stat: "4", label: "leverancer" },
-            ].map((s) => (
-              <div key={s.label} className="flex flex-col">
-                <span className="font-display text-4xl md:text-6xl lg:text-7xl tracking-tight leading-none" style={{ color: RED }}>
-                  {s.stat}
-                </span>
-                <span className="mt-2 md:mt-3 text-xs md:text-sm uppercase tracking-[0.2em] text-cream/60">
-                  {s.label}
-                </span>
-              </div>
-            ))}
-          </div>
-
-          {/* PROCESS TIMELINE */}
-          <div className="mt-10 md:mt-14">
-            <div className="h-px w-16 mb-4" style={{ background: RED }} aria-hidden />
-            <p className="text-[11px] uppercase tracking-[0.3em] font-semibold text-cream/55">Proces</p>
-            <h3 className="font-display text-3xl md:text-5xl tracking-tight leading-tight mt-4 max-w-3xl">
-              Fra <span className="italic text-ember">kløft</span> til fælles sprog.
-            </h3>
-
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-x-10 md:gap-y-12">
-              {[
-                { n: "01", title: "Kortlægning", body: "Interviews med ledelse og medarbejdere. Afdækning af kløft mellem strategi og hverdag." },
-                { n: "02", title: "Indsigt", body: "Medarbejderne oplevede AI som noget der skete for dem — ikke med dem." },
-                { n: "03", title: "Design", body: "Fire konkrete leverancer designet til at bygge bro." },
-                { n: "04", title: "Formidling", body: "Sprog og skabeloner der gør det digitale meningsfuldt i hverdagen." },
-              ].map((step, i, arr) => (
-                <div key={step.n} className="relative flex flex-col md:min-h-[120px]">
-                  <div className="flex items-center gap-3">
-                    <span className="font-display text-sm tracking-[0.2em]" style={{ color: RED }}>{step.n}</span>
-                    <div className="flex-1 h-px bg-cream/15" aria-hidden />
-                    {i % 2 === 0 && i < arr.length - 1 && (
-                      <span className="hidden md:inline text-cream/30 text-lg" aria-hidden>→</span>
-                    )}
-                  </div>
-                  <h4 className="font-display tracking-tight leading-tight mt-5" style={{ fontSize: "1.4rem" }}>
-                    {step.title}
-                  </h4>
-                  <p className="mt-3 text-sm text-cream/75 leading-relaxed">{step.body}</p>
-                </div>
-              ))}
+      {/* SECTION 3 — THE CONTEXT */}
+      <section style={{ padding: 48 }}>
+        <div style={{ height: 1, width: "100%", background: RED, marginBottom: 48 }} aria-hidden />
+        <h2 className="font-display text-white" style={{ fontSize: "2.2rem", marginBottom: 24 }}>
+          The context.
+        </h2>
+        <p className="text-white" style={{ opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.8, maxWidth: 640, marginBottom: 40 }}>
+          Vind Consulting. 80 medarbejdere fordelt på Aarhus og København. AI-værktøjer rullet ud på tværs af organisationen — men kun 23% af medarbejderne bruger dem aktivt. Kløften mellem ledelsens ambition og hverdagens praksis er målbar og voksende.
+        </p>
+        <div className="flex flex-wrap gap-x-16 gap-y-8">
+          {contextStats.map((s) => (
+            <div key={s.label} className="flex flex-col">
+              <span className="font-display leading-none" style={{ color: RED, fontSize: "3rem" }}>{s.stat}</span>
+              <span className="mt-2 uppercase text-white/70" style={{ fontSize: "0.7rem", letterSpacing: "0.2em" }}>{s.label}</span>
             </div>
-          </div>
-
-
-          {/* DELIVERABLES */}
-          <div className="mt-20 md:mt-28">
-            <p className="text-[11px] uppercase tracking-[0.3em] font-semibold text-cream/55">Leverancer</p>
-            <h3 className="font-display text-3xl md:text-5xl tracking-tight leading-tight mt-4 max-w-3xl">
-              Fire spor — <span className="italic text-ember">ét fælles sprog.</span>
-            </h3>
-
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-start">
-            {cards.map((card, idx) => (
-              <div
-                key={card.no}
-                className={`relative ${idx < 2 ? "md:col-span-2" : ""}`}
-              >
-                <button
-                  type="button"
-                  onClick={() => setOpenCard(card.no)}
-                  className={`group w-full flex flex-col text-left border border-cream/10 bg-cream/[0.02] hover:bg-cream/[0.04] hover:border-cream/20 focus:bg-cream/[0.04] focus:border-cream/20 transition-colors outline-none cursor-pointer p-6 md:p-8 ${idx < 2 ? "md:min-h-[320px]" : ""}`}
-                >
-                  <div className="flex items-baseline justify-between gap-4">
-                    <div className="flex flex-col">
-                      <span className="text-[10px] uppercase tracking-[0.25em] font-semibold" style={{ color: RED }}>
-                        {card.phaseRef}
-                      </span>
-                      <h3 className="font-display text-xl md:text-2xl tracking-tight leading-tight mt-2 text-cream">
-                        {card.title}
-                      </h3>
-                    </div>
-                    <span className="text-[10px] uppercase tracking-[0.25em] text-cream/40 group-hover:text-ember transition-colors shrink-0">
-                      Se mere →
-                    </span>
-                  </div>
-                  <p className="mt-3 text-sm md:text-base text-cream/75 leading-relaxed">
-                    {card.body}
-                  </p>
-
-                  {/* Floating preview tooltip */}
-                  <div
-                    className="pointer-events-none absolute left-1/2 -top-3 -translate-x-1/2 -translate-y-full opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 z-30"
-                    style={{ width: 300 }}
-                  >
-                    <div
-                      className="relative aspect-[4/3] w-full overflow-hidden border border-cream/15 shadow-2xl"
-                      style={{ backgroundColor: NAVY }}
-                    >
-                      {previews[card.no]}
-                    </div>
-                  </div>
-                </button>
-              </div>
-            ))}
-          </div>
-
-            <p className="mt-10 text-sm text-cream/55 italic">
-              Konceptprojekt · Servicedesign · Konceptudvikling · Strategisk kommunikation
-            </p>
-          </div>
-
-          {/* RESULTS */}
-          <div className="mt-20 md:mt-28">
-            <p className="text-[11px] uppercase tracking-[0.3em] font-semibold text-cream/55">Resultater</p>
-            <h3 className="font-display text-3xl md:text-5xl tracking-tight leading-tight mt-4 max-w-3xl">
-              Hvad det <span className="italic text-ember">flyttede.</span>
-            </h3>
-
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-px bg-cream/10 border border-cream/10">
-              {[
-                { stat: "54%", label: "undervurderet arbejdsdistance", note: "Wolt-metodikken anvendt her" },
-                { stat: "3", label: "kommunikationsspor designet", note: "Strategi · onboarding · tone" },
-                { stat: "1", label: "fælles sprog om AI", note: "Fra støj til samtale" },
-              ].map((r) => (
-                <div key={r.label} className="bg-[#0D1B2A] p-8 md:p-10 flex flex-col">
-                  <span className="font-display text-5xl md:text-7xl tracking-tight leading-none" style={{ color: RED }}>
-                    {r.stat}
-                  </span>
-                  <span className="mt-4 font-display text-xl md:text-2xl tracking-tight leading-snug text-cream">
-                    {r.label}
-                  </span>
-                  <span className="mt-3 text-xs uppercase tracking-[0.2em] text-cream/50">
-                    {r.note}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
-      <section className="pb-20 md:pb-28 px-5 md:px-14">
+      {/* SECTION 4 — THE APPROACH */}
+      <section style={{ padding: "80px 48px" }}>
+        <div style={{ height: 1, width: "100%", background: RED, marginBottom: 48 }} aria-hidden />
+        <h2 className="font-display text-white" style={{ fontSize: "2.2rem", marginBottom: 40 }}>
+          The approach.
+        </h2>
+        <div className="flex flex-col" style={{ gap: 40, maxWidth: 640 }}>
+          {approach.map((a) => (
+            <div key={a.n} style={{ borderLeft: `2px solid ${RED}`, paddingLeft: 24 }}>
+              <h3 className="font-display text-white leading-tight" style={{ fontSize: "1.4rem" }}>
+                <span style={{ color: RED, fontWeight: 700 }}>{a.n}</span> — {a.title}
+              </h3>
+              <p className="text-white mt-3" style={{ opacity: 0.85, fontSize: "1rem", lineHeight: 1.8 }}>
+                {a.body}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* SECTION 5 — THE WORK */}
+      <section style={{ paddingTop: 80 }}>
+        <div style={{ height: 1, width: "100%", background: RED, marginBottom: 48 }} aria-hidden />
+        <h2 className="font-display text-white" style={{ fontSize: "2.2rem", padding: "0 48px", marginBottom: 48 }}>
+          The work.
+        </h2>
+        <div className="flex flex-col" style={{ gap: 80 }}>
+          {deliverables.map((d) => (
+            <article key={d.no}>
+              <p className="uppercase font-semibold" style={{ color: RED, fontSize: "0.75rem", letterSpacing: "0.15em", padding: "0 48px" }}>
+                {d.phase}
+              </p>
+              <h3 className="font-display text-white leading-tight" style={{ fontSize: "1.6rem", padding: "0 48px", margin: "8px 0 16px" }}>
+                {d.title}
+              </h3>
+              <p className="text-white" style={{ opacity: 0.85, fontSize: "1rem", lineHeight: 1.7, maxWidth: 640, padding: "0 48px", marginBottom: 16 }}>
+                {d.body}
+              </p>
+              <div style={{ padding: "0 48px", marginBottom: 24 }}>
+                <button
+                  type="button"
+                  onClick={() => setOpenCard(d.no)}
+                  className="uppercase font-semibold hover:opacity-80 transition-opacity"
+                  style={{ color: RED, fontSize: "0.75rem", letterSpacing: "0.2em" }}
+                >
+                  Se mere →
+                </button>
+              </div>
+              <div
+                className="relative w-full overflow-hidden h-[260px] md:h-[400px]"
+                style={{ backgroundColor: NAVY }}
+              >
+                {d.preview}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* SECTION 6 — THE RESULTS */}
+      <section style={{ padding: "80px 48px" }}>
+        <div style={{ height: 1, width: "100%", background: RED, marginBottom: 48 }} aria-hidden />
+        <h2 className="font-display text-white" style={{ fontSize: "2.2rem", marginBottom: 32 }}>
+          The results.
+        </h2>
+        <p className="text-white" style={{ opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.8, maxWidth: 640, marginBottom: 48 }}>
+          Konceptprojektet dokumenterede en undervurderet arbejdsdistance på 54% — samme metodikken som Wolt-casen. Tre kommunikationsspor designet og testet. Ét fælles sprog om AI, fra støj til samtale.
+        </p>
+        <div className="flex flex-wrap gap-x-16 gap-y-8">
+          {resultStats.map((s) => (
+            <div key={s.label} className="flex flex-col">
+              <span className="font-display leading-none" style={{ color: RED, fontSize: "3rem" }}>{s.stat}</span>
+              <span className="mt-2 uppercase text-white/70" style={{ fontSize: "0.7rem", letterSpacing: "0.2em" }}>{s.label}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* SECTION 7 — CTA */}
+      <section style={{ padding: "64px 48px" }}>
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <Link
             to="/"
-            className="inline-flex items-center gap-2 text-[1.1rem] font-bold tracking-wide text-[#B83A20] underline underline-offset-4 hover:text-cream active:text-cream transition-colors duration-300"
+            className="font-display hover:opacity-80 transition-opacity"
+            style={{ color: RED, fontSize: "1rem" }}
           >
-            <span aria-hidden>←</span> Tilbage til portfolio
+            ← Tilbage til portfolio
           </Link>
           <a
             href="mailto:Jonas@jkps.dk"
-            className="inline-flex items-center justify-center gap-3 text-sm font-semibold tracking-wide bg-transparent text-[#F5F0E8] border-2 border-[#F5F0E8] hover:bg-[#F5F0E8] hover:text-[#0D1B2A] transition-all duration-300 ease-out"
-            style={{ padding: "12px 28px", borderRadius: "50px" }}
+            className="inline-flex items-center justify-center border-2 border-white text-white hover:bg-white hover:text-[#0A1628] transition-colors"
+            style={{ padding: "12px 32px", fontSize: "0.95rem", letterSpacing: "0.05em" }}
           >
             Kontakt mig
           </a>
