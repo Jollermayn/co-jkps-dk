@@ -182,6 +182,16 @@ function CaseDetail() {
                 </li>
               ))}
             </ul>
+            {study.slug === "ulla-dyrlov" && (
+              <a
+                href="https://open.spotify.com/show/4IZQ6RykWJJWWbjbJSXMLW"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block mt-8 text-[#C0281E] hover:underline underline-offset-4"
+              >
+                Lyt til Forældreskabet på Spotify →
+              </a>
+            )}
           </Section>
 
           {study.slug === "boliga" && (
