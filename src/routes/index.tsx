@@ -121,7 +121,7 @@ function Sidebar() {
           <img src={profilePhoto} alt="Jonas K.P. Sørensen" className="w-full h-full object-cover" />
         </div>
 
-        <p className="font-display italic text-cream text-xl md:text-2xl leading-relaxed text-center">
+        <p className="font-display italic text-cream text-xl md:text-2xl leading-relaxed text-center mt-6 lg:mt-8 mb-6 lg:mb-8">
           &ldquo;Too much artificial &mdash; not enough intelligence.&rdquo;
         </p>
 
