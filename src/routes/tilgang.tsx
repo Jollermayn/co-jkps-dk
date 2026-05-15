@@ -827,7 +827,7 @@ function TilgangPage() {
       </div>
 
       {/* SECTION 2 — DESIGNERENS ANSVAR */}
-      <section style={sectionPadding}>
+      <section className="tilgang-section" style={sectionPadding}>
         <div style={innerCol}>
           <p
             style={{
@@ -863,7 +863,7 @@ function TilgangPage() {
       </section>
 
       {/* SECTION 3 — KONTEKST */}
-      <section style={{ ...sectionPadding, backgroundColor: "#F5F3EE" }}>
+      <section className="tilgang-section" style={{ ...sectionPadding, backgroundColor: "#F5F3EE" }}>
         <div style={innerCol}>
           <div style={{ height: 1, width: "100%", background: RED, marginBottom: 48 }} aria-hidden />
           <div className="flex flex-wrap gap-x-16 gap-y-8">
@@ -887,7 +887,7 @@ function TilgangPage() {
         const bg = dark ? NAVY : "#F5F3EE";
         const fg = dark ? "#FFFFFF" : "#0A1628";
         return (
-          <section key={c.n} style={{ ...sectionPadding, backgroundColor: bg }}>
+          <section key={c.n} className="tilgang-section" style={{ ...sectionPadding, backgroundColor: bg }}>
             <div style={innerCol}>
               {idx === 0 && (
                 <>
@@ -938,7 +938,7 @@ function TilgangPage() {
       })}
 
       {/* SECTION 8 — RESULTATER */}
-      <section style={{ ...sectionPadding, backgroundColor: "#8B1A13" }}>
+      <section className="tilgang-section" style={{ ...sectionPadding, backgroundColor: "#8B1A13" }}>
         <div style={innerCol}>
           <div style={{ height: 1, width: "100%", background: "rgba(255,255,255,0.2)", marginBottom: 48 }} aria-hidden />
           <p className="uppercase font-semibold text-white" style={{ opacity: 0.6, fontSize: "0.75rem", letterSpacing: "0.2em", marginBottom: 24 }}>
@@ -983,7 +983,7 @@ function TilgangPage() {
       </section>
 
       {/* SECTION 9 — CTA */}
-      <section style={{ ...sectionPadding, backgroundColor: NAVY }}>
+      <section className="tilgang-section" style={{ ...sectionPadding, backgroundColor: NAVY }}>
         <div style={innerCol}>
           <h2
             className="font-display text-white"
