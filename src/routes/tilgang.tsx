@@ -92,21 +92,26 @@ const cards = [
 /* ---------- HOVER PREVIEWS (compact, fill image area) ---------- */
 
 function PreviewOnePager() {
+  const cols = [
+    { h: "Hvor vi er nu", bullets: ["Adoption på 23%", "Værktøjer rullet ud", "Mangler kultur"] },
+    { h: "Hvor vi vil hen", bullets: ["AI som hverdag", "Fælles sprog", "Målbar værdi"] },
+    { h: "Hvordan vi kommer der", bullets: ["Onboarding", "Use cases", "Måling pr. kvartal"] },
+  ];
   return (
-    <div className="absolute inset-0 p-4 flex gap-2">
-      {["Hvor vi er nu", "Hvor vi vil hen", "Hvordan"].map((h, i) => (
-        <div
-          key={h}
-          className="flex-1 rounded-sm p-2.5 flex flex-col"
-          style={{ backgroundColor: i === 1 ? NAVY : "rgba(245,240,232,0.92)", color: i === 1 ? "#F5F0E8" : NAVY }}
-        >
-          <span className="text-[8px] uppercase tracking-[0.2em] font-bold" style={{ color: RED }}>0{i + 1}</span>
-          <span className="mt-1 text-[10px] font-bold leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>{h}</span>
-          <div className="mt-2 space-y-1">
-            <div className="h-px w-full opacity-30" style={{ backgroundColor: i === 1 ? "#F5F0E8" : NAVY }} />
-            <div className="h-px w-3/4 opacity-30" style={{ backgroundColor: i === 1 ? "#F5F0E8" : NAVY }} />
-            <div className="h-px w-5/6 opacity-30" style={{ backgroundColor: i === 1 ? "#F5F0E8" : NAVY }} />
-          </div>
+    <div className="absolute inset-0 p-3 flex gap-1.5" style={{ backgroundColor: "#F5F0E8" }}>
+      {cols.map((c, i) => (
+        <div key={c.h} className="flex-1 flex flex-col p-2" style={{ backgroundColor: "#FFFFFF", borderTop: `2px solid ${RED}` }}>
+          <span className="text-[7px] uppercase tracking-[0.25em] font-bold" style={{ color: RED }}>0{i + 1}</span>
+          <span className="mt-1 text-[9px] font-bold leading-tight" style={{ color: NAVY, fontFamily: "'Playfair Display', serif" }}>{c.h}</span>
+          <div className="mt-2 h-px w-full" style={{ backgroundColor: NAVY, opacity: 0.15 }} />
+          <ul className="mt-2 space-y-1">
+            {c.bullets.map((b) => (
+              <li key={b} className="flex items-start gap-1 text-[7px] leading-tight" style={{ color: NAVY }}>
+                <span style={{ color: RED }}>·</span>
+                <span className="opacity-80">{b}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       ))}
     </div>
@@ -115,52 +120,72 @@ function PreviewOnePager() {
 
 function PreviewOnboarding() {
   return (
-    <div className="absolute inset-0 flex items-center justify-center gap-2 p-4">
-      {[0, 1, 2].map((i) => (
-        <div
-          key={i}
-          className="rounded-[14px] overflow-hidden flex flex-col shrink-0"
-          style={{
-            backgroundColor: NAVY,
-            border: "2px solid rgba(245,240,232,0.2)",
-            width: i === 1 ? 78 : 64,
-            height: i === 1 ? 150 : 130,
-            transform: i === 1 ? "translateY(-4px)" : "translateY(4px) scale(0.95)",
-            opacity: i === 1 ? 1 : 0.7,
-          }}
-        >
-          <div className="h-1" style={{ backgroundColor: "rgba(245,240,232,0.1)" }}>
-            <div className="h-full" style={{ width: `${(i + 1) * 33}%`, backgroundColor: RED }} />
+    <div className="absolute inset-0 flex items-center justify-center" style={{ backgroundColor: "#F5F0E8" }}>
+      <div
+        className="rounded-[18px] overflow-hidden flex flex-col"
+        style={{ backgroundColor: NAVY, padding: 4, width: 110, height: 180, boxShadow: "0 10px 30px rgba(10,22,40,0.25)" }}
+      >
+        <div className="flex-1 rounded-[14px] flex flex-col" style={{ backgroundColor: "#FFFFFF" }}>
+          <div className="h-1 mx-3 mt-3 rounded-full" style={{ backgroundColor: "rgba(10,22,40,0.08)" }}>
+            <div className="h-full rounded-full" style={{ width: "60%", backgroundColor: RED }} />
           </div>
-          <div className="flex-1 flex flex-col items-center justify-center p-2 gap-1.5">
-            <div className="h-1 w-8 rounded-full" style={{ backgroundColor: "rgba(245,240,232,0.4)" }} />
-            <div className="h-1 w-12 rounded-full" style={{ backgroundColor: "rgba(245,240,232,0.6)" }} />
-            <div className="h-1 w-6 rounded-full" style={{ backgroundColor: "rgba(245,240,232,0.3)" }} />
-            <div className="mt-2 h-3 w-10 rounded-full" style={{ backgroundColor: RED }} />
+          <div className="flex-1 flex flex-col items-center justify-center px-3 gap-2">
+            <div
+              className="w-8 h-8 rounded-full flex items-center justify-center text-[14px] font-bold"
+              style={{ backgroundColor: RED, color: "#FFFFFF", fontFamily: "'Playfair Display', serif" }}
+            >
+              V
+            </div>
+            <div className="text-[8px] font-bold leading-tight text-center" style={{ color: NAVY, fontFamily: "'Playfair Display', serif" }}>
+              Velkommen til<br />Vind Consulting
+            </div>
+            <div className="space-y-1 w-full mt-1">
+              <div className="h-[3px] w-full rounded-full" style={{ backgroundColor: "rgba(10,22,40,0.12)" }} />
+              <div className="h-[3px] w-4/5 rounded-full" style={{ backgroundColor: "rgba(10,22,40,0.12)" }} />
+            </div>
+            <div
+              className="mt-2 px-3 py-1 rounded-full text-[7px] font-bold uppercase tracking-wider"
+              style={{ backgroundColor: RED, color: "#FFFFFF" }}
+            >
+              Kom i gang
+            </div>
           </div>
         </div>
-      ))}
+      </div>
     </div>
   );
 }
 
 function PreviewToneOfVoice() {
+  const sides = [
+    {
+      label: "Ikke",
+      bg: "#7A1A12",
+      lines: ["»Vi implementerer en holistisk AI-transformation«", "»Synergier på tværs af værdikæden«"],
+    },
+    {
+      label: "Sådan",
+      bg: NAVY,
+      lines: ["»Du sparer en time om dagen«", "»Sådan bruger vi Copilot i morgen«"],
+    },
+  ];
   return (
-    <div className="absolute inset-0 p-4 grid grid-cols-2 gap-2">
-      {[
-        { label: "Ikke", color: "rgba(220,38,38,0.5)", bg: "rgba(220,38,38,0.08)" },
-        { label: "Sådan", color: "rgba(16,185,129,0.6)", bg: "rgba(16,185,129,0.08)" },
-      ].map((c) => (
-        <div
-          key={c.label}
-          className="rounded-sm p-3 flex flex-col gap-2"
-          style={{ backgroundColor: c.bg, border: `1px solid ${c.color}` }}
-        >
-          <span className="text-[8px] uppercase tracking-[0.2em] font-bold" style={{ color: c.color, opacity: 0.95 }}>{c.label}</span>
-          <div className="space-y-1.5 mt-1">
-            <div className="h-1 w-full rounded-full" style={{ backgroundColor: "rgba(245,240,232,0.4)" }} />
-            <div className="h-1 w-5/6 rounded-full" style={{ backgroundColor: "rgba(245,240,232,0.4)" }} />
-            <div className="h-1 w-3/4 rounded-full" style={{ backgroundColor: "rgba(245,240,232,0.4)" }} />
+    <div className="absolute inset-0 grid grid-cols-2">
+      {sides.map((s) => (
+        <div key={s.label} className="flex flex-col p-3 gap-2" style={{ backgroundColor: s.bg }}>
+          <span
+            className="text-[16px] font-bold leading-none"
+            style={{ color: "#FFFFFF", fontFamily: "'Playfair Display', serif", letterSpacing: "0.05em" }}
+          >
+            {s.label.toUpperCase()}
+          </span>
+          <div className="h-px w-6" style={{ backgroundColor: "rgba(255,255,255,0.4)" }} />
+          <div className="flex-1 flex flex-col justify-center gap-1.5">
+            {s.lines.map((l) => (
+              <p key={l} className="text-[7.5px] leading-snug italic" style={{ color: "rgba(255,255,255,0.85)" }}>
+                {l}
+              </p>
+            ))}
           </div>
         </div>
       ))}
@@ -169,22 +194,34 @@ function PreviewToneOfVoice() {
 }
 
 function PreviewKommunikationskit() {
+  const docs = [
+    { title: "All-hands slide", rotate: -6, x: -22, y: 6, z: 1 },
+    { title: "Nyhedsbrev", rotate: 3, x: 0, y: -4, z: 3 },
+    { title: "One-pager", rotate: 8, x: 22, y: 8, z: 2 },
+  ];
   return (
-    <div className="absolute inset-0 p-4 flex flex-col gap-2 justify-center">
-      {[
-        { ratio: "16/9", bg: NAVY, accent: "#F5F0E8" },
-        { ratio: "4/1", bg: "#F5F0E8", accent: NAVY },
-        { ratio: "3/1", bg: "#F5F0E8", accent: NAVY },
-      ].map((t, i) => (
+    <div className="absolute inset-0 flex items-center justify-center" style={{ backgroundColor: "#F5F0E8" }}>
+      {docs.map((d) => (
         <div
-          key={i}
-          className="rounded-sm flex items-center px-3 gap-2"
-          style={{ backgroundColor: t.bg, height: i === 0 ? 48 : 28 }}
+          key={d.title}
+          className="absolute flex flex-col p-2"
+          style={{
+            width: 78,
+            height: 100,
+            backgroundColor: "#FFFFFF",
+            transform: `translate(${d.x}px, ${d.y}px) rotate(${d.rotate}deg)`,
+            boxShadow: "0 6px 18px rgba(10,22,40,0.18)",
+            zIndex: d.z,
+            borderTop: `2px solid ${RED}`,
+          }}
         >
-          <div className="w-1 h-3/5 rounded-full" style={{ backgroundColor: RED }} />
-          <div className="flex-1 space-y-1">
-            <div className="h-1 w-1/2 rounded-full" style={{ backgroundColor: t.accent, opacity: 0.7 }} />
-            {i === 0 && <div className="h-1 w-3/4 rounded-full" style={{ backgroundColor: t.accent, opacity: 0.4 }} />}
+          <span className="text-[6.5px] uppercase tracking-[0.2em] font-bold" style={{ color: RED }}>{d.title}</span>
+          <div className="mt-1.5 h-px w-full" style={{ backgroundColor: NAVY, opacity: 0.12 }} />
+          <div className="mt-2 space-y-1">
+            <div className="h-[2px] w-full rounded-full" style={{ backgroundColor: NAVY, opacity: 0.5 }} />
+            <div className="h-[2px] w-5/6 rounded-full" style={{ backgroundColor: NAVY, opacity: 0.3 }} />
+            <div className="h-[2px] w-3/4 rounded-full" style={{ backgroundColor: NAVY, opacity: 0.3 }} />
+            <div className="h-[2px] w-2/3 rounded-full" style={{ backgroundColor: NAVY, opacity: 0.3 }} />
           </div>
         </div>
       ))}
