@@ -406,7 +406,7 @@ function Index() {
                   Mere end 10 års erfaring med at drive projekter og leverancer tæt på kunden — på tværs af public service, civilsamfund og kommercielle virksomheder, med projekter for blandt andre Danmarks Radio, Amnesty International og Danmarks Naturfredningsforening.
                 </p>
                 <p>
-                  Jeg arbejder i krydsfeltet mellem teknologi, forretning og mennesker. Jeg er vant til at koordinere komplekse forløb, holde overblik under pres og sikre at det der bliver lovet, også bliver leveret.
+                  Jeg arbejder i skæringsfeltet mellem menneskelig adfærd og digitale løsninger — fra de første indsigter til færdigt output.
                 </p>
                 <p>
                   Jeg er uddannet Cand.IT i Digital Design & Interactive Technologies fra IT-Universitetet i København.
