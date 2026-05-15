@@ -31,7 +31,7 @@ const expertise = [
   },
 ];
 
-const experience = [
+const experiencePage1 = [
   {
     name: "Boliga",
     tags: "PRODUCT DESIGN · UX RESEARCH · DATAANALYSE",
@@ -47,6 +47,9 @@ const experience = [
     tags: "SERVICE DESIGN · UX RESEARCH · CO-DESIGN",
     body: "Mixed methods research med interviews, media-go-alongs og feltobservation. Designede tre interventioner i Wolt Partner-appen om transparens og rettigheder.",
   },
+];
+
+const experiencePage2 = [
   {
     name: "Danmarks Naturfredningsforening",
     tags: "KOMMUNIKATIONSANSVARLIG",
@@ -84,9 +87,69 @@ const education = [
 
 function Pill({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-block rounded-full border border-[#0D1B2A]/70 px-3 py-[3px] text-[0.78rem] leading-tight text-[#0D1B2A] cv-pill">
+    <span className="inline-block rounded-full border border-[#0D1B2A]/70 px-3 py-[3px] text-[0.78rem] leading-tight text-[#0D1B2A]">
       {children}
     </span>
+  );
+}
+
+function SectionLabel({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      <h2 className="text-[0.78rem] tracking-[0.2em] font-semibold text-[#C0281E]">{children}</h2>
+      <div aria-hidden className="mt-1 h-px w-10 bg-[#C0281E]" />
+    </>
+  );
+}
+
+function ExperienceItem({ name, tags, body }: { name: string; tags: string; body: string }) {
+  return (
+    <div>
+      <h3
+        className="font-display font-bold text-[1.05rem] text-[#0D1B2A] leading-tight"
+        style={{ fontFamily: "'Playfair Display', serif" }}
+      >
+        {name}
+      </h3>
+      <p className="mt-0.5 text-[0.7rem] tracking-[0.12em] font-semibold text-[#0D1B2A]/65">{tags}</p>
+      <p className="mt-1.5 text-[0.85rem] leading-snug text-[#0D1B2A]">{body}</p>
+    </div>
+  );
+}
+
+function SidebarBottom() {
+  return (
+    <div className="mt-auto flex flex-col items-center text-center">
+      <p
+        className="font-display italic text-[0.95rem] text-[#F4EFE6]/85"
+        style={{ fontFamily: "'Playfair Display', serif" }}
+      >
+        Portfolio: www.jkps.dk
+      </p>
+      <p
+        className="mt-3 font-display italic text-[0.85rem] text-[#F4EFE6]/70"
+        style={{ fontFamily: "'Playfair Display', serif" }}
+      >
+        - Aarhus -
+      </p>
+    </div>
+  );
+}
+
+function Page({ children, isFirst }: { children: React.ReactNode; isFirst?: boolean }) {
+  return (
+    <article
+      className="cv-page bg-[#F4EFE6] grid grid-cols-[35%_65%] overflow-hidden"
+      style={{
+        width: "794px",
+        height: "1123px",
+        boxShadow: "0 10px 30px rgba(0,0,0,0.25)",
+        pageBreakAfter: isFirst ? "always" : "auto",
+        breakAfter: isFirst ? "page" : "auto",
+      }}
+    >
+      {children}
+    </article>
   );
 }
 
@@ -95,18 +158,16 @@ function CVPage() {
     <>
       <style>{`
         @page { size: A4; margin: 0; }
-        html, body { background: #1c1c1c; }
         @media print {
-          html, body { background: #ffffff !important; }
-          .cv-root { background: #ffffff !important; padding: 0 !important; }
-          .cv-sheet { box-shadow: none !important; margin: 0 !important; width: 210mm !important; min-height: 297mm !important; }
-          .cv-sidebar, .cv-content { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+          html, body { background: #ffffff !important; margin: 0 !important; padding: 0 !important; }
+          .cv-root { background: #ffffff !important; padding: 0 !important; gap: 0 !important; }
+          .cv-page { box-shadow: none !important; margin: 0 !important; width: 210mm !important; height: 297mm !important; }
           .no-print { display: none !important; }
         }
-        .cv-sidebar, .cv-content { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        .cv-page, .cv-sidebar, .cv-content { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
       `}</style>
 
-      <div className="cv-root min-h-screen bg-[#1c1c1c] py-10 px-4 print:p-0">
+      <div className="cv-root flex flex-col items-center gap-6 min-h-screen bg-[#e5e5e5] py-10 px-4">
         <button
           type="button"
           onClick={() => window.print()}
@@ -115,11 +176,8 @@ function CVPage() {
           Print / Gem som PDF
         </button>
 
-        <article
-          className="cv-sheet mx-auto bg-[#F4EFE6] shadow-2xl grid grid-cols-[35%_65%]"
-          style={{ width: "210mm", minHeight: "297mm" }}
-        >
-          {/* Sidebar */}
+        {/* PAGE 1 */}
+        <Page isFirst>
           <aside
             className="cv-sidebar relative flex flex-col text-[#F4EFE6] px-8 py-10"
             style={{ backgroundColor: "#0A1628" }}
@@ -130,7 +188,10 @@ function CVPage() {
             >
               Jonas<br />K.P.<br />Sørensen
             </h1>
-            <p className="mt-4 font-display text-[1.1rem]" style={{ fontFamily: "'Playfair Display', serif" }}>
+            <p
+              className="mt-4 font-display text-[1.1rem]"
+              style={{ fontFamily: "'Playfair Display', serif" }}
+            >
               Digital konsulent
             </p>
             <p className="mt-1 text-[0.78rem] tracking-wide text-[#F4EFE6]/70">
@@ -141,25 +202,15 @@ function CVPage() {
               <img src={profilePhoto} alt="Jonas K.P. Sørensen" className="w-full h-full object-cover" />
             </div>
 
-            <div className="mt-auto pt-16">
-              <p className="font-display italic text-[0.95rem] text-[#F4EFE6]/85" style={{ fontFamily: "'Playfair Display', serif" }}>
-                Portfolio: www.jkps.dk
-              </p>
-              <p className="mt-12 font-display italic text-[0.85rem] text-[#F4EFE6]/70" style={{ fontFamily: "'Playfair Display', serif" }}>
-                - Aarhus -
-              </p>
-            </div>
+            <SidebarBottom />
           </aside>
 
-          {/* Content */}
           <div
-            className="cv-content px-10 py-10 text-[#0D1B2A]"
+            className="cv-content px-10 py-10 text-[#0D1B2A] overflow-hidden"
             style={{ backgroundColor: "#F4EFE6" }}
           >
-            {/* OM MIG */}
             <section>
-              <h2 className="text-[0.78rem] tracking-[0.2em] font-semibold text-[#C0281E]">OM MIG</h2>
-              <div aria-hidden className="mt-1 h-px w-10 bg-[#C0281E]" />
+              <SectionLabel>OM MIG</SectionLabel>
               <div className="mt-4 space-y-3 text-[0.88rem] leading-relaxed text-[#0D1B2A]">
                 <p>
                   Mere end 10 års erfaring med digitale produkter og brugeroplevelser på tværs af public service, civilsamfund og kommercielle virksomheder — med projekter for DR, Amnesty International og Danmarks Naturfredningsforening.
@@ -173,10 +224,8 @@ function CVPage() {
               </div>
             </section>
 
-            {/* EKSPERTISE */}
-            <section className="mt-8">
-              <h2 className="text-[0.78rem] tracking-[0.2em] font-semibold text-[#C0281E]">EKSPERTISE</h2>
-              <div aria-hidden className="mt-1 h-px w-10 bg-[#C0281E]" />
+            <section className="mt-7">
+              <SectionLabel>EKSPERTISE</SectionLabel>
               <div className="mt-4 grid grid-cols-3 gap-5">
                 {expertise.map((col) => (
                   <div key={col.title}>
@@ -196,34 +245,40 @@ function CVPage() {
               </div>
             </section>
 
-            {/* ERFARING */}
-            <section className="mt-8">
-              <h2 className="text-[0.78rem] tracking-[0.2em] font-semibold text-[#C0281E]">ERFARING</h2>
-              <div aria-hidden className="mt-1 h-px w-10 bg-[#C0281E]" />
+            <section className="mt-7">
+              <SectionLabel>ERFARING</SectionLabel>
               <div className="mt-4 space-y-4">
-                {experience.map((e) => (
-                  <div key={e.name}>
-                    <h3
-                      className="font-display font-bold text-[1.05rem] text-[#0D1B2A] leading-tight"
-                      style={{ fontFamily: "'Playfair Display', serif" }}
-                    >
-                      {e.name}
-                    </h3>
-                    <p className="mt-0.5 text-[0.7rem] tracking-[0.12em] font-semibold text-[#0D1B2A]/65">
-                      {e.tags}
-                    </p>
-                    <p className="mt-1.5 text-[0.85rem] leading-snug text-[#0D1B2A]">
-                      {e.body}
-                    </p>
-                  </div>
+                {experiencePage1.map((e) => (
+                  <ExperienceItem key={e.name} {...e} />
+                ))}
+              </div>
+            </section>
+          </div>
+        </Page>
+
+        {/* PAGE 2 */}
+        <Page>
+          <aside
+            className="cv-sidebar relative flex flex-col text-[#F4EFE6] px-8 py-10"
+            style={{ backgroundColor: "#0A1628" }}
+          >
+            <SidebarBottom />
+          </aside>
+
+          <div
+            className="cv-content px-10 py-10 text-[#0D1B2A] overflow-hidden"
+            style={{ backgroundColor: "#F4EFE6" }}
+          >
+            <section>
+              <div className="space-y-4">
+                {experiencePage2.map((e) => (
+                  <ExperienceItem key={e.name} {...e} />
                 ))}
               </div>
             </section>
 
-            {/* UDDANNELSE */}
-            <section className="mt-8">
-              <h2 className="text-[0.78rem] tracking-[0.2em] font-semibold text-[#C0281E]">UDDANNELSE</h2>
-              <div aria-hidden className="mt-1 h-px w-10 bg-[#C0281E]" />
+            <section className="mt-7">
+              <SectionLabel>UDDANNELSE</SectionLabel>
               <div className="mt-4 space-y-4">
                 {education.map((e) => (
                   <div key={e.title}>
@@ -237,19 +292,15 @@ function CVPage() {
                       {e.meta}
                     </p>
                     {e.body && (
-                      <p className="mt-1.5 text-[0.85rem] leading-snug text-[#0D1B2A]">
-                        {e.body}
-                      </p>
+                      <p className="mt-1.5 text-[0.85rem] leading-snug text-[#0D1B2A]">{e.body}</p>
                     )}
                   </div>
                 ))}
               </div>
             </section>
 
-            {/* KONTAKT */}
-            <section className="mt-8">
-              <h2 className="text-[0.78rem] tracking-[0.2em] font-semibold text-[#C0281E]">KONTAKT</h2>
-              <div aria-hidden className="mt-1 h-px w-10 bg-[#C0281E]" />
+            <section className="mt-7">
+              <SectionLabel>KONTAKT</SectionLabel>
               <ul className="mt-4 space-y-1.5 text-[0.88rem] text-[#0D1B2A]">
                 <li className="font-semibold">Jonas@jkps.dk</li>
                 <li className="font-semibold">linkedin.com/in/jonaskps</li>
@@ -258,7 +309,7 @@ function CVPage() {
               </ul>
             </section>
           </div>
-        </article>
+        </Page>
       </div>
     </>
   );
