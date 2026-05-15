@@ -495,12 +495,6 @@ function KommunikationskitContent() {
   );
 }
 
-const cardContent: Record<string, React.ReactNode> = {
-  "01": <OnePagerContent />,
-  "02": <OnboardingContent />,
-  "03": <ToneOfVoiceContent />,
-  "04": <KommunikationskitContent />,
-};
 
 /* ---------- MODAL ---------- */
 
