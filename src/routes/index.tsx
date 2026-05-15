@@ -158,17 +158,15 @@ function Index() {
           <section id="om" className="py-16 md:py-20">
             <div className="px-12 md:px-14">
               <Eyebrow>Om mig</Eyebrow>
-              <div className="mt-8 max-w-3xl space-y-6 text-cream/80 text-lg leading-relaxed">
-                <p className="text-xl md:text-2xl leading-snug text-cream font-light">
-                  Jeg har arbejdet selvstændigt siden 2016 med UX research, servicedesign og konceptudvikling — på tværs af public service, civilsamfund og kommercielle virksomheder. Med en kandidat i Digital Design og Interaktive Teknologier fra ITU som fagligt fundament.
+              <div className="mt-8 max-w-3xl space-y-6">
+                <p style={{ color: "white", fontSize: "1.1rem", lineHeight: 1.8 }}>
+                  Jeg har arbejdet selvstændigt siden 2016 med UX research, servicedesign og konceptudvikling — på tværs af public service, civilsamfund og kommercielle virksomheder.
                 </p>
-                <p className="italic text-cream/60">
+                <p style={{ color: "white", fontSize: "1.1rem", lineHeight: 1.8 }}>
+                  Øjeblikket hvor strategi møder mennesket — det er mit felt.
+                </p>
+                <p style={{ color: "white", fontStyle: "italic", opacity: 0.7, fontSize: "1rem", lineHeight: 1.8 }}>
                   Privat er jeg familiefar, naturmenneske og det, man nok ville kalde en seriøs lytter.
-                </p>
-                <p className="font-display italic text-cream text-xl md:text-2xl leading-relaxed">
-                  &ldquo;Tomorrow belongs to those who can hear it coming.&rdquo;
-                  <br />
-                  — Bowie, 1974
                 </p>
               </div>
             </div>
