@@ -176,41 +176,6 @@ function Index() {
           {/* CASES */}
           <CasesSection />
 
-          {/* MIN TILGANG */}
-          <section id="tilgang" className="py-20 md:py-28">
-            <div className="px-5 md:px-14 text-center">
-              <p className="text-[11px] md:text-xs uppercase tracking-[0.35em] font-semibold" style={{ color: "#C0281E" }}>
-                Min tilgang
-              </p>
-              <ul className="mt-12 md:mt-14 grid grid-cols-4 max-w-3xl mx-auto divide-x divide-cream/10">
-                {[
-                  { no: "01", label: "Research" },
-                  { no: "02", label: "Koncept" },
-                  { no: "03", label: "Design" },
-                  { no: "04", label: "Formidling" },
-                ].map((s) => (
-                  <li key={s.no} className="flex flex-col items-center gap-3 px-2 py-2">
-                    <span className="font-display text-3xl md:text-5xl text-cream/35 leading-none">
-                      {s.no}
-                    </span>
-                    <span className="text-xs md:text-sm tracking-wide text-cream">
-                      {s.label}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-12 md:mt-14">
-                <Link
-                  to="/tilgang"
-                  className="text-sm hover:underline underline-offset-4"
-                  style={{ color: "#C0281E" }}
-                >
-                  Se hvordan jeg arbejder →
-                </Link>
-              </div>
-            </div>
-          </section>
-
           {/* KOMPETENCER */}
           <section id="kompetencer" className="py-16 md:py-20">
             <div className="px-5 md:px-14">
@@ -226,6 +191,39 @@ function Index() {
               </div>
 
               <KompetencerList />
+
+              {/* MIN TILGANG */}
+              <div id="tilgang" className="mt-20 md:mt-28 text-center">
+                <p className="text-[11px] md:text-xs uppercase tracking-[0.35em] font-semibold" style={{ color: "#C0281E" }}>
+                  Min tilgang
+                </p>
+                <ul className="mt-12 md:mt-14 grid grid-cols-4 max-w-3xl mx-auto divide-x divide-cream/10">
+                  {[
+                    { no: "01", label: "Research" },
+                    { no: "02", label: "Koncept" },
+                    { no: "03", label: "Design" },
+                    { no: "04", label: "Formidling" },
+                  ].map((s) => (
+                    <li key={s.no} className="flex flex-col items-center gap-3 px-2 py-2">
+                      <span className="font-display text-3xl md:text-5xl text-cream/35 leading-none">
+                        {s.no}
+                      </span>
+                      <span className="text-xs md:text-sm tracking-wide text-cream">
+                        {s.label}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-12 md:mt-14">
+                  <Link
+                    to="/tilgang"
+                    className="text-sm hover:underline underline-offset-4"
+                    style={{ color: "#C0281E" }}
+                  >
+                    Se hvordan jeg arbejder →
+                  </Link>
+                </div>
+              </div>
             </div>
           </section>
 
