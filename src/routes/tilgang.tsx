@@ -673,14 +673,18 @@ function TilgangPage() {
     },
   ];
 
-  const metaRow = (label: string, text: string) => (
-    <div className="flex flex-col sm:flex-row sm:gap-4 py-2" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
-      <span className="uppercase font-semibold shrink-0" style={{ color: RED, fontSize: "0.7rem", letterSpacing: "0.15em", minWidth: 96, paddingTop: 4 }}>
-        {label}
-      </span>
-      <span className="text-white" style={{ fontSize: "0.9rem", lineHeight: 1.6, opacity: 0.9 }}>{text}</span>
-    </div>
-  );
+  const metaRow = (label: string, text: string, dark = false) => {
+    const baseColor = dark ? "#0A1628" : "#FFFFFF";
+    const borderColor = dark ? "rgba(10,22,40,0.12)" : "rgba(255,255,255,0.08)";
+    return (
+      <div className="flex flex-col sm:flex-row sm:gap-4 py-2" style={{ borderTop: `1px solid ${borderColor}` }}>
+        <span className="uppercase font-semibold shrink-0" style={{ color: RED, fontSize: "0.7rem", letterSpacing: "0.15em", minWidth: 96, paddingTop: 4 }}>
+          {label}
+        </span>
+        <span style={{ color: baseColor, fontSize: "0.9rem", lineHeight: 1.6, opacity: dark ? 0.85 : 0.9 }}>{text}</span>
+      </div>
+    );
+  };
 
   return (
     <main className="min-h-screen bg-[#0D1B2A] text-cream">
