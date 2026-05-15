@@ -695,56 +695,43 @@ function TilgangPage() {
 
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-start">
             {cards.map((card) => (
-              <button
-                key={card.no}
-                type="button"
-                onClick={() => setOpenCard(card.no)}
-                className="group relative flex flex-col text-left border border-cream/10 hover:border-cream/20 focus:border-cream/20 transition-colors outline-none cursor-pointer overflow-hidden"
-                style={{ backgroundColor: NAVY }}
-              >
-                {/* Image area (always rendered, dimmed by default) */}
-                <div className="relative aspect-[4/3] w-full overflow-hidden border-b border-cream/10" style={{ backgroundColor: NAVY }}>
-                  {/* Default state */}
-                  <div className="absolute inset-0 z-10 transition-opacity duration-300 group-hover:opacity-0 group-focus:opacity-0 bg-gradient-to-br from-cream/5 to-cream/[0.02]">
-                    <span className="absolute top-4 left-4 font-display text-2xl text-ember">{card.no}</span>
-                    <span className="absolute bottom-4 right-4 text-[10px] uppercase tracking-[0.25em] text-cream/40">
-                      Hover for preview · klik for detaljer
+              <div key={card.no} className="relative">
+                <button
+                  type="button"
+                  onClick={() => setOpenCard(card.no)}
+                  className="group w-full flex flex-col text-left border border-cream/10 bg-cream/[0.02] hover:bg-cream/[0.04] hover:border-cream/20 focus:bg-cream/[0.04] focus:border-cream/20 transition-colors outline-none cursor-pointer p-6 md:p-8"
+                >
+                  <div className="flex items-baseline justify-between gap-4">
+                    <div className="flex flex-col">
+                      <span className="text-[10px] uppercase tracking-[0.25em] font-semibold" style={{ color: RED }}>
+                        {card.phaseRef}
+                      </span>
+                      <h3 className="font-display text-xl md:text-2xl tracking-tight leading-tight mt-2 text-cream">
+                        {card.title}
+                      </h3>
+                    </div>
+                    <span className="text-[10px] uppercase tracking-[0.25em] text-cream/40 group-hover:text-ember transition-colors shrink-0">
+                      Se mere →
                     </span>
                   </div>
-                  {/* Hover preview */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300">
-                    {previews[card.no]}
-                  </div>
-                </div>
+                  <p className="mt-3 text-sm md:text-base text-cream/75 leading-relaxed">
+                    {card.body}
+                  </p>
 
-                {/* Text area */}
-                <div className="relative p-6 md:p-8">
-                  {/* Hover background: preview image + navy overlay, covers text area */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 pointer-events-none overflow-hidden">
-                    <div className="absolute inset-0">{previews[card.no]}</div>
-                    <div className="absolute inset-0" style={{ backgroundColor: "rgba(10,22,40,0.7)" }} />
-                  </div>
-
-                  <div className="relative">
-                    <div className="flex items-baseline justify-between gap-4">
-                      <div className="flex flex-col">
-                        <span className="text-[10px] uppercase tracking-[0.25em] font-semibold" style={{ color: RED }}>
-                          {card.phaseRef}
-                        </span>
-                        <h3 className="font-display text-xl md:text-2xl tracking-tight leading-tight mt-2 text-cream">
-                          {card.title}
-                        </h3>
-                      </div>
-                      <span className="text-[10px] uppercase tracking-[0.25em] text-cream/60 group-hover:text-cream transition-colors shrink-0">
-                        Se mere →
-                      </span>
+                  {/* Floating preview tooltip */}
+                  <div
+                    className="pointer-events-none absolute left-1/2 -top-3 -translate-x-1/2 -translate-y-full opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 z-30"
+                    style={{ width: 300 }}
+                  >
+                    <div
+                      className="relative aspect-[4/3] w-full overflow-hidden border border-cream/15 shadow-2xl"
+                      style={{ backgroundColor: NAVY }}
+                    >
+                      {previews[card.no]}
                     </div>
-                    <p className="mt-3 text-sm md:text-base text-cream/75 leading-relaxed transition-opacity duration-300 group-hover:opacity-0 group-focus:opacity-0">
-                      {card.body}
-                    </p>
                   </div>
-                </div>
-              </button>
+                </button>
+              </div>
             ))}
           </div>
 
