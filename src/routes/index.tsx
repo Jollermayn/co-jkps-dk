@@ -186,6 +186,11 @@ function Index() {
                   Jeg arbejder i skæringsfeltet mellem strategi, design og teknologi — og bringer alle tre perspektiver
                   ind i hvert projekt.
                 </p>
+                <p style={{ color: "white", opacity: 0.85, fontSize: "1rem", fontStyle: "italic", lineHeight: 2, maxWidth: 560, marginBottom: 40 }}>
+                  Indsigt er kun værdifuld hvis den omsættes.<br />
+                  Design er kun stærkt hvis det er forankret.<br />
+                  Strategi er kun relevant hvis den lander.
+                </p>
               </div>
 
               <KompetencerList />
