@@ -51,19 +51,22 @@ const _allCases: CaseStudy[] = [
     title: "Fra usynlig algoritme til informeret bud",
     image: caseWolt,
     context:
-      "Wolt-bude arbejder under uigennemsigtige forhold de ikke kan se eller forudsige. Løn beregnes i fugleflugt, basisløn er faldet, og algoritmekontrol betyder at bude accepterer ordrer de ved er dårlige — uden reelt valg.",
+      "Gig-økonomi platforme som Wolt opererer med uigennemsigtige algoritmer der direkte påvirker budenes indkomst. Budene har ingen indsigt i hvordan deres løn beregnes — og ingen redskaber til at handle på det.",
     challenge:
-      "Platformen usynliggør de mennesker der holder den kørende. Hvordan designer man transparens ind i et system der er bygget på det modsatte?",
+      "Løn beregnet i fugleflugt: 2,7 km. Faktisk rute: 5,9 km. Grundløn faldet fra 45 til 35 kr. 40% af kunderne fravalgte Wolt af etiske årsager — uden at budene vidste det.",
     role: [
-      "Gennemførte mixed methods research med 5 interviews, media-go-alongs og feltobservation",
-      "Analyserede lønstrukturer og algoritmisk kontrol",
-      "Designede tre interventioner i Wolt Partner-appen",
+      "Mixed methods research: interviews, media-go-alongs og feltobservation. Jeg fulgte budene på deres ruter og kortlagde kløften mellem algoritmens logik og hverdagens virkelighed.",
     ],
     approach: ["Mixed methods", "Co-design", "Service Design", "UX Research"],
+    solution: [
+      "Heatmap der viser faktiske efterspørgselszoner",
+      "Restaurant-blacklist så budene selv kan fravælge samarbejdspartnere",
+      "Juridisk support direkte i appen",
+    ],
     outcomes: [
-      "Realtids heatmap over efterspørgsel",
-      "Mulighed for at fravælge restauranter",
-      "Direkte adgang til juridisk support og rettigheder",
+      "Kortlagde systematisk lønberegning der undervurderer faktisk arbejdsdistance med 54%",
+      "Identificerede at 40% af kunder aktivt fravalgte platformen af etiske årsager",
+      "Designede tre konkrete interventioner der giver budene information og autonomi",
     ],
   },
   {
