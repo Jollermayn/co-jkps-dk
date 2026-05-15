@@ -688,7 +688,7 @@ function TilgangPage() {
         }}
       >
         <span
-          className="uppercase font-semibold"
+          className="uppercase font-semibold tilgang-label"
           style={{
             color: RED,
             fontSize: "0.7rem",
@@ -702,6 +702,7 @@ function TilgangPage() {
           {label}
         </span>
         <span
+          className="tilgang-body"
           style={{
             color: baseColor,
             fontSize: "1.1rem",
@@ -733,6 +734,15 @@ function TilgangPage() {
 
   return (
     <main className="min-h-screen bg-[#0D1B2A] text-cream">
+      <style>{`
+        @media (max-width: 768px) {
+          .tilgang-section { padding: 64px 24px !important; }
+          .tilgang-section-h2 { font-size: 1.8rem !important; font-weight: 700 !important; line-height: 1.2 !important; margin-bottom: 24px !important; }
+          .tilgang-challenge-h2 { font-size: 1.5rem !important; font-weight: 700 !important; line-height: 1.3 !important; }
+          .tilgang-label { font-size: 0.7rem !important; letter-spacing: 0.2em !important; margin-bottom: 12px !important; }
+          .tilgang-body { font-size: 1rem !important; line-height: 1.8 !important; }
+        }
+      `}</style>
       {/* SECTION 1 — HERO BANNER (full-screen) */}
       <div
         className="relative w-full overflow-hidden h-[50vh] md:h-[70vh]"
@@ -818,7 +828,7 @@ function TilgangPage() {
       </div>
 
       {/* SECTION 2 — DESIGNERENS ANSVAR */}
-      <section style={sectionPadding}>
+      <section className="tilgang-section" style={sectionPadding}>
         <div style={innerCol}>
           <p
             style={{
@@ -835,26 +845,26 @@ function TilgangPage() {
           >
             &ldquo;For meget &lsquo;Artificial&rsquo; &mdash; for lidt &lsquo;Intelligence&rsquo;.&rdquo;
           </p>
-          <p className="text-white" style={{ opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.9, marginBottom: "1.5em" }}>
+          <p className="text-white tilgang-body" style={{ opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.9, marginBottom: "1.5em" }}>
             Strategien er sendt. Værktøjet er rullet ud. Budskabet er kommunikeret.
           </p>
-          <p className="text-white" style={{ opacity: 1, fontSize: "1.2rem", fontWeight: 500, lineHeight: 1.9, marginBottom: "1.5em" }}>
+          <p className="text-white tilgang-body" style={{ opacity: 1, fontSize: "1.2rem", fontWeight: 500, lineHeight: 1.9, marginBottom: "1.5em" }}>
             Men forandringen lander ikke.
           </p>
-          <p className="text-white" style={{ opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.9, marginBottom: "1.5em" }}>
+          <p className="text-white tilgang-body" style={{ opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.9, marginBottom: "1.5em" }}>
             Det er ikke udtryk for ligegyldighed. Det er udtryk for manglende indsigt i hvordan mennesker faktisk forholder sig til forandring — og hvad der skal til for at noget nyt bliver meningsfuldt i en hverdag der i forvejen stiller mange krav.
           </p>
-          <p className="text-white" style={{ opacity: 1, fontSize: "1.2rem", fontWeight: 500, lineHeight: 1.9, marginBottom: "1.5em" }}>
+          <p className="text-white tilgang-body" style={{ opacity: 1, fontSize: "1.2rem", fontWeight: 500, lineHeight: 1.9, marginBottom: "1.5em" }}>
             Organisationer er designet til at producere output. Færre er designet til at sikre at outputtet lander hos det menneske det handler om.
           </p>
-          <p className="text-white" style={{ opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.9, marginBottom: 0 }}>
+          <p className="text-white tilgang-body" style={{ opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.9, marginBottom: 0 }}>
             Det er præcis det øjeblik jeg arbejder i.
           </p>
         </div>
       </section>
 
       {/* SECTION 3 — KONTEKST */}
-      <section style={{ ...sectionPadding, backgroundColor: "#F5F3EE" }}>
+      <section className="tilgang-section" style={{ ...sectionPadding, backgroundColor: "#F5F3EE" }}>
         <div style={innerCol}>
           <div style={{ height: 1, width: "100%", background: RED, marginBottom: 48 }} aria-hidden />
           <div className="flex flex-wrap gap-x-16 gap-y-8">
@@ -865,7 +875,7 @@ function TilgangPage() {
               </div>
             ))}
           </div>
-          <p style={{ color: "#0A1628", opacity: 0.6, fontSize: "1.1rem", lineHeight: 1.9, marginTop: 32 }}>
+          <p className="tilgang-body" style={{ color: "#0A1628", opacity: 0.6, fontSize: "1.1rem", lineHeight: 1.9, marginTop: 32 }}>
             Vind Consulting. Strategirådgivning, 80 medarbejdere, Aarhus og København. AI-værktøjer rullet ud på tværs — 23% aktiv brug. Kløften mellem ambition og hverdag er målbar og voksende.
           </p>
           <div style={{ height: 1, width: "100%", background: RED, marginTop: 48 }} aria-hidden />
@@ -878,14 +888,14 @@ function TilgangPage() {
         const bg = dark ? NAVY : "#F5F3EE";
         const fg = dark ? "#FFFFFF" : "#0A1628";
         return (
-          <section key={c.n} style={{ ...sectionPadding, backgroundColor: bg }}>
+          <section key={c.n} className="tilgang-section" style={{ ...sectionPadding, backgroundColor: bg }}>
             <div style={innerCol}>
               {idx === 0 && (
                 <>
-                  <p className="uppercase font-semibold" style={{ color: RED, fontSize: "0.75rem", letterSpacing: "0.15em", marginBottom: 24 }}>
+                  <p className="uppercase font-semibold tilgang-label" style={{ color: RED, fontSize: "0.75rem", letterSpacing: "0.15em", marginBottom: 24 }}>
                     Udfordringerne
                   </p>
-                  <h2 className="font-display leading-tight" style={{ color: fg, fontSize: "clamp(1.6rem, 3vw, 2rem)", marginBottom: 80 }}>
+                  <h2 className="font-display leading-tight tilgang-section-h2" style={{ color: fg, fontSize: "clamp(1.6rem, 3vw, 2rem)", marginBottom: 80 }}>
                     Fire situationer. Én fælles bevægelse.
                   </h2>
                 </>
@@ -906,13 +916,13 @@ function TilgangPage() {
                   {c.n}
                 </span>
                 <h2
-                  className="font-display leading-tight"
+                  className="font-display leading-tight tilgang-challenge-h2"
                   style={{ color: fg, fontSize: "clamp(1.4rem, 5vw, 1.8rem)", marginTop: 0, marginBottom: 8 }}
                 >
                   {c.h2}
                 </h2>
                 <p
-                  className="italic"
+                  className="italic tilgang-body"
                   style={{ color: RED, fontSize: "0.95rem", lineHeight: 1.7, marginTop: 8, marginBottom: 32 }}
                 >
                   {c.label}
@@ -929,13 +939,13 @@ function TilgangPage() {
       })}
 
       {/* SECTION 8 — RESULTATER */}
-      <section style={{ ...sectionPadding, backgroundColor: "#8B1A13" }}>
+      <section className="tilgang-section" style={{ ...sectionPadding, backgroundColor: "#8B1A13" }}>
         <div style={innerCol}>
           <div style={{ height: 1, width: "100%", background: "rgba(255,255,255,0.2)", marginBottom: 48 }} aria-hidden />
-          <p className="uppercase font-semibold text-white" style={{ opacity: 0.6, fontSize: "0.75rem", letterSpacing: "0.2em", marginBottom: 24 }}>
+          <p className="uppercase font-semibold text-white tilgang-label" style={{ opacity: 0.6, fontSize: "0.75rem", letterSpacing: "0.2em", marginBottom: 24 }}>
             Resultatet
           </p>
-          <h2 className="font-display text-white" style={{ fontSize: "clamp(1.8rem, 3vw, 2.4rem)", marginBottom: 48 }}>
+          <h2 className="font-display text-white tilgang-section-h2" style={{ fontSize: "clamp(1.8rem, 3vw, 2.4rem)", marginBottom: 48 }}>
             Hvad det flyttede.
           </h2>
           <div className="flex flex-col sm:flex-row" style={{ gap: 32 }}>
@@ -965,7 +975,7 @@ function TilgangPage() {
             ))}
           </div>
           <p
-            className="text-white"
+            className="text-white tilgang-body"
             style={{ opacity: 0.8, fontSize: "1rem", lineHeight: 1.9, maxWidth: 480, marginTop: 48 }}
           >
             Konceptprojektet dokumenterede en undervurderet arbejdsdistance på 54% — samme metodikken som Wolt-casen. Fire udfordringer kortlagt, designet og testet. Ét fælles sprog om AI, fra støj til samtale.
@@ -974,16 +984,16 @@ function TilgangPage() {
       </section>
 
       {/* SECTION 9 — CTA */}
-      <section style={{ ...sectionPadding, backgroundColor: NAVY }}>
+      <section className="tilgang-section" style={{ ...sectionPadding, backgroundColor: NAVY }}>
         <div style={innerCol}>
           <h2
-            className="font-display text-white"
+            className="font-display text-white tilgang-section-h2"
             style={{ fontSize: "clamp(1.8rem, 3vw, 2.4rem)", maxWidth: 480, marginBottom: 16, lineHeight: 1.2 }}
           >
             Kender du en af disse situationer?
           </h2>
           <p
-            className="text-white"
+            className="text-white tilgang-body"
             style={{ opacity: 0.7, fontSize: "1.1rem", lineHeight: 1.9, maxWidth: 400, marginBottom: 48 }}
           >
             Så er det præcis det jeg arbejder med. Ikke som acceleration — men som oversættelse. Mellem det organisationen vil, og det mennesket forstår.
