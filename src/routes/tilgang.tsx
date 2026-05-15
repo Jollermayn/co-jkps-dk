@@ -628,15 +628,46 @@ function TilgangPage() {
 
   return (
     <main className="min-h-screen bg-[#0D1B2A] text-cream">
-      <section className="pt-20 md:pt-28 pb-20 md:pb-28 px-5 md:px-14">
-        <div className="pt-4">
-          {/* INTRO */}
-          <p className="text-[11px] uppercase tracking-[0.3em] font-semibold" style={{ color: RED }}>
+      {/* HERO BANNER */}
+      <div
+        className="relative w-full h-[200px] md:h-[280px] overflow-hidden"
+        style={{ backgroundColor: "#0A1628" }}
+      >
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to right, rgba(10,22,40,0.8) 0%, rgba(10,22,40,0) 100%)",
+          }}
+          aria-hidden
+        />
+        <div className="relative h-full px-5 md:px-14 flex flex-col justify-center max-w-5xl">
+          <p
+            className="uppercase font-semibold"
+            style={{ color: RED, letterSpacing: "0.15em", fontSize: "0.75rem" }}
+          >
             Vind Consulting · Konceptprojekt
           </p>
-          <h2 className="font-display text-4xl md:text-6xl lg:text-7xl leading-[0.95] tracking-tight mt-6 max-w-5xl">
+          <h1
+            className="font-display text-white leading-[1.05] tracking-tight mt-4"
+            style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}
+          >
+            De fleste organisationer har ikke et AI-problem.
+            <br />
+            <span className="italic" style={{ color: RED }}>
+              De har et oversættelsesproblem.
+            </span>
+          </h1>
+        </div>
+      </div>
+
+      <section className="pt-12 md:pt-16 pb-20 md:pb-28 px-5 md:px-14">
+        <div>
+          {/* INTRO */}
+          <h2 className="font-display text-4xl md:text-6xl lg:text-7xl leading-[0.95] tracking-tight max-w-5xl">
             Da værktøjerne var på plads <span className="italic text-ember">— men kulturen ikke var.</span>
           </h2>
+
 
           <div className="mt-12 grid grid-cols-3 gap-4 md:gap-8 border-y border-cream/10 py-8 md:py-10">
             {[
