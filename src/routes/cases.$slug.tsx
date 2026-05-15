@@ -192,6 +192,16 @@ function CaseDetail() {
                 Lyt til Forældreskabet på Spotify →
               </a>
             )}
+            {study.slug === "amnesty-international" && (
+              <a
+                href="https://amnesty.dk/vores-arbejde/doedsstraf/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block mt-8 text-[#C0281E] hover:underline underline-offset-4"
+              >
+                Se eksempel på formidling: Dødsstraf → amnesty.dk
+              </a>
+            )}
           </Section>
 
           {study.slug === "boliga" && (
