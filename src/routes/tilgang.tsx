@@ -30,32 +30,7 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
   );
 }
 
-const phases = [
-  {
-    no: "01",
-    title: "Research & indsigt",
-    body: "Jeg starter med at forstå mennesket bag problemet. Interviews, feltobservation, co-design og mixed methods. Ikke hvad folk siger de gør — men hvad de faktisk gør.",
-    cases: ["Wolt", "Høresimulering"],
-  },
-  {
-    no: "02",
-    title: "Konceptudvikling",
-    body: "Indsigten omsættes til konkrete idéer og løsningsforslag. Brugerrejser, touchpoints og servicedesign. Fra abstrakt problem til realiserbart koncept.",
-    cases: ["Boliga", "Art Spirit Coaching"],
-  },
-  {
-    no: "03",
-    title: "Design & eksekvering",
-    body: "Konceptet bliver til et færdigt visuelt output. Figma, Adobe, digitale prototyper. Jeg leverer hele vejen til færdigt produkt.",
-    cases: ["Boliga", "Wolt"],
-  },
-  {
-    no: "04",
-    title: "Formidling & implementering",
-    body: "Det færdige design skal lande hos dem der skal bruge det. Kommunikation der giver mening i hverdagen.",
-    cases: ["DR", "Amnesty", "Danmarks Naturfredningsforening"],
-  },
-];
+
 
 function TilgangPage() {
   return (
@@ -66,39 +41,6 @@ function TilgangPage() {
         <h1 className="font-display text-5xl md:text-7xl mt-6 leading-[0.95] tracking-tight max-w-4xl">
           Fra <span className="italic text-ember">indsigt</span> til <span className="italic">output</span>
         </h1>
-        <p className="mt-8 max-w-3xl text-lg md:text-xl text-cream/80 leading-relaxed">
-          Uanset opgavens størrelse arbejder jeg altid i fire faser. Det sikrer at vi ender med en løsning der virker i praksis — ikke bare i teorien.
-        </p>
-      </section>
-
-      {/* Phases */}
-      <section className="pb-20 md:pb-28 px-5 md:px-14">
-        <div className="border-t border-cream/10" />
-        <ul className="divide-y divide-cream/10 border-b border-cream/10">
-          {phases.map((phase) => (
-            <li
-              key={phase.no}
-              className="group py-10 md:py-14 hover:bg-navy/40 transition-colors -mx-5 md:-mx-14 px-5 md:px-14"
-            >
-              <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-8">
-                <span className="font-display text-3xl md:text-4xl text-ember shrink-0 md:w-16">
-                  {phase.no}
-                </span>
-                <div className="flex-1 min-w-0">
-                  <h2 className="font-display text-2xl md:text-4xl tracking-tight leading-tight">
-                    {phase.title}
-                  </h2>
-                  <p className="mt-4 max-w-3xl text-base md:text-lg text-cream/80 leading-relaxed">
-                    {phase.body}
-                  </p>
-                  <p className="mt-4 text-sm text-cream/55 italic">
-                    Cases: {phase.cases.join(", ")}
-                  </p>
-                </div>
-              </div>
-            </li>
-          ))}
-        </ul>
       </section>
 
       {/* I praksis — Case example */}
