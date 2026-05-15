@@ -354,11 +354,11 @@ function Sidebar() {
         <p className="text-xs uppercase tracking-[0.3em] text-ember mb-6">Portfolio</p>
         <div className="w-full flex flex-col gap-3 lg:gap-4 items-center text-center">
           <h1 className="font-display tracking-[-0.02em] font-medium text-center px-2 flex flex-col items-center leading-none">
-            <span className="block whitespace-nowrap text-[clamp(3.5rem,9vw,6rem)] leading-none" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700 }}>Jonas</span>
+            <span className="block whitespace-nowrap text-[clamp(3.5rem,9vw,6rem)] leading-none" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700 }}>Jonas K.P.</span>
             <span className="block whitespace-nowrap text-[clamp(3.5rem,9vw,6rem)] leading-none -mt-[0.08em]" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700 }}>Sørensen</span>
           </h1>
           <p className="text-xs md:text-sm uppercase tracking-[0.25em] text-cream/55 mt-1">
-            IT-konsulent · Projektledelse · Forretning · Digital Design
+            Digital konsulent · UX Research & Servicedesign · Selvstændig siden 2016
           </p>
           <p className="hero-subtitle text-xl leading-relaxed lg:text-2xl lg:leading-snug text-cream/85 italic text-center" style={{ fontFamily: "'Playfair Display', serif" }}>
             Jeg arbejder i krydsfeltet mellem teknologi, forretning og menneskelig adfærd — fra de første brugerindsigter til færdig løsning.
