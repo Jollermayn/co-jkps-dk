@@ -820,6 +820,21 @@ function TilgangPage() {
       {/* SECTION 2 — DESIGNERENS ANSVAR */}
       <section style={sectionPadding}>
         <div style={innerCol}>
+          <p
+            style={{
+              color: "#FFFFFF",
+              opacity: 0.6,
+              fontSize: "clamp(1.4rem, 3vw, 2rem)",
+              fontStyle: "italic",
+              fontFamily: "'Playfair Display', serif",
+              textAlign: "center",
+              maxWidth: 560,
+              margin: "0 auto 48px",
+              lineHeight: 1.5,
+            }}
+          >
+            &ldquo;For meget &lsquo;Artificial&rsquo; &mdash; for lidt &lsquo;Intelligence&rsquo;.&rdquo;
+          </p>
           <p className="text-white" style={{ opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.9, marginBottom: "1.5em" }}>
             Strategien er sendt. Værktøjet er rullet ud. Budskabet er kommunikeret.
           </p>
