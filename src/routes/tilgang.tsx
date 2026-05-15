@@ -821,7 +821,7 @@ function TilgangPage() {
           Kender du en af disse situationer?
         </h2>
         <p className="text-white" style={{ opacity: 0.7, fontSize: "1rem", maxWidth: 480, marginBottom: 40 }}>
-          Så er det præcis det jeg arbejder med.
+          Så er det præcis det jeg arbejder med. Ikke som acceleration — men som oversættelse. Mellem det organisationen vil, og det mennesket forstår.
         </p>
         <div className="flex flex-col sm:flex-row gap-4">
           <a
