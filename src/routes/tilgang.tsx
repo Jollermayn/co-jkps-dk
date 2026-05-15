@@ -830,6 +830,9 @@ function TilgangPage() {
             Men vi er ikke moduler der installeres. Vi er ikke systemer der opdateres. Vi er mennesker der har brug for at forstå hvorfor — inden vi kan handle på hvad.
           </p>
           <p className="text-white" style={{ opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.9, marginBottom: "1.5em" }}>
+            Og alligevel designer vi systemer der ikke tager højde for det. Ikke bevidst — men fordi systemerne er designet til organisationen. Til effektivitet. Til output. Sjældent til det menneske der skal leve i dem.
+          </p>
+          <p className="text-white" style={{ opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.9, marginBottom: "1.5em" }}>
             Det er ikke udtryk for ligegyldighed når forandring ikke lander. Det er udtryk for manglende indsigt i hvordan mennesker faktisk forholder sig til det nye — i en hverdag der i forvejen stiller mange krav.
           </p>
           <p className="text-white" style={{ opacity: 1, fontSize: "1.2rem", fontWeight: 500, lineHeight: 1.9, marginBottom: "1.5em" }}>
