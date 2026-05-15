@@ -733,30 +733,117 @@ function TilgangPage() {
 
   return (
     <main className="min-h-screen bg-[#0D1B2A] text-cream">
-      {/* SECTION 1 — HERO BANNER */}
+      {/* SECTION 1 — HERO BANNER (full-screen) */}
       <div
-        className="relative w-full overflow-hidden h-[220px] md:h-[320px]"
+        className="relative w-full overflow-hidden h-[50vh] md:h-[70vh]"
         style={{ backgroundColor: NAVY }}
       >
         <div
           className="absolute inset-0"
           aria-hidden
-          style={{ background: "linear-gradient(to right, rgba(10,22,40,0.9) 0%, rgba(10,22,40,0) 100%)" }}
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.3))",
+          }}
         />
-        <div className="relative h-full flex items-center">
-          <div style={innerCol}>
-            <p className="uppercase font-semibold" style={{ color: RED, letterSpacing: "0.15em", fontSize: "0.75rem" }}>
-              Vind Consulting · Konceptprojekt
+        <div className="relative h-full flex items-center justify-center">
+          <div
+            style={{
+              maxWidth: 800,
+              margin: "0 auto",
+              padding: "0 24px",
+              textAlign: "center",
+            }}
+          >
+            <p
+              className="uppercase"
+              style={{
+                color: "#FFFFFF",
+                opacity: 0.6,
+                fontSize: "0.75rem",
+                letterSpacing: "0.2em",
+                marginBottom: 24,
+              }}
+            >
+              VIND CONSULTING · KONCEPTPROJEKT
             </p>
             <h1
-              className="font-display text-white leading-[1.05] tracking-tight"
-              style={{ fontSize: "clamp(2rem, 4vw, 3rem)", marginTop: 16 }}
+              className="font-display text-white"
+              style={{
+                fontSize: "clamp(2.2rem, 5vw, 3.8rem)",
+                fontWeight: 600,
+                lineHeight: 1.2,
+              }}
             >
-              De fleste organisationer har ikke et AI-problem.
-              <br />
-              <span className="italic" style={{ color: RED }}>De har et oversættelsesproblem.</span>
+              De fleste organisationer har ikke et forandringsproblem.
+              <span
+                className="italic block"
+                style={{ color: RED, marginTop: 8 }}
+              >
+                De har et oversættelsesproblem.
+              </span>
             </h1>
           </div>
+        </div>
+      </div>
+
+      {/* METADATA BAR */}
+      <div style={{ backgroundColor: "#0D1F35", padding: "40px 48px" }}>
+        <div
+          className="flex flex-col md:flex-row md:justify-center md:items-stretch"
+          style={{ gap: 24, maxWidth: 1100, margin: "0 auto" }}
+        >
+          {[
+            {
+              label: "KONTEKST",
+              value: "Konceptprojekt · Strategirådgivning",
+            },
+            {
+              label: "DOMÆNE",
+              value: "Digital transformation · AI-implementering",
+            },
+            {
+              label: "TILGANG",
+              value: "Servicedesign · Strategisk kommunikation",
+            },
+          ].map((col, i) => (
+            <div
+              key={col.label}
+              className="flex-1 md:px-8 text-left"
+              style={
+                i > 0
+                  ? {
+                      borderLeft:
+                        typeof window !== "undefined" && window.innerWidth >= 768
+                          ? "1px solid rgba(255,255,255,0.1)"
+                          : undefined,
+                    }
+                  : undefined
+              }
+            >
+              <p
+                className="uppercase md-divider"
+                style={{
+                  color: "#FFFFFF",
+                  opacity: 0.4,
+                  fontSize: "0.7rem",
+                  letterSpacing: "0.15em",
+                }}
+              >
+                {col.label}
+              </p>
+              <p
+                style={{
+                  color: "#FFFFFF",
+                  fontSize: "1rem",
+                  fontWeight: 500,
+                  marginTop: 8,
+                }}
+              >
+                {col.value}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
 
