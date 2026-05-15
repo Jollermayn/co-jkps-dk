@@ -865,6 +865,7 @@ function TilgangPage() {
       <section className="tilgang-section" style={sectionPadding}>
         <div style={innerCol}>
           <p
+            className="tilgang-quote"
             style={{
               color: "#FFFFFF",
               opacity: 0.6,
