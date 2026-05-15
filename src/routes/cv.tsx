@@ -270,6 +270,7 @@ function CVPage() {
             className="cv-sidebar relative flex flex-col text-[#F4EFE6] px-8 py-10"
             style={{ backgroundColor: "#0A1628" }}
           >
+            <SidebarHeader />
             <SidebarBottom />
           </aside>
 
