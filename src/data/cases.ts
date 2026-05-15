@@ -229,9 +229,9 @@ const _allCases: CaseStudy[] = [
     ],
     approach: ["Konceptudvikling", "Behovsafdækning", "Indholdsstrategi", "Platformsudvikling"],
     outcomes: [
-      "Komplet digital platform klar til lancering",
-      "Kommunikation og indhold målrettet børn og forældre der tager udgangspunkt i målgruppens egne præmisser",
-      "Selvstændig leverance fra første brief til færdigt produkt",
+      "→ Podcast »Forældreskabet« lanceret og distribueret på Spotify, Apple Podcasts og Podimo",
+      "→ Lyddesign, jingle og mix — krediteret i samtlige episoder",
+      "→ Indholdsstrategi og studieopsætning fra første episode til løbende produktion",
     ],
   },
   {
