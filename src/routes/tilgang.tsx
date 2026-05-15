@@ -688,7 +688,7 @@ function TilgangPage() {
         }}
       >
         <span
-          className="uppercase font-semibold"
+          className="uppercase font-semibold tilgang-label"
           style={{
             color: RED,
             fontSize: "0.7rem",
