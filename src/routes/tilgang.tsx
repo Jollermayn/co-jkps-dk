@@ -820,28 +820,21 @@ function TilgangPage() {
       {/* SECTION 2 — DESIGNERENS ANSVAR */}
       <section style={sectionPadding}>
         <div style={innerCol}>
-          {[
-            { text: "Der er én fejlantagelse der går igen." },
-            { text: "På tværs af brancher, organisationsstørrelser og ambitionsniveauer. I strategidokumenter, implementeringsplaner og kommunikationskampagner." },
-            { text: "Hvis vi sender det, har de fået det. Hvis vi installerer det, bruger de det. Hvis vi skriver det, forstår de det.", italic: true },
-            { text: "Det er ikke udtryk for ligegyldighed. Det er udtryk for manglende indsigt i hvordan mennesker faktisk forholder sig til forandring — og hvad der skal til for at noget nyt bliver meningsfuldt i en hverdag der i forvejen stiller mange krav." },
-            { text: "Organisationer er designet til at producere output. Færre er designet til at sikre at outputtet lander hos det menneske det handler om.", lead: true },
-            { text: "Det er præcis det øjeblik jeg arbejder i." },
-            { text: "De fire situationer herunder er ikke fire isolerede problemer. De er fire udtryk for den samme grundlæggende udfordring: systemer der er designet til organisationen — ikke til mennesket i den.", italic: true, muted: true },
-          ].map((p, i, arr) => (
-            <p
-              key={i}
-              className={`text-white${p.italic ? " italic" : ""}`}
-              style={{
-                opacity: p.lead ? 1 : p.muted ? 0.7 : 0.85,
-                fontSize: p.lead ? "1.2rem" : "1.1rem",
-                lineHeight: 1.9,
-                marginBottom: i === arr.length - 1 ? 0 : "1.5em",
-              }}
-            >
-              {p.text}
-            </p>
-          ))}
+          <p className="text-white italic" style={{ opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.9, marginBottom: "1.5em" }}>
+            Hvis vi sender det, har de fået det. Hvis vi installerer det, bruger de det. Hvis vi skriver det, forstår de det.
+          </p>
+          <p className="text-white" style={{ opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.9, marginBottom: "1.5em" }}>
+            Den fejlantagelse går igen. På tværs af brancher, organisationsstørrelser og ambitionsniveauer. I strategidokumenter, implementeringsplaner og kommunikationskampagner.
+          </p>
+          <p className="text-white" style={{ opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.9, marginBottom: "1.5em" }}>
+            Det er ikke udtryk for ligegyldighed. Det er udtryk for manglende indsigt i hvordan mennesker faktisk forholder sig til forandring — og hvad der skal til for at noget nyt bliver meningsfuldt i en hverdag der i forvejen stiller mange krav.
+          </p>
+          <p className="text-white" style={{ opacity: 1, fontSize: "1.2rem", fontWeight: 500, lineHeight: 1.9, marginBottom: "1.5em" }}>
+            Organisationer er designet til at producere output. Færre er designet til at sikre at outputtet lander hos det menneske det handler om.
+          </p>
+          <p className="text-white" style={{ opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.9, marginBottom: 0 }}>
+            Det er præcis det øjeblik jeg arbejder i.
+          </p>
         </div>
       </section>
 
