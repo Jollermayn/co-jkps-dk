@@ -987,6 +987,15 @@ function KompetencerList() {
           </li>
         ))}
       </ul>
+      <div className="mt-6">
+        <Link
+          to="/tilgang"
+          className="text-sm md:text-[0.95rem] hover:underline underline-offset-4"
+          style={{ color: "#C0281E" }}
+        >
+          Se hvordan jeg arbejder i praksis →
+        </Link>
+      </div>
       <CaseModal study={openCase} onClose={() => setOpenCase(null)} onNavigate={(s) => setOpenCase(s)} />
     </>
   );
