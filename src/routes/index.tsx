@@ -197,30 +197,17 @@ function Index() {
                 <p className="uppercase tracking-[0.35em] font-semibold" style={{ color: "#C0281E", fontSize: "1.4rem" }}>
                   Min tilgang
                 </p>
-                <ul className="mt-12 md:mt-14 grid grid-cols-4 max-w-3xl mx-auto divide-x divide-cream/10">
-                  {[
-                    { no: "01", label: "Research" },
-                    { no: "02", label: "Koncept" },
-                    { no: "03", label: "Design" },
-                    { no: "04", label: "Formidling" },
-                  ].map((s) => (
-                    <li key={s.no} className="flex flex-col items-center gap-3 px-2 py-2">
-                      <span className="font-display text-3xl md:text-5xl text-cream/35 leading-none">
-                        {s.no}
-                      </span>
-                      <span className="text-xs md:text-sm tracking-wide text-cream">
-                        {s.label}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+                <div className="mt-12 md:mt-14 mx-auto font-display text-white" style={{ maxWidth: 520, fontSize: "1.3rem", lineHeight: 1.7 }}>
+                  <p>Organisationer er designet til at producere output.</p>
+                  <p className="italic" style={{ color: "#C0281E" }}>Færre sikrer at det lander.</p>
+                </div>
                 <div className="mt-12 md:mt-14 flex justify-center">
                   <Link
                     to="/tilgang"
                     className="inline-flex items-center justify-center border-2 text-[#C0281E] border-[#C0281E] hover:bg-[#C0281E] hover:text-white transition-colors duration-300"
                     style={{ padding: "12px 24px", fontSize: "1rem" }}
                   >
-                    Se hvordan jeg arbejder →
+                    Se hvordan jeg tænker om det →
                   </Link>
                 </div>
               </div>
