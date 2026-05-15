@@ -225,7 +225,7 @@ function Index() {
                     no: "03",
                     title: "Sociologi & Kulturanalyse",
                     meta: "Syddansk Universitet · 2011",
-                    body: "Første år af bacheloren — et fagligt afsæt i kulturteori, samfundsanalyse og sociologisk metode.",
+                    body: "",
                   },
                 ].map((e) => (
                   <li
