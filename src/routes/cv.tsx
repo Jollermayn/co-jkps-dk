@@ -146,7 +146,7 @@ function CVPage() {
                 Portfolio: www.jkps.dk
               </p>
               <p className="mt-12 font-display italic text-[0.85rem] text-[#F4EFE6]/70" style={{ fontFamily: "'Playfair Display', serif" }}>
-                – Aarhus –
+                - Aarhus -
               </p>
             </div>
           </aside>
