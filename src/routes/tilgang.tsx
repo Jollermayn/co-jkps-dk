@@ -982,37 +982,11 @@ function TilgangPage() {
           <h2 className="font-display text-white tilgang-section-h2" style={{ fontSize: "clamp(1.8rem, 3vw, 2.4rem)", marginBottom: 48 }}>
             Hvad det flyttede.
           </h2>
-          <div className="flex flex-col sm:flex-row" style={{ gap: 32 }}>
-            {resultStats.map((s, i) => (
-              <div
-                key={s.label}
-                className="flex flex-col"
-                style={{
-                  flex: 1,
-                  paddingLeft: i === 0 ? 0 : 24,
-                  borderLeft: i === 0 ? "none" : "1px solid rgba(255,255,255,0.15)",
-                }}
-              >
-                <span
-                  className="font-display text-white leading-none"
-                  style={{ fontSize: "clamp(3rem, 6vw, 4rem)" }}
-                >
-                  {s.stat}
-                </span>
-                <span
-                  className="mt-3 uppercase text-white"
-                  style={{ opacity: 0.6, fontSize: "0.7rem", letterSpacing: "0.2em" }}
-                >
-                  {s.label}
-                </span>
-              </div>
-            ))}
-          </div>
           <p
             className="text-white tilgang-body"
-            style={{ opacity: 0.8, fontSize: "1rem", lineHeight: 1.9, maxWidth: 480, marginTop: 48 }}
+            style={{ color: "#FFFFFF", fontSize: "1.1rem", lineHeight: 1.8, maxWidth: 560, marginLeft: "auto", marginRight: "auto" }}
           >
-            Konceptprojektet dokumenterede en undervurderet arbejdsdistance på 54% — samme metodikken som Wolt-casen. Fire udfordringer kortlagt, designet og testet. Ét fælles sprog om AI, fra støj til samtale.
+            Kortlægningen dokumenterede en undervurderet arbejdsdistance på <strong>54%</strong> — samme metodikken som Wolt-casen. <strong>4</strong> konkrete leverancer designet og testet på tværs af organisationen. Fra <strong>23%</strong> aktiv adoption til et fundament for reel forandring.
           </p>
         </div>
       </section>
