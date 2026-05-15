@@ -350,8 +350,8 @@ const _order = [
   "danmarks-radio",
   "boliga",
   "danmarks-naturfredningsforening",
-  "concerto-copenhagen",
   "amnesty-international",
+  "concerto-copenhagen",
   "ulla-dyrlov",
   "interaktiv-horesimulering",
 ];
