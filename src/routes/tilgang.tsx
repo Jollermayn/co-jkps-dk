@@ -820,20 +820,14 @@ function TilgangPage() {
       {/* SECTION 2 — DESIGNERENS ANSVAR */}
       <section style={sectionPadding}>
         <div style={innerCol}>
-          <p className="text-white italic" style={{ opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.9, marginBottom: "1.5em" }}>
-            Hvis vi sender det, har de fået det. Hvis vi installerer det, bruger de det. Hvis vi skriver det, forstår de det.
+          <p className="text-white" style={{ opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.9, marginBottom: "1.5em" }}>
+            Strategien er sendt. Værktøjet er rullet ud. Budskabet er kommunikeret.
+          </p>
+          <p className="text-white" style={{ opacity: 1, fontSize: "1.2rem", fontWeight: 500, lineHeight: 1.9, marginBottom: "1.5em" }}>
+            Men forandringen lander ikke.
           </p>
           <p className="text-white" style={{ opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.9, marginBottom: "1.5em" }}>
-            Den fejlantagelse går igen. På tværs af brancher, organisationsstørrelser og ambitionsniveauer.
-          </p>
-          <p className="text-white" style={{ opacity: 1, fontSize: "1.1rem", lineHeight: 1.9, marginBottom: "1.5em" }}>
-            Men vi er ikke moduler der installeres. Vi er ikke systemer der opdateres. Vi er mennesker der har brug for at forstå hvorfor — inden vi kan handle på hvad.
-          </p>
-          <p className="text-white" style={{ opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.9, marginBottom: "1.5em" }}>
-            Og alligevel designer vi systemer der ikke tager højde for det. Ikke bevidst — men fordi systemerne er designet til organisationen. Til effektivitet. Til output. Sjældent til det menneske der skal leve i dem.
-          </p>
-          <p className="text-white" style={{ opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.9, marginBottom: "1.5em" }}>
-            Det er ikke udtryk for ligegyldighed når forandring ikke lander. Det er udtryk for manglende indsigt i hvordan mennesker faktisk forholder sig til det nye — i en hverdag der i forvejen stiller mange krav.
+            Det er ikke udtryk for ligegyldighed. Det er udtryk for manglende indsigt i hvordan mennesker faktisk forholder sig til forandring — og hvad der skal til for at noget nyt bliver meningsfuldt i en hverdag der i forvejen stiller mange krav.
           </p>
           <p className="text-white" style={{ opacity: 1, fontSize: "1.2rem", fontWeight: 500, lineHeight: 1.9, marginBottom: "1.5em" }}>
             Organisationer er designet til at producere output. Færre er designet til at sikre at outputtet lander hos det menneske det handler om.
