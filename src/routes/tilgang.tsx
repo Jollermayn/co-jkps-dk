@@ -755,18 +755,6 @@ function TilgangPage() {
               textAlign: "center",
             }}
           >
-            <p
-              className="uppercase"
-              style={{
-                color: "#FFFFFF",
-                opacity: 0.6,
-                fontSize: "0.75rem",
-                letterSpacing: "0.2em",
-                marginBottom: 24,
-              }}
-            >
-              VIND CONSULTING · KONCEPTPROJEKT
-            </p>
             <h1
               className="font-display text-white"
               style={{
