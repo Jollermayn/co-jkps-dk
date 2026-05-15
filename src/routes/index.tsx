@@ -163,7 +163,7 @@ function Index() {
                   Jeg har arbejdet selvstændigt siden 2016 med UX research, servicedesign og konceptudvikling — på tværs af public service, civilsamfund og kommercielle virksomheder.
                 </p>
                 <p>
-                  Jeg er uddannet Cand.IT i Digital Design & Interactive Technologies fra IT-Universitetet i København.
+                  Jeg er uddannet cand.it i Digital Design og Interaktive Teknologier fra IT-Universitetet i København.
                 </p>
                 <p className="italic text-cream/60">
                   Privat er jeg familiefar, naturmenneske og det, man nok ville kalde en seriøs lytter.
