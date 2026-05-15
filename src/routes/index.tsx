@@ -194,7 +194,7 @@ function Index() {
 
               {/* MIN TILGANG */}
               <div id="tilgang" className="mt-20 md:mt-28 text-center">
-                <p className="text-[11px] md:text-xs uppercase tracking-[0.35em] font-semibold" style={{ color: "#C0281E" }}>
+                <p className="uppercase tracking-[0.35em] font-semibold" style={{ color: "#C0281E", fontSize: "1.4rem" }}>
                   Min tilgang
                 </p>
                 <ul className="mt-12 md:mt-14 grid grid-cols-4 max-w-3xl mx-auto divide-x divide-cream/10">
@@ -214,11 +214,11 @@ function Index() {
                     </li>
                   ))}
                 </ul>
-                <div className="mt-12 md:mt-14">
+                <div className="mt-12 md:mt-14 flex justify-center">
                   <Link
                     to="/tilgang"
-                    className="text-sm hover:underline underline-offset-4"
-                    style={{ color: "#C0281E" }}
+                    className="inline-flex items-center justify-center border-2 hover:bg-[#C0281E] hover:text-cream transition-colors duration-300"
+                    style={{ color: "#C0281E", borderColor: "#C0281E", padding: "12px 24px", fontSize: "1rem" }}
                   >
                     Se hvordan jeg arbejder →
                   </Link>
