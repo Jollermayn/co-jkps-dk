@@ -706,7 +706,7 @@ function TilgangPage() {
       {/* SECTION 2 — THE PROBLEM */}
       <section style={{ padding: "80px 48px" }}>
         <h2 className="font-display text-white" style={{ fontSize: "2.2rem", marginBottom: 32 }}>
-          The problem.
+          Problemet.
         </h2>
         <p className="text-white" style={{ opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.8, maxWidth: 640 }}>
           Værktøjerne er på plads. Strategien er godkendt. Men et sted mellem direktionsgangen og hverdagen går meningen tabt — og medarbejderne ved ikke hvad det egentlig kræver af dem.
@@ -719,7 +719,7 @@ function TilgangPage() {
       <section style={{ padding: 48 }}>
         <div style={{ height: 1, width: "100%", background: RED, marginBottom: 48 }} aria-hidden />
         <h2 className="font-display text-white" style={{ fontSize: "2.2rem", marginBottom: 24 }}>
-          The context.
+          Konteksten.
         </h2>
         <p className="text-white" style={{ opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.8, maxWidth: 640, marginBottom: 40 }}>
           Vind Consulting. 80 medarbejdere fordelt på Aarhus og København. AI-værktøjer rullet ud på tværs af organisationen — men kun 23% af medarbejderne bruger dem aktivt. Kløften mellem ledelsens ambition og hverdagens praksis er målbar og voksende.
@@ -738,7 +738,7 @@ function TilgangPage() {
       <section style={{ padding: "80px 48px" }}>
         <div style={{ height: 1, width: "100%", background: RED, marginBottom: 48 }} aria-hidden />
         <h2 className="font-display text-white" style={{ fontSize: "2.2rem", marginBottom: 40 }}>
-          The approach.
+          Tilgangen.
         </h2>
         <div className="flex flex-col" style={{ gap: 40, maxWidth: 640 }}>
           {approach.map((a) => (
@@ -758,7 +758,7 @@ function TilgangPage() {
       <section style={{ paddingTop: 80 }}>
         <div style={{ height: 1, width: "100%", background: RED, marginBottom: 48 }} aria-hidden />
         <h2 className="font-display text-white" style={{ fontSize: "2.2rem", padding: "0 48px", marginBottom: 48 }}>
-          The work.
+          Arbejdet.
         </h2>
         <div className="flex flex-col" style={{ gap: 80 }}>
           {deliverables.map((d) => (
@@ -797,7 +797,7 @@ function TilgangPage() {
       <section style={{ padding: "80px 48px" }}>
         <div style={{ height: 1, width: "100%", background: RED, marginBottom: 48 }} aria-hidden />
         <h2 className="font-display text-white" style={{ fontSize: "2.2rem", marginBottom: 32 }}>
-          The results.
+          Resultatet.
         </h2>
         <p className="text-white" style={{ opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.8, maxWidth: 640, marginBottom: 48 }}>
           Konceptprojektet dokumenterede en undervurderet arbejdsdistance på 54% — samme metodikken som Wolt-casen. Tre kommunikationsspor designet og testet. Ét fælles sprog om AI, fra støj til samtale.
