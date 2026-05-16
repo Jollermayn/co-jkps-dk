@@ -834,14 +834,14 @@ function TilgangPage() {
           <span
             style={{
               display: "block",
-              fontSize: "0.75rem",
-              letterSpacing: "0.1em",
+              fontSize: "0.7rem",
+              letterSpacing: "0.15em",
               color: "#C0281E",
               textTransform: "uppercase",
               marginBottom: 16,
             }}
           >
-            VIND CONSULTING · KONCEPTPROJEKT
+            SCENARIE 01
           </span>
           <h2
             style={{
@@ -855,6 +855,20 @@ function TilgangPage() {
           >
             Forandringen der aldrig landede.
           </h2>
+          <p
+            style={{
+              color: "#FFFFFF",
+              opacity: 0.6,
+              fontSize: "1rem",
+              lineHeight: 1.6,
+              marginTop: 16,
+              maxWidth: 560,
+              marginLeft: "auto",
+              marginRight: "auto",
+            }}
+          >
+            Når forandringen aldrig lander — AI-adoption i en mellemstor organisation.
+          </p>
         </div>
       </section>
 
