@@ -54,22 +54,13 @@ const statements: Statement[] = [
   },
   {
     lines: [
-      "Teknologien er rullet ud.",
-      "Adoption er 23%.",
-      "Projektet er lukket.",
-    ],
-    caption: "Mening kan ikke installeres. Den skal opdages.",
-    dark: true,
-  },
-  {
-    lines: [
       "Vi kommunikerer konstant.",
       "Ingen forstår budskabet.",
       "Vi kommunikerer mere.",
     ],
     caption:
       "Budskabet er skrevet til afsenderen. Ikke til mennesket der skal handle på det.",
-    dark: false,
+    dark: true,
   },
   {
     lines: [
@@ -78,7 +69,7 @@ const statements: Statement[] = [
       "De bruger det ikke.",
     ],
     caption: "Antagelser om mennesker er ikke det samme som viden om dem.",
-    dark: true,
+    dark: false,
   },
 ];
 
