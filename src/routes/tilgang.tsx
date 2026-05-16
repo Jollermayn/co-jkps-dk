@@ -38,8 +38,13 @@ type Statement = {
 
 const statements: Statement[] = [
   {
-    lines: ["Vi har en strategi.", "Den er på 40 sider.", "Ingen har læst den."],
-    caption: "Et dokument er ikke en retning. Det er papir med ambitioner.",
+    lines: [
+      "Vi kommunikerer konstant.",
+      "Ingen forstår budskabet.",
+      "Vi kommunikerer mere.",
+    ],
+    caption:
+      "Budskabet er skrevet til afsenderen. Ikke til mennesket der skal handle på det.",
     dark: true,
   },
   {
@@ -53,13 +58,8 @@ const statements: Statement[] = [
     dark: false,
   },
   {
-    lines: [
-      "Vi kommunikerer konstant.",
-      "Ingen forstår budskabet.",
-      "Vi kommunikerer mere.",
-    ],
-    caption:
-      "Budskabet er skrevet til afsenderen. Ikke til mennesket der skal handle på det.",
+    lines: ["Vi har en strategi.", "Den er på 40 sider.", "Ingen har læst den."],
+    caption: "Et dokument er ikke en retning. Det er papir med ambitioner.",
     dark: true,
   },
   {
@@ -291,7 +291,7 @@ function TilgangPage() {
       <section
         className="tilgang-cta"
         style={{
-          backgroundColor: BEIGE,
+          backgroundColor: NAVY,
           paddingTop: 120,
           paddingBottom: 120,
           paddingLeft: 24,
@@ -305,7 +305,7 @@ function TilgangPage() {
         <div style={{ width: "100%", maxWidth: 720 }}>
           <h2
             style={{
-              color: NAVY,
+              color: "#F5F3EE",
               fontFamily: "serif",
               fontWeight: 700,
               fontSize: "clamp(1.8rem, 3.2vw, 2.5rem)",
@@ -313,11 +313,11 @@ function TilgangPage() {
               margin: 0,
             }}
           >
-            Kender du hullet?
+            Her kan du fange mig.
           </h2>
           <p
             style={{
-              color: MUTED_ON_LIGHT,
+              color: MUTED_ON_DARK,
               fontFamily: "serif",
               fontSize: "1.1rem",
               marginTop: 16,
@@ -347,7 +347,7 @@ function TilgangPage() {
             <Link
               to="/"
               style={{
-                color: MUTED_ON_LIGHT,
+                color: MUTED_ON_DARK,
                 fontFamily: "serif",
                 fontSize: "0.9rem",
                 textDecoration: "underline",
