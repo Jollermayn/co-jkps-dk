@@ -415,7 +415,7 @@ function Index() {
                       textUnderlineOffset: "4px",
                     }}
                   >
-                    Min tilgang →
+                    Aben i rummet →
                   </span>
                 </Link>
               </div>
@@ -433,7 +433,7 @@ function Index() {
                     textUnderlineOffset: "4px",
                   }}
                 >
-                  Min tilgang →
+                  Aben i rummet →
                 </Link>
               </div>
             </div>
