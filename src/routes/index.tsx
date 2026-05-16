@@ -155,9 +155,9 @@ function MobileHeader() {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <nav className="md:hidden" style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: "#0A1628", height: 72, padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-        <Link to="/" style={{ fontFamily: "serif", fontSize: "1.1rem", fontWeight: 400, color: "white", textDecoration: "none" }}>
-          jkps.dk
+      <nav className="md:hidden" style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: "#0A1628", height: 72, padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "flex-end" }}>
+        <Link to="/" style={{ position: "absolute", left: "50%", transform: "translateX(-50%)", fontFamily: "serif", fontSize: "1.1rem", fontWeight: 700, letterSpacing: "0.08em", color: "white", textDecoration: "none" }}>
+          JKPS
         </Link>
         <button type="button" aria-label="Åbn menu" onClick={() => setOpen(true)} style={{ background: "transparent", border: "none", color: "white", fontSize: "1.6rem", lineHeight: 1, padding: 0, cursor: "pointer" }}>
           ≡
