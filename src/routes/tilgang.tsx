@@ -300,7 +300,7 @@ function TilgangPage() {
       <section
         className="tilgang-cta"
         style={{
-          backgroundColor: NAVY,
+          backgroundColor: BEIGE,
           paddingTop: 120,
           paddingBottom: 120,
           paddingLeft: 24,
@@ -314,7 +314,7 @@ function TilgangPage() {
         <div style={{ width: "100%", maxWidth: 720 }}>
           <h2
             style={{
-              color: "#F5F3EE",
+              color: NAVY,
               fontFamily: "serif",
               fontWeight: 700,
               fontSize: "clamp(1.8rem, 3.2vw, 2.5rem)",
@@ -326,7 +326,7 @@ function TilgangPage() {
           </h2>
           <p
             style={{
-              color: MUTED_ON_DARK,
+              color: MUTED_ON_LIGHT,
               fontFamily: "serif",
               fontSize: "1.1rem",
               marginTop: 16,
@@ -356,7 +356,7 @@ function TilgangPage() {
             <Link
               to="/"
               style={{
-                color: MUTED_ON_DARK,
+                color: MUTED_ON_LIGHT,
                 fontFamily: "serif",
                 fontSize: "0.9rem",
                 textDecoration: "underline",
