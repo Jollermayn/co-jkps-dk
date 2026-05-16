@@ -768,16 +768,8 @@ function TilgangPage() {
       {/* SECTION 1 — HERO BANNER (full-screen) */}
       <div
         className="relative w-full overflow-hidden h-[50vh] md:h-[70vh] tilgang-hero"
-        style={{ backgroundColor: NAVY }}
+        style={{ backgroundColor: "#FFFFFF" }}
       >
-        <div
-          className="absolute inset-0"
-          aria-hidden
-          style={{
-            background:
-              "linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.3))",
-          }}
-        />
         <div className="relative h-full flex items-center justify-center">
           <div
             className="text-left md:text-center"
@@ -788,8 +780,8 @@ function TilgangPage() {
             }}
           >
             <h1
-              className="font-display text-white text-left md:text-center max-w-full break-normal overflow-visible text-[1.6rem] leading-[1.3] md:text-[clamp(2.2rem,5vw,3.8rem)] md:leading-[1.2]"
-              style={{ fontWeight: 600 }}
+              className="font-display text-left md:text-center max-w-full break-normal overflow-visible text-[1.6rem] leading-[1.3] md:text-[clamp(2.2rem,5vw,3.8rem)] md:leading-[1.2]"
+              style={{ fontWeight: 600, color: NAVY }}
             >
               De fleste organisationer har ikke et forandringsproblem.
               <span
