@@ -347,7 +347,7 @@ function TilgangPage() {
             <Link
               to="/"
               style={{
-                color: MUTED_ON_LIGHT,
+                color: MUTED_ON_DARK,
                 fontFamily: "serif",
                 fontSize: "0.9rem",
                 textDecoration: "underline",
