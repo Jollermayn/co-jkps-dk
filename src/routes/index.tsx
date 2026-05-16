@@ -295,8 +295,8 @@ function Index() {
             className="py-12 px-6 md:!py-20 md:!px-16"
           >
             <div className="flex flex-col md:flex-row md:items-center" style={{ width: "100%" }}>
-              {/* LEFT: image */}
-              <div className="w-full md:w-1/2 flex justify-center md:justify-start order-2 md:order-1 mt-8 md:mt-0">
+              {/* RIGHT: image */}
+              <div className="w-full md:w-1/2 flex justify-center md:justify-end order-2 mt-8 md:mt-0">
                 <img
                   src={chimpSuit}
                   alt=""
@@ -305,9 +305,9 @@ function Index() {
                 />
               </div>
 
-              {/* RIGHT: text */}
+              {/* LEFT: text */}
               <div
-                className="w-full md:w-1/2 text-center md:text-left order-1 md:order-2"
+                className="w-full md:w-1/2 text-center md:text-left order-1"
                 style={{ overflow: "visible" }}
               >
                 <Link to="/tilgang" style={{ display: "block", textDecoration: "none" }}>
