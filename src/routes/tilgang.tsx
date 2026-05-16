@@ -900,14 +900,9 @@ function TilgangPage() {
       <section className="tilgang-section" style={{ ...sectionPadding, backgroundColor: "#F5F3EE" }}>
         <div style={innerCol}>
           <div style={{ height: 1, width: "100%", background: RED, marginBottom: 48 }} aria-hidden />
-          <div className="flex flex-wrap gap-x-16 gap-y-8">
-            {contextStats.map((s) => (
-              <div key={s.label} className="flex flex-col">
-                <span className="font-display leading-none" style={{ color: RED, fontSize: "3rem" }}>{s.stat}</span>
-                <span className="mt-2 uppercase" style={{ color: "#0A1628", opacity: 0.7, fontSize: "0.7rem", letterSpacing: "0.2em" }}>{s.label}</span>
-              </div>
-            ))}
-          </div>
+          <p style={{ color: "#0A1628", fontSize: "1rem", lineHeight: 1.8, maxWidth: 560 }}>
+            Vind Consulting. Strategirådgivning med <strong>80 medarbejdere</strong> fordelt på Aarhus og København. AI-værktøjer rullet ud på tværs af organisationen — men kun <strong>23%</strong> bruger dem aktivt. <strong>4</strong> udfordringer kortlagt. Én fælles bevægelse.
+          </p>
           <p className="tilgang-body" style={{ color: "#0A1628", opacity: 0.6, fontSize: "1.1rem", lineHeight: 1.9, marginTop: 32 }}>
             Vind Consulting. Strategirådgivning, 80 medarbejdere, Aarhus og København. AI-værktøjer rullet ud på tværs — 23% aktiv brug. Kløften mellem ambition og hverdag er målbar og voksende.
           </p>
