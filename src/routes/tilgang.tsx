@@ -893,9 +893,6 @@ function TilgangPage() {
           <p className="text-white tilgang-body" style={{ opacity: 1, fontSize: "1.2rem", fontWeight: 500, lineHeight: 1.9, marginBottom: "1.5em" }}>
             Organisationer er designet til at producere output. Færre er designet til at sikre at outputtet lander hos det menneske det handler om.
           </p>
-          <p className="text-white tilgang-body" style={{ opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.9, marginBottom: 0 }}>
-            Det er præcis det øjeblik jeg arbejder i.
-          </p>
         </div>
       </section>
 
