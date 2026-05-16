@@ -230,6 +230,23 @@ function CVPage() {
       window.removeEventListener("scroll", onScroll);
     };
   }, []);
+
+  useEffect(() => {
+    const pdfUrl = "https://jkps.dk/cv-jonas-kp-sorensen.pdf";
+    const onBeforePrint = () => {
+      window.open(pdfUrl, "_blank");
+    };
+    window.addEventListener("beforeprint", onBeforePrint);
+    const mql = window.matchMedia("print");
+    const onChange = (e: MediaQueryListEvent) => {
+      if (e.matches) window.open(pdfUrl, "_blank");
+    };
+    mql.addEventListener?.("change", onChange);
+    return () => {
+      window.removeEventListener("beforeprint", onBeforePrint);
+      mql.removeEventListener?.("change", onChange);
+    };
+  }, []);
   return (
     <>
       <style>{`
@@ -275,13 +292,14 @@ function CVPage() {
 
 
       <div className="cv-root flex flex-col items-center gap-6 min-h-screen bg-[#1f1d1b] py-10 px-4">
-        <button
-          type="button"
-          onClick={() => window.open('/cv-jonas-kp-sorensen.pdf', '_blank')}
+        <a
+          href="https://jkps.dk/cv-jonas-kp-sorensen.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
           className={`cv-print-btn no-print fixed bottom-8 right-8 z-[100] rounded-full bg-[#C0281E] px-5 py-2.5 text-sm font-semibold text-[#F4EFE6] shadow-lg hover:opacity-90 transition-opacity ${showPrintMobile ? "" : "cv-print-mobile-hidden"}`}
         >
           Print / Gem som PDF
-        </button>
+        </a>
 
         {/* PAGE 1 */}
         <Page isFirst>
