@@ -163,7 +163,7 @@ function Index() {
                   Jeg har arbejdet selvstændigt siden 2016 med UX research, servicedesign og konceptudvikling — på tværs af public service, civilsamfund og kommercielle virksomheder.
                 </p>
                 <p style={{ color: "white", fontSize: "1.1rem", lineHeight: 1.8 }}>
-                  Øjeblikket hvor strategi møder mennesket — det er mit felt.
+                  Jeg arbejder i samspillet mellem strategi, teknologi og mennesker.
                 </p>
                 <p style={{ color: "white", fontStyle: "italic", opacity: 0.7, fontSize: "1rem", lineHeight: 1.8 }}>
                   Privat er jeg familiefar, naturmenneske og det, man nok ville kalde en seriøs lytter.
