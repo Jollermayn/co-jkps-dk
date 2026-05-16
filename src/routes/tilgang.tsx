@@ -625,6 +625,7 @@ function Modal({ open, onClose, title, children }: { open: boolean; onClose: () 
 
 function TilgangPage() {
   const [openCard, setOpenCard] = useState<string | null>(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const contextStats = [
     { stat: "80", label: "Medarbejdere" },
