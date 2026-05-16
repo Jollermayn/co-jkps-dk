@@ -360,8 +360,8 @@ function Index() {
                     ikke er kortlagt.
                   </span>
                   <span
+                    className="hidden md:block"
                     style={{
-                      display: "block",
                       marginTop: "40px",
                       color: "#C0281E",
                       fontSize: "1rem",
