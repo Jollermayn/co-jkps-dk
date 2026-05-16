@@ -285,7 +285,7 @@ function Index() {
           <section
             id="tilgang"
             style={{
-              backgroundColor: "#F5F0E8",
+              backgroundColor: "#F5F3EE",
               position: "relative",
               left: "50%",
               right: "50%",
@@ -293,57 +293,78 @@ function Index() {
               marginRight: "-50vw",
               width: "100vw",
               maxWidth: "100vw",
-              padding: "64px 24px",
             }}
-            className="md:!py-[120px] md:!px-12"
+            className="pt-12 md:pt-20"
           >
-            <Link to="/tilgang" style={{ display: "block", textDecoration: "none" }}>
-              <span
-                style={{
-                  display: "block",
-                  textAlign: "center",
-                  color: "#0A1628",
-                  fontFamily: "serif",
-                  fontStyle: "italic",
-                  fontWeight: 600,
-                  fontSize: "clamp(2.5rem, 5vw, 4rem)",
-                  lineHeight: 1.1,
-                }}
+            <div className="flex flex-col md:flex-row md:items-center">
+              {/* LEFT: text */}
+              <div
+                className="w-full md:w-1/2 px-6 pb-12 md:pb-20 md:pl-20 md:pr-8 text-center md:text-left"
+                style={{ paddingTop: 0 }}
               >
-                Forandring lander ikke
-              </span>
-              <span
-                style={{
-                  display: "block",
-                  textAlign: "center",
-                  color: "#0A1628",
-                  opacity: 0.5,
-                  fontFamily: "serif",
-                  fontStyle: "italic",
-                  fontWeight: 400,
-                  fontSize: "clamp(2.5rem, 5vw, 4rem)",
-                  lineHeight: 1.1,
-                  marginTop: "8px",
-                }}
-              >
-                af sig selv
-              </span>
-              <span
-                style={{
-                  display: "block",
-                  textAlign: "center",
-                  marginTop: "40px",
-                  color: "#C0281E",
-                  fontSize: "1rem",
-                  fontStyle: "normal",
-                  textDecoration: "underline",
-                  textDecorationColor: "#C0281E",
-                  textUnderlineOffset: "4px",
-                }}
-              >
-                Læs mere →
-              </span>
-            </Link>
+                <Link to="/tilgang" style={{ display: "block", textDecoration: "none" }}>
+                  <span
+                    style={{
+                      display: "block",
+                      color: "#0A1628",
+                      fontFamily: "serif",
+                      fontStyle: "italic",
+                      fontWeight: 600,
+                      fontSize: "clamp(2rem, 4vw, 3.2rem)",
+                      lineHeight: 1.1,
+                    }}
+                  >
+                    Når vejen til forandring
+                  </span>
+                  <span
+                    style={{
+                      display: "block",
+                      color: "#0A1628",
+                      opacity: 0.5,
+                      fontFamily: "serif",
+                      fontStyle: "italic",
+                      fontWeight: 400,
+                      fontSize: "clamp(2rem, 4vw, 3.2rem)",
+                      lineHeight: 1.1,
+                      marginTop: "8px",
+                    }}
+                  >
+                    er mere end pensel og papir.
+                  </span>
+                  <span
+                    style={{
+                      display: "block",
+                      marginTop: "40px",
+                      color: "#C0281E",
+                      fontSize: "1rem",
+                      fontStyle: "normal",
+                      textDecoration: "underline",
+                      textDecorationColor: "#C0281E",
+                      textUnderlineOffset: "4px",
+                    }}
+                  >
+                    Læs mere →
+                  </span>
+                </Link>
+              </div>
+
+              {/* RIGHT: chimp */}
+              <div className="w-full md:w-1/2 flex justify-center md:justify-end">
+                <img
+                  src={chimpSuit}
+                  alt=""
+                  aria-hidden="true"
+                  style={{
+                    display: "block",
+                    objectFit: "contain",
+                    objectPosition: "bottom right",
+                    width: "100%",
+                    height: "auto",
+                  }}
+                  className="max-h-[300px] md:max-h-[420px]"
+                />
+              </div>
+            </div>
           </section>
 
           {/* UDDANNELSE */}
