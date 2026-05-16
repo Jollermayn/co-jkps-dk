@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 
-export function SiteLogo({ size = 48 }: { size?: number }) {
+export function SiteLogo({ size = 60 }: { size?: number }) {
   return (
     <Link to="/" aria-label="Forside" style={{ display: "inline-flex", lineHeight: 0, textDecoration: "none" }}>
       <svg width={size} height={size} viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
