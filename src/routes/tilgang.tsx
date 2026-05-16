@@ -858,6 +858,19 @@ function TilgangPage() {
           <p
             style={{
               color: "#FFFFFF",
+              opacity: 0.55,
+              fontSize: "0.85rem",
+              letterSpacing: "0.05em",
+              lineHeight: 1.5,
+              marginTop: 12,
+              textTransform: "uppercase",
+            }}
+          >
+            VIND CONSULTING · 80 MEDARBEJDERE · 23% AI-ADOPTION
+          </p>
+          <p
+            style={{
+              color: "#FFFFFF",
               opacity: 0.6,
               fontSize: "1rem",
               lineHeight: 1.6,
