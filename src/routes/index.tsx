@@ -97,8 +97,13 @@ const partners = [
 function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
     <span className="inline-flex flex-col items-stretch w-fit cursor-default">
-      <span className="eyebrow text-ember">{children}</span>
-      <span aria-hidden className="mt-1.5 block h-px w-1/2 bg-[#B83A20]" />
+      <span
+        className="eyebrow text-ember"
+        style={{ fontSize: "clamp(1.4rem, 2.6vw, 2.25rem)", fontWeight: 600, letterSpacing: "0.18em" }}
+      >
+        {children}
+      </span>
+      <span aria-hidden className="mt-2 block h-[2px] w-1/2 bg-[#B83A20]" />
     </span>
   );
 }
