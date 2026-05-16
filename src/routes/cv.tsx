@@ -273,20 +273,12 @@ function CVPage() {
         <Link to="/" style={{ color: "#F5F3EE", textDecoration: "none", fontSize: "0.9rem" }}>← Tilbage</Link>
       </div>
 
-      <button
-        type="button"
-        onClick={() => window.print()}
-        className="no-print"
-        style={{ background: "transparent", border: "1px solid #F5F3EE", color: "#F5F3EE", padding: "8px 20px", borderRadius: "4px", fontSize: "0.9rem", cursor: "pointer", position: "fixed", bottom: "32px", right: "32px", zIndex: 100 }}
-      >
-        Print / Download PDF
-      </button>
 
       <div className="cv-root flex flex-col items-center gap-6 min-h-screen bg-[#1f1d1b] py-10 px-4">
         <button
           type="button"
           onClick={() => window.print()}
-          className={`cv-print-btn no-print fixed top-6 right-6 z-50 rounded-full bg-[#C0281E] px-5 py-2.5 text-sm font-semibold text-[#F4EFE6] shadow-lg hover:opacity-90 transition-opacity ${showPrintMobile ? "" : "cv-print-mobile-hidden"}`}
+          className={`cv-print-btn no-print fixed bottom-8 right-8 z-[100] rounded-full bg-[#C0281E] px-5 py-2.5 text-sm font-semibold text-[#F4EFE6] shadow-lg hover:opacity-90 transition-opacity ${showPrintMobile ? "" : "cv-print-mobile-hidden"}`}
         >
           Print / Gem som PDF
         </button>
