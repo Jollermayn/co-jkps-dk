@@ -352,8 +352,7 @@ function Index() {
                   src={chimpSuit}
                   alt=""
                   aria-hidden="true"
-                  style={{ display: "block", objectFit: "contain", height: "auto", width: "auto", transform: "scaleX(-1)" }}
-                  className="max-h-[300px] md:max-h-[420px]"
+                  style={{ display: "block", objectFit: "contain", height: "auto", width: "420px", maxWidth: "100%", transform: "scaleX(-1)" }}
                 />
               </div>
             </div>
