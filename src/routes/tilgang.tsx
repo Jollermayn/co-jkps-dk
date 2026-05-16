@@ -744,6 +744,8 @@ function TilgangPage() {
           .tilgang-hero h1 { margin-top: 0 !important; padding: 0 24px !important; font-size: clamp(1.8rem, 6vw, 2.4rem) !important; font-weight: 800 !important; font-family: serif !important; line-height: 1.15 !important; letter-spacing: -0.02em !important; text-align: left !important; }
           .tilgang-hero h1 span { margin-top: 8px !important; line-height: 1.15 !important; font-size: clamp(1.8rem, 6vw, 2.4rem) !important; font-weight: 800 !important; font-family: serif !important; letter-spacing: -0.02em !important; }
           .tilgang-quote { text-align: left !important; padding-left: 24px !important; padding-right: 24px !important; margin-left: 0 !important; margin-right: auto !important; }
+          .tilgang-intro { padding-top: 24px !important; }
+          .tilgang-intro-first { margin-top: 0 !important; }
         }
       `}</style>
       {/* MOBILE NAV BAR */}
@@ -843,9 +845,9 @@ function TilgangPage() {
       </div>
 
       {/* SECTION 2 — DESIGNERENS ANSVAR */}
-      <section className="tilgang-section" style={{ ...sectionPadding, backgroundColor: "#F2ECDD" }}>
+      <section className="tilgang-section tilgang-intro" style={{ ...sectionPadding, backgroundColor: "#F2ECDD" }}>
         <div style={innerCol}>
-          <p className="tilgang-body" style={{ color: "#0A1628", opacity: 0.8, fontSize: "1.1rem", lineHeight: 1.9, marginBottom: "1.5em" }}>
+          <p className="tilgang-body tilgang-intro-first" style={{ color: "#0A1628", opacity: 0.8, fontSize: "1.1rem", lineHeight: 1.9, marginBottom: "1.5em" }}>
             Strategien er sendt. Værktøjet er rullet ud. Budskabet er kommunikeret.
           </p>
           <p style={{ color: "#0A1628", fontFamily: "serif", fontSize: "clamp(1.6rem, 4vw, 2.4rem)", fontWeight: 700, lineHeight: 1.2, marginTop: 24, marginBottom: 24 }}>
