@@ -847,7 +847,7 @@ function TilgangPage() {
           <p className="tilgang-body" style={{ color: "#0A1628", opacity: 0.8, fontSize: "1.1rem", lineHeight: 1.9, marginBottom: "1.5em" }}>
             Strategien er sendt. Værktøjet er rullet ud. Budskabet er kommunikeret.
           </p>
-          <p className="tilgang-body" style={{ color: "#0A1628", fontSize: "1.2rem", fontWeight: 500, lineHeight: 1.9, marginBottom: "1.5em" }}>
+          <p style={{ color: "#0A1628", fontFamily: "serif", fontSize: "clamp(1.6rem, 4vw, 2.4rem)", fontWeight: 700, lineHeight: 1.2, marginTop: 24, marginBottom: 24 }}>
             Men forandringen lander ikke.
           </p>
           <p className="tilgang-body" style={{ color: "#0A1628", opacity: 0.8, fontSize: "1.1rem", lineHeight: 1.9, marginBottom: "1.5em" }}>
