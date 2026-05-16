@@ -828,7 +828,7 @@ function TilgangPage() {
               </p>
               <p
                 style={{
-                  color: "#FFFFFF",
+                  color: RED,
                   fontSize: "1rem",
                   fontWeight: 500,
                   marginTop: 8,
