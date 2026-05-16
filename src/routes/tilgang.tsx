@@ -914,7 +914,7 @@ function TilgangPage() {
                   <img
                     src={vindConsult01}
                     alt="AI-strategi dokument"
-                    style={{ width: "calc(100% + 48px)", margin: "24px -24px 32px", display: "block", borderRadius: 0 }}
+                    style={{ position: "relative", left: "50%", right: "50%", marginLeft: "-50vw", marginRight: "-50vw", width: "100vw", maxWidth: "100vw", padding: 0, borderRadius: 0, display: "block", marginTop: 24, marginBottom: 32 }}
                   />
                 )}
                 <div className="flex flex-col" style={{ marginTop: 40 }}>
