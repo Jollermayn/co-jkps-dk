@@ -169,7 +169,7 @@ function MobileHeader() {
           <SiteLogo color="#F5F3EE" lineColor="#C0281E" lineOpacity={1} />
         </div>
         <button type="button" aria-label="Åbn menu" onClick={() => setOpen(true)} style={{ background: "transparent", border: "none", padding: 0, cursor: "pointer", display: "inline-flex", color: "#F5F3EE" }}>
-          <MenuIcon />
+          <MenuIcon color="#F5F3EE" />
         </button>
       </nav>
 
