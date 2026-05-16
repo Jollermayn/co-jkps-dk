@@ -851,7 +851,7 @@ function TilgangPage() {
             Strategien er sendt. Værktøjet er rullet ud. Budskabet er kommunikeret.
           </p>
           <p style={{ color: "#0A1628", fontFamily: "serif", fontSize: "clamp(1.6rem, 4vw, 2.4rem)", fontWeight: 700, lineHeight: 1.2, marginTop: 24, marginBottom: 24 }}>
-            Men forandringen lander ikke.
+            Men forandringen lander aldrig.
           </p>
           <p className="tilgang-body" style={{ color: "#0A1628", opacity: 0.8, fontSize: "1.1rem", lineHeight: 1.9, marginBottom: "1.5em" }}>
             Det er ikke udtryk for ligegyldighed. Det er udtryk for manglende indsigt i hvordan mennesker faktisk forholder sig til forandring — og hvad der skal til for at noget nyt bliver meningsfuldt i en hverdag der i forvejen stiller mange krav.
