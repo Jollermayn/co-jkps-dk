@@ -818,8 +818,8 @@ function TilgangPage() {
               <p
                 className="uppercase md-divider"
                 style={{
-                  color: "#FFFFFF",
-                  opacity: 0.4,
+                  color: RED,
+                  opacity: 1,
                   fontSize: "0.7rem",
                   letterSpacing: "0.15em",
                 }}
@@ -828,7 +828,7 @@ function TilgangPage() {
               </p>
               <p
                 style={{
-                  color: RED,
+                  color: "#FFFFFF",
                   fontSize: "1rem",
                   fontWeight: 500,
                   marginTop: 8,
