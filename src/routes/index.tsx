@@ -378,32 +378,30 @@ function Index() {
               >
                 <Link to="/tilgang" style={{ display: "block", textDecoration: "none" }}>
                   <span
-                    className="text-[2rem] md:text-[3.4rem]"
+                    className="text-[2rem] md:text-[3rem]"
                     style={{
                       display: "block",
-                      color: "#0A1628",
+                      color: "#000000",
                       fontFamily: "serif",
-                      fontStyle: "italic",
-                      fontWeight: 600,
+                      fontWeight: 700,
                       lineHeight: 1.1,
                     }}
                   >
-                    Når vejen til forandring
+                    Strategien er solid.
                   </span>
                   <span
-                    className="text-[1.6rem] md:text-[2.6rem]"
+                    className="text-[2rem] md:text-[3rem]"
                     style={{
                       display: "block",
-                      color: "#0A1628",
-                      opacity: 0.5,
+                      color: "#C0281E",
                       fontFamily: "serif",
                       fontStyle: "italic",
-                      fontWeight: 400,
+                      fontWeight: 700,
                       lineHeight: 1.1,
                       marginTop: "8px",
                     }}
                   >
-                    ikke er kortlagt.
+                    Forankringen fejler.
                   </span>
                   <span
                     className="hidden md:block"
