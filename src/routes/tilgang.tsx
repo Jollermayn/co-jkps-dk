@@ -317,7 +317,7 @@ function TilgangPage() {
           </h2>
           <p
             style={{
-              color: MUTED_ON_LIGHT,
+              color: MUTED_ON_DARK,
               fontFamily: "serif",
               fontSize: "1.1rem",
               marginTop: 16,
