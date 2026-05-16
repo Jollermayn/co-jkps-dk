@@ -755,7 +755,7 @@ function TilgangPage() {
         <div>
           <SiteLogo color="#ffffff" lineColor="#C0281E" lineOpacity={1} />
         </div>
-        <div className="hidden md:flex" style={{ alignItems: "center", gap: 24, flexWrap: "wrap", justifyContent: "flex-end" }}>
+        <div className="hidden md:flex" style={{ alignItems: "center", gap: 24, flexWrap: "wrap", justifyContent: "flex-end", marginRight: 120 }}>
           {[
             { label: "Cases", href: "/#cases" },
             { label: "Kompetencer", href: "/#kompetencer" },
