@@ -15,14 +15,14 @@ function MobileHeader() {
         </button>
       </nav>
       {open && (
-        <div className="md:hidden no-print" style={{ position: "fixed", inset: 0, zIndex: 200, backgroundColor: "#0A1628", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 32 }}>
-          <button type="button" aria-label="Luk menu" onClick={() => setOpen(false)} style={{ position: "absolute", top: 16, right: 24, background: "transparent", border: "none", color: "white", fontSize: "2rem", lineHeight: 1, padding: 0, cursor: "pointer" }}>
+        <div className="md:hidden no-print" style={{ position: "fixed", inset: 0, zIndex: 200, backgroundColor: "#CFC8B8", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 32 }}>
+          <button type="button" aria-label="Luk menu" onClick={() => setOpen(false)} style={{ position: "absolute", top: 16, right: 24, background: "transparent", border: "none", color: "#0A1628", fontSize: "2rem", lineHeight: 1, padding: 0, cursor: "pointer" }}>
             ×
           </button>
-          <Link to="/" onClick={() => setOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: "white", textDecoration: "none" }}>Portfolio</Link>
-          <Link to="/tilgang" onClick={() => setOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: "white", textDecoration: "none" }}>Min tilgang</Link>
-          <Link to="/cv" onClick={() => setOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: "white", textDecoration: "none" }}>CV</Link>
-          <a href="/#kontakt" onClick={() => setOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: "white", textDecoration: "none" }}>Kontakt</a>
+          <Link to="/" onClick={() => setOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: "#0A1628", textDecoration: "none" }}>Portfolio</Link>
+          <Link to="/tilgang" onClick={() => setOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: "#0A1628", textDecoration: "none" }}>Min tilgang</Link>
+          <Link to="/cv" onClick={() => setOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: "#0A1628", textDecoration: "none" }}>CV</Link>
+          <a href="/#kontakt" onClick={() => setOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: "#0A1628", textDecoration: "none" }}>Kontakt</a>
         </div>
       )}
     </>
