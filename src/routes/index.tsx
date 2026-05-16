@@ -347,7 +347,15 @@ function Index() {
               </div>
 
               {/* RIGHT: empty for now */}
-              <div className="hidden md:block md:w-1/2" />
+              <div className="w-full md:w-1/2 flex justify-center md:justify-end mt-8 md:mt-0">
+                <img
+                  src={chimpSuit}
+                  alt=""
+                  aria-hidden="true"
+                  style={{ display: "block", objectFit: "contain", height: "auto", width: "auto" }}
+                  className="max-h-[300px] md:max-h-[420px]"
+                />
+              </div>
             </div>
           </section>
 
