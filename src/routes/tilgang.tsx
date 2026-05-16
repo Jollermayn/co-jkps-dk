@@ -858,16 +858,7 @@ function TilgangPage() {
         return (
           <section key={c.n} className="tilgang-section" style={{ ...sectionPadding, backgroundColor: bg }}>
             <div style={innerCol}>
-              {idx === 0 && (
-                <>
-                  <p className="uppercase font-semibold tilgang-label" style={{ color: RED, fontSize: "0.75rem", letterSpacing: "0.15em", marginBottom: 24 }}>
-                    Udfordringerne
-                  </p>
-                  <h2 className="font-display leading-tight tilgang-section-h2" style={{ color: fg, fontSize: "clamp(1.6rem, 3vw, 2rem)", marginBottom: 80 }}>
-                    Fire situationer. Én fælles bevægelse.
-                  </h2>
-                </>
-              )}
+              {null}
               <article>
                 <span
                   className="font-display tilgang-challenge-num"
