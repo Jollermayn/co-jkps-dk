@@ -731,7 +731,7 @@ function TilgangPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#0D1B2A] text-cream">
+    <main className="min-h-screen bg-[#0D1B2A] text-cream pt-[72px] md:pt-0">
       <style>{`
         @media (max-width: 768px) {
           .tilgang-section { padding: 64px 24px !important; }
