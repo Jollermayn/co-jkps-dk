@@ -228,15 +228,19 @@ function Index() {
           <div style={{ height: 1, backgroundColor: "#C0281E", width: "100%" }} />
 
           {/* MIN TILGANG */}
-          <section id="tilgang" style={{ padding: "48px 0" }}>
-            <div className="px-5 md:px-14">
+          <section
+            id="tilgang"
+            className="px-6 py-8 md:px-0 md:py-12"
+          >
+            <div className="md:px-14">
               <Link
                 to="/tilgang"
-                className="inline-block hover:text-[#C0281E] transition-colors duration-200 ease-out"
+                className="hover:text-[#C0281E] transition-colors duration-200 ease-out text-base md:text-[1.2rem]"
                 style={{
+                  display: "inline",
+                  whiteSpace: "nowrap",
                   color: "white",
                   fontStyle: "italic",
-                  fontSize: "1.2rem",
                   fontFamily: "serif",
                   textDecoration: "underline",
                   textDecorationColor: "#C0281E",
