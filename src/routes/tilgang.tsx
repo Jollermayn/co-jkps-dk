@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, X, Users, Bot, BarChart3, ArrowRight } from "lucide-react";
 import vindAiStrategiOnePager from "@/assets/vind-ai-strategi-onepager.png";
+import { SiteLogo } from "@/components/SiteLogo";
 
 export const Route = createFileRoute("/tilgang")({
   head: () => ({
@@ -750,9 +751,9 @@ function TilgangPage() {
       `}</style>
       {/* MOBILE NAV BAR */}
       <nav className="md:hidden" style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: "#E0D9C8", height: 72, padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "flex-end", borderBottom: "1px solid rgba(0,0,0,0.08)" }}>
-        <Link to="/" style={{ position: "absolute", left: "50%", transform: "translateX(-50%)", fontFamily: "serif", fontSize: "1.1rem", fontWeight: 700, letterSpacing: "0.08em", color: "#0A1628", textDecoration: "none" }}>
-          JKPS
-        </Link>
+        <div style={{ position: "absolute", left: 24, top: "50%", transform: "translateY(-50%)" }}>
+          <SiteLogo />
+        </div>
         <button type="button" aria-label="Åbn menu" onClick={() => setMenuOpen(true)} style={{ background: "transparent", border: "none", color: "#0A1628", fontSize: "1.6rem", lineHeight: 1, padding: 0, cursor: "pointer" }}>
           ≡
         </button>
