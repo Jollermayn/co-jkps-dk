@@ -889,7 +889,7 @@ function TilgangPage() {
         const bg = dark ? "#0A1628" : "#EDE8DC";
         const fg = dark ? "#F5F3EE" : "#0A1628";
         return (
-          <section key={c.n} className="tilgang-section" style={{ ...sectionPadding, backgroundColor: bg }}>
+          <section key={c.n} className="tilgang-section" style={{ ...sectionPadding, paddingTop: idx === 0 ? 20 : sectionPadding.paddingTop, backgroundColor: bg }}>
             <div style={innerCol}>
               {null}
               <article>
