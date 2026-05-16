@@ -157,7 +157,7 @@ function MobileHeader() {
   return (
     <>
       <nav className="md:hidden" style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: "#E0D9C8", height: 72, padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "flex-end", borderBottom: "1px solid rgba(0,0,0,0.08)" }}>
-        <div style={{ position: "absolute", left: 24, top: "50%", transform: "translateY(-50%)" }}>
+        <div style={{ position: "absolute", left: "50%", top: "50%", transform: "translate(-50%, -50%)" }}>
           <SiteLogo />
         </div>
         <button type="button" aria-label="Åbn menu" onClick={() => setOpen(true)} style={{ background: "transparent", border: "none", color: "#0A1628", fontSize: "1.6rem", lineHeight: 1, padding: 0, cursor: "pointer" }}>
