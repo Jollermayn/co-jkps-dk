@@ -278,7 +278,7 @@ function CVPage() {
         <button
           type="button"
           onClick={() => window.print()}
-          className={`cv-print-btn no-print fixed top-6 right-6 z-50 rounded-full bg-[#C0281E] px-5 py-2.5 text-sm font-semibold text-[#F4EFE6] shadow-lg hover:opacity-90 transition-opacity ${showPrintMobile ? "" : "cv-print-mobile-hidden"}`}
+          className={`cv-print-btn no-print fixed bottom-8 right-8 z-[100] rounded-full bg-[#C0281E] px-5 py-2.5 text-sm font-semibold text-[#F4EFE6] shadow-lg hover:opacity-90 transition-opacity ${showPrintMobile ? "" : "cv-print-mobile-hidden"}`}
         >
           Print / Gem som PDF
         </button>
