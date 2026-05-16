@@ -175,7 +175,7 @@ function MobileHeader() {
 
       {/* Desktop header — spans only content column (stops where hero sidebar begins) */}
       <nav
-        className="hidden md:flex"
+        className="hidden lg:flex"
         style={{
           position: "fixed",
           top: 0,
