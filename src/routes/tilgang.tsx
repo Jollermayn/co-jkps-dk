@@ -314,7 +314,7 @@ function TilgangPage() {
         <div style={{ width: "100%", maxWidth: 720 }}>
           <h2
             style={{
-              color: "#F5F3EE",
+              color: NAVY,
               fontFamily: "serif",
               fontWeight: 700,
               fontSize: "clamp(1.8rem, 3.2vw, 2.5rem)",
