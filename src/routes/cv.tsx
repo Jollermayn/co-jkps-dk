@@ -6,7 +6,7 @@ function MobileHeader() {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <nav className="md:hidden no-print" style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: "#CFC8B8", height: 72, padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "flex-end", borderBottom: "1px solid rgba(0,0,0,0.08)" }}>
+      <nav className="md:hidden no-print" style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: "#E0D9C8", height: 72, padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "flex-end", borderBottom: "1px solid rgba(0,0,0,0.08)" }}>
         <Link to="/" style={{ position: "absolute", left: "50%", transform: "translateX(-50%)", fontFamily: "serif", fontSize: "1.1rem", fontWeight: 700, letterSpacing: "0.08em", color: "#0A1628", textDecoration: "none" }}>
           JKPS
         </Link>
@@ -15,7 +15,7 @@ function MobileHeader() {
         </button>
       </nav>
       {open && (
-        <div className="md:hidden no-print" style={{ position: "fixed", inset: 0, zIndex: 200, backgroundColor: "#CFC8B8", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 32 }}>
+        <div className="md:hidden no-print" style={{ position: "fixed", inset: 0, zIndex: 200, backgroundColor: "#E0D9C8", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 32 }}>
           <button type="button" aria-label="Luk menu" onClick={() => setOpen(false)} style={{ position: "absolute", top: 16, right: 24, background: "transparent", border: "none", color: "#0A1628", fontSize: "2rem", lineHeight: 1, padding: 0, cursor: "pointer" }}>
             ×
           </button>
