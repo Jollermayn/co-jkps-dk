@@ -754,8 +754,8 @@ function TilgangPage() {
         <div style={{ position: "absolute", left: "50%", top: "50%", transform: "translate(-50%, -50%)" }}>
           <SiteLogo />
         </div>
-        <button type="button" aria-label="Åbn menu" onClick={() => setMenuOpen(true)} style={{ background: "transparent", border: "none", color: "#0A1628", fontSize: "1.6rem", lineHeight: 1, padding: 0, cursor: "pointer" }}>
-          ≡
+        <button type="button" aria-label="Åbn menu" onClick={() => setMenuOpen(true)} style={{ background: "transparent", border: "none", padding: 0, cursor: "pointer", display: "inline-flex" }}>
+          <MenuIcon />
         </button>
       </nav>
       {menuOpen && (
