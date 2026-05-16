@@ -845,7 +845,7 @@ function TilgangPage() {
         <div style={innerCol}>
           <img src={vindConsultingLogo} alt="Vind Consulting" style={{ width: 120, display: "block", marginBottom: 24 }} />
           <h1 style={{ fontFamily: "'Playfair Display', serif", color: "#0A1628", fontSize: "clamp(2rem, 5vw, 3.5rem)", fontWeight: 600, lineHeight: 1.2, maxWidth: 560, marginBottom: 40 }}>
-            Én organisation. Fire udfordringer.
+            Én organisation.<br />Fire udfordringer.
           </h1>
           <p style={{ color: "#0A1628", opacity: 0.9, fontSize: "1rem", lineHeight: 1.8, maxWidth: 560 }}>
             Vind Consulting. 80 medarbejdere fordelt på Aarhus og København. AI-værktøjer rullet ud på tværs af organisationen — men kun 23% bruger dem aktivt. Kortlægningen dokumenterede en undervurderet arbejdsdistance på 54%. Fire udfordringer. Én fælles bevægelse.
