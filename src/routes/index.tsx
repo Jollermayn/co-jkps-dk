@@ -287,17 +287,14 @@ function Index() {
             style={{
               backgroundColor: "#F5F3EE",
               position: "relative",
-              left: "50%",
-              right: "50%",
-              marginLeft: "-50vw",
-              marginRight: "-50vw",
-              width: "100vw",
-              maxWidth: "100vw",
-              overflow: "visible",
+              width: "100%",
+              maxWidth: "100%",
+              overflow: "hidden",
+              boxSizing: "border-box",
             }}
             className="py-12 px-6 md:!py-20 md:!px-16"
           >
-            <div className="flex flex-col md:flex-row md:items-center" style={{ overflow: "visible" }}>
+            <div className="flex flex-col md:flex-row md:items-center" style={{ width: "100%" }}>
               {/* LEFT: text */}
               <div
                 className="w-full md:w-1/2 text-center md:text-left"
