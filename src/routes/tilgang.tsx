@@ -751,7 +751,7 @@ function TilgangPage() {
         }
       `}</style>
       {/* MOBILE NAV BAR */}
-      <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: "#0A1628", height: 72, padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+      <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: "#0A1628", height: 72, padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between", borderBottom: "1px solid rgba(255,255,255,0.08)", boxShadow: "0 6px 16px rgba(0,0,0,0.18)" }}>
         <div>
           <SiteLogo color="#ffffff" lineColor="#F5F0E8" lineOpacity={1} />
         </div>
