@@ -170,7 +170,7 @@ function MobileHeader() {
       {/* Desktop header — navy, white logo & hamburger */}
       <nav className="hidden md:flex" style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: "#0A1628", height: 72, padding: "0 24px", alignItems: "center", justifyContent: "flex-end", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
         <div style={{ position: "absolute", left: "50%", top: "50%", transform: "translate(-50%, -50%)" }}>
-          <SiteLogo color="#ffffff" />
+          <SiteLogo color="#ffffff" lineColor="#F5F0E8" lineOpacity={1} />
         </div>
         <button type="button" aria-label="Åbn menu" onClick={() => setOpen(true)} style={{ background: "transparent", border: "none", padding: 0, cursor: "pointer", display: "inline-flex" }}>
           <MenuIcon color="#ffffff" />
