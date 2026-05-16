@@ -305,7 +305,7 @@ function Index() {
                     alt=""
                     aria-hidden="true"
                     className="w-[280px] md:w-[260px]"
-                    style={{ display: "block", objectFit: "contain", height: "auto", maxWidth: "100%", marginRight: "-20px", position: "relative", zIndex: 1 }}
+                    style={{ display: "block", objectFit: "contain", height: "auto", maxWidth: "100%", marginRight: "-20px", position: "relative", zIndex: 1, transform: "scaleX(-1)" }}
                   />
                   <div
                     aria-hidden="true"
