@@ -891,24 +891,8 @@ function TilgangPage() {
         );
       })}
 
-      {/* SECTION 8 — RESULTATER */}
-      <section className="tilgang-section" style={{ ...sectionPadding, backgroundColor: "#8B1A13" }}>
-        <div style={innerCol}>
-          <div style={{ height: 1, width: "100%", background: "rgba(255,255,255,0.2)", marginBottom: 48 }} aria-hidden />
-          <p className="uppercase font-semibold text-white tilgang-label" style={{ opacity: 0.6, fontSize: "0.75rem", letterSpacing: "0.2em", marginBottom: 24 }}>
-            Resultatet
-          </p>
-          <h2 className="font-display text-white tilgang-section-h2" style={{ fontSize: "clamp(1.8rem, 3vw, 2.4rem)", marginBottom: 48 }}>
-            Hvad det flyttede.
-          </h2>
-          <p
-            className="text-white tilgang-body"
-            style={{ color: "#FFFFFF", fontSize: "1.1rem", lineHeight: 1.8, maxWidth: 560, marginLeft: "auto", marginRight: "auto" }}
-          >
-            Kortlægningen dokumenterede en undervurderet arbejdsdistance på <strong>54%</strong> — samme metodikken som Wolt-casen. <strong>4</strong> konkrete leverancer designet og testet på tværs af organisationen. Fra <strong>23%</strong> aktiv adoption til et fundament for reel forandring.
-          </p>
-        </div>
-      </section>
+
+
 
       {/* SECTION 9 — CTA */}
       <section className="tilgang-section" style={{ ...sectionPadding, backgroundColor: NAVY }}>
