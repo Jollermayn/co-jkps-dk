@@ -230,7 +230,7 @@ function MobileHeader() {
 
 function Index() {
   return (
-    <main id="top" className="w-full min-w-0 max-w-full overflow-x-clip text-cream lg:bg-[#0D1B2A] pt-[72px] md:pt-[64px]">
+    <main id="top" className="w-full min-w-0 max-w-full overflow-x-clip text-cream lg:bg-[#0D1B2A] pt-[72px] md:pt-[80px]">
       <MobileHeader />
       <div className="w-full min-w-0 max-w-full flex flex-col lg:block">
 
