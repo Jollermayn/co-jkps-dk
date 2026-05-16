@@ -646,30 +646,30 @@ function TilgangPage() {
       n: "01",
       h2: "Hvordan får man medarbejderne til at tage nye digitale værktøjer til sig?",
       
-      udfordringen: "Noget jeg møder igen og igen: når værktøjet er installeret og træningsdagen er overstået, regner man med at jobbet er gjort. Men adoption handler ikke om adgang — det handler om mening. Og mening kan ikke installeres.",
+      udfordringen: "Når værktøjet er installeret og træningsdagen er overstået, regner man med at jobbet er gjort. Men adoption handler ikke om adgang — det handler om mening. Og mening kan ikke installeres.",
       losningen: "Kortlægning af kløften mellem ledelsens forventning og medarbejderens hverdag. Co-design af et onboarding-flow der møder medarbejderen hvor de er — ikke hvor strategien gerne vil have dem.",
-      resultatet: "Medarbejderne møder det nye værktøj dag 1 med en forståelse af hvad det betyder for dem personligt — ikke for organisationen generelt. Adoption stiger ikke fordi der er pres på. Men fordi der er mening i det. Og organisationer der skaber mening tidligt, bruger færre ressourcer på at rette op på modstand senere.",
+      resultatet: "Medarbejderne møder det nye værktøj dag 1 med en forståelse af hvad det betyder for dem personligt. Adoption stiger ikke fordi der er pres på — men fordi der er mening i det.",
     },
     {
       n: "02",
       h2: "Hvordan kommunikerer man forandring så det faktisk lander?",
-      udfordringen: "Det jeg ofte ser: kommunikation om digitale forandringer er designet til afsenderen — ikke modtageren. Formuleret i ledelsens sprog, målt på om den er sendt — ikke på om den er forstået. Det er ikke kommunikation. Det er distribution.",
+      udfordringen: "Kommunikation om digitale forandringer er designet til afsenderen — ikke modtageren. Formuleret i ledelsens sprog, målt på om den er sendt — ikke på om den er forstået. Det er ikke kommunikation. Det er distribution.",
       losningen: "Tone of voice-udvikling der oversætter det strategiske til hverdagssprog. En IKKE/MEN-struktur der tvinger organisationen til at tage stilling til hvad de faktisk vil sige — og hvordan det lyder for dem der skal høre det.",
-      resultatet: "Et fælles sprog om det digitale — på tværs af roller, afdelinger og anciennitet. Fra distribution til dialog. Når medarbejderne forstår budskabet i deres eget sprog, behøver ledelsen ikke gentage det. Forandringen begynder at bevæge sig selv.",
+      resultatet: "Et fælles sprog om det digitale på tværs af roller og afdelinger. Når medarbejderne forstår budskabet i deres eget sprog, behøver ledelsen ikke gentage det. Forandringen begynder at bevæge sig selv.",
     },
     {
       n: "03",
       h2: "Hvordan gør man en 40-siders strategi til noget folk bruger?",
-      udfordringen: "En ting går igen: strategien er skrevet, godkendt og arkiveret. Mellemlederne ved ikke hvad de skal videreformidle. Medarbejderne ved ikke hvad det kræver af dem. Dokumentet er skrevet til systemet — ikke til mennesket der skal bruge det.",
-      losningen: "Informationsarkitektur og visuel strukturering der reducerer en kompleks strategi til tre spørgsmål: Hvor vi er nu. Hvor vi vil hen. Hvordan vi kommer der. Testet direkte med målgruppen inden udrulning.",
-      resultatet: "En one-pager der læses på ét minut — og huskes dagen efter. Når kompleksiteten oversættes til tre klare spørgsmål, holder mellemlederne op med at tolke og begynder at handle. Strategien går fra dokument til retning.",
+      udfordringen: "Strategien er skrevet, godkendt og arkiveret. Mellemlederne ved ikke hvad de skal videreformidle. Medarbejderne ved ikke hvad det kræver af dem. Dokumentet er skrevet til systemet — ikke til mennesket der skal bruge det.",
+      losningen: "Informationsarkitektur der reducerer en kompleks strategi til tre spørgsmål: Hvor vi er nu. Hvor vi vil hen. Hvordan vi kommer der. Testet direkte med målgruppen inden udrulning.",
+      resultatet: "En one-pager der læses på ét minut og huskes dagen efter. Strategien går fra dokument til retning.",
     },
     {
       n: "04",
       h2: "Hvordan skaber man en fælles stemme på tværs af en organisation?",
-      udfordringen: "Noget jeg ser på tværs af organisationer: når alle afdelinger kommunikerer det samme budskab med de samme ord, lyder det ikke konsistent. Det lyder kontrolleret. Og mennesker kan mærke forskellen.",
+      udfordringen: "Når alle afdelinger kommunikerer det samme budskab med de samme ord, lyder det ikke konsistent. Det lyder kontrolleret. Og mennesker kan mærke forskellen.",
       losningen: "Et kommunikationskit med tre skabeloner til forandringskommunikation. Fælles ramme, lokalt råderum. Testet på tværs af afdelinger før udrulning.",
-      resultatet: "Organisationen taler med én stemme — uden at lyde som om nogen har skrevet den for dem. Når kommunikationen føles lokal og ægte, øges tilliden til forandringen. Og tillid er det der afgør om et nyt værktøj, en ny strategi eller en ny retning rent faktisk får ben at gå på.",
+      resultatet: "Organisationen taler med én stemme — uden at lyde som om nogen har skrevet den for dem. Tillid er det der afgør om et nyt værktøj, en ny strategi eller en ny retning rent faktisk får ben at gå på.",
     },
   ];
 
@@ -823,52 +823,6 @@ function TilgangPage() {
         </div>
       </div>
 
-      {/* METADATA BAR */}
-      <div className="py-8 px-6 md:py-10 md:px-12" style={{ backgroundColor: NAVY }}>
-        <div
-          className="flex flex-col md:flex-row md:justify-center md:items-stretch gap-5 md:gap-6"
-          style={{ maxWidth: 900, margin: "0 auto", padding: "0 48px" }}
-        >
-          {[
-            {
-              label: "DOMÆNE",
-              value: "Digital transformation · AI-implementering",
-            },
-            {
-              label: "TILGANG",
-              value: "Servicedesign · Strategisk kommunikation",
-            },
-          ].map((col, i) => (
-            <div
-              key={col.label}
-              className={`flex-1 px-6 md:px-8 text-left ${i > 0 ? "md:border-l md:border-white/10" : ""}`}
-            >
-              <p
-                className="uppercase md-divider"
-                style={{
-                  color: RED,
-                  opacity: 1,
-                  fontSize: "0.7rem",
-                  letterSpacing: "0.15em",
-                }}
-              >
-                {col.label}
-              </p>
-              <p
-                style={{
-                  color: "#FFFFFF",
-                  fontSize: "1rem",
-                  fontWeight: 500,
-                  marginTop: 8,
-                }}
-              >
-                {col.value}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* SECTION 2 — DESIGNERENS ANSVAR */}
       <section className="tilgang-section tilgang-intro" style={{ ...sectionPadding, backgroundColor: "#F2ECDD" }}>
         <div style={innerCol}>
@@ -879,10 +833,7 @@ function TilgangPage() {
             Men forandringen lander aldrig.
           </p>
           <p className="tilgang-body" style={{ color: "#0A1628", opacity: 0.8, fontSize: "1.1rem", lineHeight: 1.9, marginBottom: "1.5em" }}>
-            Det er ikke udtryk for ligegyldighed. Det er udtryk for manglende indsigt i hvordan mennesker faktisk forholder sig til forandring — og hvad der skal til for at noget nyt bliver meningsfuldt i en hverdag der i forvejen stiller mange krav.
-          </p>
-          <p className="tilgang-body" style={{ color: "#0A1628", fontSize: "1.2rem", fontWeight: 500, lineHeight: 1.9, marginBottom: "1.5em" }}>
-            Organisationer er designet til at producere output. Færre er designet til at sikre at outputtet lander hos det menneske det handler om.
+            Ikke fordi folk er ligeglade. Men fordi mening ikke kan installeres — den skal opdages.
           </p>
         </div>
       </section>
@@ -891,17 +842,15 @@ function TilgangPage() {
       <section className="tilgang-section" style={{ ...sectionPadding, backgroundColor: NAVY }}>
         <div style={innerCol}>
           <h1 style={{ fontFamily: "'Playfair Display', serif", color: "#FFFFFF", fontSize: "clamp(2rem, 5vw, 3.5rem)", fontWeight: 600, lineHeight: 1.2, maxWidth: 560, marginBottom: 40 }}>
-            Én organisation.<br />Fire udfordringer.
+            Én organisation. Fire udfordringer.
           </h1>
           <div style={{ height: 1, width: "100%", background: RED, marginBottom: 48 }} aria-hidden />
           <p style={{ color: "#FFFFFF", opacity: 0.9, fontSize: "1rem", lineHeight: 1.8, maxWidth: 560 }}>
-            Vind Consulting. Strategirådgivning med <strong>80 medarbejdere</strong> fordelt på Aarhus og København. AI-værktøjer rullet ud på tværs af organisationen — men kun <strong>23%</strong> bruger dem aktivt. <strong>4</strong> udfordringer kortlagt. Én fælles bevægelse.
+            Vind Consulting. 80 medarbejdere fordelt på Aarhus og København. AI-værktøjer rullet ud på tværs af organisationen — men kun 23% bruger dem aktivt. Kortlægningen dokumenterede en undervurderet arbejdsdistance på 54%. Fire udfordringer. Én fælles bevægelse.
           </p>
           <div style={{ height: 1, width: "100%", background: RED, marginTop: 48 }} aria-hidden />
         </div>
       </section>
-
-      {/* SECTION 4-7 — FIRE UDFORDRINGER (alternating bg) */}
       {challenges.map((c, idx) => {
         const dark = idx % 2 === 1;
         const bg = dark ? NAVY : "#F2ECDD";
@@ -909,16 +858,7 @@ function TilgangPage() {
         return (
           <section key={c.n} className="tilgang-section" style={{ ...sectionPadding, backgroundColor: bg }}>
             <div style={innerCol}>
-              {idx === 0 && (
-                <>
-                  <p className="uppercase font-semibold tilgang-label" style={{ color: RED, fontSize: "0.75rem", letterSpacing: "0.15em", marginBottom: 24 }}>
-                    Udfordringerne
-                  </p>
-                  <h2 className="font-display leading-tight tilgang-section-h2" style={{ color: fg, fontSize: "clamp(1.6rem, 3vw, 2rem)", marginBottom: 80 }}>
-                    Fire situationer. Én fælles bevægelse.
-                  </h2>
-                </>
-              )}
+              {null}
               <article>
                 <span
                   className="font-display tilgang-challenge-num"
@@ -951,24 +891,8 @@ function TilgangPage() {
         );
       })}
 
-      {/* SECTION 8 — RESULTATER */}
-      <section className="tilgang-section" style={{ ...sectionPadding, backgroundColor: "#8B1A13" }}>
-        <div style={innerCol}>
-          <div style={{ height: 1, width: "100%", background: "rgba(255,255,255,0.2)", marginBottom: 48 }} aria-hidden />
-          <p className="uppercase font-semibold text-white tilgang-label" style={{ opacity: 0.6, fontSize: "0.75rem", letterSpacing: "0.2em", marginBottom: 24 }}>
-            Resultatet
-          </p>
-          <h2 className="font-display text-white tilgang-section-h2" style={{ fontSize: "clamp(1.8rem, 3vw, 2.4rem)", marginBottom: 48 }}>
-            Hvad det flyttede.
-          </h2>
-          <p
-            className="text-white tilgang-body"
-            style={{ color: "#FFFFFF", fontSize: "1.1rem", lineHeight: 1.8, maxWidth: 560, marginLeft: "auto", marginRight: "auto" }}
-          >
-            Kortlægningen dokumenterede en undervurderet arbejdsdistance på <strong>54%</strong> — samme metodikken som Wolt-casen. <strong>4</strong> konkrete leverancer designet og testet på tværs af organisationen. Fra <strong>23%</strong> aktiv adoption til et fundament for reel forandring.
-          </p>
-        </div>
-      </section>
+
+
 
       {/* SECTION 9 — CTA */}
       <section className="tilgang-section" style={{ ...sectionPadding, backgroundColor: NAVY }}>
@@ -983,7 +907,7 @@ function TilgangPage() {
             className="text-white tilgang-body"
             style={{ opacity: 0.7, fontSize: "1.1rem", lineHeight: 1.9, maxWidth: 400, marginBottom: 48 }}
           >
-            Så er det præcis det jeg arbejder med. Ikke som acceleration — men som oversættelse. Mellem det organisationen vil, og det mennesket forstår.
+            Så er det præcis det jeg arbejder med — oversættelsen mellem det organisationen vil, og det mennesket forstår.
           </p>
           <a
             href="mailto:Jonas@jkps.dk"
@@ -997,7 +921,7 @@ function TilgangPage() {
               borderRadius: 2,
             }}
           >
-            Kontakt mig
+            Kontakt mig →
           </a>
           <Link
             to="/"
