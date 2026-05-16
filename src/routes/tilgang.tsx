@@ -674,7 +674,7 @@ function TilgangPage() {
   ];
 
   const metaRow = (label: string, text: string, dark = false, last = false) => {
-    const baseColor = dark ? "#0A1628" : "#FFFFFF";
+    const baseColor = dark ? "#0A1628" : "#F5F3EE";
     const borderColor = dark ? RED : "rgba(255,255,255,0.1)";
     return (
       <div
@@ -824,37 +824,37 @@ function TilgangPage() {
       </div>
 
       {/* SECTION 2 — DESIGNERENS ANSVAR */}
-      <section className="tilgang-section tilgang-intro" style={{ ...sectionPadding, backgroundColor: "#F2ECDD" }}>
+      <section className="tilgang-section tilgang-intro" style={{ ...sectionPadding, backgroundColor: "#0A1628" }}>
         <div style={innerCol}>
-          <p className="tilgang-body tilgang-intro-first" style={{ color: "#0A1628", opacity: 0.8, fontSize: "1.1rem", lineHeight: 1.9, marginBottom: "1.5em" }}>
+          <p className="tilgang-body tilgang-intro-first" style={{ color: "#F5F3EE", opacity: 0.8, fontSize: "1.1rem", lineHeight: 1.9, marginBottom: "1.5em" }}>
             Strategien er sendt. Værktøjet er rullet ud. Budskabet er kommunikeret.
           </p>
-          <p style={{ color: "#0A1628", fontFamily: "serif", fontSize: "clamp(1.6rem, 4vw, 2.4rem)", fontWeight: 700, lineHeight: 1.2, marginTop: 24, marginBottom: 24 }}>
+          <p style={{ color: "#F5F3EE", fontFamily: "serif", fontSize: "clamp(1.6rem, 4vw, 2.4rem)", fontWeight: 700, lineHeight: 1.2, marginTop: 24, marginBottom: 24 }}>
             Men forandringen lander aldrig.
           </p>
-          <p className="tilgang-body" style={{ color: "#0A1628", opacity: 0.8, fontSize: "1.1rem", lineHeight: 1.9, marginBottom: "1.5em" }}>
+          <p className="tilgang-body" style={{ color: "#F5F3EE", opacity: 0.8, fontSize: "1.1rem", lineHeight: 1.9, marginBottom: "1.5em" }}>
             Ikke fordi folk er ligeglade. Men fordi mening ikke kan installeres — den skal opdages.
           </p>
         </div>
       </section>
 
       {/* SECTION 3 — KONTEKST */}
-      <section className="tilgang-section" style={{ ...sectionPadding, backgroundColor: NAVY }}>
+      <section className="tilgang-section" style={{ ...sectionPadding, backgroundColor: "#EDE8DC" }}>
         <div style={innerCol}>
-          <h1 style={{ fontFamily: "'Playfair Display', serif", color: "#FFFFFF", fontSize: "clamp(2rem, 5vw, 3.5rem)", fontWeight: 600, lineHeight: 1.2, maxWidth: 560, marginBottom: 40 }}>
+          <h1 style={{ fontFamily: "'Playfair Display', serif", color: "#0A1628", fontSize: "clamp(2rem, 5vw, 3.5rem)", fontWeight: 600, lineHeight: 1.2, maxWidth: 560, marginBottom: 40 }}>
             Én organisation. Fire udfordringer.
           </h1>
           <div style={{ height: 1, width: "100%", background: RED, marginBottom: 48 }} aria-hidden />
-          <p style={{ color: "#FFFFFF", opacity: 0.9, fontSize: "1rem", lineHeight: 1.8, maxWidth: 560 }}>
+          <p style={{ color: "#0A1628", opacity: 0.9, fontSize: "1rem", lineHeight: 1.8, maxWidth: 560 }}>
             Vind Consulting. 80 medarbejdere fordelt på Aarhus og København. AI-værktøjer rullet ud på tværs af organisationen — men kun 23% bruger dem aktivt. Kortlægningen dokumenterede en undervurderet arbejdsdistance på 54%. Fire udfordringer. Én fælles bevægelse.
           </p>
           <div style={{ height: 1, width: "100%", background: RED, marginTop: 48 }} aria-hidden />
         </div>
       </section>
       {challenges.map((c, idx) => {
-        const dark = idx % 2 === 1;
-        const bg = dark ? NAVY : "#F2ECDD";
-        const fg = dark ? "#FFFFFF" : "#0A1628";
+        const dark = true;
+        const bg = "#0A1628";
+        const fg = "#F5F3EE";
         return (
           <section key={c.n} className="tilgang-section" style={{ ...sectionPadding, backgroundColor: bg }}>
             <div style={innerCol}>
@@ -864,7 +864,7 @@ function TilgangPage() {
                   className="font-display tilgang-challenge-num"
                   style={{
                     display: "block",
-                    color: dark ? "#FFFFFF" : "#0A1628",
+                    color: "#F5F3EE",
                     fontSize: "5rem",
                     opacity: dark ? 0.15 : 0.12,
                     lineHeight: 1,
@@ -895,17 +895,17 @@ function TilgangPage() {
 
 
       {/* SECTION 9 — CTA */}
-      <section className="tilgang-section" style={{ ...sectionPadding, backgroundColor: NAVY }}>
+      <section className="tilgang-section" style={{ ...sectionPadding, backgroundColor: "#EDE8DC" }}>
         <div style={innerCol}>
           <h2
-            className="font-display text-white tilgang-section-h2"
-            style={{ fontSize: "clamp(1.8rem, 3vw, 2.4rem)", maxWidth: 480, marginBottom: 16, lineHeight: 1.2 }}
+            className="font-display tilgang-section-h2"
+            style={{ color: "#0A1628", fontSize: "clamp(1.8rem, 3vw, 2.4rem)", maxWidth: 480, marginBottom: 16, lineHeight: 1.2 }}
           >
             Kender du en af disse situationer?
           </h2>
           <p
-            className="text-white tilgang-body"
-            style={{ opacity: 0.7, fontSize: "1.1rem", lineHeight: 1.9, maxWidth: 400, marginBottom: 48 }}
+            className="tilgang-body"
+            style={{ color: "#0A1628", opacity: 0.7, fontSize: "1.1rem", lineHeight: 1.9, maxWidth: 400, marginBottom: 48 }}
           >
             Så er det præcis det jeg arbejder med — oversættelsen mellem det organisationen vil, og det mennesket forstår.
           </p>
@@ -925,11 +925,11 @@ function TilgangPage() {
           </a>
           <Link
             to="/"
-            className="text-white"
             style={{
               display: "block",
               marginTop: 24,
-              opacity: 0.5,
+              color: "#0A1628",
+              opacity: 0.6,
               fontSize: "0.9rem",
             }}
           >
