@@ -235,7 +235,7 @@ function MobileHeader() {
           justifyContent: "space-between",
         }}
       >
-        <SiteLogo color="#ffffff" lineColor="#F5F0E8" lineOpacity={1} size={48} />
+        <SiteLogo color="#ffffff" lineColor="#C0281E" lineOpacity={1} size={48} />
         <div style={{ display: "flex", alignItems: "center", gap: 40 }}>
           {[
             { label: "Cases", href: "/#cases" },
