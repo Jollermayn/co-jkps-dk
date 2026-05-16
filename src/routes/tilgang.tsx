@@ -893,20 +893,22 @@ function TilgangPage() {
             <div style={innerCol}>
               {null}
               <article>
-                <span
-                  className="font-display tilgang-challenge-num"
-                  style={{
-                    display: "block",
-                    color: fg,
-                    fontSize: "5rem",
-                    opacity: dark ? 0.15 : 0.12,
-                    lineHeight: 1,
-                    letterSpacing: "-0.02em",
-                    marginBottom: 0,
-                  }}
-                >
-                  {c.n}
-                </span>
+                {idx !== 0 && (
+                  <span
+                    className="font-display tilgang-challenge-num"
+                    style={{
+                      display: "block",
+                      color: fg,
+                      fontSize: "5rem",
+                      opacity: dark ? 0.15 : 0.12,
+                      lineHeight: 1,
+                      letterSpacing: "-0.02em",
+                      marginBottom: 0,
+                    }}
+                  >
+                    {c.n}
+                  </span>
+                )}
                 <h2
                   className="font-display leading-tight tilgang-challenge-h2"
                   style={{ color: fg, fontSize: "clamp(1.4rem, 5vw, 1.8rem)", marginTop: 0, marginBottom: 8 }}
