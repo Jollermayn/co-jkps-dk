@@ -25,7 +25,7 @@ export const Route = createFileRoute("/tilgang")({
 });
 
 const NAVY = "#0A1628";
-const BEIGE = "#F5F0E8";
+const BEIGE = "#E8E2D9";
 const RED = "#C0281E";
 const MUTED_ON_DARK = "#94a3b8";
 const MUTED_ON_LIGHT = "#6b6157";
