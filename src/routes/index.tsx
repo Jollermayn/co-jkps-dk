@@ -328,7 +328,7 @@ function Index() {
                     Når vejen til forandring
                   </span>
                   <span
-                    className="text-[1.6rem] md:text-[2.2rem]"
+                    className="text-[1.6rem] md:text-[2.6rem]"
                     style={{
                       display: "block",
                       color: "#0A1628",
