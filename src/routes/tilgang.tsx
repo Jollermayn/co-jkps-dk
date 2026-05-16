@@ -943,12 +943,6 @@ function TilgangPage() {
                 >
                   {c.h2}
                 </h2>
-                <p
-                  className="italic tilgang-body"
-                  style={{ color: RED, fontSize: "0.95rem", lineHeight: 1.7, marginTop: 8, marginBottom: 32 }}
-                >
-                  {c.label}
-                </p>
                 <div className="flex flex-col" style={{ marginTop: 40 }}>
                   {metaRow("Udfordringen", c.udfordringen, !dark)}
                   {metaRow("Løsningen", c.losningen, !dark)}
