@@ -100,7 +100,7 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
     <span className="inline-flex flex-col items-stretch w-fit cursor-default">
       <span
         className="eyebrow text-ember"
-        style={{ fontSize: "clamp(1.4rem, 2.6vw, 2.25rem)", fontWeight: 600, letterSpacing: "0.18em" }}
+        style={{ fontSize: "clamp(1.15rem, 2.1vw, 1.8rem)", fontWeight: 600, letterSpacing: "0.18em" }}
       >
         {children}
       </span>
