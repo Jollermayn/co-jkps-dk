@@ -224,8 +224,6 @@ function Index() {
             </div>
           </section>
 
-          {/* Divider */}
-          <div style={{ height: 1, backgroundColor: "#C0281E", width: "100%" }} />
 
           {/* MIN TILGANG */}
           <section
