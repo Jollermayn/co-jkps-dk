@@ -184,7 +184,7 @@ function MobileHeader() {
           zIndex: 100,
           height: 80,
           padding: "0 32px",
-          backgroundColor: "#EDE8DC",
+          backgroundColor: "#0A1628",
           alignItems: "center",
           justifyContent: "space-between",
           borderBottom: "1px solid rgba(0,0,0,0.08)",
