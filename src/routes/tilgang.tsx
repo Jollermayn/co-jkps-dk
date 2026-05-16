@@ -918,8 +918,8 @@ function TilgangPage() {
                 {idx === 0 && (
                   <img
                     src={vindConsult01}
-                    alt="Onboarding mobile screens"
-                    style={{ width: "100%", margin: "24px 0 32px", display: "block", borderRadius: 6, boxShadow: "0 4px 20px rgba(0,0,0,0.08)" }}
+                    alt="AI-strategi dokument"
+                    style={{ width: "calc(100% + 48px)", margin: "24px -24px 32px", display: "block", borderRadius: 0 }}
                   />
                 )}
                 <div className="flex flex-col" style={{ marginTop: 40 }}>
