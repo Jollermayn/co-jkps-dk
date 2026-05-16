@@ -5,6 +5,7 @@ import { caseStudies, type CaseStudy } from "@/data/cases";
 
 import { CaseModal } from "@/components/CaseModal";
 import profilePhoto from "@/assets/profile-photo.png";
+import chimpSuit from "@/assets/chimp-suit.png";
 import { SiteLogo } from "@/components/SiteLogo";
 import { MenuIcon } from "@/components/MenuIcon";
 
