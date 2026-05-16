@@ -642,7 +642,7 @@ function TilgangPage() {
     {
       n: "01",
       h2: "Hvordan får man medarbejderne til at tage nye digitale værktøjer til sig?",
-      label: "Den klassiske fejlantagelse: Adgang er nok.",
+      
       udfordringen: "Noget jeg møder igen og igen: når værktøjet er installeret og træningsdagen er overstået, regner man med at jobbet er gjort. Men adoption handler ikke om adgang — det handler om mening. Og mening kan ikke installeres.",
       losningen: "Kortlægning af kløften mellem ledelsens forventning og medarbejderens hverdag. Co-design af et onboarding-flow der møder medarbejderen hvor de er — ikke hvor strategien gerne vil have dem.",
       resultatet: "Medarbejderne møder det nye værktøj dag 1 med en forståelse af hvad det betyder for dem personligt — ikke for organisationen generelt. Adoption stiger ikke fordi der er pres på. Men fordi der er mening i det. Og organisationer der skaber mening tidligt, bruger færre ressourcer på at rette op på modstand senere.",
@@ -650,7 +650,6 @@ function TilgangPage() {
     {
       n: "02",
       h2: "Hvordan kommunikerer man forandring så det faktisk lander?",
-      label: "Den klassiske fejlantagelse: Afsendelse er kommunikation.",
       udfordringen: "Det jeg ofte ser: kommunikation om digitale forandringer er designet til afsenderen — ikke modtageren. Formuleret i ledelsens sprog, målt på om den er sendt — ikke på om den er forstået. Det er ikke kommunikation. Det er distribution.",
       losningen: "Tone of voice-udvikling der oversætter det strategiske til hverdagssprog. En IKKE/MEN-struktur der tvinger organisationen til at tage stilling til hvad de faktisk vil sige — og hvordan det lyder for dem der skal høre det.",
       resultatet: "Et fælles sprog om det digitale — på tværs af roller, afdelinger og anciennitet. Fra distribution til dialog. Når medarbejderne forstår budskabet i deres eget sprog, behøver ledelsen ikke gentage det. Forandringen begynder at bevæge sig selv.",
@@ -658,7 +657,6 @@ function TilgangPage() {
     {
       n: "03",
       h2: "Hvordan gør man en 40-siders strategi til noget folk bruger?",
-      label: "Den klassiske fejlantagelse: En god strategi taler for sig selv.",
       udfordringen: "En ting går igen: strategien er skrevet, godkendt og arkiveret. Mellemlederne ved ikke hvad de skal videreformidle. Medarbejderne ved ikke hvad det kræver af dem. Dokumentet er skrevet til systemet — ikke til mennesket der skal bruge det.",
       losningen: "Informationsarkitektur og visuel strukturering der reducerer en kompleks strategi til tre spørgsmål: Hvor vi er nu. Hvor vi vil hen. Hvordan vi kommer der. Testet direkte med målgruppen inden udrulning.",
       resultatet: "En one-pager der læses på ét minut — og huskes dagen efter. Når kompleksiteten oversættes til tre klare spørgsmål, holder mellemlederne op med at tolke og begynder at handle. Strategien går fra dokument til retning.",
@@ -666,7 +664,6 @@ function TilgangPage() {
     {
       n: "04",
       h2: "Hvordan skaber man en fælles stemme på tværs af en organisation?",
-      label: "Den klassiske fejlantagelse: Konsistens betyder at alle siger det samme.",
       udfordringen: "Noget jeg ser på tværs af organisationer: når alle afdelinger kommunikerer det samme budskab med de samme ord, lyder det ikke konsistent. Det lyder kontrolleret. Og mennesker kan mærke forskellen.",
       losningen: "Et kommunikationskit med tre skabeloner til forandringskommunikation. Fælles ramme, lokalt råderum. Testet på tværs af afdelinger før udrulning.",
       resultatet: "Organisationen taler med én stemme — uden at lyde som om nogen har skrevet den for dem. Når kommunikationen føles lokal og ægte, øges tilliden til forandringen. Og tillid er det der afgør om et nyt værktøj, en ny strategi eller en ny retning rent faktisk får ben at gå på.",
