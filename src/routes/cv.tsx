@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import profilePhoto from "@/assets/profile-photo.png";
+import { SiteLogo } from "@/components/SiteLogo";
 
 function MobileHeader() {
   const [open, setOpen] = useState(false);
