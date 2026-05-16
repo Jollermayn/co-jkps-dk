@@ -647,9 +647,9 @@ function TilgangPage() {
       n: "01",
       h2: "Hvordan får man medarbejderne til at tage nye digitale værktøjer til sig?",
       
-      udfordringen: "Når værktøjet er installeret og træningsdagen er overstået, regner man med at jobbet er gjort. Men adoption handler ikke om adgang — det handler om mening. Og mening kan ikke installeres.",
-      losningen: "Kortlægning af kløften mellem ledelsens forventning og medarbejderens hverdag. Co-design af et onboarding-flow der møder medarbejderen hvor de er — ikke hvor strategien gerne vil have dem.",
-      resultatet: "Medarbejderne møder det nye værktøj dag 1 med en forståelse af hvad det betyder for dem personligt. Adoption stiger ikke fordi der er pres på — men fordi der er mening i det.",
+      udfordringen: "Mening kan ikke installeres — den skal opdages.",
+      losningen: "Co-design af et onboarding-flow der møder medarbejderen hvor de er.",
+      resultatet: "Adoption stiger ikke fordi der er pres på — men fordi der er mening i det.",
     },
     {
       n: "02",
