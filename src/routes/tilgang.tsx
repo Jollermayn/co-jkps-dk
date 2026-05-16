@@ -823,52 +823,6 @@ function TilgangPage() {
         </div>
       </div>
 
-      {/* METADATA BAR */}
-      <div className="py-8 px-6 md:py-10 md:px-12" style={{ backgroundColor: NAVY }}>
-        <div
-          className="flex flex-col md:flex-row md:justify-center md:items-stretch gap-5 md:gap-6"
-          style={{ maxWidth: 900, margin: "0 auto", padding: "0 48px" }}
-        >
-          {[
-            {
-              label: "DOMÆNE",
-              value: "Digital transformation · AI-implementering",
-            },
-            {
-              label: "TILGANG",
-              value: "Servicedesign · Strategisk kommunikation",
-            },
-          ].map((col, i) => (
-            <div
-              key={col.label}
-              className={`flex-1 px-6 md:px-8 text-left ${i > 0 ? "md:border-l md:border-white/10" : ""}`}
-            >
-              <p
-                className="uppercase md-divider"
-                style={{
-                  color: RED,
-                  opacity: 1,
-                  fontSize: "0.7rem",
-                  letterSpacing: "0.15em",
-                }}
-              >
-                {col.label}
-              </p>
-              <p
-                style={{
-                  color: "#FFFFFF",
-                  fontSize: "1rem",
-                  fontWeight: 500,
-                  marginTop: 8,
-                }}
-              >
-                {col.value}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* SECTION 2 — DESIGNERENS ANSVAR */}
       <section className="tilgang-section tilgang-intro" style={{ ...sectionPadding, backgroundColor: "#F2ECDD" }}>
         <div style={innerCol}>
@@ -879,10 +833,7 @@ function TilgangPage() {
             Men forandringen lander aldrig.
           </p>
           <p className="tilgang-body" style={{ color: "#0A1628", opacity: 0.8, fontSize: "1.1rem", lineHeight: 1.9, marginBottom: "1.5em" }}>
-            Det er ikke udtryk for ligegyldighed. Det er udtryk for manglende indsigt i hvordan mennesker faktisk forholder sig til forandring — og hvad der skal til for at noget nyt bliver meningsfuldt i en hverdag der i forvejen stiller mange krav.
-          </p>
-          <p className="tilgang-body" style={{ color: "#0A1628", fontSize: "1.2rem", fontWeight: 500, lineHeight: 1.9, marginBottom: "1.5em" }}>
-            Organisationer er designet til at producere output. Færre er designet til at sikre at outputtet lander hos det menneske det handler om.
+            Ikke fordi folk er ligeglade. Men fordi mening ikke kan installeres — den skal opdages.
           </p>
         </div>
       </section>
@@ -891,17 +842,15 @@ function TilgangPage() {
       <section className="tilgang-section" style={{ ...sectionPadding, backgroundColor: NAVY }}>
         <div style={innerCol}>
           <h1 style={{ fontFamily: "'Playfair Display', serif", color: "#FFFFFF", fontSize: "clamp(2rem, 5vw, 3.5rem)", fontWeight: 600, lineHeight: 1.2, maxWidth: 560, marginBottom: 40 }}>
-            Én organisation.<br />Fire udfordringer.
+            Én organisation. Fire udfordringer.
           </h1>
           <div style={{ height: 1, width: "100%", background: RED, marginBottom: 48 }} aria-hidden />
           <p style={{ color: "#FFFFFF", opacity: 0.9, fontSize: "1rem", lineHeight: 1.8, maxWidth: 560 }}>
-            Vind Consulting. Strategirådgivning med <strong>80 medarbejdere</strong> fordelt på Aarhus og København. AI-værktøjer rullet ud på tværs af organisationen — men kun <strong>23%</strong> bruger dem aktivt. <strong>4</strong> udfordringer kortlagt. Én fælles bevægelse.
+            Vind Consulting. 80 medarbejdere fordelt på Aarhus og København. AI-værktøjer rullet ud på tværs af organisationen — men kun 23% bruger dem aktivt. Kortlægningen dokumenterede en undervurderet arbejdsdistance på 54%. Fire udfordringer. Én fælles bevægelse.
           </p>
           <div style={{ height: 1, width: "100%", background: RED, marginTop: 48 }} aria-hidden />
         </div>
       </section>
-
-      {/* SECTION 4-7 — FIRE UDFORDRINGER (alternating bg) */}
       {challenges.map((c, idx) => {
         const dark = idx % 2 === 1;
         const bg = dark ? NAVY : "#F2ECDD";
