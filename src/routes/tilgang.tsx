@@ -884,13 +884,6 @@ function TilgangPage() {
         </div>
       </section>
 
-      {/* SECTION 3 — KONTEKST */}
-      <section className="tilgang-section" style={{ ...sectionPadding, backgroundColor: "#EDE8DC" }}>
-        <div style={innerCol}>
-          <img src={vindConsult01} alt="Vind Consulting AI-strategi 2025" style={{ width: "100%", margin: "0 auto", display: "block", borderRadius: 6, boxShadow: "0 4px 20px rgba(0,0,0,0.08)" }} />
-          <div style={{ height: 1, width: "100%", background: RED, marginTop: 48 }} aria-hidden />
-        </div>
-      </section>
       {challenges.map((c, idx) => {
         const dark = idx % 2 === 0;
         const bg = dark ? "#0A1628" : "#EDE8DC";
