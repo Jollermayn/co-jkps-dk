@@ -234,7 +234,7 @@ function TilgangPage() {
               margin: 0,
             }}
           >
-            Kunsten i at finde<br />hvad der går tabt.
+            Kunsten i at finde<br /><span style={{ color: RED, fontStyle: "italic" }}>hvad der går tabt.</span>
           </h1>
         </div>
       </section>
