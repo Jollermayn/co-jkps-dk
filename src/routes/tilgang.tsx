@@ -751,14 +751,37 @@ function TilgangPage() {
         }
       `}</style>
       {/* MOBILE NAV BAR */}
-      <nav className="md:hidden" style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: "#0A1628", height: 72, padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+      <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: "#0A1628", height: 72, padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
         <div>
           <SiteLogo color="#ffffff" lineColor="#F5F0E8" lineOpacity={1} />
         </div>
-        <button type="button" aria-label="Åbn menu" onClick={() => setMenuOpen(true)} style={{ background: "transparent", border: "none", padding: 0, cursor: "pointer", display: "inline-flex" }}>
-          <MenuIcon color="#ffffff" />
-        </button>
+        <div style={{ display: "flex", alignItems: "center", gap: 24, flexWrap: "wrap", justifyContent: "flex-end" }}>
+          {[
+            { label: "Cases", href: "/#cases" },
+            { label: "Kompetencer", href: "/#kompetencer" },
+            { label: "Min tilgang", href: "/tilgang" },
+            { label: "Kontakt", href: "/#kontakt" },
+          ].map((l) => (
+            <a
+              key={l.label}
+              href={l.href}
+              className="tilgang-nav-link"
+              style={{
+                fontFamily: "serif",
+                fontSize: "0.9rem",
+                fontWeight: 400,
+                color: "#F5F0E8",
+                letterSpacing: "0.05em",
+                textDecoration: "none",
+                transition: "color 0.2s ease",
+              }}
+            >
+              {l.label}
+            </a>
+          ))}
+        </div>
       </nav>
+      <style>{`.tilgang-nav-link:hover { color: #C0281E !important; }`}</style>
       {menuOpen && (
         <div className="md:hidden" style={{ position: "fixed", inset: 0, zIndex: 200, backgroundColor: "#E0D9C8", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 32 }}>
           <button type="button" aria-label="Luk menu" onClick={() => setMenuOpen(false)} style={{ position: "absolute", top: 16, right: 24, background: "transparent", border: "none", color: "#0A1628", fontSize: "2rem", lineHeight: 1, padding: 0, cursor: "pointer" }}>
