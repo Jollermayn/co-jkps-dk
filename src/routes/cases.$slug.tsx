@@ -74,15 +74,16 @@ function CaseDetail() {
   return (
     <main className="bg-navy-deep text-cream">
       {/* NAV */}
-      <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-navy-deep/70 border-b border-cream/10">
+      <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md" style={{ backgroundColor: "#F8F7F4", borderBottom: "1px solid rgba(10, 22, 40, 0.08)" }}>
         <nav className="mx-auto max-w-[1400px] px-6 md:px-10 h-16 flex items-center justify-between">
-          <Link to="/" className="font-display text-lg tracking-tight">
+          <Link to="/" className="font-display text-lg tracking-tight" style={{ color: "#0A1628" }}>
             Jonas K.P. Sørensen
           </Link>
           <Link
             to="/"
             hash="cases"
-            className="text-sm text-cream/80 hover:text-ember transition-colors"
+            className="text-sm hover:text-ember transition-colors"
+            style={{ color: "#0A1628" }}
           >
             ← Tilbage til portfolio
           </Link>
