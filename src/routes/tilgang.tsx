@@ -928,7 +928,7 @@ function TilgangPage() {
             style={{
               display: "block",
               marginTop: 24,
-              color: "#0A1628",
+              color: "#F5F3EE",
               opacity: 0.6,
               fontSize: "0.9rem",
             }}
