@@ -6,6 +6,7 @@ import { caseStudies, type CaseStudy } from "@/data/cases";
 import { CaseModal } from "@/components/CaseModal";
 import profilePhoto from "@/assets/profile-photo.png";
 import { SiteLogo } from "@/components/SiteLogo";
+import { MenuIcon } from "@/components/MenuIcon";
 
 
 export const Route = createFileRoute("/")({
@@ -160,8 +161,8 @@ function MobileHeader() {
         <div style={{ position: "absolute", left: "50%", top: "50%", transform: "translate(-50%, -50%)" }}>
           <SiteLogo />
         </div>
-        <button type="button" aria-label="Åbn menu" onClick={() => setOpen(true)} style={{ background: "transparent", border: "none", color: "#0A1628", fontSize: "1.6rem", lineHeight: 1, padding: 0, cursor: "pointer" }}>
-          ≡
+        <button type="button" aria-label="Åbn menu" onClick={() => setOpen(true)} style={{ background: "transparent", border: "none", padding: 0, cursor: "pointer", display: "inline-flex" }}>
+          <MenuIcon />
         </button>
       </nav>
       {open && (
