@@ -828,7 +828,7 @@ function TilgangPage() {
       </div>
 
       {/* SECTION 2 — DESIGNERENS ANSVAR */}
-      <section className="tilgang-section" style={{ backgroundColor: "#0A1628", paddingTop: 80, paddingBottom: 80 }}>
+      <section className="tilgang-section" style={{ backgroundColor: "#0A1628", paddingTop: 80, paddingBottom: 20 }}>
         <div style={{ ...innerCol, textAlign: "center" }}>
           <span
             style={{
@@ -889,24 +889,26 @@ function TilgangPage() {
         const bg = dark ? "#0A1628" : "#EDE8DC";
         const fg = dark ? "#F5F3EE" : "#0A1628";
         return (
-          <section key={c.n} className="tilgang-section" style={{ ...sectionPadding, backgroundColor: bg }}>
+          <section key={c.n} className="tilgang-section" style={{ ...sectionPadding, paddingTop: idx === 0 ? 20 : sectionPadding.paddingTop, backgroundColor: bg }}>
             <div style={innerCol}>
               {null}
               <article>
-                <span
-                  className="font-display tilgang-challenge-num"
-                  style={{
-                    display: "block",
-                    color: fg,
-                    fontSize: "5rem",
-                    opacity: dark ? 0.15 : 0.12,
-                    lineHeight: 1,
-                    letterSpacing: "-0.02em",
-                    marginBottom: 0,
-                  }}
-                >
-                  {c.n}
-                </span>
+                {idx !== 0 && (
+                  <span
+                    className="font-display tilgang-challenge-num"
+                    style={{
+                      display: "block",
+                      color: fg,
+                      fontSize: "5rem",
+                      opacity: dark ? 0.15 : 0.12,
+                      lineHeight: 1,
+                      letterSpacing: "-0.02em",
+                      marginBottom: 0,
+                    }}
+                  >
+                    {c.n}
+                  </span>
+                )}
                 <h2
                   className="font-display leading-tight tilgang-challenge-h2"
                   style={{ color: fg, fontSize: "clamp(1.4rem, 5vw, 1.8rem)", marginTop: 0, marginBottom: 8 }}
@@ -916,8 +918,8 @@ function TilgangPage() {
                 {idx === 0 && (
                   <img
                     src={vindConsult01}
-                    alt="Onboarding mobile screens"
-                    style={{ width: "100%", margin: "24px 0 32px", display: "block", borderRadius: 6, boxShadow: "0 4px 20px rgba(0,0,0,0.08)" }}
+                    alt="AI-strategi dokument"
+                    style={{ width: "calc(100% + 48px)", margin: "24px -24px 32px", display: "block", borderRadius: 0 }}
                   />
                 )}
                 <div className="flex flex-col" style={{ marginTop: 40 }}>
