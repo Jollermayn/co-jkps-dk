@@ -674,7 +674,7 @@ function TilgangPage() {
   ];
 
   const metaRow = (label: string, text: string, dark = false, last = false) => {
-    const baseColor = dark ? "#0A1628" : "#FFFFFF";
+    const baseColor = dark ? "#0A1628" : "#F5F3EE";
     const borderColor = dark ? RED : "rgba(255,255,255,0.1)";
     return (
       <div
