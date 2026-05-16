@@ -864,7 +864,7 @@ function TilgangPage() {
                   className="font-display tilgang-challenge-num"
                   style={{
                     display: "block",
-                    color: dark ? "#FFFFFF" : "#0A1628",
+                    color: "#F5F3EE",
                     fontSize: "5rem",
                     opacity: dark ? 0.15 : 0.12,
                     lineHeight: 1,
