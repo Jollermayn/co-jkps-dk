@@ -1,5 +1,34 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
 import profilePhoto from "@/assets/profile-photo.png";
+
+function MobileHeader() {
+  const [open, setOpen] = useState(false);
+  return (
+    <>
+      <nav className="md:hidden no-print" style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: "#0A1628", height: 56, padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <Link to="/" style={{ fontFamily: "serif", fontSize: "1rem", fontWeight: 400, color: "white", textDecoration: "none" }}>
+          jkps.dk
+        </Link>
+        <button type="button" aria-label="Åbn menu" onClick={() => setOpen(true)} style={{ background: "transparent", border: "none", color: "white", fontSize: "1.4rem", lineHeight: 1, padding: 0, cursor: "pointer" }}>
+          ≡
+        </button>
+      </nav>
+      {open && (
+        <div className="md:hidden no-print" style={{ position: "fixed", inset: 0, zIndex: 200, backgroundColor: "#0A1628", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 32 }}>
+          <button type="button" aria-label="Luk menu" onClick={() => setOpen(false)} style={{ position: "absolute", top: 16, right: 24, background: "transparent", border: "none", color: "white", fontSize: "2rem", lineHeight: 1, padding: 0, cursor: "pointer" }}>
+            ×
+          </button>
+          <Link to="/" onClick={() => setOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: "white", textDecoration: "none" }}>Portfolio</Link>
+          <Link to="/tilgang" onClick={() => setOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: "white", textDecoration: "none" }}>Min tilgang</Link>
+          <Link to="/cv" onClick={() => setOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: "white", textDecoration: "none" }}>CV</Link>
+          <a href="/#kontakt" onClick={() => setOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: "white", textDecoration: "none" }}>Kontakt</a>
+        </div>
+      )}
+    </>
+  );
+}
+
 
 export const Route = createFileRoute("/cv")({
   head: () => ({
