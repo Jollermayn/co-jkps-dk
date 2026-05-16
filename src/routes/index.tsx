@@ -176,13 +176,13 @@ function Index() {
             <div className="px-5 md:px-14">
               <div className="mb-10 md:mb-14">
                 <Eyebrow>Kompetencer</Eyebrow>
-                <h2 className="font-display text-5xl md:text-7xl mt-6 leading-[0.95] tracking-tight">
+                <h2 className="font-display text-5xl md:text-7xl mt-6 mb-8 leading-[0.95] tracking-tight">
                   Hvad jeg <span className="italic">bringer</span>
                 </h2>
-                <p style={{ color: "white", opacity: 0.85, fontSize: "1.05rem", lineHeight: 1.8, maxWidth: 560 }}>
+                <p style={{ color: "white", opacity: 0.85, fontSize: "1.05rem", lineHeight: 1.8, maxWidth: 560, marginBottom: 24 }}>
                   Jeg arbejder i skæringsfeltet mellem strategi, design og teknologi — hvor problemerne lever.
                 </p>
-                <p style={{ color: "white", fontStyle: "italic", opacity: 0.75, fontSize: "1rem", lineHeight: 2, maxWidth: 560, marginTop: 16 }}>
+                <p style={{ color: "white", fontStyle: "italic", opacity: 0.75, fontSize: "1rem", lineHeight: 2, maxWidth: 560 }}>
                   Indsigt omsættes. Design forankres. Strategi lander.
                 </p>
               </div>
