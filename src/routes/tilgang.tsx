@@ -647,9 +647,9 @@ function TilgangPage() {
       n: "01",
       h2: "Hvordan får man medarbejderne til at tage nye digitale værktøjer til sig?",
       
-      udfordringen: "Når værktøjet er installeret og træningsdagen er overstået, regner man med at jobbet er gjort. Men adoption handler ikke om adgang — det handler om mening. Og mening kan ikke installeres.",
-      losningen: "Kortlægning af kløften mellem ledelsens forventning og medarbejderens hverdag. Co-design af et onboarding-flow der møder medarbejderen hvor de er — ikke hvor strategien gerne vil have dem.",
-      resultatet: "Medarbejderne møder det nye værktøj dag 1 med en forståelse af hvad det betyder for dem personligt. Adoption stiger ikke fordi der er pres på — men fordi der er mening i det.",
+      udfordringen: "Mening kan ikke installeres — den skal opdages.",
+      losningen: "Co-design af et onboarding-flow der møder medarbejderen hvor de er.",
+      resultatet: "Adoption stiger ikke fordi der er pres på — men fordi der er mening i det.",
     },
     {
       n: "02",
@@ -884,13 +884,6 @@ function TilgangPage() {
         </div>
       </section>
 
-      {/* SECTION 3 — KONTEKST */}
-      <section className="tilgang-section" style={{ ...sectionPadding, backgroundColor: "#EDE8DC" }}>
-        <div style={innerCol}>
-          <img src={vindConsult01} alt="Vind Consulting AI-strategi 2025" style={{ width: "100%", margin: "0 auto", display: "block", borderRadius: 6, boxShadow: "0 4px 20px rgba(0,0,0,0.08)" }} />
-          <div style={{ height: 1, width: "100%", background: RED, marginTop: 48 }} aria-hidden />
-        </div>
-      </section>
       {challenges.map((c, idx) => {
         const dark = idx % 2 === 0;
         const bg = dark ? "#0A1628" : "#EDE8DC";
@@ -920,6 +913,13 @@ function TilgangPage() {
                 >
                   {c.h2}
                 </h2>
+                {idx === 0 && (
+                  <img
+                    src={vindConsult01}
+                    alt="Onboarding mobile screens"
+                    style={{ width: "100%", margin: "24px 0 32px", display: "block", borderRadius: 6, boxShadow: "0 4px 20px rgba(0,0,0,0.08)" }}
+                  />
+                )}
                 <div className="flex flex-col" style={{ marginTop: 40 }}>
                   {metaRow("Udfordringen", c.udfordringen, !dark)}
                   {metaRow("Løsningen", c.losningen, !dark)}
