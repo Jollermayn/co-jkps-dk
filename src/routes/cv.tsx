@@ -110,7 +110,7 @@ const education = [
   {
     title: "Sociologi & Kulturanalyse",
     meta: "SYDDANSK UNIVERSITET. 2011",
-    body: "Første år af bacheloren — fagligt afsæt i kulturteori, samfundsanalyse og sociologisk metode.",
+    body: "Fagligt afsæt i kulturteori, samfundsanalyse og sociologisk metode.",
   },
 ];
 
