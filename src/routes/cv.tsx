@@ -259,6 +259,7 @@ function CVPage() {
           .expertise-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
           .expertise-pills { display: flex !important; flex-wrap: wrap !important; gap: 8px !important; width: 100% !important; flex-direction: row !important; align-items: flex-start !important; }
           .expertise-pill { white-space: nowrap !important; padding: 6px 14px !important; border-radius: 20px !important; font-size: 0.85rem !important; border: 1px solid #0A1628 !important; color: #0A1628 !important; background: transparent !important; }
+          .cv-page-2 .cv-sidebar { display: none !important; }
         }
       `}</style>
 
