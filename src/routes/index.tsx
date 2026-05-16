@@ -166,9 +166,9 @@ function MobileHeader() {
       {/* Mobile header (<768px) — unchanged */}
       <nav className="flex md:hidden" style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: "#0A1628", height: 72, padding: "0 24px", alignItems: "center", justifyContent: "space-between", borderBottom: "1px solid rgba(0,0,0,0.08)" }}>
         <div>
-          <SiteLogo />
+          <SiteLogo color="#F5F3EE" lineColor="#C0281E" lineOpacity={1} />
         </div>
-        <button type="button" aria-label="Åbn menu" onClick={() => setOpen(true)} style={{ background: "transparent", border: "none", padding: 0, cursor: "pointer", display: "inline-flex" }}>
+        <button type="button" aria-label="Åbn menu" onClick={() => setOpen(true)} style={{ background: "transparent", border: "none", padding: 0, cursor: "pointer", display: "inline-flex", color: "#F5F3EE" }}>
           <MenuIcon />
         </button>
       </nav>
