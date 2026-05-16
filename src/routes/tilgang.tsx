@@ -907,7 +907,7 @@ function TilgangPage() {
             className="text-white tilgang-body"
             style={{ opacity: 0.7, fontSize: "1.1rem", lineHeight: 1.9, maxWidth: 400, marginBottom: 48 }}
           >
-            Så er det præcis det jeg arbejder med. Ikke som acceleration — men som oversættelse. Mellem det organisationen vil, og det mennesket forstår.
+            Så er det præcis det jeg arbejder med — oversættelsen mellem det organisationen vil, og det mennesket forstår.
           </p>
           <a
             href="mailto:Jonas@jkps.dk"
@@ -921,7 +921,7 @@ function TilgangPage() {
               borderRadius: 2,
             }}
           >
-            Kontakt mig
+            Kontakt mig →
           </a>
           <Link
             to="/"
