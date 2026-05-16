@@ -230,6 +230,23 @@ function CVPage() {
       window.removeEventListener("scroll", onScroll);
     };
   }, []);
+
+  useEffect(() => {
+    const pdfUrl = "https://jkps.dk/cv-jonas-kp-sorensen.pdf";
+    const onBeforePrint = () => {
+      window.open(pdfUrl, "_blank");
+    };
+    window.addEventListener("beforeprint", onBeforePrint);
+    const mql = window.matchMedia("print");
+    const onChange = (e: MediaQueryListEvent) => {
+      if (e.matches) window.open(pdfUrl, "_blank");
+    };
+    mql.addEventListener?.("change", onChange);
+    return () => {
+      window.removeEventListener("beforeprint", onBeforePrint);
+      mql.removeEventListener?.("change", onChange);
+    };
+  }, []);
   return (
     <>
       <style>{`
