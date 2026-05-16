@@ -816,12 +816,12 @@ function TilgangPage() {
               className="font-display text-left max-w-full break-normal overflow-visible text-[1.6rem] leading-[1.3] md:text-[clamp(2.2rem,5vw,3.8rem)] md:leading-[1.2]"
               style={{ fontWeight: 700, color: "#000000", fontFamily: "serif", maxWidth: 960, marginLeft: "auto", marginRight: "auto" }}
             >
-              <span className="md:whitespace-nowrap">Strategien er god.</span><br />
+              <span className="md:whitespace-nowrap">Strategien er solid.</span><br />
               <span
                 className="italic"
                 style={{ color: "#C0281E", fontFamily: "serif", fontWeight: 700 }}
               >
-                Forankringen mangler.
+                Forankringen fejler.
               </span>
             </h1>
           </div>
