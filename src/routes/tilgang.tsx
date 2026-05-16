@@ -831,6 +831,18 @@ function TilgangPage() {
       {/* SECTION 2 — DESIGNERENS ANSVAR */}
       <section className="tilgang-section" style={{ backgroundColor: "#0A1628", paddingTop: 80, paddingBottom: 80 }}>
         <div style={{ ...innerCol, textAlign: "center" }}>
+          <span
+            style={{
+              display: "block",
+              fontSize: "0.75rem",
+              letterSpacing: "0.1em",
+              color: "#C0281E",
+              textTransform: "uppercase",
+              marginBottom: 16,
+            }}
+          >
+            VIND CONSULTING · KONCEPTPROJEKT
+          </span>
           <h2
             style={{
               color: "#FFFFFF",
