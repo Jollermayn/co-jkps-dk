@@ -296,14 +296,15 @@ function Index() {
             }}
             className="py-12 px-6 md:!py-20 md:!px-16"
           >
-            <div className="flex flex-col md:flex-row md:items-center" style={{ width: "100%" }}>
+            <div className="flex flex-col items-center md:items-center md:flex-row" style={{ width: "100%" }}>
               {/* RIGHT: image */}
               <div className="w-full md:w-1/2 flex justify-center md:justify-end order-2 mt-8 md:mt-0">
                 <img
                   src={chimpSuit}
                   alt=""
                   aria-hidden="true"
-                  style={{ display: "block", objectFit: "contain", height: "auto", width: "260px", maxWidth: "100%", marginRight: "-20px", filter: "drop-shadow(0px 12px 8px rgba(0, 0, 0, 0.25))" }}
+                  className="w-[280px] md:w-[260px]"
+                  style={{ display: "block", objectFit: "contain", height: "auto", maxWidth: "100%", marginRight: "-20px", filter: "drop-shadow(0px 12px 8px rgba(0, 0, 0, 0.25))" }}
                 />
               </div>
 
@@ -314,19 +315,20 @@ function Index() {
               >
                 <Link to="/tilgang" style={{ display: "block", textDecoration: "none" }}>
                   <span
+                    className="text-[2rem] md:text-[clamp(2rem,4vw,3.2rem)]"
                     style={{
                       display: "block",
                       color: "#0A1628",
                       fontFamily: "serif",
                       fontStyle: "italic",
                       fontWeight: 600,
-                      fontSize: "clamp(2rem, 4vw, 3.2rem)",
                       lineHeight: 1.1,
                     }}
                   >
                     Når vejen til forandring
                   </span>
                   <span
+                    className="text-[1.6rem] md:text-[clamp(2rem,4vw,3.2rem)]"
                     style={{
                       display: "block",
                       color: "#0A1628",
@@ -334,7 +336,6 @@ function Index() {
                       fontFamily: "serif",
                       fontStyle: "italic",
                       fontWeight: 400,
-                      fontSize: "clamp(2rem, 4vw, 3.2rem)",
                       lineHeight: 1.1,
                       marginTop: "8px",
                     }}
