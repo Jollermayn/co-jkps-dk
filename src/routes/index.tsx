@@ -158,7 +158,7 @@ function MobileHeader() {
   return (
     <>
       {/* Mobile header — unchanged */}
-      <nav className="md:hidden" style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: "#E0D9C8", height: 72, padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "flex-end", borderBottom: "1px solid rgba(0,0,0,0.08)" }}>
+      <nav className="flex md:hidden" style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: "#E0D9C8", height: 72, padding: "0 24px", alignItems: "center", justifyContent: "flex-end", borderBottom: "1px solid rgba(0,0,0,0.08)" }}>
         <div style={{ position: "absolute", left: "50%", top: "50%", transform: "translate(-50%, -50%)" }}>
           <SiteLogo />
         </div>
@@ -167,15 +167,28 @@ function MobileHeader() {
         </button>
       </nav>
 
-      {/* Desktop header — navy, white logo & hamburger */}
-      <nav className="hidden md:flex" style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: "#0A1628", height: 72, padding: "0 24px", alignItems: "center", justifyContent: "flex-end", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
-        <div style={{ position: "absolute", left: "50%", top: "50%", transform: "translate(-50%, -50%)" }}>
-          <SiteLogo color="#ffffff" lineColor="#F5F0E8" lineOpacity={1} />
+      {/* Desktop header — transparent, logo left, nav right */}
+      <nav className="hidden md:flex" style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: "transparent", height: 64, padding: "0 48px", alignItems: "center", justifyContent: "space-between" }}>
+        <SiteLogo color="#ffffff" lineColor="#F5F0E8" lineOpacity={1} size={56} />
+        <div style={{ display: "flex", alignItems: "center", gap: 40 }}>
+          {[
+            { label: "Cases", href: "/#cases" },
+            { label: "Kompetencer", href: "/#kompetencer" },
+            { label: "Min tilgang", href: "/tilgang" },
+            { label: "Kontakt", href: "/#kontakt" },
+          ].map((l) => (
+            <a
+              key={l.label}
+              href={l.href}
+              className="desktop-nav-link"
+              style={{ fontFamily: "serif", fontSize: "0.9rem", fontWeight: 400, color: "white", letterSpacing: "0.05em", textDecoration: "none", transition: "color 0.2s ease" }}
+            >
+              {l.label}
+            </a>
+          ))}
         </div>
-        <button type="button" aria-label="Åbn menu" onClick={() => setOpen(true)} style={{ background: "transparent", border: "none", padding: 0, cursor: "pointer", display: "inline-flex" }}>
-          <MenuIcon color="#ffffff" />
-        </button>
       </nav>
+      <style>{`.desktop-nav-link:hover { color: #C0281E !important; }`}</style>
 
       {/* Full-screen menu overlay */}
       {open && (
@@ -195,7 +208,7 @@ function MobileHeader() {
 
 function Index() {
   return (
-    <main id="top" className="w-full min-w-0 max-w-full overflow-x-clip text-cream lg:bg-[#0D1B2A] pt-[72px] md:pt-0">
+    <main id="top" className="w-full min-w-0 max-w-full overflow-x-clip text-cream lg:bg-[#0D1B2A] pt-[72px] md:pt-[64px]">
       <MobileHeader />
       <div className="w-full min-w-0 max-w-full flex flex-col lg:block">
 
