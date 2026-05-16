@@ -39,7 +39,7 @@ export const Route = createRootRoute({
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:site", content: "@jonaskps" },
       { name: "twitter:title", content: "Jonas K.P. Sørensen — Digital konsulent" },
       { name: "twitter:description", content: "UX research, servicedesign og konceptudvikling. Selvstændig siden 2016." },
       { name: "twitter:image", content: "https://www.jkps.dk/og-thumbnail.png?v=2" },
