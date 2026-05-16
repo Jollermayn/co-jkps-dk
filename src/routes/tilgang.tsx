@@ -300,7 +300,7 @@ function TilgangPage() {
       <section
         className="tilgang-cta"
         style={{
-          backgroundColor: NAVY,
+          backgroundColor: BEIGE,
           paddingTop: 120,
           paddingBottom: 120,
           paddingLeft: 24,
