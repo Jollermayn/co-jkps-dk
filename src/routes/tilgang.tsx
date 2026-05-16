@@ -305,7 +305,7 @@ function TilgangPage() {
         <div style={{ width: "100%", maxWidth: 720 }}>
           <h2
             style={{
-              color: NAVY,
+              color: "#F5F3EE",
               fontFamily: "serif",
               fontWeight: 700,
               fontSize: "clamp(1.8rem, 3.2vw, 2.5rem)",
@@ -313,7 +313,7 @@ function TilgangPage() {
               margin: 0,
             }}
           >
-            Kender du hullet?
+            Her kan du fange mig.
           </h2>
           <p
             style={{
