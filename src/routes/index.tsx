@@ -417,7 +417,7 @@ function Index() {
                       textUnderlineOffset: "4px",
                     }}
                   >
-                    Læs mere →
+                    Kortlægningen starter her →
                   </span>
                 </Link>
               </div>
@@ -435,7 +435,7 @@ function Index() {
                     textUnderlineOffset: "4px",
                   }}
                 >
-                  Læs mere →
+                  Kortlægningen starter her →
                 </Link>
               </div>
             </div>
