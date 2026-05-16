@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, X, Users, Bot, BarChart3, ArrowRight } from "lucide-react";
 import vindAiStrategiOnePager from "@/assets/vind-ai-strategi-onepager.png";
+import vindConsultingLogo from "@/assets/vind-consulting-logo.png";
 import { SiteLogo } from "@/components/SiteLogo";
 import { MenuIcon } from "@/components/MenuIcon";
 
@@ -841,6 +842,7 @@ function TilgangPage() {
       {/* SECTION 3 — KONTEKST */}
       <section className="tilgang-section" style={{ ...sectionPadding, backgroundColor: "#EDE8DC" }}>
         <div style={innerCol}>
+          <img src={vindConsultingLogo} alt="Vind Consulting" style={{ width: 120, display: "block", marginBottom: 24 }} />
           <h1 style={{ fontFamily: "'Playfair Display', serif", color: "#0A1628", fontSize: "clamp(2rem, 5vw, 3.5rem)", fontWeight: 600, lineHeight: 1.2, maxWidth: 560, marginBottom: 40 }}>
             Én organisation. Fire udfordringer.
           </h1>
