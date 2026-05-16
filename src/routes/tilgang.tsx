@@ -829,17 +829,20 @@ function TilgangPage() {
       </div>
 
       {/* SECTION 2 — DESIGNERENS ANSVAR */}
-      <section className="tilgang-section tilgang-intro" style={{ ...sectionPadding, backgroundColor: "#0A1628" }}>
-        <div style={innerCol}>
-          <p className="tilgang-body tilgang-intro-first" style={{ color: "#F5F3EE", opacity: 0.8, fontSize: "1.1rem", lineHeight: 1.9, marginBottom: "1.5em" }}>
-            Strategien er sendt. Værktøjet er rullet ud. Budskabet er kommunikeret.
-          </p>
-          <p style={{ color: "#F5F3EE", fontFamily: "serif", fontSize: "clamp(1.6rem, 4vw, 2.4rem)", fontWeight: 700, lineHeight: 1.2, marginTop: 24, marginBottom: 24 }}>
-            Men forandringen lander aldrig.
-          </p>
-          <p className="tilgang-body" style={{ color: "#F5F3EE", opacity: 0.8, fontSize: "1.1rem", lineHeight: 1.9, marginBottom: "1.5em" }}>
-            Ikke fordi folk er ligeglade. Men fordi mening ikke kan installeres — den skal opdages.
-          </p>
+      <section className="tilgang-section" style={{ backgroundColor: "#0A1628", paddingTop: 80, paddingBottom: 80 }}>
+        <div style={{ ...innerCol, textAlign: "center" }}>
+          <h2
+            style={{
+              color: "#FFFFFF",
+              fontFamily: "serif",
+              fontSize: "clamp(3rem, 5vw, 5rem)",
+              fontWeight: 700,
+              lineHeight: 1.1,
+              margin: 0,
+            }}
+          >
+            Forandringen der aldrig landede.
+          </h2>
         </div>
       </section>
 
