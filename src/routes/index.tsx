@@ -190,7 +190,7 @@ function MobileHeader() {
           borderBottom: "1px solid rgba(0,0,0,0.08)",
         }}
       >
-        <SiteLogo color="#0A1628" lineColor="#0A1628" lineOpacity={1} size={44} />
+        <SiteLogo color="#0A1628" lineColor="#C0281E" lineOpacity={1} size={44} />
         <div style={{ display: "flex", alignItems: "center", gap: 28 }}>
           {[
             { label: "Cases", href: "/#cases" },
