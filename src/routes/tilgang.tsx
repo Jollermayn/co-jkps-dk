@@ -828,7 +828,7 @@ function TilgangPage() {
       </div>
 
       {/* SECTION 2 — DESIGNERENS ANSVAR */}
-      <section className="tilgang-section" style={{ backgroundColor: "#0A1628", paddingTop: 80, paddingBottom: 80 }}>
+      <section className="tilgang-section" style={{ backgroundColor: "#0A1628", paddingTop: 80, paddingBottom: 20 }}>
         <div style={{ ...innerCol, textAlign: "center" }}>
           <span
             style={{
