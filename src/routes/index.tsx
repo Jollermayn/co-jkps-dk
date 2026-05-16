@@ -163,8 +163,8 @@ function MobileHeader() {
   const [open, setOpen] = useState(false);
   return (
     <>
-      {/* Mobile header — unchanged */}
-      <nav className="flex lg:hidden" style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: "#E0D9C8", height: 72, padding: "0 24px", alignItems: "center", justifyContent: "space-between", borderBottom: "1px solid rgba(0,0,0,0.08)" }}>
+      {/* Mobile header (<768px) — unchanged */}
+      <nav className="flex md:hidden" style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: "#E0D9C8", height: 72, padding: "0 24px", alignItems: "center", justifyContent: "space-between", borderBottom: "1px solid rgba(0,0,0,0.08)" }}>
         <div>
           <SiteLogo />
         </div>
@@ -172,6 +172,52 @@ function MobileHeader() {
           <MenuIcon />
         </button>
       </nav>
+
+      {/* Tablet header (768–1024px) — cream bg, dark links, nav visible */}
+      <nav
+        className="hidden md:flex lg:hidden"
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          zIndex: 100,
+          height: 80,
+          padding: "0 32px",
+          backgroundColor: "#EDE8DC",
+          alignItems: "center",
+          justifyContent: "space-between",
+          borderBottom: "1px solid rgba(0,0,0,0.08)",
+        }}
+      >
+        <SiteLogo color="#0A1628" lineColor="#0A1628" lineOpacity={1} size={44} />
+        <div style={{ display: "flex", alignItems: "center", gap: 28 }}>
+          {[
+            { label: "Cases", href: "/#cases" },
+            { label: "Kompetencer", href: "/#kompetencer" },
+            { label: "Min tilgang", href: "/tilgang" },
+            { label: "Kontakt", href: "/#kontakt" },
+          ].map((l) => (
+            <a
+              key={l.label}
+              href={l.href}
+              className="tablet-nav-link"
+              style={{
+                fontFamily: "serif",
+                fontSize: "0.9rem",
+                fontWeight: 400,
+                color: "#0A1628",
+                letterSpacing: "0.05em",
+                textDecoration: "none",
+                transition: "color 0.2s ease",
+              }}
+            >
+              {l.label}
+            </a>
+          ))}
+        </div>
+      </nav>
+      <style>{`.tablet-nav-link:hover { color: #C0281E !important; }`}</style>
 
       {/* Desktop header — spans only content column (stops where hero sidebar begins) */}
       <nav
