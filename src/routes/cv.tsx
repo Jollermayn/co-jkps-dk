@@ -254,6 +254,7 @@ function CVPage() {
           .cv-content p, .cv-content li { font-size: 0.95rem !important; line-height: 1.7 !important; word-break: break-word; }
           .cv-content h3 { font-size: clamp(1.2rem, 4vw, 1.6rem) !important; line-height: 1.3 !important; }
           .cv-print-btn { top: auto !important; bottom: 16px !important; right: 16px !important; font-size: 0.85rem !important; padding: 10px 16px !important; z-index: 100 !important; }
+          .cv-print-mobile-hidden { display: none !important; }
           .cv-root { padding-top: 72px !important; }
           .expertise-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
           .expertise-pills { display: flex !important; flex-wrap: wrap !important; gap: 8px !important; width: 100% !important; flex-direction: row !important; align-items: flex-start !important; }
@@ -267,7 +268,7 @@ function CVPage() {
         <button
           type="button"
           onClick={() => window.print()}
-          className="cv-print-btn no-print fixed top-6 right-6 z-50 rounded-full bg-[#C0281E] px-5 py-2.5 text-sm font-semibold text-[#F4EFE6] shadow-lg hover:opacity-90 transition-opacity"
+          className={`cv-print-btn no-print fixed top-6 right-6 z-50 rounded-full bg-[#C0281E] px-5 py-2.5 text-sm font-semibold text-[#F4EFE6] shadow-lg hover:opacity-90 transition-opacity ${showPrintMobile ? "" : "cv-print-mobile-hidden"}`}
         >
           Print / Gem som PDF
         </button>
@@ -309,6 +310,7 @@ function CVPage() {
                   Baggrunden i kreativ formidling kombineret med et fagligt fundament i UX, servicedesign og digital forretningsudvikling giver en distinkt tilgang til arbejdet med teknologi og mennesker.
                 </p>
               </div>
+              <div ref={omMigEndRef} aria-hidden style={{ height: 1 }} />
             </section>
 
             <section className="mt-7">
