@@ -824,28 +824,28 @@ function TilgangPage() {
       </div>
 
       {/* SECTION 2 — DESIGNERENS ANSVAR */}
-      <section className="tilgang-section tilgang-intro" style={{ ...sectionPadding, backgroundColor: "#F2ECDD" }}>
+      <section className="tilgang-section tilgang-intro" style={{ ...sectionPadding, backgroundColor: "#0A1628" }}>
         <div style={innerCol}>
-          <p className="tilgang-body tilgang-intro-first" style={{ color: "#0A1628", opacity: 0.8, fontSize: "1.1rem", lineHeight: 1.9, marginBottom: "1.5em" }}>
+          <p className="tilgang-body tilgang-intro-first" style={{ color: "#F5F3EE", opacity: 0.8, fontSize: "1.1rem", lineHeight: 1.9, marginBottom: "1.5em" }}>
             Strategien er sendt. Værktøjet er rullet ud. Budskabet er kommunikeret.
           </p>
-          <p style={{ color: "#0A1628", fontFamily: "serif", fontSize: "clamp(1.6rem, 4vw, 2.4rem)", fontWeight: 700, lineHeight: 1.2, marginTop: 24, marginBottom: 24 }}>
+          <p style={{ color: "#F5F3EE", fontFamily: "serif", fontSize: "clamp(1.6rem, 4vw, 2.4rem)", fontWeight: 700, lineHeight: 1.2, marginTop: 24, marginBottom: 24 }}>
             Men forandringen lander aldrig.
           </p>
-          <p className="tilgang-body" style={{ color: "#0A1628", opacity: 0.8, fontSize: "1.1rem", lineHeight: 1.9, marginBottom: "1.5em" }}>
+          <p className="tilgang-body" style={{ color: "#F5F3EE", opacity: 0.8, fontSize: "1.1rem", lineHeight: 1.9, marginBottom: "1.5em" }}>
             Ikke fordi folk er ligeglade. Men fordi mening ikke kan installeres — den skal opdages.
           </p>
         </div>
       </section>
 
       {/* SECTION 3 — KONTEKST */}
-      <section className="tilgang-section" style={{ ...sectionPadding, backgroundColor: NAVY }}>
+      <section className="tilgang-section" style={{ ...sectionPadding, backgroundColor: "#EDE8DC" }}>
         <div style={innerCol}>
-          <h1 style={{ fontFamily: "'Playfair Display', serif", color: "#FFFFFF", fontSize: "clamp(2rem, 5vw, 3.5rem)", fontWeight: 600, lineHeight: 1.2, maxWidth: 560, marginBottom: 40 }}>
+          <h1 style={{ fontFamily: "'Playfair Display', serif", color: "#0A1628", fontSize: "clamp(2rem, 5vw, 3.5rem)", fontWeight: 600, lineHeight: 1.2, maxWidth: 560, marginBottom: 40 }}>
             Én organisation. Fire udfordringer.
           </h1>
           <div style={{ height: 1, width: "100%", background: RED, marginBottom: 48 }} aria-hidden />
-          <p style={{ color: "#FFFFFF", opacity: 0.9, fontSize: "1rem", lineHeight: 1.8, maxWidth: 560 }}>
+          <p style={{ color: "#0A1628", opacity: 0.9, fontSize: "1rem", lineHeight: 1.8, maxWidth: 560 }}>
             Vind Consulting. 80 medarbejdere fordelt på Aarhus og København. AI-værktøjer rullet ud på tværs af organisationen — men kun 23% bruger dem aktivt. Kortlægningen dokumenterede en undervurderet arbejdsdistance på 54%. Fire udfordringer. Én fælles bevægelse.
           </p>
           <div style={{ height: 1, width: "100%", background: RED, marginTop: 48 }} aria-hidden />
