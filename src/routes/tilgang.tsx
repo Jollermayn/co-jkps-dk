@@ -800,23 +800,24 @@ function TilgangPage() {
       {/* SECTION 1 — HERO BANNER (full-screen) */}
       <div
         className="relative w-full overflow-hidden tilgang-hero"
-        style={{ backgroundColor: "#F5F0E8", paddingTop: 120, paddingBottom: 120 }}
+        style={{ backgroundColor: "#F5F0E8", paddingTop: 200, paddingBottom: 200 }}
       >
-        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 48px" }}>
+        <div style={{ maxWidth: 1400, margin: "0 auto", padding: "0 64px" }}>
           <h1
             className="font-display tilgang-hero-h1"
             style={{
               fontWeight: 700,
               color: "#000000",
               fontFamily: "serif",
-              fontSize: "clamp(2.4rem, 7vw, 5rem)",
-              lineHeight: 1.1,
-              letterSpacing: "-0.02em",
+              fontSize: "clamp(2.6rem, 6.5vw, 6rem)",
+              lineHeight: 1.05,
+              letterSpacing: "-0.03em",
               textAlign: "left",
               margin: 0,
+              maxWidth: "16ch",
             }}
           >
-            Kunsten i at finde hvad der går tabt.
+            Kunsten i at finde<br />hvad der går tabt.
           </h1>
         </div>
       </div>
