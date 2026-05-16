@@ -751,8 +751,8 @@ function TilgangPage() {
         }
       `}</style>
       {/* MOBILE NAV BAR */}
-      <nav className="md:hidden" style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: "#F8F7F4", height: 72, padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "flex-end", borderBottom: "1px solid rgba(10, 22, 40, 0.08)" }}>
-        <div style={{ position: "absolute", left: "50%", top: "50%", transform: "translate(-50%, -50%)" }}>
+      <nav className="md:hidden" style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: "#F8F7F4", height: 72, padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between", borderBottom: "1px solid rgba(10, 22, 40, 0.08)" }}>
+        <div>
           <SiteLogo color="#0A1628" />
         </div>
         <button type="button" aria-label="Åbn menu" onClick={() => setMenuOpen(true)} style={{ background: "transparent", border: "none", padding: 0, cursor: "pointer", display: "inline-flex" }}>
