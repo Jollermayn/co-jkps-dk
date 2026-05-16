@@ -1,5 +1,34 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
 import profilePhoto from "@/assets/profile-photo.png";
+
+function MobileHeader() {
+  const [open, setOpen] = useState(false);
+  return (
+    <>
+      <nav className="md:hidden no-print" style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: "#0A1628", height: 56, padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <Link to="/" style={{ fontFamily: "serif", fontSize: "1rem", fontWeight: 400, color: "white", textDecoration: "none" }}>
+          jkps.dk
+        </Link>
+        <button type="button" aria-label="Åbn menu" onClick={() => setOpen(true)} style={{ background: "transparent", border: "none", color: "white", fontSize: "1.4rem", lineHeight: 1, padding: 0, cursor: "pointer" }}>
+          ≡
+        </button>
+      </nav>
+      {open && (
+        <div className="md:hidden no-print" style={{ position: "fixed", inset: 0, zIndex: 200, backgroundColor: "#0A1628", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 32 }}>
+          <button type="button" aria-label="Luk menu" onClick={() => setOpen(false)} style={{ position: "absolute", top: 16, right: 24, background: "transparent", border: "none", color: "white", fontSize: "2rem", lineHeight: 1, padding: 0, cursor: "pointer" }}>
+            ×
+          </button>
+          <Link to="/" onClick={() => setOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: "white", textDecoration: "none" }}>Portfolio</Link>
+          <Link to="/tilgang" onClick={() => setOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: "white", textDecoration: "none" }}>Min tilgang</Link>
+          <Link to="/cv" onClick={() => setOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: "white", textDecoration: "none" }}>CV</Link>
+          <a href="/#kontakt" onClick={() => setOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: "white", textDecoration: "none" }}>Kontakt</a>
+        </div>
+      )}
+    </>
+  );
+}
+
 
 export const Route = createFileRoute("/cv")({
   head: () => ({
@@ -201,12 +230,15 @@ function CVPage() {
           .cv-sidebar, .cv-content { padding: 24px !important; box-sizing: border-box; }
           .cv-content p, .cv-content li { font-size: 0.95rem !important; line-height: 1.7 !important; word-break: break-word; }
           .cv-content h3 { font-size: clamp(1.2rem, 4vw, 1.6rem) !important; line-height: 1.3 !important; }
-          .cv-print-btn { top: 12px !important; right: 12px !important; font-size: 0.85rem !important; padding: 10px 16px !important; z-index: 100 !important; }
+          .cv-print-btn { top: auto !important; bottom: 16px !important; right: 16px !important; font-size: 0.85rem !important; padding: 10px 16px !important; z-index: 100 !important; }
+          .cv-root { padding-top: 72px !important; }
           .expertise-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
           .expertise-pills { display: flex !important; flex-wrap: wrap !important; gap: 8px !important; width: 100% !important; flex-direction: row !important; align-items: flex-start !important; }
           .expertise-pill { white-space: nowrap !important; padding: 6px 14px !important; border-radius: 20px !important; font-size: 0.85rem !important; border: 1px solid #0A1628 !important; color: #0A1628 !important; background: transparent !important; }
         }
       `}</style>
+
+      <MobileHeader />
 
       <div className="cv-root flex flex-col items-center gap-6 min-h-screen bg-[#1f1d1b] py-10 px-4">
         <button
