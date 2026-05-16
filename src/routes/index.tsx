@@ -112,13 +112,13 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
 
 function Sidebar() {
   return (
-    <aside className="hero-sidebar relative w-full min-w-0 max-w-full flex flex-col lg:overflow-y-auto lg:fixed lg:top-0 lg:right-0 lg:w-[40%] lg:h-screen px-6 md:px-14 lg:px-16 py-12 md:py-20 lg:pt-[6vh] lg:pb-10 border-b lg:border-b-0 lg:border-l border-cream/10 order-1 lg:order-last bg-[#0D1B2A] lg:z-20 lg:rounded-l-xl lg:shadow-[-8px_0_24px_rgba(0,0,0,0.25)] text-center items-center gap-8 lg:gap-6">
+    <aside className="hero-sidebar relative w-full min-w-0 max-w-full flex flex-col lg:overflow-y-auto lg:fixed lg:top-0 lg:right-0 lg:w-[40%] lg:h-screen px-6 md:px-14 lg:px-16 py-[40px] md:py-20 lg:pt-[6vh] lg:pb-10 border-b lg:border-b-0 lg:border-l border-cream/10 order-1 lg:order-last bg-[#0D1B2A] lg:z-20 lg:rounded-l-xl lg:shadow-[-8px_0_24px_rgba(0,0,0,0.25)] text-center items-center gap-8 lg:gap-6">
       <div className="w-full flex flex-col items-center gap-8 lg:gap-6">
         <p className="text-xs uppercase tracking-[0.3em] text-ember mb-6">Portfolio</p>
         <div className="w-full flex flex-col gap-3 lg:gap-4 items-center text-center">
           <h1 className="font-display tracking-[-0.02em] font-medium text-center px-2 flex flex-col items-center leading-none">
-            <span className="block whitespace-nowrap text-[clamp(3.5rem,9vw,6rem)] leading-none" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700 }}>Jonas K.P.</span>
-            <span className="block whitespace-nowrap text-[clamp(3.5rem,9vw,6rem)] leading-none -mt-[0.08em]" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700 }}>Sørensen</span>
+            <span className="block whitespace-nowrap text-[3.5rem] md:text-[clamp(3.5rem,9vw,6rem)] leading-none" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700 }}>Jonas K.P.</span>
+            <span className="block whitespace-nowrap text-[3.5rem] md:text-[clamp(3.5rem,9vw,6rem)] leading-none -mt-[0.08em]" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700 }}>Sørensen</span>
           </h1>
           <p className="text-xs md:text-sm uppercase tracking-[0.25em] text-cream/55 mt-1">
             <span>Digital konsulent · UX Research & Servicedesign</span>
@@ -149,7 +149,7 @@ function Sidebar() {
             Kontakt mig
           </a>
 
-          <div className="shrink-0 w-[160px] h-[160px] overflow-hidden rounded-full ring-2 ring-[#F5F0E8]/30 shadow-[0_4px_16px_rgba(0,0,0,0.4)] mt-6 lg:mt-8">
+          <div className="shrink-0 w-[120px] h-[120px] md:w-[160px] md:h-[160px] overflow-hidden rounded-full ring-2 ring-[#F5F0E8]/30 shadow-[0_4px_16px_rgba(0,0,0,0.4)] mt-6 lg:mt-8 mx-auto block">
             <img src={profilePhoto} alt="Jonas K.P. Sørensen" className="w-full h-full object-cover" />
           </div>
         </div>
