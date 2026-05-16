@@ -625,6 +625,7 @@ function Modal({ open, onClose, title, children }: { open: boolean; onClose: () 
 
 function TilgangPage() {
   const [openCard, setOpenCard] = useState<string | null>(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const contextStats = [
     { stat: "80", label: "Medarbejdere" },
@@ -730,7 +731,7 @@ function TilgangPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#0D1B2A] text-cream">
+    <main className="min-h-screen bg-[#0D1B2A] text-cream pt-[72px] md:pt-0">
       <style>{`
         @media (max-width: 768px) {
           .tilgang-section { padding: 64px 24px !important; }
@@ -745,37 +746,25 @@ function TilgangPage() {
         }
       `}</style>
       {/* MOBILE NAV BAR */}
-      <nav
-        className="md:hidden fixed top-0 left-0 right-0 flex items-center justify-between"
-        style={{
-          zIndex: 100,
-          backgroundColor: "#0A1628",
-          height: 48,
-          padding: "0 20px",
-          borderBottom: "1px solid rgba(255,255,255,0.08)",
-        }}
-      >
-        <Link
-          to="/"
-          className="text-white"
-          style={{
-            fontFamily: "serif",
-            fontSize: "0.9rem",
-            fontWeight: 400,
-            letterSpacing: "0.02em",
-            textDecoration: "none",
-          }}
-        >
-          jkps.dk
+      <nav className="md:hidden" style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: "#CFC8B8", height: 72, padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "flex-end", borderBottom: "1px solid rgba(0,0,0,0.08)" }}>
+        <Link to="/" style={{ position: "absolute", left: "50%", transform: "translateX(-50%)", fontFamily: "serif", fontSize: "1.1rem", fontWeight: 700, letterSpacing: "0.08em", color: "#0A1628", textDecoration: "none" }}>
+          JKPS
         </Link>
-        <Link
-          to="/"
-          className="text-white"
-          style={{ fontSize: "1.1rem", opacity: 0.5, textDecoration: "none" }}
-        >
-          ←
-        </Link>
+        <button type="button" aria-label="Åbn menu" onClick={() => setMenuOpen(true)} style={{ background: "transparent", border: "none", color: "#0A1628", fontSize: "1.6rem", lineHeight: 1, padding: 0, cursor: "pointer" }}>
+          ≡
+        </button>
       </nav>
+      {menuOpen && (
+        <div className="md:hidden" style={{ position: "fixed", inset: 0, zIndex: 200, backgroundColor: "#CFC8B8", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 32 }}>
+          <button type="button" aria-label="Luk menu" onClick={() => setMenuOpen(false)} style={{ position: "absolute", top: 16, right: 24, background: "transparent", border: "none", color: "#0A1628", fontSize: "2rem", lineHeight: 1, padding: 0, cursor: "pointer" }}>
+            ×
+          </button>
+          <Link to="/" onClick={() => setMenuOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: "#0A1628", textDecoration: "none" }}>Portfolio</Link>
+          <Link to="/tilgang" onClick={() => setMenuOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: "#0A1628", textDecoration: "none" }}>Min tilgang</Link>
+          <Link to="/cv" onClick={() => setMenuOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: "#0A1628", textDecoration: "none" }}>CV</Link>
+          <a href="/#kontakt" onClick={() => setMenuOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: "#0A1628", textDecoration: "none" }}>Kontakt</a>
+        </div>
+      )}
       {/* SECTION 1 — HERO BANNER (full-screen) */}
       <div
         className="relative w-full overflow-hidden h-[50vh] md:h-[70vh] tilgang-hero"
