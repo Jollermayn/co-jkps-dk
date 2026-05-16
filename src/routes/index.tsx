@@ -375,6 +375,23 @@ function Index() {
                   </span>
                 </Link>
               </div>
+
+              {/* Mobile/tablet only: Læs mere under the chimp */}
+              <div className="w-full flex justify-center order-3 mt-6 md:hidden">
+                <Link
+                  to="/tilgang"
+                  style={{
+                    color: "#C0281E",
+                    fontSize: "1rem",
+                    fontStyle: "normal",
+                    textDecoration: "underline",
+                    textDecorationColor: "#C0281E",
+                    textUnderlineOffset: "4px",
+                  }}
+                >
+                  Læs mere →
+                </Link>
+              </div>
             </div>
           </section>
 
