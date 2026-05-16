@@ -8,8 +8,8 @@ export function SiteLogo({ size = 48 }: { size?: number }) {
         <line x1="12" y1="24" x2="36" y2="24" stroke="#C0281E" strokeWidth="1.5" strokeOpacity="0.5" />
         <text x="16" y="21" textAnchor="middle" fontFamily="serif" fontSize="15" fontWeight="900" fill="#000">J</text>
         <text x="32" y="21" textAnchor="middle" fontFamily="serif" fontSize="15" fontWeight="400" fill="#000">K</text>
-        <text x="16" y="41" textAnchor="middle" fontFamily="serif" fontSize="15" fontWeight="400" fill="#000">P</text>
-        <text x="32" y="41" textAnchor="middle" fontFamily="serif" fontSize="15" fontWeight="900" fill="#000">S</text>
+        <text x="16" y="38" textAnchor="middle" fontFamily="serif" fontSize="15" fontWeight="400" fill="#000">P</text>
+        <text x="32" y="38" textAnchor="middle" fontFamily="serif" fontSize="15" fontWeight="900" fill="#000">S</text>
       </svg>
     </Link>
   );
