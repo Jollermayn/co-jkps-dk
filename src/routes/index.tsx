@@ -167,15 +167,28 @@ function MobileHeader() {
         </button>
       </nav>
 
-      {/* Desktop header — navy, white logo & hamburger */}
-      <nav className="hidden md:flex" style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: "#0A1628", height: 72, padding: "0 24px", alignItems: "center", justifyContent: "flex-end", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
-        <div style={{ position: "absolute", left: "50%", top: "50%", transform: "translate(-50%, -50%)" }}>
-          <SiteLogo color="#ffffff" lineColor="#F5F0E8" lineOpacity={1} />
+      {/* Desktop header — transparent, logo left, nav right */}
+      <nav className="hidden md:flex" style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: "transparent", height: 64, padding: "0 48px", alignItems: "center", justifyContent: "space-between" }}>
+        <SiteLogo color="#ffffff" lineColor="#F5F0E8" lineOpacity={1} size={56} />
+        <div style={{ display: "flex", alignItems: "center", gap: 40 }}>
+          {[
+            { label: "Cases", href: "/#cases" },
+            { label: "Kompetencer", href: "/#kompetencer" },
+            { label: "Min tilgang", href: "/tilgang" },
+            { label: "Kontakt", href: "/#kontakt" },
+          ].map((l) => (
+            <a
+              key={l.label}
+              href={l.href}
+              className="desktop-nav-link"
+              style={{ fontFamily: "serif", fontSize: "0.9rem", fontWeight: 400, color: "white", letterSpacing: "0.05em", textDecoration: "none", transition: "color 0.2s ease" }}
+            >
+              {l.label}
+            </a>
+          ))}
         </div>
-        <button type="button" aria-label="Åbn menu" onClick={() => setOpen(true)} style={{ background: "transparent", border: "none", padding: 0, cursor: "pointer", display: "inline-flex" }}>
-          <MenuIcon color="#ffffff" />
-        </button>
       </nav>
+      <style>{`.desktop-nav-link:hover { color: #C0281E !important; }`}</style>
 
       {/* Full-screen menu overlay */}
       {open && (
