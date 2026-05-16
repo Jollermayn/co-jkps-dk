@@ -55,7 +55,8 @@ const _allCases: CaseStudy[] = [
     challenge:
       "Løn beregnet i fugleflugt: 2,7 km. Faktisk rute: 5,9 km. Grundløn faldet fra 45 til 35 kr. 40% af kunderne fravalgte Wolt af etiske årsager — uden at budene vidste det.",
     role: [
-      "Mixed methods research: interviews, media-go-alongs og feltobservation. Jeg fulgte budene på deres ruter og kortlagde kløften mellem algoritmens logik og hverdagens virkelighed.",
+      "Jeg fulgte budene på deres ruter og kortlagde kløften mellem algoritmens logik og hverdagens virkelighed.",
+      "Mixed methods: interviews, media-go-alongs og feltobservation.",
     ],
     approach: ["Mixed methods", "Co-design", "Service Design", "UX Research"],
     solution: [

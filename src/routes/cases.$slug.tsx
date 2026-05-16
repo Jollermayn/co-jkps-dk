@@ -118,12 +118,26 @@ function CaseDetail() {
       {/* SECTIONS */}
       <article className="py-12 md:py-16">
         <div className="mx-auto max-w-[1400px] px-6 md:px-10 space-y-12 md:space-y-16">
-          <Section label="Kontekst" title="Kontekst">
-            <p className="text-lg md:text-xl text-cream/85 leading-relaxed">{study.context}</p>
-          </Section>
+          {study.slug !== "wolt" && (
+            <Section label="Kontekst" title="Kontekst">
+              <p className="text-lg md:text-xl text-cream/85 leading-relaxed">{study.context}</p>
+            </Section>
+          )}
 
           <Section label="Udfordring" title="Udfordring">
-            <p className="text-lg md:text-xl text-cream/85 leading-relaxed">{study.challenge}</p>
+            {study.slug === "wolt" ? (
+              <>
+                <p className="text-lg md:text-xl text-cream/85 leading-relaxed">{study.context}</p>
+                <p className="mt-6 text-lg md:text-xl text-cream/85 leading-relaxed">
+                  Løn beregnet i fugleflugt vs. faktisk rute:{" "}
+                  <strong className="font-semibold text-[#C0281E]">2,7 km vs 5,9 km</strong>. Grundløn faldet fra{" "}
+                  <strong className="font-semibold text-[#C0281E]">45 til 35 kr</strong>.{" "}
+                  <strong className="font-semibold text-[#C0281E]">40%</strong> af kunderne fravalgte Wolt af etiske årsager — uden at budene vidste det.
+                </p>
+              </>
+            ) : (
+              <p className="text-lg md:text-xl text-cream/85 leading-relaxed">{study.challenge}</p>
+            )}
             {study.slug === "interaktiv-horesimulering" && (
               <div className="mt-10">
                 <span className="eyebrow text-ember tracking-[0.2em] block">— Stemmer fra feltet</span>
@@ -135,6 +149,16 @@ function CaseDetail() {
               </div>
             )}
           </Section>
+
+          {study.slug === "wolt" && (
+            <div className="flex justify-start">
+              <img
+                src={woltHeatmap}
+                alt="Heatmap der viser efterspørgsel i realtid i København"
+                className="w-full max-w-[480px] h-auto"
+              />
+            </div>
+          )}
 
           <Section label="Min rolle" title={study.slug === "wolt" ? "Tilgangen" : "Min rolle"}>
             <ul className="space-y-4">
@@ -150,16 +174,6 @@ function CaseDetail() {
           <Section label="Tilgang" title="Tilgang">
             <ApproachGrid tags={study.approach} />
           </Section>
-
-          {study.slug === "wolt" && (
-            <div className="flex justify-start">
-              <img
-                src={woltHeatmap}
-                alt="Heatmap der viser efterspørgsel i realtid i København"
-                className="w-full max-w-[480px] h-auto"
-              />
-            </div>
-          )}
 
           {study.solution && study.solution.length > 0 && (
             <Section label="Løsning" title="Løsningen">
