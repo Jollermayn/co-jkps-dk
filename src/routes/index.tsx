@@ -283,44 +283,53 @@ function Index() {
           {/* MIN TILGANG */}
           <section
             id="tilgang"
-            className="px-6 py-8 md:px-0 md:py-12"
+            style={{
+              backgroundColor: "#F5F3EE",
+              position: "relative",
+              left: "50%",
+              right: "50%",
+              marginLeft: "-50vw",
+              marginRight: "-50vw",
+              width: "100vw",
+              maxWidth: "100vw",
+              padding: "64px 24px",
+            }}
+            className="md:!py-20 md:!px-12"
           >
-            <div className="md:px-14 flex justify-center text-center">
-              <Link
-                to="/tilgang"
-                className="group md:hover:text-[#C0281E]"
+            <Link
+              to="/tilgang"
+              style={{
+                display: "block",
+                textAlign: "center",
+                color: "#0A1628",
+                fontStyle: "italic",
+                fontWeight: 600,
+                fontFamily: "serif",
+                textDecoration: "none",
+                lineHeight: 1.15,
+                fontSize: "clamp(2rem, 5vw, 3.5rem)",
+              }}
+            >
+              Forandring lander ikke af sig selv
+              <span style={{ color: "#C0281E", marginLeft: "0.5rem" }}>→</span>
+              <span
                 style={{
                   display: "block",
-                  color: "white",
-                  fontStyle: "italic",
-                  fontWeight: 600,
+                  marginTop: "24px",
+                  fontStyle: "normal",
+                  fontWeight: 400,
+                  fontSize: "1rem",
                   fontFamily: "serif",
-                  textDecoration: "none",
-                  transition: "color 0.2s ease",
-                  lineHeight: 1.15,
-                  fontSize: "clamp(2rem, 5vw, 3.75rem)",
+                  textAlign: "center",
+                  color: "#C0281E",
+                  textDecoration: "underline",
+                  textDecorationColor: "#C0281E",
+                  textUnderlineOffset: "4px",
                 }}
               >
-                <span style={{ display: "block" }}>Forandring</span>
-                <span style={{ display: "block" }}>lander ikke</span>
-                <span style={{ display: "block" }}>af sig selv</span>
-                <span
-                  style={{
-                    display: "block",
-                    marginTop: "1.5rem",
-                    fontStyle: "normal",
-                    fontWeight: 500,
-                    fontSize: "clamp(1rem, 1.6vw, 1.25rem)",
-                    letterSpacing: "0.05em",
-                    textDecoration: "underline",
-                    textUnderlineOffset: "6px",
-                    color: "#C0281E",
-                  }}
-                >
-                  Læs mere
-                </span>
-              </Link>
-            </div>
+                Læs mere
+              </span>
+            </Link>
           </section>
 
           {/* UDDANNELSE */}
