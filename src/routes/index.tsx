@@ -197,15 +197,22 @@ function Index() {
                 <p className="italic text-white/70 text-center mx-auto" style={{ maxWidth: 520, fontSize: "1.1rem", marginBottom: 32, fontFamily: "'Playfair Display', serif", lineHeight: 1.7 }}>
                   Hvad sker der i det øjeblik forandring møder mennesket?
                 </p>
-                <div className="flex justify-center">
-                  <Link
-                    to="/tilgang"
-                    className="inline-flex items-center justify-center text-[#C0281E] hover:opacity-80 transition-opacity duration-300"
-                    style={{ fontSize: "1rem", letterSpacing: "0.05em" }}
-                  >
-                    Se hvordan jeg tænker om det →
-                  </Link>
-                </div>
+                <Link
+                  to="/tilgang"
+                  className="inline-block hover:bg-[#C0281E] hover:text-white transition-colors duration-200 ease-out"
+                  style={{
+                    background: "transparent",
+                    border: "1px solid #C0281E",
+                    color: "#C0281E",
+                    padding: "12px 28px",
+                    fontSize: "0.9rem",
+                    letterSpacing: "0.05em",
+                    borderRadius: 0,
+                    marginTop: "24px",
+                  }}
+                >
+                  Se hvordan jeg tænker om det →
+                </Link>
               </div>
             </div>
           </section>
