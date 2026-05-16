@@ -120,16 +120,10 @@
 }
 
 @utility eyebrow {
-  font-size: 1.5rem;
+  font-size: 0.84rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  font-weight: 600;
-}
-
-@media (max-width: 768px) {
-  .eyebrow {
-    font-size: 1.15rem;
-  }
+  font-weight: 500;
 }
 
 @utility hairline {
