@@ -199,19 +199,19 @@ function Index() {
                 </p>
                 <Link
                   to="/tilgang"
-                  className="inline-block hover:bg-[#C0281E] hover:text-white transition-colors duration-200 ease-out"
+                  className="inline-block hover:text-[#C0281E] hover:opacity-100 transition-colors duration-200 ease-out"
                   style={{
-                    background: "transparent",
-                    border: "1px solid #C0281E",
-                    color: "#C0281E",
-                    padding: "12px 28px",
-                    fontSize: "0.9rem",
-                    letterSpacing: "0.05em",
-                    borderRadius: 0,
-                    marginTop: "24px",
+                    color: "white",
+                    fontStyle: "italic",
+                    fontSize: "1.1rem",
+                    opacity: 0.85,
+                    textDecoration: "underline",
+                    textDecorationColor: "#C0281E",
+                    textUnderlineOffset: "4px",
+                    textDecorationThickness: "1.5px",
                   }}
                 >
-                  Se hvordan jeg tænker om det →
+                  Forandring lander ikke af sig selv →
                 </Link>
               </div>
             </div>
