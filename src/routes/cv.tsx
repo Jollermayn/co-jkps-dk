@@ -273,14 +273,6 @@ function CVPage() {
         <Link to="/" style={{ color: "#F5F3EE", textDecoration: "none", fontSize: "0.9rem" }}>← Tilbage</Link>
       </div>
 
-      <button
-        type="button"
-        onClick={() => window.print()}
-        className="no-print"
-        style={{ background: "transparent", border: "1px solid #F5F3EE", color: "#F5F3EE", padding: "8px 20px", borderRadius: "4px", fontSize: "0.9rem", cursor: "pointer", position: "fixed", bottom: "32px", right: "32px", zIndex: 100 }}
-      >
-        Print / Download PDF
-      </button>
 
       <div className="cv-root flex flex-col items-center gap-6 min-h-screen bg-[#1f1d1b] py-10 px-4">
         <button
