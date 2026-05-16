@@ -827,7 +827,7 @@ function TilgangPage() {
       <div className="py-8 px-6 md:py-10 md:px-12" style={{ backgroundColor: NAVY }}>
         <div
           className="flex flex-col md:flex-row md:justify-center md:items-stretch gap-5 md:gap-6"
-          style={{ maxWidth: 1100, margin: "0 auto" }}
+          style={{ maxWidth: 900, margin: "0 auto", padding: "0 48px" }}
         >
           {[
             {
