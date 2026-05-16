@@ -773,7 +773,7 @@ function TilgangPage() {
       {/* SECTION 1 — HERO BANNER (full-screen) */}
       <div
         className="relative w-full overflow-hidden h-[50vh] md:h-[70vh] tilgang-hero"
-        style={{ backgroundColor: "#F5F3EE" }}
+        style={{ backgroundColor: "#EDE8DC" }}
       >
         <div className="relative h-full flex items-center justify-center">
           <div

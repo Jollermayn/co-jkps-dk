@@ -285,7 +285,7 @@ function Index() {
           <section
             id="tilgang"
             style={{
-              backgroundColor: "#F5F3EE",
+              backgroundColor: "#EDE8DC",
               position: "relative",
               width: "100%",
               maxWidth: "100%",
