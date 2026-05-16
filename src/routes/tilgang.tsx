@@ -799,31 +799,25 @@ function TilgangPage() {
       )}
       {/* SECTION 1 — HERO BANNER (full-screen) */}
       <div
-        className="relative w-full overflow-hidden h-[50vh] md:h-[70vh] tilgang-hero"
-        style={{ backgroundColor: "#EDE8DC" }}
+        className="relative w-full overflow-hidden tilgang-hero"
+        style={{ backgroundColor: "#F5F0E8", paddingTop: 120, paddingBottom: 120 }}
       >
-        <div className="relative h-full flex items-center justify-center">
-          <div
-            className="text-left md:text-center"
+        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 48px" }}>
+          <h1
+            className="font-display tilgang-hero-h1"
             style={{
-              maxWidth: 800,
-              margin: "0 auto",
-              padding: "0 24px",
+              fontWeight: 700,
+              color: "#000000",
+              fontFamily: "serif",
+              fontSize: "clamp(2.4rem, 7vw, 5rem)",
+              lineHeight: 1.1,
+              letterSpacing: "-0.02em",
+              textAlign: "left",
+              margin: 0,
             }}
           >
-            <h1
-              className="font-display text-left max-w-full break-normal overflow-visible text-[1.6rem] leading-[1.3] md:text-[clamp(2.2rem,5vw,3.8rem)] md:leading-[1.2]"
-              style={{ fontWeight: 700, color: "#000000", fontFamily: "serif", maxWidth: 960, marginLeft: "auto", marginRight: "auto" }}
-            >
-              <span className="md:whitespace-nowrap">Strategien er solid.</span><br />
-              <span
-                className="italic"
-                style={{ color: "#C0281E", fontFamily: "serif", fontWeight: 700 }}
-              >
-                Forankringen fejler.
-              </span>
-            </h1>
-          </div>
+            Kunsten i at finde hvad der går tabt.
+          </h1>
         </div>
       </div>
 
