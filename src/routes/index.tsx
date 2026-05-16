@@ -284,7 +284,7 @@ function Index() {
           <section
             id="tilgang"
             style={{
-              backgroundColor: "#F5F3EE",
+              backgroundColor: "#F5F0E8",
               position: "relative",
               left: "50%",
               right: "50%",
@@ -294,40 +294,53 @@ function Index() {
               maxWidth: "100vw",
               padding: "64px 24px",
             }}
-            className="md:!py-20 md:!px-12"
+            className="md:!py-[120px] md:!px-12"
           >
-            <Link
-              to="/tilgang"
-              style={{
-                display: "block",
-                textAlign: "center",
-                color: "#0A1628",
-                fontStyle: "italic",
-                fontWeight: 600,
-                fontFamily: "serif",
-                textDecoration: "none",
-                lineHeight: 1.15,
-                fontSize: "clamp(2rem, 5vw, 3.5rem)",
-              }}
-            >
-              Forandring lander ikke af sig selv
-              <span style={{ color: "#C0281E", marginLeft: "0.5rem" }}>→</span>
+            <Link to="/tilgang" style={{ display: "block", textDecoration: "none" }}>
               <span
                 style={{
                   display: "block",
-                  marginTop: "24px",
-                  fontStyle: "normal",
-                  fontWeight: 400,
-                  fontSize: "1rem",
-                  fontFamily: "serif",
                   textAlign: "center",
+                  color: "#0A1628",
+                  fontFamily: "serif",
+                  fontStyle: "italic",
+                  fontWeight: 600,
+                  fontSize: "clamp(2.5rem, 5vw, 4rem)",
+                  lineHeight: 1.1,
+                }}
+              >
+                Forandring lander ikke
+              </span>
+              <span
+                style={{
+                  display: "block",
+                  textAlign: "center",
+                  color: "#0A1628",
+                  opacity: 0.5,
+                  fontFamily: "serif",
+                  fontStyle: "italic",
+                  fontWeight: 400,
+                  fontSize: "clamp(2.5rem, 5vw, 4rem)",
+                  lineHeight: 1.1,
+                  marginTop: "8px",
+                }}
+              >
+                af sig selv
+              </span>
+              <span
+                style={{
+                  display: "block",
+                  textAlign: "center",
+                  marginTop: "40px",
                   color: "#C0281E",
+                  fontSize: "1rem",
+                  fontStyle: "normal",
                   textDecoration: "underline",
                   textDecorationColor: "#C0281E",
                   textUnderlineOffset: "4px",
                 }}
               >
-                Læs mere
+                Læs mere →
               </span>
             </Link>
           </section>
