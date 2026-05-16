@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, X, Users, Bot, BarChart3, ArrowRight } from "lucide-react";
 import vindAiStrategiOnePager from "@/assets/vind-ai-strategi-onepager.png";
-import vindConsultingLogo from "@/assets/vind-consulting-logo.png";
 import vindConsult01 from "@/assets/vind-consult-01.png";
 import { SiteLogo } from "@/components/SiteLogo";
 import { MenuIcon } from "@/components/MenuIcon";
@@ -858,6 +857,19 @@ function TilgangPage() {
           <p
             style={{
               color: "#FFFFFF",
+              opacity: 0.55,
+              fontSize: "0.85rem",
+              letterSpacing: "0.05em",
+              lineHeight: 1.5,
+              marginTop: 12,
+              textTransform: "uppercase",
+            }}
+          >
+            VIND CONSULTING · 80 MEDARBEJDERE · 23% AI-ADOPTION
+          </p>
+          <p
+            style={{
+              color: "#FFFFFF",
               opacity: 0.6,
               fontSize: "1rem",
               lineHeight: 1.6,
@@ -875,11 +887,7 @@ function TilgangPage() {
       {/* SECTION 3 — KONTEKST */}
       <section className="tilgang-section" style={{ ...sectionPadding, backgroundColor: "#EDE8DC" }}>
         <div style={innerCol}>
-          <img src={vindConsultingLogo} alt="Vind Consulting" style={{ width: 120, display: "block", marginBottom: 24 }} />
-          <p style={{ color: "#0A1628", opacity: 0.6, fontSize: "1rem", lineHeight: 1.6, maxWidth: 560 }}>
-            Vind Consulting. 80 medarbejdere. 23% AI-adoption.
-          </p>
-          <img src={vindConsult01} alt="Vind Consulting AI-strategi 2025" style={{ width: "100%", margin: "40px auto 0 auto", display: "block", borderRadius: 6, boxShadow: "0 4px 20px rgba(0,0,0,0.08)" }} />
+          <img src={vindConsult01} alt="Vind Consulting AI-strategi 2025" style={{ width: "100%", margin: "0 auto", display: "block", borderRadius: 6, boxShadow: "0 4px 20px rgba(0,0,0,0.08)" }} />
           <div style={{ height: 1, width: "100%", background: RED, marginTop: 48 }} aria-hidden />
         </div>
       </section>
