@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, X, Users, Bot, BarChart3, ArrowRight } from "lucide-react";
 import vindAiStrategiOnePager from "@/assets/vind-ai-strategi-onepager.png";
 import { SiteLogo } from "@/components/SiteLogo";
+import { MenuIcon } from "@/components/MenuIcon";
 
 export const Route = createFileRoute("/tilgang")({
   head: () => ({
