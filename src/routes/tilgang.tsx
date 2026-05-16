@@ -852,9 +852,9 @@ function TilgangPage() {
         </div>
       </section>
       {challenges.map((c, idx) => {
-        const dark = true;
-        const bg = "#0A1628";
-        const fg = "#F5F3EE";
+        const dark = idx % 2 === 0;
+        const bg = dark ? "#0A1628" : "#EDE8DC";
+        const fg = dark ? "#F5F3EE" : "#0A1628";
         return (
           <section key={c.n} className="tilgang-section" style={{ ...sectionPadding, backgroundColor: bg }}>
             <div style={innerCol}>
@@ -864,7 +864,7 @@ function TilgangPage() {
                   className="font-display tilgang-challenge-num"
                   style={{
                     display: "block",
-                    color: "#F5F3EE",
+                    color: fg,
                     fontSize: "5rem",
                     opacity: dark ? 0.15 : 0.12,
                     lineHeight: 1,
@@ -895,17 +895,17 @@ function TilgangPage() {
 
 
       {/* SECTION 9 — CTA */}
-      <section className="tilgang-section" style={{ ...sectionPadding, backgroundColor: "#EDE8DC" }}>
+      <section className="tilgang-section" style={{ ...sectionPadding, backgroundColor: "#0A1628" }}>
         <div style={innerCol}>
           <h2
             className="font-display tilgang-section-h2"
-            style={{ color: "#0A1628", fontSize: "clamp(1.8rem, 3vw, 2.4rem)", maxWidth: 480, marginBottom: 16, lineHeight: 1.2 }}
+            style={{ color: "#F5F3EE", fontSize: "clamp(1.8rem, 3vw, 2.4rem)", maxWidth: 480, marginBottom: 16, lineHeight: 1.2 }}
           >
             Kender du en af disse situationer?
           </h2>
           <p
             className="tilgang-body"
-            style={{ color: "#0A1628", opacity: 0.7, fontSize: "1.1rem", lineHeight: 1.9, maxWidth: 400, marginBottom: 48 }}
+            style={{ color: "#F5F3EE", opacity: 0.7, fontSize: "1.1rem", lineHeight: 1.9, maxWidth: 400, marginBottom: 48 }}
           >
             Så er det præcis det jeg arbejder med — oversættelsen mellem det organisationen vil, og det mennesket forstår.
           </p>
@@ -928,7 +928,7 @@ function TilgangPage() {
             style={{
               display: "block",
               marginTop: 24,
-              color: "#0A1628",
+              color: "#F5F3EE",
               opacity: 0.6,
               fontSize: "0.9rem",
             }}
