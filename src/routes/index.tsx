@@ -357,7 +357,7 @@ function Index() {
                       marginTop: "8px",
                     }}
                   >
-                    er mere end pensel og papir.
+                    ikke er kortlagt.
                   </span>
                   <span
                     style={{
