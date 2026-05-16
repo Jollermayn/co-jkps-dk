@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import profilePhoto from "@/assets/profile-photo.png";
 
 function MobileHeader() {
@@ -205,6 +205,29 @@ function Page({ children, isFirst }: { children: React.ReactNode; isFirst?: bool
 }
 
 function CVPage() {
+  const omMigEndRef = useRef<HTMLDivElement | null>(null);
+  const [showPrintMobile, setShowPrintMobile] = useState(false);
+  useEffect(() => {
+    const el = omMigEndRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.boundingClientRect.top < 0) setShowPrintMobile(true);
+      },
+      { threshold: 0 },
+    );
+    obs.observe(el);
+    const onScroll = () => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < 0) setShowPrintMobile(true);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => {
+      obs.disconnect();
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
   return (
     <>
       <style>{`
