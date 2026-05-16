@@ -206,7 +206,7 @@ function MobileHeader() {
                 fontFamily: "serif",
                 fontSize: "0.9rem",
                 fontWeight: 400,
-                color: "#0A1628",
+                color: "#F5F3EE",
                 letterSpacing: "0.05em",
                 textDecoration: "none",
                 transition: "color 0.2s ease",
