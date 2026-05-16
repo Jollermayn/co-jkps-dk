@@ -315,7 +315,7 @@ function Index() {
               >
                 <Link to="/tilgang" style={{ display: "block", textDecoration: "none" }}>
                   <span
-                    className="text-[2rem] md:text-[2.8rem]"
+                    className="text-[2rem] md:text-[3.4rem]"
                     style={{
                       display: "block",
                       color: "#0A1628",
