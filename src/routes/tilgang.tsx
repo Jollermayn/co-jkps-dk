@@ -903,9 +903,6 @@ function TilgangPage() {
           <p style={{ color: "#0A1628", fontSize: "1rem", lineHeight: 1.8, maxWidth: 560 }}>
             Vind Consulting. Strategirådgivning med <strong>80 medarbejdere</strong> fordelt på Aarhus og København. AI-værktøjer rullet ud på tværs af organisationen — men kun <strong>23%</strong> bruger dem aktivt. <strong>4</strong> udfordringer kortlagt. Én fælles bevægelse.
           </p>
-          <p className="tilgang-body" style={{ color: "#0A1628", opacity: 0.6, fontSize: "1.1rem", lineHeight: 1.9, marginTop: 32 }}>
-            Vind Consulting. Strategirådgivning, 80 medarbejdere, Aarhus og København. AI-værktøjer rullet ud på tværs — 23% aktiv brug. Kløften mellem ambition og hverdag er målbar og voksende.
-          </p>
           <div style={{ height: 1, width: "100%", background: RED, marginTop: 48 }} aria-hidden />
         </div>
       </section>
