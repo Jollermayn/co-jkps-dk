@@ -155,13 +155,6 @@ function Sidebar() {
 
 function MobileHeader() {
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 100);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
   return (
     <>
       {/* Mobile header — unchanged */}
@@ -174,7 +167,7 @@ function MobileHeader() {
         </button>
       </nav>
 
-      {/* Desktop header — nav only, centered, scroll-aware background */}
+      {/* Desktop header — navy, logo left, nav right */}
       <nav
         className="hidden md:flex"
         style={{
@@ -183,41 +176,39 @@ function MobileHeader() {
           left: 0,
           right: 0,
           zIndex: 100,
-          height: 100,
-          paddingTop: 32,
-          width: "100%",
+          height: 80,
+          padding: "0 64px",
+          backgroundColor: "#0A1628",
           alignItems: "center",
-          justifyContent: "center",
-          gap: 48,
-          backgroundColor: scrolled ? "rgba(10, 22, 40, 0.95)" : "transparent",
-          borderBottom: scrolled ? "1px solid rgba(255,255,255,0.08)" : "1px solid transparent",
-          transition: "background 0.3s ease, border-color 0.3s ease",
+          justifyContent: "space-between",
         }}
       >
-        {[
-          { label: "Cases", href: "/#cases" },
-          { label: "Kompetencer", href: "/#kompetencer" },
-          { label: "Min tilgang", href: "/tilgang" },
-          { label: "Kontakt", href: "/#kontakt" },
-        ].map((l) => (
-          <a
-            key={l.label}
-            href={l.href}
-            className="desktop-nav-link"
-            style={{
-              fontFamily: "serif",
-              fontSize: "0.95rem",
-              fontWeight: 400,
-              color: "white",
-              letterSpacing: "0.08em",
-              textDecoration: "none",
-              textTransform: "none",
-              transition: "color 0.2s ease",
-            }}
-          >
-            {l.label}
-          </a>
-        ))}
+        <SiteLogo color="#ffffff" lineColor="#F5F0E8" lineOpacity={1} size={48} />
+        <div style={{ display: "flex", alignItems: "center", gap: 40 }}>
+          {[
+            { label: "Cases", href: "/#cases" },
+            { label: "Kompetencer", href: "/#kompetencer" },
+            { label: "Min tilgang", href: "/tilgang" },
+            { label: "Kontakt", href: "/#kontakt" },
+          ].map((l) => (
+            <a
+              key={l.label}
+              href={l.href}
+              className="desktop-nav-link"
+              style={{
+                fontFamily: "serif",
+                fontSize: "0.9rem",
+                fontWeight: 400,
+                color: "white",
+                letterSpacing: "0.05em",
+                textDecoration: "none",
+                transition: "color 0.2s ease",
+              }}
+            >
+              {l.label}
+            </a>
+          ))}
+        </div>
       </nav>
       <style>{`.desktop-nav-link:hover { color: #C0281E !important; }`}</style>
 
