@@ -299,13 +299,30 @@ function Index() {
             <div className="flex flex-col items-center md:items-center md:flex-row" style={{ width: "100%" }}>
               {/* RIGHT: image */}
               <div className="w-full md:w-1/2 flex justify-center md:justify-end order-2 mt-8 md:mt-0">
-                <img
-                  src={chimpSuit}
-                  alt=""
-                  aria-hidden="true"
-                  className="w-[280px] md:w-[260px]"
-                  style={{ display: "block", objectFit: "contain", height: "auto", maxWidth: "100%", marginRight: "-20px", filter: "drop-shadow(0px 12px 8px rgba(0, 0, 0, 0.25))" }}
-                />
+                <div style={{ position: "relative", display: "inline-block" }}>
+                  <img
+                    src={chimpSuit}
+                    alt=""
+                    aria-hidden="true"
+                    className="w-[280px] md:w-[260px]"
+                    style={{ display: "block", objectFit: "contain", height: "auto", maxWidth: "100%", marginRight: "-20px", position: "relative", zIndex: 1 }}
+                  />
+                  <div
+                    aria-hidden="true"
+                    style={{
+                      position: "absolute",
+                      left: "50%",
+                      bottom: "-6px",
+                      transform: "translateX(calc(-50% - 10px))",
+                      width: "70%",
+                      height: "22px",
+                      background: "radial-gradient(ellipse at center, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.18) 40%, rgba(0,0,0,0) 70%)",
+                      filter: "blur(4px)",
+                      zIndex: 0,
+                      pointerEvents: "none",
+                    }}
+                  />
+                </div>
               </div>
 
               {/* LEFT: text */}
