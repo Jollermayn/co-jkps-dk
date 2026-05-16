@@ -252,15 +252,18 @@ function CVPage() {
             transform: none !important;
             box-sizing: border-box;
           }
-          .cv-sidebar, .cv-content { padding: 24px !important; box-sizing: border-box; }
-          .cv-content p, .cv-content li { font-size: 0.95rem !important; line-height: 1.7 !important; word-break: break-word; }
-          .cv-content h3 { font-size: clamp(1.2rem, 4vw, 1.6rem) !important; line-height: 1.3 !important; }
+          .cv-sidebar, .cv-content { padding: 36px 28px !important; box-sizing: border-box; }
+          .cv-content section { margin-top: 40px !important; }
+          .cv-content section:first-child { margin-top: 0 !important; }
+          .cv-content p, .cv-content li { font-size: 0.95rem !important; line-height: 1.8 !important; word-break: break-word; }
+          .cv-content h3 { font-size: clamp(1.2rem, 4vw, 1.6rem) !important; line-height: 1.35 !important; }
+          .cv-content > section > div > div + div { margin-top: 24px !important; }
           .cv-print-btn { top: auto !important; bottom: 16px !important; right: 16px !important; font-size: 0.85rem !important; padding: 10px 16px !important; z-index: 100 !important; }
           .cv-print-mobile-hidden { display: none !important; }
-          .cv-root { padding-top: 72px !important; }
-          .expertise-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
-          .expertise-pills { display: flex !important; flex-wrap: wrap !important; gap: 8px !important; width: 100% !important; flex-direction: row !important; align-items: flex-start !important; }
-          .expertise-pill { white-space: nowrap !important; padding: 6px 14px !important; border-radius: 20px !important; font-size: 0.85rem !important; border: 1px solid #0A1628 !important; color: #0A1628 !important; background: transparent !important; }
+          .cv-root { padding-top: 88px !important; gap: 20px !important; }
+          .expertise-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+          .expertise-pills { display: flex !important; flex-wrap: wrap !important; gap: 10px !important; width: 100% !important; flex-direction: row !important; align-items: flex-start !important; }
+          .expertise-pill { white-space: nowrap !important; padding: 7px 16px !important; border-radius: 20px !important; font-size: 0.85rem !important; border: 1px solid #0A1628 !important; color: #0A1628 !important; background: transparent !important; }
           .cv-page:nth-of-type(n+2) .cv-sidebar { display: none !important; }
           .cv-page:nth-of-type(n+2) { grid-template-columns: 1fr !important; }
         }
