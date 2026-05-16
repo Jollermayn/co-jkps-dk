@@ -850,13 +850,10 @@ function TilgangPage() {
       <section className="tilgang-section" style={{ ...sectionPadding, backgroundColor: "#EDE8DC" }}>
         <div style={innerCol}>
           <img src={vindConsultingLogo} alt="Vind Consulting" style={{ width: 120, display: "block", marginBottom: 24 }} />
-          <h1 style={{ fontFamily: "'Playfair Display', serif", color: "#0A1628", fontSize: "clamp(2rem, 5vw, 3.5rem)", fontWeight: 600, lineHeight: 1.2, maxWidth: 560, marginBottom: 40 }}>
-            Én organisation.<br />Fire udfordringer.
-          </h1>
-          <p style={{ color: "#0A1628", opacity: 0.9, fontSize: "1rem", lineHeight: 1.8, maxWidth: 560 }}>
-            Vind Consulting. 80 medarbejdere fordelt på Aarhus og København. AI-værktøjer rullet ud på tværs af organisationen — men kun 23% bruger dem aktivt. Kortlægningen dokumenterede en undervurderet arbejdsdistance på 54%. Fire udfordringer. Én fælles bevægelse.
+          <p style={{ color: "#0A1628", opacity: 0.6, fontSize: "1rem", lineHeight: 1.6, maxWidth: 560 }}>
+            Vind Consulting. 80 medarbejdere. 23% AI-adoption.
           </p>
-          <img src={vindConsult01} alt="Vind Consulting AI-strategi 2025" style={{ width: "100%", maxWidth: 960, margin: "40px auto 0 auto", display: "block", borderRadius: 6, boxShadow: "0 4px 20px rgba(0,0,0,0.08)" }} />
+          <img src={vindConsult01} alt="Vind Consulting AI-strategi 2025" style={{ width: "100%", margin: "40px auto 0 auto", display: "block", borderRadius: 6, boxShadow: "0 4px 20px rgba(0,0,0,0.08)" }} />
           <div style={{ height: 1, width: "100%", background: RED, marginTop: 48 }} aria-hidden />
         </div>
       </section>
