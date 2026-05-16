@@ -862,6 +862,9 @@ function TilgangPage() {
       {/* SECTION 3 — KONTEKST */}
       <section className="tilgang-section" style={{ ...sectionPadding, backgroundColor: NAVY }}>
         <div style={innerCol}>
+          <h1 style={{ fontFamily: "'Playfair Display', serif", color: "#FFFFFF", fontSize: "clamp(2rem, 5vw, 3.5rem)", fontWeight: 600, lineHeight: 1.2, maxWidth: 560, marginBottom: 40 }}>
+            En organisation. Fire udfordringer.
+          </h1>
           <div style={{ height: 1, width: "100%", background: RED, marginBottom: 48 }} aria-hidden />
           <p style={{ color: "#FFFFFF", opacity: 0.9, fontSize: "1rem", lineHeight: 1.8, maxWidth: 560 }}>
             Vind Consulting. Strategirådgivning med <strong>80 medarbejdere</strong> fordelt på Aarhus og København. AI-værktøjer rullet ud på tværs af organisationen — men kun <strong>23%</strong> bruger dem aktivt. <strong>4</strong> udfordringer kortlagt. Én fælles bevægelse.
