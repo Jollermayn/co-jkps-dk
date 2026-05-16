@@ -740,8 +740,9 @@ function TilgangPage() {
           .tilgang-challenge-num { font-size: 4rem !important; font-weight: 700 !important; }
           .tilgang-label { font-size: 0.7rem !important; letter-spacing: 0.2em !important; margin-bottom: 12px !important; }
           .tilgang-body { font-size: 1rem !important; line-height: 1.8 !important; }
-          .tilgang-hero { min-height: auto !important; height: auto !important; padding-top: 64px !important; padding-bottom: 40px !important; }
-          .tilgang-hero h1 { margin-top: 0 !important; padding: 0 24px !important; font-size: 1.4rem !important; font-weight: 700 !important; line-height: 1.3 !important; text-align: left !important; }
+          .tilgang-hero { min-height: auto !important; height: auto !important; padding-top: 32px !important; padding-bottom: 32px !important; }
+          .tilgang-hero h1 { margin-top: 0 !important; padding: 0 24px !important; font-size: clamp(1.8rem, 6vw, 2.4rem) !important; font-weight: 800 !important; font-family: serif !important; line-height: 1.15 !important; letter-spacing: -0.02em !important; text-align: left !important; }
+          .tilgang-hero h1 span { margin-top: 8px !important; line-height: 1.15 !important; font-size: clamp(1.8rem, 6vw, 2.4rem) !important; font-weight: 800 !important; font-family: serif !important; letter-spacing: -0.02em !important; }
           .tilgang-quote { text-align: left !important; padding-left: 24px !important; padding-right: 24px !important; margin-left: 0 !important; margin-right: auto !important; }
         }
       `}</style>
