@@ -38,8 +38,13 @@ type Statement = {
 
 const statements: Statement[] = [
   {
-    lines: ["Vi har en strategi.", "Den er på 40 sider.", "Ingen har læst den."],
-    caption: "Et dokument er ikke en retning. Det er papir med ambitioner.",
+    lines: [
+      "Vi kommunikerer konstant.",
+      "Ingen forstår budskabet.",
+      "Vi kommunikerer mere.",
+    ],
+    caption:
+      "Budskabet er skrevet til afsenderen. Ikke til mennesket der skal handle på det.",
     dark: true,
   },
   {
@@ -53,13 +58,8 @@ const statements: Statement[] = [
     dark: false,
   },
   {
-    lines: [
-      "Vi kommunikerer konstant.",
-      "Ingen forstår budskabet.",
-      "Vi kommunikerer mere.",
-    ],
-    caption:
-      "Budskabet er skrevet til afsenderen. Ikke til mennesket der skal handle på det.",
+    lines: ["Vi har en strategi.", "Den er på 40 sider.", "Ingen har læst den."],
+    caption: "Et dokument er ikke en retning. Det er papir med ambitioner.",
     dark: true,
   },
   {
