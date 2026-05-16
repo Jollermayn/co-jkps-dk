@@ -192,6 +192,32 @@ function Index() {
             </div>
           </section>
 
+          {/* Divider */}
+          <div style={{ height: 1, backgroundColor: "#C0281E", width: "100%" }} />
+
+          {/* MIN TILGANG */}
+          <section id="tilgang" style={{ padding: "48px 0" }}>
+            <div className="px-5 md:px-14">
+              <Link
+                to="/tilgang"
+                className="inline-block hover:text-[#C0281E] transition-colors duration-200 ease-out"
+                style={{
+                  color: "white",
+                  fontStyle: "italic",
+                  fontSize: "1.2rem",
+                  fontFamily: "serif",
+                  textDecoration: "underline",
+                  textDecorationColor: "#C0281E",
+                  textUnderlineOffset: "4px",
+                  textDecorationThickness: "1.5px",
+                  opacity: 1,
+                }}
+              >
+                Forandring lander ikke af sig selv →
+              </Link>
+            </div>
+          </section>
+
           {/* UDDANNELSE */}
           <section id="uddannelse" className="py-16 md:py-20">
             <div className="px-5 md:px-14">
