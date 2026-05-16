@@ -285,24 +285,40 @@ function Index() {
             id="tilgang"
             className="px-6 py-8 md:px-0 md:py-12"
           >
-            <div className="md:px-14">
+            <div className="md:px-14 flex justify-center text-center">
               <Link
                 to="/tilgang"
-                className="md:hover:text-[#C0281E] text-[1.1rem] md:text-[1.4rem]"
+                className="group md:hover:text-[#C0281E]"
                 style={{
-                  display: "inline",
-                  whiteSpace: "nowrap",
+                  display: "block",
                   color: "white",
                   fontStyle: "italic",
                   fontWeight: 600,
                   fontFamily: "serif",
                   textDecoration: "none",
                   transition: "color 0.2s ease",
-                  opacity: 1,
+                  lineHeight: 1.15,
+                  fontSize: "clamp(2rem, 5vw, 3.75rem)",
                 }}
               >
-                Forandring lander ikke af sig selv
-                <span style={{ color: "#C0281E", fontStyle: "normal", fontWeight: 600, marginLeft: "8px" }}>→</span>
+                <span style={{ display: "block" }}>Forandring</span>
+                <span style={{ display: "block" }}>lander ikke</span>
+                <span style={{ display: "block" }}>af sig selv</span>
+                <span
+                  style={{
+                    display: "block",
+                    marginTop: "1.5rem",
+                    fontStyle: "normal",
+                    fontWeight: 500,
+                    fontSize: "clamp(1rem, 1.6vw, 1.25rem)",
+                    letterSpacing: "0.05em",
+                    textDecoration: "underline",
+                    textUnderlineOffset: "6px",
+                    color: "#C0281E",
+                  }}
+                >
+                  Læs mere
+                </span>
               </Link>
             </div>
           </section>
