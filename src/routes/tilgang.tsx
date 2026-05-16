@@ -139,7 +139,7 @@ function TilgangPage() {
                   fontFamily: "serif",
                   fontSize: "0.9rem",
                   fontWeight: 400,
-                  color: "#E8E2D9",
+                  color: "#F5F0E8",
                   letterSpacing: "0.05em",
                   textDecoration: "none",
                   transition: "color 0.2s ease",
