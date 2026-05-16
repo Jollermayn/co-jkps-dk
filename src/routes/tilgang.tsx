@@ -796,7 +796,7 @@ function TilgangPage() {
       </div>
 
       {/* METADATA BAR */}
-      <div className="py-8 px-6 md:py-10 md:px-12" style={{ backgroundColor: "#0D1F35" }}>
+      <div className="py-8 px-6 md:py-10 md:px-12" style={{ backgroundColor: NAVY }}>
         <div
           className="flex flex-col md:flex-row md:justify-center md:items-stretch gap-5 md:gap-6"
           style={{ maxWidth: 1100, margin: "0 auto" }}
@@ -842,44 +842,28 @@ function TilgangPage() {
       </div>
 
       {/* SECTION 2 — DESIGNERENS ANSVAR */}
-      <section className="tilgang-section" style={sectionPadding}>
+      <section className="tilgang-section" style={{ ...sectionPadding, backgroundColor: "#F5F3EE" }}>
         <div style={innerCol}>
-          <p
-            className="tilgang-quote"
-            style={{
-              color: "#FFFFFF",
-              opacity: 0.6,
-              fontSize: "clamp(1.4rem, 3vw, 2rem)",
-              fontStyle: "italic",
-              fontFamily: "'Playfair Display', serif",
-              textAlign: "center",
-              maxWidth: 560,
-              margin: "0 auto 48px",
-              lineHeight: 1.5,
-            }}
-          >
-            &ldquo;For meget &lsquo;Artificial&rsquo; &mdash; for lidt &lsquo;Intelligence&rsquo;.&rdquo;
-          </p>
-          <p className="text-white tilgang-body" style={{ opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.9, marginBottom: "1.5em" }}>
+          <p className="tilgang-body" style={{ color: "#0A1628", opacity: 0.8, fontSize: "1.1rem", lineHeight: 1.9, marginBottom: "1.5em" }}>
             Strategien er sendt. Værktøjet er rullet ud. Budskabet er kommunikeret.
           </p>
-          <p className="text-white tilgang-body" style={{ opacity: 1, fontSize: "1.2rem", fontWeight: 500, lineHeight: 1.9, marginBottom: "1.5em" }}>
+          <p className="tilgang-body" style={{ color: "#0A1628", fontSize: "1.2rem", fontWeight: 500, lineHeight: 1.9, marginBottom: "1.5em" }}>
             Men forandringen lander ikke.
           </p>
-          <p className="text-white tilgang-body" style={{ opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.9, marginBottom: "1.5em" }}>
+          <p className="tilgang-body" style={{ color: "#0A1628", opacity: 0.8, fontSize: "1.1rem", lineHeight: 1.9, marginBottom: "1.5em" }}>
             Det er ikke udtryk for ligegyldighed. Det er udtryk for manglende indsigt i hvordan mennesker faktisk forholder sig til forandring — og hvad der skal til for at noget nyt bliver meningsfuldt i en hverdag der i forvejen stiller mange krav.
           </p>
-          <p className="text-white tilgang-body" style={{ opacity: 1, fontSize: "1.2rem", fontWeight: 500, lineHeight: 1.9, marginBottom: "1.5em" }}>
+          <p className="tilgang-body" style={{ color: "#0A1628", fontSize: "1.2rem", fontWeight: 500, lineHeight: 1.9, marginBottom: "1.5em" }}>
             Organisationer er designet til at producere output. Færre er designet til at sikre at outputtet lander hos det menneske det handler om.
           </p>
         </div>
       </section>
 
       {/* SECTION 3 — KONTEKST */}
-      <section className="tilgang-section" style={{ ...sectionPadding, backgroundColor: "#F5F3EE" }}>
+      <section className="tilgang-section" style={{ ...sectionPadding, backgroundColor: NAVY }}>
         <div style={innerCol}>
           <div style={{ height: 1, width: "100%", background: RED, marginBottom: 48 }} aria-hidden />
-          <p style={{ color: "#0A1628", fontSize: "1rem", lineHeight: 1.8, maxWidth: 560 }}>
+          <p style={{ color: "#FFFFFF", opacity: 0.9, fontSize: "1rem", lineHeight: 1.8, maxWidth: 560 }}>
             Vind Consulting. Strategirådgivning med <strong>80 medarbejdere</strong> fordelt på Aarhus og København. AI-værktøjer rullet ud på tværs af organisationen — men kun <strong>23%</strong> bruger dem aktivt. <strong>4</strong> udfordringer kortlagt. Én fælles bevægelse.
           </p>
           <div style={{ height: 1, width: "100%", background: RED, marginTop: 48 }} aria-hidden />
