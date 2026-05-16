@@ -842,7 +842,7 @@ function TilgangPage() {
       </div>
 
       {/* SECTION 2 — DESIGNERENS ANSVAR */}
-      <section className="tilgang-section" style={{ ...sectionPadding, backgroundColor: "#F5F3EE" }}>
+      <section className="tilgang-section" style={{ ...sectionPadding, backgroundColor: "#F2ECDD" }}>
         <div style={innerCol}>
           <p className="tilgang-body" style={{ color: "#0A1628", opacity: 0.8, fontSize: "1.1rem", lineHeight: 1.9, marginBottom: "1.5em" }}>
             Strategien er sendt. Værktøjet er rullet ud. Budskabet er kommunikeret.
@@ -873,7 +873,7 @@ function TilgangPage() {
       {/* SECTION 4-7 — FIRE UDFORDRINGER (alternating bg) */}
       {challenges.map((c, idx) => {
         const dark = idx % 2 === 1;
-        const bg = dark ? NAVY : "#F5F3EE";
+        const bg = dark ? NAVY : "#F2ECDD";
         const fg = dark ? "#FFFFFF" : "#0A1628";
         return (
           <section key={c.n} className="tilgang-section" style={{ ...sectionPadding, backgroundColor: bg }}>
