@@ -64,6 +64,11 @@ const expertise = [
 
 const experiencePage1 = [
   {
+    name: "Wolt",
+    tags: "SERVICE DESIGN · UX RESEARCH · CO-DESIGN",
+    body: "Mixed methods research med interviews, media-go-alongs og feltobservation. Designede tre interventioner i Wolt Partner-appen om transparens og rettigheder.",
+  },
+  {
     name: "Boliga",
     tags: "PRODUCT DESIGN · UX RESEARCH · DATAANALYSE",
     body: "Analyserede brugsdata fra 6,5 mio. månedlige interaktioner på Danmarks største boligplatform. Designede personaliseret onboarding-flow valideret af product owner.",
@@ -72,11 +77,6 @@ const experiencePage1 = [
     name: "Danmarks Radio",
     tags: "DIGITAL PRODUCER · TVÆRGÅENDE KOORDINERING",
     body: "Koordinerede tværgående processer på tværs af redaktioner i Danmarks største medieorganisation. Sikrede redaktionel og teknisk kvalitet under stram tidsstyring.",
-  },
-  {
-    name: "Wolt",
-    tags: "SERVICE DESIGN · UX RESEARCH · CO-DESIGN",
-    body: "Mixed methods research med interviews, media-go-alongs og feltobservation. Designede tre interventioner i Wolt Partner-appen om transparens og rettigheder.",
   },
 ];
 
