@@ -235,7 +235,7 @@ function Index() {
       <div className="w-full min-w-0 max-w-full flex flex-col lg:block">
 
         {/* LEFT — scrolling content */}
-        <div className="w-full min-w-0 max-w-full lg:max-w-[60%] lg:w-[60%] order-2 lg:order-none bg-navy-deep lg:mt-11 lg:rounded-t-xl lg:shadow-[0_-8px_24px_rgba(0,0,0,0.2)] lg:mr-[40%]">
+        <div className="w-full min-w-0 max-w-full lg:max-w-[60%] lg:w-[60%] order-2 lg:order-none bg-navy-deep lg:mr-[40%]">
           {/* OM MIG */}
           <section id="om" className="py-16 md:py-20">
             <div className="px-12 md:px-14">
