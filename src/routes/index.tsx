@@ -233,21 +233,19 @@ function Index() {
             <div className="md:px-14">
               <Link
                 to="/tilgang"
-                className="hover:text-[#C0281E] transition-colors duration-200 ease-out text-base md:text-[1.2rem]"
+                className="group no-underline md:hover:[text-decoration:underline] md:hover:[text-decoration-color:#C0281E] md:hover:[text-underline-offset:4px] text-base md:text-[1.2rem]"
                 style={{
                   display: "inline",
                   whiteSpace: "nowrap",
                   color: "white",
                   fontStyle: "italic",
                   fontFamily: "serif",
-                  textDecoration: "underline",
-                  textDecorationColor: "#C0281E",
-                  textUnderlineOffset: "4px",
-                  textDecorationThickness: "1.5px",
+                  textDecoration: "none",
                   opacity: 1,
                 }}
               >
-                Forandring lander ikke af sig selv →
+                Forandring lander ikke af sig selv
+                <span style={{ color: "#C0281E", fontStyle: "normal", marginLeft: "6px" }}>→</span>
               </Link>
             </div>
           </section>
