@@ -755,9 +755,6 @@ function TilgangPage() {
         <div>
           <SiteLogo color="#ffffff" lineColor="#C0281E" lineOpacity={1} />
         </div>
-        <button type="button" aria-label="Åbn menu" onClick={() => setMenuOpen(true)} className="md:hidden" style={{ background: "transparent", border: "none", padding: 0, cursor: "pointer", display: "inline-flex", color: "#F5F3EE" }}>
-          <MenuIcon color="#F5F3EE" />
-        </button>
         <div className="hidden md:flex" style={{ alignItems: "center", gap: 24, flexWrap: "wrap", justifyContent: "flex-end" }}>
           {[
             { label: "Cases", href: "/#cases" },
