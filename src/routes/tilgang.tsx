@@ -782,6 +782,9 @@ function TilgangPage() {
             </a>
           ))}
         </div>
+        <button type="button" aria-label="Åbn menu" onClick={() => setMenuOpen(true)} className="md:hidden" style={{ background: "transparent", border: "none", padding: 0, cursor: "pointer", display: "inline-flex", color: "#F5F3EE" }}>
+          <MenuIcon color="#F5F3EE" />
+        </button>
       </nav>
       <style>{`.tilgang-nav-link:hover { color: #C0281E !important; }`}</style>
       {menuOpen && (
