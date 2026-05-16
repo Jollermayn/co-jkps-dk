@@ -895,17 +895,17 @@ function TilgangPage() {
 
 
       {/* SECTION 9 — CTA */}
-      <section className="tilgang-section" style={{ ...sectionPadding, backgroundColor: NAVY }}>
+      <section className="tilgang-section" style={{ ...sectionPadding, backgroundColor: "#EDE8DC" }}>
         <div style={innerCol}>
           <h2
-            className="font-display text-white tilgang-section-h2"
-            style={{ fontSize: "clamp(1.8rem, 3vw, 2.4rem)", maxWidth: 480, marginBottom: 16, lineHeight: 1.2 }}
+            className="font-display tilgang-section-h2"
+            style={{ color: "#0A1628", fontSize: "clamp(1.8rem, 3vw, 2.4rem)", maxWidth: 480, marginBottom: 16, lineHeight: 1.2 }}
           >
             Kender du en af disse situationer?
           </h2>
           <p
-            className="text-white tilgang-body"
-            style={{ opacity: 0.7, fontSize: "1.1rem", lineHeight: 1.9, maxWidth: 400, marginBottom: 48 }}
+            className="tilgang-body"
+            style={{ color: "#0A1628", opacity: 0.7, fontSize: "1.1rem", lineHeight: 1.9, maxWidth: 400, marginBottom: 48 }}
           >
             Så er det præcis det jeg arbejder med — oversættelsen mellem det organisationen vil, og det mennesket forstår.
           </p>
@@ -925,11 +925,11 @@ function TilgangPage() {
           </a>
           <Link
             to="/"
-            className="text-white"
             style={{
               display: "block",
               marginTop: 24,
-              opacity: 0.5,
+              color: "#0A1628",
+              opacity: 0.6,
               fontSize: "0.9rem",
             }}
           >
