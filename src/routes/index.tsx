@@ -151,10 +151,39 @@ function Sidebar() {
   );
 }
 
+function MobileHeader() {
+  const [open, setOpen] = useState(false);
+  return (
+    <>
+      <nav className="md:hidden" style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: "#0A1628", height: 56, padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <Link to="/" style={{ fontFamily: "serif", fontSize: "1rem", fontWeight: 400, color: "white", textDecoration: "none" }}>
+          jkps.dk
+        </Link>
+        <button type="button" aria-label="Åbn menu" onClick={() => setOpen(true)} style={{ background: "transparent", border: "none", color: "white", fontSize: "1.4rem", lineHeight: 1, padding: 0, cursor: "pointer" }}>
+          ≡
+        </button>
+      </nav>
+      {open && (
+        <div className="md:hidden" style={{ position: "fixed", inset: 0, zIndex: 200, backgroundColor: "#0A1628", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 32 }}>
+          <button type="button" aria-label="Luk menu" onClick={() => setOpen(false)} style={{ position: "absolute", top: 16, right: 24, background: "transparent", border: "none", color: "white", fontSize: "2rem", lineHeight: 1, padding: 0, cursor: "pointer" }}>
+            ×
+          </button>
+          <Link to="/" onClick={() => setOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: "white", textDecoration: "none" }}>Portfolio</Link>
+          <Link to="/tilgang" onClick={() => setOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: "white", textDecoration: "none" }}>Min tilgang</Link>
+          <Link to="/cv" onClick={() => setOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: "white", textDecoration: "none" }}>CV</Link>
+          <a href="#kontakt" onClick={() => setOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: "white", textDecoration: "none" }}>Kontakt</a>
+        </div>
+      )}
+    </>
+  );
+}
+
 function Index() {
   return (
-    <main id="top" className="w-full min-w-0 max-w-full overflow-x-clip text-cream lg:bg-[#0D1B2A]">
+    <main id="top" className="w-full min-w-0 max-w-full overflow-x-clip text-cream lg:bg-[#0D1B2A] pt-14 md:pt-0">
+      <MobileHeader />
       <div className="w-full min-w-0 max-w-full flex flex-col lg:block">
+
         {/* LEFT — scrolling content */}
         <div className="w-full min-w-0 max-w-full lg:max-w-[60%] lg:w-[60%] order-2 lg:order-none bg-navy-deep lg:mt-11 lg:rounded-t-xl lg:shadow-[0_-8px_24px_rgba(0,0,0,0.2)] lg:mr-[40%]">
           {/* OM MIG */}
