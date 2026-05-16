@@ -852,9 +852,9 @@ function TilgangPage() {
         </div>
       </section>
       {challenges.map((c, idx) => {
-        const dark = idx % 2 === 1;
-        const bg = dark ? NAVY : "#F2ECDD";
-        const fg = dark ? "#FFFFFF" : "#0A1628";
+        const dark = true;
+        const bg = "#0A1628";
+        const fg = "#F5F3EE";
         return (
           <section key={c.n} className="tilgang-section" style={{ ...sectionPadding, backgroundColor: bg }}>
             <div style={innerCol}>
