@@ -113,7 +113,10 @@ function Sidebar() {
             <span className="block whitespace-nowrap text-[clamp(3.5rem,9vw,6rem)] leading-none -mt-[0.08em]" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700 }}>Sørensen</span>
           </h1>
           <p className="text-xs md:text-sm uppercase tracking-[0.25em] text-cream/55 mt-1">
-            Digital konsulent · UX Research & Servicedesign · Selvstændig siden 2016
+            <span>Digital konsulent · UX Research & Servicedesign</span>
+            <span style={{ color: "white", opacity: 1, display: "block", marginTop: "4px", fontWeight: 500 }}>
+              Selvstændig siden 2016
+            </span>
           </p>
         </div>
 
