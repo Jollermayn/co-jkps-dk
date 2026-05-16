@@ -295,9 +295,19 @@ function Index() {
             className="py-12 px-6 md:!py-20 md:!px-16"
           >
             <div className="flex flex-col md:flex-row md:items-center" style={{ width: "100%" }}>
+              {/* RIGHT: image */}
+              <div className="w-full md:w-1/2 flex justify-center md:justify-end order-2 mt-8 md:mt-0">
+                <img
+                  src={chimpSuit}
+                  alt=""
+                  aria-hidden="true"
+                  style={{ display: "block", objectFit: "contain", height: "auto", width: "420px", maxWidth: "100%", transform: "scaleX(-1)", filter: "drop-shadow(0px 12px 8px rgba(0, 0, 0, 0.25))" }}
+                />
+              </div>
+
               {/* LEFT: text */}
               <div
-                className="w-full md:w-1/2 text-center md:text-left"
+                className="w-full md:w-1/2 text-center md:text-left order-1"
                 style={{ overflow: "visible" }}
               >
                 <Link to="/tilgang" style={{ display: "block", textDecoration: "none" }}>
@@ -344,16 +354,6 @@ function Index() {
                     Læs mere →
                   </span>
                 </Link>
-              </div>
-
-              {/* RIGHT: empty for now */}
-              <div className="w-full md:w-1/2 flex justify-center md:justify-end mt-8 md:mt-0">
-                <img
-                  src={chimpSuit}
-                  alt=""
-                  aria-hidden="true"
-                  style={{ display: "block", objectFit: "contain", height: "auto", width: "420px", maxWidth: "100%", filter: "drop-shadow(0px 12px 8px rgba(0, 0, 0, 0.25))" }}
-                />
               </div>
             </div>
           </section>
