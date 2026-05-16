@@ -752,36 +752,36 @@ function TilgangPage() {
         }
       `}</style>
       {/* MOBILE NAV BAR */}
-      <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: "#0A1628", height: 72, padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between", borderBottom: "1px solid rgba(255,255,255,0.08)", boxShadow: "0 6px 16px rgba(0,0,0,0.18)" }}>
-        <div>
+      <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: "#0A1628", height: 72, padding: "0 64px 0 24px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 48, borderBottom: "1px solid rgba(255,255,255,0.08)", boxShadow: "0 6px 16px rgba(0,0,0,0.18)" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 48 }}>
           <SiteLogo color="#ffffff" lineColor="#C0281E" lineOpacity={1} />
+          <div className="hidden md:flex" style={{ alignItems: "center", gap: 28, flexWrap: "wrap" }}>
+            {[
+              { label: "Cases", href: "/#cases" },
+              { label: "Kompetencer", href: "/#kompetencer" },
+              { label: "Min tilgang", href: "/tilgang" },
+              { label: "Kontakt", href: "/#kontakt" },
+            ].map((l) => (
+              <a
+                key={l.label}
+                href={l.href}
+                className="tilgang-nav-link"
+                style={{
+                  fontFamily: "serif",
+                  fontSize: "0.9rem",
+                  fontWeight: 400,
+                  color: "#F5F0E8",
+                  letterSpacing: "0.05em",
+                  textDecoration: "none",
+                  transition: "color 0.2s ease",
+                }}
+              >
+                {l.label}
+              </a>
+            ))}
+          </div>
         </div>
-        <div className="hidden md:flex" style={{ alignItems: "center", gap: 24, flexWrap: "wrap", justifyContent: "flex-end", marginRight: 120 }}>
-          {[
-            { label: "Cases", href: "/#cases" },
-            { label: "Kompetencer", href: "/#kompetencer" },
-            { label: "Min tilgang", href: "/tilgang" },
-            { label: "Kontakt", href: "/#kontakt" },
-          ].map((l) => (
-            <a
-              key={l.label}
-              href={l.href}
-              className="tilgang-nav-link"
-              style={{
-                fontFamily: "serif",
-                fontSize: "0.9rem",
-                fontWeight: 400,
-                color: "#F5F0E8",
-                letterSpacing: "0.05em",
-                textDecoration: "none",
-                transition: "color 0.2s ease",
-              }}
-            >
-              {l.label}
-            </a>
-          ))}
-        </div>
-        <button type="button" aria-label="Åbn menu" onClick={() => setMenuOpen(true)} className="md:hidden" style={{ background: "transparent", border: "none", padding: 0, cursor: "pointer", display: "inline-flex", color: "#F5F3EE" }}>
+        <button type="button" aria-label="Åbn menu" onClick={() => setMenuOpen(true)} className="md:hidden inline-flex" style={{ background: "transparent", border: "none", padding: 0, cursor: "pointer", color: "#F5F3EE" }}>
           <MenuIcon color="#F5F3EE" />
         </button>
       </nav>
