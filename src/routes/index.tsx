@@ -286,6 +286,8 @@ function Index() {
             id="tilgang"
             style={{
               backgroundColor: "#EDE8DC",
+              backgroundImage: 'url("https://www.transparenttextures.com/patterns/paper.png")',
+              backgroundBlendMode: "multiply",
               position: "relative",
               width: "100%",
               maxWidth: "100%",
