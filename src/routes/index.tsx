@@ -1191,7 +1191,7 @@ function KompetencerList() {
             className="group py-5 md:py-6 hover:bg-navy/40 transition-colors -mx-5 md:-mx-14 px-5 md:px-14"
           >
             <div className="min-w-0 flex items-baseline gap-4">
-              <span className="font-display text-2xl text-ember shrink-0">{c.no}</span>
+              <span className="font-display shrink-0" style={{ color: "#C0281E", fontSize: "1.4rem", fontWeight: 700 }}>{c.no}</span>
               <div className="min-w-0 flex-1">
                 <h3 className="font-display tracking-tight leading-tight max-w-full [word-break:normal] [overflow-wrap:break-word] [hyphens:none] text-[clamp(1.3rem,5vw,2rem)] md:text-[2rem]">
                   {c.title}
