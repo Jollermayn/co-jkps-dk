@@ -736,7 +736,7 @@ function TilgangPage() {
           .tilgang-section { padding: 64px 24px !important; }
           .tilgang-section-h2 { font-size: 1.8rem !important; font-weight: 700 !important; line-height: 1.2 !important; margin-bottom: 24px !important; }
           .tilgang-challenge-h2 { font-size: 1.5rem !important; font-weight: 700 !important; line-height: 1.3 !important; }
-          .tilgang-challenge-num { font-size: 4rem !important; color: #C0281E !important; opacity: 0.25 !important; font-weight: 700 !important; }
+          .tilgang-challenge-num { font-size: 4rem !important; font-weight: 700 !important; }
           .tilgang-label { font-size: 0.7rem !important; letter-spacing: 0.2em !important; margin-bottom: 12px !important; }
           .tilgang-body { font-size: 1rem !important; line-height: 1.8 !important; }
           .tilgang-hero { min-height: auto !important; height: auto !important; padding-top: 64px !important; padding-bottom: 40px !important; }
@@ -928,9 +928,9 @@ function TilgangPage() {
                   className="font-display tilgang-challenge-num"
                   style={{
                     display: "block",
-                    color: RED,
+                    color: dark ? "#FFFFFF" : "#0A1628",
                     fontSize: "5rem",
-                    opacity: 0.15,
+                    opacity: dark ? 0.15 : 0.12,
                     lineHeight: 1,
                     letterSpacing: "-0.02em",
                     marginBottom: 0,
