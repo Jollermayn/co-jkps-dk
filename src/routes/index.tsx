@@ -155,11 +155,11 @@ function MobileHeader() {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <nav className="md:hidden" style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: "#0A1628", height: 56, padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-        <Link to="/" style={{ fontFamily: "serif", fontSize: "1rem", fontWeight: 400, color: "white", textDecoration: "none" }}>
+      <nav className="md:hidden" style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: "#0A1628", height: 72, padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <Link to="/" style={{ fontFamily: "serif", fontSize: "1.1rem", fontWeight: 400, color: "white", textDecoration: "none" }}>
           jkps.dk
         </Link>
-        <button type="button" aria-label="Åbn menu" onClick={() => setOpen(true)} style={{ background: "transparent", border: "none", color: "white", fontSize: "1.4rem", lineHeight: 1, padding: 0, cursor: "pointer" }}>
+        <button type="button" aria-label="Åbn menu" onClick={() => setOpen(true)} style={{ background: "transparent", border: "none", color: "white", fontSize: "1.6rem", lineHeight: 1, padding: 0, cursor: "pointer" }}>
           ≡
         </button>
       </nav>
@@ -180,7 +180,7 @@ function MobileHeader() {
 
 function Index() {
   return (
-    <main id="top" className="w-full min-w-0 max-w-full overflow-x-clip text-cream lg:bg-[#0D1B2A] pt-14 md:pt-0">
+    <main id="top" className="w-full min-w-0 max-w-full overflow-x-clip text-cream lg:bg-[#0D1B2A] pt-[72px] md:pt-0">
       <MobileHeader />
       <div className="w-full min-w-0 max-w-full flex flex-col lg:block">
 
