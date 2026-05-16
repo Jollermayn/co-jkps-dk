@@ -784,14 +784,14 @@ function TilgangPage() {
           >
             <h1
               className="font-display text-left md:text-center max-w-full break-normal overflow-visible text-[1.6rem] leading-[1.3] md:text-[clamp(2.2rem,5vw,3.8rem)] md:leading-[1.2]"
-              style={{ fontWeight: 600, color: NAVY }}
+              style={{ fontWeight: 700, color: "#ffffff", fontFamily: "serif" }}
             >
-              De fleste organisationer har ikke et forandringsproblem.
+              Det er ikke strategien der fejler.
               <span
                 className="italic block"
-                style={{ color: RED, marginTop: 8 }}
+                style={{ color: "#C0281E", marginTop: 8, fontFamily: "serif", fontWeight: 700 }}
               >
-                De har et oversættelsesproblem.
+                Det er oversættelsen.
               </span>
             </h1>
           </div>
