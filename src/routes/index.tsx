@@ -164,7 +164,7 @@ function MobileHeader() {
   return (
     <>
       {/* Mobile header (<768px) — unchanged */}
-      <nav className="flex md:hidden" style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: "#E0D9C8", height: 72, padding: "0 24px", alignItems: "center", justifyContent: "space-between", borderBottom: "1px solid rgba(0,0,0,0.08)" }}>
+      <nav className="flex md:hidden" style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: "#0A1628", height: 72, padding: "0 24px", alignItems: "center", justifyContent: "space-between", borderBottom: "1px solid rgba(0,0,0,0.08)" }}>
         <div>
           <SiteLogo />
         </div>
