@@ -164,11 +164,11 @@ function MobileHeader() {
   return (
     <>
       {/* Mobile header (<768px) — unchanged */}
-      <nav className="flex md:hidden" style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: "#E0D9C8", height: 72, padding: "0 24px", alignItems: "center", justifyContent: "space-between", borderBottom: "1px solid rgba(0,0,0,0.08)" }}>
+      <nav className="flex md:hidden" style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: "#0A1628", height: 72, padding: "0 24px", alignItems: "center", justifyContent: "space-between", borderBottom: "1px solid rgba(0,0,0,0.08)" }}>
         <div>
-          <SiteLogo />
+          <SiteLogo color="#F5F3EE" lineColor="#C0281E" lineOpacity={1} />
         </div>
-        <button type="button" aria-label="Åbn menu" onClick={() => setOpen(true)} style={{ background: "transparent", border: "none", padding: 0, cursor: "pointer", display: "inline-flex" }}>
+        <button type="button" aria-label="Åbn menu" onClick={() => setOpen(true)} style={{ background: "transparent", border: "none", padding: 0, cursor: "pointer", display: "inline-flex", color: "#F5F3EE" }}>
           <MenuIcon />
         </button>
       </nav>
@@ -184,13 +184,13 @@ function MobileHeader() {
           zIndex: 100,
           height: 80,
           padding: "0 32px",
-          backgroundColor: "#EDE8DC",
+          backgroundColor: "#0A1628",
           alignItems: "center",
           justifyContent: "space-between",
           borderBottom: "1px solid rgba(0,0,0,0.08)",
         }}
       >
-        <SiteLogo color="#0A1628" lineColor="#C0281E" lineOpacity={1} size={44} />
+        <SiteLogo color="#F5F3EE" lineColor="#C0281E" lineOpacity={1} size={44} />
         <div style={{ display: "flex", alignItems: "center", gap: 28 }}>
           {[
             { label: "Cases", href: "/#cases" },
@@ -206,7 +206,7 @@ function MobileHeader() {
                 fontFamily: "serif",
                 fontSize: "0.9rem",
                 fontWeight: 400,
-                color: "#0A1628",
+                color: "#F5F3EE",
                 letterSpacing: "0.05em",
                 textDecoration: "none",
                 transition: "color 0.2s ease",
@@ -235,7 +235,7 @@ function MobileHeader() {
           justifyContent: "space-between",
         }}
       >
-        <SiteLogo color="#ffffff" lineColor="#C0281E" lineOpacity={1} size={48} />
+        <SiteLogo color="#F5F3EE" lineColor="#C0281E" lineOpacity={1} size={48} />
         <div style={{ display: "flex", alignItems: "center", gap: 40 }}>
           {[
             { label: "Cases", href: "/#cases" },
@@ -251,7 +251,7 @@ function MobileHeader() {
                 fontFamily: "serif",
                 fontSize: "0.9rem",
                 fontWeight: 400,
-                color: "white",
+                color: "#F5F3EE",
                 letterSpacing: "0.05em",
                 textDecoration: "none",
                 transition: "color 0.2s ease",
