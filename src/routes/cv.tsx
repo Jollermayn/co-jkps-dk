@@ -375,7 +375,13 @@ function CVPage() {
                       className="font-display font-bold text-[1.05rem] text-[#0D1B2A] leading-tight"
                       style={{ fontFamily: "'Playfair Display', serif" }}
                     >
-                      {e.title}
+                      {e.title.split(/(&)/).map((part, i) =>
+                        part === "&" ? (
+                          <span key={i} style={{ fontFamily: "'Inter', sans-serif", fontWeight: 500 }}>&amp;</span>
+                        ) : (
+                          <span key={i}>{part}</span>
+                        )
+                      )}
                     </h3>
                     <p className="mt-0.5 text-[0.7rem] tracking-[0.12em] font-semibold text-[#0D1B2A]/65">
                       {e.meta}
