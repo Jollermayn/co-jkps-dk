@@ -799,10 +799,10 @@ function TilgangPage() {
       )}
       {/* SECTION 1 — HERO BANNER (full-screen) */}
       <div
-        className="relative w-full overflow-hidden tilgang-hero"
-        style={{ backgroundColor: "#F5F0E8", paddingTop: 200, paddingBottom: 200 }}
+        className="relative w-full overflow-hidden tilgang-hero flex items-center justify-center"
+        style={{ backgroundColor: "#F5F0E8", paddingTop: 160, paddingBottom: 160 }}
       >
-        <div style={{ maxWidth: 1400, margin: "0 auto", padding: "0 64px" }}>
+        <div style={{ width: "100%", maxWidth: 1400, margin: "0 auto", padding: "0 64px", display: "flex", justifyContent: "center" }}>
           <h1
             className="font-display tilgang-hero-h1"
             style={{
@@ -812,9 +812,8 @@ function TilgangPage() {
               fontSize: "clamp(2.6rem, 6.5vw, 6rem)",
               lineHeight: 1.05,
               letterSpacing: "-0.03em",
-              textAlign: "left",
+              textAlign: "center",
               margin: 0,
-              maxWidth: "16ch",
             }}
           >
             Kunsten i at finde<br />hvad der går tabt.
