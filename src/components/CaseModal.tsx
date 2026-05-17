@@ -191,23 +191,21 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
         onTouchCancel={onTouchEnd}
         style={(() => {
           let transform: string | undefined;
-          let opacity: number | undefined;
           let transition: string | undefined;
           if (dragY > 0) {
             transform = `translateY(${dragY}px)`;
             transition = touchActive.current ? "none" : closing || dragY === 0 ? "transform 280ms ease-out" : undefined;
           } else if (slide) {
-            // out: slide off opposite to swipe direction; in: come in from swipe direction
-            const offset = slide.phase === "out" ? (slide.dir === 1 ? -60 : 60) : (slide.dir === 1 ? 60 : -60);
+            // Slide direction: dir=1 (next) → old exits left, new enters from right
+            const offset = slide.phase === "out"
+              ? (slide.dir === 1 ? -window.innerWidth : window.innerWidth)
+              : (slide.dir === 1 ? window.innerWidth : -window.innerWidth);
             transform = `translateX(${offset}px)`;
-            opacity = slide.phase === "out" ? 0 : 0;
-            transition = "transform 220ms ease-out, opacity 220ms ease-out";
+            transition = slide.phase === "out" ? "transform 260ms ease-in" : "none";
+          } else if (!dragY) {
+            transition = "transform 320ms cubic-bezier(0.22, 0.61, 0.36, 1)";
           }
-          // When slide is null after "in" reset, we want to animate back to 0
-          if (!slide && !dragY) {
-            transition = "transform 260ms ease-out, opacity 260ms ease-out";
-          }
-          return { transform, opacity, transition };
+          return { transform, transition };
         })()}
         className="relative w-full h-[92vh] rounded-t-2xl md:rounded-none md:ml-auto md:w-[min(960px,92vw)] md:h-full bg-[#0D1B2A] text-cream overflow-y-auto shadow-2xl animate-in slide-in-from-bottom md:slide-in-from-right md:slide-in-from-bottom-0 duration-300 overscroll-contain"
       >
