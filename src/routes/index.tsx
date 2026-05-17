@@ -128,11 +128,15 @@ function Sidebar() {
           </p>
         </div>
 
-        <p className="font-display italic text-cream text-xl md:text-2xl leading-relaxed text-center mt-6 lg:mt-8 mb-6 lg:mb-8">
+        <div className="shrink-0 w-[180px] h-[180px] overflow-hidden rounded-full mx-auto block">
+          <img src={profilePhoto} alt="Jonas K.P. Sørensen" className="w-full h-full object-cover" />
+        </div>
+
+        <p className="font-display italic text-cream text-xl md:text-2xl leading-relaxed text-center">
           &ldquo;For meget &lsquo;Artificial&rsquo; &mdash; for lidt &lsquo;Intelligence&rsquo;.&rdquo;
         </p>
 
-        <div className="flex flex-col items-center gap-6 lg:gap-3 w-full text-center lg:translate-y-[15px]">
+        <div className="flex flex-col items-center gap-6 lg:gap-3 w-full text-center">
           <a
             href="/cv"
             target="_blank"
@@ -148,10 +152,6 @@ function Sidebar() {
           >
             Kontakt mig
           </a>
-
-          <div className="shrink-0 w-[120px] h-[120px] md:w-[160px] md:h-[160px] overflow-hidden rounded-none mt-6 lg:mt-8 mx-auto block">
-            <img src={profilePhoto} alt="Jonas K.P. Sørensen" className="w-full h-full object-cover" />
-          </div>
         </div>
 
       </div>
