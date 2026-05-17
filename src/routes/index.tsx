@@ -1265,7 +1265,7 @@ function KompetencerList() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
       {flipCards.map((c) => {
-        const isFlipped = !!flipped[c.no];
+        
         const isExpanded = !!expanded[c.no];
         return (
           <div key={c.no}>
