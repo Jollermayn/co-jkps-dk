@@ -1168,35 +1168,13 @@ const TAG_HEADLINES: Record<string, string> = {
   "art-spirit-coaching": "Brand og koncept fra idé til lancering",
 };
 
-const TAG_TO_CASE: Record<string, string> = {
-  INTERVIEWS: "wolt",
-  FELTOBSERVATION: "wolt",
-  "CO-DESIGN": "wolt",
-  BRUGERREJSER: "boliga",
-  SERVICEDESIGN: "wolt",
-  KONCEPTVALIDERING: "boliga",
-};
+const FILTER_SET = new Set<string>(FILTERS as readonly string[]);
 
-function scrollToCase(slug: string) {
+function scrollToTagFilter(tag: string) {
+  if (typeof window === "undefined") return;
+  window.dispatchEvent(new CustomEvent("kompetencer:filter", { detail: tag }));
   const section = document.getElementById("cases");
   section?.scrollIntoView({ behavior: "smooth", block: "start" });
-  const focus = () => {
-    const btn = document.querySelector<HTMLElement>(
-      `.cases-carousel [data-case-slug="${slug}"]`,
-    );
-    if (!btn) return false;
-    btn.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
-    btn.classList.add("case-card-highlight");
-    window.setTimeout(() => btn.classList.remove("case-card-highlight"), 2000);
-    return true;
-  };
-  // wait for section scroll to settle, retry a few times in case of filter/layout
-  let attempts = 0;
-  const tick = () => {
-    if (focus() || attempts++ > 10) return;
-    window.setTimeout(tick, 100);
-  };
-  window.setTimeout(tick, 400);
 }
 
 const flipCards = [
