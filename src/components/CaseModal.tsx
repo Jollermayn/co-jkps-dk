@@ -21,6 +21,8 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
   const axis = useRef<"v" | "h" | null>(null);
   const [dragY, setDragY] = useState(0);
   const [closing, setClosing] = useState(false);
+  const [slide, setSlide] = useState<{ dir: 1 | -1; phase: "out" | "in" } | null>(null);
+  const pendingDir = useRef<1 | -1 | null>(null);
 
   useEffect(() => {
     if (study && panelRef.current) {
@@ -28,6 +30,15 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
     }
     setDragY(0);
     setClosing(false);
+    if (pendingDir.current != null) {
+      const dir = pendingDir.current;
+      pendingDir.current = null;
+      // Start from opposite side, then settle on next frame
+      setSlide({ dir, phase: "in" });
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => setSlide(null));
+      });
+    }
   }, [study?.slug]);
 
   const navigateDir = (dir: 1 | -1) => {
@@ -38,7 +49,9 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
       dir === 1
         ? caseStudies[(idx + 1) % caseStudies.length]
         : caseStudies[(idx - 1 + caseStudies.length) % caseStudies.length];
-    onNavigate(target);
+    setSlide({ dir, phase: "out" });
+    pendingDir.current = dir;
+    window.setTimeout(() => onNavigate(target), 220);
   };
 
   useEffect(() => {
