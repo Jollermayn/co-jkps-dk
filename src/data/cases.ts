@@ -52,6 +52,7 @@ const _allCases: CaseStudy[] = [
     client: "Wolt",
     title: "Fra usynlig algoritme til informeret bud",
     image: caseWolt,
+    video: caseWoltVideo,
     context:
       "Gig-økonomi platforme som Wolt opererer med uigennemsigtige algoritmer der direkte påvirker budenes indkomst. Budene har ingen indsigt i hvordan deres løn beregnes — og ingen redskaber til at handle på det.",
     challenge:
