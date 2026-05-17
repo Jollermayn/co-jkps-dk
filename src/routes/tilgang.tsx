@@ -346,17 +346,6 @@ function TilgangPage() {
             Her kan du fange mig.
           </h2>
 
-          <p
-            style={{
-              marginTop: 16,
-              fontFamily: "serif",
-              fontSize: "1.1rem",
-              color: MUTED_ON_DARK,
-            }}
-          >
-            jonas@jkps.dk
-          </p>
-
           <a
             href="mailto:jonas@jkps.dk"
             style={{
