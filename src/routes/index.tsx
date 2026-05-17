@@ -1228,6 +1228,7 @@ const flipCards = [
     titleLines: ["Formidling", "&", "Kommunikation"],
     body: "Komplekse emner gjort konkrete og tilgængelige.",
     tags: ["Strategisk kommunikation", "Brandudvikling", "Konceptudvikling"],
+    bgImage: formidlingBg,
   },
 ];
 
