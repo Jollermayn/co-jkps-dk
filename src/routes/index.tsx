@@ -1227,7 +1227,7 @@ const flipCards = [
 ];
 
 function KompetencerList() {
-  const [flipped, setFlipped] = useState<Record<string, boolean>>({});
+  
   const [expanded, setExpanded] = useState<Record<string, boolean>>({});
 
   const renderTags = (tags: string[]) => (
@@ -1265,7 +1265,7 @@ function KompetencerList() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
       {flipCards.map((c) => {
-        const isFlipped = !!flipped[c.no];
+        
         const isExpanded = !!expanded[c.no];
         return (
           <div key={c.no}>
@@ -1327,54 +1327,37 @@ function KompetencerList() {
               </div>
             </div>
 
-            {/* Desktop flip */}
+            {/* Desktop hover reveal */}
             <div
-              className="hidden md:block group [perspective:1200px] cursor-pointer select-none"
-              style={{ height: "280px" }}
-              role="button"
-              tabIndex={0}
-              onClick={() => setFlipped((p) => ({ ...p, [c.no]: !p[c.no] }))}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  e.preventDefault();
-                  setFlipped((p) => ({ ...p, [c.no]: !p[c.no] }));
-                }
-              }}
+              className="hidden md:block group relative rounded-xl overflow-hidden select-none"
+              style={{ height: "280px", background: "#0D1B2A", border: "1px solid rgba(245,240,232,0.1)" }}
             >
-              <div
-                className="relative w-full h-full transition-transform duration-[400ms] ease-out [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]"
-                style={isFlipped ? { transform: "rotateY(180deg)" } : undefined}
-              >
-                {/* Front */}
-                <div
-                  className="absolute inset-0 rounded-xl [backface-visibility:hidden]"
-                  style={{ background: "#0D1B2A", border: "1px solid rgba(245,240,232,0.1)" }}
+              {/* Front */}
+              <div className="absolute inset-0 transition-opacity duration-300 ease-out group-hover:opacity-0">
+                <span
+                  className="absolute left-1/2 -translate-x-1/2 top-7 font-display text-white text-center"
+                  style={{ opacity: 0.4, fontSize: "0.9rem", fontWeight: 400 }}
                 >
-                  <span
-                    className="absolute left-1/2 -translate-x-1/2 top-7 font-display text-white text-center"
-                    style={{ opacity: 0.4, fontSize: "0.9rem", fontWeight: 400 }}
-                  >
-                    {c.no}
+                  {c.no}
+                </span>
+                <h3
+                  className="absolute inset-0 flex items-center justify-center px-9 font-display tracking-tight leading-[1.2] text-center text-white"
+                  style={{ fontSize: "1.3rem", fontWeight: 600 }}
+                >
+                  <span>
+                    {c.titleLines.map((line, i) => (
+                      <span key={i} className="block">{line}</span>
+                    ))}
                   </span>
-                  <h3
-                    className="absolute inset-0 flex items-center justify-center px-9 font-display tracking-tight leading-[1.2] text-center text-white"
-                    style={{ fontSize: "1.3rem", fontWeight: 600 }}
-                  >
-                    <span>
-                      {c.titleLines.map((line, i) => (
-                        <span key={i} className="block">{line}</span>
-                      ))}
-                    </span>
-                  </h3>
-                </div>
-                {/* Back */}
-                <div
-                  className="absolute inset-0 flex flex-col justify-between px-9 py-7 rounded-xl [backface-visibility:hidden] [transform:rotateY(180deg)] text-white"
-                  style={{ background: "#C0281E" }}
-                >
-                  <p className="text-lg leading-snug font-display">{c.body}</p>
-                  {renderTags(c.tags)}
-                </div>
+                </h3>
+              </div>
+              {/* Back */}
+              <div
+                className="absolute inset-0 flex flex-col justify-between px-9 py-7 text-white opacity-0 translate-y-3 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-y-0"
+                style={{ background: "#C0281E" }}
+              >
+                <p className="text-lg leading-snug font-display">{c.body}</p>
+                {renderTags(c.tags)}
               </div>
             </div>
           </div>
