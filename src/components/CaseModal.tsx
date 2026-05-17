@@ -30,6 +30,17 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
     setClosing(false);
   }, [study?.slug]);
 
+  const navigateDir = (dir: 1 | -1) => {
+    if (!study || !onNavigate) return;
+    const idx = caseStudies.findIndex((c) => c.slug === study.slug);
+    if (idx === -1) return;
+    const target =
+      dir === 1
+        ? caseStudies[(idx + 1) % caseStudies.length]
+        : caseStudies[(idx - 1 + caseStudies.length) % caseStudies.length];
+    onNavigate(target);
+  };
+
   useEffect(() => {
     if (!open) return;
     const prevBodyOverflow = document.body.style.overflow;
@@ -38,6 +49,8 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
     document.documentElement.style.overflow = "hidden";
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
+      else if (e.key === "ArrowRight") navigateDir(1);
+      else if (e.key === "ArrowLeft") navigateDir(-1);
     };
     document.addEventListener("keydown", onKey);
     return () => {
@@ -45,7 +58,36 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
       document.documentElement.style.overflow = prevHtmlOverflow;
       document.removeEventListener("keydown", onKey);
     };
-  }, [open, onClose]);
+  }, [open, onClose, study?.slug, onNavigate]);
+
+  // Horizontal wheel/trackpad swipe → navigate cases
+  const wheelAccum = useRef(0);
+  const wheelCooldown = useRef(false);
+  useEffect(() => {
+    if (!open) return;
+    const el = panelRef.current;
+    if (!el) return;
+    const onWheel = (e: WheelEvent) => {
+      if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) {
+        wheelAccum.current = 0;
+        return;
+      }
+      e.preventDefault();
+      if (wheelCooldown.current) return;
+      wheelAccum.current += e.deltaX;
+      if (Math.abs(wheelAccum.current) > 120) {
+        const dir = wheelAccum.current > 0 ? 1 : -1;
+        wheelAccum.current = 0;
+        wheelCooldown.current = true;
+        navigateDir(dir);
+        window.setTimeout(() => {
+          wheelCooldown.current = false;
+        }, 600);
+      }
+    };
+    el.addEventListener("wheel", onWheel, { passive: false });
+    return () => el.removeEventListener("wheel", onWheel);
+  }, [open, study?.slug, onNavigate]);
 
   if (!study) return null;
 
