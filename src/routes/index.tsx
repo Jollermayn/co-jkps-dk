@@ -143,7 +143,7 @@ function Sidebar() {
         <div className="flex flex-col items-center gap-6 lg:gap-3 w-full text-center">
           <Link
             to="/cv"
-            className="inline-flex items-center justify-center gap-2 text-[1.1rem] font-bold tracking-wide text-[#C0281E] hover:text-cream active:text-cream transition-colors duration-300"
+            className="inline-flex items-center justify-center gap-2 mt-10 text-[1.1rem] font-bold tracking-wide text-[#C0281E] hover:text-cream active:text-cream transition-colors duration-300"
           >
             Download CV (PDF) <span aria-hidden>↓</span>
           </Link>
