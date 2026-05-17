@@ -1167,19 +1167,19 @@ const TAG_HEADLINES: Record<string, string> = {
 const flipCards = [
   {
     no: "01",
-    title: "UX Research & Brugerindsigt",
+    titleLines: ["UX Research", "&", "Brugerindsigt"],
     body: "Jeg oversætter kompleks adfærd til handlebare beslutninger.",
     tags: ["Interviews", "Feltobservation", "Co-design"],
   },
   {
     no: "02",
-    title: "Servicedesign & Konceptudvikling",
+    titleLines: ["Servicedesign", "&", "Konceptudvikling"],
     body: "Fra identifikation af problemet til et konkret, realiserbart koncept.",
     tags: ["Brugerrejser", "Servicedesign", "Konceptvalidering"],
   },
   {
     no: "03",
-    title: "Formidling & Kommunikation",
+    titleLines: ["Formidling", "&", "Kommunikation"],
     body: "Komplekse emner gjort konkrete og tilgængelige.",
     tags: ["Kommunikation", "Positionering", "Indholdsarkitektur"],
   },
@@ -1199,7 +1199,7 @@ function KompetencerList() {
           >
             {/* Front */}
             <div
-              className="absolute inset-0 flex flex-col justify-between p-6 md:p-7 rounded-xl [backface-visibility:hidden]"
+              className="absolute inset-0 flex flex-col items-center justify-between text-center p-6 md:p-7 rounded-xl [backface-visibility:hidden]"
               style={{ background: "#0D1B2A", border: "1px solid rgba(245,240,232,0.1)" }}
             >
               <span
@@ -1208,8 +1208,10 @@ function KompetencerList() {
               >
                 {c.no} /
               </span>
-              <h3 className="font-display tracking-tight leading-[1.15] text-left text-cream" style={{ fontSize: "1.3rem" }}>
-                {c.title}
+              <h3 className="font-display tracking-tight leading-[1.15] text-center text-cream" style={{ fontSize: "1.3rem" }}>
+                {c.titleLines.map((line, i) => (
+                  <span key={i} className="block">{line}</span>
+                ))}
               </h3>
             </div>
             {/* Back */}
