@@ -320,7 +320,7 @@ function CVPage() {
             <SidebarHeader />
 
             <div
-              className="mt-10 mx-auto w-[65%] aspect-square overflow-hidden block ring-1 ring-[#F4EFE6]/20"
+              className="mt-10 w-[65%] aspect-square overflow-hidden block ring-1 ring-[#F4EFE6]/20"
               style={{ borderRadius: "12px" }}
             >
               <img
