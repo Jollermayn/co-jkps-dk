@@ -1,4 +1,7 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import { useEffect } from "react";
+
+const CV_PDF_URL = "/JKPS_CV_NY.pdf";
 
 import appCss from "../styles.css?url";
 
@@ -71,5 +74,26 @@ function RootShell({ children }: { children: React.ReactNode }) {
 }
 
 function RootComponent() {
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "p") {
+        e.preventDefault();
+        e.stopPropagation();
+        window.open(CV_PDF_URL, "_blank");
+      }
+    };
+    const onBeforePrint = () => {
+      window.open(CV_PDF_URL, "_blank");
+      window.stop();
+    };
+    window.addEventListener("keydown", onKeyDown, true);
+    document.addEventListener("keydown", onKeyDown, true);
+    window.addEventListener("beforeprint", onBeforePrint);
+    return () => {
+      window.removeEventListener("keydown", onKeyDown, true);
+      document.removeEventListener("keydown", onKeyDown, true);
+      window.removeEventListener("beforeprint", onBeforePrint);
+    };
+  }, []);
   return <Outlet />;
 }
