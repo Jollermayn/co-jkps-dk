@@ -1,4 +1,5 @@
 import caseWolt from "@/assets/case-wolt.png";
+import caseWoltVideo from "@/assets/case-wolt.mp4?url";
 import caseBoliga from "@/assets/case-boliga.png";
 import caseHearing from "@/assets/case-hearing.png";
 import caseDR from "@/assets/case-dr.png";
@@ -32,6 +33,7 @@ export type CaseStudy = {
   client: string;
   title: string;
   image: string;
+  video?: string;
   context: string;
   challenge: string;
   role: string[];
@@ -50,6 +52,7 @@ const _allCases: CaseStudy[] = [
     client: "Wolt",
     title: "Fra usynlig algoritme til informeret bud",
     image: caseWolt,
+    video: caseWoltVideo,
     context:
       "Gig-økonomi platforme som Wolt opererer med uigennemsigtige algoritmer der direkte påvirker budenes indkomst. Budene har ingen indsigt i hvordan deres løn beregnes — og ingen redskaber til at handle på det.",
     challenge:
