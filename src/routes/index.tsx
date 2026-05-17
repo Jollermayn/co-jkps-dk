@@ -133,7 +133,8 @@ function Sidebar() {
         </div>
 
         <p className="font-display italic text-cream text-xl md:text-2xl leading-relaxed text-center">
-          &ldquo;For meget &lsquo;Artificial&rsquo; &mdash; for lidt &lsquo;Intelligence&rsquo;.&rdquo;
+          <span className="block">&ldquo;For meget &lsquo;Artificial&rsquo; &mdash;</span>
+          <span className="block">for lidt &lsquo;Intelligence&rsquo;.&rdquo;</span>
         </p>
 
         <div className="flex flex-col items-center gap-6 lg:gap-3 w-full text-center">
