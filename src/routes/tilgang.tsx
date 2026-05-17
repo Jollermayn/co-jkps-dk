@@ -226,7 +226,8 @@ function TilgangPage() {
                 style={{
                   fontFamily: "serif",
                   fontStyle: "italic",
-                  fontSize: "1.1rem",
+                  fontSize: "1.2rem",
+                  fontWeight: 500,
                   color: MUTED_ON_LIGHT,
                   lineHeight: 1.6,
                   margin: "0 0 12px",
