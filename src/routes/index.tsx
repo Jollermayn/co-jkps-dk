@@ -1025,12 +1025,21 @@ function CasesSection() {
               }
             >
               <div className={imgWrapperClass + " relative"}>
-                <img
-                  src={c.image}
-                  alt={`${c.client} — ${meta?.headline ?? c.title}`}
-                  loading="lazy"
-                  className={imgClass}
-                />
+                {c.video ? (
+                  <CaseVideo
+                    src={c.video}
+                    poster={c.image}
+                    ariaLabel={`${c.client} — ${meta?.headline ?? c.title}`}
+                    className={imgClass}
+                  />
+                ) : (
+                  <img
+                    src={c.image}
+                    alt={`${c.client} — ${meta?.headline ?? c.title}`}
+                    loading="lazy"
+                    className={imgClass}
+                  />
+                )}
                 {c.status === "ongoing" && (
                   <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-cream/40 bg-[#0D1B2A]/70 backdrop-blur text-[10px] tracking-[0.15em] uppercase text-cream/90 font-semibold">
                     <span className="h-1.5 w-1.5 rounded-full bg-ember animate-pulse" />
