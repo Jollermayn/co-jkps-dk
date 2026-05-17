@@ -1359,7 +1359,7 @@ function KompetencerList() {
                 style={
                   c.bgImage
                     ? {
-                        backgroundImage: `linear-gradient(rgba(10,22,40,0.65), rgba(10,22,40,0.65)), url(${c.bgImage})`,
+                        backgroundImage: `linear-gradient(rgba(10,22,40,0.78), rgba(10,22,40,0.78)), url(${c.bgImage})`,
                         backgroundSize: "cover",
                         backgroundPosition: "center",
                       }
