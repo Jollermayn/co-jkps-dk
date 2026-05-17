@@ -49,18 +49,17 @@ export const Route = createFileRoute("/cv")({
 
 function CVPage() {
   const handlePrint = () => {
-    const w = window.open(PDF_URL, "_blank");
-    if (w) {
-      w.addEventListener("load", () => {
-        try {
-          w.focus();
-          w.print();
-        } catch {
-          // ignore
-        }
-      });
-    }
+    window.open(PDF_URL, "_blank");
   };
+
+  useEffect(() => {
+    const onBeforePrint = () => {
+      window.open(PDF_URL, "_blank");
+      window.stop();
+    };
+    window.addEventListener("beforeprint", onBeforePrint);
+    return () => window.removeEventListener("beforeprint", onBeforePrint);
+  }, []);
 
   return (
     <>
