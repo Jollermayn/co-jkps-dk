@@ -1164,43 +1164,78 @@ const TAG_HEADLINES: Record<string, string> = {
   "art-spirit-coaching": "Brand og koncept fra idé til lancering",
 };
 
+const flipCards = [
+  {
+    no: "01",
+    title: "UX Research & Brugerindsigt",
+    body: "Jeg oversætter kompleks adfærd til handlebare beslutninger.",
+    tags: ["Interviews", "Feltobservation", "Co-design"],
+  },
+  {
+    no: "02",
+    title: "Servicedesign & Konceptudvikling",
+    body: "Fra identifikation af problemet til et konkret, realiserbart koncept.",
+    tags: ["Brugerrejser", "Servicedesign", "Konceptvalidering"],
+  },
+  {
+    no: "03",
+    title: "Formidling & Kommunikation",
+    body: "Komplekse emner gjort konkrete og tilgængelige.",
+    tags: ["Kommunikation", "Positionering", "Indholdsarkitektur"],
+  },
+];
+
 function KompetencerList() {
-  const [openCase, setOpenCase] = useState<CaseStudy | null>(null);
-
-
   return (
-    <>
-      <ul className="divide-y divide-cream/10 border-y border-cream/10">
-        {competencies.map((c) => (
-          <li
-            key={c.no}
-            className="group py-5 md:py-6 hover:bg-navy/40 transition-colors -mx-5 md:-mx-14 px-5 md:px-14"
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+      {flipCards.map((c) => (
+        <div
+          key={c.no}
+          className="group [perspective:1200px]"
+          style={{ height: "280px" }}
+        >
+          <div
+            className="relative w-full h-full transition-transform duration-[400ms] ease-out [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] group-focus-within:[transform:rotateY(180deg)]"
           >
-            <div className="min-w-0 flex items-baseline gap-4">
-              <span className="font-display shrink-0" style={{ color: "#C0281E", fontSize: "1.4rem", fontWeight: 700 }}>{c.no}</span>
-              <div className="min-w-0 flex-1">
-                <h3 className="font-display tracking-tight leading-tight max-w-full [word-break:normal] [overflow-wrap:break-word] [hyphens:none] text-[clamp(1.3rem,5vw,2rem)] md:text-[2rem]">
-                  {c.title}
-                </h3>
-                <p className="mt-2 text-sm md:text-[0.95rem] text-cream/80 leading-snug">{c.body}</p>
-                <ul className="mt-2 flex flex-wrap gap-1.5">
-                  {c.tags.map((t) => (
-                    <li key={t} className="inline-flex">
-                      <span
-                        style={{ padding: "4px 10px", fontSize: "10px", lineHeight: "1" }}
-                        className="tracking-wide uppercase rounded-md bg-[#F5F0E8]/40 text-[#F5F0E8]"
-                      >
-                        {t}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            {/* Front */}
+            <div
+              className="absolute inset-0 flex flex-col justify-between p-6 md:p-7 rounded-xl [backface-visibility:hidden]"
+              style={{ background: "#0D1B2A", border: "1px solid rgba(245,240,232,0.1)" }}
+            >
+              <span
+                className="font-display"
+                style={{ color: "#C0281E", fontSize: "1.25rem", fontWeight: 700, letterSpacing: "0.02em" }}
+              >
+                {c.no} /
+              </span>
+              <h3 className="font-display tracking-tight leading-[1.05] text-[clamp(1.6rem,2.4vw,2.2rem)] text-cream">
+                {c.title}
+              </h3>
             </div>
-          </li>
-        ))}
-      </ul>
-      <CaseModal study={openCase} onClose={() => setOpenCase(null)} onNavigate={(s) => setOpenCase(s)} />
-    </>
+            {/* Back */}
+            <div
+              className="absolute inset-0 flex flex-col justify-between p-6 md:p-7 rounded-xl [backface-visibility:hidden] [transform:rotateY(180deg)] text-white"
+              style={{ background: "#C0281E" }}
+            >
+              <p className="text-base md:text-lg leading-snug font-display">
+                {c.body}
+              </p>
+              <ul className="flex flex-wrap gap-1.5">
+                {c.tags.map((t) => (
+                  <li key={t} className="inline-flex">
+                    <span
+                      style={{ padding: "4px 10px", fontSize: "10px", lineHeight: "1" }}
+                      className="tracking-wide uppercase rounded-md border border-white/40 text-white"
+                    >
+                      {t}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
   );
 }
