@@ -1199,7 +1199,7 @@ function KompetencerList() {
           >
             {/* Front */}
             <div
-              className="absolute inset-0 flex flex-col justify-between p-6 md:p-7 rounded-xl [backface-visibility:hidden]"
+              className="absolute inset-0 flex flex-col items-center justify-between text-center p-6 md:p-7 rounded-xl [backface-visibility:hidden]"
               style={{ background: "#0D1B2A", border: "1px solid rgba(245,240,232,0.1)" }}
             >
               <span
@@ -1208,8 +1208,10 @@ function KompetencerList() {
               >
                 {c.no} /
               </span>
-              <h3 className="font-display tracking-tight leading-[1.15] text-left text-cream" style={{ fontSize: "1.3rem" }}>
-                {c.title}
+              <h3 className="font-display tracking-tight leading-[1.15] text-center text-cream" style={{ fontSize: "1.3rem" }}>
+                {c.titleLines.map((line, i) => (
+                  <span key={i} className="block">{line}</span>
+                ))}
               </h3>
             </div>
             {/* Back */}
