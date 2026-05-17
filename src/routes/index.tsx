@@ -7,6 +7,7 @@ import { CaseModal } from "@/components/CaseModal";
 import profilePhoto from "@/assets/profile-photo.png";
 import chimpSuit from "@/assets/chimp-suit-map.png";
 import uxResearchBg from "@/assets/kompetence-01-ux-research.jpg";
+import servicedesignBg from "@/assets/kompetence-02-servicedesign.jpg";
 import { SiteLogo } from "@/components/SiteLogo";
 import { MenuIcon } from "@/components/MenuIcon";
 
