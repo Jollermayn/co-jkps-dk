@@ -145,10 +145,9 @@ function Sidebar() {
             href="/cv"
             target="_blank"
             rel="noopener noreferrer"
-            className="group/cv inline-flex items-center justify-center gap-3 text-sm font-semibold tracking-wide bg-transparent text-[#F5F0E8] border-2 border-[#F5F0E8] hover:bg-[#F5F0E8] hover:text-[#0D1B2A] hover:border-[#F5F0E8] transition-all duration-300 ease-out"
-            style={{ padding: "12px 28px", borderRadius: "50px" }}
+            className="inline-flex items-center justify-center gap-2 text-[1.1rem] font-bold tracking-wide text-[#C0281E] hover:text-cream active:text-cream transition-colors duration-300"
           >
-            Download CV (PDF)
+            Download CV (PDF) <span aria-hidden>↓</span>
           </a>
           <a
             href="#kontakt"
