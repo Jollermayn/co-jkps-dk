@@ -1225,107 +1225,156 @@ const flipCards = [
 
 function KompetencerList() {
   const [flipped, setFlipped] = useState<Record<string, boolean>>({});
-  const [everFlipped, setEverFlipped] = useState<Record<string, boolean>>({});
+  const [expanded, setExpanded] = useState<Record<string, boolean>>({});
+
+  const renderTags = (tags: string[]) => (
+    <ul className="flex flex-wrap gap-1.5">
+      {tags.map((t) => {
+        const slug = TAG_TO_CASE[t.toUpperCase()];
+        const baseStyle = { padding: "4px 10px", fontSize: "10px", lineHeight: "1" } as const;
+        const baseClass =
+          "tracking-wide uppercase rounded-md border border-white/40 text-white transition-colors duration-200";
+        return (
+          <li key={t} className="inline-flex">
+            {slug ? (
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  scrollToCase(slug);
+                }}
+                style={baseStyle}
+                className={baseClass + " cursor-pointer hover:bg-white hover:text-[#0A1628] hover:border-white"}
+              >
+                {t}
+              </button>
+            ) : (
+              <span style={baseStyle} className={baseClass}>
+                {t}
+              </span>
+            )}
+          </li>
+        );
+      })}
+    </ul>
+  );
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
       {flipCards.map((c) => {
         const isFlipped = !!flipped[c.no];
+        const isExpanded = !!expanded[c.no];
         return (
-        <div
-          key={c.no}
-          className="group [perspective:1200px] cursor-pointer select-none"
-          style={{ height: "280px" }}
-          role="button"
-          tabIndex={0}
-          onClick={() => {
-            setFlipped((p) => ({ ...p, [c.no]: !p[c.no] }));
-            setEverFlipped((p) => ({ ...p, [c.no]: true }));
-          }}
-          onKeyDown={(e) => {
-            if (e.key === "Enter" || e.key === " ") {
-              e.preventDefault();
-              setFlipped((p) => ({ ...p, [c.no]: !p[c.no] }));
-              setEverFlipped((p) => ({ ...p, [c.no]: true }));
-            }
-          }}
-        >
-          <div
-            className="relative w-full h-full transition-transform duration-[400ms] ease-out [transform-style:preserve-3d] md:group-hover:[transform:rotateY(180deg)]"
-            style={isFlipped ? { transform: "rotateY(180deg)" } : undefined}
-          >
-            {/* Front */}
-            <div
-              className="absolute inset-0 rounded-xl [backface-visibility:hidden]"
-              style={{ background: "#0D1B2A", border: "1px solid rgba(245,240,232,0.1)" }}
-            >
-              <span
-                className="absolute left-1/2 -translate-x-1/2 top-6 md:top-7 font-display text-white text-center"
-                style={{ opacity: 0.4, fontSize: "0.9rem", fontWeight: 400 }}
+          <div key={c.no}>
+            {/* Mobile accordion */}
+            <div className="md:hidden">
+              <div
+                className="rounded-xl overflow-hidden select-none cursor-pointer"
+                style={{ background: "#0D1B2A", border: "1px solid rgba(245,240,232,0.1)" }}
+                role="button"
+                tabIndex={0}
+                aria-expanded={isExpanded}
+                onClick={() => setExpanded((p) => ({ ...p, [c.no]: !p[c.no] }))}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    setExpanded((p) => ({ ...p, [c.no]: !p[c.no] }));
+                  }
+                }}
               >
-                {c.no}
-              </span>
-              <h3
-                className="absolute inset-0 flex items-center justify-center px-9 font-display tracking-tight leading-[1.2] text-center text-white"
-                style={{ fontSize: "1.3rem", fontWeight: 600 }}
-              >
-                <span>
-                  {c.titleLines.map((line, i) => (
-                    <span key={i} className="block">{line}</span>
-                  ))}
-                </span>
-              </h3>
-              {!everFlipped[c.no] && (
-                <span
-                  className="absolute bottom-4 left-1/2 -translate-x-1/2 md:hidden"
-                  style={{
-                    color: "#C0281E",
-                    animation: "flipPulse 1.5s ease-in-out infinite",
-                  }}
-                  aria-hidden="true"
+                <div className="relative" style={{ height: "180px" }}>
+                  <span
+                    className="absolute left-1/2 -translate-x-1/2 top-6 font-display text-white text-center"
+                    style={{ opacity: 0.4, fontSize: "0.9rem", fontWeight: 400 }}
+                  >
+                    {c.no}
+                  </span>
+                  <h3
+                    className="absolute inset-0 flex items-center justify-center px-9 font-display tracking-tight leading-[1.2] text-center text-white"
+                    style={{ fontSize: "1.3rem", fontWeight: 600 }}
+                  >
+                    <span>
+                      {c.titleLines.map((line, i) => (
+                        <span key={i} className="block">{line}</span>
+                      ))}
+                    </span>
+                  </h3>
+                  <span
+                    className="absolute bottom-3 right-4 text-white transition-transform duration-300 ease-out"
+                    style={{ opacity: 0.6, transform: isExpanded ? "rotate(45deg)" : "rotate(0deg)" }}
+                    aria-hidden="true"
+                  >
+                    <Plus size={22} strokeWidth={2.25} />
+                  </span>
+                </div>
+                <div
+                  className="grid transition-[grid-template-rows] duration-300 ease-out"
+                  style={{ gridTemplateRows: isExpanded ? "1fr" : "0fr" }}
                 >
-                  <RotateCw size={24} strokeWidth={2.25} />
-                </span>
-              )}
+                  <div className="overflow-hidden">
+                    <div
+                      className="flex flex-col gap-4 px-6 py-5 text-white"
+                      style={{ background: "#C0281E" }}
+                    >
+                      <p className="text-base leading-snug font-display">{c.body}</p>
+                      {renderTags(c.tags)}
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            {/* Back */}
+
+            {/* Desktop flip */}
             <div
-              className="absolute inset-0 flex flex-col justify-between px-9 py-6 md:px-9 md:py-7 rounded-xl [backface-visibility:hidden] [transform:rotateY(180deg)] text-white"
-              style={{ background: "#C0281E" }}
+              className="hidden md:block group [perspective:1200px] cursor-pointer select-none"
+              style={{ height: "280px" }}
+              role="button"
+              tabIndex={0}
+              onClick={() => setFlipped((p) => ({ ...p, [c.no]: !p[c.no] }))}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  setFlipped((p) => ({ ...p, [c.no]: !p[c.no] }));
+                }
+              }}
             >
-              <p className="text-base md:text-lg leading-snug font-display">
-                {c.body}
-              </p>
-              <ul className="flex flex-wrap gap-1.5">
-                {c.tags.map((t) => {
-                  const slug = TAG_TO_CASE[t.toUpperCase()];
-                  const baseStyle = { padding: "4px 10px", fontSize: "10px", lineHeight: "1" } as const;
-                  const baseClass = "tracking-wide uppercase rounded-md border border-white/40 text-white transition-colors duration-200";
-                  return (
-                    <li key={t} className="inline-flex">
-                      {slug ? (
-                        <button
-                          type="button"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            scrollToCase(slug);
-                          }}
-                          style={baseStyle}
-                          className={baseClass + " cursor-pointer hover:bg-white hover:text-[#0A1628] hover:border-white"}
-                        >
-                          {t}
-                        </button>
-                      ) : (
-                        <span style={baseStyle} className={baseClass}>
-                          {t}
-                        </span>
-                      )}
-                    </li>
-                  );
-                })}
-              </ul>
+              <div
+                className="relative w-full h-full transition-transform duration-[400ms] ease-out [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]"
+                style={isFlipped ? { transform: "rotateY(180deg)" } : undefined}
+              >
+                {/* Front */}
+                <div
+                  className="absolute inset-0 rounded-xl [backface-visibility:hidden]"
+                  style={{ background: "#0D1B2A", border: "1px solid rgba(245,240,232,0.1)" }}
+                >
+                  <span
+                    className="absolute left-1/2 -translate-x-1/2 top-7 font-display text-white text-center"
+                    style={{ opacity: 0.4, fontSize: "0.9rem", fontWeight: 400 }}
+                  >
+                    {c.no}
+                  </span>
+                  <h3
+                    className="absolute inset-0 flex items-center justify-center px-9 font-display tracking-tight leading-[1.2] text-center text-white"
+                    style={{ fontSize: "1.3rem", fontWeight: 600 }}
+                  >
+                    <span>
+                      {c.titleLines.map((line, i) => (
+                        <span key={i} className="block">{line}</span>
+                      ))}
+                    </span>
+                  </h3>
+                </div>
+                {/* Back */}
+                <div
+                  className="absolute inset-0 flex flex-col justify-between px-9 py-7 rounded-xl [backface-visibility:hidden] [transform:rotateY(180deg)] text-white"
+                  style={{ background: "#C0281E" }}
+                >
+                  <p className="text-lg leading-snug font-display">{c.body}</p>
+                  {renderTags(c.tags)}
+                </div>
+              </div>
             </div>
           </div>
-        </div>
         );
       })}
     </div>
