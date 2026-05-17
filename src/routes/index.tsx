@@ -1356,7 +1356,15 @@ function KompetencerList() {
               {/* Back */}
               <div
                 className="absolute inset-0 flex flex-col justify-between px-9 py-7 text-white opacity-0 translate-y-3 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-y-0"
-                style={{ background: "#C0281E" }}
+                style={
+                  c.bgImage
+                    ? {
+                        backgroundImage: `linear-gradient(rgba(10,22,40,0.65), rgba(10,22,40,0.65)), url(${c.bgImage})`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                      }
+                    : { background: "#C0281E" }
+                }
               >
                 <p className="text-lg leading-snug font-display">{c.body}</p>
                 {renderTags(c.tags)}
