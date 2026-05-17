@@ -187,12 +187,12 @@ function MobileHeader() {
           padding: "0 32px",
           backgroundColor: "#0A1628",
           alignItems: "center",
-          justifyContent: "space-between",
+          gap: 32,
           borderBottom: "1px solid rgba(0,0,0,0.08)",
         }}
       >
         <SiteLogo color="#F5F3EE" lineColor="#C0281E" lineOpacity={1} size={44} />
-        <div style={{ display: "flex", alignItems: "center", gap: 28 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 32 }}>
           {[
             { label: "Cases", href: "/#cases" },
             { label: "Kompetencer", href: "/#kompetencer" },
