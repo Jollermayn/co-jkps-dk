@@ -764,6 +764,17 @@ function CasesSection() {
     };
   }, [filterOpen]);
 
+  useEffect(() => {
+    const onFilterEvent = (e: Event) => {
+      const tag = (e as CustomEvent<string>).detail;
+      if (tag && (FILTERS as readonly string[]).includes(tag)) {
+        setFilter(tag as Filter);
+      }
+    };
+    window.addEventListener("kompetencer:filter", onFilterEvent);
+    return () => window.removeEventListener("kompetencer:filter", onFilterEvent);
+  }, []);
+
   const filtered = caseStudies.filter((c) => {
     if (filter === "Alle") return true;
     return CASE_META[c.slug]?.tags.includes(filter);
@@ -946,6 +957,20 @@ function CasesSection() {
             </div>
           )}
         </div>
+        {filter !== "Alle" && (
+          <div className="mt-4 flex items-center gap-2 text-xs text-cream/70">
+            <span>Viser cases med:</span>
+            <button
+              type="button"
+              onClick={() => setFilter("Alle")}
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-cream/30 bg-cream/5 text-cream hover:bg-cream/10 transition-colors"
+              aria-label={`Ryd filter ${filter}`}
+            >
+              <span className="uppercase tracking-wide">{filter}</span>
+              <X size={12} strokeWidth={2.25} />
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Cases view: slider (Alle) or grid (filter) */}
@@ -1168,35 +1193,13 @@ const TAG_HEADLINES: Record<string, string> = {
   "art-spirit-coaching": "Brand og koncept fra idé til lancering",
 };
 
-const TAG_TO_CASE: Record<string, string> = {
-  INTERVIEWS: "wolt",
-  FELTOBSERVATION: "wolt",
-  "CO-DESIGN": "wolt",
-  BRUGERREJSER: "boliga",
-  SERVICEDESIGN: "wolt",
-  KONCEPTVALIDERING: "boliga",
-};
+const FILTER_SET = new Set<string>(FILTERS as readonly string[]);
 
-function scrollToCase(slug: string) {
+function scrollToTagFilter(tag: string) {
+  if (typeof window === "undefined") return;
+  window.dispatchEvent(new CustomEvent("kompetencer:filter", { detail: tag }));
   const section = document.getElementById("cases");
   section?.scrollIntoView({ behavior: "smooth", block: "start" });
-  const focus = () => {
-    const btn = document.querySelector<HTMLElement>(
-      `.cases-carousel [data-case-slug="${slug}"]`,
-    );
-    if (!btn) return false;
-    btn.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
-    btn.classList.add("case-card-highlight");
-    window.setTimeout(() => btn.classList.remove("case-card-highlight"), 2000);
-    return true;
-  };
-  // wait for section scroll to settle, retry a few times in case of filter/layout
-  let attempts = 0;
-  const tick = () => {
-    if (focus() || attempts++ > 10) return;
-    window.setTimeout(tick, 100);
-  };
-  window.setTimeout(tick, 400);
 }
 
 const flipCards = [
@@ -1212,7 +1215,7 @@ const flipCards = [
     Icon: GitBranch,
     titleLines: ["Servicedesign", "&", "Konceptudvikling"],
     body: "Fra identifikation af problemet til et konkret, realiserbart koncept.",
-    tags: ["Brugerrejser", "Servicedesign", "Konceptvalidering"],
+    tags: ["Brugerrejser", "Servicedesign", "Konceptudvikling"],
   },
   {
     no: "03",
@@ -1230,18 +1233,18 @@ function KompetencerList() {
   const renderTags = (tags: string[]) => (
     <ul className="flex flex-wrap gap-1.5">
       {tags.map((t) => {
-        const slug = TAG_TO_CASE[t.toUpperCase()];
+        const isFilter = FILTER_SET.has(t);
         const baseStyle = { padding: "4px 10px", fontSize: "10px", lineHeight: "1" } as const;
         const baseClass =
           "tracking-wide uppercase rounded-md border border-white/40 text-white transition-colors duration-200";
         return (
           <li key={t} className="inline-flex">
-            {slug ? (
+            {isFilter ? (
               <button
                 type="button"
                 onClick={(e) => {
                   e.stopPropagation();
-                  scrollToCase(slug);
+                  scrollToTagFilter(t);
                 }}
                 style={baseStyle}
                 className={baseClass + " cursor-pointer hover:bg-white hover:text-[#0A1628] hover:border-white"}
