@@ -764,6 +764,17 @@ function CasesSection() {
     };
   }, [filterOpen]);
 
+  useEffect(() => {
+    const onFilterEvent = (e: Event) => {
+      const tag = (e as CustomEvent<string>).detail;
+      if (tag && (FILTERS as readonly string[]).includes(tag)) {
+        setFilter(tag as Filter);
+      }
+    };
+    window.addEventListener("kompetencer:filter", onFilterEvent);
+    return () => window.removeEventListener("kompetencer:filter", onFilterEvent);
+  }, []);
+
   const filtered = caseStudies.filter((c) => {
     if (filter === "Alle") return true;
     return CASE_META[c.slug]?.tags.includes(filter);
