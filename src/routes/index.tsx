@@ -1219,6 +1219,7 @@ const flipCards = [
     titleLines: ["Servicedesign", "&", "Konceptudvikling"],
     body: "Fra identifikation af problemet til et konkret, realiserbart koncept.",
     tags: ["Brugerrejser", "Servicedesign", "Konceptudvikling"],
+    bgImage: servicedesignBg,
   },
   {
     no: "03",
