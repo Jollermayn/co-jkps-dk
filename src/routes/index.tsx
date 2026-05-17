@@ -1235,6 +1235,12 @@ function KompetencerList() {
                   ))}
                 </span>
               </h3>
+              <span
+                className="absolute bottom-3 right-4 md:hidden text-white"
+                style={{ opacity: 0.4, fontSize: "0.7rem" }}
+              >
+                ›
+              </span>
             </div>
             {/* Back */}
             <div
