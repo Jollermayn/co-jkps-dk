@@ -319,7 +319,10 @@ function CVPage() {
           >
             <SidebarHeader />
 
-            <div className="mt-10 mx-auto w-[170px] h-[170px] overflow-hidden rounded-full ring-1 ring-[#F4EFE6]/20">
+            <div
+              className="mt-10 mx-auto w-[65%] aspect-square overflow-hidden block ring-1 ring-[#F4EFE6]/20"
+              style={{ borderRadius: "12px" }}
+            >
               <img
                 src={profilePhoto}
                 alt="Jonas K.P. Sørensen"
