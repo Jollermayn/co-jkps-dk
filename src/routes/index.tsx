@@ -957,6 +957,20 @@ function CasesSection() {
             </div>
           )}
         </div>
+        {filter !== "Alle" && (
+          <div className="mt-4 flex items-center gap-2 text-xs text-cream/70">
+            <span>Viser cases med:</span>
+            <button
+              type="button"
+              onClick={() => setFilter("Alle")}
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-cream/30 bg-cream/5 text-cream hover:bg-cream/10 transition-colors"
+              aria-label={`Ryd filter ${filter}`}
+            >
+              <span className="uppercase tracking-wide">{filter}</span>
+              <X size={12} strokeWidth={2.25} />
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Cases view: slider (Alle) or grid (filter) */}
