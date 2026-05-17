@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { SlidersHorizontal, X, MousePointerClick } from "lucide-react";
+import { SlidersHorizontal, X, MousePointerClick, Search, GitBranch, MessageCircle } from "lucide-react";
 import { caseStudies, type CaseStudy } from "@/data/cases";
 
 import { CaseModal } from "@/components/CaseModal";
@@ -1167,18 +1167,21 @@ const TAG_HEADLINES: Record<string, string> = {
 const flipCards = [
   {
     no: "01",
+    Icon: Search,
     titleLines: ["UX Research", "&", "Brugerindsigt"],
     body: "Jeg oversætter kompleks adfærd til handlebare beslutninger.",
     tags: ["Interviews", "Feltobservation", "Co-design"],
   },
   {
     no: "02",
+    Icon: GitBranch,
     titleLines: ["Servicedesign", "&", "Konceptudvikling"],
     body: "Fra identifikation af problemet til et konkret, realiserbart koncept.",
     tags: ["Brugerrejser", "Servicedesign", "Konceptvalidering"],
   },
   {
     no: "03",
+    Icon: MessageCircle,
     titleLines: ["Formidling", "&", "Kommunikation"],
     body: "Komplekse emner gjort konkrete og tilgængelige.",
     tags: ["Kommunikation", "Positionering", "Indholdsarkitektur"],
@@ -1202,12 +1205,15 @@ function KompetencerList() {
               className="absolute inset-0 flex flex-col items-center justify-between text-center p-6 md:p-7 rounded-xl [backface-visibility:hidden]"
               style={{ background: "#0D1B2A", border: "1px solid rgba(245,240,232,0.1)" }}
             >
-              <span
-                className="font-display"
-                style={{ color: "#C0281E", fontSize: "1.25rem", fontWeight: 700, letterSpacing: "0.02em" }}
-              >
-                {c.no} /
-              </span>
+              <div className="flex flex-col items-center gap-2">
+                <c.Icon size={28} color="#ffffff" strokeWidth={1.75} />
+                <span
+                  className="font-display"
+                  style={{ color: "#C0281E", fontSize: "1.25rem", fontWeight: 700, letterSpacing: "0.02em" }}
+                >
+                  {c.no} /
+                </span>
+              </div>
               <h3 className="font-display tracking-tight leading-[1.15] text-center text-cream" style={{ fontSize: "1.3rem" }}>
                 {c.titleLines.map((line, i) => (
                   <span key={i} className="block">{line}</span>
