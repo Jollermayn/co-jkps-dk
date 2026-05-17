@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { SlidersHorizontal, X, MousePointerClick, Search, GitBranch, MessageCircle } from "lucide-react";
+import { SlidersHorizontal, X, MousePointerClick, Search, GitBranch, MessageCircle, RotateCw } from "lucide-react";
 import { caseStudies, type CaseStudy } from "@/data/cases";
 
 import { CaseModal } from "@/components/CaseModal";
@@ -1191,6 +1191,7 @@ const flipCards = [
 
 function KompetencerList() {
   const [flipped, setFlipped] = useState<Record<string, boolean>>({});
+  const [everFlipped, setEverFlipped] = useState<Record<string, boolean>>({});
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
       {flipCards.map((c) => {
@@ -1202,11 +1203,15 @@ function KompetencerList() {
           style={{ height: "280px" }}
           role="button"
           tabIndex={0}
-          onClick={() => setFlipped((p) => ({ ...p, [c.no]: !p[c.no] }))}
+          onClick={() => {
+            setFlipped((p) => ({ ...p, [c.no]: !p[c.no] }));
+            setEverFlipped((p) => ({ ...p, [c.no]: true }));
+          }}
           onKeyDown={(e) => {
             if (e.key === "Enter" || e.key === " ") {
               e.preventDefault();
               setFlipped((p) => ({ ...p, [c.no]: !p[c.no] }));
+              setEverFlipped((p) => ({ ...p, [c.no]: true }));
             }
           }}
         >
@@ -1235,12 +1240,18 @@ function KompetencerList() {
                   ))}
                 </span>
               </h3>
-              <span
-                className="absolute bottom-3 right-4 md:hidden text-white"
-                style={{ opacity: 0.4, fontSize: "0.7rem" }}
-              >
-                ›
-              </span>
+              {!everFlipped[c.no] && (
+                <span
+                  className="absolute bottom-4 left-1/2 -translate-x-1/2 md:hidden"
+                  style={{
+                    color: "#C0281E",
+                    animation: "flipPulse 1.5s ease-in-out infinite",
+                  }}
+                  aria-hidden="true"
+                >
+                  <RotateCw size={24} strokeWidth={2.25} />
+                </span>
+              )}
             </div>
             {/* Back */}
             <div
