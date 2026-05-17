@@ -317,9 +317,6 @@ function Index() {
                 <h2 className="font-display text-5xl md:text-7xl mt-6 mb-8 leading-[0.95] tracking-tight">
                   Hvad jeg <span className="italic">bringer</span>
                 </h2>
-                <p style={{ color: "white", opacity: 0.85, fontSize: "1.05rem", lineHeight: 1.8, maxWidth: 560, marginBottom: 24 }}>
-                  Jeg arbejder i skæringsfeltet mellem strategi, design og teknologi — hvor problemerne lever.
-                </p>
                 <p style={{ color: "white", fontStyle: "italic", opacity: 0.75, fontSize: "1rem", lineHeight: 2, maxWidth: 560 }}>
                   Indsigt omsættes. Design forankres. Strategi lander.
                 </p>
