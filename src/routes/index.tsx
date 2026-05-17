@@ -1167,19 +1167,19 @@ const TAG_HEADLINES: Record<string, string> = {
 const flipCards = [
   {
     no: "01",
-    title: "UX Research & Brugerindsigt",
+    titleLines: ["UX Research", "&", "Brugerindsigt"],
     body: "Jeg oversætter kompleks adfærd til handlebare beslutninger.",
     tags: ["Interviews", "Feltobservation", "Co-design"],
   },
   {
     no: "02",
-    title: "Servicedesign & Konceptudvikling",
+    titleLines: ["Servicedesign", "&", "Konceptudvikling"],
     body: "Fra identifikation af problemet til et konkret, realiserbart koncept.",
     tags: ["Brugerrejser", "Servicedesign", "Konceptvalidering"],
   },
   {
     no: "03",
-    title: "Formidling & Kommunikation",
+    titleLines: ["Formidling", "&", "Kommunikation"],
     body: "Komplekse emner gjort konkrete og tilgængelige.",
     tags: ["Kommunikation", "Positionering", "Indholdsarkitektur"],
   },
