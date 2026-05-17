@@ -1226,7 +1226,7 @@ function KompetencerList() {
                 {c.no}
               </span>
               <h3
-                className="absolute inset-0 flex items-center justify-center px-6 md:px-7 font-display tracking-tight leading-[1.2] text-center text-white"
+                className="absolute inset-0 flex items-center justify-center px-9 font-display tracking-tight leading-[1.2] text-center text-white"
                 style={{ fontSize: "1.3rem", fontWeight: 600 }}
               >
                 <span>
@@ -1244,7 +1244,7 @@ function KompetencerList() {
             </div>
             {/* Back */}
             <div
-              className="absolute inset-0 flex flex-col justify-between p-6 md:p-7 rounded-xl [backface-visibility:hidden] [transform:rotateY(180deg)] text-white"
+              className="absolute inset-0 flex flex-col justify-between px-9 py-6 md:px-9 md:py-7 rounded-xl [backface-visibility:hidden] [transform:rotateY(180deg)] text-white"
               style={{ background: "#C0281E" }}
             >
               <p className="text-base md:text-lg leading-snug font-display">
