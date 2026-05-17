@@ -1210,6 +1210,7 @@ const flipCards = [
     titleLines: ["UX Research", "&", "Brugerindsigt"],
     body: "Jeg oversætter kompleks adfærd til handlebare beslutninger.",
     tags: ["Interviews", "Feltobservation", "Co-design"],
+    bgImage: uxResearchBg,
   },
   {
     no: "02",
