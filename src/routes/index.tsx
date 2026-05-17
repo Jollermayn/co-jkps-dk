@@ -972,6 +972,7 @@ function CasesSection() {
           return (
             <button
               key={c.slug}
+              data-case-slug={c.slug}
               type="button"
               onMouseDown={(e) => {
                 if (variant === "slider") e.preventDefault();
@@ -1262,16 +1263,32 @@ function KompetencerList() {
                 {c.body}
               </p>
               <ul className="flex flex-wrap gap-1.5">
-                {c.tags.map((t) => (
-                  <li key={t} className="inline-flex">
-                    <span
-                      style={{ padding: "4px 10px", fontSize: "10px", lineHeight: "1" }}
-                      className="tracking-wide uppercase rounded-md border border-white/40 text-white"
-                    >
-                      {t}
-                    </span>
-                  </li>
-                ))}
+                {c.tags.map((t) => {
+                  const slug = TAG_TO_CASE[t.toUpperCase()];
+                  const baseStyle = { padding: "4px 10px", fontSize: "10px", lineHeight: "1" } as const;
+                  const baseClass = "tracking-wide uppercase rounded-md border border-white/40 text-white transition-colors duration-200";
+                  return (
+                    <li key={t} className="inline-flex">
+                      {slug ? (
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            scrollToCase(slug);
+                          }}
+                          style={baseStyle}
+                          className={baseClass + " cursor-pointer hover:bg-white hover:text-[#0A1628] hover:border-white"}
+                        >
+                          {t}
+                        </button>
+                      ) : (
+                        <span style={baseStyle} className={baseClass}>
+                          {t}
+                        </span>
+                      )}
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </div>
