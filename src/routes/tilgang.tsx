@@ -6,13 +6,13 @@ import { MenuIcon } from "@/components/MenuIcon";
 export const Route = createFileRoute("/tilgang")({
   head: () => ({
     meta: [
-      { title: "Min tilgang — Jonas K.P. Sørensen" },
+      { title: "Tilgang — Jonas K.P. Sørensen" },
       {
         name: "description",
         content:
           "Digitale forandringer fejler sjældent fordi teknologien er forkert. De fejler fordi noget går tabt på vejen.",
       },
-      { property: "og:title", content: "Min tilgang — Jonas K.P. Sørensen" },
+      { property: "og:title", content: "Tilgang — Jonas K.P. Sørensen" },
       {
         property: "og:description",
         content:
@@ -100,7 +100,7 @@ function TilgangPage() {
             {[
               { label: "Cases", href: "/#cases" },
               { label: "Kompetencer", href: "/#kompetencer" },
-              { label: "Min tilgang", href: "/tilgang" },
+              { label: "Tilgang", href: "/tilgang" },
               { label: "Kontakt", href: "/#kontakt" },
             ].map((l) => (
               <a
@@ -175,7 +175,7 @@ function TilgangPage() {
             ×
           </button>
           <Link to="/" onClick={() => setMenuOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: NAVY, textDecoration: "none" }}>Portfolio</Link>
-          <Link to="/tilgang" onClick={() => setMenuOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: NAVY, textDecoration: "none" }}>Min tilgang</Link>
+          <Link to="/tilgang" onClick={() => setMenuOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: NAVY, textDecoration: "none" }}>Tilgang</Link>
           <Link to="/cv" onClick={() => setMenuOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: NAVY, textDecoration: "none" }}>CV</Link>
           <a href="/#kontakt" onClick={() => setMenuOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: NAVY, textDecoration: "none" }}>Kontakt</a>
         </div>
