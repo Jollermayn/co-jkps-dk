@@ -1222,7 +1222,7 @@ const flipCards = [
     Icon: MessageCircle,
     titleLines: ["Formidling", "&", "Kommunikation"],
     body: "Komplekse emner gjort konkrete og tilgængelige.",
-    tags: ["Kommunikation", "Positionering", "Indholdsarkitektur"],
+    tags: ["Strategisk kommunikation", "Brandudvikling", "Konceptudvikling"],
   },
 ];
 
