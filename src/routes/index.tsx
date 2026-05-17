@@ -972,6 +972,7 @@ function CasesSection() {
           return (
             <button
               key={c.slug}
+              data-case-slug={c.slug}
               type="button"
               onMouseDown={(e) => {
                 if (variant === "slider") e.preventDefault();
@@ -1165,6 +1166,37 @@ const TAG_HEADLINES: Record<string, string> = {
   "art-spirit-coaching": "Brand og koncept fra idé til lancering",
 };
 
+const TAG_TO_CASE: Record<string, string> = {
+  INTERVIEWS: "wolt",
+  FELTOBSERVATION: "wolt",
+  "CO-DESIGN": "wolt",
+  BRUGERREJSER: "boliga",
+  SERVICEDESIGN: "wolt",
+  KONCEPTVALIDERING: "boliga",
+};
+
+function scrollToCase(slug: string) {
+  const section = document.getElementById("cases");
+  section?.scrollIntoView({ behavior: "smooth", block: "start" });
+  const focus = () => {
+    const btn = document.querySelector<HTMLElement>(
+      `.cases-carousel [data-case-slug="${slug}"]`,
+    );
+    if (!btn) return false;
+    btn.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+    btn.classList.add("case-card-highlight");
+    window.setTimeout(() => btn.classList.remove("case-card-highlight"), 2000);
+    return true;
+  };
+  // wait for section scroll to settle, retry a few times in case of filter/layout
+  let attempts = 0;
+  const tick = () => {
+    if (focus() || attempts++ > 10) return;
+    window.setTimeout(tick, 100);
+  };
+  window.setTimeout(tick, 400);
+}
+
 const flipCards = [
   {
     no: "01",
@@ -1262,16 +1294,32 @@ function KompetencerList() {
                 {c.body}
               </p>
               <ul className="flex flex-wrap gap-1.5">
-                {c.tags.map((t) => (
-                  <li key={t} className="inline-flex">
-                    <span
-                      style={{ padding: "4px 10px", fontSize: "10px", lineHeight: "1" }}
-                      className="tracking-wide uppercase rounded-md border border-white/40 text-white"
-                    >
-                      {t}
-                    </span>
-                  </li>
-                ))}
+                {c.tags.map((t) => {
+                  const slug = TAG_TO_CASE[t.toUpperCase()];
+                  const baseStyle = { padding: "4px 10px", fontSize: "10px", lineHeight: "1" } as const;
+                  const baseClass = "tracking-wide uppercase rounded-md border border-white/40 text-white transition-colors duration-200";
+                  return (
+                    <li key={t} className="inline-flex">
+                      {slug ? (
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            scrollToCase(slug);
+                          }}
+                          style={baseStyle}
+                          className={baseClass + " cursor-pointer hover:bg-white hover:text-[#0A1628] hover:border-white"}
+                        >
+                          {t}
+                        </button>
+                      ) : (
+                        <span style={baseStyle} className={baseClass}>
+                          {t}
+                        </span>
+                      )}
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </div>

@@ -303,3 +303,9 @@
   0%, 100% { opacity: 0.6; }
   50% { opacity: 1; }
 }
+
+.case-card-highlight {
+  outline: 2px solid #C0281E;
+  outline-offset: 3px;
+  transition: outline 0.2s ease-out;
+}
