@@ -128,7 +128,7 @@ function Sidebar() {
           </p>
         </div>
 
-        <div className="shrink-0 w-[220px] h-[220px] overflow-hidden mx-auto block" style={{ borderRadius: "12px" }}>
+        <div className="w-full overflow-hidden mx-auto block aspect-square" style={{ borderRadius: "12px" }}>
           <img src={profilePhoto} alt="Jonas K.P. Sørensen" className="w-full h-full object-cover" />
         </div>
 
