@@ -1227,7 +1227,7 @@ const flipCards = [
 ];
 
 function KompetencerList() {
-  const [expanded2, setExpanded2] = useState<Record<string, boolean>>({});
+  
   const [expanded, setExpanded] = useState<Record<string, boolean>>({});
 
   const renderTags = (tags: string[]) => (
