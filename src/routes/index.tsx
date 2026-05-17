@@ -137,7 +137,7 @@ function Sidebar() {
 
         <p className="text-cream text-xl md:text-2xl leading-relaxed text-center" style={{ fontFamily: '"Kalam", cursive' }}>
           <span className="block">For meget &lsquo;Artificial&rsquo; &mdash;</span>
-          <span className="block">for lidt &lsquo;Intelligence&rsquo;.</span>
+          <span className="block">for lidt intelligens.</span>
         </p>
 
         <div className="flex flex-col items-center gap-6 lg:gap-3 w-full text-center">
