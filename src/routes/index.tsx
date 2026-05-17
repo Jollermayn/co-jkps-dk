@@ -1258,7 +1258,8 @@ function KompetencerList() {
             </div>
           </div>
         </div>
-      ))}
+        );
+      })}
     </div>
   );
 }
