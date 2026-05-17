@@ -135,7 +135,7 @@ function Sidebar() {
           <img src={profilePhoto} alt="Jonas K.P. Sørensen" className="w-full h-full object-cover" />
         </div>
 
-        <p className="font-display italic text-cream text-xl md:text-2xl leading-relaxed text-center">
+        <p className="italic text-cream text-xl md:text-2xl leading-relaxed text-center" style={{ fontFamily: '"Caveat", cursive' }}>
           <span className="block">&ldquo;For meget &lsquo;Artificial&rsquo; &mdash;</span>
           <span className="block">for lidt &lsquo;Intelligence&rsquo;.&rdquo;</span>
         </p>
