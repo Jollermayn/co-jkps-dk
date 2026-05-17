@@ -4,6 +4,7 @@ import { SlidersHorizontal, X, MousePointerClick, Search, GitBranch, MessageCirc
 import { caseStudies, type CaseStudy } from "@/data/cases";
 
 import { CaseModal } from "@/components/CaseModal";
+import { CaseVideo } from "@/components/CaseVideo";
 import profilePhoto from "@/assets/profile-photo.png";
 import chimpSuit from "@/assets/chimp-suit-map.png";
 import servicedesignBg from "@/assets/kompetence-01-ux-research.jpg";
