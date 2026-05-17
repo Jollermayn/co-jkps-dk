@@ -10,13 +10,13 @@ export const Route = createFileRoute("/tilgang")({
       {
         name: "description",
         content:
-          "Strategien er solid. Forankringen fejler. Fem observationer om hvorfor forandringer ikke lander.",
+          "Digitale forandringer fejler sjældent fordi teknologien er forkert. De fejler fordi noget går tabt på vejen.",
       },
       { property: "og:title", content: "Min tilgang — Jonas K.P. Sørensen" },
       {
         property: "og:description",
         content:
-          "Strategien er solid. Forankringen fejler. Fem observationer om hvorfor forandringer ikke lander.",
+          "Digitale forandringer fejler sjældent fordi teknologien er forkert. De fejler fordi noget går tabt på vejen.",
       },
       { property: "og:type", content: "website" },
     ],
@@ -30,68 +30,49 @@ const RED = "#C0281E";
 const MUTED_ON_DARK = "#94a3b8";
 const MUTED_ON_LIGHT = "#6b6157";
 
-type Statement = {
-  lines: string[];
-  caption: string;
-  dark: boolean;
+type Cell = {
+  heading: string;
+  silver: string;
 };
 
-const statements: Statement[] = [
+const cells: Cell[] = [
   {
-    lines: [
-      "Vi kommunikerer konstant.",
-      "Ingen forstår budskabet.",
-      "Vi kommunikerer mere.",
-    ],
-    caption:
-      "Budskabet er skrevet til afsenderen. Ikke til mennesket der skal handle på det.",
-    dark: true,
+    heading: "Strategien fylder 40 sider. Ingen har åbnet den.",
+    silver:
+      "Et dokument er ikke en retning. Jeg designer indhold der læses — og huskes.",
   },
   {
-    lines: [
-      "Alle nikker i mødelokalet.",
-      "Ingen gør noget bagefter.",
-      "Det kalder vi beslutninger.",
-    ],
-    caption:
-      "Fordi beslutninger tages af organisationen. Forandringer leves af mennesker.",
-    dark: false,
+    heading: "Alle var enige i mødelokalet. Intet skete bagefter.",
+    silver:
+      "Enighed er ikke forankring. Jeg finder hullet mellem beslutningen og hverdagen.",
   },
   {
-    lines: ["Vi har en strategi.", "Den er på 40 sider.", "Ingen har læst den."],
-    caption: "Et dokument er ikke en retning. Det er papir med ambitioner.",
-    dark: true,
+    heading: "Systemet er rullet ud. Ingen bruger det.",
+    silver: "Mening kan ikke installeres. Jeg designer den ind.",
   },
   {
-    lines: [
-      "Vi designede det til brugerne.",
-      "Vi spurgte dem aldrig.",
-      "De bruger det ikke.",
-    ],
-    caption: "Antagelser om mennesker er ikke det samme som viden om dem.",
-    dark: false,
+    heading: "De designede det til brugerne. De glemte at spørge dem.",
+    silver: "Antagelser er ikke viden. Jeg går ud og finder den.",
   },
 ];
 
 function TilgangPage() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [hoverIdx, setHoverIdx] = useState<number | null>(null);
 
   return (
-    <main className="min-h-screen bg-[#0D1B2A] text-cream pt-[72px] md:pt-0">
+    <div style={{ backgroundColor: BEIGE, minHeight: "100vh" }}>
       <style>{`
         .tilgang-nav-link:hover { color: ${RED} !important; }
-        @media (max-width: 768px) {
-          .tilgang-hero { padding-top: 96px !important; padding-bottom: 96px !important; }
-          .tilgang-hero h1 { font-size: clamp(2rem, 9vw, 3rem) !important; }
-          .tilgang-statement { padding-top: 80px !important; padding-bottom: 80px !important; padding-left: 24px !important; padding-right: 24px !important; }
-          .tilgang-statement h2 { font-size: clamp(1.5rem, 6vw, 2rem) !important; }
-          .tilgang-statement p { font-size: 0.95rem !important; }
-          .tilgang-cta { padding-top: 80px !important; padding-bottom: 80px !important; padding-left: 24px !important; padding-right: 24px !important; }
-          .tilgang-cta h2 { font-size: clamp(1.8rem, 7vw, 2.2rem) !important; }
+        .tilgang-cell-overlay { opacity: 0; transition: opacity 0.3s ease; }
+        .tilgang-cell:hover .tilgang-cell-overlay { opacity: 1; }
+        @media (max-width: 767px) {
+          .tilgang-hero-h1 { font-size: 3rem !important; }
+          .tilgang-closing-h2 { font-size: 1.9rem !important; }
+          .tilgang-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>
 
-      {/* NAV BAR */}
       <nav
         style={{
           position: "fixed",
@@ -200,165 +181,214 @@ function TilgangPage() {
         </div>
       )}
 
-      {/* HERO */}
-      <section
-        className="tilgang-hero"
-        style={{
-          backgroundColor: BEIGE,
-          paddingTop: 160,
-          paddingBottom: 160,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <div style={{ width: "100%", maxWidth: 1400, padding: "0 64px", display: "flex", justifyContent: "center" }}>
+      <main style={{ paddingTop: 72 }}>
+        {/* HERO */}
+        <section
+          style={{
+            backgroundColor: BEIGE,
+            padding: "160px 24px",
+            textAlign: "center",
+          }}
+        >
           <h1
+            className="tilgang-hero-h1"
             style={{
-              fontWeight: 700,
-              color: "#000000",
               fontFamily: "serif",
-              fontSize: "clamp(2.6rem, 6.5vw, 6rem)",
-              lineHeight: 1.05,
-              letterSpacing: "-0.03em",
-              textAlign: "center",
+              fontSize: "5.5rem",
+              fontWeight: 700,
+              color: NAVY,
+              lineHeight: 1.1,
               margin: 0,
+              maxWidth: 1100,
+              marginInline: "auto",
             }}
           >
-            Kunsten i at finde<br /><span style={{ color: RED, fontStyle: "italic" }}>hvad der går tabt.</span>
+            Kunsten i at finde hvad der går tabt.
           </h1>
-        </div>
-      </section>
+        </section>
 
-      {/* STATEMENTS */}
-      {statements.map((s, i) => {
-        const bg = s.dark ? NAVY : BEIGE;
-        const fg = s.dark ? "#F5F3EE" : "#0A1628";
-        const muted = s.dark ? MUTED_ON_DARK : MUTED_ON_LIGHT;
-        return (
-          <section
-            key={i}
-            className="tilgang-statement"
-            style={{
-              backgroundColor: bg,
-              paddingTop: 120,
-              paddingBottom: 120,
-              paddingLeft: 24,
-              paddingRight: 24,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              textAlign: "center",
-            }}
-          >
-            <div style={{ width: "100%", maxWidth: 880 }}>
-              <h2
-                style={{
-                  color: fg,
-                  fontFamily: "serif",
-                  fontWeight: 700,
-                  fontSize: "clamp(1.8rem, 3.2vw, 2.5rem)",
-                  lineHeight: 1.25,
-                  letterSpacing: "-0.01em",
-                  margin: 0,
-                }}
-              >
-                {s.lines.map((line, idx) => (
-                  <span key={idx} style={{ display: "block" }}>
-                    {line}
-                  </span>
-                ))}
-              </h2>
+        {/* INTRO */}
+        <section
+          style={{
+            backgroundColor: BEIGE,
+            padding: "40px 24px 80px",
+            textAlign: "center",
+          }}
+        >
+          <div style={{ maxWidth: 820, marginInline: "auto" }}>
+            {[
+              "Digitale forandringer fejler sjældent fordi teknologien er forkert.",
+              "De fejler fordi noget går tabt på vejen.",
+              "Mellem beslutning og virkelighed. Mellem afsender og modtager. Mellem strategi og hverdag.",
+            ].map((line) => (
               <p
+                key={line}
                 style={{
-                  color: muted,
                   fontFamily: "serif",
                   fontStyle: "italic",
-                  fontSize: "1rem",
+                  fontSize: "1.1rem",
+                  color: MUTED_ON_LIGHT,
                   lineHeight: 1.6,
-                  marginTop: 32,
-                  marginBottom: 0,
+                  margin: "0 0 12px",
                 }}
               >
-                {s.caption}
+                {line}
               </p>
-            </div>
-          </section>
-        );
-      })}
+            ))}
+          </div>
+        </section>
 
-      {/* CTA */}
-      <section
-        className="tilgang-cta"
-        style={{
-          backgroundColor: NAVY,
-          paddingTop: 120,
-          paddingBottom: 120,
-          paddingLeft: 24,
-          paddingRight: 24,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          textAlign: "center",
-        }}
-      >
-        <div style={{ width: "100%", maxWidth: 720 }}>
-          <h2
+        {/* 2x2 IMAGE GRID */}
+        <section
+          className="tilgang-grid"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: 0,
+          }}
+        >
+          {cells.map((cell, i) => (
+            <div
+              key={i}
+              className="tilgang-cell"
+              onMouseEnter={() => setHoverIdx(i)}
+              onMouseLeave={() => setHoverIdx(null)}
+              style={{
+                position: "relative",
+                minHeight: 450,
+                backgroundColor: "#bdbdbd",
+                overflow: "hidden",
+                cursor: "default",
+              }}
+            >
+              <div
+                className="tilgang-cell-overlay"
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  backgroundColor: "rgba(10, 22, 40, 0.8)",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  textAlign: "center",
+                  padding: "40px 32px",
+                  opacity: hoverIdx === i ? 1 : undefined,
+                }}
+              >
+                <h3
+                  style={{
+                    fontFamily: "serif",
+                    fontWeight: 700,
+                    fontSize: "1.8rem",
+                    color: "#ffffff",
+                    lineHeight: 1.25,
+                    margin: 0,
+                    maxWidth: 520,
+                  }}
+                >
+                  {cell.heading}
+                </h3>
+                <p
+                  style={{
+                    marginTop: 20,
+                    fontFamily: "serif",
+                    fontStyle: "italic",
+                    fontSize: "1rem",
+                    color: MUTED_ON_DARK,
+                    lineHeight: 1.5,
+                    maxWidth: 480,
+                    margin: "20px 0 0",
+                  }}
+                >
+                  {cell.silver}
+                </p>
+              </div>
+            </div>
+          ))}
+        </section>
+
+        {/* CLOSING + CTA */}
+        <section
+          style={{
+            backgroundColor: NAVY,
+            padding: "120px 24px",
+            textAlign: "center",
+          }}
+        >
+          <p
             style={{
-              color: "#F5F3EE",
+              fontFamily: "serif",
+              fontStyle: "italic",
+              fontSize: "1.3rem",
+              color: "#ffffff",
+              lineHeight: 1.5,
+              maxWidth: 760,
+              margin: "0 auto",
+            }}
+          >
+            Jeg sætter lys på det der går tabt. Formidler det der er svært at
+            se. Og designer broen til det der skal ske.
+          </p>
+
+          <div style={{ height: 60 }} />
+
+          <h2
+            className="tilgang-closing-h2"
+            style={{
               fontFamily: "serif",
               fontWeight: 700,
-              fontSize: "clamp(1.8rem, 3.2vw, 2.5rem)",
-              lineHeight: 1.2,
+              fontSize: "2.5rem",
+              color: "#ffffff",
               margin: 0,
             }}
           >
             Her kan du fange mig.
           </h2>
+
           <p
             style={{
-              color: MUTED_ON_DARK,
+              marginTop: 16,
               fontFamily: "serif",
               fontSize: "1.1rem",
-              marginTop: 16,
-              marginBottom: 32,
+              color: MUTED_ON_DARK,
             }}
           >
             jonas@jkps.dk
           </p>
+
           <a
             href="mailto:jonas@jkps.dk"
             style={{
               display: "inline-block",
+              marginTop: 28,
               backgroundColor: RED,
-              color: "#F5F3EE",
+              color: "#ffffff",
+              padding: "14px 28px",
               fontFamily: "serif",
               fontSize: "1rem",
-              fontWeight: 500,
-              letterSpacing: "0.02em",
-              padding: "14px 28px",
               textDecoration: "none",
               borderRadius: 2,
             }}
           >
             Kontakt mig →
           </a>
+
           <div style={{ marginTop: 32 }}>
             <Link
               to="/"
               style={{
-                color: MUTED_ON_DARK,
                 fontFamily: "serif",
-                fontSize: "0.9rem",
-                textDecoration: "underline",
-                textUnderlineOffset: "4px",
+                fontSize: "0.95rem",
+                color: MUTED_ON_DARK,
+                textDecoration: "none",
               }}
             >
               ← Tilbage til portfolio
             </Link>
           </div>
-        </div>
-      </section>
-    </main>
+        </section>
+      </main>
+    </div>
   );
 }
