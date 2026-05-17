@@ -1190,7 +1190,7 @@ const flipCards = [
     Icon: GitBranch,
     titleLines: ["Servicedesign", "&", "Konceptudvikling"],
     body: "Fra identifikation af problemet til et konkret, realiserbart koncept.",
-    tags: ["Brugerrejser", "Servicedesign", "Konceptvalidering"],
+    tags: ["Brugerrejser", "Servicedesign", "Konceptudvikling"],
   },
   {
     no: "03",
@@ -1208,18 +1208,18 @@ function KompetencerList() {
   const renderTags = (tags: string[]) => (
     <ul className="flex flex-wrap gap-1.5">
       {tags.map((t) => {
-        const slug = TAG_TO_CASE[t.toUpperCase()];
+        const isFilter = FILTER_SET.has(t);
         const baseStyle = { padding: "4px 10px", fontSize: "10px", lineHeight: "1" } as const;
         const baseClass =
           "tracking-wide uppercase rounded-md border border-white/40 text-white transition-colors duration-200";
         return (
           <li key={t} className="inline-flex">
-            {slug ? (
+            {isFilter ? (
               <button
                 type="button"
                 onClick={(e) => {
                   e.stopPropagation();
-                  scrollToCase(slug);
+                  scrollToTagFilter(t);
                 }}
                 style={baseStyle}
                 className={baseClass + " cursor-pointer hover:bg-white hover:text-[#0A1628] hover:border-white"}
