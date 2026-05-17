@@ -130,7 +130,7 @@ function Sidebar() {
 
         <div
           className="overflow-hidden mx-auto block aspect-square"
-          style={{ width: "clamp(10rem, 65%, 22rem)", borderRadius: "0.75rem" }}
+          style={{ width: "clamp(8rem, 52%, 17.6rem)", borderRadius: "0.75rem" }}
         >
           <img src={profilePhoto} alt="Jonas K.P. Sørensen" className="w-full h-full object-cover" />
         </div>
