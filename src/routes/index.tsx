@@ -672,13 +672,15 @@ function Index() {
 
 const FILTERS = [
   "Alle",
-  "UX Research",
+  "Interviews",
+  "Feltobservation",
+  "Co-design",
+  "Brugerrejser",
   "Servicedesign",
-  "Generativ AI",
-  "Strategisk kommunikation",
   "Konceptudvikling",
-  "Forretningsudvikling",
+  "Strategisk kommunikation",
   "Brandudvikling",
+  "Generativ AI",
   "Sideløbende projekt",
 ] as const;
 
@@ -687,23 +689,23 @@ type Filter = (typeof FILTERS)[number];
 const CASE_META: Record<string, { headline: string; tags: string[] }> = {
   wolt: {
     headline: "Fra usynlig algoritme til informeret bud",
-    tags: ["UX Research", "Servicedesign", "Konceptudvikling"],
+    tags: ["Interviews", "Feltobservation", "Co-design", "Servicedesign"],
   },
   boliga: {
     headline: "Reduceret kompleksitet i boligsøgning",
-    tags: ["UX Research", "Servicedesign"],
+    tags: ["Brugerrejser", "Servicedesign", "Konceptudvikling"],
   },
   "itu-designlab": {
     headline: "Generativ AI som brobygger mellem minder og mennesker",
-    tags: ["Generativ AI", "UX Research", "Konceptudvikling"],
+    tags: ["Generativ AI", "Konceptudvikling"],
   },
   "interaktiv-horesimulering": {
     headline: "Når teknologi ikke er svaret — men mennesket er",
-    tags: ["UX Research", "Konceptudvikling"],
+    tags: ["Interviews", "Co-design", "Konceptudvikling"],
   },
   "danmarks-radio": {
     headline: "Digitale og lydbaserede formater",
-    tags: ["Strategisk kommunikation", "Konceptudvikling"],
+    tags: ["Strategisk kommunikation"],
   },
   "amnesty-international": {
     headline: "Følsomme emner — skarp formidling",
@@ -711,7 +713,7 @@ const CASE_META: Record<string, { headline: string; tags: string[] }> = {
   },
   "danmarks-naturfredningsforening": {
     headline: "Bæredygtighed og brandudvikling",
-    tags: ["Strategisk kommunikation", "Brandudvikling"],
+    tags: ["Brandudvikling", "Strategisk kommunikation"],
   },
   "ulla-dyrlov": {
     headline: "Koncept og platform fra bunden",
@@ -723,7 +725,7 @@ const CASE_META: Record<string, { headline: string; tags: string[] }> = {
   },
   "art-spirit-coaching": {
     headline: "Brand og koncept fra idé til lancering",
-    tags: ["Brandudvikling", "Konceptudvikling", "Forretningsudvikling"],
+    tags: ["Brandudvikling", "Konceptudvikling"],
   },
   "musikfaellesskabet-i-nye": {
     headline: "En borgerdrevet musikskole",
