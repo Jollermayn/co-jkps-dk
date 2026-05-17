@@ -13,20 +13,29 @@ export function CaseVideo({ src, poster, ariaLabel, className }: Props) {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            el.play().catch(() => {});
-          } else {
-            el.pause();
-          }
-        }
-      },
-      { threshold: 0.25 },
-    );
-    io.observe(el);
-    return () => io.disconnect();
+    const target = (el.closest("[data-case-slug]") as HTMLElement) ?? el.parentElement;
+    if (!target) return;
+
+    const play = () => {
+      el.currentTime = 0;
+      el.play().catch(() => {});
+    };
+    const pause = () => {
+      el.pause();
+      el.currentTime = 0;
+    };
+
+    target.addEventListener("mouseenter", play);
+    target.addEventListener("mouseleave", pause);
+    target.addEventListener("focusin", play);
+    target.addEventListener("focusout", pause);
+
+    return () => {
+      target.removeEventListener("mouseenter", play);
+      target.removeEventListener("mouseleave", pause);
+      target.removeEventListener("focusin", play);
+      target.removeEventListener("focusout", pause);
+    };
   }, []);
 
   return (
