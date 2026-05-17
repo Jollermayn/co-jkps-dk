@@ -1,4 +1,5 @@
 import caseWolt from "@/assets/case-wolt.png";
+import caseWoltVideo from "@/assets/case-wolt.mp4?url";
 import caseBoliga from "@/assets/case-boliga.png";
 import caseHearing from "@/assets/case-hearing.png";
 import caseDR from "@/assets/case-dr.png";
