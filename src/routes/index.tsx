@@ -1205,20 +1205,20 @@ function KompetencerList() {
               className="absolute inset-0 grid grid-rows-[auto_1fr_auto] p-6 md:p-7 rounded-xl [backface-visibility:hidden]"
               style={{ background: "#0D1B2A", border: "1px solid rgba(245,240,232,0.1)" }}
             >
-              <span
-                className="font-display justify-self-start"
-                style={{ color: "#C0281E", fontSize: "1.25rem", fontWeight: 700, letterSpacing: "0.02em" }}
-              >
-                {c.no} /
-              </span>
-              <div className="flex items-center justify-center">
-                <c.Icon size={28} color="#ffffff" strokeWidth={1.75} />
-              </div>
               <h3 className="font-display tracking-tight leading-[1.15] text-center text-cream" style={{ fontSize: "1.3rem" }}>
                 {c.titleLines.map((line, i) => (
                   <span key={i} className="block">{line}</span>
                 ))}
               </h3>
+              <div className="flex items-center justify-center">
+                <c.Icon size={28} color="#ffffff" strokeWidth={1.75} />
+              </div>
+              <span
+                className="font-display justify-self-end"
+                style={{ color: "#C0281E", fontSize: "1.25rem", fontWeight: 700, letterSpacing: "0.02em" }}
+              >
+                {c.no} /
+              </span>
             </div>
             {/* Back */}
             <div
