@@ -295,10 +295,13 @@ function Index() {
               <Eyebrow>Om mig</Eyebrow>
               <div className="mt-8 max-w-3xl space-y-6">
                 <p style={{ color: "white", opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.8 }}>
-                  Jeg har arbejdet selvstændigt siden 2016 med UX research, servicedesign og konceptudvikling — på tværs af public service, civilsamfund og kommercielle virksomheder. Mit felt ligger i samspillet mellem strategi, teknologi og mennesker.
+                  Jeg har arbejdet selvstændigt siden 2016 med UX research, servicedesign og konceptudvikling — på tværs af public service, civilsamfund og kommercielle virksomheder.
+                </p>
+                <p style={{ color: "white", opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.8 }}>
+                  Mit udgangspunkt er altid mennesket. Ikke brugeren — mennesket. Jeg finder mønstre i adfærd, behov og hverdagsliv og omsætter dem til design der faktisk virker.
                 </p>
                 <p style={{ color: "white", fontStyle: "italic", opacity: 0.7, fontSize: "1rem", lineHeight: 1.8 }}>
-                  Privat er jeg familiefar, naturmenneske og det, man nok ville kalde en seriøs lytter.
+                  Privat er jeg familiefar, naturmenneske og seriøs lytter.
                 </p>
               </div>
             </div>
