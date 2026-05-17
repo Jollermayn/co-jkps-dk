@@ -65,18 +65,11 @@ function CVPage() {
   return (
     <>
       <MobileHeader />
-      <div
-        style={{
-          position: "fixed",
-          inset: 0,
-          backgroundColor: "#1f1d1b",
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
+      <div style={{ backgroundColor: "#1a1a1a", minHeight: "100vh" }}>
         <div
           className="no-print"
           style={{
+            backgroundColor: "#0A1628",
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
@@ -105,19 +98,11 @@ function CVPage() {
             </button>
           </div>
         </div>
-        <div style={{ flex: 1, minHeight: 0 }}>
-          <object
-            data={`${PDF_URL}#view=FitH`}
-            type="application/pdf"
-            style={{ width: "100%", height: "100%", border: "none", display: "block" }}
-          >
-            <iframe
-              src={PDF_URL}
-              title="CV — Jonas K.P. Sørensen"
-              style={{ width: "100%", height: "100%", border: "none" }}
-            />
-          </object>
-        </div>
+        <iframe
+          src={PDF_URL}
+          title="CV — Jonas K.P. Sørensen"
+          style={{ width: "100%", height: "100vh", border: "none", display: "block" }}
+        />
       </div>
     </>
   );
