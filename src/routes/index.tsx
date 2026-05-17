@@ -1189,16 +1189,29 @@ const flipCards = [
 ];
 
 function KompetencerList() {
+  const [flipped, setFlipped] = useState<Record<string, boolean>>({});
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
-      {flipCards.map((c) => (
+      {flipCards.map((c) => {
+        const isFlipped = !!flipped[c.no];
+        return (
         <div
           key={c.no}
-          className="group [perspective:1200px]"
+          className="group [perspective:1200px] cursor-pointer select-none"
           style={{ height: "280px" }}
+          role="button"
+          tabIndex={0}
+          onClick={() => setFlipped((p) => ({ ...p, [c.no]: !p[c.no] }))}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              setFlipped((p) => ({ ...p, [c.no]: !p[c.no] }));
+            }
+          }}
         >
           <div
-            className="relative w-full h-full transition-transform duration-[400ms] ease-out [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] group-focus-within:[transform:rotateY(180deg)]"
+            className="relative w-full h-full transition-transform duration-[400ms] ease-out [transform-style:preserve-3d] md:group-hover:[transform:rotateY(180deg)]"
+            style={isFlipped ? { transform: "rotateY(180deg)" } : undefined}
           >
             {/* Front */}
             <div
@@ -1245,7 +1258,8 @@ function KompetencerList() {
             </div>
           </div>
         </div>
-      ))}
+        );
+      })}
     </div>
   );
 }
