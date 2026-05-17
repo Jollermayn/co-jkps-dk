@@ -215,11 +215,25 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
         </div>
         {/* Hero image */}
         <figure className="relative w-full">
-          <img
-            src={study.image}
-            alt={`${study.client} — ${study.title}`}
-            className="block w-full h-[240px] sm:h-[320px] md:h-[380px] object-cover"
-          />
+          {study.video ? (
+            <video
+              src={study.video}
+              poster={study.image}
+              aria-label={`${study.client} — ${study.title}`}
+              className="block w-full h-[240px] sm:h-[320px] md:h-[380px] object-cover"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+            />
+          ) : (
+            <img
+              src={study.image}
+              alt={`${study.client} — ${study.title}`}
+              className="block w-full h-[240px] sm:h-[320px] md:h-[380px] object-cover"
+            />
+          )}
           <div
             aria-hidden
             className="pointer-events-none absolute inset-x-0 bottom-0 h-32 md:h-40 bg-gradient-to-b from-transparent to-[#0D1B2A]"
