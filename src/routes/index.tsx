@@ -1208,7 +1208,7 @@ function KompetencerList() {
               >
                 {c.no} /
               </span>
-              <h3 className="font-display tracking-tight leading-[1.05] text-[clamp(1.6rem,2.4vw,2.2rem)] text-cream">
+              <h3 className="font-display tracking-tight leading-[1.15] text-left text-cream" style={{ fontSize: "1.3rem" }}>
                 {c.title}
               </h3>
             </div>
