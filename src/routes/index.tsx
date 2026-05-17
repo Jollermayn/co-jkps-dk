@@ -6,6 +6,7 @@ import { caseStudies, type CaseStudy } from "@/data/cases";
 import { CaseModal } from "@/components/CaseModal";
 import profilePhoto from "@/assets/profile-photo.png";
 import chimpSuit from "@/assets/chimp-suit-map.png";
+import uxResearchBg from "@/assets/kompetence-01-ux-research.jpg";
 import { SiteLogo } from "@/components/SiteLogo";
 import { MenuIcon } from "@/components/MenuIcon";
 
@@ -1209,6 +1210,7 @@ const flipCards = [
     titleLines: ["UX Research", "&", "Brugerindsigt"],
     body: "Jeg oversætter kompleks adfærd til handlebare beslutninger.",
     tags: ["Interviews", "Feltobservation", "Co-design"],
+    bgImage: uxResearchBg,
   },
   {
     no: "02",
@@ -1354,7 +1356,15 @@ function KompetencerList() {
               {/* Back */}
               <div
                 className="absolute inset-0 flex flex-col justify-between px-9 py-7 text-white opacity-0 translate-y-3 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-y-0"
-                style={{ background: "#C0281E" }}
+                style={
+                  c.bgImage
+                    ? {
+                        backgroundImage: `linear-gradient(rgba(10,22,40,0.65), rgba(10,22,40,0.65)), url(${c.bgImage})`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                      }
+                    : { background: "#C0281E" }
+                }
               >
                 <p className="text-lg leading-snug font-display">{c.body}</p>
                 {renderTags(c.tags)}
