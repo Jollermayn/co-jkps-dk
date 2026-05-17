@@ -298,7 +298,7 @@ function Index() {
                   Jeg har arbejdet selvstændigt siden 2016 med UX research, servicedesign og konceptudvikling — på tværs af public service, civilsamfund og kommercielle virksomheder.
                 </p>
                 <p style={{ color: "white", opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.8 }}>
-                  Mit udgangspunkt er altid mennesket. Ikke brugeren — mennesket. Jeg finder mønstre i adfærd, behov og hverdagsliv og omsætter dem til design der faktisk virker.
+                  Mit udgangspunkt er altid mennesket. Ikke brugeren — <em><strong>mennesket</strong></em>. Jeg finder mønstre i adfærd, behov og hverdagsliv og omsætter dem til design der faktisk virker.
                 </p>
                 <p style={{ color: "white", fontStyle: "italic", opacity: 0.7, fontSize: "1rem", lineHeight: 1.8 }}>
                   Privat er jeg familiefar, naturmenneske og seriøs lytter.
