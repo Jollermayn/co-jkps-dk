@@ -32,6 +32,7 @@ export type CaseStudy = {
   client: string;
   title: string;
   image: string;
+  video?: string;
   context: string;
   challenge: string;
   role: string[];
