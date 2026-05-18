@@ -417,7 +417,7 @@ function TilgangPage() {
         >
           Genkender du disse mønstre?<br />
           <a
-            href="mailto:jonas@jkps.dk"
+            href="/#kontakt"
             className="tilgang-tales-link"
             style={{ color: "#C0281E", textDecoration: "none" }}
           >
