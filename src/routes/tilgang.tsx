@@ -248,6 +248,8 @@ function TilgangPage() {
           .tilgang-intro-line { font-size: clamp(0.65rem, 2.85vw, 1.2rem) !important; white-space: nowrap !important; margin-bottom: 40px !important; }
         }
         .tilgang-cell-title-mobile { display: none; }
+        .tilgang-cell-title-mobile { transition: opacity 0.8s ease, transform 0.8s ease; }
+        .tilgang-cell-title-mobile.is-visible { opacity: 1 !important; transform: translateY(0) !important; }
         @media (max-width: 767px) {
           .tilgang-hero-h1 { font-size: 2.1rem !important; line-height: 1.2 !important; }
           .tilgang-closing-h2 { font-size: 1.9rem !important; }
