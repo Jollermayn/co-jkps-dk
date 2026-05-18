@@ -103,7 +103,7 @@ function TilgangPage() {
           .tilgang-intro-line { font-size: 1.25rem !important; margin-bottom: 56px !important; white-space: nowrap; }
         }
         @media (max-width: 767px) {
-          .tilgang-intro-line { font-size: clamp(0.95rem, 3.6vw, 1.25rem) !important; white-space: normal !important; }
+          .tilgang-intro-line { font-size: clamp(0.65rem, 2.85vw, 1.2rem) !important; white-space: nowrap !important; margin-bottom: 40px !important; }
         }
         @media (max-width: 767px) {
           .tilgang-hero-h1 { font-size: 2.1rem !important; line-height: 1.2 !important; }
