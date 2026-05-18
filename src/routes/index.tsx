@@ -585,8 +585,8 @@ function Index() {
           <section id="om" className="py-16 md:py-20">
             <div className="px-12 md:px-14">
               <Eyebrow>Om mig</Eyebrow>
-              <p className="mt-8 text-left" style={{ color: "white", opacity: 0.9, fontSize: "1.5rem", lineHeight: 1.5 }}>
-                Jeg tager menneskelig indsigt og omsætter den til <RotatingPhrase />
+              <p className="mt-8 text-left" style={{ color: "white", opacity: 0.9, fontSize: "1.8rem", lineHeight: 1.4 }}>
+                <span style={{ fontWeight: 600 }}>Jeg tager menneskelig indsigt og omsætter den til</span> <RotatingPhrase />
               </p>
               <div className="mt-8 max-w-3xl space-y-6">
 
