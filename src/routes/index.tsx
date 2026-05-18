@@ -598,15 +598,19 @@ function Index() {
 
         {/* LEFT — scrolling content */}
         <div className="w-full min-w-0 max-w-full lg:max-w-[60%] lg:w-[60%] order-2 lg:order-none bg-navy-deep lg:mr-[40%]">
+          {/* TYPEWRITER INTRO */}
+          <section className="py-16 md:py-24">
+            <div className="px-12 md:px-14">
+              <p className="text-center" style={{ color: "white", fontSize: "2.25rem", lineHeight: 1.3, fontWeight: 600 }}>
+                <span>Jeg tager menneskelig indsigt og omsætter den til </span>
+                <RotatingPhrase />
+              </p>
+            </div>
+          </section>
           {/* OM MIG */}
           <section id="om" className="py-16 md:py-20">
             <div className="px-12 md:px-14">
               <Eyebrow>Om mig</Eyebrow>
-              <p className="mt-8 text-left" style={{ color: "white", opacity: 0.9, fontSize: "1.8rem", lineHeight: 1.4 }}>
-                <span style={{ fontWeight: 600 }}>Jeg tager menneskelig indsigt og omsætter den til</span>
-                <br />
-                <RotatingPhrase />
-              </p>
               <div className="mt-8 max-w-3xl space-y-6">
 
                 <p style={{ color: "white", opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.8 }}>
