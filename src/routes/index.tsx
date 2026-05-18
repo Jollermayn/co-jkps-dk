@@ -600,17 +600,18 @@ function Index() {
         <div className="w-full min-w-0 max-w-full lg:max-w-[60%] lg:w-[60%] order-2 lg:order-none bg-navy-deep lg:mr-[40%]">
           {/* TYPEWRITER INTRO */}
           <section className="pt-16 md:pt-24 pb-0">
-            <div className="px-12 md:px-14">
-              <p className="text-left" style={{ color: "white", fontSize: "clamp(1.2rem, 3.5vw, 2rem)", lineHeight: 1.3, fontWeight: 600 }}>
+            <div className="px-8 sm:px-12 md:px-14">
+              <p className="text-left text-[1.4rem] sm:text-[clamp(1.2rem,3.5vw,2rem)]" style={{ color: "white", lineHeight: 1.3, fontWeight: 600 }}>
                 <span>Jeg omsætter menneskelig indsigt til</span>
-                <span style={{ display: "block" }}>
+                <span className="block whitespace-nowrap text-[clamp(1rem,4vw,1.4rem)] sm:text-[inherit] [&>span]:whitespace-nowrap">
                   <RotatingPhrase />
                 </span>
               </p>
             </div>
           </section>
           {/* OM MIG */}
-          <section id="om" className="pt-12 pb-16 md:pb-20">
+          <section id="om" className="pt-10 md:pt-12 pb-16 md:pb-20">
+
             <div className="px-12 md:px-14">
               <Eyebrow>Om mig</Eyebrow>
               <div className="mt-8 max-w-3xl space-y-6">
