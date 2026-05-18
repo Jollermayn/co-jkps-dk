@@ -305,20 +305,21 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
         {/* Sections */}
         <article key={study.slug} className="px-6 md:px-10 py-10 md:py-14 space-y-10 md:space-y-12">
           <style>{`
-            @keyframes caseSectionIn {
-              from { opacity: 0; transform: translateY(20px); }
-              to { opacity: 1; transform: translateY(0); }
-            }
             .case-section-anim {
               opacity: 0;
-              animation: caseSectionIn 1s ease-out forwards;
+              transform: translateY(20px);
+              transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            }
+            .case-section-anim.is-visible {
+              opacity: 1;
+              transform: translateY(0);
             }
           `}</style>
-          <ModalSection title="Kontekst" index={0}>
+          <ModalSection title="Kontekst" rootRef={panelRef}>
             <p className="text-base md:text-lg text-cream/85 leading-relaxed">{study.context}</p>
           </ModalSection>
 
-          <ModalSection title="Udfordring" index={1}>
+          <ModalSection title="Udfordring" rootRef={panelRef}>
             <p className="text-base md:text-lg text-cream/85 leading-relaxed">{study.challenge}</p>
             {study.slug === "interaktiv-horesimulering" && (
               <>
@@ -335,7 +336,7 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
             )}
           </ModalSection>
 
-          <ModalSection title="Min rolle" index={2}>
+          <ModalSection title="Min rolle" rootRef={panelRef}>
             <ul className="space-y-3">
               {study.role.map((r) => (
                 <li key={r} className="flex items-start gap-3 text-base md:text-lg text-cream/85 leading-relaxed">
@@ -346,11 +347,11 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
             </ul>
           </ModalSection>
 
-          <ModalSection title="Tilgang" index={3}>
+          <ModalSection title="Tilgang" rootRef={panelRef}>
             <ApproachGrid tags={study.approach} />
           </ModalSection>
 
-          <ModalSection title="Resultater" index={4}>
+          <ModalSection title="Resultater" rootRef={panelRef}>
             <ul className="space-y-3">
               {study.outcomes.map((o) => (
                 <li key={o} className="flex items-start gap-3 text-base md:text-lg text-cream/85 leading-relaxed">
@@ -451,11 +452,38 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
 }
 
 
-function ModalSection({ title, index = 0, children }: { title: string; index?: number; children: React.ReactNode }) {
+function ModalSection({
+  title,
+  rootRef,
+  children,
+}: {
+  title: string;
+  rootRef?: React.RefObject<HTMLElement | null>;
+  children: React.ReactNode;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisible(true);
+            observer.disconnect();
+          }
+        });
+      },
+      { root: rootRef?.current ?? null, threshold: 0.2 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [rootRef]);
   return (
     <div
-      className="case-section-anim grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-8"
-      style={{ animationDelay: `${index * 0.3}s` }}
+      ref={ref}
+      className={`case-section-anim grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-8${visible ? " is-visible" : ""}`}
     >
       <div className="md:col-span-3">
         <h3 className="font-display text-2xl md:text-3xl tracking-tight">{title}</h3>
