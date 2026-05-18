@@ -311,7 +311,7 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
             }
             .case-section-anim {
               opacity: 0;
-              animation: caseSectionIn 0.4s ease-out forwards;
+              animation: caseSectionIn 1s ease-out forwards;
             }
           `}</style>
           <ModalSection title="Kontekst" index={0}>
