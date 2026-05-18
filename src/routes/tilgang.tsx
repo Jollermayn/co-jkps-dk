@@ -94,6 +94,10 @@ function TilgangPage() {
         .tilgang-cell:hover .tilgang-cell-img { filter: grayscale(0%); }
         .tilgang-cell-overlay { opacity: 0; transition: opacity 0.4s ease; }
         .tilgang-cell:hover .tilgang-cell-overlay { opacity: 1; }
+        @media (max-width: 1023px) {
+          .tilgang-cell-img { filter: grayscale(0%) !important; }
+          .tilgang-cell-overlay { opacity: 1 !important; }
+        }
         @media (max-width: 767px) {
           .tilgang-hero-h1 { font-size: 3rem !important; }
           .tilgang-closing-h2 { font-size: 1.9rem !important; }
