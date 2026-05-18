@@ -96,6 +96,10 @@ function TilgangPage() {
         .tilgang-bar { position: absolute; left: 0; right: 0; height: 40px; background: #000; z-index: 5; pointer-events: none; }
         .tilgang-bar-top { top: 0; }
         .tilgang-bar-bottom { bottom: 0; }
+        @media (max-width: 1023px) {
+          .tilgang-grid { padding-left: 0 !important; padding-right: 0 !important; margin-left: 0 !important; margin-right: 0 !important; column-gap: 0 !important; }
+          .tilgang-cell { margin-left: 0 !important; margin-right: 0 !important; }
+        }
         .tilgang-cell:hover .tilgang-cell-img { filter: grayscale(0%); }
         .tilgang-cell-overlay { opacity: 0; transition: opacity 0.4s ease; }
         .tilgang-cell:hover .tilgang-cell-overlay { opacity: 1; }
