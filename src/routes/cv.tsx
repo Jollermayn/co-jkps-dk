@@ -159,9 +159,9 @@ function CVPage() {
           </div>
         ) : (
           <iframe
-            src={PDF_URL}
+            src={`${PDF_URL}#view=FitH&toolbar=1`}
             title="CV — Jonas K.P. Sørensen"
-            style={{ width: "100%", height: "100vh", border: "none", display: "block" }}
+            style={{ width: "100%", height: "calc(100vh - 64px)", border: "none", display: "block" }}
           />
         )}
       </div>
