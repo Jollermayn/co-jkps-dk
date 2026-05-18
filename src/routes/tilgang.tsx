@@ -515,7 +515,7 @@ function TilgangPage() {
             href="/#tilgang"
             style={{
               fontFamily: "serif",
-              fontSize: "0.95rem",
+              fontSize: "1.5rem",
               color: MUTED_ON_DARK,
               textDecoration: "none",
             }}
