@@ -188,8 +188,8 @@ function TilgangPage() {
         }
         @media (max-width: 767px) {
           .tilgang-bar-top { display: block !important; height: 15px !important; }
-          .tilgang-bar-bottom { display: block !important; height: 10px !important; }
-          .tilgang-cell:hover .tilgang-bar-bottom { height: 10px !important; }
+          .tilgang-bar-bottom { display: block !important; height: 15px !important; }
+          .tilgang-cell:hover .tilgang-bar-bottom { height: 15px !important; }
         }
         @media (min-width: 768px) and (max-width: 1024px) {
           .tilgang-bar-top { display: block !important; height: 15px !important; }
