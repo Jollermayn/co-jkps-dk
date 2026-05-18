@@ -234,16 +234,16 @@ function TilgangPage() {
             {[
               "Digitale forandringer fejler sjældent fordi teknologien er forkert.",
               "De fejler fordi noget går tabt på vejen.",
-              "Mellem beslutning og virkelighed. Mellem afsender og modtager. Mellem strategi og hverdag.",
+              "Mellem beslutning og virkelighed. Mellem afsender og modtager.",
             ].map((line) => (
               <p
                 key={line}
                 style={{
                   fontFamily: "serif",
                   fontStyle: "italic",
-                  fontSize: "1.2rem",
-                  fontWeight: 500,
-                  color: MUTED_ON_LIGHT,
+                  fontSize: "1.3rem",
+                  fontWeight: 600,
+                  color: "#0A1628",
                   lineHeight: 1.6,
                   margin: "0 0 12px",
                 }}
