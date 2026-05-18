@@ -182,7 +182,7 @@ function TilgangPage() {
           .tilgang-tales-link:hover::after { transform: scaleX(1); }
         }
         @media (max-width: 767px) {
-          .tilgang-grid { padding: 0 !important; margin: 0 !important; gap: 0 !important; column-gap: 0 !important; row-gap: 0 !important; }
+          .tilgang-grid { padding: 0 !important; margin: 0 !important; gap: 56px !important; column-gap: 0 !important; row-gap: 56px !important; }
           .tilgang-cell { margin: 0 !important; padding: 0 !important; overflow: hidden !important; }
           .tilgang-cell::before, .tilgang-cell::after,
           .tilgang-video-frame::before, .tilgang-video-frame::after { content: none !important; background: transparent !important; display: none !important; }
