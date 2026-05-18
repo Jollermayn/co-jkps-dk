@@ -460,7 +460,7 @@ function IntroLines() {
         De fejler fordi noget <strong style={{ fontWeight: 800 }}>oplagt</strong> går tabt undervejs.
       </IntroLine>
       <IntroLine delay={1.2}>
-        Mellem beslutning og virkelighed. Mellem afsender og modtager.
+        Fra beslutning til virkelighed. Fra afsender til modtager.
       </IntroLine>
     </div>
   );
