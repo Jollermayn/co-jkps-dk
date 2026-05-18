@@ -328,9 +328,6 @@ function Index() {
                 <h2 className="font-display text-5xl md:text-7xl mt-6 mb-8 leading-[0.95] tracking-tight">
                   Hvad jeg <span className="italic">bringer</span>
                 </h2>
-                <p style={{ color: "white", fontStyle: "italic", opacity: 0.75, fontSize: "1rem", lineHeight: 2, maxWidth: 560 }}>
-                  Indsigt omsættes. Design forankres. Strategi lander.
-                </p>
               </div>
 
               <KompetencerList />
