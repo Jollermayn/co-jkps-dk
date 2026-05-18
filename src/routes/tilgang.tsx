@@ -204,7 +204,7 @@ function TilgangPage() {
               marginInline: "auto",
             }}
           >
-            Kunsten i at belyse, hvad der går tabt.
+            Kunsten i at belyse,<br />hvad der går tabt.
           </h1>
         </section>
 
