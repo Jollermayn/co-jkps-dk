@@ -391,8 +391,8 @@ function TilgangPage() {
             textAlign: "center",
           }}
         >
-          <Link
-            to="/"
+          <a
+            href="/#tilgang"
             style={{
               fontFamily: "serif",
               fontSize: "0.95rem",
@@ -401,7 +401,7 @@ function TilgangPage() {
             }}
           >
             ← Tilbage til portfolio
-          </Link>
+          </a>
         </section>
       </main>
     </div>
