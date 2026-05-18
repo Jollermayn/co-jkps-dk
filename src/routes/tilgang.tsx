@@ -4,10 +4,10 @@ import { SiteLogo } from "@/components/SiteLogo";
 import { MenuIcon } from "@/components/MenuIcon";
 import mazeKort from "@/assets/kort.png";
 import mazeLygte from "@/assets/lygte.png";
-import scenarioStrategi from "@/assets/scenario-strategi-dokument.png";
-import scenarioModelokale from "@/assets/scenario-moedelokale.png";
-import scenarioSystem from "@/assets/scenario-onboarding.png";
-import scenarioBrugere from "@/assets/scenario-glasvaeg.png";
+const scenarioStrategi = "/videos/strategi.mp4";
+const scenarioModelokale = "/videos/moedelokale.mp4";
+const scenarioSystem = "/videos/onboarding.mp4";
+const scenarioBrugere = "/videos/glasvaeg.mp4";
 
 export const Route = createFileRoute("/tilgang")({
   head: () => ({
@@ -286,12 +286,13 @@ function TilgangPage() {
                 cursor: "default",
               }}
             >
-              <img
+              <video
                 src={cell.image}
-                alt=""
-                loading="lazy"
-                width={1024}
-                height={1024}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
                 className="tilgang-cell-img"
                 style={{
                   position: "absolute",
