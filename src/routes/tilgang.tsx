@@ -393,6 +393,8 @@ function TilgangPage() {
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
             gap: 24,
+            paddingLeft: 48,
+            paddingRight: 48,
           }}
         >
           {cells.map((cell, i) => (
