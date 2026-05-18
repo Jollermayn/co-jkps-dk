@@ -214,9 +214,9 @@ function RotatingPhrase() {
     : lerpHex(prev.color, current.color, progress);
   return (
     <span style={{ fontStyle: "italic", color }}>
-      <span>«</span>
-      {text}
       <span>»</span>
+      {text}
+      <span>«</span>
       <span style={{ opacity: 0.6 }}>|</span>
     </span>
   );
