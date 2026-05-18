@@ -252,7 +252,7 @@ function MobileHeader() {
               style={{
                 fontFamily: "serif",
                 fontSize: "0.9rem",
-                fontWeight: 400,
+                fontWeight: 600,
                 color: "#F5F3EE",
                 letterSpacing: "0.05em",
                 textDecoration: "none",
