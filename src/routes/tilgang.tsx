@@ -409,7 +409,7 @@ function TilgangPage() {
   );
 }
 
-function IntroLine({ children }: { children: React.ReactNode }) {
+function IntroLine({ children, delay }: { children: React.ReactNode; delay: number }) {
   const ref = useRef<HTMLParagraphElement | null>(null);
   const [visible, setVisible] = useState(false);
 
@@ -444,7 +444,7 @@ function IntroLine({ children }: { children: React.ReactNode }) {
         margin: "0 0 12px",
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0)" : "translateY(30px)",
-        transition: "opacity 1.6s ease-out, transform 1.6s ease-out",
+        transition: `opacity 1.2s ease ${delay}s, transform 1.2s ease ${delay}s`,
       }}
     >
       {children}
@@ -455,11 +455,11 @@ function IntroLine({ children }: { children: React.ReactNode }) {
 function IntroLines() {
   return (
     <div>
-      <IntroLine>Forandringer fejler sjældent fordi teknologien er forkert.</IntroLine>
-      <IntroLine>
+      <IntroLine delay={0}>Forandringer fejler sjældent fordi teknologien er forkert.</IntroLine>
+      <IntroLine delay={0.6}>
         De fejler fordi noget <strong style={{ fontWeight: 800 }}>oplagt</strong> går tabt undervejs.
       </IntroLine>
-      <IntroLine>
+      <IntroLine delay={1.2}>
         Mellem beslutning og virkelighed. Mellem afsender og modtager.
       </IntroLine>
     </div>
