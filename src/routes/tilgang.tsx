@@ -587,7 +587,7 @@ function TilgangPage() {
                   />
                 </label>
                 <label style={{ display: "flex", flexDirection: "column", gap: 6, fontSize: "0.9rem" }}>
-                  Email
+                  Din email
                   <input
                     type="email"
                     name="email"
