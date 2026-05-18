@@ -442,6 +442,7 @@ function IntroLine({ children, delay }: { children: React.ReactNode; delay: numb
   return (
     <p
       ref={ref}
+      className="tilgang-intro-line"
       style={{
         fontFamily: "serif",
         fontStyle: "italic",
