@@ -496,7 +496,7 @@ function TilgangPage() {
       </main>
 
       <a
-        href="/JKPS_CV_NY.pdf"
+        href="/JKPS_CV.pdf"
         download="JKPS_CV"
         className="tilgang-floating-cv"
         style={{

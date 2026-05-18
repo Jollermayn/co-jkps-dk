@@ -4,7 +4,7 @@ import { SiteLogo } from "@/components/SiteLogo";
 import { MenuIcon } from "@/components/MenuIcon";
 import { useIsMobile } from "@/hooks/use-mobile";
 
-const PDF_URL = "/JKPS_CV_NY.pdf";
+const PDF_URL = "/JKPS_CV.pdf";
 
 function MobileHeader() {
   const [open, setOpen] = useState(false);

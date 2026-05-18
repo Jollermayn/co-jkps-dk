@@ -1,7 +1,7 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 import { useEffect } from "react";
 
-const CV_PDF_URL = "/JKPS_CV_NY.pdf";
+const CV_PDF_URL = "/JKPS_CV.pdf";
 
 import appCss from "../styles.css?url";
 
