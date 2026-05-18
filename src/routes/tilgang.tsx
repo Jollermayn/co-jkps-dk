@@ -588,7 +588,7 @@ function TilgangPage() {
               <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 14 }}>
                 <input type="hidden" name="_subject" value="Henvendelse fra jkps.dk" />
                 <label style={{ display: "flex", flexDirection: "column", gap: 6, fontSize: "0.9rem" }}>
-                  Navn
+                  Dit navn
                   <input
                     type="text"
                     name="navn"
