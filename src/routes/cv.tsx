@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { SiteLogo } from "@/components/SiteLogo";
 import { MenuIcon } from "@/components/MenuIcon";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const PDF_URL = "/JKPS_CV_NY.pdf";
 
@@ -48,6 +49,7 @@ export const Route = createFileRoute("/cv")({
 });
 
 function CVPage() {
+  const isMobile = useIsMobile();
   const handlePrint = () => {
     window.open(PDF_URL, "_blank");
   };
@@ -77,7 +79,7 @@ function CVPage() {
   return (
     <>
       <MobileHeader />
-      <div style={{ backgroundColor: "#1a1a1a", minHeight: "100vh" }}>
+      <div style={{ backgroundColor: "#1a1a1a", minHeight: "100vh", paddingTop: isMobile ? 72 : 0 }}>
         <div
           className="no-print"
           style={{
@@ -101,20 +103,62 @@ function CVPage() {
             >
               Download CV
             </a>
-            <button
-              type="button"
-              onClick={handlePrint}
-              className="rounded-full border border-[#F4EFE6]/40 px-5 py-2.5 text-sm font-semibold text-[#F4EFE6] hover:bg-[#F4EFE6]/10 transition-colors"
-            >
-              Print
-            </button>
+            {!isMobile && (
+              <button
+                type="button"
+                onClick={handlePrint}
+                className="rounded-full border border-[#F4EFE6]/40 px-5 py-2.5 text-sm font-semibold text-[#F4EFE6] hover:bg-[#F4EFE6]/10 transition-colors"
+              >
+                Print
+              </button>
+            )}
           </div>
         </div>
-        <iframe
-          src={PDF_URL}
-          title="CV — Jonas K.P. Sørensen"
-          style={{ width: "100%", height: "100vh", border: "none", display: "block" }}
-        />
+        {isMobile ? (
+          <div
+            style={{
+              backgroundColor: "#0A1628",
+              minHeight: "calc(100vh - 72px - 64px)",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 24,
+              padding: "48px 24px",
+              textAlign: "center",
+            }}
+          >
+            <h1 style={{ fontFamily: "serif", color: "#F5F3EE", fontSize: "2rem", margin: 0 }}>
+              CV — Jonas K.P. Sørensen
+            </h1>
+            <p style={{ color: "#F5F3EE", opacity: 0.75, fontSize: "1rem", maxWidth: 320, margin: 0 }}>
+              PDF vises bedst i din browsers indbyggede PDF-viewer. Åbn eller download nedenfor.
+            </p>
+            <div style={{ display: "flex", flexDirection: "column", gap: 12, width: "100%", maxWidth: 280 }}>
+              <a
+                href={PDF_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full bg-[#C0281E] px-5 py-3 text-base font-semibold text-[#F4EFE6] shadow-lg text-center"
+              >
+                Åbn CV (PDF)
+              </a>
+              <a
+                href={PDF_URL}
+                download
+                className="rounded-full border border-[#F4EFE6]/40 px-5 py-3 text-base font-semibold text-[#F4EFE6] text-center"
+              >
+                Download CV
+              </a>
+            </div>
+          </div>
+        ) : (
+          <iframe
+            src={PDF_URL}
+            title="CV — Jonas K.P. Sørensen"
+            style={{ width: "100%", height: "100vh", border: "none", display: "block" }}
+          />
+        )}
       </div>
     </>
   );
