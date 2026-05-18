@@ -160,6 +160,9 @@ function TilgangPage() {
         @media (max-width: 767px) {
           .tilgang-bar { height: 20px !important; }
         }
+        @media (max-width: 1023px) {
+          .tilgang-bar { display: none !important; }
+        }
         @media (min-width: 1024px) {
           .tilgang-tales-link { position: relative; display: inline-block; }
           .tilgang-tales-link::after {
