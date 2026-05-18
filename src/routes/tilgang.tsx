@@ -445,7 +445,7 @@ function IntroLines() {
           style={{
             fontFamily: "serif",
             fontStyle: "italic",
-            fontSize: "1.2rem",
+            fontSize: "2rem",
             fontWeight: 600,
             color: "#0A1628",
             lineHeight: 2,
