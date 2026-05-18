@@ -245,12 +245,12 @@ function TilgangPage() {
         >
           <div style={{ maxWidth: 820, marginInline: "auto" }}>
             {[
-              "Forandringer fejler sjældent fordi teknologien er forkert.",
-              "De fejler fordi noget går tabt undervejs.",
-              "Mellem beslutning og virkelighed. Mellem afsender og modtager.",
-            ].map((line) => (
+              <>Forandringer fejler sjældent fordi teknologien er forkert.</>,
+              <>De fejler fordi noget <strong style={{ fontWeight: 800 }}>oplagt</strong> går tabt undervejs.</>,
+              <>Mellem beslutning og virkelighed. Mellem afsender og modtager.</>,
+            ].map((line, idx) => (
               <p
-                key={line}
+                key={idx}
                 style={{
                   fontFamily: "serif",
                   fontStyle: "italic",
