@@ -158,10 +158,7 @@ function TilgangPage() {
         .tilgang-bar-top { top: 0; height: 23px; }
         .tilgang-bar-bottom { bottom: 0; height: 23px; }
         @media (max-width: 767px) {
-          .tilgang-bar { height: 20px !important; }
-        }
-        @media (max-width: 767px) {
-          .tilgang-bar { display: none !important; }
+          .tilgang-bar { display: block !important; height: 23px !important; }
         }
         @media (min-width: 768px) {
           .tilgang-cell { min-height: 0 !important; aspect-ratio: auto !important; }
