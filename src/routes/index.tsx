@@ -180,38 +180,52 @@ function lerpHex(a: string, b: string, t: number) {
 function RotatingPhrase() {
   const [index, setIndex] = useState(0);
   const [text, setText] = useState("");
-  const [deleting, setDeleting] = useState(false);
+  const [phase, setPhase] = useState<"typing" | "holding" | "deleting">("typing");
+  const [cut, setCut] = useState(0);
   useEffect(() => {
     const current = OM_MIG_ROTATING_PHRASES[index].text;
     let timeout: ReturnType<typeof setTimeout>;
-    if (!deleting && text === current) {
-      timeout = setTimeout(() => setDeleting(true), 2000);
-    } else if (deleting && text === "") {
-      setDeleting(false);
-      setIndex((i) => (i + 1) % OM_MIG_ROTATING_PHRASES.length);
+    if (phase === "typing") {
+      if (text === current) {
+        setPhase("holding");
+      } else {
+        timeout = setTimeout(() => setText(current.slice(0, text.length + 1)), 60);
+      }
+    } else if (phase === "holding") {
+      timeout = setTimeout(() => {
+        setCut(0);
+        setPhase("deleting");
+      }, 2000);
     } else {
-      timeout = setTimeout(
-        () => {
-          setText(
-            deleting
-              ? current.slice(0, text.length - 1)
-              : current.slice(0, text.length + 1),
-          );
-        },
-        deleting ? 40 : 60,
-      );
+      // deleting: strip one char from each end per tick
+      timeout = setTimeout(() => {
+        const nextCut = cut + 1;
+        if (nextCut * 2 >= current.length) {
+          setText("");
+          setCut(0);
+          setIndex((i) => (i + 1) % OM_MIG_ROTATING_PHRASES.length);
+          setPhase("typing");
+        } else {
+          setText(current.slice(nextCut, current.length - nextCut));
+          setCut(nextCut);
+        }
+      }, 40);
     }
     return () => clearTimeout(timeout);
-  }, [text, deleting, index]);
+  }, [text, phase, index, cut]);
   const n = OM_MIG_ROTATING_PHRASES.length;
   const current = OM_MIG_ROTATING_PHRASES[index];
   const prev = OM_MIG_ROTATING_PHRASES[(index - 1 + n) % n];
   const next = OM_MIG_ROTATING_PHRASES[(index + 1) % n];
   const total = current.text.length || 1;
-  const progress = Math.min(1, Math.max(0, text.length / total));
-  const color = deleting
-    ? lerpHex(current.color, next.color, 1 - progress)
-    : lerpHex(prev.color, current.color, progress);
+  const progress =
+    phase === "deleting"
+      ? Math.max(0, (total - cut * 2) / total)
+      : Math.min(1, text.length / total);
+  const color =
+    phase === "deleting"
+      ? lerpHex(current.color, next.color, 1 - progress)
+      : lerpHex(prev.color, current.color, progress);
   return (
     <span style={{ fontStyle: "italic", color }}>
       <span>»</span>
@@ -221,6 +235,7 @@ function RotatingPhrase() {
     </span>
   );
 }
+
 
 
 
