@@ -193,6 +193,8 @@ function TilgangPage() {
         .tilgang-cell:hover .tilgang-cell-overlay { opacity: 1; transition: opacity 0.8s ease 0.8s; }
         @media (max-width: 1023px) {
           .tilgang-cell-img { filter: grayscale(0%) !important; }
+        }
+        @media (min-width: 768px) and (max-width: 1023px) {
           .tilgang-cell-overlay { opacity: 1 !important; }
         }
         @media (max-width: 1023px) {
@@ -218,7 +220,7 @@ function TilgangPage() {
           }
         }
         @keyframes tilgang-fade-in {
-          to { opacity: 1 !important; }
+          to { opacity: 1; }
         }
       `}</style>
 
