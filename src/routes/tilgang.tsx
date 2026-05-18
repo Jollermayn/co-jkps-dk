@@ -438,9 +438,10 @@ function TilgangPage() {
         >
           Genkender du disse mønstre?<br />
           <a
-            href="/#kontakt"
+            href="#"
+            onClick={(e) => { e.preventDefault(); setContactOpen(true); }}
             className="tilgang-tales-link"
-            style={{ color: "#C0281E", textDecoration: "none" }}
+            style={{ color: "#C0281E", textDecoration: "none", cursor: "pointer" }}
           >
             Lad os tales ved
           </a>
