@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { SlidersHorizontal, X, MousePointerClick, Search, GitBranch, MessageCircle, RotateCw, Plus } from "lucide-react";
 import { caseStudies, type CaseStudy } from "@/data/cases";
+import caseWoltVideo from "@/assets/case-wolt.mp4?url";
 
 import { CaseModal } from "@/components/CaseModal";
 import { CaseVideo } from "@/components/CaseVideo";
@@ -30,6 +31,9 @@ export const Route = createFileRoute("/")({
           "Brugeroplevelse & digitale løsninger. UX research, service design, digital strategi og medieproduktion.",
       },
       { property: "og:type", content: "website" },
+    ],
+    links: [
+      { rel: "preload", as: "video", href: caseWoltVideo, type: "video/mp4" },
     ],
   }),
   component: Index,
@@ -136,7 +140,6 @@ function Sidebar() {
           <img src={profilePhoto} alt="Jonas K.P. Sørensen" className="w-full h-full object-cover" />
         </div>
 
-        <style>{`@keyframes heroQuoteFadeIn { from { opacity: 0; } to { opacity: 1; } }`}</style>
         <p
           className="text-cream text-xl md:text-2xl leading-relaxed text-center"
           style={{

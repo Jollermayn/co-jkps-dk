@@ -218,14 +218,14 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
           {study.video ? (
             <video
               src={study.video}
-              poster={study.image}
               aria-label={`${study.client} — ${study.title}`}
-              className="block w-full h-[240px] sm:h-[320px] md:h-[380px] object-cover"
+              className="block w-full h-[240px] sm:h-[320px] md:h-[380px] object-cover bg-[#0A1628]"
+              style={{ backgroundColor: "#0A1628" }}
               autoPlay
               muted
               loop
               playsInline
-              preload="metadata"
+              preload="auto"
             />
           ) : (
             <img

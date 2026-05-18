@@ -310,3 +310,8 @@
   outline-offset: 3px;
   transition: outline 0.2s ease-out;
 }
+
+@keyframes heroQuoteFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
