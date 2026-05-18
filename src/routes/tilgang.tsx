@@ -345,20 +345,6 @@ function TilgangPage() {
                 >
                   {cell.heading}
                 </h3>
-                <p
-                  style={{
-                    marginTop: 20,
-                    fontFamily: "serif",
-                    fontStyle: "italic",
-                    fontSize: "1rem",
-                    color: MUTED_ON_DARK,
-                    lineHeight: 1.5,
-                    maxWidth: 480,
-                    margin: "20px 0 0",
-                  }}
-                >
-                  {cell.silver}
-                </p>
               </div>
             </div>
           ))}
