@@ -45,7 +45,7 @@ function VikingDanmarkPage() {
         <h1 className="mt-3 font-display text-[2.4rem] sm:text-[3rem] font-bold leading-[1.05] tracking-tight">
           VikingDanmark
         </h1>
-        <div className="relative mt-8 overflow-hidden rounded-md">
+        <div className="relative mt-8 overflow-hidden sm:rounded-md -mx-6 sm:mx-0">
           <img
             src={heroImage}
             alt="Moderne malkekvægsstald om natten med overvågningskamera"
