@@ -170,6 +170,13 @@ const OM_MIG_ROTATING_PHRASES: { text: string; color: string }[] = [
   { text: "fortællinger der huskes.", color: "#B05A7A" },
 ];
 
+function lerpHex(a: string, b: string, t: number) {
+  const pa = [parseInt(a.slice(1, 3), 16), parseInt(a.slice(3, 5), 16), parseInt(a.slice(5, 7), 16)];
+  const pb = [parseInt(b.slice(1, 3), 16), parseInt(b.slice(3, 5), 16), parseInt(b.slice(5, 7), 16)];
+  const m = pa.map((v, i) => Math.round(v + (pb[i] - v) * t));
+  return `rgb(${m[0]}, ${m[1]}, ${m[2]})`;
+}
+
 function RotatingPhrase() {
   const [index, setIndex] = useState(0);
   const [text, setText] = useState("");
@@ -196,9 +203,17 @@ function RotatingPhrase() {
     }
     return () => clearTimeout(timeout);
   }, [text, deleting, index]);
+  const n = OM_MIG_ROTATING_PHRASES.length;
   const current = OM_MIG_ROTATING_PHRASES[index];
+  const prev = OM_MIG_ROTATING_PHRASES[(index - 1 + n) % n];
+  const next = OM_MIG_ROTATING_PHRASES[(index + 1) % n];
+  const total = current.text.length || 1;
+  const progress = Math.min(1, Math.max(0, text.length / total));
+  const color = deleting
+    ? lerpHex(current.color, next.color, 1 - progress)
+    : lerpHex(prev.color, current.color, progress);
   return (
-    <span style={{ fontStyle: "italic", color: current.color }}>
+    <span style={{ fontStyle: "italic", color }}>
       {text}
       <span>»</span>
       <span style={{ opacity: 0.6 }}>|</span>
