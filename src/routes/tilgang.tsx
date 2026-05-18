@@ -91,6 +91,10 @@ function TilgangPage() {
       <style>{`
         .tilgang-nav-link:hover { color: ${RED} !important; }
         .tilgang-cell-img { filter: grayscale(100%); transition: filter 0.4s ease; }
+        .tilgang-video-frame { position: absolute; inset: 0; overflow: hidden; }
+        .tilgang-bar { position: absolute; left: 0; right: 0; height: 40px; background: #000; z-index: 5; pointer-events: none; }
+        .tilgang-bar-top { top: 0; }
+        .tilgang-bar-bottom { bottom: 0; }
         .tilgang-cell:hover .tilgang-cell-img { filter: grayscale(0%); }
         .tilgang-cell-overlay { opacity: 0; transition: opacity 0.4s ease; }
         .tilgang-cell:hover .tilgang-cell-overlay { opacity: 1; }
