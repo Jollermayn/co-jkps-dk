@@ -151,24 +151,28 @@ function TilgangPage() {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const els = titleRefs.current.filter(Boolean) as HTMLDivElement[];
-    if (!els.length || !("IntersectionObserver" in window)) {
-      els.forEach((el) => el.classList.add("is-visible"));
-      return;
-    }
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            io.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-    els.forEach((el) => io.observe(el));
-    return () => io.disconnect();
+    const els = () => titleRefs.current.filter(Boolean) as HTMLDivElement[];
+    const update = () => {
+      const vh = window.innerHeight;
+      els().forEach((el) => {
+        const r = el.getBoundingClientRect();
+        // start at viewport bottom (progress 0), fully visible when element
+        // top has scrolled up by 35% of viewport height (progress 1).
+        const start = vh;
+        const end = vh * 0.35;
+        const p = (start - r.top) / (start - end);
+        const opacity = Math.max(0, Math.min(1, p));
+        el.style.opacity = String(opacity);
+        el.style.transform = `translateY(${(1 - opacity) * 16}px)`;
+      });
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
   }, []);
 
 
@@ -249,12 +253,8 @@ function TilgangPage() {
             text-align: center;
             padding: 18px 24px 0;
             opacity: 0;
-            transform: translateY(12px);
-            transition: opacity 1.8s ease, transform 1.8s ease;
-          }
-          .tilgang-cell-title-mobile.is-visible {
-            opacity: 1;
-            transform: translateY(0);
+            transform: translateY(16px);
+            will-change: opacity, transform;
           }
         }
         @keyframes tilgang-fade-in {
