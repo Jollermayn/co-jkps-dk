@@ -74,6 +74,9 @@ function TilgangPage() {
   const videoRefs = useRef<Array<HTMLVideoElement | null>>([]);
   const [contactOpen, setContactOpen] = useState(false);
   const [form, setForm] = useState({ navn: "", email: "", besked: "" });
+  const [sending, setSending] = useState(false);
+  const [sent, setSent] = useState(false);
+  const [sendError, setSendError] = useState<string | null>(null);
 
   useEffect(() => {
     if (!contactOpen) return;
