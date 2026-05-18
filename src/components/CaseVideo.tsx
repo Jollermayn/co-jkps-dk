@@ -14,15 +14,18 @@ export function CaseVideo({ src, ariaLabel, className }: Props) {
     const el = ref.current;
     if (!el) return;
 
-    // Ensure autoplay kicks in on mobile (iOS Safari / Android Chrome)
     el.muted = true;
     const tryPlay = () => el.play().catch(() => {});
-    tryPlay();
 
     const isTouch =
       typeof window !== "undefined" &&
       window.matchMedia("(hover: none)").matches;
-    if (isTouch) return;
+
+    // On mobile/touch: autoplay immediately. On desktop: wait for hover.
+    if (isTouch) {
+      tryPlay();
+      return;
+    }
 
     const target = (el.closest("[data-case-slug]") as HTMLElement) ?? el.parentElement;
     if (!target) return;
