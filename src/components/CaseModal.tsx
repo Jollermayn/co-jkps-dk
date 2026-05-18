@@ -311,7 +311,7 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
             }
             .case-section-anim {
               opacity: 0;
-              animation: caseSectionIn 0.4s ease-out forwards;
+              animation: caseSectionIn 1s ease-out forwards;
             }
           `}</style>
           <ModalSection title="Kontekst" index={0}>
@@ -455,7 +455,7 @@ function ModalSection({ title, index = 0, children }: { title: string; index?: n
   return (
     <div
       className="case-section-anim grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-8"
-      style={{ animationDelay: `${index * 0.15}s` }}
+      style={{ animationDelay: `${index * 0.3}s` }}
     >
       <div className="md:col-span-3">
         <h3 className="font-display text-2xl md:text-3xl tracking-tight">{title}</h3>
