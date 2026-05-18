@@ -254,7 +254,8 @@ function TilgangPage() {
             textAlign: "center",
           }}
         >
-          <IntroLines />
+          <div style={{ maxWidth: 820, marginInline: "auto", marginTop: 64 }}>
+            <IntroLines />
           </div>
         </section>
 
