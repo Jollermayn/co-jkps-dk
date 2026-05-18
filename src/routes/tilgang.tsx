@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { SiteLogo } from "@/components/SiteLogo";
 import { MenuIcon } from "@/components/MenuIcon";
+import mazeHero from "@/assets/maze-hero.png";
 
 export const Route = createFileRoute("/tilgang")({
   head: () => ({
@@ -206,6 +207,20 @@ function TilgangPage() {
             Kunsten i at finde hvad der går tabt.
           </h1>
         </section>
+
+        <img
+          src={mazeHero}
+          alt=""
+          style={{
+            display: "block",
+            width: "100%",
+            height: 500,
+            objectFit: "cover",
+            objectPosition: "center top",
+            marginTop: 48,
+            marginBottom: 48,
+          }}
+        />
 
         {/* INTRO */}
         <section
