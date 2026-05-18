@@ -130,6 +130,24 @@ function TilgangPage() {
     return () => clearInterval(id);
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => {
+      const isMobile = window.innerWidth < 1024;
+      videoRefs.current.forEach((v) => {
+        if (!v) return;
+        if (isMobile) {
+          v.play().catch(() => {});
+        } else {
+          v.pause();
+          v.currentTime = 0;
+        }
+      });
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <div style={{ backgroundColor: BEIGE, minHeight: "100vh" }}>
       <style>{`
