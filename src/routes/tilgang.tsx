@@ -105,12 +105,25 @@ function TilgangPage() {
         @media (max-width: 767px) {
           .tilgang-intro-line { font-size: clamp(0.65rem, 2.85vw, 1.2rem) !important; white-space: nowrap !important; margin-bottom: 40px !important; }
         }
+        .tilgang-cell-title-mobile { display: none; }
         @media (max-width: 767px) {
           .tilgang-hero-h1 { font-size: 2.1rem !important; line-height: 1.2 !important; }
           .tilgang-closing-h2 { font-size: 1.9rem !important; }
           .tilgang-grid { grid-template-columns: 1fr !important; }
-          .tilgang-cell { min-height: 0 !important; aspect-ratio: 4 / 5 !important; background-color: #0A1628 !important; }
-          .tilgang-cell-img { object-fit: contain !important; }
+          .tilgang-cell { min-height: 0 !important; aspect-ratio: auto !important; background-color: #0A1628 !important; }
+          .tilgang-cell-img { position: relative !important; aspect-ratio: 4 / 5 !important; height: auto !important; object-fit: cover !important; }
+          .tilgang-cell-overlay { display: none !important; }
+          .tilgang-cell-title-mobile {
+            display: block;
+            background-color: #0A1628;
+            color: #ffffff;
+            padding: 16px;
+            font-family: serif;
+            font-weight: 600;
+            font-size: 1.25rem;
+            line-height: 1.3;
+            text-align: center;
+          }
         }
       `}</style>
 
