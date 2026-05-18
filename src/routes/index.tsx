@@ -517,7 +517,7 @@ function Index() {
                   Tre <span className="italic text-ember">aner</span>
                 </h2>
                 <p className="mt-8 max-w-2xl text-lg text-cream/75 leading-relaxed">
-                  Bag det professionelle arbejde ligger tre aner — som tilsammen former den måde jeg arbejder på i dag.
+                  Bag mit professionelle arbejde ligger tre aner — som tilsammen former den måde jeg arbejder på i dag.
                 </p>
               </div>
 
