@@ -214,7 +214,7 @@ function TilgangPage() {
           style={{
             display: "block",
             width: "100%",
-            height: 500,
+            height: 600,
             objectFit: "cover",
             objectPosition: "center 65%",
             marginTop: 48,
