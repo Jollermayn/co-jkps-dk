@@ -100,6 +100,7 @@ function TilgangPage() {
         }
         @media (max-width: 1023px) {
           .tilgang-hero-h1 { font-size: 3.25rem !important; line-height: 1.15 !important; }
+          .tilgang-intro-line { margin-bottom: 56px !important; }
         }
         @media (max-width: 767px) {
           .tilgang-hero-h1 { font-size: 2.1rem !important; line-height: 1.2 !important; }
