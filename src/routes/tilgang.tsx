@@ -72,6 +72,27 @@ function TilgangPage() {
   const [hoverIdx, setHoverIdx] = useState<number | null>(null);
   const heroImgRef = useRef<HTMLImageElement | null>(null);
   const videoRefs = useRef<Array<HTMLVideoElement | null>>([]);
+  const [contactOpen, setContactOpen] = useState(false);
+  const [form, setForm] = useState({ navn: "", email: "", besked: "" });
+
+  useEffect(() => {
+    if (!contactOpen) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setContactOpen(false); };
+    document.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [contactOpen]);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const subject = encodeURIComponent(`Henvendelse fra ${form.navn || "ukendt"}`);
+    const body = encodeURIComponent(`${form.besked}\n\n— ${form.navn}\n${form.email}`);
+    window.location.href = `mailto:jonas@jkps.dk?subject=${subject}&body=${body}`;
+  };
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
@@ -417,9 +438,10 @@ function TilgangPage() {
         >
           Genkender du disse mønstre?<br />
           <a
-            href="/#kontakt"
+            href="#"
+            onClick={(e) => { e.preventDefault(); setContactOpen(true); }}
             className="tilgang-tales-link"
-            style={{ color: "#C0281E", textDecoration: "none" }}
+            style={{ color: "#C0281E", textDecoration: "none", cursor: "pointer" }}
           >
             Lad os tales ved
           </a>
@@ -447,6 +469,103 @@ function TilgangPage() {
           </a>
         </section>
       </main>
+
+      {contactOpen && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="Kontaktformular"
+          onClick={() => setContactOpen(false)}
+          style={{
+            position: "fixed",
+            inset: 0,
+            zIndex: 1000,
+            background: "rgba(0,0,0,0.6)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: 24,
+            animation: "tilgang-fade 0.3s ease",
+          }}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              position: "relative",
+              width: "100%",
+              maxWidth: 480,
+              background: "#0A1628",
+              color: "#fff",
+              borderRadius: 12,
+              padding: "40px 32px",
+              boxShadow: "0 24px 60px rgba(0,0,0,0.5)",
+              animation: "tilgang-fade 0.3s ease",
+            }}
+          >
+            <button
+              type="button"
+              aria-label="Luk"
+              onClick={() => setContactOpen(false)}
+              style={{
+                position: "absolute",
+                top: 12,
+                right: 16,
+                background: "transparent",
+                border: "none",
+                color: "#fff",
+                fontSize: "1.8rem",
+                lineHeight: 1,
+                cursor: "pointer",
+                padding: 4,
+              }}
+            >
+              ×
+            </button>
+            <h3 style={{ fontFamily: "serif", fontSize: "1.6rem", fontWeight: 700, margin: "0 0 20px" }}>
+              Lad os tales ved
+            </h3>
+            <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+              <label style={{ display: "flex", flexDirection: "column", gap: 6, fontSize: "0.9rem" }}>
+                Navn
+                <input
+                  type="text"
+                  required
+                  value={form.navn}
+                  onChange={(e) => setForm({ ...form, navn: e.target.value })}
+                  style={{ padding: "10px 12px", borderRadius: 6, border: "1px solid rgba(255,255,255,0.2)", background: "rgba(255,255,255,0.05)", color: "#fff", fontSize: "1rem" }}
+                />
+              </label>
+              <label style={{ display: "flex", flexDirection: "column", gap: 6, fontSize: "0.9rem" }}>
+                Email
+                <input
+                  type="email"
+                  required
+                  value={form.email}
+                  onChange={(e) => setForm({ ...form, email: e.target.value })}
+                  style={{ padding: "10px 12px", borderRadius: 6, border: "1px solid rgba(255,255,255,0.2)", background: "rgba(255,255,255,0.05)", color: "#fff", fontSize: "1rem" }}
+                />
+              </label>
+              <label style={{ display: "flex", flexDirection: "column", gap: 6, fontSize: "0.9rem" }}>
+                Besked
+                <textarea
+                  required
+                  rows={4}
+                  value={form.besked}
+                  onChange={(e) => setForm({ ...form, besked: e.target.value })}
+                  style={{ padding: "10px 12px", borderRadius: 6, border: "1px solid rgba(255,255,255,0.2)", background: "rgba(255,255,255,0.05)", color: "#fff", fontSize: "1rem", fontFamily: "inherit", resize: "vertical" }}
+                />
+              </label>
+              <button
+                type="submit"
+                style={{ marginTop: 6, padding: "12px 20px", background: "#C0281E", color: "#fff", border: "none", borderRadius: 6, fontSize: "1rem", fontWeight: 600, cursor: "pointer" }}
+              >
+                Send
+              </button>
+            </form>
+          </div>
+          <style>{`@keyframes tilgang-fade { from { opacity: 0; } to { opacity: 1; } }`}</style>
+        </div>
+      )}
     </div>
   );
 }
