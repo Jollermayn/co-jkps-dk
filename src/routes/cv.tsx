@@ -98,7 +98,7 @@ function CVPage() {
           <div style={{ display: "flex", gap: 10 }}>
             <a
               href={PDF_URL}
-              download
+              download="JKPS_CV"
               className="rounded-full bg-[#C0281E] px-5 py-2.5 text-sm font-semibold text-[#F4EFE6] shadow-lg hover:opacity-90 transition-opacity"
             >
               Download CV
@@ -145,7 +145,7 @@ function CVPage() {
               </a>
               <a
                 href={PDF_URL}
-                download
+                download="JKPS_CV"
                 className="rounded-full border border-[#F4EFE6]/40 px-5 py-3 text-base font-semibold text-[#F4EFE6] text-center"
               >
                 Download CV
