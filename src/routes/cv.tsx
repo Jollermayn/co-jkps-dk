@@ -145,7 +145,7 @@ function CVPage() {
               </a>
               <a
                 href={PDF_URL}
-                download
+                download="JKPS_CV"
                 className="rounded-full border border-[#F4EFE6]/40 px-5 py-3 text-base font-semibold text-[#F4EFE6] text-center"
               >
                 Download CV
