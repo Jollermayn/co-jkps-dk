@@ -89,9 +89,9 @@ const _allCases: CaseStudy[] = [
     ],
     approach: ["UX Research", "Brugerrejser", "Dataanalyse", "Product Design"],
     outcomes: [
-      "Personaliseret flow der bringer relevante boliger frem fra start",
-      "Brugerne fandt relevante boliger hurtigere og med færre klik",
-      "Valideret af Boligas product owner",
+      "Onboarding-flowet valideret og godkendt af Boligas product owner til implementering",
+      "Personaliseret flow der bringer relevante boliger frem fra start — reducerer irrelevant eksponering i den kritiske første session",
+      "Designet på baggrund af analyse af 6,5 mio. månedlige interaktioner",
     ],
   },
   {
