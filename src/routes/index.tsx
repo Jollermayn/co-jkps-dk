@@ -604,7 +604,7 @@ function Index() {
               <p className="text-left" style={{ color: "white", fontSize: "2.25rem", lineHeight: 1.3, fontWeight: 600 }}>
                 <span>Jeg tager menneskelig indsigt</span>
                 <br />
-                <span>og omsætter den til </span>
+                <span>og omsætter til </span>
                 <RotatingPhrase />
               </p>
             </div>
