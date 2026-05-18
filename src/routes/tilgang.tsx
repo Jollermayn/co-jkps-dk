@@ -160,8 +160,13 @@ function TilgangPage() {
         @media (max-width: 767px) {
           .tilgang-bar { height: 20px !important; }
         }
-        @media (max-width: 1023px) {
+        @media (max-width: 767px) {
           .tilgang-bar { display: none !important; }
+        }
+        @media (min-width: 768px) {
+          .tilgang-cell { min-height: 0 !important; aspect-ratio: auto !important; }
+          .tilgang-video-frame { position: relative !important; inset: auto !important; width: 100% !important; aspect-ratio: 16 / 9 !important; height: auto !important; }
+          .tilgang-cell-img { position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important; object-fit: cover !important; }
         }
         @media (min-width: 1024px) {
           .tilgang-tales-link { position: relative; display: inline-block; }
@@ -178,9 +183,6 @@ function TilgangPage() {
             transition: transform 0.3s ease;
           }
           .tilgang-tales-link:hover::after { transform: scaleX(1); }
-          .tilgang-cell { min-height: 0 !important; aspect-ratio: auto !important; }
-          .tilgang-video-frame { position: relative !important; inset: auto !important; width: 100% !important; aspect-ratio: 16 / 9 !important; height: auto !important; }
-          .tilgang-cell-img { position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important; object-fit: cover !important; }
         }
         @media (max-width: 1023px) {
           .tilgang-grid { padding: 0 !important; margin: 0 !important; gap: 0 !important; column-gap: 0 !important; row-gap: 0 !important; }
