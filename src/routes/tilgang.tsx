@@ -312,24 +312,28 @@ function TilgangPage() {
                 cursor: "default",
               }}
             >
-              <video
-                src={cell.image}
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="auto"
-                className="tilgang-cell-img"
-                style={{
-                  position: "absolute",
-                  inset: 0,
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                  objectPosition: "center center",
-                  display: "block",
-                }}
-              />
+              <div className="tilgang-video-frame">
+                <video
+                  src={cell.image}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="auto"
+                  className="tilgang-cell-img"
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    objectPosition: "center center",
+                    display: "block",
+                  }}
+                />
+                <div className="tilgang-bar tilgang-bar-top" aria-hidden="true" />
+                <div className="tilgang-bar tilgang-bar-bottom" aria-hidden="true" />
+              </div>
               <div
                 className="tilgang-cell-overlay"
                 style={{
