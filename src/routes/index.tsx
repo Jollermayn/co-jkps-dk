@@ -162,10 +162,10 @@ function Sidebar() {
 }
 
 const OM_MIG_ROTATING_PHRASES: { text: string; color: string }[] = [
-  { text: "design med mening", color: "#C0281E" },
   { text: "forandring der mærkes", color: "#2B5F8E" },
-  { text: "klarhed", color: "#4A7C59" },
+  { text: "design med mening", color: "#C0281E" },
   { text: "koncepter der holder", color: "#7B5EA7" },
+  { text: "klarhed", color: "#4A7C59" },
   { text: "mod til at ændre", color: "#C17F3A" },
   { text: "fortællinger der huskes", color: "#B05A7A" },
 ];
