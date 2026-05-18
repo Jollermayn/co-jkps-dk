@@ -7,18 +7,29 @@ type Props = {
   className?: string;
 };
 
-export function CaseVideo({ src, poster, ariaLabel, className }: Props) {
+export function CaseVideo({ src, ariaLabel, className }: Props) {
   const ref = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
+    // Ensure autoplay kicks in on mobile (iOS Safari / Android Chrome)
+    el.muted = true;
+    const tryPlay = () => el.play().catch(() => {});
+    tryPlay();
+
+    const isTouch =
+      typeof window !== "undefined" &&
+      window.matchMedia("(hover: none)").matches;
+    if (isTouch) return;
+
     const target = (el.closest("[data-case-slug]") as HTMLElement) ?? el.parentElement;
     if (!target) return;
 
     const play = () => {
       el.currentTime = 0;
-      el.play().catch(() => {});
+      tryPlay();
     };
     const pause = () => {
       el.pause();
@@ -42,13 +53,13 @@ export function CaseVideo({ src, poster, ariaLabel, className }: Props) {
     <video
       ref={ref}
       src={src}
-      poster={poster}
       aria-label={ariaLabel}
       className={className}
+      autoPlay
       muted
       loop
       playsInline
-      preload="metadata"
+      preload="auto"
     />
   );
 }
