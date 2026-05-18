@@ -183,7 +183,7 @@ const _allCases: CaseStudy[] = [
     title: "Når tunge emner finder sin stemme",
     image: caseAmnesty,
     context:
-      "Amnesty International arbejder med emner der er både politisk følsomme og fagligt tunge — dødsstraf, tortur, flygtninge. Et samarbejde over et par år der dækkede hele processen fra konceptudvikling og forberedelse til færdig produktion og levering.",
+      "Amnesty International arbejder med emner der er både politisk følsomme og fagligt tunge — dødsstraf, tortur, flygtninge. Et samarbejde der dækkede hele processen fra konceptudvikling og forberedelse til færdig produktion og levering.",
     challenge:
       "Amnestys journalister var fagligt stærke men manglede de produktionsmæssige redskaber til at formidle deres viden i lyd — og en kanal der matchede indholdets tyngde.",
     role: [
