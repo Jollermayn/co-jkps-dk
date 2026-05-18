@@ -180,7 +180,8 @@ function TilgangPage() {
         .tilgang-video-frame { position: absolute; inset: 0; overflow: hidden; }
         .tilgang-bar { position: absolute; left: 0; right: 0; height: 40px; background: #000; z-index: 5; pointer-events: none; }
         .tilgang-bar-top { top: 0; height: 30px; }
-        .tilgang-bar-bottom { bottom: 0; height: 40px; }
+        .tilgang-bar-bottom { bottom: 0; height: 30px; transition: height 0.6s ease; }
+        .tilgang-cell:hover .tilgang-bar-bottom { height: 45px; }
         @media (max-width: 767px) {
           .tilgang-bar-top { display: block !important; height: 23px !important; }
           .tilgang-bar-bottom { display: block !important; height: 23px !important; }
