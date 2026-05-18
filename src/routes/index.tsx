@@ -32,6 +32,9 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:type", content: "website" },
     ],
+    links: [
+      { rel: "preload", as: "video", href: caseWoltVideo, type: "video/mp4" },
+    ],
   }),
   component: Index,
 });
