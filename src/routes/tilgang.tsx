@@ -184,7 +184,7 @@ function TilgangPage() {
           }
           .tilgang-tales-link:hover::after { transform: scaleX(1); }
         }
-        @media (max-width: 1023px) {
+        @media (max-width: 767px) {
           .tilgang-grid { padding: 0 !important; margin: 0 !important; gap: 0 !important; column-gap: 0 !important; row-gap: 0 !important; }
           .tilgang-cell { margin: 0 !important; padding: 0 !important; overflow: hidden !important; }
           .tilgang-cell::before, .tilgang-cell::after,
