@@ -225,7 +225,23 @@ function TilgangPage() {
           .tilgang-cell-img { filter: grayscale(0%) !important; }
         }
         @media (min-width: 768px) and (max-width: 1023px) {
-          .tilgang-cell-overlay { opacity: 1 !important; }
+          .tilgang-grid { gap: 80px !important; row-gap: 80px !important; }
+          .tilgang-cell-overlay { display: none !important; }
+          .tilgang-bar-bottom { height: 30px !important; }
+          .tilgang-cell:hover .tilgang-bar-bottom { height: 30px !important; }
+          .tilgang-cell-title-mobile {
+            display: block !important;
+            font-family: serif;
+            font-weight: 700;
+            font-size: 1.15rem;
+            line-height: 1.3;
+            color: #000000;
+            text-align: center;
+            padding: 20px 24px 0;
+            opacity: 0;
+            transform: translateY(16px);
+            will-change: opacity, transform;
+          }
         }
         @media (max-width: 1023px) {
           .tilgang-hero-h1 { font-size: 3.25rem !important; line-height: 1.15 !important; }
