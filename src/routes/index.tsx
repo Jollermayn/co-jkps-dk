@@ -1051,17 +1051,18 @@ function CasesSection() {
                     className={imgClass}
                   />
                 )}
-                {c.status === "ongoing" && (
-                  <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-cream/40 bg-[#0D1B2A]/70 backdrop-blur text-[10px] tracking-[0.15em] uppercase text-cream/90 font-semibold">
-                    <span className="h-1.5 w-1.5 rounded-full bg-ember animate-pulse" />
-                    {c.statusLabel ?? "Igangværende"}
-                  </span>
-                )}
-              </div>
-              <div className={bodyPadding}>
+                {/* gradient overlay */}
+                <div
+                  className="absolute inset-x-0 bottom-0 pointer-events-none"
+                  style={{
+                    height: "50%",
+                    background: "linear-gradient(to top, rgba(0,0,0,0.7), transparent)",
+                  }}
+                />
+                {/* client name on gradient */}
                 <span
-                  className={"text-cream/60 uppercase font-semibold " + clientSize}
-                  style={{ fontSize: 9, letterSpacing: "0.18em" }}
+                  className={"absolute bottom-3 left-3 text-white uppercase font-semibold " + clientSize}
+                  style={{ fontSize: "0.7rem", letterSpacing: "0.15em" }}
                 >
                   {c.slug === "musikfaellesskabet-i-nye" ? (
                     "Sideløbende projekt · " + c.client
@@ -1074,6 +1075,14 @@ function CasesSection() {
                     c.client
                   )}
                 </span>
+                {c.status === "ongoing" && (
+                  <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-cream/40 bg-[#0D1B2A]/70 backdrop-blur text-[10px] tracking-[0.15em] uppercase text-cream/90 font-semibold">
+                    <span className="h-1.5 w-1.5 rounded-full bg-ember animate-pulse" />
+                    {c.statusLabel ?? "Igangværende"}
+                  </span>
+                )}
+              </div>
+              <div className={bodyPadding}>
                 <h3
                   className={"font-display font-bold text-cream leading-snug " + headlineSize}
                   style={{ fontSize: 18 }}
