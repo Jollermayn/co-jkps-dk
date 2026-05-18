@@ -434,7 +434,7 @@ function IntroLines() {
   const lines = [
     <>Forandringer fejler sjældent fordi teknologien er forkert.</>,
     <>De fejler fordi noget <strong style={{ fontWeight: 800 }}>oplagt</strong> går tabt undervejs.</>,
-    <>Mellem beslutning og virkelighed. Mellem afsender og modtager.</>,
+    <>Mellem beslutning og virkelighed.<br />Mellem afsender og modtager.</>,
   ];
 
   return (
