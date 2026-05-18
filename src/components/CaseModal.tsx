@@ -315,11 +315,11 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
               transform: translateY(0);
             }
           `}</style>
-          <ModalSection title="Kontekst" index={0}>
+          <ModalSection title="Kontekst" rootRef={panelRef}>
             <p className="text-base md:text-lg text-cream/85 leading-relaxed">{study.context}</p>
           </ModalSection>
 
-          <ModalSection title="Udfordring" index={1}>
+          <ModalSection title="Udfordring" rootRef={panelRef}>
             <p className="text-base md:text-lg text-cream/85 leading-relaxed">{study.challenge}</p>
             {study.slug === "interaktiv-horesimulering" && (
               <>
@@ -336,7 +336,7 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
             )}
           </ModalSection>
 
-          <ModalSection title="Min rolle" index={2}>
+          <ModalSection title="Min rolle" rootRef={panelRef}>
             <ul className="space-y-3">
               {study.role.map((r) => (
                 <li key={r} className="flex items-start gap-3 text-base md:text-lg text-cream/85 leading-relaxed">
@@ -347,11 +347,11 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
             </ul>
           </ModalSection>
 
-          <ModalSection title="Tilgang" index={3}>
+          <ModalSection title="Tilgang" rootRef={panelRef}>
             <ApproachGrid tags={study.approach} />
           </ModalSection>
 
-          <ModalSection title="Resultater" index={4}>
+          <ModalSection title="Resultater" rootRef={panelRef}>
             <ul className="space-y-3">
               {study.outcomes.map((o) => (
                 <li key={o} className="flex items-start gap-3 text-base md:text-lg text-cream/85 leading-relaxed">
