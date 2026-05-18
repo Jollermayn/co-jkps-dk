@@ -1,8 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { SiteLogo } from "@/components/SiteLogo";
 import { MenuIcon } from "@/components/MenuIcon";
-import mazeHero from "@/assets/maze-hero.png";
+import mazeKort from "@/assets/kort.png";
+import mazeLygte from "@/assets/lygte.png";
 
 export const Route = createFileRoute("/tilgang")({
   head: () => ({
@@ -60,6 +61,17 @@ const cells: Cell[] = [
 function TilgangPage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [hoverIdx, setHoverIdx] = useState<number | null>(null);
+  const heroImgRef = useRef<HTMLImageElement | null>(null);
+
+  useEffect(() => {
+    const sources = [mazeKort, mazeLygte];
+    let i = 0;
+    const id = setInterval(() => {
+      i = (i + 1) % 2;
+      if (heroImgRef.current) heroImgRef.current.src = sources[i];
+    }, 1500);
+    return () => clearInterval(id);
+  }, []);
 
   return (
     <div style={{ backgroundColor: BEIGE, minHeight: "100vh" }}>
@@ -209,7 +221,8 @@ function TilgangPage() {
         </section>
 
         <img
-          src={mazeHero}
+          ref={heroImgRef}
+          src={mazeKort}
           alt=""
           style={{
             display: "block",
