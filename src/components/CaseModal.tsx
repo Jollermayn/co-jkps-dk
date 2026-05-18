@@ -7,6 +7,7 @@ import boligaMockup from "@/assets/boliga-mockup.png";
 import horesimQuotes from "@/assets/horesim-quotes.png";
 import amnestyStudio from "@/assets/case-amnesty-studio.png";
 import amnestyJournalists from "@/assets/case-amnesty-journalists.png";
+import amnestyJonas from "@/assets/case-amnesty-jonas.png";
 
 type Props = {
   study: CaseStudy | null;
@@ -401,7 +402,7 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
               {[
                 { src: amnestyStudio, alt: "Lydstudie med person i optagerum" },
                 { src: amnestyJournalists, alt: "Journalister ved bord" },
-                { src: null, alt: "Billede tilføjes" },
+                { src: amnestyJonas, alt: "Jonas ved mixerpult i studie" },
               ].map((img, i) => (
                 <div
                   key={i}
