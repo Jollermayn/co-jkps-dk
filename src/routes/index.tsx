@@ -173,12 +173,13 @@ function Sidebar() {
 
 function MobileHeader() {
   const [open, setOpen] = useState(false);
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
   return (
     <>
       {/* Mobile header (<768px) — unchanged */}
       <nav className="flex md:hidden" style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: "#0A1628", height: 72, padding: "0 24px", alignItems: "center", justifyContent: "space-between", borderBottom: "1px solid rgba(0,0,0,0.08)" }}>
         <div>
-          <SiteLogo color="#F5F3EE" lineColor="#C0281E" lineOpacity={1} />
+          <SiteLogo color="#F5F3EE" lineColor="#C0281E" lineOpacity={1} onClick={scrollToTop} />
         </div>
         <button type="button" aria-label="Åbn menu" onClick={() => setOpen(true)} style={{ background: "transparent", border: "none", padding: 0, cursor: "pointer", display: "inline-flex", color: "#F5F3EE" }}>
           <MenuIcon color="#F5F3EE" />
@@ -202,7 +203,7 @@ function MobileHeader() {
           borderBottom: "1px solid rgba(0,0,0,0.08)",
         }}
       >
-        <SiteLogo color="#F5F3EE" lineColor="#C0281E" lineOpacity={1} size={44} />
+        <SiteLogo color="#F5F3EE" lineColor="#C0281E" lineOpacity={1} size={44} onClick={scrollToTop} />
         <div style={{ display: "flex", alignItems: "center", gap: 32 }}>
           {[
             { label: "Cases", href: "/#cases" },
