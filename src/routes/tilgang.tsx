@@ -247,6 +247,13 @@ function TilgangPage() {
             color: #000000;
             text-align: center;
             padding: 18px 24px 0;
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity 1.8s ease, transform 1.8s ease;
+          }
+          .tilgang-cell-title-mobile.is-visible {
+            opacity: 1;
+            transform: translateY(0);
           }
         }
         @keyframes tilgang-fade-in {
