@@ -39,6 +39,7 @@ const MUTED_ON_LIGHT = "#6b6157";
 type Cell = {
   heading: string;
   silver: string;
+  image: string;
 };
 
 const cells: Cell[] = [
@@ -46,19 +47,23 @@ const cells: Cell[] = [
     heading: "Strategien fylder 40 sider. Ingen har åbnet den.",
     silver:
       "Et dokument er ikke en retning. Jeg designer indhold der læses — og huskes.",
+    image: scenarioStrategi,
   },
   {
     heading: "Alle var enige i mødelokalet. Intet skete bagefter.",
     silver:
       "Enighed er ikke forankring. Jeg finder hullet mellem beslutningen og hverdagen.",
+    image: scenarioModelokale,
   },
   {
     heading: "Systemet er rullet ud. Ingen bruger det.",
     silver: "Mening kan ikke installeres. Jeg designer den ind.",
+    image: scenarioSystem,
   },
   {
     heading: "De designede det til brugerne. De glemte at spørge dem.",
     silver: "Antagelser er ikke viden. Jeg går ud og finder den.",
+    image: scenarioBrugere,
   },
 ];
 
