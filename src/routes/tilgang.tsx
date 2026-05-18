@@ -191,7 +191,7 @@ function TilgangPage() {
         }
         .tilgang-cell:hover .tilgang-cell-img { filter: grayscale(0%); }
         .tilgang-cell-overlay { opacity: 0; transition: opacity 0.4s ease; }
-        .tilgang-cell:hover .tilgang-cell-overlay { opacity: 1; }
+        .tilgang-cell:hover .tilgang-cell-overlay { opacity: 1; transition: opacity 1.2s ease 1s; }
         @media (max-width: 1023px) {
           .tilgang-cell-img { filter: grayscale(0%) !important; }
           .tilgang-cell-overlay { opacity: 1 !important; }
