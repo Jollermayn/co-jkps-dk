@@ -126,7 +126,7 @@ function CVPage() {
             )}
           </div>
         </div>
-        {isMobile ? (
+        {showFallback ? (
           <div
             style={{
               backgroundColor: "#0A1628",
