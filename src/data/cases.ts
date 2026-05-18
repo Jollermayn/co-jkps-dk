@@ -172,8 +172,9 @@ const _allCases: CaseStudy[] = [
     ],
     approach: ["Redaktionel tilrettelæggelse", "Tværgående koordinering", "Postproduktion"],
     outcomes: [
-      "Koordinerede produktioner på tværs af flere DR-redaktioner",
-      "Sikrede redaktionel og teknisk kvalitet under stram tidsstyring i Danmarks største medieorganisation",
+      "Leverede tilrettelagte produktioner klar til broadcast i Danmarks største medieorganisation",
+      "Producerede og postproducerede podcast-indhold fra koncept til færdigt produkt",
+      "Bidrog til konceptudvikling på tværs af redaktionelle formater",
     ],
   },
   {
