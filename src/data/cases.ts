@@ -96,7 +96,7 @@ const _allCases: CaseStudy[] = [
   },
   {
     slug: "interaktiv-horesimulering",
-    client: "FAGLIGT SAMARBEJDE · SPECIALEFTERSKOLE & AUDIOLOGER",
+    client: "FUS",
     title: "Når teknologi ikke er svaret — men mennesket er",
     image: caseHearing,
     context:
