@@ -90,11 +90,30 @@ function TilgangPage() {
     };
   }, [contactOpen]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Henvendelse fra ${form.navn || "ukendt"}`);
-    const body = encodeURIComponent(`${form.besked}\n\n— ${form.navn}\n${form.email}`);
-    window.location.href = `mailto:jonas@jkps.dk?subject=${subject}&body=${body}`;
+    if (sending) return;
+    setSending(true);
+    setSendError(null);
+    try {
+      const fd = new FormData(e.currentTarget as HTMLFormElement);
+      const res = await fetch("https://formspree.io/f/xojbqzdp", {
+        method: "POST",
+        body: fd,
+        headers: { Accept: "application/json" },
+      });
+      if (!res.ok) throw new Error("send failed");
+      setSent(true);
+      setTimeout(() => {
+        setContactOpen(false);
+        setSent(false);
+        setForm({ navn: "", email: "", besked: "" });
+      }, 3000);
+    } catch {
+      setSendError("Noget gik galt. Prøv venligst igen.");
+    } finally {
+      setSending(false);
+    }
   };
 
   useEffect(() => {
