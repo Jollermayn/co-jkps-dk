@@ -631,19 +631,21 @@ function Index() {
               >
                 <Link to="/tilgang" style={{ display: "block", textDecoration: "none" }}>
                   <span
-                    className="text-[2rem] md:text-[3rem]"
+                    className="monkey-headline"
                     style={{
                       display: "block",
                       color: "#000000",
                       fontFamily: "serif",
                       fontWeight: 700,
                       lineHeight: 1.1,
+                      fontSize: "clamp(2rem, 5vw, 4rem)",
+                      whiteSpace: "nowrap",
                     }}
                   >
                     Strategien er solid.
                   </span>
                   <span
-                    className="text-[2rem] md:text-[3rem]"
+                    className="monkey-headline"
                     style={{
                       display: "block",
                       color: "#C0281E",
@@ -652,6 +654,8 @@ function Index() {
                       fontWeight: 700,
                       lineHeight: 1.1,
                       marginTop: "8px",
+                      fontSize: "clamp(2rem, 5vw, 4rem)",
+                      whiteSpace: "nowrap",
                     }}
                   >
                     Forankringen fejler.
