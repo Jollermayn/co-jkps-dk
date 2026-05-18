@@ -254,27 +254,7 @@ function TilgangPage() {
             textAlign: "center",
           }}
         >
-          <div style={{ maxWidth: 820, marginInline: "auto", marginTop: 64 }}>
-            {[
-              <>Forandringer fejler sjældent fordi teknologien er forkert.</>,
-              <>De fejler fordi noget <strong style={{ fontWeight: 800 }}>oplagt</strong> går tabt undervejs.</>,
-              <>Mellem beslutning og virkelighed. Mellem afsender og modtager.</>,
-            ].map((line, idx) => (
-              <p
-                key={idx}
-                style={{
-                  fontFamily: "serif",
-                  fontStyle: "italic",
-                  fontSize: "1.2rem",
-                  fontWeight: 600,
-                  color: "#0A1628",
-                  lineHeight: 2,
-                  margin: "0 0 12px",
-                }}
-              >
-                {line}
-              </p>
-            ))}
+          <IntroLines />
           </div>
         </section>
 
