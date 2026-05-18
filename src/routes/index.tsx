@@ -200,6 +200,7 @@ function RotatingPhrase() {
   return (
     <span style={{ fontStyle: "italic", color: current.color }}>
       {text}
+      <span>»</span>
       <span style={{ opacity: 0.6 }}>|</span>
     </span>
   );
