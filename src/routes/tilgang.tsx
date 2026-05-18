@@ -115,7 +115,8 @@ function TilgangPage() {
           .tilgang-closing-h2 { font-size: 1.9rem !important; }
           .tilgang-grid { grid-template-columns: 1fr !important; }
           .tilgang-cell { min-height: 0 !important; aspect-ratio: auto !important; background-color: #0A1628 !important; }
-          .tilgang-cell-img { position: relative !important; aspect-ratio: 4 / 5 !important; height: auto !important; object-fit: contain !important; background-color: #0A1628 !important; }
+          .tilgang-video-frame { position: relative !important; inset: auto !important; aspect-ratio: 4 / 5 !important; width: 100% !important; }
+          .tilgang-cell-img { object-fit: contain !important; background-color: #0A1628 !important; }
           .tilgang-cell-overlay { display: none !important; }
           .tilgang-cell-title-mobile {
             display: block;
