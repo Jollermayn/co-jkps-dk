@@ -578,7 +578,13 @@ function Index() {
           <section id="om" className="py-16 md:py-20">
             <div className="px-12 md:px-14">
               <Eyebrow>Om mig</Eyebrow>
+              <h2 className="font-display text-4xl md:text-6xl mt-6 leading-[1.05] tracking-tight text-left" style={{ color: "white" }}>
+                <span>Jeg tager menneskelig indsigt og omsætter den til</span>
+                <br />
+                <RotatingPhrase />
+              </h2>
               <div className="mt-8 max-w-3xl space-y-6">
+
                 <p style={{ color: "white", opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.8 }}>
                   Jeg har arbejdet selvstændigt siden 2016 med UX research, servicedesign og konceptudvikling — på tværs af public service, civilsamfund og kommercielle virksomheder.
                 </p>
