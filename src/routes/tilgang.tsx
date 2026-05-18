@@ -220,7 +220,7 @@ function TilgangPage() {
           }
         }
         @keyframes tilgang-fade-in {
-          to { opacity: 1 !important; }
+          to { opacity: 1; }
         }
       `}</style>
 
