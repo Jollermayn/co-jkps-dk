@@ -359,7 +359,7 @@ function TilgangPage() {
             margin: "80px 24px",
           }}
         >
-          Genkender du disse mønstre?{" "}
+          Genkender du disse mønstre?<br />
           <a
             href="mailto:jonas@jkps.dk"
             style={{ color: "#C0281E", textDecoration: "none" }}
