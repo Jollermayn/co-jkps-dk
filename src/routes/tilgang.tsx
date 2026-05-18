@@ -221,7 +221,8 @@ function TilgangPage() {
         </section>
 
         <img
-          src={mazeHero}
+          ref={heroImgRef}
+          src={mazeKort}
           alt=""
           style={{
             display: "block",
