@@ -183,11 +183,13 @@ function TilgangPage() {
         .tilgang-bar-top { top: 0; height: 30px; }
         .tilgang-bar-bottom { bottom: 0; height: 30px; transition: height 0.6s ease; }
         .tilgang-cell:hover .tilgang-bar-bottom { height: 45px; }
-        @media (max-width: 767px) {
-          .tilgang-bar { display: none !important; }
-        }
         @media (max-width: 1024px) {
           .tilgang-cell { background-color: transparent !important; }
+        }
+        @media (max-width: 767px) {
+          .tilgang-bar-top { display: block !important; height: 15px !important; }
+          .tilgang-bar-bottom { display: block !important; height: 10px !important; }
+          .tilgang-cell:hover .tilgang-bar-bottom { height: 10px !important; }
         }
         @media (min-width: 768px) and (max-width: 1024px) {
           .tilgang-bar-top { display: block !important; height: 15px !important; }
@@ -231,8 +233,6 @@ function TilgangPage() {
         @media (min-width: 768px) and (max-width: 1023px) {
           .tilgang-grid { gap: 80px !important; row-gap: 80px !important; }
           .tilgang-cell-overlay { display: none !important; }
-          .tilgang-bar-bottom { height: 30px !important; }
-          .tilgang-cell:hover .tilgang-bar-bottom { height: 30px !important; }
           .tilgang-cell-title-mobile {
             display: block !important;
             font-family: serif;
