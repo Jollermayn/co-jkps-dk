@@ -499,7 +499,7 @@ function TilgangPage() {
                   alignItems: "center",
                   justifyContent: "flex-end",
                   textAlign: "center",
-                  padding: "32px 32px 4px",
+                  padding: "32px 32px 10px",
                   zIndex: 10,
                 }}
               >
