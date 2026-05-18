@@ -248,7 +248,7 @@ function MobileHeader() {
           gap: 32,
         }}
       >
-        <SiteLogo color="#F5F3EE" lineColor="#C0281E" lineOpacity={1} size={48} />
+        <SiteLogo color="#F5F3EE" lineColor="#C0281E" lineOpacity={1} size={48} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} />
         <div style={{ display: "flex", alignItems: "center", gap: 32 }}>
           {[
             { label: "Cases", href: "/#cases" },
