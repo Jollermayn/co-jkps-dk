@@ -5,6 +5,8 @@ import { ApproachGrid } from "@/components/ApproachGrid";
 import woltHeatmap from "@/assets/wolt-heatmap.png";
 import boligaMockup from "@/assets/boliga-mockup.png";
 import horesimQuotes from "@/assets/horesim-quotes.png";
+import amnestyStudio from "@/assets/case-amnesty-studio.png";
+import amnestyJournalists from "@/assets/case-amnesty-journalists.png";
 
 type Props = {
   study: CaseStudy | null;
@@ -391,6 +393,36 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
                   <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-24 md:h-32 bg-gradient-to-b from-transparent to-[#0D1B2A]" />
                 </div>
               </div>
+            </div>
+          )}
+
+          {study.slug === "amnesty-international" && (
+            <div className="grid grid-cols-3 mt-12" style={{ gap: "8px" }}>
+              {[
+                { src: amnestyStudio, alt: "Lydstudie med person i optagerum" },
+                { src: amnestyJournalists, alt: "Journalister ved bord" },
+                { src: null, alt: "Billede tilføjes" },
+              ].map((img, i) => (
+                <div
+                  key={i}
+                  className="overflow-hidden aspect-[4/3]"
+                >
+                  {img.src ? (
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      loading="lazy"
+                      className="w-full h-full object-cover transition-transform duration-300 ease-in-out hover:scale-105"
+                    />
+                  ) : (
+                    <div
+                      className="w-full h-full flex items-center justify-center bg-[#0A1628] text-white transition-transform duration-300 ease-in-out hover:scale-105"
+                    >
+                      Billede tilføjes
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           )}
 
