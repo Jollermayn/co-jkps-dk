@@ -428,7 +428,7 @@ function Index() {
                       letterSpacing: "0.05em",
                     }}
                   >
-                    Tryk og find aben i rummet →
+                    Se min tilgang →
                   </span>
                 </Link>
               </div>
@@ -448,7 +448,7 @@ function Index() {
                     letterSpacing: "0.05em",
                   }}
                 >
-                  Tryk og find aben i rummet →
+                  Se min tilgang →
                 </Link>
               </div>
             </div>
