@@ -369,58 +369,25 @@ function TilgangPage() {
           .
         </p>
 
-        {/* CLOSING + CTA */}
+        {/* CLOSING */}
         <section
           style={{
             backgroundColor: NAVY,
-            padding: "120px 24px",
+            padding: "80px 24px",
             textAlign: "center",
           }}
         >
-
-          <h2
-            className="tilgang-closing-h2"
+          <Link
+            to="/"
             style={{
               fontFamily: "serif",
-              fontWeight: 700,
-              fontSize: "2.5rem",
-              color: "#ffffff",
-              margin: 0,
-            }}
-          >
-            Her kan du fange mig.
-          </h2>
-
-          <a
-            href="mailto:jonas@jkps.dk"
-            style={{
-              display: "inline-block",
-              marginTop: 28,
-              backgroundColor: RED,
-              color: "#ffffff",
-              padding: "14px 28px",
-              fontFamily: "serif",
-              fontSize: "1rem",
+              fontSize: "0.95rem",
+              color: MUTED_ON_DARK,
               textDecoration: "none",
-              borderRadius: 2,
             }}
           >
-            Kontakt mig →
-          </a>
-
-          <div style={{ marginTop: 32 }}>
-            <Link
-              to="/"
-              style={{
-                fontFamily: "serif",
-                fontSize: "0.95rem",
-                color: MUTED_ON_DARK,
-                textDecoration: "none",
-              }}
-            >
-              ← Tilbage til portfolio
-            </Link>
-          </div>
+            ← Tilbage til portfolio
+          </Link>
         </section>
       </main>
     </div>
