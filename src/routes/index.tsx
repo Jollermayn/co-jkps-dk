@@ -338,6 +338,7 @@ function CodeParadoxBlock() {
       if (line3SuffixRef.current) line3SuffixRef.current.textContent = "...";
       return;
     }
+    cursor.style.opacity = "0";
     let blinkTimer: ReturnType<typeof setTimeout> | null = null;
     const placeCursor = (parent: HTMLElement, holdMs: number) => {
       if (cursor.parentElement !== parent) parent.appendChild(cursor);
@@ -441,15 +442,31 @@ function CodeParadoxBlock() {
     const start = () => {
       if (started) return;
       started = true;
+      cursor.style.opacity = "1";
       const beginT = setTimeout(() => {
         nextAt = performance.now();
         rafId = requestAnimationFrame(tick);
-      }, 3500);
+      }, 800);
       timeouts.push(beginT);
     };
-    start();
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            start();
+            observer.disconnect();
+            break;
+          }
+        }
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(section);
+
     return () => {
       cancelled = true;
+      observer.disconnect();
       cancelAnimationFrame(rafId);
       timeouts.forEach(clearTimeout);
     };
