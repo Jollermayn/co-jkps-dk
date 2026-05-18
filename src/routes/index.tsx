@@ -601,7 +601,7 @@ function Index() {
           {/* TYPEWRITER INTRO */}
           <section className="pt-16 md:pt-24 pb-0">
             <div className="px-8 sm:px-12 md:px-14">
-              <p className="text-left text-[1.4rem] sm:text-[clamp(1.2rem,3.5vw,2rem)]" style={{ color: "white", lineHeight: 1.3, fontWeight: 600 }}>
+              <p className="text-left md:text-center text-[1.4rem] sm:text-[clamp(1.2rem,3.5vw,2rem)]" style={{ color: "white", lineHeight: 1.3, fontWeight: 600 }}>
                 <span>Jeg omsætter menneskelig indsigt til</span>
                 <span className="block whitespace-nowrap text-[clamp(1rem,4vw,1.4rem)] sm:text-[inherit] min-h-[2rem] sm:min-h-[2.5rem] [&>span]:whitespace-nowrap">
                   <RotatingPhrase />
