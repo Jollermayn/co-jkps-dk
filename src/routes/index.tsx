@@ -703,7 +703,7 @@ const CASE_META: Record<string, { headline: string; tags: string[] }> = {
     tags: ["Interviews", "Feltobservation", "Co-design", "Servicedesign"],
   },
   boliga: {
-    headline: "Reduceret kompleksitet i boligsøgning",
+    headline: "Den gode start på boligjagten",
     tags: ["Brugerrejser", "Servicedesign", "Konceptudvikling"],
   },
   "itu-designlab": {
@@ -715,7 +715,7 @@ const CASE_META: Record<string, { headline: string; tags: string[] }> = {
     tags: ["Interviews", "Co-design", "Konceptudvikling"],
   },
   "danmarks-radio": {
-    headline: "Digitale og lydbaserede formater",
+    headline: "Redaktionel kvalitet bag Danmarks public service",
     tags: ["Strategisk kommunikation"],
   },
   "amnesty-international": {

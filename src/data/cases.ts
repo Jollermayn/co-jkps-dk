@@ -76,7 +76,7 @@ const _allCases: CaseStudy[] = [
   {
     slug: "boliga",
     client: "Boliga",
-    title: "Reduceret kompleksitet i boligsøgning",
+    title: "Den gode start på boligjagten",
     image: caseBoliga,
     context:
       "Boliga er Danmarks største boligplatform med 6,5 mio. månedlige interaktioner. Centrale funktioner var usynlige for brugerne — menuen modtog blot 100.000 interaktioner mod 2,6 mio. på boligvisningssiden.",
@@ -159,7 +159,7 @@ const _allCases: CaseStudy[] = [
   {
     slug: "danmarks-radio",
     client: "Danmarks Radio",
-    title: "Broadcast-kvalitet for Danmarks største medieplatform",
+    title: "Redaktionel kvalitet bag Danmarks public service",
     image: caseDR,
     context:
       "Danmarks Radio er Danmarks største public service medievirksomhed. Samarbejdet dækkede broadcast, podcastproduktion og tværgående koordinering på tværs af redaktioner.",
