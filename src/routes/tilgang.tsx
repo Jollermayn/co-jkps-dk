@@ -1,8 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { SiteLogo } from "@/components/SiteLogo";
 import { MenuIcon } from "@/components/MenuIcon";
-import mazeHero from "@/assets/maze-hero.png";
+import mazeKort from "@/assets/kort.png";
+import mazeLygte from "@/assets/lygte.png";
 
 export const Route = createFileRoute("/tilgang")({
   head: () => ({
