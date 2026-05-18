@@ -209,14 +209,19 @@ function TilgangPage() {
           .tilgang-hero-h1 { font-size: 2.1rem !important; line-height: 1.2 !important; }
           .tilgang-closing-h2 { font-size: 1.9rem !important; }
           .tilgang-grid { grid-template-columns: 1fr !important; }
-          .tilgang-cell { min-height: 0 !important; aspect-ratio: auto !important; background-color: #0A1628 !important; }
+          .tilgang-cell { min-height: 0 !important; aspect-ratio: auto !important; background-color: transparent !important; }
           .tilgang-video-frame { position: relative !important; inset: auto !important; aspect-ratio: 16 / 9 !important; width: 100% !important; }
           .tilgang-cell-img { object-fit: cover !important; background-color: #0A1628 !important; }
-          .tilgang-cell-title-mobile { display: none !important; }
-          .tilgang-cell-overlay {
-            display: flex !important;
-            opacity: 1 !important;
-            animation: none !important;
+          .tilgang-cell-overlay { display: none !important; }
+          .tilgang-cell-title-mobile {
+            display: block !important;
+            font-family: serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            line-height: 1.3;
+            color: #000000;
+            text-align: center;
+            padding: 18px 24px 0;
           }
         }
         @keyframes tilgang-fade-in {
