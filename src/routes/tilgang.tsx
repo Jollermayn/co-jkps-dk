@@ -179,8 +179,8 @@ function TilgangPage() {
         .tilgang-cell-img { filter: grayscale(100%); transition: filter 0.4s ease; }
         .tilgang-video-frame { position: absolute; inset: 0; overflow: hidden; }
         .tilgang-bar { position: absolute; left: 0; right: 0; height: 40px; background: #000; z-index: 5; pointer-events: none; }
-        .tilgang-bar-top { top: 0; height: 28px; }
-        .tilgang-bar-bottom { bottom: 0; height: 28px; }
+        .tilgang-bar-top { top: 0; height: 30px; }
+        .tilgang-bar-bottom { bottom: 0; height: 30px; }
         @media (max-width: 767px) {
           .tilgang-bar-top { display: block !important; height: 23px !important; }
           .tilgang-bar-bottom { display: block !important; height: 23px !important; }
