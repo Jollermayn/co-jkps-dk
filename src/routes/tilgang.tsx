@@ -216,7 +216,7 @@ function TilgangPage() {
               marginInline: "auto",
             }}
           >
-            Kunsten i at belyse,<br />hvad der går tabt.
+            Kunsten i at belyse,<br />hvad der går tabt undervejs.
           </h1>
         </section>
 
@@ -246,7 +246,7 @@ function TilgangPage() {
           <div style={{ maxWidth: 820, marginInline: "auto" }}>
             {[
               "Forandringer fejler sjældent fordi teknologien er forkert.",
-              "De fejler fordi noget går tabt på vejen.",
+              "De fejler fordi noget går tabt undervejs.",
               "Mellem beslutning og virkelighed. Mellem afsender og modtager.",
             ].map((line) => (
               <p
