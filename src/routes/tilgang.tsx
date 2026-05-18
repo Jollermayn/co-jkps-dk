@@ -499,6 +499,7 @@ function TilgangPage() {
                   justifyContent: "flex-end",
                   textAlign: "center",
                   padding: "32px 32px 4px",
+                  zIndex: 10,
                 }}
               >
                 <h3
