@@ -462,9 +462,9 @@ function TilgangPage() {
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
-                  justifyContent: "center",
+                  justifyContent: "flex-end",
                   textAlign: "center",
-                  padding: "40px 32px",
+                  padding: "32px 32px 48px",
                 }}
               >
                 <h3
