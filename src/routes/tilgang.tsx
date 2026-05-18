@@ -61,7 +61,7 @@ const cells: Cell[] = [
     image: scenarioSystem,
   },
   {
-    heading: "De designede det til brugerne. De glemte at spørge dem.",
+    heading: "De designede til brugerne. Glemte at spørge dem.",
     silver: "Antagelser er ikke viden. Jeg går ud og finder den.",
     image: scenarioBrugere,
   },
