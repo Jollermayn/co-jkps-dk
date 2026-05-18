@@ -1062,7 +1062,7 @@ function CasesSection() {
                 {/* client name on gradient */}
                 <span
                   className={"absolute bottom-3 left-3 text-[#C0281E] uppercase font-bold " + clientSize}
-                  style={{ fontSize: "0.7rem", letterSpacing: "0.15em", background: "rgba(0,0,0,0.4)", padding: "4px 8px", borderRadius: "2px" }}
+                  style={{ fontSize: "0.7rem", letterSpacing: "0.15em", textShadow: "0 0 12px rgba(0,0,0,0.8)" }}
                 >
                   {c.slug === "musikfaellesskabet-i-nye" ? (
                     "Sideløbende projekt · " + c.client
