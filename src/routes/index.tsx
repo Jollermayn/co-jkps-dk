@@ -442,6 +442,7 @@ function CodeParadoxBlock() {
     const start = () => {
       if (started) return;
       started = true;
+      cursor.style.opacity = "1";
       const beginT = setTimeout(() => {
         nextAt = performance.now();
         rafId = requestAnimationFrame(tick);
