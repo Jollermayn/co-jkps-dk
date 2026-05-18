@@ -98,8 +98,11 @@ function TilgangPage() {
           .tilgang-cell-img { filter: grayscale(0%) !important; }
           .tilgang-cell-overlay { opacity: 1 !important; }
         }
+        @media (max-width: 1023px) {
+          .tilgang-hero-h1 { font-size: 3.25rem !important; line-height: 1.15 !important; }
+        }
         @media (max-width: 767px) {
-          .tilgang-hero-h1 { font-size: 3rem !important; }
+          .tilgang-hero-h1 { font-size: 2.1rem !important; line-height: 1.2 !important; }
           .tilgang-closing-h2 { font-size: 1.9rem !important; }
           .tilgang-grid { grid-template-columns: 1fr !important; }
         }
