@@ -161,6 +161,46 @@ function Sidebar() {
   );
 }
 
+const OM_MIG_ROTATING_PHRASES: { text: string; color: string }[] = [
+  { text: "design der rammer.", color: "#C0281E" },
+  { text: "forandring der mærkes.", color: "#2B5F8E" },
+  { text: "veje der åbnes.", color: "#4A7C59" },
+  { text: "koncepter der samler.", color: "#7B5EA7" },
+  { text: "mod til at ændre.", color: "#C17F3A" },
+  { text: "fortællinger der huskes.", color: "#B05A7A" },
+];
+
+function RotatingPhrase() {
+  const [index, setIndex] = useState(0);
+  const [visible, setVisible] = useState(true);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setVisible(false);
+      setTimeout(() => {
+        setIndex((i) => (i + 1) % OM_MIG_ROTATING_PHRASES.length);
+        setVisible(true);
+      }, 400);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, []);
+  const current = OM_MIG_ROTATING_PHRASES[index];
+  return (
+    <span
+      style={{
+        display: "inline-block",
+        fontStyle: "italic",
+        color: current.color,
+        opacity: visible ? 1 : 0,
+        transition: "opacity 0.4s ease",
+      }}
+    >
+      {current.text}
+    </span>
+  );
+}
+
+
+
 function MobileHeader() {
   const [open, setOpen] = useState(false);
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
@@ -538,7 +578,13 @@ function Index() {
           <section id="om" className="py-16 md:py-20">
             <div className="px-12 md:px-14">
               <Eyebrow>Om mig</Eyebrow>
+              <h2 className="font-display text-4xl md:text-6xl mt-6 leading-[1.05] tracking-tight text-left" style={{ color: "white" }}>
+                <span>Jeg tager menneskelig indsigt og omsætter den til</span>
+                <br />
+                <RotatingPhrase />
+              </h2>
               <div className="mt-8 max-w-3xl space-y-6">
+
                 <p style={{ color: "white", opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.8 }}>
                   Jeg har arbejdet selvstændigt siden 2016 med UX research, servicedesign og konceptudvikling — på tværs af public service, civilsamfund og kommercielle virksomheder.
                 </p>
