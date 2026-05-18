@@ -172,32 +172,39 @@ const OM_MIG_ROTATING_PHRASES: { text: string; color: string }[] = [
 
 function RotatingPhrase() {
   const [index, setIndex] = useState(0);
-  const [visible, setVisible] = useState(true);
+  const [text, setText] = useState("");
+  const [deleting, setDeleting] = useState(false);
   useEffect(() => {
-    const interval = setInterval(() => {
-      setVisible(false);
-      setTimeout(() => {
-        setIndex((i) => (i + 1) % OM_MIG_ROTATING_PHRASES.length);
-        setVisible(true);
-      }, 400);
-    }, 2500);
-    return () => clearInterval(interval);
-  }, []);
+    const current = OM_MIG_ROTATING_PHRASES[index].text;
+    let timeout: ReturnType<typeof setTimeout>;
+    if (!deleting && text === current) {
+      timeout = setTimeout(() => setDeleting(true), 2000);
+    } else if (deleting && text === "") {
+      setDeleting(false);
+      setIndex((i) => (i + 1) % OM_MIG_ROTATING_PHRASES.length);
+    } else {
+      timeout = setTimeout(
+        () => {
+          setText(
+            deleting
+              ? current.slice(0, text.length - 1)
+              : current.slice(0, text.length + 1),
+          );
+        },
+        deleting ? 40 : 60,
+      );
+    }
+    return () => clearTimeout(timeout);
+  }, [text, deleting, index]);
   const current = OM_MIG_ROTATING_PHRASES[index];
   return (
-    <span
-      style={{
-        display: "inline-block",
-        fontStyle: "italic",
-        color: current.color,
-        opacity: visible ? 1 : 0,
-        transition: "opacity 0.4s ease",
-      }}
-    >
-      {current.text}
+    <span style={{ fontStyle: "italic", color: current.color }}>
+      {text}
+      <span style={{ opacity: 0.6 }}>|</span>
     </span>
   );
 }
+
 
 
 
