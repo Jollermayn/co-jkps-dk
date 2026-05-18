@@ -338,6 +338,7 @@ function CodeParadoxBlock() {
       if (line3SuffixRef.current) line3SuffixRef.current.textContent = "...";
       return;
     }
+    cursor.style.opacity = "0";
     let blinkTimer: ReturnType<typeof setTimeout> | null = null;
     const placeCursor = (parent: HTMLElement, holdMs: number) => {
       if (cursor.parentElement !== parent) parent.appendChild(cursor);
