@@ -308,8 +308,19 @@ function TilgangPage() {
             <div
               key={i}
               className="tilgang-cell"
-              onMouseEnter={() => setHoverIdx(i)}
-              onMouseLeave={() => setHoverIdx(null)}
+              onMouseEnter={() => {
+                setHoverIdx(i);
+                const v = videoRefs.current[i];
+                if (v) v.play().catch(() => {});
+              }}
+              onMouseLeave={() => {
+                setHoverIdx(null);
+                const v = videoRefs.current[i];
+                if (v) {
+                  v.pause();
+                  v.currentTime = 0;
+                }
+              }}
               style={{
                 position: "relative",
                 minHeight: 450,
@@ -321,8 +332,8 @@ function TilgangPage() {
             >
               <div className="tilgang-video-frame">
                 <video
+                  ref={(el) => { videoRefs.current[i] = el; }}
                   src={cell.image}
-                  autoPlay
                   muted
                   loop
                   playsInline
