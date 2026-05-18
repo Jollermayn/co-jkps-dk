@@ -495,28 +495,6 @@ function TilgangPage() {
         </section>
       </main>
 
-      <a
-        href="/JKPS_CV.pdf"
-        download="JKPS_CV"
-        className="tilgang-floating-cv"
-        style={{
-          position: "fixed",
-          bottom: "32px",
-          right: "32px",
-          background: "#C0281E",
-          color: "#fff",
-          fontWeight: 600,
-          padding: "12px 24px",
-          borderRadius: "4px",
-          textDecoration: "none",
-          zIndex: 999,
-          transition: "background 0.2s ease",
-        }}
-        onMouseEnter={(e) => (e.currentTarget.style.background = "#A0201A")}
-        onMouseLeave={(e) => (e.currentTarget.style.background = "#C0281E")}
-      >
-        Download CV ↓
-      </a>
 
       {contactOpen && (
         <div
