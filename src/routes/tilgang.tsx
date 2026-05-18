@@ -215,8 +215,8 @@ function TilgangPage() {
           .tilgang-cell-title-mobile { display: none !important; }
           .tilgang-cell-overlay {
             display: flex !important;
-            opacity: 0 !important;
-            animation: tilgang-fade-in 0.8s ease 0.8s forwards;
+            opacity: 1 !important;
+            animation: none !important;
           }
         }
         @keyframes tilgang-fade-in {
