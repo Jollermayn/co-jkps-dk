@@ -162,12 +162,12 @@ function Sidebar() {
 }
 
 const OM_MIG_ROTATING_PHRASES: { text: string; color: string }[] = [
-  { text: "design der rammer.", color: "#C0281E" },
-  { text: "forandring der mærkes.", color: "#2B5F8E" },
-  { text: "veje der åbnes.", color: "#4A7C59" },
-  { text: "koncepter der samler.", color: "#7B5EA7" },
-  { text: "mod til at ændre.", color: "#C17F3A" },
-  { text: "fortællinger der huskes.", color: "#B05A7A" },
+  { text: "design der rammer", color: "#C0281E" },
+  { text: "forandring der mærkes", color: "#2B5F8E" },
+  { text: "veje der åbnes", color: "#4A7C59" },
+  { text: "koncepter der samler", color: "#7B5EA7" },
+  { text: "mod til at ændre", color: "#C17F3A" },
+  { text: "fortællinger der huskes", color: "#B05A7A" },
 ];
 
 function lerpHex(a: string, b: string, t: number) {
