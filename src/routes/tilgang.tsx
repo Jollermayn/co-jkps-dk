@@ -358,6 +358,7 @@ function TilgangPage() {
                   {cell.heading}
                 </h3>
               </div>
+              <div className="tilgang-cell-title-mobile">{cell.heading}</div>
             </div>
           ))}
         </section>
