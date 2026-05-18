@@ -68,9 +68,9 @@ const _allCases: CaseStudy[] = [
       "Juridisk support direkte i appen",
     ],
     outcomes: [
-      "Kortlagde systematisk lønberegning der undervurderer faktisk arbejdsdistance med 54%",
-      "Identificerede at 40% af kunder aktivt fravalgte platformen af etiske årsager",
-      "Designede tre konkrete interventioner der giver budene information og autonomi",
+      "Kortlagde at lønberegningen systematisk undervurderer faktisk arbejdsdistance med 54%",
+      "Dokumenterede at 40% af kunder fravalgte platformen af etiske årsager — uden at budene havde adgang til den information",
+      "Designede og validerede tre interventioner i Wolt Partner-appen der giver budene direkte adgang til den information der påvirker deres indkomst",
     ],
   },
   {
