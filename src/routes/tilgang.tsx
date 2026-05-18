@@ -255,26 +255,7 @@ function TilgangPage() {
           }}
         >
           <div style={{ maxWidth: 820, marginInline: "auto", marginTop: 64 }}>
-            {[
-              <>Forandringer fejler sjældent fordi teknologien er forkert.</>,
-              <>De fejler fordi noget <strong style={{ fontWeight: 800 }}>oplagt</strong> går tabt undervejs.</>,
-              <>Mellem beslutning og virkelighed. Mellem afsender og modtager.</>,
-            ].map((line, idx) => (
-              <p
-                key={idx}
-                style={{
-                  fontFamily: "serif",
-                  fontStyle: "italic",
-                  fontSize: "1.2rem",
-                  fontWeight: 600,
-                  color: "#0A1628",
-                  lineHeight: 2,
-                  margin: "0 0 12px",
-                }}
-              >
-                {line}
-              </p>
-            ))}
+            <IntroLines />
           </div>
         </section>
 
@@ -420,6 +401,59 @@ function TilgangPage() {
           </div>
         </section>
       </main>
+    </div>
+  );
+}
+
+function IntroLines() {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            setVisible(true);
+            obs.disconnect();
+          }
+        });
+      },
+      { threshold: 0.2 },
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  const lines = [
+    <>Forandringer fejler sjældent fordi teknologien er forkert.</>,
+    <>De fejler fordi noget <strong style={{ fontWeight: 800 }}>oplagt</strong> går tabt undervejs.</>,
+    <>Mellem beslutning og virkelighed. Mellem afsender og modtager.</>,
+  ];
+
+  return (
+    <div ref={ref}>
+      {lines.map((line, idx) => (
+        <p
+          key={idx}
+          style={{
+            fontFamily: "serif",
+            fontStyle: "italic",
+            fontSize: "1.2rem",
+            fontWeight: 600,
+            color: "#0A1628",
+            lineHeight: 2,
+            margin: "0 0 12px",
+            opacity: visible ? 1 : 0,
+            transform: visible ? "translateY(0)" : "translateY(20px)",
+            transition: `opacity 0.6s ease ${idx * 0.3}s, transform 0.6s ease ${idx * 0.3}s`,
+          }}
+        >
+          {line}
+        </p>
+      ))}
     </div>
   );
 }
