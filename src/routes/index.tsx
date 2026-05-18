@@ -707,7 +707,7 @@ const CASE_META: Record<string, { headline: string; tags: string[] }> = {
     tags: ["Brugerrejser", "Servicedesign", "Konceptudvikling"],
   },
   "itu-designlab": {
-    headline: "Generativ AI som brobygger mellem minder og mennesker",
+    headline: "Når fortiden vækkes til live",
     tags: ["Generativ AI", "Konceptudvikling"],
   },
   "interaktiv-horesimulering": {
@@ -719,23 +719,23 @@ const CASE_META: Record<string, { headline: string; tags: string[] }> = {
     tags: ["Strategisk kommunikation"],
   },
   "amnesty-international": {
-    headline: "Følsomme emner — skarp formidling",
+    headline: "Kompleksitet omsat til gennemslagskraft",
     tags: ["Strategisk kommunikation"],
   },
   "danmarks-naturfredningsforening": {
-    headline: "Bæredygtighed og brandudvikling",
+    headline: "Strategisk kommunikation for Danmarks største naturorganisation",
     tags: ["Brandudvikling", "Strategisk kommunikation"],
   },
   "ulla-dyrlov": {
-    headline: "Koncept og platform fra bunden",
+    headline: "Fra idé til færdig platform — helhedsleverance for selvstændig fagprofessionel",
     tags: ["Brandudvikling", "Konceptudvikling"],
   },
   "concerto-copenhagen": {
-    headline: "Kulturel relevans på tværs af generationer",
+    headline: "Bach remixet for en ny generation",
     tags: ["Strategisk kommunikation", "Konceptudvikling"],
   },
   "art-spirit-coaching": {
-    headline: "Brand og koncept fra idé til lancering",
+    headline: "Brand og platform for en praksis der var før sin tid",
     tags: ["Brandudvikling", "Konceptudvikling"],
   },
   "musikfaellesskabet-i-nye": {
