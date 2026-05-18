@@ -86,7 +86,9 @@ function TilgangPage() {
     <div style={{ backgroundColor: BEIGE, minHeight: "100vh" }}>
       <style>{`
         .tilgang-nav-link:hover { color: ${RED} !important; }
-        .tilgang-cell-overlay { opacity: 0; transition: opacity 0.3s ease; }
+        .tilgang-cell-img { filter: grayscale(100%); transition: filter 0.4s ease; }
+        .tilgang-cell:hover .tilgang-cell-img { filter: grayscale(0%); }
+        .tilgang-cell-overlay { opacity: 0; transition: opacity 0.4s ease; }
         .tilgang-cell:hover .tilgang-cell-overlay { opacity: 1; }
         @media (max-width: 767px) {
           .tilgang-hero-h1 { font-size: 3rem !important; }
