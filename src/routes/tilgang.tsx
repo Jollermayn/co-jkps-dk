@@ -442,7 +442,7 @@ function IntroLine({ children, delay }: { children: React.ReactNode; delay: numb
         fontWeight: 600,
         color: "#0A1628",
         lineHeight: 1.7,
-        margin: "0 0 clamp(28px, 6vw, 12px)",
+        margin: "0 0 28px",
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0)" : "translateY(30px)",
         transition: `opacity 1.2s ease ${delay}s, transform 1.2s ease ${delay}s`,
