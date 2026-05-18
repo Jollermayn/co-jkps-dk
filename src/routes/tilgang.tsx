@@ -72,6 +72,27 @@ function TilgangPage() {
   const [hoverIdx, setHoverIdx] = useState<number | null>(null);
   const heroImgRef = useRef<HTMLImageElement | null>(null);
   const videoRefs = useRef<Array<HTMLVideoElement | null>>([]);
+  const [contactOpen, setContactOpen] = useState(false);
+  const [form, setForm] = useState({ navn: "", email: "", besked: "" });
+
+  useEffect(() => {
+    if (!contactOpen) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setContactOpen(false); };
+    document.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [contactOpen]);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const subject = encodeURIComponent(`Henvendelse fra ${form.navn || "ukendt"}`);
+    const body = encodeURIComponent(`${form.besked}\n\n— ${form.navn}\n${form.email}`);
+    window.location.href = `mailto:jonas@jkps.dk?subject=${subject}&body=${body}`;
+  };
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
