@@ -305,13 +305,14 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
         {/* Sections */}
         <article key={study.slug} className="px-6 md:px-10 py-10 md:py-14 space-y-10 md:space-y-12">
           <style>{`
-            @keyframes caseSectionIn {
-              from { opacity: 0; transform: translateY(20px); }
-              to { opacity: 1; transform: translateY(0); }
-            }
             .case-section-anim {
               opacity: 0;
-              animation: caseSectionIn 1s ease-out forwards;
+              transform: translateY(20px);
+              transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            }
+            .case-section-anim.is-visible {
+              opacity: 1;
+              transform: translateY(0);
             }
           `}</style>
           <ModalSection title="Kontekst" index={0}>
