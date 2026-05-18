@@ -409,8 +409,8 @@ function TilgangPage() {
   );
 }
 
-function IntroLines() {
-  const ref = useRef<HTMLDivElement | null>(null);
+function IntroLine({ children }: { children: React.ReactNode }) {
+  const ref = useRef<HTMLParagraphElement | null>(null);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -425,39 +425,45 @@ function IntroLines() {
           }
         });
       },
-      { threshold: 0.2 },
+      { threshold: 0.6 },
     );
     obs.observe(el);
     return () => obs.disconnect();
   }, []);
 
-  const lines = [
-    <>Forandringer fejler sjældent fordi teknologien er forkert.</>,
-    <>De fejler fordi noget <strong style={{ fontWeight: 800 }}>oplagt</strong> går tabt undervejs.</>,
-    <>Mellem beslutning og virkelighed.<br />Mellem afsender og modtager.</>,
-  ];
-
   return (
-    <div ref={ref}>
-      {lines.map((line, idx) => (
-        <p
-          key={idx}
-          style={{
-            fontFamily: "serif",
-            fontStyle: "italic",
-            fontSize: "2rem",
-            fontWeight: 600,
-            color: "#0A1628",
-            lineHeight: 2,
-            margin: "0 0 12px",
-            opacity: visible ? 1 : 0,
-            transform: visible ? "translateY(0)" : "translateY(20px)",
-            transition: `opacity 0.6s ease ${idx * 0.3}s, transform 0.6s ease ${idx * 0.3}s`,
-          }}
-        >
-          {line}
-        </p>
-      ))}
+    <p
+      ref={ref}
+      style={{
+        fontFamily: "serif",
+        fontStyle: "italic",
+        fontSize: "2rem",
+        fontWeight: 600,
+        color: "#0A1628",
+        lineHeight: 2,
+        margin: "0 0 12px",
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translateY(0)" : "translateY(30px)",
+        transition: "opacity 1.6s ease-out, transform 1.6s ease-out",
+      }}
+    >
+      {children}
+    </p>
+  );
+}
+
+function IntroLines() {
+  return (
+    <div>
+      <IntroLine>Forandringer fejler sjældent fordi teknologien er forkert.</IntroLine>
+      <IntroLine>
+        De fejler fordi noget <strong style={{ fontWeight: 800 }}>oplagt</strong> går tabt undervejs.
+      </IntroLine>
+      <IntroLine>
+        Mellem beslutning og virkelighed.
+        <br />
+        Mellem afsender og modtager.
+      </IntroLine>
     </div>
   );
 }
