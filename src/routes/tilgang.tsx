@@ -91,6 +91,10 @@ function TilgangPage() {
       <style>{`
         .tilgang-nav-link:hover { color: ${RED} !important; }
         .tilgang-cell-img { filter: grayscale(100%); transition: filter 0.4s ease; }
+        .tilgang-video-frame { position: absolute; inset: 0; overflow: hidden; }
+        .tilgang-bar { position: absolute; left: 0; right: 0; height: 40px; background: #000; z-index: 5; pointer-events: none; }
+        .tilgang-bar-top { top: 0; }
+        .tilgang-bar-bottom { bottom: 0; }
         .tilgang-cell:hover .tilgang-cell-img { filter: grayscale(0%); }
         .tilgang-cell-overlay { opacity: 0; transition: opacity 0.4s ease; }
         .tilgang-cell:hover .tilgang-cell-overlay { opacity: 1; }
@@ -111,7 +115,8 @@ function TilgangPage() {
           .tilgang-closing-h2 { font-size: 1.9rem !important; }
           .tilgang-grid { grid-template-columns: 1fr !important; }
           .tilgang-cell { min-height: 0 !important; aspect-ratio: auto !important; background-color: #0A1628 !important; }
-          .tilgang-cell-img { position: relative !important; aspect-ratio: 4 / 5 !important; height: auto !important; object-fit: contain !important; background-color: #0A1628 !important; }
+          .tilgang-video-frame { position: relative !important; inset: auto !important; aspect-ratio: 4 / 5 !important; width: 100% !important; }
+          .tilgang-cell-img { object-fit: contain !important; background-color: #0A1628 !important; }
           .tilgang-cell-overlay { display: none !important; }
           .tilgang-cell-title-mobile {
             display: block;
@@ -312,24 +317,28 @@ function TilgangPage() {
                 cursor: "default",
               }}
             >
-              <video
-                src={cell.image}
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="auto"
-                className="tilgang-cell-img"
-                style={{
-                  position: "absolute",
-                  inset: 0,
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                  objectPosition: "center center",
-                  display: "block",
-                }}
-              />
+              <div className="tilgang-video-frame">
+                <video
+                  src={cell.image}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="auto"
+                  className="tilgang-cell-img"
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    objectPosition: "center center",
+                    display: "block",
+                  }}
+                />
+                <div className="tilgang-bar tilgang-bar-top" aria-hidden="true" />
+                <div className="tilgang-bar tilgang-bar-bottom" aria-hidden="true" />
+              </div>
               <div
                 className="tilgang-cell-overlay"
                 style={{
