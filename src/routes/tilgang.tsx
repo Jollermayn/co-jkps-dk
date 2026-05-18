@@ -71,6 +71,7 @@ function TilgangPage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [hoverIdx, setHoverIdx] = useState<number | null>(null);
   const heroImgRef = useRef<HTMLImageElement | null>(null);
+  const videoRefs = useRef<Array<HTMLVideoElement | null>>([]);
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
