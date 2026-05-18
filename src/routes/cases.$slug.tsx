@@ -125,14 +125,11 @@ function CaseDetail() {
           )}
 
           <Section label="Udfordring" title="Udfordring">
-            {study.slug === "wolt" ? (
+          {study.slug === "wolt" ? (
               <>
                 <p className="text-lg md:text-xl text-cream/85 leading-relaxed">{study.context}</p>
                 <p className="mt-6 text-lg md:text-xl text-cream/85 leading-relaxed">
-                  Løn beregnet i fugleflugt vs. faktisk rute:{" "}
-                  <strong className="font-semibold text-[#C0281E]">2,7 km vs 5,9 km</strong>. Grundløn faldet fra{" "}
-                  <strong className="font-semibold text-[#C0281E]">45 til 35 kr</strong>.{" "}
-                  <strong className="font-semibold text-[#C0281E]">40%</strong> af kunderne fravalgte Wolt af etiske årsager — uden at budene vidste det.
+                  Løn beregnet i fugleflugt: <strong className="font-semibold text-[#C0281E]">2,7 km</strong>. Faktisk rute: <strong className="font-semibold text-[#C0281E]">5,9 km</strong>. Grundløn faldet fra <strong className="font-semibold text-[#C0281E]">45 til 35 kr</strong>. <strong className="font-semibold text-[#C0281E]">40%</strong> af kunderne fravalgte Wolt af etiske årsager — uden at budene vidste det.
                 </p>
               </>
             ) : (
