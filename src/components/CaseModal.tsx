@@ -303,12 +303,22 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
         </section>
 
         {/* Sections */}
-        <article className="px-6 md:px-10 py-10 md:py-14 space-y-10 md:space-y-12">
-          <ModalSection title="Kontekst">
+        <article key={study.slug} className="px-6 md:px-10 py-10 md:py-14 space-y-10 md:space-y-12">
+          <style>{`
+            @keyframes caseSectionIn {
+              from { opacity: 0; transform: translateY(20px); }
+              to { opacity: 1; transform: translateY(0); }
+            }
+            .case-section-anim {
+              opacity: 0;
+              animation: caseSectionIn 0.4s ease-out forwards;
+            }
+          `}</style>
+          <ModalSection title="Kontekst" index={0}>
             <p className="text-base md:text-lg text-cream/85 leading-relaxed">{study.context}</p>
           </ModalSection>
 
-          <ModalSection title="Udfordring">
+          <ModalSection title="Udfordring" index={1}>
             <p className="text-base md:text-lg text-cream/85 leading-relaxed">{study.challenge}</p>
             {study.slug === "interaktiv-horesimulering" && (
               <>
@@ -325,7 +335,7 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
             )}
           </ModalSection>
 
-          <ModalSection title="Min rolle">
+          <ModalSection title="Min rolle" index={2}>
             <ul className="space-y-3">
               {study.role.map((r) => (
                 <li key={r} className="flex items-start gap-3 text-base md:text-lg text-cream/85 leading-relaxed">
@@ -336,11 +346,11 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
             </ul>
           </ModalSection>
 
-          <ModalSection title="Tilgang">
+          <ModalSection title="Tilgang" index={3}>
             <ApproachGrid tags={study.approach} />
           </ModalSection>
 
-          <ModalSection title="Resultater">
+          <ModalSection title="Resultater" index={4}>
             <ul className="space-y-3">
               {study.outcomes.map((o) => (
                 <li key={o} className="flex items-start gap-3 text-base md:text-lg text-cream/85 leading-relaxed">
