@@ -216,7 +216,7 @@ function TilgangPage() {
             width: "100%",
             height: 500,
             objectFit: "cover",
-            objectPosition: "center 60%",
+            objectPosition: "center 65%",
             marginTop: 48,
             marginBottom: 48,
           }}
