@@ -96,6 +96,22 @@ function TilgangPage() {
         .tilgang-bar { position: absolute; left: 0; right: 0; height: 40px; background: #000; z-index: 5; pointer-events: none; }
         .tilgang-bar-top { top: 0; }
         .tilgang-bar-bottom { bottom: 0; }
+        @media (min-width: 1024px) {
+          .tilgang-tales-link { position: relative; display: inline-block; }
+          .tilgang-tales-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 100%;
+            height: 2px;
+            background: #C0281E;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+          }
+          .tilgang-tales-link:hover::after { transform: scaleX(1); }
+        }
         @media (max-width: 1023px) {
           .tilgang-grid { padding-left: 0 !important; padding-right: 0 !important; margin-left: 0 !important; margin-right: 0 !important; column-gap: 0 !important; }
           .tilgang-cell { margin-left: 0 !important; margin-right: 0 !important; }
@@ -402,6 +418,7 @@ function TilgangPage() {
           Genkender du disse mønstre?<br />
           <a
             href="mailto:jonas@jkps.dk"
+            className="tilgang-tales-link"
             style={{ color: "#C0281E", textDecoration: "none" }}
           >
             Lad os tales ved
