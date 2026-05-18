@@ -72,6 +72,7 @@ function TilgangPage() {
   const [hoverIdx, setHoverIdx] = useState<number | null>(null);
   const heroImgRef = useRef<HTMLImageElement | null>(null);
   const videoRefs = useRef<Array<HTMLVideoElement | null>>([]);
+  const titleRefs = useRef<Array<HTMLDivElement | null>>([]);
   const [contactOpen, setContactOpen] = useState(false);
   const [form, setForm] = useState({ navn: "", email: "", besked: "" });
   const [sending, setSending] = useState(false);
@@ -148,6 +149,29 @@ function TilgangPage() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const els = titleRefs.current.filter(Boolean) as HTMLDivElement[];
+    if (!els.length || !("IntersectionObserver" in window)) {
+      els.forEach((el) => el.classList.add("is-visible"));
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+
+
   return (
     <div style={{ backgroundColor: BEIGE, minHeight: "100vh" }}>
       <style>{`
@@ -223,6 +247,13 @@ function TilgangPage() {
             color: #000000;
             text-align: center;
             padding: 18px 24px 0;
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity 1.8s ease, transform 1.8s ease;
+          }
+          .tilgang-cell-title-mobile.is-visible {
+            opacity: 1;
+            transform: translateY(0);
           }
         }
         @keyframes tilgang-fade-in {
@@ -484,7 +515,7 @@ function TilgangPage() {
                   {cell.heading}
                 </h3>
               </div>
-              <div className="tilgang-cell-title-mobile">{cell.heading}</div>
+              <div className="tilgang-cell-title-mobile" ref={(el) => { titleRefs.current[i] = el; }}>{cell.heading}</div>
             </div>
           ))}
         </section>
