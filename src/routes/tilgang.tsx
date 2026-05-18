@@ -402,6 +402,7 @@ function TilgangPage() {
           Genkender du disse mønstre?<br />
           <a
             href="mailto:jonas@jkps.dk"
+            className="tilgang-tales-link"
             style={{ color: "#C0281E", textDecoration: "none" }}
           >
             Lad os tales ved
