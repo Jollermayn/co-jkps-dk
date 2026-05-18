@@ -350,6 +350,26 @@ function TilgangPage() {
           ))}
         </section>
 
+        <p
+          style={{
+            fontFamily: "serif",
+            fontStyle: "italic",
+            fontSize: "1.3rem",
+            color: "#0A1628",
+            textAlign: "center",
+            margin: "80px 24px",
+          }}
+        >
+          Genkender du disse mønstre?{" "}
+          <a
+            href="mailto:jonas@jkps.dk"
+            style={{ color: "#C0281E", textDecoration: "none" }}
+          >
+            Lad os tales ved
+          </a>
+          .
+        </p>
+
         {/* CLOSING + CTA */}
         <section
           style={{
