@@ -293,6 +293,232 @@ function MobileHeader() {
   );
 }
 
+const TW_CURSOR_CSS = `
+.tw-cursor { display: inline-block; width: 0.6ch; margin-left: 1px; color: #F5F0E8; animation: tw-blink 1s steps(2, start) infinite; }
+.tw-cursor.is-typing { animation: none; opacity: 1; }
+@keyframes tw-blink { to { visibility: hidden; } }
+`;
+
+function CodeParadoxBlock() {
+  const line1Ref = useRef<HTMLDivElement>(null);
+  const line1PrefixRef = useRef<HTMLSpanElement>(null);
+  const line1TitleRef = useRef<HTMLSpanElement>(null);
+  const line2StringRef = useRef<HTMLSpanElement>(null);
+  const line2CursorRef = useRef<HTMLSpanElement>(null);
+  const line3Ref = useRef<HTMLDivElement>(null);
+  const line3PrefixRef = useRef<HTMLSpanElement>(null);
+  const line3WordRef = useRef<HTMLSpanElement>(null);
+  const line3SuffixRef = useRef<HTMLSpanElement>(null);
+  const line3CursorRef = useRef<HTMLSpanElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const windowRef = useRef<HTMLDivElement>(null);
+  const line1CursorRef = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+    const reduceMotion =
+      typeof window !== "undefined" &&
+      window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const L1_PREFIX = "// ";
+    const L1_TITLE = "The Ai paradox:";
+    const L2S = '"Too much Artificial"';
+    const L3 = "// Not enough intelligence...";
+    const cursor = line1CursorRef.current?.querySelector<HTMLSpanElement>(".tw-cursor");
+    if (!cursor) return;
+    const timeouts: ReturnType<typeof setTimeout>[] = [];
+    if (reduceMotion) {
+      cursor.remove();
+      if (line1PrefixRef.current) line1PrefixRef.current.textContent = L1_PREFIX;
+      if (line1TitleRef.current) line1TitleRef.current.textContent = L1_TITLE;
+      if (line2StringRef.current) line2StringRef.current.textContent = L2S;
+      if (line3PrefixRef.current) line3PrefixRef.current.textContent = "// Not enough ";
+      if (line3WordRef.current) line3WordRef.current.textContent = "intelligence";
+      if (line3SuffixRef.current) line3SuffixRef.current.textContent = "...";
+      return;
+    }
+    let blinkTimer: ReturnType<typeof setTimeout> | null = null;
+    const placeCursor = (parent: HTMLElement, holdMs: number) => {
+      if (cursor.parentElement !== parent) parent.appendChild(cursor);
+      cursor.classList.add("is-typing");
+      if (blinkTimer) clearTimeout(blinkTimer);
+      blinkTimer = setTimeout(() => cursor.classList.remove("is-typing"), holdMs);
+      timeouts.push(blinkTimer);
+    };
+    type Target = "l1p" | "l1t" | "l2s" | "l3";
+    type Step = { target: Target; text: string; delay: number };
+    const rand = (min: number, max: number) => min + Math.random() * (max - min);
+    const charDelay = () => rand(80, 100) + rand(-15, 15);
+    const steps: Step[] = [];
+    const pushTyping = (target: Target, full: string) => {
+      for (let c = 1; c <= full.length; c++) {
+        steps.push({ target, text: full.slice(0, c), delay: charDelay() });
+      }
+    };
+    pushTyping("l1p", L1_PREFIX);
+    pushTyping("l1t", L1_TITLE);
+    if (steps.length) steps[steps.length - 1].delay += 400;
+    pushTyping("l2s", L2S);
+    if (steps.length) steps[steps.length - 1].delay += 400;
+    const PREFIX = "// Not enough intelli";
+    const WRONG = "ggenc";
+    for (let c = 1; c <= PREFIX.length; c++) {
+      steps.push({ target: "l3", text: PREFIX.slice(0, c), delay: charDelay() });
+    }
+    for (let k = 1; k <= WRONG.length; k++) {
+      steps.push({ target: "l3", text: PREFIX + WRONG.slice(0, k), delay: 95 });
+    }
+    steps[steps.length - 1].delay += 600;
+    for (let k = WRONG.length - 1; k >= 0; k--) {
+      steps.push({ target: "l3", text: PREFIX + WRONG.slice(0, k), delay: 150 });
+    }
+    for (let c = PREFIX.length + 1; c <= L3.length; c++) {
+      steps.push({ target: "l3", text: L3.slice(0, c), delay: charDelay() });
+    }
+    const writeStep = (s: Step) => {
+      let el: HTMLElement | null = null;
+      let cursorParent: HTMLElement | null = null;
+      switch (s.target) {
+        case "l1p":
+          el = line1PrefixRef.current;
+          cursorParent = line1CursorRef.current;
+          break;
+        case "l1t":
+          el = line1TitleRef.current;
+          cursorParent = line1CursorRef.current;
+          break;
+        case "l2s":
+          el = line2StringRef.current;
+          cursorParent = line2CursorRef.current;
+          break;
+        case "l3": {
+          const PRE = "// Not enough ";
+          const WORD_LEN = "intelligence".length;
+          const t = s.text;
+          const prefixText = t.slice(0, Math.min(t.length, PRE.length));
+          const wordText = t.length > PRE.length ? t.slice(PRE.length, PRE.length + WORD_LEN) : "";
+          const suffixText = t.length > PRE.length + WORD_LEN ? t.slice(PRE.length + WORD_LEN) : "";
+          if (line3PrefixRef.current) line3PrefixRef.current.textContent = prefixText;
+          if (line3WordRef.current) line3WordRef.current.textContent = wordText;
+          if (line3SuffixRef.current) line3SuffixRef.current.textContent = suffixText;
+          if (line3CursorRef.current) placeCursor(line3CursorRef.current, Math.max(60, s.delay - 20));
+          return;
+        }
+      }
+      if (!el) return;
+      el.textContent = s.text;
+      if (cursorParent) placeCursor(cursorParent, Math.max(60, s.delay - 20));
+    };
+    let rafId = 0;
+    let cancelled = false;
+    let started = false;
+    let stepIdx = 0;
+    let nextAt = 0;
+    const tick = (now: number) => {
+      if (cancelled) return;
+      while (stepIdx < steps.length && now >= nextAt) {
+        const s = steps[stepIdx];
+        writeStep(s);
+        nextAt += s.delay;
+        stepIdx++;
+      }
+      if (stepIdx < steps.length) {
+        rafId = requestAnimationFrame(tick);
+      } else {
+        cursor.classList.remove("is-typing");
+        const fadeT = setTimeout(() => {
+          cursor.style.transition = "opacity 800ms ease-out";
+          cursor.style.opacity = "0";
+          const removeT = setTimeout(() => {
+            cursor.remove();
+          }, 850);
+          timeouts.push(removeT);
+        }, 3000);
+        timeouts.push(fadeT);
+      }
+    };
+    const start = () => {
+      if (started) return;
+      started = true;
+      const beginT = setTimeout(() => {
+        nextAt = performance.now();
+        rafId = requestAnimationFrame(tick);
+      }, 3500);
+      timeouts.push(beginT);
+    };
+    start();
+    return () => {
+      cancelled = true;
+      cancelAnimationFrame(rafId);
+      timeouts.forEach(clearTimeout);
+    };
+  }, []);
+
+  const monoFamily =
+    "'VT323', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace";
+
+  return (
+    <section
+      ref={sectionRef}
+      aria-label="The AI paradox"
+      className="w-full flex flex-col items-center"
+      style={{ padding: "48px 24px", background: "transparent" }}
+    >
+      <style dangerouslySetInnerHTML={{ __html: TW_CURSOR_CSS }} />
+      <div
+        ref={windowRef}
+        className="tw-window"
+        style={{
+          width: "min(480px, 90vw)",
+          maxWidth: "100%",
+          height: "auto",
+          background: "#000000",
+          border: "1px solid #2a2a2a",
+          borderRadius: "10px",
+          boxShadow: "0 20px 50px rgba(0,0,0,0.45)",
+          overflow: "hidden",
+          fontFamily: monoFamily,
+          textAlign: "left",
+        }}
+      >
+        <div
+          aria-hidden="true"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 8,
+            padding: "10px 14px",
+            background: "#1a1a1a",
+            borderBottom: "1px solid #2a2a2a",
+          }}
+        >
+          <span style={{ width: 12, height: 12, borderRadius: "50%", background: "#FF5F56", display: "inline-block" }} />
+          <span style={{ width: 12, height: 12, borderRadius: "50%", background: "#FFBD2E", display: "inline-block" }} />
+          <span style={{ width: 12, height: 12, borderRadius: "50%", background: "#27C93F", display: "inline-block" }} />
+        </div>
+        <div className="tw-content" style={{ padding: "40px 48px", lineHeight: 1.8, minHeight: "calc(clamp(12px, 1.8vw, 20px) * 1.8 * 3)" }}>
+          <div ref={line1Ref} className="tw-line tw-line-1" style={{ display: "flex", alignItems: "baseline", flexWrap: "nowrap", fontSize: "clamp(12px, 1.8vw, 20px)", lineHeight: 1.8, height: "calc(clamp(12px, 1.8vw, 20px) * 1.8)", whiteSpace: "nowrap" }}>
+            <span ref={line1PrefixRef} style={{ color: "#6A737D", whiteSpace: "pre" }} />
+            <span ref={line1TitleRef} style={{ color: "#FFFFFF", fontWeight: 600, whiteSpace: "pre" }} />
+            <span ref={line1CursorRef}><span aria-hidden="true" className="tw-cursor">|</span></span>
+          </div>
+          <div className="tw-line" style={{ fontSize: "clamp(12px, 1.8vw, 20px)", lineHeight: 1.8, height: "calc(clamp(12px, 1.8vw, 20px) * 1.8)", whiteSpace: "nowrap", paddingLeft: "3ch" }}>
+            <span ref={line2StringRef} style={{ color: "#98C379", whiteSpace: "pre" }} />
+            <span ref={line2CursorRef} />
+          </div>
+          <div ref={line3Ref} className="tw-line tw-line-3" style={{ fontSize: "clamp(12px, 1.8vw, 20px)", lineHeight: 1.8, height: "calc(clamp(12px, 1.8vw, 20px) * 1.8)", whiteSpace: "nowrap" }}>
+            <span ref={line3PrefixRef} style={{ color: "#6A737D", whiteSpace: "pre" }} />
+            <span ref={line3WordRef} style={{ color: "#C0281E", whiteSpace: "pre" }} />
+            <span ref={line3SuffixRef} style={{ color: "#6A737D", whiteSpace: "pre" }} />
+            <span ref={line3CursorRef} />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Index() {
   return (
     <main id="top" className="w-full min-w-0 max-w-full overflow-x-clip text-cream lg:bg-[#0D1B2A] pt-[72px] md:pt-[80px]">
@@ -662,6 +888,21 @@ function Index() {
                 >
                   Download CV (PDF) <span aria-hidden>↓</span>
                 </a>
+              </div>
+            </div>
+          </section>
+
+          {/* AI PARADOX */}
+          <section className="py-8" style={{ backgroundColor: "#0D1B2A" }}>
+            <div className="px-6 flex flex-col items-center">
+              <p
+                className="italic text-center text-cream/60"
+                style={{ fontSize: "1rem", marginBottom: "24px" }}
+              >
+                Og ja — jeg bruger AI. Bare ikke sådan her.
+              </p>
+              <div style={{ width: "100%", maxWidth: "500px" }}>
+                <CodeParadoxBlock />
               </div>
             </div>
           </section>
