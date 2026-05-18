@@ -585,9 +585,9 @@ function Index() {
             }}
             className="py-12 px-6 md:!py-20 md:!px-16"
           >
-            <div className="flex flex-col items-center md:items-center md:flex-row" style={{ width: "100%" }}>
+            <div className="flex flex-col items-center sm:items-center sm:flex-row" style={{ width: "100%" }}>
               {/* RIGHT: image */}
-              <div className="w-full md:w-1/2 flex justify-center md:justify-end order-2 mt-8 md:mt-0">
+              <div className="w-full sm:w-1/2 flex justify-center sm:justify-end order-2 mt-8 sm:mt-0">
                 <div style={{ position: "relative", display: "inline-block" }}>
                   <img
                     src={chimpSuit}
@@ -616,7 +616,7 @@ function Index() {
 
               {/* LEFT: text */}
               <div
-                className="w-full md:w-1/2 text-center md:text-left order-1"
+                className="w-full sm:w-1/2 text-center sm:text-left order-1"
                 style={{ overflow: "visible" }}
               >
                 <Link to="/tilgang" style={{ display: "block", textDecoration: "none" }}>
@@ -629,7 +629,6 @@ function Index() {
                       fontWeight: 700,
                       lineHeight: 1.1,
                       fontSize: "clamp(2rem, 5vw, 4rem)",
-                      whiteSpace: "nowrap",
                     }}
                   >
                     Strategien er solid.
@@ -645,13 +644,12 @@ function Index() {
                       lineHeight: 1.1,
                       marginTop: "8px",
                       fontSize: "clamp(2rem, 5vw, 4rem)",
-                      whiteSpace: "nowrap",
                     }}
                   >
                     Forankringen fejler.
                   </span>
                   <span
-                    className="hidden md:inline-block bg-[#C0281E] hover:bg-[#A0201A] transition-colors"
+                    className="hidden sm:inline-block bg-[#C0281E] hover:bg-[#A0201A] transition-colors"
                     style={{
                       marginTop: "40px",
                       color: "#ffffff",
@@ -668,8 +666,8 @@ function Index() {
                 </Link>
               </div>
 
-              {/* Mobile/tablet only: Læs mere under the chimp */}
-              <div className="w-full flex justify-center order-3 mt-6 md:hidden">
+              {/* Mobile only: Læs mere under the chimp */}
+              <div className="w-full flex justify-center order-3 mt-6 sm:hidden">
                 <Link
                   to="/tilgang"
                   className="bg-[#C0281E] hover:bg-[#A0201A] transition-colors"
