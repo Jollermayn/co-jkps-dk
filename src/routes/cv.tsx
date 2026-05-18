@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { SiteLogo } from "@/components/SiteLogo";
 import { MenuIcon } from "@/components/MenuIcon";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const PDF_URL = "/JKPS_CV_NY.pdf";
 
