@@ -113,8 +113,8 @@ function TilgangPage() {
           .tilgang-tales-link:hover::after { transform: scaleX(1); }
         }
         @media (max-width: 1023px) {
-          .tilgang-grid { padding-left: 0 !important; padding-right: 0 !important; margin-left: 0 !important; margin-right: 0 !important; column-gap: 0 !important; }
-          .tilgang-cell { margin-left: 0 !important; margin-right: 0 !important; }
+          .tilgang-grid { padding: 0 !important; margin: 0 !important; gap: 0 !important; column-gap: 0 !important; row-gap: 0 !important; }
+          .tilgang-cell { margin: 0 !important; padding: 0 !important; }
         }
         .tilgang-cell:hover .tilgang-cell-img { filter: grayscale(0%); }
         .tilgang-cell-overlay { opacity: 0; transition: opacity 0.4s ease; }
