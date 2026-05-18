@@ -423,7 +423,7 @@ function Index() {
                       fontSize: "1rem",
                       fontStyle: "normal",
                       fontWeight: 600,
-                      padding: "14px 32px",
+                      padding: "16px 40px",
                       borderRadius: "4px",
                       letterSpacing: "0.05em",
                     }}
@@ -443,7 +443,7 @@ function Index() {
                     fontSize: "1rem",
                     fontStyle: "normal",
                     fontWeight: 600,
-                    padding: "14px 32px",
+                    padding: "16px 40px",
                     borderRadius: "4px",
                     letterSpacing: "0.05em",
                   }}
