@@ -109,6 +109,7 @@ function TilgangPage() {
           .tilgang-hero-h1 { font-size: 2.1rem !important; line-height: 1.2 !important; }
           .tilgang-closing-h2 { font-size: 1.9rem !important; }
           .tilgang-grid { grid-template-columns: 1fr !important; }
+          .tilgang-cell { min-height: 0 !important; aspect-ratio: 9 / 16 !important; }
         }
       `}</style>
 
