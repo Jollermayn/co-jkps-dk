@@ -178,7 +178,10 @@ function TilgangPage() {
         }
         @media (max-width: 1023px) {
           .tilgang-grid { padding: 0 !important; margin: 0 !important; gap: 0 !important; column-gap: 0 !important; row-gap: 0 !important; }
-          .tilgang-cell { margin: 0 !important; padding: 0 !important; }
+          .tilgang-cell { margin: 0 !important; padding: 0 !important; overflow: hidden !important; }
+          .tilgang-cell::before, .tilgang-cell::after,
+          .tilgang-video-frame::before, .tilgang-video-frame::after { content: none !important; background: transparent !important; display: none !important; }
+          .tilgang-video-frame { margin: 0 !important; padding: 0 !important; }
         }
         .tilgang-cell:hover .tilgang-cell-img { filter: grayscale(0%); }
         .tilgang-cell-overlay { opacity: 0; transition: opacity 0.4s ease; }
