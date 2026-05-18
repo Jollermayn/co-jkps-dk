@@ -300,7 +300,7 @@ function TilgangPage() {
           style={{
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
-            gap: 0,
+            gap: 24,
           }}
         >
           {cells.map((cell, i) => (
@@ -315,6 +315,7 @@ function TilgangPage() {
                 backgroundColor: "#bdbdbd",
                 overflow: "hidden",
                 cursor: "default",
+                marginBottom: 24,
               }}
             >
               <div className="tilgang-video-frame">
