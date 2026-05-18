@@ -844,7 +844,7 @@ function Index() {
                 <h2 className="font-display text-5xl md:text-7xl mt-6 leading-[0.95] tracking-tight">
                   Tre <span className="italic text-ember">søjler.</span>
                 </h2>
-                <p className="mt-8 max-w-2xl text-lg text-cream/75 leading-relaxed">
+                <p className="mt-3 max-w-2xl text-lg text-cream/75 leading-relaxed">
                   Som tilsammen udgør den måde jeg arbejder på.
                 </p>
               </div>
