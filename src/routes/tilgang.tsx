@@ -232,7 +232,7 @@ function TilgangPage() {
         >
           <div style={{ maxWidth: 820, marginInline: "auto" }}>
             {[
-              "Digitale forandringer fejler sjældent fordi teknologien er forkert.",
+              "Forandringer fejler sjældent fordi teknologien er forkert.",
               "De fejler fordi noget går tabt på vejen.",
               "Mellem beslutning og virkelighed. Mellem afsender og modtager.",
             ].map((line) => (
