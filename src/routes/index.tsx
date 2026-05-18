@@ -608,7 +608,7 @@ function Index() {
             </div>
           </section>
           {/* OM MIG */}
-          <section id="om" className="py-16 md:py-20">
+          <section id="om" className="pt-12 pb-16 md:pb-20">
             <div className="px-12 md:px-14">
               <Eyebrow>Om mig</Eyebrow>
               <div className="mt-8 max-w-3xl space-y-6">
