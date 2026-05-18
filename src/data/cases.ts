@@ -54,7 +54,7 @@ const _allCases: CaseStudy[] = [
     image: caseWolt,
     video: caseWoltVideo,
     context:
-      "Gig-økonomi platforme som Wolt opererer med uigennemsigtige algoritmer der direkte påvirker budenes indkomst. Budene har ingen indsigt i hvordan deres løn beregnes — og ingen redskaber til at handle på det.",
+      "Wolt-budene kørte længere end algoritmen regnede med — og fik løn for en rute der ikke eksisterede.",
     challenge:
       "Løn beregnet i fugleflugt: 2,7 km. Faktisk rute: 5,9 km. Grundløn faldet fra 45 til 35 kr. 40% af kunderne fravalgte Wolt af etiske årsager — uden at budene vidste det.",
     role: [
