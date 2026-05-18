@@ -329,7 +329,6 @@ function TilgangPage() {
                   justifyContent: "center",
                   textAlign: "center",
                   padding: "40px 32px",
-                  opacity: hoverIdx === i ? 1 : undefined,
                 }}
               >
                 <h3
