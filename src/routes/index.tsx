@@ -752,10 +752,10 @@ function Index() {
               <div className="mb-6 md:mb-10">
                 <Eyebrow>Baggrund</Eyebrow>
                 <h2 className="font-display text-5xl md:text-7xl mt-6 leading-[0.95] tracking-tight">
-                  Tre <span className="italic text-ember">aner</span>
+                  Tre <span className="italic text-ember">søjler.</span>
                 </h2>
                 <p className="mt-8 max-w-2xl text-lg text-cream/75 leading-relaxed">
-                  Bag mit professionelle arbejde ligger tre aner — som tilsammen former den måde jeg arbejder på i dag.
+                  Bag mit professionelle arbejde ligger tre søjler — som tilsammen former den måde jeg arbejder på i dag.
                 </p>
               </div>
 
