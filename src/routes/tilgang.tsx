@@ -61,6 +61,17 @@ const cells: Cell[] = [
 function TilgangPage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [hoverIdx, setHoverIdx] = useState<number | null>(null);
+  const heroImgRef = useRef<HTMLImageElement | null>(null);
+
+  useEffect(() => {
+    const sources = [mazeKort, mazeLygte];
+    let i = 0;
+    const id = setInterval(() => {
+      i = (i + 1) % 2;
+      if (heroImgRef.current) heroImgRef.current.src = sources[i];
+    }, 1500);
+    return () => clearInterval(id);
+  }, []);
 
   return (
     <div style={{ backgroundColor: BEIGE, minHeight: "100vh" }}>
