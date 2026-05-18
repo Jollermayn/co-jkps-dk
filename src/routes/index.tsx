@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { SlidersHorizontal, X, MousePointerClick, Search, GitBranch, MessageCircle, RotateCw, Plus } from "lucide-react";
 import { caseStudies, type CaseStudy } from "@/data/cases";
+import caseWoltVideo from "@/assets/case-wolt.mp4?url";
 
 import { CaseModal } from "@/components/CaseModal";
 import { CaseVideo } from "@/components/CaseVideo";
