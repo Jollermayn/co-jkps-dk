@@ -599,7 +599,7 @@ function Index() {
         {/* LEFT — scrolling content */}
         <div className="w-full min-w-0 max-w-full lg:max-w-[60%] lg:w-[60%] order-2 lg:order-none bg-navy-deep lg:mr-[40%]">
           {/* TYPEWRITER INTRO */}
-          <section className="py-16 md:py-24">
+          <section className="pt-16 md:pt-24 pb-0">
             <div className="px-12 md:px-14">
               <p className="text-center" style={{ color: "white", fontSize: "2.25rem", lineHeight: 1.3, fontWeight: 600 }}>
                 <span>Jeg tager menneskelig indsigt og omsætter den til </span>
