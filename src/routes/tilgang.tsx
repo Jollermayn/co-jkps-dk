@@ -220,7 +220,7 @@ function TilgangPage() {
             padding: 16px;
             font-family: serif;
             font-weight: 600;
-            font-size: 1.25rem;
+            font-size: 1.05rem;
             line-height: 1.3;
             text-align: center;
           }
