@@ -5,9 +5,9 @@ import { MenuIcon } from "@/components/MenuIcon";
 import mazeKort from "@/assets/kort.png";
 import mazeLygte from "@/assets/lygte.png";
 import scenarioStrategi from "@/assets/scenario-strategi-dokument.png";
-import scenarioModelokale from "@/assets/scenario-modelokale.jpg";
-import scenarioSystem from "@/assets/scenario-system.jpg";
-import scenarioBrugere from "@/assets/scenario-brugere.jpg";
+import scenarioModelokale from "@/assets/scenario-moedelokale.png";
+import scenarioSystem from "@/assets/scenario-onboarding.png";
+import scenarioBrugere from "@/assets/scenario-glasvaeg.png";
 
 export const Route = createFileRoute("/tilgang")({
   head: () => ({
