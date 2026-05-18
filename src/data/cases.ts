@@ -327,7 +327,7 @@ const _allCases: CaseStudy[] = [
   {
     slug: "itu-designlab",
     client: "DESIGNLAB",
-    title: "Generativ AI som brobygger mellem minder og mennesker",
+    title: "Når fortiden vækkes til live",
     image: caseItuDesignlab,
     context:
       "Professionelle plejere bruger reminiscensterapi til at styrke livskvaliteten hos borgere med demens — men kortlægning af den enkeltes livshistorie er ressourcekrævende og afhænger af pårørendes hukommelse og tilgængelighed.",
