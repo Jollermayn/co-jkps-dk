@@ -367,7 +367,7 @@ function TilgangPage() {
           style={{
             fontFamily: "serif",
             fontStyle: "italic",
-            fontSize: "1.3rem",
+            fontSize: "clamp(1.3rem, 3.5vw, 2.4rem)",
             color: "#0A1628",
             textAlign: "center",
             margin: "80px 24px",
