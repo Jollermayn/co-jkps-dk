@@ -900,7 +900,7 @@ function Index() {
                   className="eyebrow text-ember"
                   style={{ fontSize: "clamp(1.15rem, 2.1vw, 1.8rem)", fontWeight: 600, letterSpacing: "0.18em" }}
                 >
-                  Sidste ord
+                  Det sidste ord
                 </span>
                 <span aria-hidden className="mt-2 block h-[2px] w-1/2 bg-[#B83A20]" />
               </div>
