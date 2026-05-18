@@ -4,7 +4,7 @@ import { SiteLogo } from "@/components/SiteLogo";
 import { MenuIcon } from "@/components/MenuIcon";
 import mazeKort from "@/assets/kort.png";
 import mazeLygte from "@/assets/lygte.png";
-import scenarioStrategi from "@/assets/scenario-strategi-dokument.jpg";
+import scenarioStrategi from "@/assets/scenario-strategi-dokument.png";
 import scenarioModelokale from "@/assets/scenario-modelokale.jpg";
 import scenarioSystem from "@/assets/scenario-system.jpg";
 import scenarioBrugere from "@/assets/scenario-brugere.jpg";
