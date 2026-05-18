@@ -187,7 +187,7 @@ function TilgangPage() {
         <section
           style={{
             backgroundColor: BEIGE,
-            padding: "160px 24px",
+            padding: "160px 24px 0",
             textAlign: "center",
           }}
         >
@@ -214,10 +214,10 @@ function TilgangPage() {
           style={{
             display: "block",
             width: "100%",
-            height: 600,
+            height: 700,
             objectFit: "cover",
             objectPosition: "center 65%",
-            marginTop: 48,
+            marginTop: 24,
             marginBottom: 48,
           }}
         />
