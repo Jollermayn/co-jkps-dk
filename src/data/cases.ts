@@ -179,22 +179,25 @@ const _allCases: CaseStudy[] = [
   },
   {
     slug: "amnesty-international",
-    client: "Amnesty International",
-    title: "Kompleksitet omsat til gennemslagskraft",
+    client: "AMNESTY INTERNATIONAL",
+    title: "Når tunge emner finder sin stemme",
     image: caseAmnesty,
     context:
-      "Amnesty International er en af verdens førende menneskerettighedsorganisationer. Opgaven var at omsætte juridisk og politisk komplekse menneskerettighedsspørgsmål til indhold der rammer en bred dansk offentlighed — uden at miste præcision eller integritet.",
+      "Amnesty International arbejder med emner der er både politisk følsomme og fagligt tunge — dødsstraf, tortur, flygtninge. Et samarbejde over et par år der dækkede hele processen fra konceptudvikling og forberedelse til færdig produktion og levering.",
     challenge:
-      "Hvordan kommunikerer man om emner der er både politisk følsomme og fagligt tunge — på en måde der engagerer frem for fremmedgør?",
+      "Amnestys journalister var fagligt stærke men manglede de produktionsmæssige redskaber til at formidle deres viden i lyd — og en kanal der matchede indholdets tyngde.",
     role: [
-      "Afdækkede kommunikationsbehov og målgruppeindsigt i samarbejde med redaktionen",
-      "Omsatte komplekse temaer til tilgængeligt indhold på tværs af platforme",
-      "Sikrede sammenhæng mellem organisationens faglige integritet og den brede formidling",
+      "Husede og instruerede et hold på 7 Amnesty-journalister i professionelt lydstudio på Frederiksberg",
+      "Konceptudviklede Amnestys lydbaserede formidlingskanal",
+      "Trænede journalisterne i mikrofonteknik og oplæsning",
+      "Komponerede underlægningsmusik og skabte en samlet lydidentitet for kanalen",
+      "Tilrettelagde og efterredigerede færdige produktioner til publicering",
     ],
-    approach: ["Strategisk kommunikation", "Indholdsudvikling", "Målgruppeanalyse", "Redaktionel koordinering"],
+    approach: ["Strategisk kommunikation", "Lydproduktion", "Konceptudvikling", "Lydidentitet"],
     outcomes: [
-      "Indhold der nåede en bred dansk offentlighed uden at kompromittere den faglige præcision",
-      "Styrket sammenhæng mellem Amnestys budskaber og den faktiske brugeroplevelse",
+      "7 Amnesty-journalister klar til selvstændig produktion af professionelt lydindhold",
+      "Komplet lydidentitet — musik, stemme og produktion — der matcher Amnestys integritet og tematiske tyngde",
+      "Komplekse emner som dødsstraf og tortur formidlet i et tilgængeligt lydformat uden at miste faglig præcision",
     ],
   },
   {
