@@ -73,6 +73,10 @@ function TilgangPage() {
   const heroImgRef = useRef<HTMLImageElement | null>(null);
 
   useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
+  }, []);
+
+  useEffect(() => {
     const sources = [mazeKort, mazeLygte];
     let i = 0;
     const id = setInterval(() => {
