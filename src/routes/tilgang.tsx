@@ -493,7 +493,7 @@ function TilgangPage() {
                 style={{
                   position: "absolute",
                   inset: 0,
-                  backgroundColor: "rgba(10, 22, 40, 0.65)",
+                  backgroundColor: "transparent",
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
