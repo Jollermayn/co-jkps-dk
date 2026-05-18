@@ -416,15 +416,16 @@ function Index() {
                     Forankringen fejler.
                   </span>
                   <span
-                    className="hidden md:block"
+                    className="hidden md:inline-block bg-[#C0281E] hover:bg-[#A0201A] transition-colors"
                     style={{
                       marginTop: "40px",
-                      color: "#C0281E",
+                      color: "#ffffff",
                       fontSize: "1rem",
                       fontStyle: "normal",
-                      textDecoration: "underline",
-                      textDecorationColor: "#C0281E",
-                      textUnderlineOffset: "4px",
+                      fontWeight: 600,
+                      padding: "14px 32px",
+                      borderRadius: "4px",
+                      letterSpacing: "0.05em",
                     }}
                   >
                     Aben i rummet →
@@ -436,13 +437,15 @@ function Index() {
               <div className="w-full flex justify-center order-3 mt-6 md:hidden">
                 <Link
                   to="/tilgang"
+                  className="bg-[#C0281E] hover:bg-[#A0201A] transition-colors"
                   style={{
-                    color: "#C0281E",
+                    color: "#ffffff",
                     fontSize: "1rem",
                     fontStyle: "normal",
-                    textDecoration: "underline",
-                    textDecorationColor: "#C0281E",
-                    textUnderlineOffset: "4px",
+                    fontWeight: 600,
+                    padding: "14px 32px",
+                    borderRadius: "4px",
+                    letterSpacing: "0.05em",
                   }}
                 >
                   Aben i rummet →
