@@ -665,6 +665,21 @@ function Index() {
               </div>
             </div>
           </section>
+
+          {/* AI PARADOX */}
+          <section className="py-8" style={{ backgroundColor: "#0D1B2A" }}>
+            <div className="px-6 flex flex-col items-center">
+              <p
+                className="italic text-center text-cream/60"
+                style={{ fontSize: "1rem", marginBottom: "24px" }}
+              >
+                Og ja — jeg bruger AI. Bare ikke sådan her.
+              </p>
+              <div style={{ width: "100%", maxWidth: "500px" }}>
+                <CodeParadoxBlock />
+              </div>
+            </div>
+          </section>
         </div>
 
         {/* RIGHT — sticky sidebar */}
