@@ -301,12 +301,28 @@ function TilgangPage() {
                 cursor: "default",
               }}
             >
+              <img
+                src={cell.image}
+                alt=""
+                loading="lazy"
+                width={1024}
+                height={1024}
+                className="tilgang-cell-img"
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  display: "block",
+                }}
+              />
               <div
                 className="tilgang-cell-overlay"
                 style={{
                   position: "absolute",
                   inset: 0,
-                  backgroundColor: "rgba(10, 22, 40, 0.8)",
+                  backgroundColor: "rgba(10, 22, 40, 0.65)",
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
