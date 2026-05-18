@@ -422,7 +422,12 @@ function TilgangPage() {
             >
               <div className="tilgang-video-frame">
                 <video
-                  ref={(el) => { videoRefs.current[i] = el; }}
+                  ref={(el) => {
+                    videoRefs.current[i] = el;
+                    if (el && typeof window !== "undefined" && window.innerWidth < 1024) {
+                      el.play().catch(() => {});
+                    }
+                  }}
                   src={cell.image}
                   muted
                   loop
