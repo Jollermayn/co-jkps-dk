@@ -155,7 +155,7 @@ function TilgangPage() {
         .tilgang-cell-img { filter: grayscale(100%); transition: filter 0.4s ease; }
         .tilgang-video-frame { position: absolute; inset: 0; overflow: hidden; }
         .tilgang-bar { position: absolute; left: 0; right: 0; height: 40px; background: #000; z-index: 5; pointer-events: none; }
-        .tilgang-bar-top { top: 0; height: 55px; }
+        .tilgang-bar-top { top: 0; height: 15px; }
         .tilgang-bar-bottom { bottom: 0; }
         @media (max-width: 767px) {
           .tilgang-bar { height: 20px !important; }
