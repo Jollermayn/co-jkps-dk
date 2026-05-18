@@ -377,22 +377,6 @@ function TilgangPage() {
             textAlign: "center",
           }}
         >
-          <p
-            style={{
-              fontFamily: "serif",
-              fontStyle: "italic",
-              fontSize: "1.3rem",
-              color: "#ffffff",
-              lineHeight: 1.5,
-              maxWidth: 760,
-              margin: "0 auto",
-            }}
-          >
-            Jeg sætter lys på det der går tabt. Formidler det der er svært at
-            se. Og designer broen til det der skal ske.
-          </p>
-
-          <div style={{ height: 60 }} />
 
           <h2
             className="tilgang-closing-h2"
