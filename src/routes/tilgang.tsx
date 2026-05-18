@@ -117,6 +117,9 @@ function TilgangPage() {
         .tilgang-bar { position: absolute; left: 0; right: 0; height: 40px; background: #000; z-index: 5; pointer-events: none; }
         .tilgang-bar-top { top: 0; }
         .tilgang-bar-bottom { bottom: 0; }
+        @media (max-width: 767px) {
+          .tilgang-bar { height: 20px !important; }
+        }
         @media (min-width: 1024px) {
           .tilgang-tales-link { position: relative; display: inline-block; }
           .tilgang-tales-link::after {
