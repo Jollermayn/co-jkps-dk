@@ -50,9 +50,19 @@ export const Route = createFileRoute("/cv")({
 
 function CVPage() {
   const isMobile = useIsMobile();
+  const [isTabletOrBelow, setIsTabletOrBelow] = useState(false);
+  useEffect(() => {
+    const mql = window.matchMedia("(max-width: 1024px)");
+    const update = () => setIsTabletOrBelow(mql.matches);
+    update();
+    mql.addEventListener("change", update);
+    return () => mql.removeEventListener("change", update);
+  }, []);
+  const showFallback = isMobile || isTabletOrBelow;
   const handlePrint = () => {
     window.open(PDF_URL, "_blank");
   };
+
 
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
