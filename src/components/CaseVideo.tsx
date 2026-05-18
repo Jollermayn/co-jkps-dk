@@ -58,7 +58,7 @@ export function CaseVideo({ src, ariaLabel, className }: Props) {
       src={src}
       aria-label={ariaLabel}
       className={className}
-      autoPlay
+      
       muted
       loop
       playsInline
