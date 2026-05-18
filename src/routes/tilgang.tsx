@@ -315,6 +315,7 @@ function TilgangPage() {
                 backgroundColor: "#bdbdbd",
                 overflow: "hidden",
                 cursor: "default",
+                marginBottom: 24,
               }}
             >
               <div className="tilgang-video-frame">
