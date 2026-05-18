@@ -755,7 +755,7 @@ function Index() {
                   Tre <span className="italic text-ember">søjler.</span>
                 </h2>
                 <p className="mt-8 max-w-2xl text-lg text-cream/75 leading-relaxed">
-                  Tre søjler — som tilsammen former den måde jeg arbejder på.
+                  Som tilsammen former den måde jeg arbejder på.
                 </p>
               </div>
 
