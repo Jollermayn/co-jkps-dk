@@ -72,6 +72,7 @@ function TilgangPage() {
   const [hoverIdx, setHoverIdx] = useState<number | null>(null);
   const heroImgRef = useRef<HTMLImageElement | null>(null);
   const videoRefs = useRef<Array<HTMLVideoElement | null>>([]);
+  const titleRefs = useRef<Array<HTMLDivElement | null>>([]);
   const [contactOpen, setContactOpen] = useState(false);
   const [form, setForm] = useState({ navn: "", email: "", besked: "" });
   const [sending, setSending] = useState(false);
