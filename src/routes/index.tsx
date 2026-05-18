@@ -804,6 +804,32 @@ function CasesSection() {
     if (el) el.scrollTo({ left: 0, behavior: "auto" });
   }, [filter]);
 
+  // Fade carousel cards based on viewport visibility
+  useEffect(() => {
+    const root = scrollerRef.current;
+    if (!root || isGrid) return;
+    const cards = Array.from(root.children) as HTMLElement[];
+    cards.forEach((el) => {
+      el.style.transition = "opacity 0.4s ease-in-out";
+    });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const ratio = entry.intersectionRatio;
+          // Map ratio: fully visible (>=0.9) => 1, partial => 0.4
+          const opacity = 0.4 + 0.6 * Math.min(1, Math.max(0, (ratio - 0.5) / 0.4));
+          (entry.target as HTMLElement).style.opacity = String(opacity);
+        });
+      },
+      {
+        root,
+        threshold: [0, 0.25, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
+      },
+    );
+    cards.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, [filter, isGrid]);
+
   const total = filtered.length;
   const displayIndex = hoveredIndex ?? currentIndex;
   const progress = total > 0 ? ((displayIndex + 1) / total) * 100 : 0;
