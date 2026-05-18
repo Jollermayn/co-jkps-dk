@@ -549,44 +549,58 @@ function TilgangPage() {
             <h3 style={{ fontFamily: "serif", fontSize: "1.6rem", fontWeight: 700, margin: "0 0 20px" }}>
               Lad os tales ved
             </h3>
-            <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-              <label style={{ display: "flex", flexDirection: "column", gap: 6, fontSize: "0.9rem" }}>
-                Navn
-                <input
-                  type="text"
-                  required
-                  value={form.navn}
-                  onChange={(e) => setForm({ ...form, navn: e.target.value })}
-                  style={{ padding: "10px 12px", borderRadius: 6, border: "1px solid rgba(255,255,255,0.2)", background: "rgba(255,255,255,0.05)", color: "#fff", fontSize: "1rem" }}
-                />
-              </label>
-              <label style={{ display: "flex", flexDirection: "column", gap: 6, fontSize: "0.9rem" }}>
-                Email
-                <input
-                  type="email"
-                  required
-                  value={form.email}
-                  onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  style={{ padding: "10px 12px", borderRadius: 6, border: "1px solid rgba(255,255,255,0.2)", background: "rgba(255,255,255,0.05)", color: "#fff", fontSize: "1rem" }}
-                />
-              </label>
-              <label style={{ display: "flex", flexDirection: "column", gap: 6, fontSize: "0.9rem" }}>
-                Besked
-                <textarea
-                  required
-                  rows={4}
-                  value={form.besked}
-                  onChange={(e) => setForm({ ...form, besked: e.target.value })}
-                  style={{ padding: "10px 12px", borderRadius: 6, border: "1px solid rgba(255,255,255,0.2)", background: "rgba(255,255,255,0.05)", color: "#fff", fontSize: "1rem", fontFamily: "inherit", resize: "vertical" }}
-                />
-              </label>
-              <button
-                type="submit"
-                style={{ marginTop: 6, padding: "12px 20px", background: "#C0281E", color: "#fff", border: "none", borderRadius: 6, fontSize: "1rem", fontWeight: 600, cursor: "pointer" }}
-              >
-                Send
-              </button>
-            </form>
+            {sent ? (
+              <p style={{ color: "#fff", textAlign: "center", padding: "32px 0", fontSize: "1.15rem" }}>
+                Tak — jeg vender tilbage.
+              </p>
+            ) : (
+              <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+                <input type="hidden" name="_subject" value="Henvendelse fra jkps.dk" />
+                <label style={{ display: "flex", flexDirection: "column", gap: 6, fontSize: "0.9rem" }}>
+                  Navn
+                  <input
+                    type="text"
+                    name="navn"
+                    required
+                    value={form.navn}
+                    onChange={(e) => setForm({ ...form, navn: e.target.value })}
+                    style={{ padding: "10px 12px", borderRadius: 6, border: "1px solid rgba(255,255,255,0.2)", background: "rgba(255,255,255,0.05)", color: "#fff", fontSize: "1rem" }}
+                  />
+                </label>
+                <label style={{ display: "flex", flexDirection: "column", gap: 6, fontSize: "0.9rem" }}>
+                  Email
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    value={form.email}
+                    onChange={(e) => setForm({ ...form, email: e.target.value })}
+                    style={{ padding: "10px 12px", borderRadius: 6, border: "1px solid rgba(255,255,255,0.2)", background: "rgba(255,255,255,0.05)", color: "#fff", fontSize: "1rem" }}
+                  />
+                </label>
+                <label style={{ display: "flex", flexDirection: "column", gap: 6, fontSize: "0.9rem" }}>
+                  Besked
+                  <textarea
+                    name="besked"
+                    required
+                    rows={4}
+                    value={form.besked}
+                    onChange={(e) => setForm({ ...form, besked: e.target.value })}
+                    style={{ padding: "10px 12px", borderRadius: 6, border: "1px solid rgba(255,255,255,0.2)", background: "rgba(255,255,255,0.05)", color: "#fff", fontSize: "1rem", fontFamily: "inherit", resize: "vertical" }}
+                  />
+                </label>
+                {sendError && (
+                  <p style={{ color: "#ff9a9a", fontSize: "0.85rem", margin: 0 }}>{sendError}</p>
+                )}
+                <button
+                  type="submit"
+                  disabled={sending}
+                  style={{ marginTop: 6, padding: "12px 20px", background: "#C0281E", color: "#fff", border: "none", borderRadius: 6, fontSize: "1rem", fontWeight: 600, cursor: sending ? "default" : "pointer", opacity: sending ? 0.7 : 1 }}
+                >
+                  {sending ? "Sender..." : "Send"}
+                </button>
+              </form>
+            )}
           </div>
           <style>{`@keyframes tilgang-fade { from { opacity: 0; } to { opacity: 1; } }`}</style>
         </div>
