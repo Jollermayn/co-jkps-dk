@@ -444,12 +444,27 @@ function CodeParadoxBlock() {
       const beginT = setTimeout(() => {
         nextAt = performance.now();
         rafId = requestAnimationFrame(tick);
-      }, 3500);
+      }, 800);
       timeouts.push(beginT);
     };
-    start();
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            start();
+            observer.disconnect();
+            break;
+          }
+        }
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(section);
+
     return () => {
       cancelled = true;
+      observer.disconnect();
       cancelAnimationFrame(rafId);
       timeouts.forEach(clearTimeout);
     };
