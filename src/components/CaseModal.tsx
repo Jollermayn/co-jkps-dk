@@ -452,11 +452,38 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
 }
 
 
-function ModalSection({ title, index = 0, children }: { title: string; index?: number; children: React.ReactNode }) {
+function ModalSection({
+  title,
+  rootRef,
+  children,
+}: {
+  title: string;
+  rootRef?: React.RefObject<HTMLElement | null>;
+  children: React.ReactNode;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisible(true);
+            observer.disconnect();
+          }
+        });
+      },
+      { root: rootRef?.current ?? null, threshold: 0.2 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [rootRef]);
   return (
     <div
-      className="case-section-anim grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-8"
-      style={{ animationDelay: `${index * 0.3}s` }}
+      ref={ref}
+      className={`case-section-anim grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-8${visible ? " is-visible" : ""}`}
     >
       <div className="md:col-span-3">
         <h3 className="font-display text-2xl md:text-3xl tracking-tight">{title}</h3>
