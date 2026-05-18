@@ -151,28 +151,25 @@ function TilgangPage() {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const els = () => titleRefs.current.filter(Boolean) as HTMLDivElement[];
-    const update = () => {
-      const vh = window.innerHeight;
-      els().forEach((el) => {
-        const r = el.getBoundingClientRect();
-        // start at viewport bottom (progress 0), fully visible when element
-        // top has scrolled up by 35% of viewport height (progress 1).
-        const start = vh;
-        const end = vh * 0.35;
-        const p = (start - r.top) / (start - end);
-        const opacity = Math.max(0, Math.min(1, p));
-        el.style.opacity = String(opacity);
-        el.style.transform = `translateY(${(1 - opacity) * 16}px)`;
-      });
-    };
-    update();
-    window.addEventListener("scroll", update, { passive: true });
-    window.addEventListener("resize", update);
-    return () => {
-      window.removeEventListener("scroll", update);
-      window.removeEventListener("resize", update);
-    };
+    const els = titleRefs.current.filter(Boolean) as HTMLDivElement[];
+    if (!els.length) return;
+    if (!("IntersectionObserver" in window)) {
+      els.forEach((el) => el.classList.add("is-visible"));
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
   }, []);
 
 
@@ -251,6 +248,8 @@ function TilgangPage() {
           .tilgang-intro-line { font-size: clamp(0.65rem, 2.85vw, 1.2rem) !important; white-space: nowrap !important; margin-bottom: 40px !important; }
         }
         .tilgang-cell-title-mobile { display: none; }
+        .tilgang-cell-title-mobile { transition: opacity 0.8s ease, transform 0.8s ease; }
+        .tilgang-cell-title-mobile.is-visible { opacity: 1 !important; transform: translateY(0) !important; }
         @media (max-width: 767px) {
           .tilgang-hero-h1 { font-size: 2.1rem !important; line-height: 1.2 !important; }
           .tilgang-closing-h2 { font-size: 1.9rem !important; }
