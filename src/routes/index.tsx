@@ -163,7 +163,7 @@ function Sidebar() {
 }
 
 const OM_MIG_ROTATING_PHRASES: { text: string; color: string }[] = [
-  { text: "forandring der mærkes", color: "#3B82F6" },
+  { text: "forandring der mærkes", color: "#60A5FA" },
   { text: "design med mening", color: "#F59E0B" },
   { text: "koncepter der holder", color: "#A78BFA" },
   { text: "klarhed", color: "#34D399" },
