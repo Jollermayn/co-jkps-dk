@@ -667,7 +667,7 @@ function Index() {
             <div className="px-8 sm:px-12 md:px-14 relative" style={{ zIndex: 1 }}>
               <p className="text-left" style={{ color: "#FFFFFF", lineHeight: 1.15, fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3.5rem)" }}>
                 <span>Jeg omsætter menneskelig indsigt til</span>
-                <span className="block whitespace-nowrap [&>span]:whitespace-nowrap" style={{ fontSize: "clamp(2.2rem, 4.5vw, 4rem)", fontStyle: "italic", fontWeight: 700, lineHeight: 1.15 }}>
+                <span className="block sm:whitespace-nowrap [&>span]:whitespace-normal sm:[&>span]:whitespace-nowrap" style={{ fontSize: "clamp(2.2rem, 4.5vw, 4rem)", fontStyle: "italic", fontWeight: 700, lineHeight: 1.15, minHeight: "3.5rem", display: "block", wordBreak: "break-word" }}>
                   <RotatingPhrase />
                 </span>
               </p>
