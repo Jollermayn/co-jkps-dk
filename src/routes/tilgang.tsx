@@ -476,6 +476,29 @@ function TilgangPage() {
           </div>
         </section>
 
+        {/* SCENARIO EYEBROW */}
+        <div
+          style={{
+            backgroundColor: BEIGE,
+            textAlign: "center",
+            padding: "0 24px 20px",
+          }}
+        >
+          <span
+            style={{
+              display: "inline-block",
+              fontFamily: "sans-serif",
+              fontSize: "0.75rem",
+              fontWeight: 600,
+              letterSpacing: "0.18em",
+              textTransform: "uppercase",
+              color: MUTED_ON_LIGHT,
+            }}
+          >
+            Fire scenarier · hold musen over
+          </span>
+        </div>
+
         {/* 2x2 IMAGE GRID */}
         <section
           className="tilgang-grid"
