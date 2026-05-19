@@ -29,9 +29,19 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Brugeroplevelse & digitale løsninger. UX research, service design, digital strategi og medieproduktion.",
+          "Jeg omsætter menneskelig indsigt til forandring der mærkes. Selvstændig siden 2016.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: "https://jkps.dk/og-image.png" },
+      { property: "og:url", content: "https://jkps.dk/" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Jonas K.P. Sørensen — Digital konsulent" },
+      {
+        name: "twitter:description",
+        content:
+          "Jeg omsætter menneskelig indsigt til forandring der mærkes. Selvstændig siden 2016.",
+      },
+      { name: "twitter:image", content: "https://jkps.dk/og-image.png" },
     ],
     links: [
       { rel: "preload", as: "video", href: caseWoltVideo, type: "video/mp4" },
