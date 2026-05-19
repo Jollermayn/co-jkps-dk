@@ -668,46 +668,20 @@ function TilgangPage() {
                 title: "Lytning før løsning.",
                 subtitle: "Mennesket bag problemet kommer før løsningen på det.",
                 text: "De fleste projekter starter med en løsning. Jeg starter med menneskene bag problemet — deres vaner, frustrationer og det de ikke selv sætter ord på. Derfra kommer indsigten der holder.",
-                icon: earIcon,
               },
               {
                 title: "Indsigt der mærkes.",
                 subtitle: "Indsigt der ikke kan forklares enkelt, virker ikke i praksis.",
                 text: "Strategi der ikke kan forklares enkelt, virker ikke i praksis. Jeg omsætter research og koncepter til noget der kan ses, forstås og bruges — af rigtige mennesker i rigtige situationer.",
-                icon: "lightbulb",
               },
               {
                 title: "Med, ikke for.",
                 subtitle: "De bedste løsninger formes af dem der skal leve med dem.",
                 text: "De bedste løsninger opstår når dem der skal bruge dem er med til at forme dem. Co-design er ikke en metode for mig — det er udgangspunktet.",
-                icon: "handshake",
               },
             ].map((col) => (
               <div key={col.title} style={{ display: "flex", flexDirection: "column", padding: 0 }}>
-                <div style={{ height: 64, marginBottom: 24, display: "flex", alignItems: "center" }}>
-                  {col.icon === earIcon ? (
-                    <img src={earIcon} alt="" style={{ height: 64, width: "auto", display: "block" }} />
-                  ) : col.icon === "lightbulb" ? (
-                    <svg width="60" height="64" viewBox="0 0 60 64" fill="none" stroke="#0A1628" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                      {/* Lightbulb — idea made tangible */}
-                      <path d="M20 28c0-6.6 4.5-12 10-12s10 5.4 10 12c0 4.2-2 7-4 9-1.5 1.5-2 2.6-2 4.5V44H26v-2.5c0-1.9-.5-3-2-4.5-2-2-4-4.8-4-9z" />
-                      <path d="M26 48h8M27 52h6" />
-                      {/* Rays */}
-                      <path d="M30 8v4M14 22l3 2M46 22l-3 2M10 36h4M50 36h-4" />
-                    </svg>
-                  ) : col.icon === "handshake" ? (
-                    <svg width="68" height="64" viewBox="0 0 68 64" fill="none" stroke="#0A1628" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                      {/* Handshake — collaboration */}
-                      <path d="M4 28l10-6 8 4" />
-                      <path d="M64 28l-10-6-8 4" />
-                      <path d="M22 26l8-4 8 4 10 6" />
-                      <path d="M22 26v12c0 2 2 4 4 4s4-2 4-4" />
-                      <path d="M30 38c0 2 2 4 4 4s4-2 4-4v-2" />
-                      <path d="M38 36c0 2 2 4 4 4s4-2 4-4" />
-                      <path d="M46 36c0 2 2 4 4 4s4-2 4-4v-8" />
-                    </svg>
-                  ) : null}
-                </div>
+
 
                 <h3
                   style={{
