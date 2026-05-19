@@ -135,7 +135,7 @@ function Sidebar() {
       <div className="w-full flex flex-col items-center gap-8 lg:gap-6">
         
         <div className="w-full flex flex-col gap-3 lg:gap-4 items-center text-center">
-          <h1 className="font-display tracking-[-0.02em] font-medium text-center px-2 flex flex-col items-center leading-none">
+          <h1 className="font-display tracking-[-0.02em] font-medium text-center px-2 flex flex-col items-center leading-none mt-12 lg:mt-0">
             <span className="block whitespace-nowrap text-[3rem] md:text-[4.5rem] leading-none" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700 }}>Jonas K.P.</span>
             <span className="block whitespace-nowrap text-[3rem] md:text-[4.5rem] leading-none -mt-[0.08em]" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700 }}>Sørensen</span>
           </h1>
