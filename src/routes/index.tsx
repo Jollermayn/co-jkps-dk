@@ -131,22 +131,22 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
 
 function Sidebar() {
   return (
-    <aside className="hero-sidebar relative w-full min-w-0 max-w-full flex flex-col lg:overflow-y-auto lg:fixed lg:top-0 lg:right-0 lg:w-[40%] lg:h-screen px-6 md:px-14 lg:px-16 py-[40px] md:py-20 lg:pt-[6vh] lg:pb-10 border-b lg:border-b-0 lg:border-l border-cream/10 order-1 lg:order-last bg-[#0D1B2A] lg:z-20 lg:rounded-l-xl lg:shadow-[-8px_0_24px_rgba(0,0,0,0.25)] text-center items-center gap-8 lg:gap-6">
-      <div className="w-full flex flex-col items-center gap-8 lg:gap-6">
+    <aside className="hero-sidebar relative w-full min-w-0 max-w-full flex flex-col lg:overflow-y-auto lg:fixed lg:top-0 lg:right-0 lg:w-[40%] lg:h-screen px-6 md:px-14 lg:px-16 py-[40px] md:py-20 lg:py-10 border-b lg:border-b-0 lg:border-l border-cream/10 order-1 lg:order-last bg-[#0D1B2A] lg:z-20 lg:rounded-l-xl lg:shadow-[-8px_0_24px_rgba(0,0,0,0.25)] text-center items-center gap-8 lg:gap-6">
+      <div className="w-full flex flex-col items-center gap-8 lg:gap-6 lg:flex-1 lg:justify-center">
         
         <div className="w-full flex flex-col gap-3 lg:gap-4 items-center text-center">
           <h1 className="font-display tracking-[-0.02em] font-medium text-center px-2 flex flex-col items-center leading-none mt-12 lg:mt-0">
             <span className="block whitespace-nowrap text-[3rem] md:text-[4.5rem] leading-none" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700 }}>Jonas K.P.</span>
             <span className="block whitespace-nowrap text-[3rem] md:text-[4.5rem] leading-none -mt-[0.08em]" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700 }}>Sørensen</span>
           </h1>
-          <p className="text-xs md:text-sm uppercase tracking-[0.25em] text-cream/55 mt-1">
+          <p className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-cream/55 mt-1">
             <span>Digital konsulent · UX Research & Servicedesign</span>
           </p>
         </div>
 
         <div
           className="overflow-hidden mx-auto block aspect-square"
-          style={{ width: "clamp(8rem, 52%, 17.6rem)", borderRadius: "0.75rem" }}
+          style={{ width: "clamp(8rem, 52%, 12.5rem)", borderRadius: "0.75rem" }}
         >
           <img src={profilePhoto} alt="Jonas K.P. Sørensen" className="w-full h-full object-cover" />
         </div>
