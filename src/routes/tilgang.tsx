@@ -940,16 +940,16 @@ function IntroLines() {
   return (
     <div>
       <IntroLine delay={0}>
-        Forandringer fejler sjældent<br className="tilgang-intro-br" />
+        Forandringer fejler sjældent,<br className="tilgang-intro-br" />
         {" "}fordi teknologien er forkert.
       </IntroLine>
       <IntroLine delay={1.2}>
-        De fejler fordi noget <strong style={{ fontWeight: 800 }}>oplagt</strong><br className="tilgang-intro-br" />
+        De fejler, fordi det oplagte<br className="tilgang-intro-br" />
         {" "}går tabt undervejs.
       </IntroLine>
       <IntroLine delay={2.4}>
-        Fordi menneskene bag beslutningen<br className="tilgang-intro-br" />
-        {" "}aldrig blev <span style={{ borderBottom: "2px solid #C0281E", paddingBottom: "2px" }}>hørt</span>.
+        Fordi menneskene bag beslutningerne<br className="tilgang-intro-br" />
+        {" "}aldrig bliver hørt.
       </IntroLine>
     </div>
   );
