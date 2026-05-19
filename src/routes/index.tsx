@@ -656,7 +656,7 @@ function Index() {
             className="pb-20 relative isolate overflow-hidden min-h-[220px] sm:min-h-[160px]"
             style={{
               backgroundColor: "#0A1628",
-              paddingTop: "max(80px, calc(80px + env(safe-area-inset-top)))",
+              paddingTop: "max(100px, calc(100px + env(safe-area-inset-top)))",
             }}
           >
             <BackgroundVideoSlideshow />
