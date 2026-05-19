@@ -268,10 +268,18 @@ function MobileHeader() {
   const [scrolled, setScrolled] = useState(false);
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10);
+    const onScroll = () => {
+      const el = document.getElementById("hero-video");
+      const threshold = el ? el.offsetHeight : 0;
+      setScrolled(window.scrollY > threshold);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, []);
   const navBg = scrolled ? "#0A1628" : "transparent";
   const navBorder = scrolled ? "1px solid rgba(0,0,0,0.08)" : "1px solid transparent";
