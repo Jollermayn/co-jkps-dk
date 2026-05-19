@@ -830,7 +830,7 @@ function IntroLine({ children, delay }: { children: React.ReactNode; delay: numb
       style={{
         fontFamily: "serif",
         fontStyle: "italic",
-        fontSize: "clamp(1.6rem, 5.5vw, 2rem)",
+        fontSize: "clamp(2rem, 7vw, 2rem)",
         fontWeight: 600,
         color: "#0A1628",
         lineHeight: 1.7,
