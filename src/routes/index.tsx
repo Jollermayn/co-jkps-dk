@@ -298,10 +298,11 @@ function MobileHeader() {
           zIndex: 100,
           height: 80,
           padding: "0 32px",
-          backgroundColor: "#0A1628",
+          backgroundColor: navBg,
           alignItems: "center",
           gap: 32,
-          borderBottom: "1px solid rgba(0,0,0,0.08)",
+          borderBottom: navBorder,
+          transition: "background-color 0.3s ease, border-color 0.3s ease",
         }}
       >
         <SiteLogo color="#F5F3EE" lineColor="#C0281E" lineOpacity={1} size={44} onClick={scrollToTop} />
