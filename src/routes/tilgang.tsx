@@ -664,6 +664,7 @@ function TilgangPage() {
             {[
               {
                 title: "Lytning før løsning.",
+                subtitle: "Mennesket bag problemet kommer før løsningen på det.",
                 text: "De fleste projekter starter med en løsning. Jeg starter med menneskene bag problemet — deres vaner, frustrationer og det de ikke selv sætter ord på. Derfra kommer indsigten der holder.",
                 icon: (
                   <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#0A1628" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -677,6 +678,7 @@ function TilgangPage() {
               },
               {
                 title: "Det abstrakte skal kunne mærkes.",
+                subtitle: "Indsigt der ikke kan forklares enkelt, virker ikke i praksis.",
                 text: "Strategi der ikke kan forklares enkelt, virker ikke i praksis. Jeg omsætter research og koncepter til noget der kan ses, forstås og bruges — af rigtige mennesker i rigtige situationer.",
                 icon: (
                   <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#0A1628" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -689,6 +691,7 @@ function TilgangPage() {
               },
               {
                 title: "Med, ikke for.",
+                subtitle: "De bedste løsninger formes af dem der skal leve med dem.",
                 text: "De bedste løsninger opstår når dem der skal bruge dem er med til at forme dem. Co-design er ikke en metode for mig — det er udgangspunktet.",
                 icon: (
                   <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#0A1628" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -701,6 +704,7 @@ function TilgangPage() {
                   </svg>
                 ),
               },
+
 
             ].map((col) => (
               <div key={col.title} style={{ display: "flex", flexDirection: "column", gap: 24, alignItems: "flex-start", paddingTop: 0 }}>
