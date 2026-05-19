@@ -4,6 +4,7 @@ import { SiteLogo } from "@/components/SiteLogo";
 import { MenuIcon } from "@/components/MenuIcon";
 import mazeKort from "@/assets/kort.png";
 import mazeLygte from "@/assets/lygte.png";
+import earIcon from "@/assets/ear-icon.png";
 const scenarioStrategi = "/videos/strategi.mp4";
 const scenarioModelokale = "/videos/moedelokale.mp4";
 const scenarioSystem = "/videos/onboarding.mp4";
