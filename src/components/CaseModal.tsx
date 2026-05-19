@@ -222,7 +222,7 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
             <video
               src={study.video}
               aria-label={`${study.client} — ${study.title}`}
-              className="block w-full h-[240px] sm:h-[320px] md:h-[380px] object-cover bg-[#0A1628]"
+              className="block w-full h-[240px] sm:h-[320px] md:h-[420px] max-h-[420px] object-cover bg-[#0A1628]"
               style={{ backgroundColor: "#0A1628" }}
               autoPlay
               muted
@@ -234,7 +234,7 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
             <img
               src={study.image}
               alt={`${study.client} — ${study.title}`}
-              className="block w-full h-[240px] sm:h-[320px] md:h-[380px] object-cover"
+              className="block w-full h-[240px] sm:h-[320px] md:h-[420px] max-h-[420px] object-cover"
             />
           )}
           <div
