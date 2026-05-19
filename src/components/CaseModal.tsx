@@ -8,6 +8,12 @@ import horesimQuotes from "@/assets/horesim-quotes.png";
 import amnestyStudio from "@/assets/case-amnesty-studio.png";
 import amnestyJournalists from "@/assets/case-amnesty-journalists.png";
 import amnestyJonas from "@/assets/case-amnesty-jonas.png";
+import ullaStudio from "@/assets/case-ulla-studio.webp";
+import ullaRecording from "@/assets/case-ulla-recording.webp";
+import ullaGuest1 from "@/assets/case-ulla-guest-1.webp";
+import ullaGuest2 from "@/assets/case-ulla-guest-2.webp";
+import ullaGuest3 from "@/assets/case-ulla-guest-3.webp";
+import ullaGuest4 from "@/assets/case-ulla-guest-4.webp";
 
 type Props = {
   study: CaseStudy | null;
@@ -418,6 +424,41 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
                       alt={img.alt}
                       loading="lazy"
                       className="w-full h-full object-cover grayscale transition-transform duration-300 ease-in-out hover:scale-105"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {study.slug === "ulla-dyrlov" && (
+            <div className="mt-12 flex flex-col" style={{ gap: "4px" }}>
+              <div className="grid grid-cols-1 md:grid-cols-5" style={{ gap: "4px" }}>
+                <div className="md:col-span-3 overflow-hidden aspect-[16/9]">
+                  <img
+                    src={ullaStudio}
+                    alt="Studierum hos Ulla Dyrløv"
+                    loading="lazy"
+                    className="w-full h-full object-cover grayscale transition-transform duration-300 ease-in-out hover:scale-105"
+                  />
+                </div>
+                <div className="md:col-span-2 overflow-hidden aspect-[16/9]">
+                  <img
+                    src={ullaRecording}
+                    alt="Podcastoptagelse i gang"
+                    loading="lazy"
+                    className="w-full h-full object-cover grayscale transition-transform duration-300 ease-in-out hover:scale-105"
+                  />
+                </div>
+              </div>
+              <div className="grid grid-cols-2 md:grid-cols-4" style={{ gap: "4px" }}>
+                {[ullaGuest1, ullaGuest2, ullaGuest3, ullaGuest4].map((src, i) => (
+                  <div key={i} className="overflow-hidden aspect-[4/5]">
+                    <img
+                      src={src}
+                      alt={`Gæst ${i + 1} i Forældreskabet`}
+                      loading="lazy"
+                      className="w-full h-full object-cover object-top grayscale transition-transform duration-300 ease-in-out hover:scale-105"
                     />
                   </div>
                 ))}
