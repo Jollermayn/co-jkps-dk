@@ -315,3 +315,29 @@
   from { opacity: 0; }
   to   { opacity: 1; }
 }
+
+/* Background video slideshow transform effects */
+.bg-slide {
+  transform-origin: center center;
+  will-change: transform;
+}
+@keyframes bgSlideZoomIn {
+  from { transform: scale(1); }
+  to   { transform: scale(1.05); }
+}
+@keyframes bgSlideZoomOut {
+  from { transform: scale(1.05); }
+  to   { transform: scale(1); }
+}
+@keyframes bgSlidePanLeft {
+  from { transform: scale(1.05) translateX(2%); }
+  to   { transform: scale(1.05) translateX(-2%); }
+}
+@keyframes bgSlidePanRight {
+  from { transform: scale(1.05) translateX(-2%); }
+  to   { transform: scale(1.05) translateX(2%); }
+}
+.bg-slide-zoom-in   { animation: bgSlideZoomIn  6s ease-out both; }
+.bg-slide-zoom-out  { animation: bgSlideZoomOut 6s ease-out both; }
+.bg-slide-pan-left  { animation: bgSlidePanLeft 6s linear both; }
+.bg-slide-pan-right { animation: bgSlidePanRight 6s linear both; }
