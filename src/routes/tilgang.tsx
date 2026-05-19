@@ -611,28 +611,28 @@ function TilgangPage() {
                 aria-hidden="true"
                 style={{
                   position: "absolute",
-                  top: 20,
-                  right: 20,
-                  width: 32,
-                  height: 32,
+                  top: "50%",
+                  left: "50%",
+                  width: 72,
+                  height: 72,
                   borderRadius: "50%",
-                  border: "1px solid rgba(255,255,255,0.7)",
-                  color: "rgba(255,255,255,0.9)",
+                  backgroundColor: "rgba(255,255,255,0.8)",
+                  color: NAVY,
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  opacity: hoverIdx === i ? 0 : 0.85,
-                  transform: hoverIdx === i ? "scale(0.85)" : "scale(1)",
+                  opacity: hoverIdx === i ? 0 : 1,
+                  transform: hoverIdx === i
+                    ? "translate(-50%, -50%) scale(0.85)"
+                    : "translate(-50%, -50%) scale(1)",
                   transition: "opacity 0.3s ease, transform 0.3s ease",
                   zIndex: 11,
                   pointerEvents: "none",
-                  backdropFilter: "blur(4px)",
-                  backgroundColor: "rgba(0,0,0,0.25)",
+                  boxShadow: "0 4px 16px rgba(0,0,0,0.25)",
                 }}
               >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-                  <line x1="12" y1="5" x2="12" y2="19" />
-                  <line x1="5" y1="12" x2="19" y2="12" />
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" style={{ marginLeft: 4 }}>
+                  <polygon points="6,4 20,12 6,20" />
                 </svg>
               </div>
               <div className="tilgang-cell-title-mobile" ref={(el) => { titleRefs.current[i] = el; }}>{cell.heading}</div>
