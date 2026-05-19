@@ -218,7 +218,7 @@ function RotatingPhrase() {
           setText(current.slice(nextCut, current.length - nextCut));
           setCut(nextCut);
         }
-      }, 40);
+      }, 25);
     } else {
       // desktop: standard right-to-left deletion
       timeout = setTimeout(() => {
@@ -230,7 +230,7 @@ function RotatingPhrase() {
         } else {
           setText(text.slice(0, text.length - 1));
         }
-      }, 40);
+      }, 25);
     }
     return () => clearTimeout(timeout);
   }, [text, phase, index, cut, isMobile]);
