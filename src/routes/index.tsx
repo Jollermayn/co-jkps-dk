@@ -163,12 +163,12 @@ function Sidebar() {
 }
 
 const OM_MIG_ROTATING_PHRASES: { text: string; color: string }[] = [
-  { text: "forandring der mærkes", color: "#2B5F8E" },
-  { text: "design med mening", color: "#C17F3A" },
-  { text: "koncepter der holder", color: "#7B5EA7" },
-  { text: "klarhed", color: "#4A7C59" },
-  { text: "mod til at ændre", color: "#C17F3A" },
-  { text: "fortællinger der huskes", color: "#B05A7A" },
+  { text: "forandring der mærkes", color: "#3B82F6" },
+  { text: "design med mening", color: "#F59E0B" },
+  { text: "koncepter der holder", color: "#A78BFA" },
+  { text: "klarhed", color: "#34D399" },
+  { text: "mod til at ændre", color: "#FB923C" },
+  { text: "fortællinger der huskes", color: "#F472B6" },
 ];
 
 function lerpHex(a: string, b: string, t: number) {
