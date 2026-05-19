@@ -862,7 +862,6 @@ function IntroLines() {
         Fordi menneskene bag beslutningen<br className="tilgang-intro-br" />
         {" "}aldrig blev <span style={{ borderBottom: "2px solid #C0281E", paddingBottom: "2px" }}>hørt</span>.
       </IntroLine>
-      </IntroLine>
     </div>
   );
 }
