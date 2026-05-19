@@ -6,6 +6,7 @@ import caseWoltVideo from "@/assets/case-wolt.mp4?url";
 
 import { CaseModal } from "@/components/CaseModal";
 import { CaseVideo } from "@/components/CaseVideo";
+import { BackgroundVideoSlideshow } from "@/components/BackgroundVideoSlideshow";
 import profilePhoto from "@/assets/profile-photo.png";
 import chimpSuit from "@/assets/chimp-suit-map.png";
 import servicedesignBg from "@/assets/kompetence-01-ux-research.jpg";
