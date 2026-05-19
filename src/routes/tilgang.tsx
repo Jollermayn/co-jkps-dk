@@ -647,7 +647,7 @@ function TilgangPage() {
         {/* PRINCIPLES — three-column section */}
         <section
           style={{
-            backgroundColor: "#EDE8E2",
+            backgroundColor: BEIGE,
             padding: "clamp(64px, 10vw, 120px) clamp(24px, 6vw, 80px)",
           }}
         >
