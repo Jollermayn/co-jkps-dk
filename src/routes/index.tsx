@@ -205,8 +205,8 @@ function RotatingPhrase() {
         setCut(0);
         setPhase("deleting");
       }, 2000);
-    } else if (isMobile) {
-      // mobile: strip one char from each end per tick at 40ms
+    } else {
+      // delete from both ends simultaneously
       timeout = setTimeout(() => {
         const nextCut = cut + 1;
         if (nextCut * 2 >= current.length) {
@@ -219,18 +219,6 @@ function RotatingPhrase() {
           setCut(nextCut);
         }
       }, 25);
-    } else {
-      // desktop: standard right-to-left deletion
-      timeout = setTimeout(() => {
-        if (text.length <= 1) {
-          setText("");
-          setCut(0);
-          setIndex((i) => (i + 1) % OM_MIG_ROTATING_PHRASES.length);
-          setPhase("typing");
-        } else {
-          setText(text.slice(0, text.length - 1));
-        }
-      }, 25);
     }
     return () => clearTimeout(timeout);
   }, [text, phase, index, cut, isMobile]);
@@ -241,9 +229,7 @@ function RotatingPhrase() {
   const total = current.text.length || 1;
   const progress =
     phase === "deleting"
-      ? isMobile
-        ? Math.max(0, (total - cut * 2) / total)
-        : Math.max(0, text.length / total)
+      ? Math.max(0, (total - cut * 2) / total)
       : Math.min(1, text.length / total);
   const color =
     phase === "deleting"
