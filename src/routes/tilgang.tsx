@@ -723,6 +723,17 @@ function TilgangPage() {
                 </h3>
                 <p
                   style={{
+                    fontSize: "0.95rem",
+                    fontWeight: 600,
+                    lineHeight: 1.45,
+                    color: "#0A1628",
+                    margin: "0 0 4px 0",
+                  }}
+                >
+                  {col.subtitle}
+                </p>
+                <p
+                  style={{
                     fontSize: "1rem",
                     lineHeight: 1.6,
                     color: "#0A1628",
@@ -731,6 +742,7 @@ function TilgangPage() {
                 >
                   {col.text}
                 </p>
+
               </div>
             ))}
           </div>
