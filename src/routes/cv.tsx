@@ -102,8 +102,22 @@ function CVPage() {
             flexWrap: "wrap",
           }}
         >
-          <Link to="/" style={{ color: "#F5F3EE", textDecoration: "none", fontSize: "0.9rem" }}>
-            ← Tilbage
+          <Link
+            to="/"
+            style={{
+              color: "#F5F3EE",
+              textDecoration: "none",
+              display: "flex",
+              alignItems: "center",
+              gap: 8,
+              fontSize: "0.9rem",
+              fontWeight: 500,
+            }}
+          >
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+            Tilbage
           </Link>
           <div style={{ display: "flex", gap: 10 }}>
             {!isMobile && (
