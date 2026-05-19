@@ -428,20 +428,39 @@ function TilgangPage() {
           </h1>
         </section>
 
-        <img
-          ref={heroImgRef}
-          src={mazeKort}
-          alt=""
-          style={{
-            display: "block",
-            width: "100%",
-            height: 700,
-            objectFit: "cover",
-            objectPosition: "center 65%",
-            marginTop: 48,
-            marginBottom: 48,
-          }}
-        />
+        <div style={{ position: "relative", marginTop: 48, marginBottom: 48 }}>
+          <img
+            ref={heroImgRef}
+            src={mazeKort}
+            alt=""
+            style={{
+              display: "block",
+              width: "100%",
+              height: 700,
+              objectFit: "cover",
+              objectPosition: "center 65%",
+            }}
+          />
+          <div
+            aria-hidden="true"
+            style={{
+              position: "absolute",
+              bottom: 24,
+              left: "50%",
+              transform: "translateX(-50%)",
+              color: "#F5F0E8",
+              opacity: scrolled ? 0 : 0.6,
+              transition: "opacity 0.4s ease",
+              animation: "tilgangScrollBounce 1.5s ease-in-out infinite",
+              pointerEvents: "none",
+            }}
+          >
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </div>
+        </div>
+        <style>{`@keyframes tilgangScrollBounce { 0%, 100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, 8px); } }`}</style>
 
         {/* INTRO */}
         <section
@@ -453,6 +472,7 @@ function TilgangPage() {
         >
           <div style={{ maxWidth: 900, marginInline: "auto", marginTop: 64 }}>
             <IntroLines />
+
           </div>
         </section>
 
