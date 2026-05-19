@@ -704,7 +704,7 @@ function TilgangPage() {
 
             ].map((col) => (
               <div key={col.title} style={{ display: "flex", flexDirection: "column", gap: 24, alignItems: "flex-start", paddingTop: 0 }}>
-                <div style={{ height: 48, display: "flex", alignItems: "center" }}>{col.icon}</div>
+                <div style={{ height: 56, display: "flex", alignItems: "center" }}>{col.icon}</div>
                 <h3
                   style={{
                     fontFamily: "serif",
