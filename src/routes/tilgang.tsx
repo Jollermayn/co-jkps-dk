@@ -207,6 +207,23 @@ function TilgangPage() {
           .tilgang-bar-bottom { display: block !important; height: 15px !important; }
           .tilgang-cell:hover .tilgang-bar-bottom { height: 15px !important; }
         }
+        .tilgang-cross-out {
+          position: relative;
+          display: inline-block;
+        }
+        .tilgang-cross-out::before,
+        .tilgang-cross-out::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 50%;
+          height: 1.5px;
+          background: #C0281E;
+          pointer-events: none;
+        }
+        .tilgang-cross-out::before { transform: rotate(45deg); }
+        .tilgang-cross-out::after { transform: rotate(-45deg); }
         @media (min-width: 768px) {
           .tilgang-cell { min-height: 0 !important; aspect-ratio: auto !important; }
           .tilgang-video-frame { position: relative !important; inset: auto !important; width: 100% !important; aspect-ratio: 16 / 9 !important; height: auto !important; }
