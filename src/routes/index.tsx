@@ -653,7 +653,7 @@ function Index() {
           {/* TYPEWRITER INTRO */}
           <section
             id="hero-video"
-            className="pb-20 relative isolate overflow-hidden min-h-[200px] sm:min-h-[160px]"
+            className="pb-20 relative isolate overflow-hidden min-h-[220px] sm:min-h-[160px]"
             style={{
               backgroundColor: "#0A1628",
               paddingTop: "max(80px, calc(80px + env(safe-area-inset-top)))",
@@ -661,9 +661,9 @@ function Index() {
           >
             <BackgroundVideoSlideshow />
             <div className="px-8 sm:px-12 md:px-14 relative" style={{ zIndex: 1 }}>
-              <p className="text-left" style={{ color: "#FFFFFF", lineHeight: 1.15, fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3.5rem)" }}>
+              <p className="text-left relative" style={{ color: "#FFFFFF", lineHeight: 1.15, fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3.5rem)" }}>
                 <span>Jeg omsætter menneskelig indsigt til...</span>
-                <span className="block sm:whitespace-nowrap [&>span]:whitespace-normal sm:[&>span]:whitespace-nowrap" style={{ fontSize: "clamp(2.2rem, 4.5vw, 4rem)", fontStyle: "italic", fontWeight: 700, lineHeight: 1.15, minHeight: "3.5rem", display: "block", wordBreak: "break-word" }}>
+                <span className="absolute left-0 right-0 sm:static block sm:whitespace-nowrap [&>span]:whitespace-normal sm:[&>span]:whitespace-nowrap min-h-[4rem] sm:min-h-[3.5rem]" style={{ fontSize: "clamp(2.2rem, 4.5vw, 4rem)", fontStyle: "italic", fontWeight: 700, lineHeight: 1.15, wordBreak: "break-word" }}>
                   <RotatingPhrase />
                 </span>
               </p>
