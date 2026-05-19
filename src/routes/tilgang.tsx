@@ -211,6 +211,8 @@ function TilgangPage() {
           .tilgang-cell { min-height: 0 !important; aspect-ratio: auto !important; }
           .tilgang-video-frame { position: relative !important; inset: auto !important; width: 100% !important; aspect-ratio: 16 / 9 !important; height: auto !important; }
           .tilgang-cell-img { position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important; object-fit: cover !important; }
+          .tilgang-intro-br { display: none !important; }
+          .tilgang-intro-line { margin-bottom: 72px !important; }
         }
         @media (min-width: 1024px) {
           .tilgang-tales-link { position: relative; display: inline-block; }
