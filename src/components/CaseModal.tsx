@@ -9,6 +9,8 @@ import amnestyStudio from "@/assets/case-amnesty-studio.png";
 import amnestyJournalists from "@/assets/case-amnesty-journalists.png";
 import amnestyJonas from "@/assets/case-amnesty-jonas.png";
 import ullaStudio from "@/assets/case-ulla-studio.webp";
+import ullaPortrait from "@/assets/case-ulla-portrait.png";
+import ullaSession from "@/assets/case-ulla-session.png";
 
 import ullaGuest1 from "@/assets/case-ulla-guest-1.webp";
 import ullaGuest2 from "@/assets/case-ulla-guest-2.webp";
