@@ -648,7 +648,7 @@ function CodeParadoxBlock() {
 
 function Index() {
   return (
-    <main id="top" className="w-full min-w-0 max-w-full overflow-x-clip text-cream lg:bg-[#0D1B2A] pt-[72px] md:pt-[80px]">
+    <main id="top" className="w-full min-w-0 max-w-full overflow-x-clip text-cream lg:bg-[#0D1B2A]">
       <MobileHeader />
       <div className="w-full min-w-0 max-w-full flex flex-col lg:block">
 
@@ -656,9 +656,11 @@ function Index() {
         <div className="w-full min-w-0 max-w-full lg:max-w-[60%] lg:w-[60%] order-2 lg:order-none bg-navy-deep lg:mr-[40%]">
           {/* TYPEWRITER INTRO */}
           <section
-            className="py-20 relative isolate overflow-hidden"
+            id="hero-video"
+            className="pb-20 relative isolate overflow-hidden"
             style={{
               backgroundColor: "#0A1628",
+              paddingTop: "max(80px, calc(80px + env(safe-area-inset-top)))",
             }}
           >
             <BackgroundVideoSlideshow />
