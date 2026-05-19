@@ -644,6 +644,88 @@ function TilgangPage() {
           ))}
         </section>
 
+        {/* PRINCIPLES — three-column section */}
+        <section
+          style={{
+            backgroundColor: "#ffffff",
+            padding: "clamp(64px, 10vw, 120px) clamp(24px, 6vw, 80px)",
+          }}
+        >
+          <div
+            style={{
+              maxWidth: 1280,
+              margin: "0 auto",
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+              gap: "clamp(40px, 6vw, 96px)",
+            }}
+          >
+            {[
+              {
+                title: "Lytning før løsning.",
+                text: "De fleste projekter starter med en løsning. Jeg starter med menneskene bag problemet — deres vaner, frustrationer og det de ikke selv sætter ord på. Derfra kommer indsigten der holder.",
+                icon: (
+                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#0A1628" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M16 22a8 8 0 0 1 16 0c0 4-3 6-5 8s-3 4-3 6a4 4 0 0 1-8 0" />
+                    <path d="M20 22a4 4 0 0 1 8 0c0 2-2 3-3 4" />
+                  </svg>
+                ),
+              },
+              {
+                title: "Det abstrakte skal kunne mærkes.",
+                text: "Strategi der ikke kan forklares enkelt, virker ikke i praksis. Jeg omsætter research og koncepter til noget der kan ses, forstås og bruges — af rigtige mennesker i rigtige situationer.",
+                icon: (
+                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#0A1628" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <circle cx="14" cy="14" r="6" />
+                    <rect x="26" y="8" width="14" height="14" />
+                    <polygon points="24,28 34,42 14,42" />
+                  </svg>
+                ),
+              },
+              {
+                title: "Med, ikke for.",
+                text: "De bedste løsninger opstår når dem der skal bruge dem er med til at forme dem. Co-design er ikke en metode for mig — det er udgangspunktet.",
+                icon: (
+                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#0A1628" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <circle cx="16" cy="18" r="4" />
+                    <circle cx="32" cy="18" r="4" />
+                    <path d="M8 36c0-4 4-7 8-7s8 3 8 7" />
+                    <path d="M24 36c0-4 4-7 8-7s8 3 8 7" />
+                  </svg>
+                ),
+              },
+            ].map((col) => (
+              <div key={col.title} style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+                <div>{col.icon}</div>
+                <h3
+                  style={{
+                    fontFamily: "serif",
+                    fontWeight: 700,
+                    fontSize: "clamp(1.6rem, 2.4vw, 2rem)",
+                    color: "#0A1628",
+                    lineHeight: 1.2,
+                    margin: 0,
+                  }}
+                >
+                  {col.title}
+                </h3>
+                <p
+                  style={{
+                    fontSize: "1rem",
+                    lineHeight: 1.6,
+                    color: "#0A1628",
+                    margin: 0,
+                  }}
+                >
+                  {col.text}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+
+
         <p
           style={{
             fontFamily: "serif",
