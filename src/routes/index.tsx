@@ -660,7 +660,7 @@ function Index() {
             </div>
           </section>
           {/* OM MIG */}
-          <section id="om" className="pt-10 md:pt-12 pb-16 md:pb-20">
+          <section id="om" className="pt-20 md:pt-28 pb-16 md:pb-20">
 
             <div className="px-12 md:px-14">
               <Eyebrow>Om mig</Eyebrow>
