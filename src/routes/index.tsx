@@ -680,6 +680,9 @@ function Index() {
 
               <KompetencerList />
 
+              <div className="pt-12 pb-4">
+                <CodeParadoxBlock />
+              </div>
             </div>
           </section>
 
@@ -1015,23 +1018,6 @@ function Index() {
             </div>
           </section>
 
-          {/* AI PARADOX */}
-          <section className="py-8" style={{ backgroundColor: "#0D1B2A" }}>
-            <div className="px-6 flex flex-col items-center">
-              <div style={{ marginBottom: 24 }} className="flex flex-col items-center">
-                <span
-                  className="eyebrow text-ember"
-                  style={{ fontSize: "clamp(1.15rem, 2.1vw, 1.8rem)", fontWeight: 600, letterSpacing: "0.18em" }}
-                >
-                  Det sidste ord
-                </span>
-                <span aria-hidden className="mt-2 block h-[2px] w-1/2 bg-[#B83A20]" />
-              </div>
-              <div style={{ width: "100%", maxWidth: "500px" }}>
-                <CodeParadoxBlock />
-              </div>
-            </div>
-          </section>
         </div>
 
         {/* RIGHT — sticky sidebar */}
