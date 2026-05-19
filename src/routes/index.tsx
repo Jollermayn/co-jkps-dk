@@ -250,7 +250,7 @@ function RotatingPhrase() {
       <span>»</span>
       {text}
       <span>«</span>
-      <span style={{ opacity: 0.6 }}>|</span>
+      
     </span>
   );
 }
