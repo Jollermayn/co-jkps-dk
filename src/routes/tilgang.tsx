@@ -647,7 +647,7 @@ function TilgangPage() {
         {/* PRINCIPLES — three-column section */}
         <section
           style={{
-            backgroundColor: "#ffffff",
+            backgroundColor: "#EDE8E2",
             padding: "clamp(64px, 10vw, 120px) clamp(24px, 6vw, 80px)",
           }}
         >
@@ -658,6 +658,7 @@ function TilgangPage() {
               display: "grid",
               gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
               gap: "clamp(40px, 6vw, 96px)",
+              alignItems: "flex-start",
             }}
           >
             {[
@@ -666,8 +667,10 @@ function TilgangPage() {
                 text: "De fleste projekter starter med en løsning. Jeg starter med menneskene bag problemet — deres vaner, frustrationer og det de ikke selv sætter ord på. Derfra kommer indsigten der holder.",
                 icon: (
                   <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#0A1628" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M16 22a8 8 0 0 1 16 0c0 4-3 6-5 8s-3 4-3 6a4 4 0 0 1-8 0" />
-                    <path d="M20 22a4 4 0 0 1 8 0c0 2-2 3-3 4" />
+                    {/* Ear — deep listening */}
+                    <path d="M17 34c-2.2-1.8-3.5-4.6-3.5-8.5C13.5 18.6 18.1 13 25 13c5.8 0 10.5 4.4 10.5 10 0 4.2-2.8 6.1-5.4 7.6-2 1.1-3.6 2.1-3.6 4.4 0 3-2.2 5-5 5-2.4 0-4.3-1.5-4.8-3.7" />
+                    <path d="M21 25a4 4 0 0 1 8 0c0 2.3-2 3-3.2 3.8-.9.6-1.3 1.3-1.3 2.4" />
+                    <circle cx="24.5" cy="32.5" r="0.6" fill="#0A1628" stroke="none" />
                   </svg>
                 ),
               },
@@ -676,9 +679,10 @@ function TilgangPage() {
                 text: "Strategi der ikke kan forklares enkelt, virker ikke i praksis. Jeg omsætter research og koncepter til noget der kan ses, forstås og bruges — af rigtige mennesker i rigtige situationer.",
                 icon: (
                   <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#0A1628" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <circle cx="14" cy="14" r="6" />
-                    <rect x="26" y="8" width="14" height="14" />
-                    <polygon points="24,28 34,42 14,42" />
+                    {/* Hand cradling an idea — abstract becomes tangible */}
+                    <circle cx="24" cy="16" r="4" />
+                    <path d="M24 11.5V9M28.5 13.5l1.8-1.8M19.5 13.5l-1.8-1.8M30 18h2.2M15.8 18H14" />
+                    <path d="M11 28c0-1.5 1.2-2.5 2.5-2.5S16 26.5 16 28v4c0 4.4 3.6 8 8 8s8-3.6 8-8v-6c0-1.4 1.1-2.5 2.5-2.5S37 24.6 37 26v6c0 6.6-5.4 12-12 12h-1c-6.6 0-12-5.4-12-12v-4z" />
                   </svg>
                 ),
               },
@@ -687,16 +691,19 @@ function TilgangPage() {
                 text: "De bedste løsninger opstår når dem der skal bruge dem er med til at forme dem. Co-design er ikke en metode for mig — det er udgangspunktet.",
                 icon: (
                   <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#0A1628" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <circle cx="16" cy="18" r="4" />
-                    <circle cx="32" cy="18" r="4" />
-                    <path d="M8 36c0-4 4-7 8-7s8 3 8 7" />
-                    <path d="M24 36c0-4 4-7 8-7s8 3 8 7" />
+                    {/* Two figures with overlapping conversation arcs — collaboration */}
+                    <circle cx="17" cy="15" r="3.5" />
+                    <circle cx="31" cy="15" r="3.5" />
+                    <path d="M10 28c0-3.3 3.1-6 7-6s7 2.7 7 6" />
+                    <path d="M24 28c0-3.3 3.1-6 7-6s7 2.7 7 6" />
+                    <path d="M16 36c2 2.3 5 3.5 8 3.5s6-1.2 8-3.5" />
+                    <path d="M20 32.5c1.2.9 2.6 1.3 4 1.3s2.8-.4 4-1.3" />
                   </svg>
                 ),
               },
             ].map((col) => (
-              <div key={col.title} style={{ display: "flex", flexDirection: "column", gap: 24 }}>
-                <div>{col.icon}</div>
+              <div key={col.title} style={{ display: "flex", flexDirection: "column", gap: 24, alignItems: "flex-start", paddingTop: 0 }}>
+                <div style={{ height: 48, display: "flex", alignItems: "center" }}>{col.icon}</div>
                 <h3
                   style={{
                     fontFamily: "serif",
@@ -723,6 +730,7 @@ function TilgangPage() {
             ))}
           </div>
         </section>
+
 
 
 
