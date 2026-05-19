@@ -22,19 +22,14 @@ function shuffle<T>(arr: T[]): T[] {
   return a;
 }
 
-function randomEffect(): Effect {
-  return EFFECTS[Math.floor(Math.random() * EFFECTS.length)];
-}
-
-function randomDurationMs() {
-  return 2000 + Math.random() * 3000; // 2–5s
-}
+const randomEffect = (): Effect =>
+  EFFECTS[Math.floor(Math.random() * EFFECTS.length)];
+const randomDurationMs = () => 2000 + Math.random() * 3000;
 
 const CROSSFADE_MS = 150;
 
 export function BackgroundVideoSlideshow() {
   const playlist = useMemo(() => shuffle(VIDEOS), []);
-  const indexRef = useRef(0);
   const [activeLayer, setActiveLayer] = useState<0 | 1>(0);
   const [sources, setSources] = useState<[string, string]>(() => [
     playlist[0],
@@ -45,27 +40,29 @@ export function BackgroundVideoSlideshow() {
     randomEffect(),
   ]);
 
-  const videoRefs = [useRef<HTMLVideoElement>(null), useRef<HTMLVideoElement>(null)];
+  const videoARef = useRef<HTMLVideoElement>(null);
+  const videoBRef = useRef<HTMLVideoElement>(null);
+  const refs = [videoARef, videoBRef];
+
+  const activeLayerRef = useRef<0 | 1>(0);
+  const indexRef = useRef(0);
 
   useEffect(() => {
     let timeoutId: ReturnType<typeof setTimeout>;
 
     const scheduleNext = () => {
       timeoutId = setTimeout(() => {
-        const current = indexRef.current;
-        const next = (current + 1) % playlist.length;
+        const next = (indexRef.current + 1) % playlist.length;
         const afterNext = (next + 1) % playlist.length;
         const nextLayer: 0 | 1 = activeLayerRef.current === 0 ? 1 : 0;
 
-        // Set new effect + preload upcoming source on the layer becoming active
         setEffects((prev) => {
-          const updated = [...prev] as [Effect, Effect];
+          const updated: [Effect, Effect] = [prev[0], prev[1]];
           updated[nextLayer] = randomEffect();
           return updated;
         });
 
-        // The incoming layer source was already set last cycle; just play it
-        const incoming = videoRefs[nextLayer].current;
+        const incoming = refs[nextLayer].current;
         if (incoming) {
           try {
             incoming.currentTime = 0;
@@ -77,10 +74,9 @@ export function BackgroundVideoSlideshow() {
         activeLayerRef.current = nextLayer;
         indexRef.current = next;
 
-        // Prepare the now-hidden layer with the source AFTER the upcoming one,
-        // so it's preloaded and ready next cycle.
+        // Preload the next-next video on the hidden layer
         setSources((prev) => {
-          const updated = [...prev] as [string, string];
+          const updated: [string, string] = [prev[0], prev[1]];
           const hiddenLayer: 0 | 1 = nextLayer === 0 ? 1 : 0;
           updated[hiddenLayer] = playlist[afterNext];
           return updated;
@@ -90,10 +86,8 @@ export function BackgroundVideoSlideshow() {
       }, randomDurationMs());
     };
 
-    const activeLayerRef = { current: activeLayer };
     scheduleNext();
     return () => clearTimeout(timeoutId);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [playlist]);
 
   return (
@@ -110,14 +104,14 @@ export function BackgroundVideoSlideshow() {
       {[0, 1].map((i) => (
         <video
           key={i}
-          ref={videoRefs[i]}
+          ref={refs[i]}
           src={sources[i]}
           autoPlay
           muted
           playsInline
           loop
           preload="auto"
-          className={`bg-slide-effect-${effects[i]}`}
+          className={`bg-slide bg-slide-${effects[i]}`}
           style={{
             position: "absolute",
             inset: 0,
