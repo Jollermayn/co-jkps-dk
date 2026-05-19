@@ -862,6 +862,10 @@ function IntroLines() {
         Fra beslutning til virkelighed.<br className="tilgang-intro-br" />
         {" "}Fra afsender til modtager.
       </IntroLine>
+      <IntroLine delay={1.8}>
+        Fordi menneskene bag beslutningerne<br className="tilgang-intro-br" />
+        {" "}aldrig blev spurgt.
+      </IntroLine>
     </div>
   );
 }
