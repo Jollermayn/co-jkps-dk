@@ -5,7 +5,6 @@ const VIDEOS = [
   "/videos/hands.mp4",
   "/videos/bridge.mp4",
   "/videos/model.mp4",
-  "/videos/cranes.mp4",
   "/videos/shore.mp4",
   "/videos/field.mp4",
 ];
