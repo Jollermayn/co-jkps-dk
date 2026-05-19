@@ -891,7 +891,7 @@ function Index() {
                   Tre <span className="italic text-ember">søjler.</span>
                 </h2>
                 <p className="mt-3 max-w-2xl text-lg text-cream/75 leading-relaxed">
-                  Som tilsammen udgør den måde jeg arbejder på.
+                  Som tilsammen former den måde, jeg arbejder på.
                 </p>
               </div>
 
@@ -924,7 +924,7 @@ function Index() {
                     title: "Kommunikation",
                     tagline: "Det menneskelige lag",
                     description:
-                      "Strategisk kommunikation på tværs af organisationer og målgrupper. Evnen til at oversætte det svære til noget der faktisk rammer.",
+                      "Strategisk kommunikation på tværs af organisationer og målgrupper. Evnen til at oversætte det komplekse til noget, der faktisk rammer.",
                     icon: (
                       <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-20 h-20 md:w-24 md:h-24 text-cream">
                         <defs>
@@ -940,7 +940,7 @@ function Index() {
                     title: "Kreativitet",
                     tagline: "Det kreative lag",
                     description:
-                      "Med en baggrund i medieproduktion, musik og ledelse af kreative projekter har det kreative lag formet evnen til at tænke uden for det åbenlyse — og finde løsninger der ikke lå i problemformuleringen.",
+                      "En baggrund i medieproduktion, musik og ledelse af kreative projekter har formet min evne til at tænke ud over det åbenlyse — og finde løsninger, der ikke lå i problemformuleringen.",
                     icon: (
                       <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" className="w-20 h-20 md:w-24 md:h-24 text-cream">
                         {[18, 26, 34, 42, 50, 58, 66, 74, 82].map((x, i) => {
