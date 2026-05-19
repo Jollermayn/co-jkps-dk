@@ -657,8 +657,9 @@ function TilgangPage() {
               margin: "0 auto",
               display: "grid",
               gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-              gap: "clamp(40px, 6vw, 96px)",
-              alignItems: "flex-start",
+              columnGap: 48,
+              rowGap: 32,
+              alignItems: "start",
             }}
           >
             {[
@@ -666,58 +667,28 @@ function TilgangPage() {
                 title: "Lytning før løsning.",
                 subtitle: "Mennesket bag problemet kommer før løsningen på det.",
                 text: "De fleste projekter starter med en løsning. Jeg starter med menneskene bag problemet — deres vaner, frustrationer og det de ikke selv sætter ord på. Derfra kommer indsigten der holder.",
-                icon: (
-                  <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#0A1628" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    {/* Ear with sound lines — deep listening */}
-                    <path d="M16 38c-2.4-2-3.8-5-3.8-9C12.2 20.4 19 13.5 27 13.5c7.4 0 13.3 5.7 13.3 12.7 0 4.7-3 6.8-6 8.4-2.2 1.2-4 2.2-4 4.6 0 3.2-2.4 5.3-5.4 5.3-2.7 0-4.8-1.6-5.4-4.1" />
-                    <path d="M20.5 27.5a6.5 6.5 0 0 1 13 0c0 3-2.4 4.2-4 5.2-1.2.7-1.8 1.5-1.8 2.8" />
-                    <path d="M24 27.5a3 3 0 0 1 6 0" />
-                    <path d="M42 22.5l5-2M43 28h5.2M42 33.5l5 2" />
-                  </svg>
-                ),
-
               },
               {
                 title: "Det abstrakte skal kunne mærkes.",
                 subtitle: "Indsigt der ikke kan forklares enkelt, virker ikke i praksis.",
                 text: "Strategi der ikke kan forklares enkelt, virker ikke i praksis. Jeg omsætter research og koncepter til noget der kan ses, forstås og bruges — af rigtige mennesker i rigtige situationer.",
-                icon: (
-                  <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#0A1628" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    {/* A circle becoming a square — abstract made tangible */}
-                    <circle cx="18" cy="28" r="9" />
-                    <rect x="29" y="19" width="18" height="18" />
-                    <path d="M22 23l11-2M22 33l11 2" strokeDasharray="1.5 3" />
-                  </svg>
-                ),
               },
               {
                 title: "Med, ikke for.",
                 subtitle: "De bedste løsninger formes af dem der skal leve med dem.",
                 text: "De bedste løsninger opstår når dem der skal bruge dem er med til at forme dem. Co-design er ikke en metode for mig — det er udgangspunktet.",
-                icon: (
-                  <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#0A1628" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    {/* Two hands meeting — genuine collaboration */}
-                    <path d="M8 32l6-6c1-1 2.5-1 3.5 0l8 8" />
-                    <path d="M14 26l5-5c1-1 2.5-1 3.5 0l7 7" />
-                    <path d="M20 22l4-4c1-1 2.5-1 3.5 0l9 9" />
-                    <path d="M48 24l-6 6c-1 1-2.5 1-3.5 0l-8-8" />
-                    <path d="M42 30l-5 5c-1 1-2.5 1-3.5 0l-7-7" />
-                  </svg>
-                ),
               },
-
-
             ].map((col) => (
-              <div key={col.title} style={{ display: "flex", flexDirection: "column", gap: 24, alignItems: "flex-start", paddingTop: 0 }}>
-                <div style={{ height: 56, display: "flex", alignItems: "center" }}>{col.icon}</div>
+              <div key={col.title} style={{ display: "flex", flexDirection: "column", padding: 0 }}>
                 <h3
                   style={{
                     fontFamily: "serif",
                     fontWeight: 700,
-                    fontSize: "clamp(1.6rem, 2.4vw, 2rem)",
+                    fontSize: "2rem",
                     color: "#0A1628",
                     lineHeight: 1.2,
                     margin: 0,
+                    minHeight: 96,
                   }}
                 >
                   {col.title}
@@ -726,9 +697,9 @@ function TilgangPage() {
                   style={{
                     fontSize: "0.95rem",
                     fontWeight: 600,
-                    lineHeight: 1.45,
+                    lineHeight: 1.4,
                     color: "#0A1628",
-                    margin: "0 0 4px 0",
+                    margin: "8px 0 0 0",
                   }}
                 >
                   {col.subtitle}
@@ -736,13 +707,15 @@ function TilgangPage() {
                 <p
                   style={{
                     fontSize: "1rem",
-                    lineHeight: 1.6,
+                    fontWeight: 400,
+                    lineHeight: 1.7,
                     color: "#0A1628",
-                    margin: 0,
+                    margin: "20px 0 0 0",
                   }}
                 >
                   {col.text}
                 </p>
+
 
               </div>
             ))}
