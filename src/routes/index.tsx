@@ -1004,7 +1004,7 @@ function Index() {
 
               <div className="mt-16 flex justify-center">
                 <a
-                  href="/cv"
+                  href="/JKPS_CV.pdf#zoom=100"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-3 text-sm font-semibold tracking-wide bg-transparent text-[#F5F0E8] border-2 border-[#F5F0E8] hover:bg-[#F5F0E8] hover:text-[#0D1B2A] hover:border-[#F5F0E8] transition-all duration-300 ease-out"
