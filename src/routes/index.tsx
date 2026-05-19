@@ -800,6 +800,8 @@ function Index() {
             </div>
           </section>
 
+          <CodeParadoxBlock />
+
           {/* UDDANNELSE */}
           <section id="uddannelse" className="py-16 md:py-20">
             <div className="px-5 md:px-14">
