@@ -671,7 +671,7 @@ function TilgangPage() {
                 icon: earIcon,
               },
               {
-                title: "Det abstrakte skal kunne mærkes.",
+                title: "Indsigt der mærkes.",
                 subtitle: "Indsigt der ikke kan forklares enkelt, virker ikke i praksis.",
                 text: "Strategi der ikke kan forklares enkelt, virker ikke i praksis. Jeg omsætter research og koncepter til noget der kan ses, forstås og bruges — af rigtige mennesker i rigtige situationer.",
                 icon: null,
