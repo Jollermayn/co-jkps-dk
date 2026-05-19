@@ -667,17 +667,17 @@ function TilgangPage() {
               {
                 title: "Lytning før løsning.",
                 subtitle: "Mennesket bag problemet kommer før løsningen på det.",
-                text: "De fleste projekter starter med en løsning. Jeg starter med menneskene bag problemet — deres vaner, frustrationer og det de ikke selv sætter ord på. Derfra kommer indsigten der holder.",
+                text: "De fleste projekter starter med en løsning. Jeg starter med menneskene bag problemet. Deres vaner, frustrationer og det de ikke selv sætter ord på. Derfra kommer indsigten der holder.",
               },
               {
                 title: "Indsigt der mærkes.",
                 subtitle: "Indsigt der ikke kan forklares enkelt, virker ikke i praksis.",
-                text: "Strategi der ikke kan forklares enkelt, virker ikke i praksis. Jeg omsætter research og koncepter til noget der kan ses, forstås og bruges — af rigtige mennesker i rigtige situationer.",
+                text: "Jeg omsætter research og koncepter til noget der kan ses, forstås og bruges af rigtige mennesker i rigtige situationer.",
               },
               {
                 title: "Med, ikke for.",
                 subtitle: "De bedste løsninger formes af dem der skal leve med dem.",
-                text: "De bedste løsninger opstår når dem der skal bruge dem er med til at forme dem. Co-design er ikke en metode for mig — det er udgangspunktet.",
+                text: "De bedste løsninger opstår når dem der skal bruge dem er med til at forme dem. Co-design er ikke en metode for mig. Det er udgangspunktet.",
               },
             ].map((col) => (
               <div key={col.title} style={{ display: "flex", flexDirection: "column", padding: 0 }}>
