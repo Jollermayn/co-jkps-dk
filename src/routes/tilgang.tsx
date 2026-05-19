@@ -495,7 +495,7 @@ function TilgangPage() {
               color: MUTED_ON_LIGHT,
             }}
           >
-            Fire scenarier · hold musen over
+            Fire scenarier · afspil ved at holde musen henover
           </span>
         </div>
 
