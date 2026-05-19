@@ -265,7 +265,7 @@ const _allCases: CaseStudy[] = [
   },
   {
     slug: "art-spirit-coaching",
-    client: "Art Spirit Coaching — Insight Consulting",
+    client: "Art Spirit Coaching",
     title: "Brand og platform for en praksis der var før sin tid",
     image: caseArtSpirit,
     context:
