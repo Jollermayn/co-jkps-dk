@@ -265,7 +265,16 @@ function RotatingPhrase() {
 
 function MobileHeader() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  const navBg = scrolled ? "#0A1628" : "transparent";
+  const navBorder = scrolled ? "1px solid rgba(0,0,0,0.08)" : "1px solid transparent";
   return (
     <>
       {/* Mobile header (<768px) — unchanged */}
