@@ -1086,7 +1086,7 @@ const CASE_META: Record<string, { headline: string; tags: string[] }> = {
     tags: ["Generativ AI", "Konceptudvikling"],
   },
   "interaktiv-horesimulering": {
-    headline: "Når teknologi ikke er svaret — men mennesket er",
+    headline: "Social isolation.",
     tags: ["Interviews", "Co-design", "Konceptudvikling"],
   },
   "danmarks-radio": {
@@ -1094,7 +1094,7 @@ const CASE_META: Record<string, { headline: string; tags: string[] }> = {
     tags: ["Strategisk kommunikation"],
   },
   "amnesty-international": {
-    headline: "Kompleksitet omsat til gennemslagskraft",
+    headline: "Når tunge emner finder sin stemme",
     tags: ["Strategisk kommunikation"],
   },
   "danmarks-naturfredningsforening": {
