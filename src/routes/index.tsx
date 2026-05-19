@@ -1490,7 +1490,7 @@ function CasesSection() {
                   style={{ fontFamily: "'Arial Black', 'Helvetica Neue', Helvetica, Arial, sans-serif", fontSize: "0.9rem", letterSpacing: "0.15em", textShadow: "0 2px 8px rgba(0,0,0,0.9)" }}
                 >
                   {c.slug === "musikfaellesskabet-i-nye" ? (
-                    "Sideløbende projekt · " + c.client
+                    "Borgerdrevet fællesskab i Nye"
                   ) : c.slug === "danmarks-naturfredningsforening" ? (
                     <>
                       <span className="sm:hidden">Danmarks Naturfrednings-forening</span>
