@@ -690,8 +690,9 @@ function TilgangPage() {
                     fontSize: "2rem",
                     color: "#0A1628",
                     lineHeight: 1.2,
-                    margin: 0,
-                    minHeight: 96,
+                    marginTop: 0,
+                    marginBottom: "4px",
+                    padding: 0,
                   }}
                 >
                   {col.title}
@@ -703,11 +704,14 @@ function TilgangPage() {
                     fontWeight: 600,
                     lineHeight: 1.4,
                     color: "#0A1628",
-                    margin: "0",
+                    marginTop: "4px",
+                    marginBottom: 0,
+                    paddingTop: 0,
                   }}
                 >
                   {col.subtitle}
                 </p>
+
                 <p
                   style={{
                     fontSize: "1rem",
