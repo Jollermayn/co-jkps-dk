@@ -636,7 +636,7 @@ function Index() {
         <div className="w-full min-w-0 max-w-full lg:max-w-[60%] lg:w-[60%] order-2 lg:order-none bg-navy-deep lg:mr-[40%]">
           {/* TYPEWRITER INTRO */}
           <section
-            className="py-16"
+            className="pt-16 pb-12"
             style={{
               backgroundColor: "#EDE8DC",
               backgroundImage: 'url("https://www.transparenttextures.com/patterns/paper.png")',
