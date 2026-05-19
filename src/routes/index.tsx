@@ -637,7 +637,7 @@ function Index() {
         <div className="w-full min-w-0 max-w-full lg:max-w-[60%] lg:w-[60%] order-2 lg:order-none bg-navy-deep lg:mr-[40%]">
           {/* TYPEWRITER INTRO */}
           <section
-            className="pt-16 pb-12 relative isolate overflow-hidden"
+            className="py-20 relative isolate overflow-hidden"
             style={{
               backgroundColor: "#0A1628",
             }}
