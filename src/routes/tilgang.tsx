@@ -667,14 +667,15 @@ function TilgangPage() {
                 subtitle: "Mennesket bag problemet kommer før løsningen på det.",
                 text: "De fleste projekter starter med en løsning. Jeg starter med menneskene bag problemet — deres vaner, frustrationer og det de ikke selv sætter ord på. Derfra kommer indsigten der holder.",
                 icon: (
-                  <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#0A1628" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    {/* Concentric soundwaves arriving at a single point — deep listening */}
-                    <circle cx="20" cy="28" r="1.6" fill="#0A1628" stroke="none" />
-                    <path d="M26 22.5c2 1.4 3.2 3.5 3.2 5.5s-1.2 4.1-3.2 5.5" />
-                    <path d="M31 18c4 2.6 6.2 6.2 6.2 10s-2.2 7.4-6.2 10" />
-                    <path d="M36 13.5c6 3.5 9 8.6 9 14.5s-3 11-9 14.5" />
+                  <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#0A1628" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    {/* Ear with sound lines — deep listening */}
+                    <path d="M16 38c-2.4-2-3.8-5-3.8-9C12.2 20.4 19 13.5 27 13.5c7.4 0 13.3 5.7 13.3 12.7 0 4.7-3 6.8-6 8.4-2.2 1.2-4 2.2-4 4.6 0 3.2-2.4 5.3-5.4 5.3-2.7 0-4.8-1.6-5.4-4.1" />
+                    <path d="M20.5 27.5a6.5 6.5 0 0 1 13 0c0 3-2.4 4.2-4 5.2-1.2.7-1.8 1.5-1.8 2.8" />
+                    <path d="M24 27.5a3 3 0 0 1 6 0" />
+                    <path d="M42 22.5l5-2M43 28h5.2M42 33.5l5 2" />
                   </svg>
                 ),
+
               },
               {
                 title: "Det abstrakte skal kunne mærkes.",
