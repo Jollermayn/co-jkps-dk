@@ -424,7 +424,7 @@ function TilgangPage() {
               marginInline: "auto",
             }}
           >
-            Kunsten i at belyse,<br />hvad der går tabt<br />i processen.
+            Kunsten at belyse,<br />hvad der går tabt<br />i processen.
           </h1>
         </section>
 
