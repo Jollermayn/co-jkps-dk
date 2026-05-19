@@ -645,6 +645,7 @@ function Index() {
               </p>
             </div>
           </section>
+          <hr style={{ border: "none", borderTop: "1px solid rgba(255,255,255,0.15)", margin: "48px 0", width: "100%" }} />
           {/* OM MIG */}
           <section id="om" className="pt-10 md:pt-12 pb-16 md:pb-20">
 
