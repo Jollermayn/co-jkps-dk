@@ -345,9 +345,10 @@ function MobileHeader() {
           zIndex: 100,
           height: 80,
           padding: "0 64px",
-          backgroundColor: "#0A1628",
+          backgroundColor: navBg,
           alignItems: "center",
           gap: 32,
+          transition: "background-color 0.3s ease",
         }}
       >
         <SiteLogo color="#F5F3EE" lineColor="#C0281E" lineOpacity={1} size={48} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} />
