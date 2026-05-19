@@ -245,12 +245,36 @@ function RotatingPhrase() {
     phase === "deleting"
       ? lerpHex(current.color, next.color, 1 - progress)
       : lerpHex(prev.color, current.color, progress);
+  function renderTextWithBold(t: string, bold: string) {
+    const idx = t.indexOf(bold);
+    if (idx !== -1) {
+      return (
+        <>
+          {t.slice(0, idx)}
+          <strong style={{ fontWeight: 900 }}>{bold}</strong>
+          {t.slice(idx + bold.length)}
+        </>
+      );
+    }
+    for (let i = bold.length - 1; i > 0; i--) {
+      const prefix = bold.slice(0, i);
+      if (t.endsWith(prefix)) {
+        return (
+          <>
+            {t.slice(0, -prefix.length)}
+            <strong style={{ fontWeight: 900 }}>{prefix}</strong>
+          </>
+        );
+      }
+    }
+    return <>{t}</>;
+  }
+
   return (
     <span style={{ fontStyle: "italic", color }}>
       <span>»</span>
-      {text}
+      {renderTextWithBold(text, current.boldWord)}
       <span>«</span>
-      
     </span>
   );
 }
