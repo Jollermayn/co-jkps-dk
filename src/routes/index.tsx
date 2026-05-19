@@ -639,8 +639,6 @@ function Index() {
             className="pt-16 pb-12"
             style={{
               backgroundColor: "#EDE8DC",
-              backgroundImage: 'url("https://www.transparenttextures.com/patterns/paper.png")',
-              backgroundBlendMode: "multiply",
             }}
           >
             <div className="px-8 sm:px-12 md:px-14">
