@@ -267,6 +267,7 @@ function TilgangPage() {
         .tilgang-cell-title-mobile { display: none; }
         .tilgang-cell-title-mobile { transition: opacity 0.8s ease, transform 0.8s ease; }
         .tilgang-cell-title-mobile.is-visible { opacity: 1 !important; transform: translateY(0) !important; }
+        @media (max-width: 1023px) { .tilgang-hover-hint { display: none !important; } }
         @media (max-width: 767px) {
           .tilgang-hero-h1 { font-size: 2.1rem !important; line-height: 1.2 !important; }
           .tilgang-closing-h2 { font-size: 1.9rem !important; }
@@ -484,19 +485,33 @@ function TilgangPage() {
             padding: "0 24px 20px",
           }}
         >
-          <span
+          <div
             style={{
-              display: "inline-block",
               fontFamily: "sans-serif",
-              fontSize: "0.75rem",
-              fontWeight: 600,
-              letterSpacing: "0.18em",
+              fontSize: "0.85rem",
+              fontWeight: 800,
+              letterSpacing: "0.22em",
               textTransform: "uppercase",
               color: MUTED_ON_LIGHT,
             }}
           >
-            Fire scenarier · afspil ved at holde musen henover
-          </span>
+            Fire scenarier
+          </div>
+          <div
+            className="tilgang-hover-hint"
+            style={{
+              marginTop: 6,
+              fontFamily: "sans-serif",
+              fontSize: "0.72rem",
+              fontWeight: 500,
+              letterSpacing: "0.14em",
+              textTransform: "uppercase",
+              color: MUTED_ON_LIGHT,
+              opacity: 0.75,
+            }}
+          >
+            Afspil ved at holde musen henover
+          </div>
         </div>
 
         {/* 2x2 IMAGE GRID */}
