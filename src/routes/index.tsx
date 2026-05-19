@@ -653,7 +653,7 @@ function Index() {
           {/* TYPEWRITER INTRO */}
           <section
             id="hero-video"
-            className="pb-20 relative isolate overflow-hidden min-h-[180px] sm:min-h-0"
+            className="pb-20 relative isolate overflow-hidden min-h-[200px] sm:min-h-[160px]"
             style={{
               backgroundColor: "#0A1628",
               paddingTop: "max(80px, calc(80px + env(safe-area-inset-top)))",
