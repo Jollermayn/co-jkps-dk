@@ -97,7 +97,7 @@ const _allCases: CaseStudy[] = [
   {
     slug: "interaktiv-horesimulering",
     client: "FUS",
-    title: "Social isolation.",
+    title: "Social isolation. Teknologien løser lyden. Ikke ensomheden.",
     image: caseHearing,
     context:
       "Over 20% af hørehæmmede elever i den danske folkeskole oplever hyppig ensomhed mod under 4% blandt normalthørende. Der findes ingen nationale retningslinjer for inkluderende praksis — og eksisterende teknologiske løsninger adresserer lyden, ikke oplevelsen.",
