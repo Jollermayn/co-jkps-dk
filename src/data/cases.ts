@@ -224,22 +224,24 @@ const _allCases: CaseStudy[] = [
   {
     slug: "ulla-dyrlov",
     client: "Ulla Dyrløv",
-    title: "Fra idé til færdig platform — helhedsleverance for selvstændig fagprofessionel",
+    title: "Ulla Dyrløv. En TV-psykologs stemme — fra idé til platform.",
     image: caseUlla,
     context:
-      "Ulla Dyrløv er TV-børnepsykolog og foredragsholder med en etableret faglig profil. Opgaven var at omsætte hendes ekspertise til en sammenhængende digital tilstedeværelse — fra koncept til færdig leverance.",
+      "Ulla Dyrløv er TV-børnepsykolog og foredragsholder med en etableret faglig profil og en målgruppe der allerede lyttede. Det manglede var en platform der matchede hendes ekspertise og gav hendes stemme et hjem.",
     challenge:
-      "Hvordan bygger man en professionel platform fra bunden der formidler kompleks faglig viden på en måde der møder målgruppen — børn og forældre — i deres egne præmisser?",
+      "Hvordan bygger man en professionel podcastplatform fra bunden der formidler kompleks faglig viden på en måde der møder målgruppen — børn og forældre — i deres egne præmisser?",
     role: [
-      "Afdækkede behov og udviklede konceptet i tæt samarbejde med kunden",
+      "Afdækkede behov og udviklede konceptet i tæt samarbejde med Ulla",
       "Tog ansvar for hele leverancen fra strategi til eksekvering",
+      "Designede studieopsætning og lydidentitet fra første episode",
       "Sikrede sammenhæng mellem afsender, budskab og målgruppe på tværs af platforme",
     ],
-    approach: ["Konceptudvikling", "Behovsafdækning", "Indholdsstrategi", "Platformsudvikling"],
+    approach: ["Konceptudvikling", "Indholdsstrategi", "Lyddesign", "Platformsudvikling"],
     outcomes: [
-      "Podcast »Forældreskabet« lanceret og distribueret på Spotify, Apple Podcasts og Podimo",
-      "Lyddesign, jingle og mix — krediteret i samtlige episoder",
-      "Indholdsstrategi og studieopsætning fra første episode til løbende produktion",
+      "→ Podcast Forældreskabet lanceret og distribueret på Spotify, Apple Podcasts og Podimo",
+      "→ Lyddesign, jingle og mix krediteret i samtlige episoder",
+      "→ En fagprofessionel med en etableret stemme fik en digital platform der faktisk bruges",
+      "→ Indholdsstrategi og studieopsætning fra første episode til løbende produktion",
     ],
   },
   {
