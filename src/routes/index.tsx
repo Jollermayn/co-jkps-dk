@@ -653,16 +653,16 @@ function Index() {
           {/* TYPEWRITER INTRO */}
           <section
             id="hero-video"
-            className="flex flex-col justify-center py-12 sm:py-20 relative isolate overflow-hidden min-h-[220px] sm:min-h-[160px]"
+            className="flex flex-col justify-center py-12 sm:py-20 relative isolate overflow-visible sm:overflow-hidden min-h-[250px] sm:min-h-[160px]"
             style={{
               backgroundColor: "#0A1628",
             }}
           >
             <BackgroundVideoSlideshow />
-            <div className="px-8 sm:px-12 md:px-14 relative" style={{ zIndex: 1 }}>
-              <p className="text-left relative" style={{ color: "#FFFFFF", lineHeight: 1.15, fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3.5rem)" }}>
-                <span>Jeg omsætter menneskelig indsigt til...</span>
-                <span className="absolute left-0 right-0 sm:static block sm:whitespace-nowrap [&>span]:whitespace-normal sm:[&>span]:whitespace-nowrap min-h-[4rem] sm:min-h-[3.5rem]" style={{ fontSize: "clamp(2.2rem, 4.5vw, 4rem)", fontStyle: "italic", fontWeight: 700, lineHeight: 1.15, wordBreak: "break-word" }}>
+            <div className="px-8 sm:px-12 md:px-14 relative overflow-visible" style={{ zIndex: 1 }}>
+              <p className="text-left relative overflow-visible" style={{ color: "#FFFFFF", lineHeight: 1.15, fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3.5rem)" }}>
+                <span className="block">Jeg omsætter menneskelig indsigt til...</span>
+                <span className="block sm:whitespace-nowrap [&>span]:whitespace-normal sm:[&>span]:whitespace-nowrap min-h-[4rem] sm:min-h-[3.5rem]" style={{ fontSize: "clamp(2.2rem, 4.5vw, 4rem)", fontStyle: "italic", fontWeight: 700, lineHeight: 1.15, wordBreak: "break-word" }}>
                   <RotatingPhrase />
                 </span>
               </p>
