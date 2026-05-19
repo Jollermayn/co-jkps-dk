@@ -859,8 +859,8 @@ function IntroLines() {
         {" "}går tabt undervejs.
       </IntroLine>
       <IntroLine delay={1.2}>
-        Fordi menneskene bag beslutningerne<br className="tilgang-intro-br" />
-        {" "}aldrig blev spurgt.
+        Fordi menneskene bag beslutningen<br className="tilgang-intro-br" />
+        {" "}aldrig blev hørt.
       </IntroLine>
     </div>
   );
