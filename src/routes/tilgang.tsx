@@ -860,7 +860,7 @@ function IntroLines() {
       </IntroLine>
       <IntroLine delay={1.2}>
         Fordi menneskene bag beslutningen<br className="tilgang-intro-br" />
-        {" "}aldrig blev hørt.
+        {" "}aldrig blev <span style={{ textDecoration: "line-through", color: "#C0281E" }}>hørt</span>.
       </IntroLine>
     </div>
   );
