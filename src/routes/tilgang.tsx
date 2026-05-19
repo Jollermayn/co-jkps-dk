@@ -848,12 +848,17 @@ function IntroLine({ children, delay }: { children: React.ReactNode; delay: numb
 function IntroLines() {
   return (
     <div>
-      <IntroLine delay={0}>Forandringer fejler sjældent fordi teknologien er forkert.</IntroLine>
+      <IntroLine delay={0}>
+        Forandringer fejler sjældent<br />
+        fordi teknologien er forkert.
+      </IntroLine>
       <IntroLine delay={0.6}>
-        De fejler fordi noget <strong style={{ fontWeight: 800 }}>oplagt</strong> går tabt undervejs.
+        De fejler fordi noget <strong style={{ fontWeight: 800 }}>oplagt</strong><br />
+        går tabt undervejs.
       </IntroLine>
       <IntroLine delay={1.2}>
-        Fra beslutning til virkelighed. Fra afsender til modtager.
+        Fra beslutning til virkelighed.<br />
+        Fra afsender til modtager.
       </IntroLine>
     </div>
   );
