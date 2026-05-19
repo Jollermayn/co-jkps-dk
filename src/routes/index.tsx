@@ -679,7 +679,7 @@ function Index() {
                   UX research, servicedesign og konceptudvikling på tværs af public service, civilsamfund og kommercielle virksomheder. Selvstændig siden 2016.
                 </p>
                 <p style={{ color: "white", opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.8 }}>
-                  Jeg interesserer mig for mennesker. Ikke brugeren — men personen bag beslutningen, vanen og frustrationen.
+                  Jeg interesserer mig for mennesker. Ikke brugeren — men personen bag beslutningen, vanen og frustrationen. Det er dér forandringer enten lander eller går tabt.
                 </p>
                 <p style={{ color: "white", opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.8 }}>
                   Familiefar, naturmenneske — og først og fremmest en seriøs lytter.
