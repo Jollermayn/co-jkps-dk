@@ -571,20 +571,19 @@ function CodeParadoxBlock() {
       ref={sectionRef}
       aria-label="The AI paradox"
       className="w-full flex flex-col items-center"
-      style={{ padding: "48px 24px", background: "transparent" }}
+      style={{ padding: "48px 0", background: "transparent" }}
     >
       <style dangerouslySetInnerHTML={{ __html: TW_CURSOR_CSS }} />
       <div
         ref={windowRef}
         className="tw-window"
         style={{
-          width: "min(480px, 90vw)",
+          width: "100%",
           maxWidth: "100%",
           height: "auto",
           background: "#000000",
-          border: "1px solid #2a2a2a",
-          borderRadius: "10px",
-          boxShadow: "0 20px 50px rgba(0,0,0,0.45)",
+          borderTop: "1px solid #2a2a2a",
+          borderBottom: "1px solid #2a2a2a",
           overflow: "hidden",
           fontFamily: monoFamily,
           textAlign: "left",
@@ -680,9 +679,6 @@ function Index() {
 
               <KompetencerList />
 
-              <div className="pt-12 pb-4">
-                <CodeParadoxBlock />
-              </div>
             </div>
           </section>
 
@@ -803,6 +799,8 @@ function Index() {
               </div>
             </div>
           </section>
+
+          <CodeParadoxBlock />
 
           {/* UDDANNELSE */}
           <section id="uddannelse" className="py-16 md:py-20">
