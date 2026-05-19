@@ -198,7 +198,7 @@ function RotatingPhrase() {
       if (text === current) {
         setPhase("holding");
       } else {
-        timeout = setTimeout(() => setText(current.slice(0, text.length + 1)), 60);
+        timeout = setTimeout(() => setText(current.slice(0, text.length + 1)), 35);
       }
     } else if (phase === "holding") {
       timeout = setTimeout(() => {
