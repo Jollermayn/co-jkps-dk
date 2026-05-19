@@ -484,19 +484,33 @@ function TilgangPage() {
             padding: "0 24px 20px",
           }}
         >
-          <span
+          <div
             style={{
-              display: "inline-block",
               fontFamily: "sans-serif",
-              fontSize: "0.75rem",
-              fontWeight: 600,
-              letterSpacing: "0.18em",
+              fontSize: "0.85rem",
+              fontWeight: 800,
+              letterSpacing: "0.22em",
               textTransform: "uppercase",
               color: MUTED_ON_LIGHT,
             }}
           >
-            Fire scenarier · afspil ved at holde musen henover
-          </span>
+            Fire scenarier
+          </div>
+          <div
+            className="tilgang-hover-hint"
+            style={{
+              marginTop: 6,
+              fontFamily: "sans-serif",
+              fontSize: "0.72rem",
+              fontWeight: 500,
+              letterSpacing: "0.14em",
+              textTransform: "uppercase",
+              color: MUTED_ON_LIGHT,
+              opacity: 0.75,
+            }}
+          >
+            Afspil ved at holde musen henover
+          </div>
         </div>
 
         {/* 2x2 IMAGE GRID */}
