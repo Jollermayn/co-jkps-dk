@@ -398,32 +398,30 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
           )}
 
           {study.slug === "amnesty-international" && (
-            <div className="grid grid-cols-3 mt-12" style={{ gap: "8px" }}>
-              {[
-                { src: amnestyStudio, alt: "Lydstudie med person i optagerum" },
-                { src: amnestyJournalists, alt: "Journalister ved bord" },
-                { src: amnestyJonas, alt: "Jonas ved mixerpult i studie" },
-              ].map((img, i) => (
-                <div
-                  key={i}
-                  className="overflow-hidden aspect-[4/3]"
-                >
-                  {img.src ? (
+            <div className="grid grid-cols-5 mt-12" style={{ gap: "8px" }}>
+              <div className="col-span-3 overflow-hidden aspect-[4/5]">
+                <img
+                  src={amnestyStudio}
+                  alt="Lydstudie med person i optagerum"
+                  loading="lazy"
+                  className="w-full h-full object-cover grayscale transition-transform duration-300 ease-in-out hover:scale-105"
+                />
+              </div>
+              <div className="col-span-2 flex flex-col" style={{ gap: "8px" }}>
+                {[
+                  { src: amnestyJournalists, alt: "Journalister ved bord" },
+                  { src: amnestyJonas, alt: "Jonas ved mixerpult i studie" },
+                ].map((img, i) => (
+                  <div key={i} className="overflow-hidden flex-1">
                     <img
                       src={img.src}
                       alt={img.alt}
                       loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-300 ease-in-out hover:scale-105"
+                      className="w-full h-full object-cover grayscale transition-transform duration-300 ease-in-out hover:scale-105"
                     />
-                  ) : (
-                    <div
-                      className="w-full h-full flex items-center justify-center bg-[#0A1628] text-white transition-transform duration-300 ease-in-out hover:scale-105"
-                    >
-                      Billede tilføjes
-                    </div>
-                  )}
-                </div>
-              ))}
+                  </div>
+                ))}
+              </div>
             </div>
           )}
 
