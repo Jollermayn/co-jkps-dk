@@ -6,6 +6,7 @@ import caseWoltVideo from "@/assets/case-wolt.mp4?url";
 
 import { CaseModal } from "@/components/CaseModal";
 import { CaseVideo } from "@/components/CaseVideo";
+import { BackgroundVideoSlideshow } from "@/components/BackgroundVideoSlideshow";
 import profilePhoto from "@/assets/profile-photo.png";
 import chimpSuit from "@/assets/chimp-suit-map.png";
 import servicedesignBg from "@/assets/kompetence-01-ux-research.jpg";
@@ -636,13 +637,14 @@ function Index() {
         <div className="w-full min-w-0 max-w-full lg:max-w-[60%] lg:w-[60%] order-2 lg:order-none bg-navy-deep lg:mr-[40%]">
           {/* TYPEWRITER INTRO */}
           <section
-            className="pt-16 pb-12"
+            className="pt-16 pb-12 relative isolate overflow-hidden"
             style={{
-              backgroundColor: "#EDE8DC",
+              backgroundColor: "#0A1628",
             }}
           >
-            <div className="px-8 sm:px-12 md:px-14">
-              <p className="text-left md:text-center text-[clamp(1.1rem,4.5vw,1.4rem)] sm:text-[clamp(1.2rem,3.5vw,2rem)]" style={{ color: "#111111", lineHeight: 1.3, fontWeight: 600 }}>
+            <BackgroundVideoSlideshow />
+            <div className="px-8 sm:px-12 md:px-14 relative" style={{ zIndex: 1 }}>
+              <p className="text-left md:text-center text-[clamp(1.1rem,4.5vw,1.4rem)] sm:text-[clamp(1.2rem,3.5vw,2rem)]" style={{ color: "#FFFFFF", lineHeight: 1.3, fontWeight: 600 }}>
                 <span>Jeg omsætter menneskelig indsigt til</span>
                 <span className="block whitespace-nowrap text-[clamp(1rem,4vw,1.4rem)] sm:text-[inherit] md:text-[clamp(2rem,2.5vw,2.2rem)] min-h-[2rem] sm:min-h-[2.5rem] md:min-h-[2.8rem] [&>span]:whitespace-nowrap">
                   <RotatingPhrase />
