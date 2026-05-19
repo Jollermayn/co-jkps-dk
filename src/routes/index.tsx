@@ -265,11 +265,20 @@ function RotatingPhrase() {
 
 function MobileHeader() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  const navBg = scrolled ? "#0A1628" : "transparent";
+  const navBorder = scrolled ? "1px solid rgba(0,0,0,0.08)" : "1px solid transparent";
   return (
     <>
       {/* Mobile header (<768px) — unchanged */}
-      <nav className="flex md:hidden" style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: "#0A1628", height: 72, padding: "0 24px", alignItems: "center", justifyContent: "space-between", borderBottom: "1px solid rgba(0,0,0,0.08)" }}>
+      <nav className="flex md:hidden" style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: navBg, height: 72, padding: "0 24px", alignItems: "center", justifyContent: "space-between", borderBottom: navBorder, transition: "background-color 0.3s ease, border-color 0.3s ease" }}>
         <div>
           <SiteLogo color="#F5F3EE" lineColor="#C0281E" lineOpacity={1} onClick={scrollToTop} />
         </div>
@@ -289,10 +298,11 @@ function MobileHeader() {
           zIndex: 100,
           height: 80,
           padding: "0 32px",
-          backgroundColor: "#0A1628",
+          backgroundColor: navBg,
           alignItems: "center",
           gap: 32,
-          borderBottom: "1px solid rgba(0,0,0,0.08)",
+          borderBottom: navBorder,
+          transition: "background-color 0.3s ease, border-color 0.3s ease",
         }}
       >
         <SiteLogo color="#F5F3EE" lineColor="#C0281E" lineOpacity={1} size={44} onClick={scrollToTop} />
@@ -335,9 +345,10 @@ function MobileHeader() {
           zIndex: 100,
           height: 80,
           padding: "0 64px",
-          backgroundColor: "#0A1628",
+          backgroundColor: navBg,
           alignItems: "center",
           gap: 32,
+          transition: "background-color 0.3s ease",
         }}
       >
         <SiteLogo color="#F5F3EE" lineColor="#C0281E" lineOpacity={1} size={48} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} />
