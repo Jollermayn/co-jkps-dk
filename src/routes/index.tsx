@@ -1126,7 +1126,7 @@ const CASE_META: Record<string, { headline: string; tags: string[] }> = {
     tags: ["Brandudvikling", "Strategisk kommunikation"],
   },
   "ulla-dyrlov": {
-    headline: "Fra idé til færdig platform — helhedsleverance for selvstændig fagprofessionel",
+    headline: "Ulla Dyrløv. En TV-psykologs stemme — fra idé til platform.",
     tags: ["Brandudvikling", "Konceptudvikling"],
   },
   "concerto-copenhagen": {
