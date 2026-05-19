@@ -703,7 +703,7 @@ function TilgangPage() {
                     fontWeight: 600,
                     lineHeight: 1.4,
                     color: "#0A1628",
-                    margin: "8px 0 0 0",
+                    margin: "0",
                   }}
                 >
                   {col.subtitle}
@@ -714,7 +714,7 @@ function TilgangPage() {
                     fontWeight: 400,
                     lineHeight: 1.7,
                     color: "#0A1628",
-                    margin: "20px 0 0 0",
+                    margin: "16px 0 0 0",
                   }}
                 >
                   {col.text}
