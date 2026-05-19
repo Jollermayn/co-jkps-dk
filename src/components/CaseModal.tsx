@@ -398,8 +398,8 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
           )}
 
           {study.slug === "amnesty-international" && (
-            <div className="grid grid-cols-5 mt-12" style={{ gap: "8px" }}>
-              <div className="col-span-3 overflow-hidden aspect-[4/5]">
+            <div className="mt-12 flex flex-col" style={{ gap: "4px" }}>
+              <div className="overflow-hidden aspect-[21/9]">
                 <img
                   src={amnestyStudio}
                   alt="Lydstudie med person i optagerum"
@@ -407,12 +407,12 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
                   className="w-full h-full object-cover grayscale transition-transform duration-300 ease-in-out hover:scale-105"
                 />
               </div>
-              <div className="col-span-2 flex flex-col" style={{ gap: "8px" }}>
+              <div className="grid grid-cols-2" style={{ gap: "4px" }}>
                 {[
                   { src: amnestyJournalists, alt: "Journalister ved bord" },
                   { src: amnestyJonas, alt: "Jonas ved mixerpult i studie" },
                 ].map((img, i) => (
-                  <div key={i} className="overflow-hidden flex-1">
+                  <div key={i} className="overflow-hidden aspect-[4/3]">
                     <img
                       src={img.src}
                       alt={img.alt}
