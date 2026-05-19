@@ -182,6 +182,14 @@ function RotatingPhrase() {
   const [text, setText] = useState("");
   const [phase, setPhase] = useState<"typing" | "holding" | "deleting">("typing");
   const [cut, setCut] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 640px)");
+    const update = () => setIsMobile(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
   useEffect(() => {
     const current = OM_MIG_ROTATING_PHRASES[index].text;
     let timeout: ReturnType<typeof setTimeout>;
@@ -196,8 +204,8 @@ function RotatingPhrase() {
         setCut(0);
         setPhase("deleting");
       }, 2000);
-    } else {
-      // deleting: strip one char from each end per tick
+    } else if (isMobile) {
+      // mobile: strip one char from each end per tick at 40ms
       timeout = setTimeout(() => {
         const nextCut = cut + 1;
         if (nextCut * 2 >= current.length) {
@@ -210,9 +218,21 @@ function RotatingPhrase() {
           setCut(nextCut);
         }
       }, 40);
+    } else {
+      // desktop: standard right-to-left deletion
+      timeout = setTimeout(() => {
+        if (text.length <= 1) {
+          setText("");
+          setCut(0);
+          setIndex((i) => (i + 1) % OM_MIG_ROTATING_PHRASES.length);
+          setPhase("typing");
+        } else {
+          setText(text.slice(0, text.length - 1));
+        }
+      }, 40);
     }
     return () => clearTimeout(timeout);
-  }, [text, phase, index, cut]);
+  }, [text, phase, index, cut, isMobile]);
   const n = OM_MIG_ROTATING_PHRASES.length;
   const current = OM_MIG_ROTATING_PHRASES[index];
   const prev = OM_MIG_ROTATING_PHRASES[(index - 1 + n) % n];
@@ -220,7 +240,9 @@ function RotatingPhrase() {
   const total = current.text.length || 1;
   const progress =
     phase === "deleting"
-      ? Math.max(0, (total - cut * 2) / total)
+      ? isMobile
+        ? Math.max(0, (total - cut * 2) / total)
+        : Math.max(0, text.length / total)
       : Math.min(1, text.length / total);
   const color =
     phase === "deleting"
