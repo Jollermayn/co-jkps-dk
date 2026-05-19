@@ -571,7 +571,7 @@ function CodeParadoxBlock() {
       ref={sectionRef}
       aria-label="The AI paradox"
       className="w-full flex flex-col items-center"
-      style={{ padding: "48px 0", background: "transparent" }}
+      style={{ padding: "64px 48px", background: "transparent" }}
     >
       <style dangerouslySetInnerHTML={{ __html: TW_CURSOR_CSS }} />
       <div
