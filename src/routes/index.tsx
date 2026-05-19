@@ -1110,7 +1110,7 @@ const CASE_META: Record<string, { headline: string; tags: string[] }> = {
     tags: ["Generativ AI", "Konceptudvikling"],
   },
   "interaktiv-horesimulering": {
-    headline: "Social isolation.",
+    headline: "Social isolation. Teknologien løser lyden. Ikke ensomheden.",
     tags: ["Interviews", "Co-design", "Konceptudvikling"],
   },
   "danmarks-radio": {
