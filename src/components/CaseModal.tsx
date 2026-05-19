@@ -8,6 +8,12 @@ import horesimQuotes from "@/assets/horesim-quotes.png";
 import amnestyStudio from "@/assets/case-amnesty-studio.png";
 import amnestyJournalists from "@/assets/case-amnesty-journalists.png";
 import amnestyJonas from "@/assets/case-amnesty-jonas.png";
+import ullaStudio from "@/assets/case-ulla-studio.webp";
+import ullaRecording from "@/assets/case-ulla-recording.webp";
+import ullaGuest1 from "@/assets/case-ulla-guest-1.webp";
+import ullaGuest2 from "@/assets/case-ulla-guest-2.webp";
+import ullaGuest3 from "@/assets/case-ulla-guest-3.webp";
+import ullaGuest4 from "@/assets/case-ulla-guest-4.webp";
 
 type Props = {
   study: CaseStudy | null;
