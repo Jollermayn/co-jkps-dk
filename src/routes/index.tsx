@@ -1449,7 +1449,7 @@ function CasesSection() {
           const meta = CASE_META[c.slug];
           const sizing =
             variant === "slider"
-              ? "snap-start shrink-0 w-[calc((100vw-6rem)/2.5)] md:w-[calc((100vw-7.5rem)/2.5)] lg:w-[calc((60vw-7.5rem)/2.5)]"
+              ? "snap-center sm:snap-start shrink-0 w-[calc(100vw-6rem)] sm:w-[calc((100vw-7.5rem)/2.5)] lg:w-[calc((60vw-7.5rem)/2.5)]"
               : "w-full";
           const imgWrapperClass =
             variant === "slider"
@@ -1569,14 +1569,7 @@ function CasesSection() {
                     Se case
                   </span>
                 )}
-                {variant === "slider" && (
-                  <span
-                    aria-hidden
-                    className="sm:hidden self-center mt-3 text-cream/45 font-mono tabular-nums text-[9px] tracking-[0.1em] pointer-events-none"
-                  >
-                    {index + 1} / {total}
-                  </span>
-                )}
+                {/* mobile per-card index removed in favor of unified progress bar below */}
               </div>
             </button>
           );
@@ -1617,7 +1610,7 @@ function CasesSection() {
                 </div>
 
                 {/* Progress indicator */}
-                <div className="hidden sm:flex px-12 md:px-14 mt-4 items-center gap-6">
+                <div className="flex px-12 md:px-14 mt-4 items-center gap-6">
                   <div className="flex-1 h-0.5 bg-cream/15 relative overflow-hidden rounded-full">
                     <div
                       className="absolute inset-y-0 left-0 bg-[#B83A20] transition-[width] duration-300 ease-out rounded-full"
