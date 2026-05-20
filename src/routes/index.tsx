@@ -519,20 +519,31 @@ function CodeParadoxBlock() {
     if (steps.length) steps[steps.length - 1].delay += 400;
     pushTyping("l2s", L2S);
     if (steps.length) steps[steps.length - 1].delay += 400;
-    const PREFIX = "// Not enough intelli";
-    const WRONG = "ggenc";
-    for (let c = 1; c <= PREFIX.length; c++) {
-      steps.push({ target: "l3", text: PREFIX.slice(0, c), delay: charDelay() });
+    // Natural typo: write "intellegence" (common misspelling), pause, backspace to "intell", then type correctly.
+    const STEM = "// Not enough intell";
+    const WRONG_TAIL = "egence";  // forms "intellegence"
+    const RIGHT_TAIL = "igence...";
+    // 1) Type stem + wrong tail
+    for (let c = 1; c <= STEM.length; c++) {
+      steps.push({ target: "l3", text: STEM.slice(0, c), delay: charDelay() });
     }
-    for (let k = 1; k <= WRONG.length; k++) {
-      steps.push({ target: "l3", text: PREFIX + WRONG.slice(0, k), delay: 95 });
+    for (let k = 1; k <= WRONG_TAIL.length; k++) {
+      steps.push({ target: "l3", text: STEM + WRONG_TAIL.slice(0, k), delay: charDelay() });
     }
-    steps[steps.length - 1].delay += 600;
-    for (let k = WRONG.length - 1; k >= 0; k--) {
-      steps.push({ target: "l3", text: PREFIX + WRONG.slice(0, k), delay: 150 });
+    // 2) Long human "wait, that's wrong" pause
+    steps[steps.length - 1].delay += 900;
+    // 3) Backspace with slight acceleration (140ms → 90ms)
+    const delLen = WRONG_TAIL.length;
+    for (let k = delLen - 1; k >= 0; k--) {
+      const t = (delLen - 1 - k) / Math.max(1, delLen - 1);
+      const delDelay = 140 - t * 50;
+      steps.push({ target: "l3", text: STEM + WRONG_TAIL.slice(0, k), delay: delDelay });
     }
-    for (let c = PREFIX.length + 1; c <= L3.length; c++) {
-      steps.push({ target: "l3", text: L3.slice(0, c), delay: charDelay() });
+    // 4) Brief thinking pause before correction
+    steps[steps.length - 1].delay += 280;
+    // 5) Type correct ending
+    for (let k = 1; k <= RIGHT_TAIL.length; k++) {
+      steps.push({ target: "l3", text: STEM + RIGHT_TAIL.slice(0, k), delay: charDelay() });
     }
     const writeStep = (s: Step) => {
       let el: HTMLElement | null = null;
@@ -694,7 +705,7 @@ function CodeParadoxBlock() {
               alignItems: "baseline",
               flexWrap: "nowrap",
               fontFamily: monoFamily,
-              fontSize: "clamp(13px, 1.6vw, 16px)",
+              fontSize: "clamp(14px, 1.9vw, 20px)",
               letterSpacing: "0.04em",
               lineHeight: 1.6,
               whiteSpace: "nowrap",
@@ -711,7 +722,7 @@ function CodeParadoxBlock() {
             className="tw-line"
             style={{
               fontFamily: "'Cormorant Garamond', 'Playfair Display', Georgia, serif",
-              fontSize: "clamp(1.75rem, 5.5vw, 3.25rem)",
+              fontSize: "clamp(2.25rem, 7vw, 4.75rem)",
               fontStyle: "italic",
               fontWeight: 500,
               lineHeight: 1.15,
@@ -730,7 +741,7 @@ function CodeParadoxBlock() {
             className="tw-line tw-line-3"
             style={{
               fontFamily: monoFamily,
-              fontSize: "clamp(13px, 1.6vw, 16px)",
+              fontSize: "clamp(14px, 1.9vw, 20px)",
               letterSpacing: "0.04em",
               lineHeight: 1.6,
               whiteSpace: "nowrap",
