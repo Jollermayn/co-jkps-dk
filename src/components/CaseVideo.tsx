@@ -5,6 +5,7 @@ type Props = {
   poster?: string;
   ariaLabel?: string;
   className?: string;
+  style?: React.CSSProperties;
   preload?: "none" | "metadata" | "auto";
   /** When true on touch devices, the video autoplays (used for the active carousel card). */
   active?: boolean;
@@ -12,7 +13,7 @@ type Props = {
   autoplayInView?: boolean;
 };
 
-export function CaseVideo({ src, poster, ariaLabel, className, preload = "metadata", active = false, autoplayInView = false }: Props) {
+export function CaseVideo({ src, poster, ariaLabel, className, style, preload = "metadata", active = false, autoplayInView = false }: Props) {
   const ref = useRef<HTMLVideoElement>(null);
   const touchMounted = useRef(false);
 
@@ -117,7 +118,7 @@ export function CaseVideo({ src, poster, ariaLabel, className, preload = "metada
       loop={autoplayInView}
       playsInline
       preload={preload}
-      style={{ backgroundColor: "transparent", outline: "none", border: "none", boxShadow: "none" }}
+      style={{ backgroundColor: "transparent", outline: "none", border: "none", boxShadow: "none", ...style }}
     />
   );
 }

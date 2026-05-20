@@ -1844,6 +1844,7 @@ function CasesSection() {
                     poster={c.poster ?? c.image}
                     ariaLabel={`${c.client} — ${meta?.headline ?? c.title}`}
                     className={imgClass}
+                    style={c.slug === "danmarks-radio" ? { filter: "brightness(0.75)" } : undefined}
                     preload={variant === "slider" ? "auto" : "metadata"}
                     active={variant === "slider" && index === currentIndex}
                     autoplayInView={false}
