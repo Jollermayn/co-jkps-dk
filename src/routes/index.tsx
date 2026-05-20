@@ -1839,7 +1839,7 @@ function CasesSection() {
             >
               <div className={imgWrapperClass + " relative isolate border-0 outline-none"} style={{ backgroundColor: cardBackground, border: 0, boxShadow: "none", outline: "none", marginBottom: 0 }}>
                 {c.video ? (
-                  <div style={c.slug === "danmarks-radio" ? { filter: "brightness(0.2)" } : undefined}>
+                  <div style={c.slug === "danmarks-radio" ? { filter: "brightness(0.2)", height: "100%", width: "100%" } : undefined}>
                     <CaseVideo
                       src={c.video}
                       poster={c.poster ?? c.image}
@@ -1863,7 +1863,7 @@ function CasesSection() {
                 {c.slug === "danmarks-radio" && (
                   <div
                     aria-hidden
-                    style={{ position: "absolute", inset: 0, backgroundColor: "rgba(0,0,0,0.4)", zIndex: 0, pointerEvents: "none" }}
+                    style={{ position: "absolute", inset: 0, backgroundColor: "rgba(0,0,0,0.4)", zIndex: 1, pointerEvents: "none" }}
                   />
                 )}
                 {/* gradient overlay — fades image cleanly into card body, no visible seam */}
