@@ -298,7 +298,7 @@ function TilgangPage() {
           .tilgang-intro-line { font-size: 1.25rem !important; margin-bottom: 56px !important; white-space: nowrap; }
         }
         @media (max-width: 767px) {
-          .tilgang-intro-line { font-size: clamp(0.65rem, 2.85vw, 1.2rem) !important; white-space: nowrap !important; margin-bottom: 40px !important; }
+          .tilgang-intro-line { font-size: clamp(1rem, 4.2vw, 1.5rem) !important; white-space: nowrap !important; margin-bottom: 48px !important; }
         }
         .tilgang-cell-title-mobile { display: none; }
         .tilgang-cell-title-mobile { transition: opacity 0.8s ease, transform 0.8s ease; }
