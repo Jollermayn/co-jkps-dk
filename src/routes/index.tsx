@@ -1828,13 +1828,13 @@ function KompetencerList() {
               className="pr-8 flex flex-col gap-3 [&:has(button:hover)_.tag-helper]:text-cream/90"
               style={{ marginTop: "auto", alignSelf: "end" }}
             >
-              {renderTags(c.tags)}
               <p
                 className="tag-helper font-serif text-cream/60 leading-tight transition-colors duration-200"
                 style={{ fontSize: "0.85rem" }}
               >
-                Se cases med denne kategori <span aria-hidden className="text-[#C0281E]">→</span>
+                Se cases med denne kategori <span aria-hidden className="text-[#C0281E]">↴</span>
               </p>
+              {renderTags(c.tags)}
             </div>
           </div>
 
