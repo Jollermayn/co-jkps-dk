@@ -9,6 +9,9 @@ import { CaseVideo } from "@/components/CaseVideo";
 import { BackgroundVideoSlideshow } from "@/components/BackgroundVideoSlideshow";
 import profilePhoto from "@/assets/profile-photo.png";
 import chimpSuit from "@/assets/chimp-suit-map.png";
+import kompetence01Bg from "@/assets/case-wolt.png";
+import kompetence02Bg from "@/assets/kompetence-02-servicedesign.jpg";
+import kompetence03Bg from "@/assets/case-amnesty.png";
 import { SiteLogo } from "@/components/SiteLogo";
 import { MenuIcon } from "@/components/MenuIcon";
 
