@@ -1724,11 +1724,9 @@ function KompetencerList() {
         const isFilter = FILTER_SET.has(t);
         return (
           <li key={t} className="inline-flex items-center">
-            {i > 0 && (
-              <span aria-hidden className="mx-2 text-[#C0281E]">
-                —
-              </span>
-            )}
+            <span aria-hidden className={i === 0 ? "mr-2 text-[#C0281E]" : "mx-2 text-[#C0281E]"}>
+              —
+            </span>
             {isFilter ? (
               <button
                 type="button"
@@ -1821,13 +1819,6 @@ function KompetencerList() {
             </div>
           </div>
 
-          {/* Bottom-right arrow */}
-          <span
-            aria-hidden
-            className="absolute bottom-5 right-6 text-[#C0281E] text-lg leading-none transition-transform duration-200 ease-out group-hover:[transform:translate(3px,-3px)]"
-          >
-            ↗
-          </span>
         </article>
       ))}
     </div>
