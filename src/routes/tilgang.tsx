@@ -787,7 +787,6 @@ function TilgangPage() {
               <>
                 <img src={monkeyGrey} alt="JKPS" className={`tilgang-monkey-cycle ${monkeyCycleIdx === 0 ? "is-active" : ""}`} />
                 <img src={monkeyColor} alt="" aria-hidden="true" className={`tilgang-monkey-cycle ${monkeyCycleIdx === 1 ? "is-active" : ""}`} />
-                <img src={monkeyPhoto} alt="" aria-hidden="true" className={`tilgang-monkey-cycle ${monkeyCycleIdx === 2 ? "is-active" : ""}`} />
               </>
             )}
           </div>
