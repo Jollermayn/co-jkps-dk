@@ -707,7 +707,7 @@ function Index() {
           {/* TYPEWRITER INTRO */}
           <section
             id="hero-video"
-            className="flex flex-col justify-center py-12 sm:py-20 relative isolate overflow-visible min-h-[360px] sm:min-h-[420px] md:min-h-[480px]"
+            className="flex flex-col justify-center items-stretch relative isolate overflow-visible min-h-[360px] sm:min-h-[420px] md:min-h-[480px] py-16 sm:py-20 md:py-24"
             style={{
               backgroundColor: "#0A1628",
             }}
@@ -716,7 +716,7 @@ function Index() {
             <div className="px-8 sm:px-12 md:px-14 relative w-full" style={{ zIndex: 1 }}>
               <p className="text-left relative" style={{ color: "#FFFFFF", lineHeight: 1.15, fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3.5rem)" }}>
                 <span className="block">Jeg omsætter menneskelig indsigt til...</span>
-                <span className="block overflow-visible" style={{ fontSize: "clamp(2.2rem, 4.5vw, 4rem)", fontStyle: "italic", fontWeight: 700, lineHeight: 1.15, wordBreak: "normal", overflowWrap: "break-word", minHeight: "calc(clamp(2.2rem, 4.5vw, 4rem) * 1.15 * 2)" }}>
+                <span className="block overflow-visible" style={{ fontSize: "clamp(1.4rem, 5vw, 3.75rem)", fontStyle: "italic", fontWeight: 700, lineHeight: 1.15, whiteSpace: "nowrap" }}>
                   <RotatingPhrase />
                 </span>
               </p>
