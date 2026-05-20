@@ -433,38 +433,25 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
           )}
 
           {study.slug === "ulla-dyrlov" && (
-            <div className="mt-12 flex flex-col" style={{ gap: "4px" }}>
-              <div className="grid grid-cols-1 md:grid-cols-3 items-start" style={{ gap: "4px" }}>
+            <div className="mt-12 [column-fill:_balance] columns-1 sm:columns-2 lg:columns-3" style={{ columnGap: "4px" }}>
+              {[
+                { src: ullaPortrait, alt: "Ulla Dyrløv ved mikrofonen" },
+                { src: ullaStudio, alt: "Studierum hos Ulla Dyrløv" },
+                { src: ullaSession, alt: "Podcastoptagelse i gang" },
+                { src: ullaGuest1, alt: "Gæst 1 i Forældreskabet" },
+                { src: ullaGuest2, alt: "Gæst 2 i Forældreskabet" },
+                { src: ullaGuest3, alt: "Gæst 3 i Forældreskabet" },
+                { src: ullaGuest4, alt: "Gæst 4 i Forældreskabet" },
+              ].map((item, i) => (
                 <img
-                  src={ullaPortrait}
-                  alt="Ulla Dyrløv ved mikrofonen"
+                  key={i}
+                  src={item.src}
+                  alt={item.alt}
                   loading="lazy"
-                  className="w-full h-auto grayscale transition-transform duration-300 ease-in-out hover:scale-105"
+                  className="mb-1 block w-full h-auto break-inside-avoid grayscale transition-transform duration-300 ease-in-out hover:scale-105"
+                  style={{ objectFit: "contain" }}
                 />
-                <img
-                  src={ullaStudio}
-                  alt="Studierum hos Ulla Dyrløv"
-                  loading="lazy"
-                  className="w-full h-auto grayscale transition-transform duration-300 ease-in-out hover:scale-105"
-                />
-                <img
-                  src={ullaSession}
-                  alt="Podcastoptagelse i gang"
-                  loading="lazy"
-                  className="w-full h-auto grayscale transition-transform duration-300 ease-in-out hover:scale-105"
-                />
-              </div>
-              <div className="grid grid-cols-2 md:grid-cols-4 items-start" style={{ gap: "4px" }}>
-                {[ullaGuest1, ullaGuest2, ullaGuest3, ullaGuest4].map((src, i) => (
-                  <img
-                    key={i}
-                    src={src}
-                    alt={`Gæst ${i + 1} i Forældreskabet`}
-                    loading="lazy"
-                    className="w-full h-auto grayscale transition-transform duration-300 ease-in-out hover:scale-105"
-                  />
-                ))}
-              </div>
+              ))}
             </div>
           )}
 
