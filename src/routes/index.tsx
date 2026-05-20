@@ -1860,6 +1860,7 @@ function CasesSection() {
                 )}
                 {/* gradient overlay — fades image cleanly into card body, no visible seam */}
                 <div
+                  data-gradient-overlay
                   className="absolute inset-x-0 bottom-0 pointer-events-none"
                   style={{
                     height: "55%",
