@@ -722,7 +722,7 @@ function CodeParadoxBlock() {
             className="tw-line"
             style={{
               fontFamily: "'Cormorant Garamond', 'Playfair Display', Georgia, serif",
-              fontSize: "clamp(1.75rem, 5.5vw, 3.25rem)",
+              fontSize: "clamp(2.25rem, 7vw, 4.75rem)",
               fontStyle: "italic",
               fontWeight: 500,
               lineHeight: 1.15,
