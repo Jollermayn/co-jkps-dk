@@ -1726,7 +1726,7 @@ function CasesSection() {
                 background: `linear-gradient(180deg, ${cardBackground} 0%, rgba(13,27,42,0.7) 42%, rgba(13,27,42,0.92) 100%)`,
               }}
             >
-              <div className={imgWrapperClass + " relative"} style={{ backgroundColor: cardBackground }}>
+              <div className={imgWrapperClass + " relative border-0 outline-none"} style={{ backgroundColor: cardBackground, border: 0, boxShadow: "none", outline: "none", marginBottom: 0 }}>
                 {c.video ? (
                   <CaseVideo
                     src={c.video}
