@@ -1730,24 +1730,31 @@ function KompetencerList() {
     <ul className="flex flex-wrap items-center gap-1.5 justify-start">
       {tags.map((t) => {
         const isFilter = FILTER_SET.has(t);
-        const pillClass =
-          "inline-flex items-center text-[10px] tracking-wide px-2.5 py-1 rounded-full border border-cream/25 text-cream/80 leading-tight";
-        return (
-          <li key={t}>
-            {isFilter ? (
+        const basePill =
+          "inline-flex items-center gap-1.5 text-[10px] tracking-wide px-2.5 py-1 rounded-full border leading-tight transition-all duration-150 ease-out";
+        if (isFilter) {
+          return (
+            <li key={t}>
               <button
                 type="button"
                 onClick={(e) => {
                   e.stopPropagation();
                   scrollToTagFilter(t);
                 }}
-                className={pillClass + " cursor-pointer transition-colors duration-200 hover:border-cream/60 hover:text-cream"}
+                className={
+                  basePill +
+                  " border-cream/25 text-cream/80 cursor-pointer hover:border-[#C0281E] hover:text-[#C0281E] hover:-translate-y-px"
+                }
               >
-                {t}
+                <SlidersHorizontal size={10} strokeWidth={2} aria-hidden />
+                <span>{t}</span>
               </button>
-            ) : (
-              <span className={pillClass}>{t}</span>
-            )}
+            </li>
+          );
+        }
+        return (
+          <li key={t}>
+            <span className={basePill + " border-cream/25 text-cream/80"}>{t}</span>
           </li>
         );
       })}
