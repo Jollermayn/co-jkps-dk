@@ -1365,12 +1365,10 @@ function CasesSection() {
     });
   };
 
-  const SCROLL_STEP = 3; // matches fully-visible cards in the 3.5-card layout
-
   const showNextCase = () => {
     if (!filtered.length) return;
     const last = filtered.length - 1;
-    const next = currentIndex >= last ? 0 : Math.min(currentIndex + SCROLL_STEP, last);
+    const next = currentIndex >= last ? 0 : currentIndex + 1;
     setCurrentIndex(next);
     scrollToIndex(next);
   };
@@ -1378,7 +1376,7 @@ function CasesSection() {
   const showPreviousCase = () => {
     if (!filtered.length) return;
     const last = filtered.length - 1;
-    const prev = currentIndex <= 0 ? last : Math.max(currentIndex - SCROLL_STEP, 0);
+    const prev = currentIndex <= 0 ? last : currentIndex - 1;
     setCurrentIndex(prev);
     scrollToIndex(prev);
   };
