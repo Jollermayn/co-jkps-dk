@@ -1861,7 +1861,7 @@ function CasesSection() {
                 {c.slug === "danmarks-radio" && (
                   <div
                     aria-hidden
-                    style={{ position: "absolute", inset: 0, backgroundColor: "rgba(0,0,0,0.5)", zIndex: 1, pointerEvents: "none" }}
+                    style={{ position: "absolute", inset: 0, backgroundColor: "rgba(0,0,0,0.25)", zIndex: 1, pointerEvents: "none" }}
                   />
                 )}
                 {/* gradient overlay — fades image cleanly into card body, no visible seam */}
