@@ -1544,7 +1544,7 @@ function CasesSection() {
                 >
                   {meta?.headline ?? c.title}
                 </h3>
-                <ul className="flex flex-wrap gap-1.5 mt-1">
+                <ul className="flex flex-wrap gap-1.5 mt-3">
                   {(meta?.tags ?? []).map((t) => (
                     <li
                       key={t}
