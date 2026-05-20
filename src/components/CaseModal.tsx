@@ -157,14 +157,7 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
     axis.current = null;
 
     if (wasAxis === "h" && Math.abs(dx) > 60) {
-      const idx = caseStudies.findIndex((c) => c.slug === study.slug);
-      if (idx !== -1 && onNavigate) {
-        const target =
-          dx < 0
-            ? caseStudies[(idx + 1) % caseStudies.length]
-            : caseStudies[(idx - 1 + caseStudies.length) % caseStudies.length];
-        onNavigate(target);
-      }
+      navigateDir(dx < 0 ? 1 : -1);
       return;
     }
 
