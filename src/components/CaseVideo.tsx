@@ -78,7 +78,7 @@ export function CaseVideo({ src, poster, ariaLabel, className, preload = "metada
       aria-label={ariaLabel}
       className={className}
       muted
-      {...(isTouch ? {} : { loop: true })}
+      
       playsInline
       preload={preload}
       style={{ backgroundColor: "transparent" }}
