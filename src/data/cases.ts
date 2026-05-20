@@ -3,6 +3,7 @@ import caseWoltVideo from "@/assets/case-wolt.mp4?url";
 import caseBoliga from "@/assets/case-boliga.png";
 import caseBoligaVideo from "@/assets/case-boliga.mp4?url";
 import caseHearing from "@/assets/case-hearing.png";
+import caseHearingVideo from "@/assets/case-hearing.mp4?url";
 import caseDR from "@/assets/case-dr.png";
 import caseDRVideo from "@/assets/case-dr.mp4?url";
 import caseAmnesty from "@/assets/case-amnesty.png";
@@ -105,6 +106,7 @@ const _allCases: CaseStudy[] = [
     client: "FUS",
     title: "Social isolation. Teknologien løser lyden. Ikke ensomheden.",
     image: caseHearing,
+    video: caseHearingVideo,
     context:
       "Over 20% af hørehæmmede elever i den danske folkeskole oplever hyppig ensomhed mod under 4% blandt normalthørende. Der findes ingen nationale retningslinjer for inkluderende praksis — og eksisterende teknologiske løsninger adresserer lyden, ikke oplevelsen.",
     challenge:
