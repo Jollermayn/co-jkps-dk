@@ -15,94 +15,30 @@ export function CaseVideo({ src, ariaLabel, className }: Props) {
     if (!el) return;
 
     el.muted = true;
-
-    let direction: "forward" | "reverse" = "forward";
-    let rafId: number | null = null;
-    let lastTs = 0;
-
-    const cancelReverse = () => {
-      if (rafId !== null) {
-        cancelAnimationFrame(rafId);
-        rafId = null;
-      }
-    };
-
-    const stepReverse = (ts: number) => {
-      if (!lastTs) lastTs = ts;
-      const dt = (ts - lastTs) / 1000;
-      lastTs = ts;
-      const next = el.currentTime - dt;
-      if (next <= 0) {
-        el.currentTime = 0;
-        rafId = null;
-        direction = "forward";
-        el.play().catch(() => {});
-        return;
-      }
-      el.currentTime = next;
-      rafId = requestAnimationFrame(stepReverse);
-    };
-
-    const onEnded = () => {
-      // Boomerang: at end, switch to reverse playback via rAF
-      direction = "reverse";
-      el.pause();
-      lastTs = 0;
-      rafId = requestAnimationFrame(stepReverse);
-    };
-    el.addEventListener("ended", onEnded);
-
-    const tryPlay = () => {
-      cancelReverse();
-      direction = "forward";
-      el.play().catch(() => {});
-    };
+    // Autoplay once on mount; video stops on the last frame (no loop attribute).
+    el.play().catch(() => {});
 
     const isTouch =
       typeof window !== "undefined" &&
       window.matchMedia("(hover: none)").matches;
 
-    if (isTouch) {
-      tryPlay();
-      return () => {
-        cancelReverse();
-        el.removeEventListener("ended", onEnded);
-      };
-    }
+    if (isTouch) return;
 
     const target = (el.closest("[data-case-slug]") as HTMLElement) ?? el.parentElement;
-    if (!target) {
-      return () => {
-        cancelReverse();
-        el.removeEventListener("ended", onEnded);
-      };
-    }
+    if (!target) return;
 
-    const play = () => {
-      cancelReverse();
+    // On hover: restart from the beginning and play through once.
+    const replay = () => {
       el.currentTime = 0;
-      direction = "forward";
       el.play().catch(() => {});
     };
-    const pause = () => {
-      cancelReverse();
-      el.pause();
-      el.currentTime = 0;
-      direction = "forward";
-    };
 
-    target.addEventListener("mouseenter", play);
-    target.addEventListener("mouseleave", pause);
-    target.addEventListener("focusin", play);
-    target.addEventListener("focusout", pause);
+    target.addEventListener("mouseenter", replay);
+    target.addEventListener("focusin", replay);
 
     return () => {
-      cancelReverse();
-      el.removeEventListener("ended", onEnded);
-      target.removeEventListener("mouseenter", play);
-      target.removeEventListener("mouseleave", pause);
-      target.removeEventListener("focusin", play);
-      target.removeEventListener("focusout", pause);
+      target.removeEventListener("mouseenter", replay);
+      target.removeEventListener("focusin", replay);
     };
   }, []);
 
