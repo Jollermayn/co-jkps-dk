@@ -152,20 +152,50 @@ function Sidebar() {
         </div>
 
 
-        <div className="flex flex-col items-center gap-3 w-full text-center">
+        <div className="flex flex-col items-center gap-5 w-full text-center mt-12">
+          {/* Hairline divider */}
+          <span
+            aria-hidden
+            className="block h-px w-10"
+            style={{ backgroundColor: "rgba(192,40,30,0.15)" }}
+          />
+
+          {/* Primary CTA */}
           <Link
             to="/cv"
-            className="inline-flex items-center justify-center gap-2 mt-10 text-[1.1rem] font-bold tracking-wide text-[#C0281E] hover:text-cream active:text-cream transition-colors duration-300"
+            className="group relative w-full flex items-center justify-between font-display text-cream uppercase tracking-[0.18em] text-[0.78rem] px-5 py-4 border transition-colors duration-150 ease-out hover:bg-[#C0281E] hover:text-cream"
+            style={{ borderColor: "rgba(192,40,30,0.7)", borderRadius: 0 }}
           >
-            Download CV (PDF) <span aria-hidden>↓</span>
+            <span>Download CV (PDF)</span>
+            <span
+              aria-hidden
+              className="text-[#C0281E] transition-transform duration-150 ease-out group-hover:translate-y-[2px] group-hover:text-cream"
+            >
+              ↓
+            </span>
+            {/* Animated underline */}
+            <span
+              aria-hidden
+              className="pointer-events-none absolute left-0 bottom-0 h-px w-full origin-left scale-x-0 bg-[#C0281E] transition-transform duration-300 ease-out group-hover:scale-x-100"
+            />
           </Link>
+
+          {/* Secondary CTA */}
           <a
             href="#kontakt"
-            className="inline-flex items-center justify-center gap-2 text-[1.1rem] font-bold tracking-wide text-[#B83A20] underline underline-offset-4 hover:text-cream active:text-cream transition-colors duration-300"
+            className="group inline-flex items-center gap-2 font-display text-cream text-[0.95rem] transition-colors duration-200 ease-out hover:text-[#C0281E]"
           >
-            Kontakt mig
+            <span className="text-[#C0281E]">—</span>
+            <span>Kontakt mig</span>
+            <span
+              aria-hidden
+              className="text-[#C0281E] transition-transform duration-200 ease-out group-hover:translate-x-1"
+            >
+              →
+            </span>
           </a>
         </div>
+
 
       </div>
     </aside>
