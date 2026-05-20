@@ -1183,6 +1183,7 @@ function CasesSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [openCase, setOpenCase] = useState<CaseStudy | null>(null);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [chipPulse, setChipPulse] = useState(false);
   const scrollerRef = useRef<HTMLDivElement | null>(null);
   const filterRef = useRef<HTMLDivElement | null>(null);
 
