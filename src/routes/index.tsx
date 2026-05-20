@@ -2091,7 +2091,7 @@ function KompetencerList() {
                 }}
                 className={
                   basePill +
-                  " border-cream/25 text-cream/80 cursor-pointer hover:border-[#C0281E] hover:text-[#C0281E] hover:-translate-y-px"
+                  " border-cream/30 text-cream/85 cursor-pointer hover:border-[#C0281E] hover:text-[#C0281E] hover:bg-[#C0281E]/10 hover:-translate-y-px"
                 }
               >
                 <SlidersHorizontal size={10} strokeWidth={2} aria-hidden />
@@ -2159,16 +2159,9 @@ function KompetencerList() {
             </p>
 
             <div
-              className="flex flex-col gap-3 [&:has(button:hover)_.tag-helper]:text-cream/90"
+              className="flex flex-col gap-3"
               style={{ marginTop: "auto", paddingTop: "16px" }}
             >
-              <p
-                className="tag-helper font-serif text-cream/60 leading-tight transition-colors duration-200"
-                style={{ fontSize: "0.85rem" }}
-              >
-                Se cases med denne kategori
-                <ArrowDown aria-hidden size={14} strokeWidth={2.25} className="text-[#C0281E] inline-block align-middle ml-2" />
-              </p>
               {renderTags(c.tags)}
             </div>
           </div>
