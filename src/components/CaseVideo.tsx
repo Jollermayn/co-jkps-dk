@@ -23,6 +23,7 @@ export function CaseVideo({ src, poster, ariaLabel, className, preload = "metada
     const el = ref.current;
     if (!el) return;
     el.muted = true;
+    if (poster) el.poster = poster;
     if (active) {
       el.currentTime = 0;
       el.play().catch(() => {});
@@ -37,6 +38,7 @@ export function CaseVideo({ src, poster, ariaLabel, className, preload = "metada
     const el = ref.current;
     if (!el) return;
     el.muted = true;
+    if (poster) el.poster = poster;
     if (isTouch) return;
 
     const target = (el.closest("[data-case-slug]") as HTMLElement) ?? el.parentElement;
@@ -62,7 +64,7 @@ export function CaseVideo({ src, poster, ariaLabel, className, preload = "metada
       target.removeEventListener("mouseleave", stop);
       target.removeEventListener("focusout", stop);
     };
-  }, [isTouch]);
+  }, [isTouch, poster]);
 
   // iOS Safari won't paint a video's first frame without a poster unless the
   // src includes a media fragment time. Append #t=0.001 when no poster is set.
@@ -79,6 +81,7 @@ export function CaseVideo({ src, poster, ariaLabel, className, preload = "metada
       loop
       playsInline
       preload={preload}
+      style={{ backgroundColor: "transparent" }}
     />
   );
 }

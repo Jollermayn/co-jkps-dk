@@ -1,21 +1,30 @@
 import caseWolt from "@/assets/case-wolt.png";
 import caseWoltVideo from "@/assets/case-wolt.mp4?url";
+import caseWoltPoster from "@/assets/case-wolt-poster.jpg";
 import caseBoliga from "@/assets/case-boliga.png";
 import caseBoligaVideo from "@/assets/case-boliga.mp4?url";
+import caseBoligaPoster from "@/assets/case-boliga-poster.jpg";
 import caseHearing from "@/assets/case-hearing.png";
 import caseHearingVideo from "@/assets/case-hearing.mp4?url";
+import caseHearingPoster from "@/assets/case-hearing-poster.jpg";
 import caseDR from "@/assets/case-dr.png";
 import caseDRVideo from "@/assets/case-dr.mp4?url";
+import caseDRPoster from "@/assets/case-dr-poster.jpg";
 import caseAmnesty from "@/assets/case-amnesty.png";
 import caseAmnestyVideo from "@/assets/case-amnesty.mp4?url";
+import caseAmnestyPoster from "@/assets/case-amnesty-poster.jpg";
 import caseDN from "@/assets/case-dn.png";
 import caseDNVideo from "@/assets/case-dn.mp4?url";
+import caseDNPoster from "@/assets/case-dn-poster.jpg";
 import caseUlla from "@/assets/case-ulla.png";
 import caseDyrlovVideo from "@/assets/case-dyrlov.mp4?url";
+import caseDyrlovPoster from "@/assets/case-dyrlov-poster.jpg";
 import caseConcerto from "@/assets/case-concerto.png";
 import caseConcertoVideo from "@/assets/case-concerto.mp4?url";
+import caseConcertoPoster from "@/assets/case-concerto-poster.jpg";
 import caseArtSpirit from "@/assets/case-artspirit.png";
 import caseArtSpiritVideo from "@/assets/case-artspirit.mp4?url";
+import caseArtSpiritPoster from "@/assets/case-artspirit-poster.jpg";
 import caseNye1 from "@/assets/case-nye-1.png";
 import caseNye2 from "@/assets/case-nye-2.png";
 import caseNye3 from "@/assets/case-nye-3.png";
@@ -25,11 +34,14 @@ import caseNye6 from "@/assets/case-nye-6.png";
 import caseNye7 from "@/assets/case-nye-7.png";
 import caseNyeHero from "@/assets/case-nye-hero.png";
 import caseNyeHeroVideo from "@/assets/case-nye-hero.mp4?url";
+import caseNyeHeroPoster from "@/assets/case-nye-hero-poster.jpg";
 import caseNyeVaerkstedet from "@/assets/case-nye-vaerkstedet.png";
 import caseLydbogerAdhd from "@/assets/case-lydboger-adhd.jpg";
 import caseLydbogerAdhdVideo from "@/assets/case-lydboger-adhd.mp4?url";
+import caseLydbogerAdhdPoster from "@/assets/case-lydboger-adhd-poster.jpg";
 import caseItuDesignlab from "@/assets/case-itu-designlab.jpg";
 import caseItuDesignlabVideo from "@/assets/case-itu-designlab.mp4?url";
+import caseItuDesignlabPoster from "@/assets/case-itu-designlab-poster.jpg";
 
 export type StemFraFeltet = {
   quote: string;
@@ -45,6 +57,7 @@ export type CaseStudy = {
   title: string;
   image: string;
   video?: string;
+  poster?: string;
   context: string;
   challenge: string;
   role: string[];
@@ -64,6 +77,7 @@ const _allCases: CaseStudy[] = [
     title: "Fra usynlig algoritme til informeret bud",
     image: caseWolt,
     video: caseWoltVideo,
+    poster: caseWoltPoster,
     context:
       "Wolt-budene kørte længere end algoritmen regnede med — og fik løn for en rute der ikke eksisterede.",
     challenge:
@@ -90,6 +104,7 @@ const _allCases: CaseStudy[] = [
     title: "Den gode start på boligjagten",
     image: caseBoliga,
     video: caseBoligaVideo,
+    poster: caseBoligaPoster,
     context:
       "Boliga er Danmarks største boligplatform med 6,5 mio. månedlige interaktioner. Centrale funktioner var usynlige for brugerne — menuen modtog blot 100.000 interaktioner mod 2,6 mio. på boligvisningssiden.",
     challenge:
@@ -112,6 +127,7 @@ const _allCases: CaseStudy[] = [
     title: "Social isolation. Teknologien løser lyden. Ikke ensomheden.",
     image: caseHearing,
     video: caseHearingVideo,
+    poster: caseHearingPoster,
     context:
       "Over 20% af hørehæmmede elever i den danske folkeskole oplever hyppig ensomhed mod under 4% blandt normalthørende. Der findes ingen nationale retningslinjer for inkluderende praksis — og eksisterende teknologiske løsninger adresserer lyden, ikke oplevelsen.",
     challenge:
@@ -175,6 +191,7 @@ const _allCases: CaseStudy[] = [
     title: "Redaktionel kvalitet bag Danmarks public service",
     image: caseDR,
     video: caseDRVideo,
+    poster: caseDRPoster,
     context:
       "Danmarks Radio er Danmarks største public service medievirksomhed. Samarbejdet dækkede broadcast, podcastproduktion og tværgående koordinering på tværs af redaktioner.",
     challenge:
@@ -197,6 +214,7 @@ const _allCases: CaseStudy[] = [
     title: "Når tunge emner finder sin stemme",
     image: caseAmnesty,
     video: caseAmnestyVideo,
+    poster: caseAmnestyPoster,
     context:
       "Amnesty International arbejder med emner der er både politisk følsomme og fagligt tunge — dødsstraf, tortur, flygtninge. Et samarbejde der dækkede hele processen fra konceptudvikling og forberedelse til færdig produktion og levering.",
     challenge:
@@ -221,6 +239,7 @@ const _allCases: CaseStudy[] = [
     title: "Strategisk kommunikation for Danmarks største naturorganisation",
     image: caseDN,
     video: caseDNVideo,
+    poster: caseDNPoster,
     context:
       "Danmarks Naturfredningsforening er Danmarks største naturorganisation med mere end 130.000 medlemmer. Opgaven var at styrke organisationens kommunikation og digitale tilstedeværelse med fokus på at nå nye og yngre målgrupper.",
     challenge:
@@ -243,6 +262,7 @@ const _allCases: CaseStudy[] = [
     title: "Ulla Dyrløv. En TV-psykologs stemme — fra idé til platform.",
     image: caseUlla,
     video: caseDyrlovVideo,
+    poster: caseDyrlovPoster,
     context:
       "Ulla Dyrløv er TV-børnepsykolog og foredragsholder med en etableret faglig profil og en målgruppe der allerede lyttede. Det manglede var en platform der matchede hendes ekspertise og gav hendes stemme et hjem.",
     challenge:
@@ -267,6 +287,7 @@ const _allCases: CaseStudy[] = [
     title: "Bach remixet for en ny generation",
     image: caseConcerto,
     video: caseConcertoVideo,
+    poster: caseConcertoPoster,
     context:
       "Concerto Copenhagen er et af Danmarks førende barokensembler. Opgaven var at skabe kulturel relevans for et kunstnerisk produkt med 300 års historik — og nå en ny generation uden at kompromittere det kunstneriske udtryk.",
     challenge:
@@ -289,6 +310,7 @@ const _allCases: CaseStudy[] = [
     title: "Brand og platform for en praksis der var før sin tid",
     image: caseArtSpirit,
     video: caseArtSpiritVideo,
+    poster: caseArtSpiritPoster,
     context:
       "Art Spirit Coaching er en praksis ledet af Steen Lykke, der tidligt identificerede stress som en samfundsmæssig pandemi og arbejdede målrettet med resiliens og stressforebyggelse — på et tidspunkt hvor det endnu ikke var en anerkendt dagsorden. Praksis kombinerede mindfulness, personlig udvikling og retreatforløb for både enkeltpersoner og organisationer.",
     challenge:
@@ -312,6 +334,7 @@ const _allCases: CaseStudy[] = [
     title: "En borgerdrevet musikskole",
     image: caseNyeHero,
     video: caseNyeHeroVideo,
+    poster: caseNyeHeroPoster,
     gallery: [caseNyeVaerkstedet, caseNye2, caseNye1, caseNye3, caseNye4, caseNye5, caseNye6],
     context:
       "I den nyetablerede by Nye nord for Aarhus opstår et fællesskabsdrevet musikhus i et tidligere møbelværksted — med plads til undervisning, sammenspil og koncerter for alle aldre og niveauer. Med særligt fokus på at skabe grobund for børn og unges kreative udfoldelse i en by uden etablerede kulturtilbud.",
@@ -333,6 +356,7 @@ const _allCases: CaseStudy[] = [
     title: "Når formatet ikke passer — design af auditiv fordybelse til børn med ADHD",
     image: caseLydbogerAdhd,
     video: caseLydbogerAdhdVideo,
+    poster: caseLydbogerAdhdPoster,
     context:
       "Børn med ADHD kæmper ofte med traditionelle læringsformater. Ikke fordi de ikke kan lære, men fordi formaterne ikke er designet til dem. Projektet undersøgte hvordan lydbaserede formater kan blive et reelt lærings- og aflastningsværktøj for børn i alderen 7-12 år.",
     challenge:
@@ -356,6 +380,7 @@ const _allCases: CaseStudy[] = [
     title: "Når fortiden vækkes til live",
     image: caseItuDesignlab,
     video: caseItuDesignlabVideo,
+    poster: caseItuDesignlabPoster,
     context:
       "Professionelle plejere bruger reminiscensterapi til at styrke livskvaliteten hos borgere med demens — men kortlægning af den enkeltes livshistorie er ressourcekrævende og afhænger af pårørendes hukommelse og tilgængelighed.",
     challenge:
