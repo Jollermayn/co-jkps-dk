@@ -480,7 +480,7 @@ function CodeParadoxBlock() {
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const L1_PREFIX = "// ";
     const L1_TITLE = "The Ai paradox:";
-    const L2S = '"Too much Artificial"';
+    const L2S = '"Too much Artificial!"';
     const L3 = "// Not enough intelligence...";
     const cursor = line1CursorRef.current?.querySelector<HTMLSpanElement>(".tw-cursor");
     if (!cursor) return;
@@ -722,7 +722,7 @@ function CodeParadoxBlock() {
             className="tw-line"
             style={{
               fontFamily: "'Cormorant Garamond', 'Playfair Display', Georgia, serif",
-              fontSize: "clamp(2.25rem, 7vw, 4.75rem)",
+              fontSize: "clamp(1.85rem, 5.8vw, 3.75rem)",
               fontStyle: "italic",
               fontWeight: 500,
               lineHeight: 1.15,
