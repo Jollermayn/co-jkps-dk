@@ -25,6 +25,7 @@ import caseNyeHero from "@/assets/case-nye-hero.png";
 import caseNyeVaerkstedet from "@/assets/case-nye-vaerkstedet.png";
 import caseLydbogerAdhd from "@/assets/case-lydboger-adhd.jpg";
 import caseItuDesignlab from "@/assets/case-itu-designlab.jpg";
+import caseItuDesignlabVideo from "@/assets/case-itu-designlab.mp4?url";
 
 export type StemFraFeltet = {
   quote: string;
@@ -346,6 +347,7 @@ const _allCases: CaseStudy[] = [
     client: "DESIGNLAB",
     title: "Når fortiden vækkes til live",
     image: caseItuDesignlab,
+    video: caseItuDesignlabVideo,
     context:
       "Professionelle plejere bruger reminiscensterapi til at styrke livskvaliteten hos borgere med demens — men kortlægning af den enkeltes livshistorie er ressourcekrævende og afhænger af pårørendes hukommelse og tilgængelighed.",
     challenge:
