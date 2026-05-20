@@ -700,10 +700,13 @@ function Index() {
               <div className="mt-8 max-w-3xl space-y-6">
 
                 <p style={{ color: "white", opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.8 }}>
+                  Jeg arbejder med dét, der sker mellem mennesker og systemer.
+                </p>
+                <p style={{ color: "white", opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.8 }}>
                   UX research, servicedesign og konceptudvikling på tværs af public service, civilsamfund og kommercielle virksomheder. Selvstændig siden 2016.
                 </p>
                 <p style={{ color: "white", opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.8 }}>
-                  Jeg interesserer mig for mennesker. Ikke brugeren — men personen bag beslutningen, vanen og frustrationen. Det er dér forandringer enten lander eller går tabt.
+                  Ikke brugeren — men personen bag beslutningen, vanen og frustrationen. Det er dér forandringer enten lander eller går tabt.
                 </p>
                 <p style={{ color: "white", opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.8 }}>
                   Familiefar, naturmenneske — og først og fremmest en seriøs lytter.
