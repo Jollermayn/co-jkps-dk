@@ -188,9 +188,8 @@ function CaseDetail() {
           <Section label="Resultater" title="Resultater">
             <ul className="space-y-4">
               {study.outcomes.map((o: string) => (
-                <li key={o} className="flex items-start gap-4 text-lg text-cream/85 leading-relaxed">
-                  <span className="text-ember shrink-0 leading-relaxed">→</span>
-                  <span>{o}</span>
+                <li key={o} className="text-lg text-cream/85 leading-relaxed">
+                  {o}
                 </li>
               ))}
             </ul>
