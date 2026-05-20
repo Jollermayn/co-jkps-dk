@@ -1108,6 +1108,10 @@ function Index() {
           <p>Jonas K.P. Sørensen · Digital konsulent · Aarhus</p>
           <p>© {new Date().getFullYear()}</p>
         </div>
+        <div className="px-12 md:px-14 mt-6 flex items-center justify-center md:justify-start gap-2 text-xs text-cream/55">
+          <SiteLogo color="#F5F3EE" lineColor="#C0281E" lineOpacity={1} size={20} />
+          <span className="uppercase tracking-wider font-light">Made by JKPS</span>
+        </div>
       </footer>
     </main>
   );
