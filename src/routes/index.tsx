@@ -1877,7 +1877,7 @@ function CasesSection() {
                 {/* client name on gradient */}
                 <span
                   className={"absolute bottom-3 left-3 text-white uppercase font-extrabold " + clientSize}
-                  style={{ fontFamily: "'Arial Black', 'Helvetica Neue', Helvetica, Arial, sans-serif", fontSize: "0.9rem", letterSpacing: "0.15em", textShadow: "0 2px 8px rgba(0,0,0,0.9)" }}
+                  style={{ fontFamily: "'Arial Black', 'Helvetica Neue', Helvetica, Arial, sans-serif", fontSize: "0.9rem", letterSpacing: "0.15em" }}
                 >
                   {c.slug === "musikfaellesskabet-i-nye" ? (
                     "Borgerdrevet fællesskab i Nye"
