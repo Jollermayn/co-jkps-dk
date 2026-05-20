@@ -1,6 +1,7 @@
 import caseWolt from "@/assets/case-wolt.png";
 import caseWoltVideo from "@/assets/case-wolt.mp4?url";
 import caseBoliga from "@/assets/case-boliga.png";
+import caseBoligaVideo from "@/assets/case-boliga.mp4?url";
 import caseHearing from "@/assets/case-hearing.png";
 import caseDR from "@/assets/case-dr.png";
 import caseDRVideo from "@/assets/case-dr.mp4?url";
@@ -80,6 +81,7 @@ const _allCases: CaseStudy[] = [
     client: "Boliga",
     title: "Den gode start på boligjagten",
     image: caseBoliga,
+    video: caseBoligaVideo,
     context:
       "Boliga er Danmarks største boligplatform med 6,5 mio. månedlige interaktioner. Centrale funktioner var usynlige for brugerne — menuen modtog blot 100.000 interaktioner mod 2,6 mio. på boligvisningssiden.",
     challenge:
