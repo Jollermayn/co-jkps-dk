@@ -1576,29 +1576,13 @@ function CasesSection() {
             >
               <div className={imgWrapperClass + " relative"}>
                 {c.video ? (
-                  c.slug === "wolt" ? (
-                    <>
-                      <img
-                        src={c.image}
-                        alt={`${c.client} — ${meta?.headline ?? c.title}`}
-                        loading="lazy"
-                        className={imgClass + " lg:hidden"}
-                      />
-                      <CaseVideo
-                        src={c.video}
-                        ariaLabel={`${c.client} — ${meta?.headline ?? c.title}`}
-                        className={imgClass + " hidden lg:block"}
-                        preload="auto"
-                      />
-                    </>
-                  ) : (
-                    <CaseVideo
-                      src={c.video}
-                      poster={c.image}
-                      ariaLabel={`${c.client} — ${meta?.headline ?? c.title}`}
-                      className={imgClass}
-                    />
-                  )
+                  <CaseVideo
+                    src={c.video}
+                    poster={c.slug === "wolt" ? undefined : c.image}
+                    ariaLabel={`${c.client} — ${meta?.headline ?? c.title}`}
+                    className={imgClass}
+                    preload={c.slug === "wolt" ? "auto" : "metadata"}
+                  />
                 ) : (
                   <img
                     src={c.image}
