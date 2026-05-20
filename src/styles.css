@@ -341,3 +341,9 @@
 .bg-slide-zoom-out  { animation: bgSlideZoomOut 6s ease-out both; }
 .bg-slide-pan-left  { animation: bgSlidePanLeft 6s linear both; }
 .bg-slide-pan-right { animation: bgSlidePanRight 6s linear both; }
+
+@keyframes numeralPulse {
+  0%, 100% { opacity: 0.18; }
+  50%      { opacity: 0.28; }
+}
+.numeral-pulse { animation: numeralPulse 8s ease-in-out infinite; }
