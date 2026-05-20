@@ -367,3 +367,27 @@
   box-shadow: none !important;
   -webkit-tap-highlight-color: transparent !important;
 }
+
+/* Strip outline/border/box-shadow from ALL elements inside any case card, all states */
+[data-case-slug],
+[data-case-slug] *,
+[data-case-slug]:hover,
+[data-case-slug]:focus,
+[data-case-slug]:focus-visible,
+[data-case-slug]:focus-within,
+[data-case-slug]:active,
+[data-case-slug] *:hover,
+[data-case-slug] *:focus,
+[data-case-slug] *:focus-visible,
+[data-case-slug] *:focus-within,
+[data-case-slug] *:active {
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+[data-case-slug] video,
+[data-case-slug] [data-case-video-wrap],
+[data-case-slug] img,
+[data-case-slug] picture {
+  border: none !important;
+}
