@@ -1415,11 +1415,11 @@ function CasesSection() {
           const meta = CASE_META[c.slug];
           const sizing =
             variant === "slider"
-              ? "snap-start shrink-0 w-[calc((100vw-6rem)/1.5)] sm:w-[calc((100vw-7rem)/2.5)] md:w-[calc((100vw-8rem)/3.5)] lg:w-[calc((60vw-8rem)/3.5)]"
+              ? "snap-start shrink-0 w-[calc((100vw-6rem)/1.5)] sm:w-[calc((100vw-7rem)/2.5)] md:w-[calc((100vw-8rem)/3.5)] lg:w-[320px] lg:h-[480px]"
               : "w-full";
           const imgWrapperClass =
             variant === "slider"
-              ? "w-full overflow-hidden bg-navy h-[180px] max-[428px]:h-[160px]"
+              ? "w-full overflow-hidden bg-navy h-[180px] max-[428px]:h-[160px] lg:h-[300px]"
               : "w-full overflow-hidden bg-navy h-[250px]";
           const bodyPadding =
             variant === "slider"
