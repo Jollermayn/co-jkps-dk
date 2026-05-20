@@ -9,6 +9,7 @@ import caseAmnesty from "@/assets/case-amnesty.png";
 import caseAmnestyVideo from "@/assets/case-amnesty.mp4?url";
 import caseDN from "@/assets/case-dn.png";
 import caseUlla from "@/assets/case-ulla.png";
+import caseDyrlovVideo from "@/assets/case-dyrlov.mp4?url";
 import caseConcerto from "@/assets/case-concerto.png";
 import caseArtSpirit from "@/assets/case-artspirit.png";
 import caseNye1 from "@/assets/case-nye-1.png";
@@ -232,6 +233,7 @@ const _allCases: CaseStudy[] = [
     client: "Ulla Dyrløv",
     title: "Ulla Dyrløv. En TV-psykologs stemme — fra idé til platform.",
     image: caseUlla,
+    video: caseDyrlovVideo,
     context:
       "Ulla Dyrløv er TV-børnepsykolog og foredragsholder med en etableret faglig profil og en målgruppe der allerede lyttede. Det manglede var en platform der matchede hendes ekspertise og gav hendes stemme et hjem.",
     challenge:
