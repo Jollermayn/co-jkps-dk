@@ -1688,32 +1688,30 @@ function scrollToTagFilter(tag: string) {
 const flipCards = [
   {
     no: "01",
-    eyebrow: "Metode",
+    eyebrow: "METODE",
     Icon: Search,
-    titleLines: ["UX Research", "&", "Brugerindsigt"],
+    title: "UX Research & Brugerindsigt",
     body: "Jeg oversætter kompleks adfærd til handlebare beslutninger.",
     tags: ["Interviews", "Feltobservation", "Co-design"],
-    bgImage: uxResearchBg,
   },
   {
     no: "02",
-    eyebrow: "Praksis",
+    eyebrow: "PRAKSIS",
     Icon: GitBranch,
-    titleLines: ["Servicedesign", "&", "Konceptudvikling"],
-    body: "Fra identifikation af problemet til et konkret, realiserbart koncept.",
+    title: "Servicedesign & Konceptudvikling",
+    body: "Fra identifikation af problemet til et færdigt koncept der kan eksekveres.",
     tags: ["Brugerrejser", "Servicedesign", "Konceptudvikling"],
-    bgImage: servicedesignBg,
   },
   {
     no: "03",
-    eyebrow: "Resultat",
+    eyebrow: "RESULTAT",
     Icon: MessageCircle,
-    titleLines: ["Formidling", "&", "Kommunikation"],
-    body: "Komplekse emner gjort konkrete og tilgængelige.",
+    title: "Formidling & Kommunikation",
+    body: "Komplekse emner gjort konkrete og forståelige for dem der skal handle på dem.",
     tags: ["Strategisk kommunikation", "Brandudvikling", "Konceptudvikling"],
-    bgImage: formidlingBg,
   },
 ];
+
 
 
 function KompetencerList() {
