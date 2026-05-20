@@ -2091,7 +2091,7 @@ function KompetencerList() {
                 }}
                 className={
                   basePill +
-                  " border-cream/25 text-cream/80 cursor-pointer hover:border-[#C0281E] hover:text-[#C0281E] hover:-translate-y-px"
+                  " border-cream/30 text-cream/85 cursor-pointer hover:border-[#C0281E] hover:text-[#C0281E] hover:bg-[#C0281E]/10 hover:-translate-y-px"
                 }
               >
                 <SlidersHorizontal size={10} strokeWidth={2} aria-hidden />
