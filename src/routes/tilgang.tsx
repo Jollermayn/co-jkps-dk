@@ -265,12 +265,12 @@ function TilgangPage() {
             transition: transform 0.3s ease;
           }
           .tilgang-tales-link:hover::after { transform: scaleX(1); }
-          .tilgang-monkey-wrap { position: relative; display: block; width: 100%; max-width: 320px; margin: 48px auto; }
+          .tilgang-monkey-wrap { position: relative; display: block; width: 100%; max-width: 260px; margin: 48px auto; }
           .tilgang-monkey-wrap img { display: block; width: 100%; height: auto; }
 
         }
         @media (max-width: 1023px) {
-          .tilgang-monkey-wrap { display: block; width: 100%; max-width: 320px; margin: 48px auto; position: relative; aspect-ratio: 1 / 1; }
+          .tilgang-monkey-wrap { display: block; width: 100%; max-width: 260px; margin: 48px auto; position: relative; aspect-ratio: 1 / 1; }
           .tilgang-monkey-wrap img { display: block; width: 100%; height: auto; }
           .tilgang-monkey-grey { display: none !important; }
           .tilgang-monkey-color { display: none; }
