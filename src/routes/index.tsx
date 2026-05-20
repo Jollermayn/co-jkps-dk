@@ -946,7 +946,7 @@ function Index() {
           <CasesSection />
 
           {/* KOMPETENCER */}
-          <section id="kompetencer" className="py-16 md:py-20">
+          <section id="kompetencer" className="pt-16 md:pt-20" style={{ paddingBottom: "80px" }}>
             <div className="px-5 md:px-14">
               <div className="mb-10 md:mb-14">
                 <Eyebrow>Ekspertise</Eyebrow>
