@@ -18,7 +18,7 @@ export function CaseVideo({ src, poster, ariaLabel, className, preload = "metada
 
   const isTouch =
     typeof window !== "undefined" &&
-    window.matchMedia("(hover: none)").matches;
+    window.matchMedia("(pointer: coarse)").matches;
 
   // Autoplay-in-view: IntersectionObserver drives playback, looping.
   useEffect(() => {
