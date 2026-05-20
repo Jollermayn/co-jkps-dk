@@ -754,7 +754,11 @@ function CodeParadoxBlock() {
             textTransform: "uppercase",
           }}
         >
-          <span style={{ width: 6, height: 6, borderRadius: "50%", background: "rgba(192,40,30,0.7)", display: "inline-block" }} />
+          <span style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>
+            <span style={{ width: 12, height: 12, borderRadius: "50%", background: "#FF5F57", display: "inline-block" }} />
+            <span style={{ width: 12, height: 12, borderRadius: "50%", background: "#FFBD2E", display: "inline-block" }} />
+            <span style={{ width: 12, height: 12, borderRadius: "50%", background: "#28C840", display: "inline-block" }} />
+          </span>
           <span>paradox.md</span>
         </div>
         <div
