@@ -1183,6 +1183,7 @@ function CasesSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [openCase, setOpenCase] = useState<CaseStudy | null>(null);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [chipPulse, setChipPulse] = useState(false);
   const scrollerRef = useRef<HTMLDivElement | null>(null);
   const filterRef = useRef<HTMLDivElement | null>(null);
 
@@ -1209,6 +1210,12 @@ function CasesSection() {
       const tag = (e as CustomEvent<string>).detail;
       if (tag && (FILTERS as readonly string[]).includes(tag)) {
         setFilter(tag as Filter);
+        setChipPulse(false);
+        // restart pulse on next tick
+        requestAnimationFrame(() => {
+          setChipPulse(true);
+          setTimeout(() => setChipPulse(false), 650);
+        });
       }
     };
     window.addEventListener("kompetencer:filter", onFilterEvent);
@@ -1331,7 +1338,8 @@ function CasesSection() {
                   "inline-flex items-center gap-2 text-xs tracking-wide px-4 py-2 rounded-full border transition-colors " +
                   (filter !== "Alle"
                     ? "bg-ember text-cream border-ember hover:bg-ember/90"
-                    : "border-cream/25 text-cream/85 hover:border-cream/60 hover:text-cream")
+                    : "border-cream/25 text-cream/85 hover:border-cream/60 hover:text-cream") +
+                  (chipPulse ? " filter-chip-pulse" : "")
                 }
               >
                 <SlidersHorizontal size={14} strokeWidth={2} />
@@ -1722,24 +1730,31 @@ function KompetencerList() {
     <ul className="flex flex-wrap items-center gap-1.5 justify-start">
       {tags.map((t) => {
         const isFilter = FILTER_SET.has(t);
-        const pillClass =
-          "inline-flex items-center text-[10px] tracking-wide px-2.5 py-1 rounded-full border border-cream/25 text-cream/80 leading-tight";
-        return (
-          <li key={t}>
-            {isFilter ? (
+        const basePill =
+          "inline-flex items-center gap-1.5 text-[10px] tracking-wide px-2.5 py-1 rounded-full border leading-tight transition-all duration-150 ease-out";
+        if (isFilter) {
+          return (
+            <li key={t}>
               <button
                 type="button"
                 onClick={(e) => {
                   e.stopPropagation();
                   scrollToTagFilter(t);
                 }}
-                className={pillClass + " cursor-pointer transition-colors duration-200 hover:border-cream/60 hover:text-cream"}
+                className={
+                  basePill +
+                  " border-cream/25 text-cream/80 cursor-pointer hover:border-[#C0281E] hover:text-[#C0281E] hover:-translate-y-px"
+                }
               >
-                {t}
+                <SlidersHorizontal size={10} strokeWidth={2} aria-hidden />
+                <span>{t}</span>
               </button>
-            ) : (
-              <span className={pillClass}>{t}</span>
-            )}
+            </li>
+          );
+        }
+        return (
+          <li key={t}>
+            <span className={basePill + " border-cream/25 text-cream/80"}>{t}</span>
           </li>
         );
       })}
@@ -1812,9 +1827,18 @@ function KompetencerList() {
               {c.body}
             </p>
 
-            {/* Tags */}
-            <div className="pr-8" style={{ marginTop: "auto", alignSelf: "end" }}>
+            {/* Tags + helper */}
+            <div
+              className="pr-8 flex flex-col gap-3 [&:has(button:hover)_.tag-helper]:text-cream/70"
+              style={{ marginTop: "auto", alignSelf: "end" }}
+            >
               {renderTags(c.tags)}
+              <p
+                className="tag-helper font-display uppercase tracking-[0.18em] text-[11px] text-cream/40 leading-tight transition-colors duration-200"
+              >
+                <span aria-hidden className="text-[#C0281E] mr-1.5">↳</span>
+                Filtrér cases på disse tags
+              </p>
             </div>
           </div>
 
