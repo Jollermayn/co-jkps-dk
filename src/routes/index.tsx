@@ -1867,12 +1867,6 @@ function CasesSection() {
                       "linear-gradient(to top, #0D1B2A 0%, rgba(13,27,42,0.92) 14%, rgba(13,27,42,0.55) 50%, rgba(13,27,42,0) 100%)",
                   }}
                 />
-                {/* solid bottom seam — guarantees no colored pixel line where image meets body */}
-                <div
-                  aria-hidden
-                  className="absolute inset-x-0 bottom-0 pointer-events-none"
-                  style={{ height: "2px", background: "#0D1B2A" }}
-                />
                 {/* client name on gradient */}
                 <span
                   className={"absolute bottom-3 left-3 text-white uppercase font-extrabold " + clientSize}
