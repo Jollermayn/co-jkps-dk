@@ -454,6 +454,11 @@ const TW_CURSOR_CSS = `
 .tw-cursor { display: inline-block; width: 0.6ch; margin-left: 1px; color: #F5F0E8; animation: tw-blink 1s steps(2, start) infinite; }
 .tw-cursor.is-typing { animation: none; opacity: 1; }
 @keyframes tw-blink { to { visibility: hidden; } }
+@media (max-width: 768px) {
+  .tw-content { min-height: 240px; padding: 24px 18px 28px !important; }
+  .tw-line-1, .tw-line-3 { font-size: 11px !important; letter-spacing: 0.02em !important; }
+  .tw-line-2 { font-size: 1.4rem !important; padding: 8px 0 !important; }
+}
 `;
 
 function CodeParadoxBlock() {
@@ -719,7 +724,7 @@ function CodeParadoxBlock() {
 
           {/* Line 2 — the human voice, serif italic */}
           <div
-            className="tw-line"
+            className="tw-line tw-line-2"
             style={{
               fontFamily: "'Cormorant Garamond', 'Playfair Display', Georgia, serif",
               fontSize: "clamp(1.85rem, 5.8vw, 3.75rem)",
@@ -729,9 +734,11 @@ function CodeParadoxBlock() {
               color: "#FFFFFF",
               padding: "12px 0",
               whiteSpace: "normal",
+              maxWidth: "100%",
+              overflowWrap: "break-word",
             }}
           >
-            <span ref={line2StringRef} style={{ whiteSpace: "pre" }} />
+            <span ref={line2StringRef} style={{ whiteSpace: "pre-wrap" }} />
             <span ref={line2CursorRef} />
           </div>
 
