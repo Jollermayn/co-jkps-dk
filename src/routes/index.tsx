@@ -1718,18 +1718,17 @@ const flipCards = [
 
 
 function KompetencerList() {
-  
-  const [expanded, setExpanded] = useState<Record<string, boolean>>({});
-
   const renderTags = (tags: string[]) => (
-    <ul className="flex flex-wrap gap-1.5">
-      {tags.map((t) => {
+    <ul className="flex flex-wrap items-center text-cream/70 text-[11px] tracking-[0.18em] uppercase font-display leading-tight">
+      {tags.map((t, i) => {
         const isFilter = FILTER_SET.has(t);
-        const baseStyle = { padding: "4px 10px", fontSize: "10px", lineHeight: "1" } as const;
-        const baseClass =
-          "tracking-wide uppercase rounded-md border border-white/40 text-white transition-colors duration-200";
         return (
-          <li key={t} className="inline-flex">
+          <li key={t} className="inline-flex items-center">
+            {i > 0 && (
+              <span aria-hidden className="mx-2 text-[#C0281E]">
+                —
+              </span>
+            )}
             {isFilter ? (
               <button
                 type="button"
@@ -1737,15 +1736,12 @@ function KompetencerList() {
                   e.stopPropagation();
                   scrollToTagFilter(t);
                 }}
-                style={baseStyle}
-                className={baseClass + " cursor-pointer hover:bg-white hover:text-[#0A1628] hover:border-white"}
+                className="cursor-pointer transition-colors duration-200 hover:text-cream"
               >
                 {t}
               </button>
             ) : (
-              <span style={baseStyle} className={baseClass}>
-                {t}
-              </span>
+              <span>{t}</span>
             )}
           </li>
         );
@@ -1753,115 +1749,136 @@ function KompetencerList() {
     </ul>
   );
 
+  const paperTexture =
+    'url("https://www.transparenttextures.com/patterns/paper.png")';
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
-      {flipCards.map((c) => {
-        
-        const isExpanded = !!expanded[c.no];
+      {flipCards.map((c, idx) => {
+        const isImage = idx === 1;
+        const isPaper = idx === 0;
+        const isPulse = idx === 2;
         return (
-          <div key={c.no}>
-            {/* Mobile accordion */}
-            <div className="md:hidden">
+          <article
+            key={c.no}
+            className="group relative aspect-[3/4] overflow-hidden bg-[#0D1B2A] transition-colors duration-[400ms] ease-out hover:bg-[#0F2235]"
+            style={{ border: "1px solid rgba(245,240,232,0.08)" }}
+          >
+            {/* Card 01 paper texture overlay */}
+            {isPaper && (
               <div
-                className="rounded-xl overflow-hidden select-none cursor-pointer"
-                style={{ background: "#0D1B2A", border: "1px solid rgba(245,240,232,0.1)" }}
-                role="button"
-                tabIndex={0}
-                aria-expanded={isExpanded}
-                onClick={() => setExpanded((p) => ({ ...p, [c.no]: !p[c.no] }))}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    setExpanded((p) => ({ ...p, [c.no]: !p[c.no] }));
-                  }
+                aria-hidden
+                className="pointer-events-none absolute inset-0"
+                style={{
+                  backgroundImage: paperTexture,
+                  opacity: 0.06,
+                  mixBlendMode: "screen",
+                }}
+              />
+            )}
+
+            {/* Card 02 bottom image band — desaturated navy duotone */}
+            {isImage && c.bgImage && (
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-x-0 bottom-0 h-[40%] overflow-hidden"
+              >
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    backgroundImage: `url(${c.bgImage})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    filter: "grayscale(100%) contrast(1.05) brightness(0.55)",
+                  }}
+                />
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      "linear-gradient(180deg, #0D1B2A 0%, rgba(13,27,42,0.55) 35%, rgba(13,27,42,0.55) 100%)",
+                    mixBlendMode: "multiply",
+                  }}
+                />
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      "linear-gradient(180deg, #0D1B2A 0%, rgba(13,27,42,0) 30%)",
+                  }}
+                />
+              </div>
+            )}
+
+            {/* Oversized watermark numeral, bleeding off the top */}
+            <span
+              aria-hidden
+              className={
+                "absolute -top-6 left-5 font-display italic text-[#C0281E] leading-none select-none pointer-events-none " +
+                (isPulse ? "numeral-pulse" : "")
+              }
+              style={{
+                fontSize: "clamp(96px, 11vw, 120px)",
+                opacity: isPulse ? undefined : 0.18,
+                fontWeight: 400,
+              }}
+            >
+              {c.no}
+            </span>
+
+            {/* Foreground content */}
+            <div className="relative h-full flex flex-col px-6 md:px-7 pt-7 pb-6">
+              {/* Hairline rule + eyebrow */}
+              <div className="flex flex-col gap-2">
+                <span
+                  aria-hidden
+                  className="block h-px bg-[#C0281E] transition-[width] duration-[450ms] ease-out w-10 group-hover:w-full"
+                />
+                <span className="font-display uppercase tracking-[0.22em] text-[10px] text-cream/75">
+                  {c.eyebrow}
+                </span>
+              </div>
+
+              {/* Title */}
+              <h3
+                className="mt-auto font-display text-cream leading-[1.15] tracking-tight text-left"
+                style={{ fontSize: "1.6rem", fontWeight: 500 }}
+              >
+                {c.titleLines.map((line, i) => (
+                  <span key={i} className="block">
+                    {line}
+                  </span>
+                ))}
+              </h3>
+
+              {/* Body */}
+              <p
+                className="mt-4 text-cream/70 font-display text-[0.95rem] leading-snug"
+                style={{
+                  display: "-webkit-box",
+                  WebkitLineClamp: 3,
+                  WebkitBoxOrient: "vertical",
+                  overflow: "hidden",
                 }}
               >
-                <div className="relative" style={{ height: "180px" }}>
-                  <span
-                    className="absolute left-1/2 -translate-x-1/2 top-6 font-display text-white text-center"
-                    style={{ opacity: 0.4, fontSize: "0.9rem", fontWeight: 400 }}
-                  >
-                    {c.no}
-                  </span>
-                  <h3
-                    className="absolute inset-0 flex items-center justify-center px-9 font-display tracking-tight leading-[1.2] text-center text-white"
-                    style={{ fontSize: "1.3rem", fontWeight: 600 }}
-                  >
-                    <span>
-                      {c.titleLines.map((line, i) => (
-                        <span key={i} className="block">{line}</span>
-                      ))}
-                    </span>
-                  </h3>
-                  <span
-                    className="absolute bottom-3 right-4 text-white transition-transform duration-300 ease-out"
-                    style={{ opacity: 0.6, transform: isExpanded ? "rotate(45deg)" : "rotate(0deg)" }}
-                    aria-hidden="true"
-                  >
-                    <Plus size={22} strokeWidth={2.25} />
-                  </span>
-                </div>
-                <div
-                  className="grid transition-[grid-template-rows] duration-300 ease-out"
-                  style={{ gridTemplateRows: isExpanded ? "1fr" : "0fr" }}
-                >
-                  <div className="overflow-hidden">
-                    <div
-                      className="flex flex-col gap-4 px-6 py-5 text-white"
-                      style={{ background: "#C0281E" }}
-                    >
-                      <p className="text-base leading-snug font-display">{c.body}</p>
-                      {renderTags(c.tags)}
-                    </div>
-                  </div>
-                </div>
-              </div>
+                {c.body}
+              </p>
+
+              {/* Tags */}
+              <div className="mt-5">{renderTags(c.tags)}</div>
             </div>
 
-            {/* Desktop hover reveal */}
-            <div
-              className="hidden md:block group relative rounded-xl overflow-hidden select-none"
-              style={{ height: "280px", background: "#0D1B2A", border: "1px solid rgba(245,240,232,0.1)" }}
+            {/* Bottom-right arrow */}
+            <span
+              aria-hidden
+              className="absolute bottom-5 right-6 text-[#C0281E] text-lg leading-none transition-transform duration-200 ease-out group-hover:[transform:translate(3px,-3px)]"
             >
-              {/* Front */}
-              <div className="absolute inset-0 transition-opacity duration-300 ease-out group-hover:opacity-0">
-                <span
-                  className="absolute left-1/2 -translate-x-1/2 top-7 font-display text-white text-center"
-                  style={{ opacity: 0.4, fontSize: "0.9rem", fontWeight: 400 }}
-                >
-                  {c.no}
-                </span>
-                <h3
-                  className="absolute inset-0 flex items-center justify-center px-9 font-display tracking-tight leading-[1.2] text-center text-white"
-                  style={{ fontSize: "1.3rem", fontWeight: 600 }}
-                >
-                  <span>
-                    {c.titleLines.map((line, i) => (
-                      <span key={i} className="block">{line}</span>
-                    ))}
-                  </span>
-                </h3>
-              </div>
-              {/* Back */}
-              <div
-                className="absolute inset-0 flex flex-col justify-between px-9 py-7 text-white opacity-0 translate-y-3 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-y-0"
-                style={
-                  c.bgImage
-                    ? {
-                        backgroundImage: `linear-gradient(rgba(10,22,40,0.78), rgba(10,22,40,0.78)), url(${c.bgImage})`,
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                      }
-                    : { background: "#C0281E" }
-                }
-              >
-                <p className="text-lg leading-snug font-display">{c.body}</p>
-                {renderTags(c.tags)}
-              </div>
-            </div>
-          </div>
+              ↗
+            </span>
+          </article>
         );
       })}
     </div>
   );
 }
+
