@@ -2137,7 +2137,7 @@ function KompetencerList() {
 
           {/* Content — right ~60% on desktop */}
           <div
-            className="md:col-span-3 flex flex-col justify-center"
+            className="md:col-span-3 flex flex-col"
             style={{ padding: "24px", rowGap: "12px" }}
           >
             <span className="font-display uppercase tracking-[0.22em] text-[10px] text-[#C0281E]">
