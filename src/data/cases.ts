@@ -24,6 +24,7 @@ import caseNye5 from "@/assets/case-nye-5.png";
 import caseNye6 from "@/assets/case-nye-6.png";
 import caseNye7 from "@/assets/case-nye-7.png";
 import caseNyeHero from "@/assets/case-nye-hero.png";
+import caseNyeHeroVideo from "@/assets/case-nye-hero.mp4?url";
 import caseNyeVaerkstedet from "@/assets/case-nye-vaerkstedet.png";
 import caseLydbogerAdhd from "@/assets/case-lydboger-adhd.jpg";
 import caseItuDesignlab from "@/assets/case-itu-designlab.jpg";
@@ -309,6 +310,7 @@ const _allCases: CaseStudy[] = [
     client: "Musikfællesskabet i Nye",
     title: "En borgerdrevet musikskole",
     image: caseNyeHero,
+    video: caseNyeHeroVideo,
     gallery: [caseNyeVaerkstedet, caseNye2, caseNye1, caseNye3, caseNye4, caseNye5, caseNye6],
     context:
       "I den nyetablerede by Nye nord for Aarhus opstår et fællesskabsdrevet musikhus i et tidligere møbelværksted — med plads til undervisning, sammenspil og koncerter for alle aldre og niveauer. Med særligt fokus på at skabe grobund for børn og unges kreative udfoldelse i en by uden etablerede kulturtilbud.",
