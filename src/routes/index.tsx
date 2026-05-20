@@ -1877,7 +1877,7 @@ function CasesSection() {
                 {/* client name directly on image, above bottom fade */}
                 <span
                   className={"absolute bottom-8 left-3 z-[1] text-white uppercase font-extrabold leading-tight " + clientSize}
-                  style={{ fontFamily: "'Arial Black', 'Helvetica Neue', Helvetica, Arial, sans-serif", fontSize: "0.9rem", letterSpacing: "0.15em" }}
+                  style={{ fontFamily: "'Arial Black', 'Helvetica Neue', Helvetica, Arial, sans-serif", fontSize: "0.9rem", letterSpacing: "0.15em", background: "none" }}
                 >
                   {c.slug === "musikfaellesskabet-i-nye" ? (
                     "Borgerdrevet fællesskab i Nye"

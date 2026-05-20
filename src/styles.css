@@ -428,10 +428,9 @@ video {
   background-color: #0D1B2A !important;
 }
 
-/* Force solid navy on card button + all descendants — kill any seam on production build */
+/* Force solid navy on card button and its direct div children — kill any seam on production build */
 button[data-case-slug],
-button[data-case-slug] > div,
-button[data-case-slug] > div > *:not(span) {
+button[data-case-slug] > div {
   background-color: #0D1B2A !important;
   background-image: none !important;
   border: none !important;
