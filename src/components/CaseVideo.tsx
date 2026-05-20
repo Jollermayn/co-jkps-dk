@@ -64,10 +64,14 @@ export function CaseVideo({ src, poster, ariaLabel, className, preload = "metada
     };
   }, [isTouch]);
 
+  // iOS Safari won't paint a video's first frame without a poster unless the
+  // src includes a media fragment time. Append #t=0.001 when no poster is set.
+  const resolvedSrc = poster ? src : `${src}${src.includes("#") ? "" : "#t=0.001"}`;
+
   return (
     <video
       ref={ref}
-      src={src}
+      src={resolvedSrc}
       poster={poster}
       aria-label={ariaLabel}
       className={className}
