@@ -553,12 +553,10 @@ function CodeParadoxBlock() {
       typeof window !== "undefined" &&
       window.matchMedia &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const isDesktop =
-      typeof window !== "undefined" && window.innerWidth >= 1024;
     const cursor = line1CursorRef.current?.querySelector<HTMLSpanElement>(".tw-cursor");
     if (!cursor) return;
     const timeouts: ReturnType<typeof setTimeout>[] = [];
-    if (reduceMotion || isDesktop) {
+    if (reduceMotion) {
       cursor.remove();
       if (line1PrefixRef.current) line1PrefixRef.current.textContent = PARADOX_LINE_1_PREFIX;
       if (line1TitleRef.current) line1TitleRef.current.textContent = PARADOX_LINE_1_TITLE;
