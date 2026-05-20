@@ -514,8 +514,8 @@ const TW_CURSOR_CSS = `
     min-height: 340px;
     max-height: 340px;
   }
-  .tw-desktop-static { display: block; }
-  .tw-mobile-animated { display: none; }
+  .tw-desktop-static { display: none; }
+  .tw-mobile-animated { display: block; }
 }
 @media (max-width: 768px) {
   .tw-shell { height: 301px; min-height: 301px; }
