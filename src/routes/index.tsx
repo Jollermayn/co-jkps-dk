@@ -1829,7 +1829,7 @@ function CasesSection() {
                 sizing
               }
               style={{
-                background: `linear-gradient(180deg, ${cardBackground} 0%, rgba(13,27,42,0.7) 42%, rgba(13,27,42,0.92) 100%)`,
+                background: "#0D1B2A",
                 appearance: "none",
                 WebkitAppearance: "none",
                 border: 0,
