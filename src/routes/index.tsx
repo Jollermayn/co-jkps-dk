@@ -1827,9 +1827,18 @@ function KompetencerList() {
               {c.body}
             </p>
 
-            {/* Tags */}
-            <div className="pr-8" style={{ marginTop: "auto", alignSelf: "end" }}>
+            {/* Tags + helper */}
+            <div
+              className="pr-8 flex flex-col gap-3 [&:has(button:hover)_.tag-helper]:text-cream/70"
+              style={{ marginTop: "auto", alignSelf: "end" }}
+            >
               {renderTags(c.tags)}
+              <p
+                className="tag-helper font-display uppercase tracking-[0.18em] text-[11px] text-cream/40 leading-tight transition-colors duration-200"
+              >
+                <span aria-hidden className="text-[#C0281E] mr-1.5">↳</span>
+                Filtrér cases på disse tags
+              </p>
             </div>
           </div>
 
