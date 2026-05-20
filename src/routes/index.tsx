@@ -1747,13 +1747,20 @@ function CasesSection() {
                     className={imgClass}
                   />
                 )}
-                {/* gradient overlay */}
+                {/* gradient overlay — fades image cleanly into card body, no visible seam */}
                 <div
                   className="absolute inset-x-0 bottom-0 pointer-events-none"
                   style={{
-                    height: "50%",
-                    background: "linear-gradient(to top, rgba(0,0,0,0.7), transparent)",
+                    height: "55%",
+                    background:
+                      "linear-gradient(to top, #0D1B2A 0%, rgba(13,27,42,0.92) 14%, rgba(13,27,42,0.55) 50%, rgba(13,27,42,0) 100%)",
                   }}
+                />
+                {/* solid bottom seam — guarantees no colored pixel line where image meets body */}
+                <div
+                  aria-hidden
+                  className="absolute inset-x-0 bottom-0 pointer-events-none"
+                  style={{ height: "2px", background: "#0D1B2A" }}
                 />
                 {/* client name on gradient */}
                 <span
