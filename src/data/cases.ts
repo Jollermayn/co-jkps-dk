@@ -3,6 +3,7 @@ import caseWoltVideo from "@/assets/case-wolt.mp4?url";
 import caseBoliga from "@/assets/case-boliga.png";
 import caseHearing from "@/assets/case-hearing.png";
 import caseDR from "@/assets/case-dr.png";
+import caseDRVideo from "@/assets/case-dr.mp4?url";
 import caseAmnesty from "@/assets/case-amnesty.png";
 import caseAmnestyVideo from "@/assets/case-amnesty.mp4?url";
 import caseDN from "@/assets/case-dn.png";
@@ -162,6 +163,7 @@ const _allCases: CaseStudy[] = [
     client: "Danmarks Radio",
     title: "Redaktionel kvalitet bag Danmarks public service",
     image: caseDR,
+    video: caseDRVideo,
     context:
       "Danmarks Radio er Danmarks største public service medievirksomhed. Samarbejdet dækkede broadcast, podcastproduktion og tværgående koordinering på tværs af redaktioner.",
     challenge:
