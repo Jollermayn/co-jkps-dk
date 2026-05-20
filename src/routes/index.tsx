@@ -704,16 +704,16 @@ function Index() {
           {/* TYPEWRITER INTRO */}
           <section
             id="hero-video"
-            className="flex flex-col justify-center py-12 sm:py-20 relative isolate overflow-visible sm:overflow-hidden h-[280px] sm:h-auto sm:min-h-[160px]"
+            className="flex flex-col justify-center py-12 sm:py-20 relative isolate overflow-visible min-h-[360px] sm:min-h-[420px] md:min-h-[480px]"
             style={{
               backgroundColor: "#0A1628",
             }}
           >
             <BackgroundVideoSlideshow />
-            <div className="px-8 sm:px-12 md:px-14 relative" style={{ zIndex: 1 }}>
+            <div className="px-8 sm:px-12 md:px-14 relative w-full" style={{ zIndex: 1 }}>
               <p className="text-left relative" style={{ color: "#FFFFFF", lineHeight: 1.15, fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3.5rem)" }}>
                 <span className="block">Jeg omsætter menneskelig indsigt til...</span>
-                <span className="block sm:whitespace-nowrap [&>span]:whitespace-normal sm:[&>span]:whitespace-nowrap h-[5rem] sm:h-auto sm:min-h-[3.5rem] overflow-hidden" style={{ fontSize: "clamp(2.2rem, 4.5vw, 4rem)", fontStyle: "italic", fontWeight: 700, lineHeight: 1.15, wordBreak: "break-word" }}>
+                <span className="block overflow-visible" style={{ fontSize: "clamp(2.2rem, 4.5vw, 4rem)", fontStyle: "italic", fontWeight: 700, lineHeight: 1.15, wordBreak: "normal", overflowWrap: "break-word", minHeight: "calc(clamp(2.2rem, 4.5vw, 4rem) * 1.15 * 2)" }}>
                   <RotatingPhrase />
                 </span>
               </p>
