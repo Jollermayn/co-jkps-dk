@@ -1304,6 +1304,7 @@ function Index() {
       <footer className="w-full max-w-full lg:w-[60%] lg:max-w-[60%] py-10 relative z-10 overflow-x-hidden" style={{ backgroundColor: "#0D1B2A", borderTop: "1px solid rgba(255,255,255,0.08)" }}>
         <div className="px-12 md:px-14 flex flex-col md:flex-row items-center md:items-center justify-between gap-4 text-sm text-cream/55 text-center md:text-left">
           <p>Jonas K.P. Sørensen · Digital konsulent · Aarhus</p>
+          <p>Hej</p>
           <div className="flex items-center gap-4">
             <p>© {new Date().getFullYear()}</p>
             <div className="flex items-center gap-2 text-xs">
