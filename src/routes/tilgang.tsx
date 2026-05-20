@@ -84,6 +84,15 @@ function TilgangPage() {
   const [sendError, setSendError] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
+  const [monkeyCycleIdx, setMonkeyCycleIdx] = useState(0);
+
+  useEffect(() => {
+    if (isDesktop) return;
+    const id = setInterval(() => {
+      setMonkeyCycleIdx((i) => (i + 1) % 3);
+    }, 3500);
+    return () => clearInterval(id);
+  }, [isDesktop]);
 
   useEffect(() => {
     const check = () => setIsDesktop(window.innerWidth >= 1024);
