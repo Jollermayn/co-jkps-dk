@@ -480,7 +480,7 @@ function CodeParadoxBlock() {
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const L1_PREFIX = "// ";
     const L1_TITLE = "The Ai paradox:";
-    const L2S = '"Too much Artificial"';
+    const L2S = '"Too much Artificial!"';
     const L3 = "// Not enough intelligence...";
     const cursor = line1CursorRef.current?.querySelector<HTMLSpanElement>(".tw-cursor");
     if (!cursor) return;
