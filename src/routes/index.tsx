@@ -1106,11 +1106,13 @@ function Index() {
       <footer className="w-full max-w-full lg:w-[60%] lg:max-w-[60%] py-10 relative z-10 overflow-x-hidden" style={{ backgroundColor: "#0D1B2A", borderTop: "1px solid rgba(255,255,255,0.08)" }}>
         <div className="px-12 md:px-14 flex flex-col md:flex-row items-center md:items-center justify-between gap-4 text-sm text-cream/55 text-center md:text-left">
           <p>Jonas K.P. Sørensen · Digital konsulent · Aarhus</p>
-          <p>© {new Date().getFullYear()}</p>
-        </div>
-        <div className="px-12 md:px-14 mt-6 flex items-center justify-center md:justify-start gap-2 text-xs text-cream/55">
-          <SiteLogo color="#F5F3EE" lineColor="#C0281E" lineOpacity={1} size={20} />
-          <span className="uppercase tracking-wider font-light">Made by JKPS</span>
+          <div className="flex items-center gap-4">
+            <p>© {new Date().getFullYear()}</p>
+            <div className="flex items-center gap-2 text-xs">
+              <SiteLogo color="#F5F3EE" lineColor="#C0281E" lineOpacity={1} size={20} />
+              <span className="font-light">Made by JKPS</span>
+            </div>
+          </div>
         </div>
       </footer>
     </main>
