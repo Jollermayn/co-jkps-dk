@@ -1274,6 +1274,73 @@ const CASE_META: Record<string, { headline: string; tags: string[] }> = {
   },
 };
 
+const CASE_BG_FALLBACK = "#0D1B2A";
+
+function getPreloadIndices(length: number, active: number) {
+  if (length <= 0) return [] as number[];
+  const indices = new Set<number>([0, active]);
+  if (active > 0) indices.add(active - 1);
+  if (active < length - 1) indices.add(active + 1);
+  return Array.from(indices).filter((index) => index >= 0 && index < length);
+}
+
+function sampleDominantColor(src: string) {
+  return new Promise<string>((resolve) => {
+    if (typeof window === "undefined") {
+      resolve(CASE_BG_FALLBACK);
+      return;
+    }
+
+    const image = new Image();
+    image.decoding = "async";
+    image.onload = () => {
+      const canvas = document.createElement("canvas");
+      const context = canvas.getContext("2d", { willReadFrequently: true });
+
+      if (!context) {
+        resolve(CASE_BG_FALLBACK);
+        return;
+      }
+
+      const size = 24;
+      canvas.width = size;
+      canvas.height = size;
+      context.drawImage(image, 0, 0, size, size);
+
+      const { data } = context.getImageData(0, 0, size, size);
+      let red = 0;
+      let green = 0;
+      let blue = 0;
+      let totalWeight = 0;
+
+      for (let i = 0; i < data.length; i += 4) {
+        const alpha = data[i + 3] / 255;
+        if (alpha < 0.05) continue;
+
+        const brightness = (data[i] + data[i + 1] + data[i + 2]) / 3;
+        const saturation = Math.max(data[i], data[i + 1], data[i + 2]) - Math.min(data[i], data[i + 1], data[i + 2]);
+        const weight = alpha * (brightness < 24 ? 0.15 : brightness > 236 ? 0.4 : 1) * (saturation < 18 ? 0.85 : 1);
+
+        red += data[i] * weight;
+        green += data[i + 1] * weight;
+        blue += data[i + 2] * weight;
+        totalWeight += weight;
+      }
+
+      if (!totalWeight) {
+        resolve(CASE_BG_FALLBACK);
+        return;
+      }
+
+      const normalize = (value: number) => Math.max(18, Math.min(210, Math.round(value / totalWeight)));
+      resolve(`rgb(${normalize(red)}, ${normalize(green)}, ${normalize(blue)})`);
+    };
+
+    image.onerror = () => resolve(CASE_BG_FALLBACK);
+    image.src = src;
+  });
+}
+
 function CasesSection() {
   const [filter, setFilter] = useState<Filter>("Alle");
   const [filterOpen, setFilterOpen] = useState(false);
@@ -1281,8 +1348,11 @@ function CasesSection() {
   const [openCase, setOpenCase] = useState<CaseStudy | null>(null);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [chipPulse, setChipPulse] = useState(false);
+  const [cardBackgrounds, setCardBackgrounds] = useState<Record<string, string>>({});
   const scrollerRef = useRef<HTMLDivElement | null>(null);
   const filterRef = useRef<HTMLDivElement | null>(null);
+  const preloadedMediaRef = useRef(new Set<string>());
+  const videoPreloadersRef = useRef<HTMLVideoElement[]>([]);
 
   useEffect(() => {
     if (!filterOpen) return;
@@ -1366,6 +1436,45 @@ function CasesSection() {
   const total = filtered.length;
   const displayIndex = hoveredIndex ?? currentIndex;
   const progress = total > 0 ? ((displayIndex + 1) / total) * 100 : 0;
+  const primedIndices = new Set(getPreloadIndices(filtered.length, currentIndex));
+
+  useEffect(() => {
+    if (isGrid || typeof window === "undefined" || !filtered.length) return;
+
+    getPreloadIndices(filtered.length, currentIndex).forEach((index) => {
+      const currentCase = filtered[index];
+      if (!currentCase) return;
+
+      if (!preloadedMediaRef.current.has(currentCase.image)) {
+        const image = new Image();
+        image.decoding = "sync";
+        image.fetchPriority = "high";
+        image.src = currentCase.image;
+        preloadedMediaRef.current.add(currentCase.image);
+      }
+
+      if (!cardBackgrounds[currentCase.slug]) {
+        sampleDominantColor(currentCase.image).then((color) => {
+          setCardBackgrounds((existing) => {
+            if (existing[currentCase.slug]) return existing;
+            return { ...existing, [currentCase.slug]: color };
+          });
+        });
+      }
+
+      if (currentCase.video && !preloadedMediaRef.current.has(currentCase.video)) {
+        const video = document.createElement("video");
+        video.preload = "auto";
+        video.muted = true;
+        video.playsInline = true;
+        video.poster = currentCase.image;
+        video.src = currentCase.video;
+        video.load();
+        videoPreloadersRef.current.push(video);
+        preloadedMediaRef.current.add(currentCase.video);
+      }
+    });
+  }, [cardBackgrounds, currentIndex, filtered, isGrid]);
 
   const scrollToIndex = (target: number) => {
     const el = scrollerRef.current;
@@ -1552,6 +1661,8 @@ function CasesSection() {
       {(() => {
         const renderCard = (c: (typeof caseStudies)[number], variant: "slider" | "grid", index: number) => {
           const meta = CASE_META[c.slug];
+          const cardBackground = cardBackgrounds[c.slug] ?? CASE_BG_FALLBACK;
+          const shouldEagerLoad = variant === "slider" && primedIndices.has(index);
           const sizing =
             variant === "slider"
               ? "snap-center sm:snap-start shrink-0 w-[calc(100vw-5rem)] sm:w-[calc((100vw-7.5rem)/2.5)] lg:w-[calc((60vw-7.5rem)/2.5)]"
@@ -1594,28 +1705,31 @@ function CasesSection() {
               }}
               onBlur={() => variant === "slider" && setHoveredIndex(null)}
               className={
-                "group relative flex flex-col text-left rounded-lg border border-cream/10 bg-navy/30 hover:bg-[rgba(255,255,255,0.04)] overflow-hidden transition-all duration-300 ease-out hover:-translate-y-[3px] " +
+                "group relative flex flex-col text-left rounded-lg border border-cream/10 hover:bg-[rgba(255,255,255,0.04)] overflow-hidden transition-all duration-300 ease-out hover:-translate-y-[3px] " +
                 "cursor-pointer " +
                 sizing
               }
+              style={{
+                background: `linear-gradient(180deg, ${cardBackground} 0%, rgba(13,27,42,0.7) 42%, rgba(13,27,42,0.92) 100%)`,
+              }}
             >
-              <div className={imgWrapperClass + " relative"}>
+              <div className={imgWrapperClass + " relative"} style={{ backgroundColor: cardBackground }}>
                 {c.video ? (
                   <CaseVideo
                     src={c.video}
-                    poster={c.slug === "wolt" ? undefined : c.image}
+                    poster={c.image}
                     ariaLabel={`${c.client} — ${meta?.headline ?? c.title}`}
                     className={imgClass}
-                    preload={variant === "slider" ? "auto" : c.slug === "wolt" ? "auto" : "metadata"}
+                    preload={variant === "slider" ? "auto" : "metadata"}
                     active={variant === "slider" && index === currentIndex}
                   />
                 ) : (
                   <img
                     src={c.image}
                     alt={`${c.client} — ${meta?.headline ?? c.title}`}
-                    loading={variant === "slider" ? "eager" : "lazy"}
-                    decoding="async"
-                    fetchPriority={variant === "slider" ? "high" : "auto"}
+                    loading={shouldEagerLoad ? "eager" : "lazy"}
+                    decoding={shouldEagerLoad ? "sync" : "async"}
+                    fetchPriority={shouldEagerLoad ? "high" : "auto"}
                     className={imgClass}
                   />
                 )}
