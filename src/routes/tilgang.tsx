@@ -5,7 +5,7 @@ import { MenuIcon } from "@/components/MenuIcon";
 import mazeKort from "@/assets/kort.png";
 import mazeLygte from "@/assets/lygte.png";
 import monkeyGrey from "@/assets/jkps_1.png";
-import monkeyColor from "@/assets/jkps_2.png";
+import monkeyColor from "@/assets/jkps_monkey_color_v2.png";
 import monkeyPhoto from "@/assets/jkps_photo.png";
 
 const scenarioStrategi = "/videos/strategi.mp4";
@@ -265,8 +265,10 @@ function TilgangPage() {
             transition: transform 0.3s ease;
           }
           .tilgang-tales-link:hover::after { transform: scaleX(1); }
-          .tilgang-monkey-wrap { position: relative; display: block; width: 100%; max-width: 260px; margin: 48px auto; }
+          .tilgang-monkey-wrap { position: relative; display: block; width: 100%; max-width: 260px; margin: 48px auto; cursor: pointer; }
           .tilgang-monkey-wrap img { display: block; width: 100%; height: auto; }
+          .tilgang-monkey-color { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.6s ease-in-out; pointer-events: none; }
+          .tilgang-monkey-wrap:hover .tilgang-monkey-color { opacity: 1; }
 
         }
         @media (max-width: 1023px) {
@@ -794,6 +796,7 @@ function TilgangPage() {
           </p>
           <div className="tilgang-monkey-wrap" ref={monkeyWrapRef}>
             <img src={monkeyGrey} alt="JKPS" className="tilgang-monkey-grey" />
+            <img src={monkeyColor} alt="" aria-hidden="true" className="tilgang-monkey-color" />
           </div>
           <p
             style={{
