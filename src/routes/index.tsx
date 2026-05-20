@@ -645,23 +645,43 @@ function CodeParadoxBlock() {
         className="tw-window"
         style={{
           width: "100%",
-          maxWidth: "100%",
-          background: "transparent",
+          maxWidth: "720px",
+          background: "rgba(255,255,255,0.02)",
+          border: "1px solid rgba(255,255,255,0.08)",
+          borderRadius: "6px",
           textAlign: "left",
+          overflow: "hidden",
         }}
       >
+        {/* Subtle window tab — filename only, no traffic lights */}
+        <div
+          aria-hidden="true"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 10,
+            padding: "10px 18px",
+            borderBottom: "1px solid rgba(255,255,255,0.06)",
+            fontFamily: monoFamily,
+            fontSize: "12px",
+            letterSpacing: "0.05em",
+            color: "rgba(255,255,255,0.4)",
+            textTransform: "uppercase",
+          }}
+        >
+          <span style={{ width: 6, height: 6, borderRadius: "50%", background: "rgba(192,40,30,0.7)", display: "inline-block" }} />
+          <span>paradox.md</span>
+        </div>
         <div
           className="tw-content"
           style={{
-            padding: "0",
+            padding: "32px 28px 36px",
             lineHeight: 1.5,
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "flex-start",
             gap: "8px",
-            maxWidth: "640px",
-            margin: "0 auto",
           }}
         >
           {/* Line 1 — code comment eyebrow */}
