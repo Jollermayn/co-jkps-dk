@@ -7,7 +7,7 @@ type Props = {
   className?: string;
 };
 
-export function CaseVideo({ src, ariaLabel, className }: Props) {
+export function CaseVideo({ src, poster, ariaLabel, className }: Props) {
   const ref = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -15,30 +15,34 @@ export function CaseVideo({ src, ariaLabel, className }: Props) {
     if (!el) return;
 
     el.muted = true;
-    // Autoplay once on mount; video stops on the last frame (no loop attribute).
-    el.play().catch(() => {});
 
     const isTouch =
       typeof window !== "undefined" &&
       window.matchMedia("(hover: none)").matches;
-
     if (isTouch) return;
 
     const target = (el.closest("[data-case-slug]") as HTMLElement) ?? el.parentElement;
     if (!target) return;
 
-    // On hover: restart from the beginning and play through once.
-    const replay = () => {
+    const play = () => {
       el.currentTime = 0;
       el.play().catch(() => {});
     };
+    const stop = () => {
+      el.pause();
+      el.currentTime = 0;
+    };
 
-    target.addEventListener("mouseenter", replay);
-    target.addEventListener("focusin", replay);
+    target.addEventListener("mouseenter", play);
+    target.addEventListener("focusin", play);
+    target.addEventListener("mouseleave", stop);
+    target.addEventListener("focusout", stop);
 
     return () => {
-      target.removeEventListener("mouseenter", replay);
-      target.removeEventListener("focusin", replay);
+      target.removeEventListener("mouseenter", play);
+      target.removeEventListener("focusin", play);
+      target.removeEventListener("mouseleave", stop);
+      target.removeEventListener("focusout", stop);
     };
   }, []);
 
@@ -46,11 +50,13 @@ export function CaseVideo({ src, ariaLabel, className }: Props) {
     <video
       ref={ref}
       src={src}
+      poster={poster}
       aria-label={ariaLabel}
       className={className}
       muted
+      loop
       playsInline
-      preload="auto"
+      preload="metadata"
     />
   );
 }

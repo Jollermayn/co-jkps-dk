@@ -235,6 +235,7 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
               style={{ backgroundColor: "#0A1628" }}
               autoPlay
               muted
+              loop
               playsInline
               preload="auto"
             />
