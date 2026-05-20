@@ -1540,7 +1540,7 @@ function CasesSection() {
           const meta = CASE_META[c.slug];
           const sizing =
             variant === "slider"
-              ? "snap-center sm:snap-start shrink-0 w-[calc(100vw-6rem)] sm:w-[calc((100vw-7.5rem)/2.5)] lg:w-[calc((60vw-7.5rem)/2.5)]"
+              ? "snap-center sm:snap-start shrink-0 w-[calc(100vw-5rem)] sm:w-[calc((100vw-7.5rem)/2.5)] lg:w-[calc((60vw-7.5rem)/2.5)]"
               : "w-full";
           const imgWrapperClass =
             variant === "slider"
@@ -1696,7 +1696,7 @@ function CasesSection() {
                   <div
                     ref={scrollerRef}
                     onScroll={handleScroll}
-                    className="cases-carousel flex w-full max-w-full gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth px-12 md:px-14 scroll-pl-12 md:scroll-pl-14 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+                    className="cases-carousel flex w-full max-w-full gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth px-4 sm:px-12 md:px-14 sm:scroll-pl-12 md:scroll-pl-14 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
                   >
                     {filtered.map((c, i) => renderCard(c, "slider", i))}
                   </div>
