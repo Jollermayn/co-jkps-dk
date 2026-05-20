@@ -782,7 +782,7 @@ function CodeParadoxBlock() {
                 alignItems: "baseline",
                 flexWrap: "nowrap",
                 fontFamily: monoFamily,
-                fontSize: "clamp(14px, 1.9vw, 20px)",
+                fontSize: "clamp(18px, 2.6vw, 28px)",
                 letterSpacing: "0.04em",
                 lineHeight: 1.6,
                 whiteSpace: "nowrap",
@@ -813,7 +813,7 @@ function CodeParadoxBlock() {
               className="tw-line tw-line-3"
               style={{
                 fontFamily: monoFamily,
-                fontSize: "clamp(14px, 1.9vw, 20px)",
+                fontSize: "clamp(18px, 2.6vw, 28px)",
                 letterSpacing: "0.04em",
                 lineHeight: 1.6,
                 whiteSpace: "nowrap",
@@ -835,7 +835,7 @@ function CodeParadoxBlock() {
                 alignItems: "baseline",
                 flexWrap: "nowrap",
                 fontFamily: monoFamily,
-                fontSize: "clamp(14px, 1.9vw, 20px)",
+                fontSize: "clamp(18px, 2.6vw, 28px)",
                 letterSpacing: "0.04em",
                 lineHeight: 1.6,
                 whiteSpace: "nowrap",
@@ -869,7 +869,7 @@ function CodeParadoxBlock() {
               className="tw-line tw-line-3"
               style={{
                 fontFamily: monoFamily,
-                fontSize: "clamp(14px, 1.9vw, 20px)",
+                fontSize: "clamp(18px, 2.6vw, 28px)",
                 letterSpacing: "0.04em",
                 lineHeight: 1.6,
                 whiteSpace: "nowrap",
