@@ -1719,14 +1719,13 @@ const flipCards = [
 
 function KompetencerList() {
   const renderTags = (tags: string[]) => (
-    <ul className="flex flex-wrap items-center text-cream/70 text-[11px] tracking-[0.18em] uppercase font-display leading-tight">
-      {tags.map((t, i) => {
+    <ul className="flex flex-wrap items-center gap-1.5 justify-start">
+      {tags.map((t) => {
         const isFilter = FILTER_SET.has(t);
+        const pillClass =
+          "inline-flex items-center text-[10px] tracking-wide px-2.5 py-1 rounded-full border border-cream/25 text-cream/80 leading-tight";
         return (
-          <li key={t} className="inline-flex items-center">
-            <span aria-hidden className={i === 0 ? "mr-2 text-[#C0281E]" : "mx-2 text-[#C0281E]"}>
-              —
-            </span>
+          <li key={t}>
             {isFilter ? (
               <button
                 type="button"
@@ -1734,12 +1733,12 @@ function KompetencerList() {
                   e.stopPropagation();
                   scrollToTagFilter(t);
                 }}
-                className="cursor-pointer transition-colors duration-200 hover:text-cream"
+                className={pillClass + " cursor-pointer transition-colors duration-200 hover:border-cream/60 hover:text-cream"}
               >
                 {t}
               </button>
             ) : (
-              <span>{t}</span>
+              <span className={pillClass}>{t}</span>
             )}
           </li>
         );
