@@ -225,7 +225,7 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
               src={study.video}
               aria-label={`${study.client} — ${study.title}`}
               className="block w-full h-[240px] sm:h-[320px] md:h-[420px] max-h-[420px] object-cover bg-[#0A1628]"
-              style={{ backgroundColor: "#0A1628", ...(study.slug === "danmarks-radio" ? { filter: "brightness(0.75)" } : {}) }}
+              style={{ backgroundColor: "#0A1628", ...(study.slug === "danmarks-radio" ? { filter: "brightness(0.5)" } : {}) }}
               autoPlay
               muted
               playsInline
@@ -243,7 +243,7 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
               src={study.image}
               alt={`${study.client} — ${study.title}`}
               className="block w-full h-[240px] sm:h-[320px] md:h-[420px] max-h-[420px] object-cover"
-              style={study.slug === "danmarks-radio" ? { filter: "brightness(0.75)" } : undefined}
+              style={study.slug === "danmarks-radio" ? { filter: "brightness(0.5)" } : undefined}
             />
           )}
           <div
