@@ -1210,6 +1210,12 @@ function CasesSection() {
       const tag = (e as CustomEvent<string>).detail;
       if (tag && (FILTERS as readonly string[]).includes(tag)) {
         setFilter(tag as Filter);
+        setChipPulse(false);
+        // restart pulse on next tick
+        requestAnimationFrame(() => {
+          setChipPulse(true);
+          setTimeout(() => setChipPulse(false), 650);
+        });
       }
     };
     window.addEventListener("kompetencer:filter", onFilterEvent);
