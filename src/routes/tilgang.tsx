@@ -6,6 +6,7 @@ import mazeKort from "@/assets/kort.png";
 import mazeLygte from "@/assets/lygte.png";
 import monkeyGrey from "@/assets/jkps_1.png";
 import monkeyColor from "@/assets/jkps_2.png";
+import monkeyPhoto from "@/assets/jkps_photo.png";
 
 const scenarioStrategi = "/videos/strategi.mp4";
 const scenarioModelokale = "/videos/moedelokale.mp4";
@@ -83,6 +84,15 @@ function TilgangPage() {
   const [sendError, setSendError] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
+  const [monkeyCycleIdx, setMonkeyCycleIdx] = useState(0);
+
+  useEffect(() => {
+    if (isDesktop) return;
+    const id = setInterval(() => {
+      setMonkeyCycleIdx((i) => (i + 1) % 3);
+    }, 3500);
+    return () => clearInterval(id);
+  }, [isDesktop]);
 
   useEffect(() => {
     const check = () => setIsDesktop(window.innerWidth >= 1024);
@@ -246,9 +256,12 @@ function TilgangPage() {
           .tilgang-monkey-wrap:hover .tilgang-monkey-color { opacity: 1; }
         }
         @media (max-width: 1023px) {
-          .tilgang-monkey-wrap { display: block; width: 100%; max-width: 320px; margin: 48px auto; }
+          .tilgang-monkey-wrap { display: block; width: 100%; max-width: 320px; margin: 48px auto; position: relative; aspect-ratio: 1 / 1; }
           .tilgang-monkey-wrap img { display: block; width: 100%; height: auto; }
+          .tilgang-monkey-grey { display: none !important; }
           .tilgang-monkey-color { display: none; }
+          .tilgang-monkey-cycle { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1s ease-in-out; }
+          .tilgang-monkey-cycle.is-active { opacity: 1; }
         }
         @media (max-width: 767px) {
           .tilgang-grid { padding: 0 !important; margin: 0 !important; gap: 96px !important; column-gap: 0 !important; row-gap: 96px !important; }
@@ -769,6 +782,13 @@ function TilgangPage() {
             <img src={monkeyGrey} alt="JKPS" className="tilgang-monkey-grey" />
             {isDesktop && (
               <img src={monkeyColor} alt="" className="tilgang-monkey-color" aria-hidden="true" />
+            )}
+            {!isDesktop && (
+              <>
+                <img src={monkeyGrey} alt="JKPS" className={`tilgang-monkey-cycle ${monkeyCycleIdx === 0 ? "is-active" : ""}`} />
+                <img src={monkeyColor} alt="" aria-hidden="true" className={`tilgang-monkey-cycle ${monkeyCycleIdx === 1 ? "is-active" : ""}`} />
+                <img src={monkeyPhoto} alt="" aria-hidden="true" className={`tilgang-monkey-cycle ${monkeyCycleIdx === 2 ? "is-active" : ""}`} />
+              </>
             )}
           </div>
           <p
