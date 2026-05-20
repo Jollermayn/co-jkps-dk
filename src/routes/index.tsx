@@ -1754,28 +1754,34 @@ function KompetencerList() {
       {flipCards.map((c) => (
         <article
           key={c.no}
-          className="group relative flex flex-col overflow-hidden bg-[#0D1B2A] transition-colors duration-[400ms] ease-out hover:bg-[#0F2235] min-h-[420px] px-7 pt-7 pb-6"
+          className="group relative flex flex-col overflow-hidden bg-[#0D1B2A] transition-colors duration-[400ms] ease-out hover:bg-[#0F2235] min-h-[420px]"
           style={{ border: "1px solid rgba(245,240,232,0.08)" }}
         >
-          {/* Watermark numeral — top-right, barely visible */}
-          <span
-            aria-hidden
-            className="absolute top-4 right-5 font-display italic text-[#C0281E] leading-none select-none pointer-events-none"
-            style={{ fontSize: "72px", opacity: 0.08, fontWeight: 400 }}
-          >
-            {c.no}
-          </span>
+          {/* Image band — upper 45% */}
+          <div className="relative w-full" style={{ height: "45%", minHeight: "180px" }}>
+            <img
+              src={c.bg}
+              alt=""
+              aria-hidden
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            {/* Bottom-to-top navy gradient for text readability */}
+            <div
+              aria-hidden
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background:
+                  "linear-gradient(to bottom, rgba(13,27,42,0) 40%, rgba(13,27,42,0.85) 85%, #0D1B2A 100%)",
+              }}
+            />
+          </div>
 
+          {/* Content */}
+          <div className="flex flex-col flex-1 px-7 pt-5 pb-6">
           {/* Eyebrow */}
           <span className="font-display uppercase tracking-[0.22em] text-[10px] text-[#C0281E]">
             {c.eyebrow}
           </span>
-
-          {/* Hairline rule */}
-          <span
-            aria-hidden
-            className="block h-px bg-[#C0281E] mt-2 transition-[width] duration-[450ms] ease-out w-10 group-hover:w-full"
-          />
 
           {/* Title */}
           <h3
