@@ -1839,16 +1839,17 @@ function CasesSection() {
             >
               <div className={imgWrapperClass + " relative isolate border-0 outline-none"} style={{ backgroundColor: cardBackground, border: 0, boxShadow: "none", outline: "none", marginBottom: 0 }}>
                 {c.video ? (
-                  <CaseVideo
-                    src={c.video}
-                    poster={c.poster ?? c.image}
-                    ariaLabel={`${c.client} — ${meta?.headline ?? c.title}`}
-                    className={imgClass}
-                    style={c.slug === "danmarks-radio" ? { filter: "brightness(0.2)" } : undefined}
-                    preload={variant === "slider" ? "auto" : "metadata"}
-                    active={variant === "slider" && index === currentIndex}
-                    autoplayInView={false}
-                  />
+                  <div style={c.slug === "danmarks-radio" ? { filter: "brightness(0.2)" } : undefined}>
+                    <CaseVideo
+                      src={c.video}
+                      poster={c.poster ?? c.image}
+                      ariaLabel={`${c.client} — ${meta?.headline ?? c.title}`}
+                      className={imgClass}
+                      preload={variant === "slider" ? "auto" : "metadata"}
+                      active={variant === "slider" && index === currentIndex}
+                      autoplayInView={false}
+                    />
+                  </div>
                 ) : (
                   <img
                     src={c.image}
