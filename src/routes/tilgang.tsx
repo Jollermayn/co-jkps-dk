@@ -751,7 +751,7 @@ function TilgangPage() {
               fontStyle: "italic",
               fontSize: "clamp(1.3rem, 3.5vw, 2.4rem)",
               color: "#0A1628",
-              textAlign: "left",
+              textAlign: "center",
               margin: 0,
             }}
           >
@@ -767,7 +767,7 @@ function TilgangPage() {
               fontStyle: "italic",
               fontSize: "clamp(1.3rem, 3.5vw, 2.4rem)",
               color: "#0A1628",
-              textAlign: "left",
+              textAlign: "center",
               margin: 0,
             }}
           >
