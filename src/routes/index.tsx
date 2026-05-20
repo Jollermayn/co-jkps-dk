@@ -1449,7 +1449,7 @@ function CasesSection() {
           const meta = CASE_META[c.slug];
           const sizing =
             variant === "slider"
-              ? "snap-start shrink-0 w-[calc((100vw-6rem)/2.5)] md:w-[calc((100vw-7.5rem)/2.5)] lg:w-[calc((60vw-7.5rem)/2.5)]"
+              ? "snap-center sm:snap-start shrink-0 w-[calc(100vw-6rem)] sm:w-[calc((100vw-7.5rem)/2.5)] lg:w-[calc((60vw-7.5rem)/2.5)]"
               : "w-full";
           const imgWrapperClass =
             variant === "slider"
