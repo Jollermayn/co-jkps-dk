@@ -157,14 +157,7 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
     axis.current = null;
 
     if (wasAxis === "h" && Math.abs(dx) > 60) {
-      const idx = caseStudies.findIndex((c) => c.slug === study.slug);
-      if (idx !== -1 && onNavigate) {
-        const target =
-          dx < 0
-            ? caseStudies[(idx + 1) % caseStudies.length]
-            : caseStudies[(idx - 1 + caseStudies.length) % caseStudies.length];
-        onNavigate(target);
-      }
+      navigateDir(dx < 0 ? 1 : -1);
       return;
     }
 
@@ -274,7 +267,7 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
               if (onNavigate) onNavigate(s);
             };
             const btn =
-              "absolute top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-cream/25 bg-black/55 backdrop-blur text-cream flex items-center justify-center transition-colors hover:border-[#B83A20] hover:text-[#B83A20] hover:bg-black/70";
+              "hidden md:flex absolute top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-cream/25 bg-black/55 backdrop-blur text-cream items-center justify-center transition-colors hover:border-[#B83A20] hover:text-[#B83A20] hover:bg-black/70";
             return (
               <>
                 <button
