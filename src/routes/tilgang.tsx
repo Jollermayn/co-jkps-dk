@@ -4,8 +4,8 @@ import { SiteLogo } from "@/components/SiteLogo";
 import { MenuIcon } from "@/components/MenuIcon";
 import mazeKort from "@/assets/kort.png";
 import mazeLygte from "@/assets/lygte.png";
-import monkeyGrey from "@/assets/JKPS_monkey_grey.png";
-import monkeyColor from "@/assets/JKPS_monkey_color.png";
+import monkeyGrey from "@/assets/jkps_1.png";
+import monkeyColor from "@/assets/jkps_2.png";
 
 const scenarioStrategi = "/videos/strategi.mp4";
 const scenarioModelokale = "/videos/moedelokale.mp4";
