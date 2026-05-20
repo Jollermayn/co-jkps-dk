@@ -89,7 +89,7 @@ function TilgangPage() {
   useEffect(() => {
     if (isDesktop) return;
     const id = setInterval(() => {
-      setMonkeyCycleIdx((i) => (i + 1) % 3);
+      setMonkeyCycleIdx((i) => (i + 1) % 2);
     }, 3500);
     return () => clearInterval(id);
   }, [isDesktop]);
@@ -787,7 +787,6 @@ function TilgangPage() {
               <>
                 <img src={monkeyGrey} alt="JKPS" className={`tilgang-monkey-cycle ${monkeyCycleIdx === 0 ? "is-active" : ""}`} />
                 <img src={monkeyColor} alt="" aria-hidden="true" className={`tilgang-monkey-cycle ${monkeyCycleIdx === 1 ? "is-active" : ""}`} />
-                <img src={monkeyPhoto} alt="" aria-hidden="true" className={`tilgang-monkey-cycle ${monkeyCycleIdx === 2 ? "is-active" : ""}`} />
               </>
             )}
           </div>
