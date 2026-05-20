@@ -1693,8 +1693,8 @@ function CasesSection() {
           const tagSize = variant === "slider" ? "max-[428px]:text-[9px] max-[428px]:px-2 max-[428px]:py-0.5" : "";
           const imgClass =
             variant === "grid"
-              ? "w-full h-full object-cover md:grayscale md:group-hover:grayscale-0 transition-all duration-[400ms] ease-out group-hover:scale-[1.04]"
-              : "w-full h-full object-cover md:grayscale md:group-hover:grayscale-0 transition-all duration-[400ms] ease-out group-hover:scale-[1.04]";
+              ? "block w-full h-full object-cover border-0 outline-none md:grayscale md:group-hover:grayscale-0 transition-all duration-[400ms] ease-out group-hover:scale-[1.04]"
+              : "block w-full h-full object-cover border-0 outline-none md:grayscale md:group-hover:grayscale-0 transition-all duration-[400ms] ease-out group-hover:scale-[1.04]";
           return (
             <button
               key={c.slug}
@@ -1726,7 +1726,7 @@ function CasesSection() {
                 background: `linear-gradient(180deg, ${cardBackground} 0%, rgba(13,27,42,0.7) 42%, rgba(13,27,42,0.92) 100%)`,
               }}
             >
-              <div className={imgWrapperClass + " relative"} style={{ backgroundColor: cardBackground }}>
+              <div className={imgWrapperClass + " relative border-0 outline-none"} style={{ backgroundColor: cardBackground, border: 0, boxShadow: "none", outline: "none", marginBottom: 0 }}>
                 {c.video ? (
                   <CaseVideo
                     src={c.video}
@@ -1776,7 +1776,7 @@ function CasesSection() {
                   </span>
                 )}
               </div>
-              <div className={bodyPadding}>
+              <div className={bodyPadding + " border-0 outline-none"} style={{ border: 0, borderTop: 0, boxShadow: "none", outline: "none", marginTop: 0 }}>
                 <h3
                   className={"font-display font-bold text-cream leading-snug " + headlineSize}
                   style={{ fontSize: 18 }}
