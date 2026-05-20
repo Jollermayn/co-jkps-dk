@@ -4,6 +4,7 @@ import caseBoliga from "@/assets/case-boliga.png";
 import caseHearing from "@/assets/case-hearing.png";
 import caseDR from "@/assets/case-dr.png";
 import caseAmnesty from "@/assets/case-amnesty.png";
+import caseAmnestyVideo from "@/assets/case-amnesty.mp4?url";
 import caseDN from "@/assets/case-dn.png";
 import caseUlla from "@/assets/case-ulla.png";
 import caseConcerto from "@/assets/case-concerto.png";
@@ -182,6 +183,7 @@ const _allCases: CaseStudy[] = [
     client: "AMNESTY INTERNATIONAL",
     title: "Når tunge emner finder sin stemme",
     image: caseAmnesty,
+    video: caseAmnestyVideo,
     context:
       "Amnesty International arbejder med emner der er både politisk følsomme og fagligt tunge — dødsstraf, tortur, flygtninge. Et samarbejde der dækkede hele processen fra konceptudvikling og forberedelse til færdig produktion og levering.",
     challenge:
