@@ -6,6 +6,7 @@ import mazeKort from "@/assets/kort.png";
 import mazeLygte from "@/assets/lygte.png";
 import monkeyGrey from "@/assets/jkps_1.png";
 import monkeyColor from "@/assets/jkps_2.png";
+import monkeyPhoto from "@/assets/jkps_photo.png";
 
 const scenarioStrategi = "/videos/strategi.mp4";
 const scenarioModelokale = "/videos/moedelokale.mp4";
