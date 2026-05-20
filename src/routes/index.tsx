@@ -1907,9 +1907,13 @@ function CasesSection() {
                       <li
                         key={t}
                         className={
-                          "text-[10px] tracking-wide px-2.5 py-1 rounded-full bg-cream/5 text-cream/55 outline-none ring-0 shadow-none " +
+                          "text-[10px] tracking-wide px-2.5 py-1 rounded-full bg-cream/5 outline-none ring-0 shadow-none " +
                           tagSize
                         }
+                        style={{
+                          border: "1px solid rgba(255,255,255,0.3)",
+                          color: "rgba(255,255,255,0.9)",
+                        }}
                       >
                       {t}
                     </li>
