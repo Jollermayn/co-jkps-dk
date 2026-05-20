@@ -8,6 +8,7 @@ import caseDRVideo from "@/assets/case-dr.mp4?url";
 import caseAmnesty from "@/assets/case-amnesty.png";
 import caseAmnestyVideo from "@/assets/case-amnesty.mp4?url";
 import caseDN from "@/assets/case-dn.png";
+import caseDNVideo from "@/assets/case-dn.mp4?url";
 import caseUlla from "@/assets/case-ulla.png";
 import caseDyrlovVideo from "@/assets/case-dyrlov.mp4?url";
 import caseConcerto from "@/assets/case-concerto.png";
@@ -212,6 +213,7 @@ const _allCases: CaseStudy[] = [
     client: "Danmarks Naturfredningsforening",
     title: "Strategisk kommunikation for Danmarks største naturorganisation",
     image: caseDN,
+    video: caseDNVideo,
     context:
       "Danmarks Naturfredningsforening er Danmarks største naturorganisation med mere end 130.000 medlemmer. Opgaven var at styrke organisationens kommunikation og digitale tilstedeværelse med fokus på at nå nye og yngre målgrupper.",
     challenge:
