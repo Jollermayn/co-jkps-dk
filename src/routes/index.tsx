@@ -1896,9 +1896,11 @@ function CasesSection() {
                 >
                   {meta?.headline ?? c.title}
                 </h3>
-                <p className="mt-3 text-[10px] uppercase tracking-[0.18em] text-cream/55 leading-relaxed">
-                  {(meta?.tags ?? []).join(" · ")}
-                </p>
+                <ul className="mt-3 flex flex-col gap-1 text-[10px] uppercase tracking-[0.18em] text-cream/55 leading-relaxed">
+                  {(meta?.tags ?? []).map((t) => (
+                    <li key={t}>{t}</li>
+                  ))}
+                </ul>
                 {variant === "slider" && (
                   <span
                     aria-hidden
