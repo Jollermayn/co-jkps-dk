@@ -1523,8 +1523,7 @@ function CasesSection() {
                     "Borgerdrevet fællesskab i Nye"
                   ) : c.slug === "danmarks-naturfredningsforening" ? (
                     <>
-                      <span className="sm:hidden">Danmarks Naturfrednings-forening</span>
-                      <span className="hidden sm:inline">{c.client}</span>
+                      Danmarks Naturfrednings-<br />forening
                     </>
                   ) : (
                     c.client
