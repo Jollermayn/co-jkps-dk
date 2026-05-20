@@ -1819,13 +1819,6 @@ function KompetencerList() {
             </div>
           </div>
 
-          {/* Bottom-right arrow */}
-          <span
-            aria-hidden
-            className="absolute bottom-5 right-6 text-[#C0281E] text-lg leading-none transition-transform duration-200 ease-out group-hover:[transform:translate(3px,-3px)]"
-          >
-            ↗
-          </span>
         </article>
       ))}
     </div>
