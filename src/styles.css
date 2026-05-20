@@ -419,3 +419,11 @@ video {
   -webkit-appearance: none !important;
   appearance: none !important;
 }
+
+/* Eliminate any seam between case card image area and body */
+[data-case-slug] > div {
+  border: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  background-color: #0D1B2A !important;
+}
