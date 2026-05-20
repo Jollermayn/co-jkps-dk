@@ -1610,7 +1610,7 @@ function CasesSection() {
                 </div>
 
                 {/* Progress indicator */}
-                <div className="hidden sm:flex px-12 md:px-14 mt-4 items-center gap-6">
+                <div className="flex px-12 md:px-14 mt-4 items-center gap-6">
                   <div className="flex-1 h-0.5 bg-cream/15 relative overflow-hidden rounded-full">
                     <div
                       className="absolute inset-y-0 left-0 bg-[#B83A20] transition-[width] duration-300 ease-out rounded-full"
