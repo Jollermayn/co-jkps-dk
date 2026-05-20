@@ -646,7 +646,7 @@ function CodeParadoxBlock() {
         style={{
           width: "100%",
           maxWidth: "720px",
-          background: "rgba(255,255,255,0.02)",
+          background: "rgba(0,0,0,0.25)",
           border: "1px solid rgba(255,255,255,0.08)",
           borderRadius: "6px",
           textAlign: "left",
