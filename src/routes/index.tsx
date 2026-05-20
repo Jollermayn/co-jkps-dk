@@ -466,6 +466,10 @@ const TW_CURSOR_CSS = `
 .tw-cursor { display: inline-block; width: 0.6ch; margin-left: 1px; color: #F5F0E8; animation: tw-blink 1s steps(2, start) infinite; }
 .tw-cursor.is-typing { animation: none; opacity: 1; }
 @keyframes tw-blink { to { visibility: hidden; } }
+.tw-content { min-height: 320px; }
+@media (min-width: 1024px) {
+  .tw-content { min-height: 340px; }
+}
 @media (max-width: 768px) {
   .tw-content { min-height: 240px; padding: 24px 18px 28px !important; }
   .tw-line-1, .tw-line-3 { font-size: 11px !important; letter-spacing: 0.02em !important; }
