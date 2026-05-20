@@ -1874,9 +1874,9 @@ function CasesSection() {
                   className="absolute inset-x-0 pointer-events-none"
                   style={{ bottom: -2, height: 6, backgroundColor: "#0D1B2A" }}
                 />
-                {/* client name on gradient */}
+                {/* client name directly on image, above bottom fade */}
                 <span
-                  className={"absolute bottom-3 left-3 text-white uppercase font-extrabold " + clientSize}
+                  className={"absolute bottom-8 left-3 z-[1] text-white uppercase font-extrabold leading-tight " + clientSize}
                   style={{ fontFamily: "'Arial Black', 'Helvetica Neue', Helvetica, Arial, sans-serif", fontSize: "0.9rem", letterSpacing: "0.15em" }}
                 >
                   {c.slug === "musikfaellesskabet-i-nye" ? (
