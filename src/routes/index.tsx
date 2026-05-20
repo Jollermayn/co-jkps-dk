@@ -711,7 +711,7 @@ function Index() {
             <BackgroundVideoSlideshow />
             <div className="px-8 sm:px-12 md:px-14 relative w-full" style={{ zIndex: 1 }}>
               <p className="text-left relative" style={{ color: "#FFFFFF", lineHeight: 1.15, fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3.5rem)" }}>
-                <span className="block">Jeg omsætter menneskelig indsigt til...</span>
+                <span className="block">Jeg omsætter menneskelig<br />indsigt til...</span>
                 <span className="block overflow-visible" style={{ fontSize: "clamp(1.4rem, 5vw, 3.75rem)", fontStyle: "italic", fontWeight: 700, lineHeight: 1.15, whiteSpace: "nowrap" }}>
                   <RotatingPhrase />
                 </span>
