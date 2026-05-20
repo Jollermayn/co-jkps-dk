@@ -15,28 +15,80 @@ export function CaseVideo({ src, ariaLabel, className }: Props) {
     if (!el) return;
 
     el.muted = true;
-    const tryPlay = () => el.play().catch(() => {});
+
+    let direction: "forward" | "reverse" = "forward";
+    let rafId: number | null = null;
+    let lastTs = 0;
+
+    const cancelReverse = () => {
+      if (rafId !== null) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
+      }
+    };
+
+    const stepReverse = (ts: number) => {
+      if (!lastTs) lastTs = ts;
+      const dt = (ts - lastTs) / 1000;
+      lastTs = ts;
+      const next = el.currentTime - dt;
+      if (next <= 0) {
+        el.currentTime = 0;
+        rafId = null;
+        direction = "forward";
+        el.play().catch(() => {});
+        return;
+      }
+      el.currentTime = next;
+      rafId = requestAnimationFrame(stepReverse);
+    };
+
+    const onEnded = () => {
+      // Boomerang: at end, switch to reverse playback via rAF
+      direction = "reverse";
+      el.pause();
+      lastTs = 0;
+      rafId = requestAnimationFrame(stepReverse);
+    };
+    el.addEventListener("ended", onEnded);
+
+    const tryPlay = () => {
+      cancelReverse();
+      direction = "forward";
+      el.play().catch(() => {});
+    };
 
     const isTouch =
       typeof window !== "undefined" &&
       window.matchMedia("(hover: none)").matches;
 
-    // On mobile/touch: autoplay immediately. On desktop: wait for hover.
     if (isTouch) {
       tryPlay();
-      return;
+      return () => {
+        cancelReverse();
+        el.removeEventListener("ended", onEnded);
+      };
     }
 
     const target = (el.closest("[data-case-slug]") as HTMLElement) ?? el.parentElement;
-    if (!target) return;
+    if (!target) {
+      return () => {
+        cancelReverse();
+        el.removeEventListener("ended", onEnded);
+      };
+    }
 
     const play = () => {
+      cancelReverse();
       el.currentTime = 0;
-      tryPlay();
+      direction = "forward";
+      el.play().catch(() => {});
     };
     const pause = () => {
+      cancelReverse();
       el.pause();
       el.currentTime = 0;
+      direction = "forward";
     };
 
     target.addEventListener("mouseenter", play);
@@ -45,6 +97,8 @@ export function CaseVideo({ src, ariaLabel, className }: Props) {
     target.addEventListener("focusout", pause);
 
     return () => {
+      cancelReverse();
+      el.removeEventListener("ended", onEnded);
       target.removeEventListener("mouseenter", play);
       target.removeEventListener("mouseleave", pause);
       target.removeEventListener("focusin", play);
@@ -58,9 +112,7 @@ export function CaseVideo({ src, ariaLabel, className }: Props) {
       src={src}
       aria-label={ariaLabel}
       className={className}
-      
       muted
-      loop
       playsInline
       preload="auto"
     />
