@@ -13,6 +13,7 @@ import caseDNVideo from "@/assets/case-dn.mp4?url";
 import caseUlla from "@/assets/case-ulla.png";
 import caseDyrlovVideo from "@/assets/case-dyrlov.mp4?url";
 import caseConcerto from "@/assets/case-concerto.png";
+import caseConcertoVideo from "@/assets/case-concerto.mp4?url";
 import caseArtSpirit from "@/assets/case-artspirit.png";
 import caseArtSpiritVideo from "@/assets/case-artspirit.mp4?url";
 import caseNye1 from "@/assets/case-nye-1.png";
@@ -263,6 +264,7 @@ const _allCases: CaseStudy[] = [
     client: "Concerto Copenhagen",
     title: "Bach remixet for en ny generation",
     image: caseConcerto,
+    video: caseConcertoVideo,
     context:
       "Concerto Copenhagen er et af Danmarks førende barokensembler. Opgaven var at skabe kulturel relevans for et kunstnerisk produkt med 300 års historik — og nå en ny generation uden at kompromittere det kunstneriske udtryk.",
     challenge:
