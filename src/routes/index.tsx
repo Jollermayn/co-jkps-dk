@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { SlidersHorizontal, X, MousePointerClick, Search, GitBranch, MessageCircle, RotateCw } from "lucide-react";
+import { SlidersHorizontal, X, MousePointerClick, Search, GitBranch, MessageCircle, RotateCw, ArrowDown } from "lucide-react";
 import { caseStudies, type CaseStudy } from "@/data/cases";
 import caseWoltVideo from "@/assets/case-wolt.mp4?url";
 
@@ -1829,10 +1829,11 @@ function KompetencerList() {
               style={{ marginTop: "auto", alignSelf: "end" }}
             >
               <p
-                className="tag-helper font-serif text-cream/60 leading-tight transition-colors duration-200"
-                style={{ fontSize: "0.85rem", marginBottom: "5px" }}
+                className="tag-helper font-serif text-cream/60 leading-tight transition-colors duration-200 inline-flex items-center"
+                style={{ fontSize: "0.85rem" }}
               >
-                Se cases med denne kategori <span aria-hidden className="text-[#C0281E]" style={{ marginLeft: "8px", fontSize: "1.3rem", fontWeight: 700, lineHeight: 1, position: "relative", top: "4px" }}>↡</span>
+                <span>Se cases med denne kategori</span>
+                <ArrowDown aria-hidden size={14} strokeWidth={2.25} className="text-[#C0281E] ml-2 shrink-0" />
               </p>
               {renderTags(c.tags)}
             </div>
