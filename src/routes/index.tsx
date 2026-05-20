@@ -1731,7 +1731,7 @@ function KompetencerList() {
       {tags.map((t) => {
         const isFilter = FILTER_SET.has(t);
         const basePill =
-          "inline-flex items-center gap-1.5 text-[10px] tracking-wide px-2.5 py-1 rounded-full border leading-tight transition-all duration-150 ease-out";
+          "inline-flex items-center gap-1.5 text-[10px] tracking-wide px-2.5 py-1 rounded-full border leading-tight whitespace-nowrap text-left transition-all duration-150 ease-out";
         if (isFilter) {
           return (
             <li key={t}>
