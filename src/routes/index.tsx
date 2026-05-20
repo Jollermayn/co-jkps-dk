@@ -1689,6 +1689,7 @@ function scrollToTagFilter(tag: string) {
 const flipCards = [
   {
     no: "01",
+    eyebrow: "Metode",
     Icon: Search,
     titleLines: ["UX Research", "&", "Brugerindsigt"],
     body: "Jeg oversætter kompleks adfærd til handlebare beslutninger.",
@@ -1697,6 +1698,7 @@ const flipCards = [
   },
   {
     no: "02",
+    eyebrow: "Praksis",
     Icon: GitBranch,
     titleLines: ["Servicedesign", "&", "Konceptudvikling"],
     body: "Fra identifikation af problemet til et konkret, realiserbart koncept.",
@@ -1705,6 +1707,7 @@ const flipCards = [
   },
   {
     no: "03",
+    eyebrow: "Resultat",
     Icon: MessageCircle,
     titleLines: ["Formidling", "&", "Kommunikation"],
     body: "Komplekse emner gjort konkrete og tilgængelige.",
@@ -1712,6 +1715,7 @@ const flipCards = [
     bgImage: formidlingBg,
   },
 ];
+
 
 function KompetencerList() {
   
