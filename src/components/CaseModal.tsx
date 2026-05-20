@@ -448,7 +448,7 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
                   src={item.src}
                   alt={item.alt}
                   loading="lazy"
-                  className="mb-1 block w-full h-auto break-inside-avoid grayscale transition-transform duration-300 ease-in-out hover:scale-105"
+                  className="mb-1 block w-full h-auto break-inside-avoid grayscale hover:grayscale-0 transition-[filter,transform] duration-300 ease-in-out hover:scale-105"
                   style={{ objectFit: "contain" }}
                 />
               ))}
