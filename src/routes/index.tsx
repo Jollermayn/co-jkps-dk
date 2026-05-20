@@ -1806,6 +1806,7 @@ function KompetencerList() {
 
           {/* Tags */}
           <div className="mt-5 pr-8">{renderTags(c.tags)}</div>
+          </div>
 
           {/* Bottom-right arrow */}
           <span
