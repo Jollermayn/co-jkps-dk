@@ -1582,6 +1582,7 @@ function CasesSection() {
                     ariaLabel={`${c.client} — ${meta?.headline ?? c.title}`}
                     className={imgClass}
                     preload={c.slug === "wolt" ? "auto" : "metadata"}
+                    active={variant === "slider" && index === currentIndex}
                   />
                 ) : (
                   <img

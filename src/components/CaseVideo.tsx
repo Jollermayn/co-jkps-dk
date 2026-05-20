@@ -6,20 +6,37 @@ type Props = {
   ariaLabel?: string;
   className?: string;
   preload?: "none" | "metadata" | "auto";
+  /** When true on touch devices, the video autoplays (used for the active carousel card). */
+  active?: boolean;
 };
 
-export function CaseVideo({ src, poster, ariaLabel, className, preload = "metadata" }: Props) {
+export function CaseVideo({ src, poster, ariaLabel, className, preload = "metadata", active = false }: Props) {
   const ref = useRef<HTMLVideoElement>(null);
 
+  const isTouch =
+    typeof window !== "undefined" &&
+    window.matchMedia("(hover: none)").matches;
+
+  // Touch: drive playback from `active` prop.
+  useEffect(() => {
+    if (!isTouch) return;
+    const el = ref.current;
+    if (!el) return;
+    el.muted = true;
+    if (active) {
+      el.currentTime = 0;
+      el.play().catch(() => {});
+    } else {
+      el.pause();
+      el.currentTime = 0;
+    }
+  }, [active, isTouch]);
+
+  // Non-touch: play on hover/focus of the card.
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-
     el.muted = true;
-
-    const isTouch =
-      typeof window !== "undefined" &&
-      window.matchMedia("(hover: none)").matches;
     if (isTouch) return;
 
     const target = (el.closest("[data-case-slug]") as HTMLElement) ?? el.parentElement;
@@ -45,7 +62,7 @@ export function CaseVideo({ src, poster, ariaLabel, className, preload = "metada
       target.removeEventListener("mouseleave", stop);
       target.removeEventListener("focusout", stop);
     };
-  }, []);
+  }, [isTouch]);
 
   return (
     <video
