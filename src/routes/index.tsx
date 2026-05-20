@@ -1837,7 +1837,7 @@ function CasesSection() {
                 boxShadow: "none",
               }}
             >
-              <div className={imgWrapperClass + " relative border-0 outline-none"} style={{ backgroundColor: cardBackground, border: 0, boxShadow: "none", outline: "none", marginBottom: 0 }}>
+              <div className={imgWrapperClass + " relative isolate border-0 outline-none"} style={{ backgroundColor: cardBackground, border: 0, boxShadow: "none", outline: "none", marginBottom: 0 }}>
                 {c.video ? (
                   <CaseVideo
                     src={c.video}
@@ -1867,6 +1867,12 @@ function CasesSection() {
                     background:
                       "linear-gradient(to top, #0D1B2A 0%, rgba(13,27,42,0.92) 14%, rgba(13,27,42,0.55) 50%, rgba(13,27,42,0) 100%)",
                   }}
+                />
+                <div
+                  aria-hidden
+                  data-case-seam-cover
+                  className="absolute inset-x-0 pointer-events-none"
+                  style={{ bottom: -2, height: 6, backgroundColor: "#0D1B2A" }}
                 />
                 {/* client name on gradient */}
                 <span
