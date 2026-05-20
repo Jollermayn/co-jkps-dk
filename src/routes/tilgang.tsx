@@ -795,15 +795,6 @@ function TilgangPage() {
           </p>
           <div className="tilgang-monkey-wrap" ref={monkeyWrapRef}>
             <img src={monkeyGrey} alt="JKPS" className="tilgang-monkey-grey" />
-            {isDesktop && (
-              <img src={monkeyColor} alt="" className="tilgang-monkey-color" aria-hidden="true" />
-            )}
-            {!isDesktop && (
-              <>
-                <img src={monkeyGrey} alt="JKPS" className={`tilgang-monkey-cycle ${monkeyCycleIdx === 0 ? "is-active" : ""}`} />
-                <img src={monkeyColor} alt="" aria-hidden="true" className={`tilgang-monkey-cycle ${monkeyCycleIdx === 1 ? "is-active" : ""}`} />
-              </>
-            )}
           </div>
           <p
             style={{
