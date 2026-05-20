@@ -5,9 +5,10 @@ type Props = {
   poster?: string;
   ariaLabel?: string;
   className?: string;
+  preload?: "none" | "metadata" | "auto";
 };
 
-export function CaseVideo({ src, poster, ariaLabel, className }: Props) {
+export function CaseVideo({ src, poster, ariaLabel, className, preload = "metadata" }: Props) {
   const ref = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -56,7 +57,7 @@ export function CaseVideo({ src, poster, ariaLabel, className }: Props) {
       muted
       loop
       playsInline
-      preload="metadata"
+      preload={preload}
     />
   );
 }
