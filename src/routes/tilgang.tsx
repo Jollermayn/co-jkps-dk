@@ -4,6 +4,8 @@ import { SiteLogo } from "@/components/SiteLogo";
 import { MenuIcon } from "@/components/MenuIcon";
 import mazeKort from "@/assets/kort.png";
 import mazeLygte from "@/assets/lygte.png";
+import monkeyGrey from "@/assets/JKPS_monkey_grey.png";
+import monkeyColor from "@/assets/JKPS_monkey_color.png";
 
 const scenarioStrategi = "/videos/strategi.mp4";
 const scenarioModelokale = "/videos/moedelokale.mp4";
@@ -230,6 +232,15 @@ function TilgangPage() {
             transition: transform 0.3s ease;
           }
           .tilgang-tales-link:hover::after { transform: scaleX(1); }
+          .tilgang-monkey-wrap { position: relative; display: block; width: 100%; max-width: 400px; margin: 48px 0; }
+          .tilgang-monkey-wrap img { display: block; width: 100%; height: auto; }
+          .tilgang-monkey-color { position: absolute; inset: 0; opacity: 0; transition: opacity 0.3s ease; }
+          .tilgang-monkey-wrap:hover .tilgang-monkey-color { opacity: 1; }
+        }
+        @media (max-width: 1023px) {
+          .tilgang-monkey-wrap { display: block; width: 100%; max-width: 400px; margin: 48px 0; }
+          .tilgang-monkey-wrap img { display: block; width: 100%; height: auto; }
+          .tilgang-monkey-grey { display: none; }
         }
         @media (max-width: 767px) {
           .tilgang-grid { padding: 0 !important; margin: 0 !important; gap: 96px !important; column-gap: 0 !important; row-gap: 96px !important; }
@@ -733,27 +744,44 @@ function TilgangPage() {
 
 
 
-        <p
-          style={{
-            fontFamily: "serif",
-            fontStyle: "italic",
-            fontSize: "clamp(1.3rem, 3.5vw, 2.4rem)",
-            color: "#0A1628",
-            textAlign: "center",
-            margin: "80px 24px",
-          }}
-        >
-          Genkender du disse mønstre?<br />
-          <a
-            href="#"
-            onClick={(e) => { e.preventDefault(); setContactOpen(true); }}
-            className="tilgang-tales-link"
-            style={{ color: "#C0281E", textDecoration: "none", cursor: "pointer" }}
+        <div style={{ margin: "80px 24px" }}>
+          <p
+            style={{
+              fontFamily: "serif",
+              fontStyle: "italic",
+              fontSize: "clamp(1.3rem, 3.5vw, 2.4rem)",
+              color: "#0A1628",
+              textAlign: "left",
+              margin: 0,
+            }}
           >
-            Lad os tales ved
-          </a>
-          .
-        </p>
+            Genkender du disse mønstre?
+          </p>
+          <div className="tilgang-monkey-wrap">
+            <img src={monkeyGrey} alt="" className="tilgang-monkey-grey" />
+            <img src={monkeyColor} alt="JKPS" className="tilgang-monkey-color" />
+          </div>
+          <p
+            style={{
+              fontFamily: "serif",
+              fontStyle: "italic",
+              fontSize: "clamp(1.3rem, 3.5vw, 2.4rem)",
+              color: "#0A1628",
+              textAlign: "left",
+              margin: 0,
+            }}
+          >
+            <a
+              href="#"
+              onClick={(e) => { e.preventDefault(); setContactOpen(true); }}
+              className="tilgang-tales-link"
+              style={{ color: "#C0281E", textDecoration: "none", cursor: "pointer" }}
+            >
+              Lad os tales ved
+            </a>
+            .
+          </p>
+        </div>
 
         {/* CLOSING */}
         <section
