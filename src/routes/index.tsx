@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { SlidersHorizontal, X, MousePointerClick, Search, GitBranch, MessageCircle, RotateCw } from "lucide-react";
+import { SlidersHorizontal, X, MousePointerClick, Search, GitBranch, MessageCircle, RotateCw, ArrowDown } from "lucide-react";
 import { caseStudies, type CaseStudy } from "@/data/cases";
 import caseWoltVideo from "@/assets/case-wolt.mp4?url";
 
