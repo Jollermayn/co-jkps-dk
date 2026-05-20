@@ -1365,9 +1365,15 @@ function CasesSection() {
     });
   };
 
+  const getLastIndex = () => {
+    if (!filtered.length) return 0;
+    const isMobile = typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches;
+    return isMobile ? filtered.length - 1 : Math.max(0, filtered.length - 3);
+  };
+
   const showNextCase = () => {
     if (!filtered.length) return;
-    const last = Math.max(0, filtered.length - 3);
+    const last = getLastIndex();
     const next = currentIndex >= last ? 0 : currentIndex + 1;
     setCurrentIndex(next);
     scrollToIndex(next);
@@ -1375,7 +1381,7 @@ function CasesSection() {
 
   const showPreviousCase = () => {
     if (!filtered.length) return;
-    const last = Math.max(0, filtered.length - 3);
+    const last = getLastIndex();
     const prev = currentIndex <= 0 ? last : currentIndex - 1;
     setCurrentIndex(prev);
     scrollToIndex(prev);
