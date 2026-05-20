@@ -240,7 +240,7 @@ function TilgangPage() {
         @media (max-width: 1023px) {
           .tilgang-monkey-wrap { display: block; width: 100%; max-width: 320px; margin: 48px auto; }
           .tilgang-monkey-wrap img { display: block; width: 100%; height: auto; }
-          .tilgang-monkey-grey { display: none; }
+          .tilgang-monkey-color { display: none; }
         }
         @media (max-width: 767px) {
           .tilgang-grid { padding: 0 !important; margin: 0 !important; gap: 96px !important; column-gap: 0 !important; row-gap: 96px !important; }
