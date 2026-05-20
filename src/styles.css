@@ -437,12 +437,13 @@ button[data-case-slug] > div > * {
   border: none !important;
   box-shadow: none !important;
 }
-/* Re-allow video/img/picture/gradient overlay to render normally inside image wrapper */
+/* Re-allow video/img/picture/gradient overlay and text labels to render normally inside image wrapper */
 button[data-case-slug] video,
 button[data-case-slug] img,
 button[data-case-slug] picture,
 button[data-case-slug] [data-case-video-wrap],
-button[data-case-slug] [data-case-video-wrap] * {
+button[data-case-slug] [data-case-video-wrap] *,
+button[data-case-slug] > div > span {
   background-color: transparent !important;
   background-image: none !important;
 }
