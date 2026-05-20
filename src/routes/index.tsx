@@ -1367,7 +1367,7 @@ function CasesSection() {
 
   const showNextCase = () => {
     if (!filtered.length) return;
-    const last = filtered.length - 1;
+    const last = Math.max(0, filtered.length - 2);
     const next = currentIndex >= last ? 0 : currentIndex + 1;
     setCurrentIndex(next);
     scrollToIndex(next);
@@ -1375,8 +1375,11 @@ function CasesSection() {
 
   const showPreviousCase = () => {
     if (!filtered.length) return;
-    const last = filtered.length - 1;
+    const last = Math.max(0, filtered.length - 2);
     const prev = currentIndex <= 0 ? last : currentIndex - 1;
+    setCurrentIndex(prev);
+    scrollToIndex(prev);
+  };
     setCurrentIndex(prev);
     scrollToIndex(prev);
   };
