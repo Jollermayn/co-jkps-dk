@@ -251,9 +251,9 @@ const _allCases: CaseStudy[] = [
     ],
     approach: ["Strategisk kommunikation", "Stakeholdermanagement", "Indholdsudvikling", "Målgruppeanalyse"],
     outcomes: [
-      "→ Kommunikationsstrategi der nåede yngre målgrupper på tværs af sociale medier og digitale platforme",
-      "→ Faglige budskaber om biodiversitet og klimaforandringer gjort tilgængelige uden at kompromittere organisationens troværdighed",
-      "→ Styrket digital tilstedeværelse med sammenhængende indhold på tværs af kanaler",
+      "Kommunikationsstrategi der nåede yngre målgrupper på tværs af sociale medier og digitale platforme",
+      "Faglige budskaber om biodiversitet og klimaforandringer gjort tilgængelige uden at kompromittere organisationens troværdighed",
+      "Styrket digital tilstedeværelse med sammenhængende indhold på tværs af kanaler",
     ],
   },
   {
@@ -275,10 +275,10 @@ const _allCases: CaseStudy[] = [
     ],
     approach: ["Konceptudvikling", "Indholdsstrategi", "Lyddesign", "Platformsudvikling"],
     outcomes: [
-      "→ Podcast Forældreskabet lanceret og distribueret på Spotify, Apple Podcasts og Podimo",
-      "→ Lyddesign, jingle og mix krediteret i samtlige episoder",
-      "→ En fagprofessionel med en etableret stemme fik en digital platform der faktisk bruges",
-      "→ Indholdsstrategi og studieopsætning fra første episode til løbende produktion",
+      "Podcast Forældreskabet lanceret og distribueret på Spotify, Apple Podcasts og Podimo",
+      "Lyddesign, jingle og mix krediteret i samtlige episoder",
+      "En fagprofessionel med en etableret stemme fik en digital platform der faktisk bruges",
+      "Indholdsstrategi og studieopsætning fra første episode til løbende produktion",
     ],
   },
   {
