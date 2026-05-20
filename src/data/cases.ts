@@ -367,11 +367,11 @@ const _allCases: CaseStudy[] = [
 const _order = [
   "wolt",
   "amnesty-international",
+  "boliga",
   "danmarks-radio",
   "ulla-dyrlov",
   "danmarks-naturfredningsforening",
   "interaktiv-horesimulering",
-  "boliga",
   "itu-designlab",
   "art-spirit-coaching",
   "concerto-copenhagen",
