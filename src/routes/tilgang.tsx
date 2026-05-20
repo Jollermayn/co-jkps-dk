@@ -82,6 +82,14 @@ function TilgangPage() {
   const [sent, setSent] = useState(false);
   const [sendError, setSendError] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsDesktop(window.innerWidth >= 1024);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   useEffect(() => {
     const onScroll = () => {
@@ -758,8 +766,10 @@ function TilgangPage() {
             Genkender du disse mønstre?
           </p>
           <div className="tilgang-monkey-wrap">
-            <img src={monkeyGrey} alt="" className="tilgang-monkey-grey" />
-            <img src={monkeyColor} alt="JKPS" className="tilgang-monkey-color" />
+            <img src={monkeyGrey} alt="JKPS" className="tilgang-monkey-grey" />
+            {isDesktop && (
+              <img src={monkeyColor} alt="" className="tilgang-monkey-color" aria-hidden="true" />
+            )}
           </div>
           <p
             style={{
