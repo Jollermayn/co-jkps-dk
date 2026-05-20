@@ -1863,9 +1863,9 @@ function CasesSection() {
                   data-gradient-overlay
                   className="absolute inset-x-0 bottom-0 pointer-events-none"
                   style={{
-                    height: "55%",
+                    height: "70%",
                     background:
-                      "linear-gradient(to top, #0D1B2A 0%, rgba(13,27,42,0.92) 14%, rgba(13,27,42,0.55) 50%, rgba(13,27,42,0) 100%)",
+                      "linear-gradient(to top, #0D1B2A 0%, #0D1B2A 18%, rgba(13,27,42,0.92) 35%, rgba(13,27,42,0.65) 60%, rgba(13,27,42,0.25) 85%, rgba(13,27,42,0) 100%)",
                   }}
                 />
                 <div
