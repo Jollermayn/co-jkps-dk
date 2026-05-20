@@ -427,3 +427,26 @@ video {
   border-bottom: none !important;
   background-color: #0D1B2A !important;
 }
+
+/* Force solid navy on card button + all descendants — kill any seam on production build */
+button[data-case-slug],
+button[data-case-slug] > div,
+button[data-case-slug] > div > * {
+  background-color: #0D1B2A !important;
+  background-image: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+/* Re-allow video/img/picture/gradient overlay to render normally inside image wrapper */
+button[data-case-slug] video,
+button[data-case-slug] img,
+button[data-case-slug] picture,
+button[data-case-slug] [data-case-video-wrap],
+button[data-case-slug] [data-case-video-wrap] * {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+/* The gradient overlay div needs its gradient back */
+button[data-case-slug] [data-gradient-overlay] {
+  background: linear-gradient(to top, #0D1B2A 0%, rgba(13,27,42,0.92) 14%, rgba(13,27,42,0.55) 50%, rgba(13,27,42,0) 100%) !important;
+}
