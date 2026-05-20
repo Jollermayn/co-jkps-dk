@@ -450,3 +450,19 @@ button[data-case-slug] [data-case-video-wrap] * {
 button[data-case-slug] [data-gradient-overlay] {
   background: linear-gradient(to top, #0D1B2A 0%, rgba(13,27,42,0.92) 14%, rgba(13,27,42,0.55) 50%, rgba(13,27,42,0) 100%) !important;
 }
+
+/* Hard mask across the media/body join to eliminate browser compositing seams */
+button[data-case-slug] [data-case-seam-cover] {
+  z-index: 3;
+  border: none !important;
+  box-shadow: none !important;
+  transform: translateZ(0);
+}
+
+button[data-case-slug] video,
+button[data-case-slug] img,
+button[data-case-slug] [data-gradient-overlay] {
+  display: block;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
