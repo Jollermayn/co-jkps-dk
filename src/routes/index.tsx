@@ -1380,9 +1380,6 @@ function CasesSection() {
     setCurrentIndex(prev);
     scrollToIndex(prev);
   };
-    setCurrentIndex(prev);
-    scrollToIndex(prev);
-  };
 
   const handleScroll = () => {
     const el = scrollerRef.current;
