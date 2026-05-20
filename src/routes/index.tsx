@@ -1788,8 +1788,8 @@ function CasesSection() {
               : "w-full";
           const imgWrapperClass =
             variant === "slider"
-              ? "w-full overflow-hidden bg-navy h-[280px] max-[428px]:h-[220px]"
-              : "w-full overflow-hidden bg-navy h-[250px]";
+              ? "w-full overflow-hidden bg-navy h-[320px] max-[428px]:h-[260px]"
+              : "w-full overflow-hidden bg-navy h-[290px]";
           const bodyPadding =
             variant === "slider"
               ? "px-5 py-6 max-[428px]:p-4 flex flex-col gap-3 max-[428px]:gap-2 flex-1 min-w-0"
