@@ -325,7 +325,7 @@ function TilgangPage() {
           >
             {[
               { label: "Cases", href: "/#cases" },
-              { label: "Kompetencer", href: "/#kompetencer" },
+              { label: "Ekspertise", href: "/#kompetencer" },
               { label: "Tilgang", href: "/tilgang" },
               { label: "Kontakt", href: "/#kontakt" },
             ].map((l) => (
