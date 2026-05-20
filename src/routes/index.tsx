@@ -1796,7 +1796,7 @@ function KompetencerList() {
             {/* Eyebrow */}
             <span
               className="font-display uppercase tracking-[0.22em] text-[10px] text-[#C0281E]"
-              style={{ alignSelf: "start" }}
+              style={{ alignSelf: "start", paddingTop: "12px" }}
             >
               {c.eyebrow}
             </span>
