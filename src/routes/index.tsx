@@ -1617,7 +1617,7 @@ function CasesSection() {
   const showNextCase = () => {
     if (!filtered.length) return;
     const last = getLastIndex();
-    const next = currentIndex >= last ? 0 : currentIndex + 1;
+    const next = currentIndex >= last - 1 ? 0 : currentIndex + 2;
     setCurrentIndex(next);
     scrollToIndex(next);
   };
@@ -1625,7 +1625,7 @@ function CasesSection() {
   const showPreviousCase = () => {
     if (!filtered.length) return;
     const last = getLastIndex();
-    const prev = currentIndex <= 0 ? last : currentIndex - 1;
+    const prev = currentIndex <= 1 ? last : currentIndex - 2;
     setCurrentIndex(prev);
     scrollToIndex(prev);
   };
