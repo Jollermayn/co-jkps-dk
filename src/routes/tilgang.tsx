@@ -89,7 +89,7 @@ function TilgangPage() {
   useEffect(() => {
     if (isDesktop) return;
     const id = setInterval(() => {
-      setMonkeyCycleIdx((i) => (i + 1) % 3);
+      setMonkeyCycleIdx((i) => (i + 1) % 2);
     }, 3500);
     return () => clearInterval(id);
   }, [isDesktop]);
