@@ -1444,6 +1444,7 @@ function CasesSection() {
     getPreloadIndices(filtered.length, currentIndex).forEach((index) => {
       const currentCase = filtered[index];
       if (!currentCase) return;
+      const posterSrc = currentCase.poster ?? currentCase.image;
 
       if (!preloadedMediaRef.current.has(currentCase.image)) {
         const image = new Image();
@@ -1453,8 +1454,16 @@ function CasesSection() {
         preloadedMediaRef.current.add(currentCase.image);
       }
 
+      if (!preloadedMediaRef.current.has(posterSrc)) {
+        const posterImage = new Image();
+        posterImage.decoding = "sync";
+        posterImage.fetchPriority = "high";
+        posterImage.src = posterSrc;
+        preloadedMediaRef.current.add(posterSrc);
+      }
+
       if (!cardBackgrounds[currentCase.slug]) {
-        sampleDominantColor(currentCase.image).then((color) => {
+        sampleDominantColor(posterSrc).then((color) => {
           setCardBackgrounds((existing) => {
             if (existing[currentCase.slug]) return existing;
             return { ...existing, [currentCase.slug]: color };
@@ -1467,7 +1476,7 @@ function CasesSection() {
         video.preload = "auto";
         video.muted = true;
         video.playsInline = true;
-        video.poster = currentCase.image;
+        video.poster = posterSrc;
         video.src = currentCase.video;
         video.load();
         videoPreloadersRef.current.push(video);
@@ -1717,7 +1726,7 @@ function CasesSection() {
                 {c.video ? (
                   <CaseVideo
                     src={c.video}
-                    poster={c.image}
+                    poster={c.poster ?? c.image}
                     ariaLabel={`${c.client} — ${meta?.headline ?? c.title}`}
                     className={imgClass}
                     preload={variant === "slider" ? "auto" : "metadata"}
