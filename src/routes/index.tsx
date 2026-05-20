@@ -1884,7 +1884,7 @@ function CasesSection() {
                   )}
                 </span>
                 {c.status === "ongoing" && (
-                  <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-cream/40 bg-[#0D1B2A]/70 backdrop-blur text-[10px] tracking-[0.15em] uppercase text-cream/90 font-semibold">
+                  <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#0D1B2A]/70 backdrop-blur text-[10px] tracking-[0.15em] uppercase text-cream/90 font-semibold outline-none ring-0 shadow-none">
                     <span className="h-1.5 w-1.5 rounded-full bg-ember animate-pulse" />
                     {c.statusLabel ?? "Igangværende"}
                   </span>
@@ -1899,13 +1899,13 @@ function CasesSection() {
                 </h3>
                 <ul className="flex flex-wrap gap-1.5 mt-3">
                   {(meta?.tags ?? []).map((t) => (
-                    <li
-                      key={t}
-                      className={
-                        "text-[10px] tracking-wide px-2.5 py-1 rounded-full border border-cream/10 bg-cream/5 text-cream/55 " +
-                        tagSize
-                      }
-                    >
+                      <li
+                        key={t}
+                        className={
+                          "text-[10px] tracking-wide px-2.5 py-1 rounded-full bg-cream/5 text-cream/55 outline-none ring-0 shadow-none " +
+                          tagSize
+                        }
+                      >
                       {t}
                     </li>
                   ))}
