@@ -1781,8 +1781,8 @@ function KompetencerList() {
             className="flex-1 grid"
             style={{
               padding: "0 32px 32px 32px",
-              gridTemplateRows: "32px 96px 80px 1fr",
-              rowGap: "24px",
+              gridTemplateRows: "32px auto auto 1fr",
+              rowGap: "16px",
               alignItems: "start",
             }}
           >
@@ -1797,7 +1797,7 @@ function KompetencerList() {
             {/* Title */}
             <h3
               className="font-display text-cream tracking-tight text-left"
-              style={{ fontSize: "1.5rem", lineHeight: 1.3, fontWeight: 500, minHeight: "96px" }}
+              style={{ fontSize: "1.5rem", lineHeight: 1.3, fontWeight: 500, marginBottom: "-8px" }}
             >
               {c.title}
             </h3>
@@ -1806,7 +1806,6 @@ function KompetencerList() {
             <p
               className="text-cream/70 font-display text-[0.95rem] leading-snug"
               style={{
-                minHeight: "80px",
                 display: "-webkit-box",
                 WebkitLineClamp: 3,
                 WebkitBoxOrient: "vertical",
