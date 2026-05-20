@@ -1008,11 +1008,11 @@ function IntroLines() {
         Forandringer fejler sjældent,<br className="tilgang-intro-br" />
         {" "}fordi teknologien er forkert.
       </IntroLine>
-      <IntroLine delay={1.2}>
+      <IntroLine delay={1.5}>
         De fejler, fordi det oplagte<br className="tilgang-intro-br" />
         {" "}går tabt undervejs.
       </IntroLine>
-      <IntroLine delay={2.4}>
+      <IntroLine delay={3.5}>
         Fordi menneskene bag beslutningerne<br className="tilgang-intro-br" />
         {" "}aldrig bliver hørt.
       </IntroLine>
