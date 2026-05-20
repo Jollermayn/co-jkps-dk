@@ -163,22 +163,18 @@ function Sidebar() {
           {/* Primary CTA */}
           <Link
             to="/cv"
-            className="group relative w-full flex items-center justify-between font-display text-cream uppercase tracking-[0.18em] text-[0.78rem] px-5 py-4 border transition-colors duration-150 ease-out hover:bg-[#C0281E] hover:text-cream"
-            style={{ borderColor: "rgba(192,40,30,0.7)", borderRadius: 0 }}
+            className="group inline-flex items-center gap-4 font-display uppercase tracking-[0.18em] text-[0.78rem] bg-[#C0281E] text-cream border border-[#C0281E] transition-all duration-150 ease-out hover:bg-transparent hover:text-cream"
+            style={{ borderRadius: 0, padding: "14px 24px", width: "fit-content" }}
           >
             <span>Download CV (PDF)</span>
             <span
               aria-hidden
-              className="text-[#C0281E] transition-transform duration-150 ease-out group-hover:translate-y-[2px] group-hover:text-cream"
+              className="text-cream transition-transform duration-150 ease-out group-hover:translate-y-[2px]"
             >
               ↓
             </span>
-            {/* Animated underline */}
-            <span
-              aria-hidden
-              className="pointer-events-none absolute left-0 bottom-0 h-px w-full origin-left scale-x-0 bg-[#C0281E] transition-transform duration-300 ease-out group-hover:scale-x-100"
-            />
           </Link>
+
 
           {/* Secondary CTA */}
           <a
