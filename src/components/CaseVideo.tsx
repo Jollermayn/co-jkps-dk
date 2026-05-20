@@ -8,17 +8,45 @@ type Props = {
   preload?: "none" | "metadata" | "auto";
   /** When true on touch devices, the video autoplays (used for the active carousel card). */
   active?: boolean;
+  /** When true, the video autoplays (muted, looping) as soon as it scrolls into view, on all devices. Disables hover/active behavior. */
+  autoplayInView?: boolean;
 };
 
-export function CaseVideo({ src, poster, ariaLabel, className, preload = "metadata", active = false }: Props) {
+export function CaseVideo({ src, poster, ariaLabel, className, preload = "metadata", active = false, autoplayInView = false }: Props) {
   const ref = useRef<HTMLVideoElement>(null);
 
   const isTouch =
     typeof window !== "undefined" &&
     window.matchMedia("(hover: none)").matches;
 
+  // Autoplay-in-view: IntersectionObserver drives playback, looping.
+  useEffect(() => {
+    if (!autoplayInView) return;
+    const el = ref.current;
+    if (!el) return;
+    el.muted = true;
+    el.loop = true;
+    if (poster) el.poster = poster;
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            el.play().catch(() => {});
+          } else {
+            el.pause();
+          }
+        }
+      },
+      { threshold: 0.25 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [autoplayInView, poster]);
+
   // Touch: drive playback from `active` prop.
   useEffect(() => {
+    if (autoplayInView) return;
     if (!isTouch) return;
     const el = ref.current;
     if (!el) return;
@@ -31,10 +59,11 @@ export function CaseVideo({ src, poster, ariaLabel, className, preload = "metada
       el.pause();
       // Keep last frame visible to avoid black flicker between cards.
     }
-  }, [active, isTouch]);
+  }, [active, isTouch, autoplayInView]);
 
   // Non-touch: play on hover/focus of the card.
   useEffect(() => {
+    if (autoplayInView) return;
     const el = ref.current;
     if (!el) return;
     el.muted = true;
@@ -64,7 +93,7 @@ export function CaseVideo({ src, poster, ariaLabel, className, preload = "metada
       target.removeEventListener("mouseleave", stop);
       target.removeEventListener("focusout", stop);
     };
-  }, [isTouch, poster]);
+  }, [isTouch, poster, autoplayInView]);
 
   // iOS Safari won't paint a video's first frame without a poster unless the
   // src includes a media fragment time. Append #t=0.001 when no poster is set.
@@ -78,7 +107,7 @@ export function CaseVideo({ src, poster, ariaLabel, className, preload = "metada
       aria-label={ariaLabel}
       className={className}
       muted
-      
+      loop={autoplayInView}
       playsInline
       preload={preload}
       style={{ backgroundColor: "transparent" }}
