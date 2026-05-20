@@ -110,7 +110,7 @@ export function CaseVideo({ src, poster, ariaLabel, className, preload = "metada
       loop={autoplayInView}
       playsInline
       preload={preload}
-      style={{ backgroundColor: "transparent" }}
+      style={{ backgroundColor: "transparent", outline: "none", border: "none", boxShadow: "none" }}
     />
   );
 }

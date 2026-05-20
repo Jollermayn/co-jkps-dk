@@ -353,3 +353,17 @@
   50%      { box-shadow: 0 0 0 6px rgba(192, 40, 30, 0.45); }
 }
 .filter-chip-pulse { animation: filterChipPulse 600ms ease-out 1; }
+
+/* Strip any outline/border/box-shadow from case card videos and their wrappers in all states */
+[data-case-slug] video,
+[data-case-slug] video *,
+[data-case-slug] [data-case-video-wrap],
+[data-case-slug] video:hover,
+[data-case-slug] video:focus,
+[data-case-slug] video:focus-visible,
+[data-case-slug] video:active {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
