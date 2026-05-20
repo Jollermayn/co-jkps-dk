@@ -337,7 +337,7 @@ function MobileHeader() {
         <div style={{ display: "flex", alignItems: "center", gap: 32 }}>
           {[
             { label: "Cases", href: "/#cases" },
-            { label: "Kompetencer", href: "/#kompetencer" },
+            { label: "Ekspertise", href: "/#kompetencer" },
             { label: "Tilgang", href: "/tilgang" },
             { label: "Kontakt", href: "/#kontakt" },
           ].map((l) => (
@@ -383,7 +383,7 @@ function MobileHeader() {
         <div style={{ display: "flex", alignItems: "center", gap: 32 }}>
           {[
             { label: "Cases", href: "/#cases" },
-            { label: "Kompetencer", href: "/#kompetencer" },
+            { label: "Ekspertise", href: "/#kompetencer" },
             { label: "Tilgang", href: "/tilgang" },
             { label: "Kontakt", href: "/#kontakt" },
           ].map((l) => (
@@ -718,7 +718,7 @@ function Index() {
           <section id="kompetencer" className="py-16 md:py-20">
             <div className="px-5 md:px-14">
               <div className="mb-10 md:mb-14">
-                <Eyebrow>Kompetencer</Eyebrow>
+                <Eyebrow>Ekspertise</Eyebrow>
                 <h2 className="font-display text-5xl md:text-7xl mt-6 mb-8 leading-[0.95] tracking-tight">
                   Hvad jeg <span className="italic">bringer</span>
                 </h2>
