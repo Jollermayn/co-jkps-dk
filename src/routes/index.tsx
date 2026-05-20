@@ -709,14 +709,21 @@ function Index() {
             }}
           >
             <BackgroundVideoSlideshow />
-            <div className="px-8 sm:px-12 md:px-14 relative w-full" style={{ zIndex: 1 }}>
-              <p className="text-left relative" style={{ color: "#FFFFFF", lineHeight: 1.15, fontWeight: 700, fontSize: "clamp(1.5rem, 6vw, 3.5rem)" }}>
-                <span className="block">Jeg omsætter<br />menneskelig indsigt til:</span>
-                <span className="block overflow-visible" style={{ fontSize: "clamp(1.1rem, 5vw, 3.75rem)", fontStyle: "italic", fontWeight: 700, lineHeight: 1.15, whiteSpace: "nowrap" }}>
+            <div className="px-8 sm:px-12 md:px-14 lg:pr-4 relative w-full lg:max-w-none" style={{ zIndex: 1 }}>
+              <p className="text-left relative hero-headline" style={{ color: "#FFFFFF", lineHeight: 1.15, fontWeight: 700, fontSize: "clamp(1.5rem, 6vw, 3.5rem)" }}>
+                <span className="block">Jeg omsætter<br /><span className="hero-line-2">menneskelig indsigt til:</span></span>
+                <span className="block overflow-visible hero-rotating" style={{ fontSize: "clamp(1.1rem, 5vw, 3.75rem)", fontStyle: "italic", fontWeight: 700, lineHeight: 1.15, whiteSpace: "nowrap" }}>
                   <RotatingPhrase />
                 </span>
               </p>
             </div>
+            <style>{`
+              @media (min-width: 1024px) {
+                .hero-headline { font-size: clamp(1.75rem, 3.2vw, 3rem) !important; }
+                .hero-headline .hero-rotating { font-size: clamp(1.5rem, 3vw, 3rem) !important; }
+                .hero-headline .hero-line-2 { white-space: nowrap; display: inline-block; }
+              }
+            `}</style>
           </section>
           {/* OM MIG */}
           <section id="om" className="pt-20 md:pt-28 pb-16 md:pb-20">
