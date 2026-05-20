@@ -1569,14 +1569,7 @@ function CasesSection() {
                     Se case
                   </span>
                 )}
-                {variant === "slider" && (
-                  <span
-                    aria-hidden
-                    className="sm:hidden self-center mt-3 text-cream/45 font-mono tabular-nums text-[9px] tracking-[0.1em] pointer-events-none"
-                  >
-                    {index + 1} / {total}
-                  </span>
-                )}
+                {/* mobile per-card index removed in favor of unified progress bar below */}
               </div>
             </button>
           );
