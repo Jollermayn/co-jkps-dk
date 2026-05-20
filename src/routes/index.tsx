@@ -9,9 +9,6 @@ import { CaseVideo } from "@/components/CaseVideo";
 import { BackgroundVideoSlideshow } from "@/components/BackgroundVideoSlideshow";
 import profilePhoto from "@/assets/profile-photo.png";
 import chimpSuit from "@/assets/chimp-suit-map.png";
-import servicedesignBg from "@/assets/kompetence-01-ux-research.jpg";
-import uxResearchBg from "@/assets/kompetence-02-servicedesign.jpg";
-import formidlingBg from "@/assets/kompetence-03-formidling.jpg";
 import { SiteLogo } from "@/components/SiteLogo";
 import { MenuIcon } from "@/components/MenuIcon";
 
@@ -1688,32 +1685,30 @@ function scrollToTagFilter(tag: string) {
 const flipCards = [
   {
     no: "01",
-    eyebrow: "Metode",
+    eyebrow: "METODE",
     Icon: Search,
-    titleLines: ["UX Research", "&", "Brugerindsigt"],
+    title: "UX Research & Brugerindsigt",
     body: "Jeg oversætter kompleks adfærd til handlebare beslutninger.",
     tags: ["Interviews", "Feltobservation", "Co-design"],
-    bgImage: uxResearchBg,
   },
   {
     no: "02",
-    eyebrow: "Praksis",
+    eyebrow: "PRAKSIS",
     Icon: GitBranch,
-    titleLines: ["Servicedesign", "&", "Konceptudvikling"],
-    body: "Fra identifikation af problemet til et konkret, realiserbart koncept.",
+    title: "Servicedesign & Konceptudvikling",
+    body: "Fra identifikation af problemet til et færdigt koncept der kan eksekveres.",
     tags: ["Brugerrejser", "Servicedesign", "Konceptudvikling"],
-    bgImage: servicedesignBg,
   },
   {
     no: "03",
-    eyebrow: "Resultat",
+    eyebrow: "RESULTAT",
     Icon: MessageCircle,
-    titleLines: ["Formidling", "&", "Kommunikation"],
-    body: "Komplekse emner gjort konkrete og tilgængelige.",
+    title: "Formidling & Kommunikation",
+    body: "Komplekse emner gjort konkrete og forståelige for dem der skal handle på dem.",
     tags: ["Strategisk kommunikation", "Brandudvikling", "Konceptudvikling"],
-    bgImage: formidlingBg,
   },
 ];
+
 
 
 function KompetencerList() {
@@ -1748,136 +1743,69 @@ function KompetencerList() {
     </ul>
   );
 
-  const paperTexture =
-    'url("https://www.transparenttextures.com/patterns/paper.png")';
-
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
-      {flipCards.map((c, idx) => {
-        const isImage = idx === 1;
-        const isPaper = idx === 0;
-        const isPulse = idx === 2;
-        return (
-          <article
-            key={c.no}
-            className="group relative aspect-[3/4] overflow-hidden bg-[#0D1B2A] transition-colors duration-[400ms] ease-out hover:bg-[#0F2235]"
-            style={{ border: "1px solid rgba(245,240,232,0.08)" }}
+      {flipCards.map((c) => (
+        <article
+          key={c.no}
+          className="group relative flex flex-col overflow-hidden bg-[#0D1B2A] transition-colors duration-[400ms] ease-out hover:bg-[#0F2235] min-h-[420px] px-7 pt-7 pb-6"
+          style={{ border: "1px solid rgba(245,240,232,0.08)" }}
+        >
+          {/* Watermark numeral — top-right, barely visible */}
+          <span
+            aria-hidden
+            className="absolute top-4 right-5 font-display italic text-[#C0281E] leading-none select-none pointer-events-none"
+            style={{ fontSize: "72px", opacity: 0.08, fontWeight: 400 }}
           >
-            {/* Card 01 paper texture overlay */}
-            {isPaper && (
-              <div
-                aria-hidden
-                className="pointer-events-none absolute inset-0"
-                style={{
-                  backgroundImage: paperTexture,
-                  opacity: 0.06,
-                  mixBlendMode: "screen",
-                }}
-              />
-            )}
+            {c.no}
+          </span>
 
-            {/* Card 02 bottom image band — desaturated navy duotone */}
-            {isImage && c.bgImage && (
-              <div
-                aria-hidden
-                className="pointer-events-none absolute inset-x-0 bottom-0 h-[40%] overflow-hidden"
-              >
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    backgroundImage: `url(${c.bgImage})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    filter: "grayscale(100%) contrast(1.05) brightness(0.55)",
-                  }}
-                />
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    background:
-                      "linear-gradient(180deg, #0D1B2A 0%, rgba(13,27,42,0.55) 35%, rgba(13,27,42,0.55) 100%)",
-                    mixBlendMode: "multiply",
-                  }}
-                />
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    background:
-                      "linear-gradient(180deg, #0D1B2A 0%, rgba(13,27,42,0) 30%)",
-                  }}
-                />
-              </div>
-            )}
+          {/* Eyebrow */}
+          <span className="font-display uppercase tracking-[0.22em] text-[10px] text-[#C0281E]">
+            {c.eyebrow}
+          </span>
 
-            {/* Oversized watermark numeral, bleeding off the top */}
-            <span
-              aria-hidden
-              className={
-                "absolute -top-6 left-5 font-display italic text-[#C0281E] leading-none select-none pointer-events-none " +
-                (isPulse ? "numeral-pulse" : "")
-              }
-              style={{
-                fontSize: "clamp(96px, 11vw, 120px)",
-                opacity: isPulse ? undefined : 0.18,
-                fontWeight: 400,
-              }}
-            >
-              {c.no}
-            </span>
+          {/* Hairline rule */}
+          <span
+            aria-hidden
+            className="block h-px bg-[#C0281E] mt-2 transition-[width] duration-[450ms] ease-out w-10 group-hover:w-full"
+          />
 
-            {/* Foreground content */}
-            <div className="relative h-full flex flex-col px-6 md:px-7 pt-7 pb-6">
-              {/* Hairline rule + eyebrow */}
-              <div className="flex flex-col gap-2">
-                <span
-                  aria-hidden
-                  className="block h-px bg-[#C0281E] transition-[width] duration-[450ms] ease-out w-10 group-hover:w-full"
-                />
-                <span className="font-display uppercase tracking-[0.22em] text-[10px] text-cream/75">
-                  {c.eyebrow}
-                </span>
-              </div>
+          {/* Title */}
+          <h3
+            className="mt-auto font-display text-cream leading-[1.25] tracking-tight text-left"
+            style={{ fontSize: "1.6rem", fontWeight: 500 }}
+          >
+            {c.title}
+          </h3>
 
-              {/* Title */}
-              <h3
-                className="mt-auto font-display text-cream leading-[1.15] tracking-tight text-left"
-                style={{ fontSize: "1.6rem", fontWeight: 500 }}
-              >
-                {c.titleLines.map((line, i) => (
-                  <span key={i} className="block">
-                    {line}
-                  </span>
-                ))}
-              </h3>
+          {/* Body */}
+          <p
+            className="mt-4 text-cream/70 font-display text-[0.95rem] leading-snug"
+            style={{
+              display: "-webkit-box",
+              WebkitLineClamp: 3,
+              WebkitBoxOrient: "vertical",
+              overflow: "hidden",
+            }}
+          >
+            {c.body}
+          </p>
 
-              {/* Body */}
-              <p
-                className="mt-4 text-cream/70 font-display text-[0.95rem] leading-snug"
-                style={{
-                  display: "-webkit-box",
-                  WebkitLineClamp: 3,
-                  WebkitBoxOrient: "vertical",
-                  overflow: "hidden",
-                }}
-              >
-                {c.body}
-              </p>
+          {/* Tags */}
+          <div className="mt-5 pr-8">{renderTags(c.tags)}</div>
 
-              {/* Tags */}
-              <div className="mt-5">{renderTags(c.tags)}</div>
-            </div>
-
-            {/* Bottom-right arrow */}
-            <span
-              aria-hidden
-              className="absolute bottom-5 right-6 text-[#C0281E] text-lg leading-none transition-transform duration-200 ease-out group-hover:[transform:translate(3px,-3px)]"
-            >
-              ↗
-            </span>
-          </article>
-        );
-      })}
+          {/* Bottom-right arrow */}
+          <span
+            aria-hidden
+            className="absolute bottom-5 right-6 text-[#C0281E] text-lg leading-none transition-transform duration-200 ease-out group-hover:[transform:translate(3px,-3px)]"
+          >
+            ↗
+          </span>
+        </article>
+      ))}
     </div>
   );
 }
+
 
