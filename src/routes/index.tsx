@@ -1693,6 +1693,7 @@ const flipCards = [
     title: "UX Research & Brugerindsigt",
     body: "Jeg oversætter kompleks adfærd til handlebare beslutninger.",
     tags: ["Interviews", "Feltobservation", "Co-design"],
+    bg: kompetence01Bg,
   },
   {
     no: "02",
@@ -1701,6 +1702,7 @@ const flipCards = [
     title: "Servicedesign & Konceptudvikling",
     body: "Fra identifikation af problemet til et færdigt koncept der kan eksekveres.",
     tags: ["Brugerrejser", "Servicedesign", "Konceptudvikling"],
+    bg: kompetence02Bg,
   },
   {
     no: "03",
@@ -1709,6 +1711,7 @@ const flipCards = [
     title: "Formidling & Kommunikation",
     body: "Komplekse emner gjort konkrete og forståelige for dem der skal handle på dem.",
     tags: ["Strategisk kommunikation", "Brandudvikling", "Konceptudvikling"],
+    bg: kompetence03Bg,
   },
 ];
 
