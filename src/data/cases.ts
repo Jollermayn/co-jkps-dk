@@ -14,6 +14,7 @@ import caseUlla from "@/assets/case-ulla.png";
 import caseDyrlovVideo from "@/assets/case-dyrlov.mp4?url";
 import caseConcerto from "@/assets/case-concerto.png";
 import caseArtSpirit from "@/assets/case-artspirit.png";
+import caseArtSpiritVideo from "@/assets/case-artspirit.mp4?url";
 import caseNye1 from "@/assets/case-nye-1.png";
 import caseNye2 from "@/assets/case-nye-2.png";
 import caseNye3 from "@/assets/case-nye-3.png";
@@ -283,6 +284,7 @@ const _allCases: CaseStudy[] = [
     client: "Art Spirit Coaching",
     title: "Brand og platform for en praksis der var før sin tid",
     image: caseArtSpirit,
+    video: caseArtSpiritVideo,
     context:
       "Art Spirit Coaching er en praksis ledet af Steen Lykke, der tidligt identificerede stress som en samfundsmæssig pandemi og arbejdede målrettet med resiliens og stressforebyggelse — på et tidspunkt hvor det endnu ikke var en anerkendt dagsorden. Praksis kombinerede mindfulness, personlig udvikling og retreatforløb for både enkeltpersoner og organisationer.",
     challenge:
