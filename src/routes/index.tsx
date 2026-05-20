@@ -139,8 +139,20 @@ function Sidebar() {
             <span className="block whitespace-nowrap text-[3rem] md:text-[4.5rem] leading-none" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700 }}>Jonas K.P.</span>
             <span className="block whitespace-nowrap text-[3rem] md:text-[4.5rem] leading-none -mt-[0.08em]" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700 }}>Sørensen</span>
           </h1>
-          <p className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-cream/55 mt-1 mb-6">
-            <span>Digital konsulent · UX Research & Servicedesign</span>
+          <p
+            className="uppercase text-cream/55 mt-1 mb-6 mx-auto"
+            style={{
+              fontSize: "0.85rem",
+              letterSpacing: "0.24em",
+              lineHeight: 1.8,
+              maxWidth: "26ch",
+              wordBreak: "keep-all",
+              overflowWrap: "break-word",
+              textAlign: "center",
+            }}
+          >
+            <span className="block">Digital konsulent</span>
+            <span className="block">UX Research &amp; Servicedesign</span>
           </p>
         </div>
 
