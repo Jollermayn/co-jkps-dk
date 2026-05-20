@@ -1338,7 +1338,8 @@ function CasesSection() {
                   "inline-flex items-center gap-2 text-xs tracking-wide px-4 py-2 rounded-full border transition-colors " +
                   (filter !== "Alle"
                     ? "bg-ember text-cream border-ember hover:bg-ember/90"
-                    : "border-cream/25 text-cream/85 hover:border-cream/60 hover:text-cream")
+                    : "border-cream/25 text-cream/85 hover:border-cream/60 hover:text-cream") +
+                  (chipPulse ? " filter-chip-pulse" : "")
                 }
               >
                 <SlidersHorizontal size={14} strokeWidth={2} />
