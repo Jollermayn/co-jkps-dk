@@ -1754,18 +1754,17 @@ function KompetencerList() {
       {flipCards.map((c) => (
         <article
           key={c.no}
-          className="group relative flex flex-col overflow-hidden bg-[#0D1B2A] transition-colors duration-[400ms] ease-out hover:bg-[#0F2235] min-h-[420px]"
+          className="group relative flex flex-col overflow-hidden bg-[#0D1B2A] transition-colors duration-[400ms] ease-out hover:bg-[#0F2235] min-h-[640px]"
           style={{ border: "1px solid rgba(245,240,232,0.08)" }}
         >
-          {/* Image band — upper 45% */}
-          <div className="relative w-full" style={{ height: "45%", minHeight: "180px" }}>
+          {/* Image band — fixed 240px */}
+          <div className="relative w-full" style={{ height: "240px", flexShrink: 0 }}>
             <img
               src={c.bg}
               alt=""
               aria-hidden
               className="absolute inset-0 w-full h-full object-cover"
             />
-            {/* Bottom-to-top navy gradient for text readability */}
             <div
               aria-hidden
               className="absolute inset-0 pointer-events-none"
@@ -1776,36 +1775,50 @@ function KompetencerList() {
             />
           </div>
 
-          {/* Content */}
-          <div className="flex flex-col flex-1 px-7 pt-5 pb-6">
-          {/* Eyebrow */}
-          <span className="font-display uppercase tracking-[0.22em] text-[10px] text-[#C0281E]">
-            {c.eyebrow}
-          </span>
-
-          {/* Title */}
-          <h3
-            className="mt-auto font-display text-cream leading-[1.25] tracking-tight text-left"
-            style={{ fontSize: "1.6rem", fontWeight: 500 }}
-          >
-            {c.title}
-          </h3>
-
-          {/* Body */}
-          <p
-            className="mt-4 text-cream/70 font-display text-[0.95rem] leading-snug"
+          {/* Content — CSS grid, align-items start, consistent vertical rhythm */}
+          <div
+            className="flex-1 grid"
             style={{
-              display: "-webkit-box",
-              WebkitLineClamp: 3,
-              WebkitBoxOrient: "vertical",
-              overflow: "hidden",
+              padding: "0 32px 32px 32px",
+              gridTemplateRows: "32px 96px 80px 1fr",
+              rowGap: "24px",
+              alignItems: "start",
             }}
           >
-            {c.body}
-          </p>
+            {/* Eyebrow */}
+            <span
+              className="font-display uppercase tracking-[0.22em] text-[10px] text-[#C0281E]"
+              style={{ alignSelf: "start" }}
+            >
+              {c.eyebrow}
+            </span>
 
-          {/* Tags */}
-          <div className="mt-5 pr-8">{renderTags(c.tags)}</div>
+            {/* Title */}
+            <h3
+              className="font-display text-cream tracking-tight text-left"
+              style={{ fontSize: "1.5rem", lineHeight: 1.3, fontWeight: 500, minHeight: "96px" }}
+            >
+              {c.title}
+            </h3>
+
+            {/* Body */}
+            <p
+              className="text-cream/70 font-display text-[0.95rem] leading-snug"
+              style={{
+                minHeight: "80px",
+                display: "-webkit-box",
+                WebkitLineClamp: 3,
+                WebkitBoxOrient: "vertical",
+                overflow: "hidden",
+              }}
+            >
+              {c.body}
+            </p>
+
+            {/* Tags */}
+            <div className="pr-8" style={{ marginTop: "auto", alignSelf: "end" }}>
+              {renderTags(c.tags)}
+            </div>
           </div>
 
           {/* Bottom-right arrow */}
