@@ -82,6 +82,14 @@ function TilgangPage() {
   const [sent, setSent] = useState(false);
   const [sendError, setSendError] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsDesktop(window.innerWidth >= 1024);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   useEffect(() => {
     const onScroll = () => {
