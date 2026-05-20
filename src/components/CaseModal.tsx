@@ -372,8 +372,9 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
           <ModalSection title="Resultater" rootRef={panelRef}>
             <ul className="space-y-3">
               {study.outcomes.map((o) => (
-                <li key={o} className="text-base md:text-lg text-cream/85 leading-relaxed">
-                  {o}
+                <li key={o} className="flex items-start gap-3 text-base md:text-lg text-cream/85 leading-relaxed">
+                  <span className="text-ember shrink-0">→</span>
+                  <span>{o}</span>
                 </li>
               ))}
             </ul>
