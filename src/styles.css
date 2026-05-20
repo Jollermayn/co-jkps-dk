@@ -453,6 +453,7 @@ button[data-case-slug] [data-case-video-wrap] * {
 button[data-case-slug] [data-gradient-overlay] {
   height: 90px !important;
   background: linear-gradient(to top, #0D1B2A 0%, rgba(13,27,42,0) 100%) !important;
+  z-index: 1;
 }
 
 /* Hard mask across the media/body join to eliminate browser compositing seams */
