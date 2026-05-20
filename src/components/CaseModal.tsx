@@ -502,21 +502,32 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
               if (onNavigate) onNavigate(s);
             };
             return (
-              <div className="pt-8 pb-10 mt-4 border-t border-cream/10 flex items-center justify-between gap-4">
-                <button
-                  type="button"
-                  onClick={() => handle(prev)}
-                  className="text-[#B83A20] hover:underline underline-offset-4 text-base md:text-lg tracking-wide"
-                >
-                  ← Forrige case
-                </button>
-                <button
-                  type="button"
-                  onClick={() => handle(next)}
-                  className="text-[#B83A20] hover:underline underline-offset-4 text-base md:text-lg tracking-wide"
-                >
-                  Næste case →
-                </button>
+              <div className="pt-8 pb-10 mt-4 border-t border-cream/10">
+                <div className="flex items-center justify-between gap-4">
+                  <button
+                    type="button"
+                    onClick={() => handle(prev)}
+                    className="text-[#B83A20] hover:underline underline-offset-4 text-base md:text-lg tracking-wide"
+                  >
+                    ← Forrige case
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handle(next)}
+                    className="text-[#B83A20] hover:underline underline-offset-4 text-base md:text-lg tracking-wide"
+                  >
+                    Næste case →
+                  </button>
+                </div>
+                <div className="mt-6 flex justify-center">
+                  <button
+                    type="button"
+                    onClick={onClose}
+                    className="text-[#C0281E] hover:underline underline-offset-4 text-base md:text-lg tracking-wide bg-transparent border-0 p-0"
+                  >
+                    ✕ Luk
+                  </button>
+                </div>
               </div>
             );
           })()}
