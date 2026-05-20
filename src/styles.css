@@ -431,19 +431,18 @@ video {
 /* Force solid navy on card button + all descendants — kill any seam on production build */
 button[data-case-slug],
 button[data-case-slug] > div,
-button[data-case-slug] > div > * {
+button[data-case-slug] > div > *:not(span) {
   background-color: #0D1B2A !important;
   background-image: none !important;
   border: none !important;
   box-shadow: none !important;
 }
-/* Re-allow video/img/picture/gradient overlay and text labels to render normally inside image wrapper */
+/* Re-allow video/img/picture/gradient overlay to render normally inside image wrapper */
 button[data-case-slug] video,
 button[data-case-slug] img,
 button[data-case-slug] picture,
 button[data-case-slug] [data-case-video-wrap],
-button[data-case-slug] [data-case-video-wrap] *,
-button[data-case-slug] > div > span {
+button[data-case-slug] [data-case-video-wrap] * {
   background-color: transparent !important;
   background-image: none !important;
 }
