@@ -14,6 +14,7 @@ type Props = {
 
 export function CaseVideo({ src, poster, ariaLabel, className, preload = "metadata", active = false, autoplayInView = false }: Props) {
   const ref = useRef<HTMLVideoElement>(null);
+  const touchMounted = useRef(false);
 
   const isTouch =
     typeof window !== "undefined" &&
@@ -45,6 +46,8 @@ export function CaseVideo({ src, poster, ariaLabel, className, preload = "metada
   }, [autoplayInView, poster]);
 
   // Touch: drive playback from `active` prop.
+  // Skip the very first render so the initially-active card (index 0) doesn't
+  // autoplay on mount — only play when the user swipes to this card.
   useEffect(() => {
     if (autoplayInView) return;
     if (!isTouch) return;
@@ -52,6 +55,10 @@ export function CaseVideo({ src, poster, ariaLabel, className, preload = "metada
     if (!el) return;
     el.muted = true;
     if (poster) el.poster = poster;
+    if (!touchMounted.current) {
+      touchMounted.current = true;
+      return;
+    }
     if (active) {
       el.currentTime = 0;
       el.play().catch(() => {});
