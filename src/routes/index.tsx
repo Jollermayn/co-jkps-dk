@@ -1820,7 +1820,7 @@ function CasesSection() {
               }}
               onBlur={() => variant === "slider" && setHoveredIndex(null)}
               className={
-                "group relative flex flex-col text-left rounded-lg border border-cream/10 hover:bg-[rgba(255,255,255,0.04)] overflow-hidden transition-all duration-300 ease-out hover:-translate-y-[3px] " +
+                "group relative flex flex-col text-left rounded-lg border border-transparent hover:bg-[rgba(255,255,255,0.04)] overflow-hidden transition-all duration-300 ease-out hover:-translate-y-[3px] " +
                 "cursor-pointer " +
                 sizing
               }
