@@ -265,10 +265,9 @@ function TilgangPage() {
             transition: transform 0.3s ease;
           }
           .tilgang-tales-link:hover::after { transform: scaleX(1); }
-          .tilgang-monkey-wrap { position: relative; display: block; width: 100%; max-width: 320px; margin: 48px auto; cursor: pointer; }
+          .tilgang-monkey-wrap { position: relative; display: block; width: 100%; max-width: 320px; margin: 48px auto; }
           .tilgang-monkey-wrap img { display: block; width: 100%; height: auto; }
-          .tilgang-monkey-color { position: absolute; inset: 0; opacity: 0; transition: opacity 0.6s ease-in-out; }
-          .tilgang-monkey-wrap:hover .tilgang-monkey-color { opacity: 1; }
+
         }
         @media (max-width: 1023px) {
           .tilgang-monkey-wrap { display: block; width: 100%; max-width: 320px; margin: 48px auto; position: relative; aspect-ratio: 1 / 1; }
@@ -795,15 +794,6 @@ function TilgangPage() {
           </p>
           <div className="tilgang-monkey-wrap" ref={monkeyWrapRef}>
             <img src={monkeyGrey} alt="JKPS" className="tilgang-monkey-grey" />
-            {isDesktop && (
-              <img src={monkeyColor} alt="" className="tilgang-monkey-color" aria-hidden="true" />
-            )}
-            {!isDesktop && (
-              <>
-                <img src={monkeyGrey} alt="JKPS" className={`tilgang-monkey-cycle ${monkeyCycleIdx === 0 ? "is-active" : ""}`} />
-                <img src={monkeyColor} alt="" aria-hidden="true" className={`tilgang-monkey-cycle ${monkeyCycleIdx === 1 ? "is-active" : ""}`} />
-              </>
-            )}
           </div>
           <p
             style={{
