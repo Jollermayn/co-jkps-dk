@@ -393,13 +393,12 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
             <div className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-8">
               <div className="md:col-span-3" />
               <div className="md:col-span-9 flex justify-start">
-                <div className="relative w-full max-w-[480px]">
+                <div className="relative w-full max-w-[384px]">
                   <img
                     src={woltHeatmap}
                     alt="Heatmap der viser efterspørgsel i realtid i København"
                     className="w-full h-auto"
                   />
-                  <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-24 md:h-32 bg-gradient-to-b from-transparent to-[#0D1B2A]" />
                 </div>
               </div>
             </div>
