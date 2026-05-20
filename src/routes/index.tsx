@@ -724,22 +724,24 @@ function CodeParadoxBlock() {
       style={{ padding: "80px 48px 96px", background: "transparent" }}
     >
       <style dangerouslySetInnerHTML={{ __html: TW_CURSOR_CSS }} />
-      <div
-        ref={windowRef}
-        className="tw-window"
-        style={{
-          width: "100%",
-          maxWidth: "720px",
-          background: "rgba(0,0,0,0.25)",
-          border: "1px solid rgba(255,255,255,0.08)",
-          borderRadius: "6px",
-          textAlign: "left",
-          overflow: "hidden",
-        }}
-      >
+      <div className="tw-shell">
+        <div
+          ref={windowRef}
+          className="tw-window"
+          style={{
+            width: "100%",
+            maxWidth: "720px",
+            background: "rgba(0,0,0,0.25)",
+            border: "1px solid rgba(255,255,255,0.08)",
+            borderRadius: "6px",
+            textAlign: "left",
+            overflow: "hidden",
+          }}
+        >
         {/* Subtle window tab — filename only, no traffic lights */}
         <div
           aria-hidden="true"
+          className="tw-titlebar"
           style={{
             display: "flex",
             alignItems: "center",
@@ -767,67 +769,118 @@ function CodeParadoxBlock() {
             justifyContent: "center",
             alignItems: "flex-start",
             gap: "8px",
+            position: "relative",
           }}
         >
-          {/* Line 1 — code comment eyebrow */}
-          <div
-            ref={line1Ref}
-            className="tw-line tw-line-1"
-            style={{
-              display: "flex",
-              alignItems: "baseline",
-              flexWrap: "nowrap",
-              fontFamily: monoFamily,
-              fontSize: "clamp(14px, 1.9vw, 20px)",
-              letterSpacing: "0.04em",
-              lineHeight: 1.6,
-              whiteSpace: "nowrap",
-              textTransform: "uppercase",
-            }}
-          >
-            <span ref={line1PrefixRef} style={{ color: "rgba(255,255,255,0.45)", whiteSpace: "pre" }} />
-            <span ref={line1TitleRef} style={{ color: "rgba(255,255,255,0.75)", fontWeight: 500, whiteSpace: "pre" }} />
-            <span ref={line1CursorRef}><span aria-hidden="true" className="tw-cursor">|</span></span>
+          <div className="tw-desktop-static" aria-hidden="true" style={{ width: "100%" }}>
+            <div
+              className="tw-line tw-line-1"
+              style={{
+                display: "flex",
+                alignItems: "baseline",
+                flexWrap: "nowrap",
+                fontFamily: monoFamily,
+                fontSize: "clamp(14px, 1.9vw, 20px)",
+                letterSpacing: "0.04em",
+                lineHeight: 1.6,
+                whiteSpace: "nowrap",
+                textTransform: "uppercase",
+              }}
+            >
+              <span style={{ color: "rgba(255,255,255,0.45)", whiteSpace: "pre" }}>{PARADOX_LINE_1_PREFIX}</span>
+              <span style={{ color: "rgba(255,255,255,0.75)", fontWeight: 500, whiteSpace: "pre" }}>{PARADOX_LINE_1_TITLE}</span>
+            </div>
+            <div
+              className="tw-line tw-line-2"
+              style={{
+                fontFamily: "'Cormorant Garamond', 'Playfair Display', Georgia, serif",
+                fontSize: "clamp(1.85rem, 5.8vw, 3.75rem)",
+                fontStyle: "italic",
+                fontWeight: 500,
+                lineHeight: 1.15,
+                color: "#FFFFFF",
+                padding: "12px 0",
+                whiteSpace: "normal",
+                maxWidth: "100%",
+                overflowWrap: "break-word",
+              }}
+            >
+              <span style={{ whiteSpace: "pre-wrap" }}>{PARADOX_LINE_2}</span>
+            </div>
+            <div
+              className="tw-line tw-line-3"
+              style={{
+                fontFamily: monoFamily,
+                fontSize: "clamp(14px, 1.9vw, 20px)",
+                letterSpacing: "0.04em",
+                lineHeight: 1.6,
+                whiteSpace: "nowrap",
+                textTransform: "uppercase",
+              }}
+            >
+              <span style={{ color: "rgba(255,255,255,0.45)", whiteSpace: "pre" }}>{PARADOX_LINE_3_PREFIX}</span>
+              <span style={{ color: "#C0281E", whiteSpace: "pre" }}>{PARADOX_LINE_3_WORD}</span>
+              <span style={{ color: "rgba(255,255,255,0.45)", whiteSpace: "pre" }}>{PARADOX_LINE_3_SUFFIX}</span>
+            </div>
           </div>
 
-          {/* Line 2 — the human voice, serif italic */}
-          <div
-            className="tw-line tw-line-2"
-            style={{
-              fontFamily: "'Cormorant Garamond', 'Playfair Display', Georgia, serif",
-              fontSize: "clamp(1.85rem, 5.8vw, 3.75rem)",
-              fontStyle: "italic",
-              fontWeight: 500,
-              lineHeight: 1.15,
-              color: "#FFFFFF",
-              padding: "12px 0",
-              whiteSpace: "normal",
-              maxWidth: "100%",
-              overflowWrap: "break-word",
-            }}
-          >
-            <span ref={line2StringRef} style={{ whiteSpace: "pre-wrap" }} />
-            <span ref={line2CursorRef} />
+          <div className="tw-mobile-animated" style={{ width: "100%" }}>
+            <div
+              ref={line1Ref}
+              className="tw-line tw-line-1"
+              style={{
+                display: "flex",
+                alignItems: "baseline",
+                flexWrap: "nowrap",
+                fontFamily: monoFamily,
+                fontSize: "clamp(14px, 1.9vw, 20px)",
+                letterSpacing: "0.04em",
+                lineHeight: 1.6,
+                whiteSpace: "nowrap",
+                textTransform: "uppercase",
+              }}
+            >
+              <span ref={line1PrefixRef} style={{ color: "rgba(255,255,255,0.45)", whiteSpace: "pre" }} />
+              <span ref={line1TitleRef} style={{ color: "rgba(255,255,255,0.75)", fontWeight: 500, whiteSpace: "pre" }} />
+              <span ref={line1CursorRef}><span aria-hidden="true" className="tw-cursor">|</span></span>
+            </div>
+            <div
+              className="tw-line tw-line-2"
+              style={{
+                fontFamily: "'Cormorant Garamond', 'Playfair Display', Georgia, serif",
+                fontSize: "clamp(1.85rem, 5.8vw, 3.75rem)",
+                fontStyle: "italic",
+                fontWeight: 500,
+                lineHeight: 1.15,
+                color: "#FFFFFF",
+                padding: "12px 0",
+                whiteSpace: "normal",
+                maxWidth: "100%",
+                overflowWrap: "break-word",
+              }}
+            >
+              <span ref={line2StringRef} style={{ whiteSpace: "pre-wrap" }} />
+              <span ref={line2CursorRef} />
+            </div>
+            <div
+              ref={line3Ref}
+              className="tw-line tw-line-3"
+              style={{
+                fontFamily: monoFamily,
+                fontSize: "clamp(14px, 1.9vw, 20px)",
+                letterSpacing: "0.04em",
+                lineHeight: 1.6,
+                whiteSpace: "nowrap",
+                textTransform: "uppercase",
+              }}
+            >
+              <span ref={line3PrefixRef} style={{ color: "rgba(255,255,255,0.45)", whiteSpace: "pre" }} />
+              <span ref={line3WordRef} style={{ color: "#C0281E", whiteSpace: "pre" }} />
+              <span ref={line3SuffixRef} style={{ color: "rgba(255,255,255,0.45)", whiteSpace: "pre" }} />
+              <span ref={line3CursorRef} />
+            </div>
           </div>
-
-          {/* Line 3 — back to code-comment voice */}
-          <div
-            ref={line3Ref}
-            className="tw-line tw-line-3"
-            style={{
-              fontFamily: monoFamily,
-              fontSize: "clamp(14px, 1.9vw, 20px)",
-              letterSpacing: "0.04em",
-              lineHeight: 1.6,
-              whiteSpace: "nowrap",
-              textTransform: "uppercase",
-            }}
-          >
-            <span ref={line3PrefixRef} style={{ color: "rgba(255,255,255,0.45)", whiteSpace: "pre" }} />
-            <span ref={line3WordRef} style={{ color: "#C0281E", whiteSpace: "pre" }} />
-            <span ref={line3SuffixRef} style={{ color: "rgba(255,255,255,0.45)", whiteSpace: "pre" }} />
-            <span ref={line3CursorRef} />
-          </div>
+        </div>
         </div>
       </div>
     </section>
