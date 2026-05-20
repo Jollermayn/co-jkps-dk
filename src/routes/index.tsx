@@ -1285,7 +1285,7 @@ function CasesSection() {
     <section id="cases" className="py-16 md:py-20">
       <div className="px-12 md:px-14">
         <div className="mb-10 md:mb-14">
-          <Eyebrow>Udvalgte cases</Eyebrow>
+          <Eyebrow>Cases</Eyebrow>
         </div>
 
         {/* Filter dropdown */}
