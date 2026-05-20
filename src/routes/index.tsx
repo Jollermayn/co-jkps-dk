@@ -2160,7 +2160,7 @@ function KompetencerList() {
 
             <div
               className="flex flex-col gap-3"
-              style={{ marginTop: "auto", paddingTop: "16px" }}
+              style={{ paddingTop: "8px" }}
             >
               {renderTags(c.tags)}
             </div>
