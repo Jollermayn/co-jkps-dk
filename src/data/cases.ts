@@ -27,6 +27,7 @@ import caseNyeHero from "@/assets/case-nye-hero.png";
 import caseNyeHeroVideo from "@/assets/case-nye-hero.mp4?url";
 import caseNyeVaerkstedet from "@/assets/case-nye-vaerkstedet.png";
 import caseLydbogerAdhd from "@/assets/case-lydboger-adhd.jpg";
+import caseLydbogerAdhdVideo from "@/assets/case-lydboger-adhd.mp4?url";
 import caseItuDesignlab from "@/assets/case-itu-designlab.jpg";
 import caseItuDesignlabVideo from "@/assets/case-itu-designlab.mp4?url";
 
@@ -331,6 +332,7 @@ const _allCases: CaseStudy[] = [
     client: "Lydbøger til børn med ADHD",
     title: "Når formatet ikke passer — design af auditiv fordybelse til børn med ADHD",
     image: caseLydbogerAdhd,
+    video: caseLydbogerAdhdVideo,
     context:
       "Børn med ADHD kæmper ofte med traditionelle læringsformater. Ikke fordi de ikke kan lære, men fordi formaterne ikke er designet til dem. Projektet undersøgte hvordan lydbaserede formater kan blive et reelt lærings- og aflastningsværktøj for børn i alderen 7-12 år.",
     challenge:
