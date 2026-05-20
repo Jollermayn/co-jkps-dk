@@ -245,7 +245,7 @@ const _allCases: CaseStudy[] = [
     challenge:
       "Hvordan omsætter man komplekse bæredygtighedsdagsordener til kommunikation der engagerer — uden at miste organisationens faglige tyngde?",
     role: [
-      "Havde det samlede kommunikationsansvar og koordinerede på tværs af interne og eksterne interessenter",
+      "Var del af det ledende kommunikationsteam med ansvar på tværs af interne og eksterne interessenter",
       "Udviklede og eksekverede kommunikationsstrategi målrettet nye målgrupper",
       "Omsatte faglige budskaber til tilgængeligt indhold på tværs af platforme og formater",
     ],
