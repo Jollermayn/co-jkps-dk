@@ -436,6 +436,10 @@ button[data-case-slug] > div {
   border: none !important;
   box-shadow: none !important;
 }
+/* Guarantee client name spans are always transparent — beats any seam-fix !important rule */
+#root button[data-case-slug] span {
+  background: none !important;
+}
 /* Re-allow video/img/picture/gradient overlay to render normally inside image wrapper */
 button[data-case-slug] video,
 button[data-case-slug] img,
@@ -447,7 +451,7 @@ button[data-case-slug] [data-case-video-wrap] * {
 }
 /* The gradient overlay div needs its gradient back */
 button[data-case-slug] [data-gradient-overlay] {
-  height: 25px !important;
+  height: 90px !important;
   background: linear-gradient(to top, #0D1B2A 0%, rgba(13,27,42,0) 100%) !important;
 }
 
