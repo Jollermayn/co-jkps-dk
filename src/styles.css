@@ -436,9 +436,12 @@ button[data-case-slug] > div {
   border: none !important;
   box-shadow: none !important;
 }
-/* Guarantee client name spans are always transparent — beats any seam-fix !important rule */
-#root button[data-case-slug] span {
-  background: none !important;
+/* Guarantee only the client name label stays fully transparent */
+#root button[data-case-slug] [data-case-client-label] {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
 }
 /* Re-allow video/img/picture/gradient overlay to render normally inside image wrapper */
 button[data-case-slug] video,

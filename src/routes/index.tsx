@@ -1876,8 +1876,17 @@ function CasesSection() {
                 />
                 {/* client name directly on image, above bottom fade */}
                 <span
+                  data-case-client-label
                   className={"absolute bottom-8 left-3 z-[2] inline-block w-fit text-white uppercase font-extrabold leading-tight " + clientSize}
-                  style={{ fontFamily: "'Arial Black', 'Helvetica Neue', Helvetica, Arial, sans-serif", fontSize: "0.9rem", letterSpacing: "0.15em" }}
+                  style={{
+                    fontFamily: "'Arial Black', 'Helvetica Neue', Helvetica, Arial, sans-serif",
+                    fontSize: "0.9rem",
+                    letterSpacing: "0.15em",
+                    background: "transparent",
+                    backgroundColor: "transparent",
+                    backgroundImage: "none",
+                    boxShadow: "none",
+                  }}
                 >
                   {c.slug === "musikfaellesskabet-i-nye" ? (
                     "Borgerdrevet fællesskab i Nye"
