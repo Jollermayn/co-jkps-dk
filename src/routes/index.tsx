@@ -1788,8 +1788,8 @@ function CasesSection() {
               : "w-full";
           const imgWrapperClass =
             variant === "slider"
-              ? "w-full overflow-hidden bg-navy h-[280px] max-[428px]:h-[220px]"
-              : "w-full overflow-hidden bg-navy h-[250px]";
+              ? "w-full overflow-hidden bg-navy h-[320px] max-[428px]:h-[260px]"
+              : "w-full overflow-hidden bg-navy h-[290px]";
           const bodyPadding =
             variant === "slider"
               ? "px-5 py-6 max-[428px]:p-4 flex flex-col gap-3 max-[428px]:gap-2 flex-1 min-w-0"
@@ -1863,9 +1863,9 @@ function CasesSection() {
                   data-gradient-overlay
                   className="absolute inset-x-0 bottom-0 pointer-events-none"
                   style={{
-                    height: "70%",
+                    height: "25px",
                     background:
-                      "linear-gradient(to top, #0D1B2A 0%, #0D1B2A 18%, rgba(13,27,42,0.92) 35%, rgba(13,27,42,0.65) 60%, rgba(13,27,42,0.25) 85%, rgba(13,27,42,0) 100%)",
+                      "linear-gradient(to top, #0D1B2A 0%, rgba(13,27,42,0) 100%)",
                   }}
                 />
                 <div

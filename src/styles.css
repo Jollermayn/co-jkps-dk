@@ -448,8 +448,8 @@ button[data-case-slug] [data-case-video-wrap] * {
 }
 /* The gradient overlay div needs its gradient back */
 button[data-case-slug] [data-gradient-overlay] {
-  height: 70% !important;
-  background: linear-gradient(to top, #0D1B2A 0%, #0D1B2A 18%, rgba(13,27,42,0.92) 35%, rgba(13,27,42,0.65) 60%, rgba(13,27,42,0.25) 85%, rgba(13,27,42,0) 100%) !important;
+  height: 25px !important;
+  background: linear-gradient(to top, #0D1B2A 0%, rgba(13,27,42,0) 100%) !important;
 }
 
 /* Hard mask across the media/body join to eliminate browser compositing seams */
