@@ -766,8 +766,10 @@ function TilgangPage() {
             Genkender du disse mønstre?
           </p>
           <div className="tilgang-monkey-wrap">
-            <img src={monkeyGrey} alt="" className="tilgang-monkey-grey" />
-            <img src={monkeyColor} alt="JKPS" className="tilgang-monkey-color" />
+            <img src={monkeyGrey} alt="JKPS" className="tilgang-monkey-grey" />
+            {isDesktop && (
+              <img src={monkeyColor} alt="" className="tilgang-monkey-color" aria-hidden="true" />
+            )}
           </div>
           <p
             style={{
