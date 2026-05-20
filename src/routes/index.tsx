@@ -1777,7 +1777,7 @@ function KompetencerList() {
               src={c.bg}
               alt=""
               aria-hidden
-              className="absolute inset-0 w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-[filter] duration-300 ease-out"
             />
             <div
               aria-hidden
