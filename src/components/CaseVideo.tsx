@@ -28,7 +28,7 @@ export function CaseVideo({ src, poster, ariaLabel, className, preload = "metada
       el.play().catch(() => {});
     } else {
       el.pause();
-      el.currentTime = 0;
+      // Keep last frame visible to avoid black flicker between cards.
     }
   }, [active, isTouch]);
 

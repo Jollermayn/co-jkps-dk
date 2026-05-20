@@ -1604,14 +1604,16 @@ function CasesSection() {
                     poster={c.slug === "wolt" ? undefined : c.image}
                     ariaLabel={`${c.client} — ${meta?.headline ?? c.title}`}
                     className={imgClass}
-                    preload={c.slug === "wolt" ? "auto" : "metadata"}
+                    preload={variant === "slider" ? "auto" : c.slug === "wolt" ? "auto" : "metadata"}
                     active={variant === "slider" && index === currentIndex}
                   />
                 ) : (
                   <img
                     src={c.image}
                     alt={`${c.client} — ${meta?.headline ?? c.title}`}
-                    loading="lazy"
+                    loading={variant === "slider" ? "eager" : "lazy"}
+                    decoding="async"
+                    fetchPriority={variant === "slider" ? "high" : "auto"}
                     className={imgClass}
                   />
                 )}
