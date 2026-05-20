@@ -1820,12 +1820,17 @@ function CasesSection() {
               }}
               onBlur={() => variant === "slider" && setHoveredIndex(null)}
               className={
-                "group relative flex flex-col text-left rounded-lg border border-transparent hover:bg-[rgba(255,255,255,0.04)] overflow-hidden transition-all duration-300 ease-out hover:-translate-y-[3px] " +
+                "group relative flex flex-col text-left rounded-lg overflow-hidden transition-all duration-300 ease-out hover:-translate-y-[3px] hover:bg-[rgba(255,255,255,0.04)] outline-none ring-0 shadow-none focus:outline-none focus-visible:outline-none focus:ring-0 focus-visible:ring-0 focus:shadow-none focus-visible:shadow-none " +
                 "cursor-pointer " +
                 sizing
               }
               style={{
                 background: `linear-gradient(180deg, ${cardBackground} 0%, rgba(13,27,42,0.7) 42%, rgba(13,27,42,0.92) 100%)`,
+                appearance: "none",
+                WebkitAppearance: "none",
+                border: 0,
+                outline: "none",
+                boxShadow: "none",
               }}
             >
               <div className={imgWrapperClass + " relative border-0 outline-none"} style={{ backgroundColor: cardBackground, border: 0, boxShadow: "none", outline: "none", marginBottom: 0 }}>
