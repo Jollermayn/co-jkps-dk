@@ -1724,11 +1724,9 @@ function KompetencerList() {
         const isFilter = FILTER_SET.has(t);
         return (
           <li key={t} className="inline-flex items-center">
-            {i > 0 && (
-              <span aria-hidden className="mx-2 text-[#C0281E]">
-                —
-              </span>
-            )}
+            <span aria-hidden className={i === 0 ? "mr-2 text-[#C0281E]" : "mx-2 text-[#C0281E]"}>
+              —
+            </span>
             {isFilter ? (
               <button
                 type="button"
