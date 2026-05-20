@@ -1368,7 +1368,7 @@ function CasesSection() {
   const getLastIndex = () => {
     if (!filtered.length) return 0;
     const isMobile = typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches;
-    return isMobile ? filtered.length - 1 : Math.max(0, filtered.length - 3);
+    return isMobile ? filtered.length - 1 : Math.max(0, filtered.length - 2);
   };
 
   const showNextCase = () => {
