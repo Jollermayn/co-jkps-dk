@@ -1449,11 +1449,11 @@ function CasesSection() {
               : "w-full";
           const imgWrapperClass =
             variant === "slider"
-              ? "w-full overflow-hidden bg-navy h-[180px] max-[428px]:h-[160px]"
+              ? "w-full overflow-hidden bg-navy h-[280px] max-[428px]:h-[220px]"
               : "w-full overflow-hidden bg-navy h-[250px]";
           const bodyPadding =
             variant === "slider"
-              ? "p-5 max-[428px]:p-4 flex flex-col gap-3 max-[428px]:gap-2 flex-1 min-w-0"
+              ? "px-5 py-6 max-[428px]:p-4 flex flex-col gap-3 max-[428px]:gap-2 flex-1 min-w-0"
               : "p-6 flex flex-col gap-3";
           const clientSize = variant === "slider" ? "max-[428px]:!text-[10px]" : "";
           const headlineSize = variant === "slider" ? "max-[428px]:!text-[15px]" : "";
@@ -1544,7 +1544,7 @@ function CasesSection() {
                 >
                   {meta?.headline ?? c.title}
                 </h3>
-                <ul className="flex flex-wrap gap-1.5 mt-1">
+                <ul className="flex flex-wrap gap-1.5 mt-3">
                   {(meta?.tags ?? []).map((t) => (
                     <li
                       key={t}
