@@ -235,9 +235,15 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
               style={{ backgroundColor: "#0A1628" }}
               autoPlay
               muted
-              loop
               playsInline
               preload="auto"
+              onEnded={(e) => {
+                const v = e.currentTarget;
+                v.pause();
+                if (v.duration && isFinite(v.duration)) {
+                  v.currentTime = Math.max(0, v.duration - 0.05);
+                }
+              }}
             />
           ) : (
             <img
