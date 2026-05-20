@@ -462,17 +462,70 @@ function MobileHeader() {
   );
 }
 
+const PARADOX_LINE_1_PREFIX = "// ";
+const PARADOX_LINE_1_TITLE = "The Ai paradox:";
+const PARADOX_LINE_2 = '"Too much Artificial!"';
+const PARADOX_LINE_3_PREFIX = "// Not enough ";
+const PARADOX_LINE_3_WORD = "intelligence";
+const PARADOX_LINE_3_SUFFIX = "...";
+
 const TW_CURSOR_CSS = `
 .tw-cursor { display: inline-block; width: 0.6ch; margin-left: 1px; color: #F5F0E8; animation: tw-blink 1s steps(2, start) infinite; }
 .tw-cursor.is-typing { animation: none; opacity: 1; }
 @keyframes tw-blink { to { visibility: hidden; } }
-.tw-content { min-height: 320px; overflow-anchor: none; contain: layout style; }
-.tw-window { overflow-anchor: none; contain: layout style; }
+.tw-shell {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  height: 361px;
+  min-height: 361px;
+  overflow: hidden;
+  overflow-anchor: none;
+  contain: strict;
+}
+.tw-window {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  overflow-anchor: none;
+  contain: strict;
+}
+.tw-titlebar {
+  flex: 0 0 41px;
+  height: 41px;
+}
+.tw-content {
+  flex: 0 0 320px;
+  height: 320px;
+  min-height: 320px;
+  max-height: 320px;
+  overflow: hidden;
+  overflow-anchor: none;
+  contain: strict;
+}
+.tw-desktop-static { display: none; }
+.tw-mobile-animated { display: block; }
 @media (min-width: 1024px) {
-  .tw-content { min-height: 340px; }
+  .tw-shell { height: 381px; min-height: 381px; }
+  .tw-content {
+    flex-basis: 340px;
+    height: 340px;
+    min-height: 340px;
+    max-height: 340px;
+  }
+  .tw-desktop-static { display: block; }
+  .tw-mobile-animated { display: none; }
 }
 @media (max-width: 768px) {
-  .tw-content { min-height: 260px; padding: 24px 18px 28px !important; }
+  .tw-shell { height: 301px; min-height: 301px; }
+  .tw-content {
+    flex-basis: 260px;
+    height: 260px;
+    min-height: 260px;
+    max-height: 260px;
+    padding: 24px 18px 28px !important;
+  }
   .tw-line-1, .tw-line-3 { font-size: 11px !important; letter-spacing: 0.02em !important; }
   .tw-line-2 { font-size: 1.4rem !important; padding: 8px 0 !important; }
 }
@@ -502,21 +555,17 @@ function CodeParadoxBlock() {
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const isDesktop =
       typeof window !== "undefined" && window.innerWidth >= 1024;
-    const L1_PREFIX = "// ";
-    const L1_TITLE = "The Ai paradox:";
-    const L2S = '"Too much Artificial!"';
-    const L3 = "// Not enough intelligence...";
     const cursor = line1CursorRef.current?.querySelector<HTMLSpanElement>(".tw-cursor");
     if (!cursor) return;
     const timeouts: ReturnType<typeof setTimeout>[] = [];
     if (reduceMotion || isDesktop) {
       cursor.remove();
-      if (line1PrefixRef.current) line1PrefixRef.current.textContent = L1_PREFIX;
-      if (line1TitleRef.current) line1TitleRef.current.textContent = L1_TITLE;
-      if (line2StringRef.current) line2StringRef.current.textContent = L2S;
-      if (line3PrefixRef.current) line3PrefixRef.current.textContent = "// Not enough ";
-      if (line3WordRef.current) line3WordRef.current.textContent = "intelligence";
-      if (line3SuffixRef.current) line3SuffixRef.current.textContent = "...";
+      if (line1PrefixRef.current) line1PrefixRef.current.textContent = PARADOX_LINE_1_PREFIX;
+      if (line1TitleRef.current) line1TitleRef.current.textContent = PARADOX_LINE_1_TITLE;
+      if (line2StringRef.current) line2StringRef.current.textContent = PARADOX_LINE_2;
+      if (line3PrefixRef.current) line3PrefixRef.current.textContent = PARADOX_LINE_3_PREFIX;
+      if (line3WordRef.current) line3WordRef.current.textContent = PARADOX_LINE_3_WORD;
+      if (line3SuffixRef.current) line3SuffixRef.current.textContent = PARADOX_LINE_3_SUFFIX;
       return;
     }
     cursor.style.opacity = "0";
@@ -538,10 +587,10 @@ function CodeParadoxBlock() {
         steps.push({ target, text: full.slice(0, c), delay: charDelay() });
       }
     };
-    pushTyping("l1p", L1_PREFIX);
-    pushTyping("l1t", L1_TITLE);
+    pushTyping("l1p", PARADOX_LINE_1_PREFIX);
+    pushTyping("l1t", PARADOX_LINE_1_TITLE);
     if (steps.length) steps[steps.length - 1].delay += 400;
-    pushTyping("l2s", L2S);
+    pushTyping("l2s", PARADOX_LINE_2);
     if (steps.length) steps[steps.length - 1].delay += 400;
     // Natural typo: write "intellegence" (common misspelling), pause, backspace to "intell", then type correctly.
     const STEM = "// Not enough intell";
@@ -675,22 +724,24 @@ function CodeParadoxBlock() {
       style={{ padding: "80px 48px 96px", background: "transparent" }}
     >
       <style dangerouslySetInnerHTML={{ __html: TW_CURSOR_CSS }} />
-      <div
-        ref={windowRef}
-        className="tw-window"
-        style={{
-          width: "100%",
-          maxWidth: "720px",
-          background: "rgba(0,0,0,0.25)",
-          border: "1px solid rgba(255,255,255,0.08)",
-          borderRadius: "6px",
-          textAlign: "left",
-          overflow: "hidden",
-        }}
-      >
+      <div className="tw-shell">
+        <div
+          ref={windowRef}
+          className="tw-window"
+          style={{
+            width: "100%",
+            maxWidth: "720px",
+            background: "rgba(0,0,0,0.25)",
+            border: "1px solid rgba(255,255,255,0.08)",
+            borderRadius: "6px",
+            textAlign: "left",
+            overflow: "hidden",
+          }}
+        >
         {/* Subtle window tab — filename only, no traffic lights */}
         <div
           aria-hidden="true"
+          className="tw-titlebar"
           style={{
             display: "flex",
             alignItems: "center",
@@ -718,67 +769,118 @@ function CodeParadoxBlock() {
             justifyContent: "center",
             alignItems: "flex-start",
             gap: "8px",
+            position: "relative",
           }}
         >
-          {/* Line 1 — code comment eyebrow */}
-          <div
-            ref={line1Ref}
-            className="tw-line tw-line-1"
-            style={{
-              display: "flex",
-              alignItems: "baseline",
-              flexWrap: "nowrap",
-              fontFamily: monoFamily,
-              fontSize: "clamp(14px, 1.9vw, 20px)",
-              letterSpacing: "0.04em",
-              lineHeight: 1.6,
-              whiteSpace: "nowrap",
-              textTransform: "uppercase",
-            }}
-          >
-            <span ref={line1PrefixRef} style={{ color: "rgba(255,255,255,0.45)", whiteSpace: "pre" }} />
-            <span ref={line1TitleRef} style={{ color: "rgba(255,255,255,0.75)", fontWeight: 500, whiteSpace: "pre" }} />
-            <span ref={line1CursorRef}><span aria-hidden="true" className="tw-cursor">|</span></span>
+          <div className="tw-desktop-static" aria-hidden="true" style={{ width: "100%" }}>
+            <div
+              className="tw-line tw-line-1"
+              style={{
+                display: "flex",
+                alignItems: "baseline",
+                flexWrap: "nowrap",
+                fontFamily: monoFamily,
+                fontSize: "clamp(14px, 1.9vw, 20px)",
+                letterSpacing: "0.04em",
+                lineHeight: 1.6,
+                whiteSpace: "nowrap",
+                textTransform: "uppercase",
+              }}
+            >
+              <span style={{ color: "rgba(255,255,255,0.45)", whiteSpace: "pre" }}>{PARADOX_LINE_1_PREFIX}</span>
+              <span style={{ color: "rgba(255,255,255,0.75)", fontWeight: 500, whiteSpace: "pre" }}>{PARADOX_LINE_1_TITLE}</span>
+            </div>
+            <div
+              className="tw-line tw-line-2"
+              style={{
+                fontFamily: "'Cormorant Garamond', 'Playfair Display', Georgia, serif",
+                fontSize: "clamp(1.85rem, 5.8vw, 3.75rem)",
+                fontStyle: "italic",
+                fontWeight: 500,
+                lineHeight: 1.15,
+                color: "#FFFFFF",
+                padding: "12px 0",
+                whiteSpace: "normal",
+                maxWidth: "100%",
+                overflowWrap: "break-word",
+              }}
+            >
+              <span style={{ whiteSpace: "pre-wrap" }}>{PARADOX_LINE_2}</span>
+            </div>
+            <div
+              className="tw-line tw-line-3"
+              style={{
+                fontFamily: monoFamily,
+                fontSize: "clamp(14px, 1.9vw, 20px)",
+                letterSpacing: "0.04em",
+                lineHeight: 1.6,
+                whiteSpace: "nowrap",
+                textTransform: "uppercase",
+              }}
+            >
+              <span style={{ color: "rgba(255,255,255,0.45)", whiteSpace: "pre" }}>{PARADOX_LINE_3_PREFIX}</span>
+              <span style={{ color: "#C0281E", whiteSpace: "pre" }}>{PARADOX_LINE_3_WORD}</span>
+              <span style={{ color: "rgba(255,255,255,0.45)", whiteSpace: "pre" }}>{PARADOX_LINE_3_SUFFIX}</span>
+            </div>
           </div>
 
-          {/* Line 2 — the human voice, serif italic */}
-          <div
-            className="tw-line tw-line-2"
-            style={{
-              fontFamily: "'Cormorant Garamond', 'Playfair Display', Georgia, serif",
-              fontSize: "clamp(1.85rem, 5.8vw, 3.75rem)",
-              fontStyle: "italic",
-              fontWeight: 500,
-              lineHeight: 1.15,
-              color: "#FFFFFF",
-              padding: "12px 0",
-              whiteSpace: "normal",
-              maxWidth: "100%",
-              overflowWrap: "break-word",
-            }}
-          >
-            <span ref={line2StringRef} style={{ whiteSpace: "pre-wrap" }} />
-            <span ref={line2CursorRef} />
+          <div className="tw-mobile-animated" style={{ width: "100%" }}>
+            <div
+              ref={line1Ref}
+              className="tw-line tw-line-1"
+              style={{
+                display: "flex",
+                alignItems: "baseline",
+                flexWrap: "nowrap",
+                fontFamily: monoFamily,
+                fontSize: "clamp(14px, 1.9vw, 20px)",
+                letterSpacing: "0.04em",
+                lineHeight: 1.6,
+                whiteSpace: "nowrap",
+                textTransform: "uppercase",
+              }}
+            >
+              <span ref={line1PrefixRef} style={{ color: "rgba(255,255,255,0.45)", whiteSpace: "pre" }} />
+              <span ref={line1TitleRef} style={{ color: "rgba(255,255,255,0.75)", fontWeight: 500, whiteSpace: "pre" }} />
+              <span ref={line1CursorRef}><span aria-hidden="true" className="tw-cursor">|</span></span>
+            </div>
+            <div
+              className="tw-line tw-line-2"
+              style={{
+                fontFamily: "'Cormorant Garamond', 'Playfair Display', Georgia, serif",
+                fontSize: "clamp(1.85rem, 5.8vw, 3.75rem)",
+                fontStyle: "italic",
+                fontWeight: 500,
+                lineHeight: 1.15,
+                color: "#FFFFFF",
+                padding: "12px 0",
+                whiteSpace: "normal",
+                maxWidth: "100%",
+                overflowWrap: "break-word",
+              }}
+            >
+              <span ref={line2StringRef} style={{ whiteSpace: "pre-wrap" }} />
+              <span ref={line2CursorRef} />
+            </div>
+            <div
+              ref={line3Ref}
+              className="tw-line tw-line-3"
+              style={{
+                fontFamily: monoFamily,
+                fontSize: "clamp(14px, 1.9vw, 20px)",
+                letterSpacing: "0.04em",
+                lineHeight: 1.6,
+                whiteSpace: "nowrap",
+                textTransform: "uppercase",
+              }}
+            >
+              <span ref={line3PrefixRef} style={{ color: "rgba(255,255,255,0.45)", whiteSpace: "pre" }} />
+              <span ref={line3WordRef} style={{ color: "#C0281E", whiteSpace: "pre" }} />
+              <span ref={line3SuffixRef} style={{ color: "rgba(255,255,255,0.45)", whiteSpace: "pre" }} />
+              <span ref={line3CursorRef} />
+            </div>
           </div>
-
-          {/* Line 3 — back to code-comment voice */}
-          <div
-            ref={line3Ref}
-            className="tw-line tw-line-3"
-            style={{
-              fontFamily: monoFamily,
-              fontSize: "clamp(14px, 1.9vw, 20px)",
-              letterSpacing: "0.04em",
-              lineHeight: 1.6,
-              whiteSpace: "nowrap",
-              textTransform: "uppercase",
-            }}
-          >
-            <span ref={line3PrefixRef} style={{ color: "rgba(255,255,255,0.45)", whiteSpace: "pre" }} />
-            <span ref={line3WordRef} style={{ color: "#C0281E", whiteSpace: "pre" }} />
-            <span ref={line3SuffixRef} style={{ color: "rgba(255,255,255,0.45)", whiteSpace: "pre" }} />
-            <span ref={line3CursorRef} />
-          </div>
+        </div>
         </div>
       </div>
     </section>
