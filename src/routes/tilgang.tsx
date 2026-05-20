@@ -247,9 +247,12 @@ function TilgangPage() {
           .tilgang-monkey-wrap:hover .tilgang-monkey-color { opacity: 1; }
         }
         @media (max-width: 1023px) {
-          .tilgang-monkey-wrap { display: block; width: 100%; max-width: 320px; margin: 48px auto; }
+          .tilgang-monkey-wrap { display: block; width: 100%; max-width: 320px; margin: 48px auto; position: relative; aspect-ratio: 1 / 1; }
           .tilgang-monkey-wrap img { display: block; width: 100%; height: auto; }
+          .tilgang-monkey-grey { display: none !important; }
           .tilgang-monkey-color { display: none; }
+          .tilgang-monkey-cycle { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1s ease-in-out; }
+          .tilgang-monkey-cycle.is-active { opacity: 1; }
         }
         @media (max-width: 767px) {
           .tilgang-grid { padding: 0 !important; margin: 0 !important; gap: 96px !important; column-gap: 0 !important; row-gap: 96px !important; }
