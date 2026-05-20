@@ -1832,7 +1832,7 @@ function KompetencerList() {
                 className="tag-helper font-serif text-cream/60 leading-tight transition-colors duration-200"
                 style={{ fontSize: "0.85rem", marginBottom: "5px" }}
               >
-                <span aria-hidden className="text-[#C0281E]" style={{ marginRight: "8px", fontSize: "1rem", fontWeight: 700, lineHeight: 1 }}>↡</span>Se cases med denne kategori
+                Se cases med denne kategori <span aria-hidden className="text-[#C0281E]" style={{ marginLeft: "8px", fontSize: "1.3rem", fontWeight: 700, lineHeight: 1, position: "relative", top: "4px" }}>↡</span>
               </p>
               {renderTags(c.tags)}
             </div>
