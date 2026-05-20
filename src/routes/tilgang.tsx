@@ -85,14 +85,29 @@ function TilgangPage() {
   const [scrolled, setScrolled] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
   const [monkeyCycleIdx, setMonkeyCycleIdx] = useState(0);
+  const [monkeyVisible, setMonkeyVisible] = useState(false);
+  const monkeyWrapRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if (isDesktop) return;
+    const el = monkeyWrapRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setMonkeyVisible(true);
+      },
+      { threshold: 0.4 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (isDesktop || !monkeyVisible) return;
     const id = setInterval(() => {
       setMonkeyCycleIdx((i) => (i + 1) % 2);
     }, 3500);
     return () => clearInterval(id);
-  }, [isDesktop]);
+  }, [isDesktop, monkeyVisible]);
 
   useEffect(() => {
     const check = () => setIsDesktop(window.innerWidth >= 1024);
