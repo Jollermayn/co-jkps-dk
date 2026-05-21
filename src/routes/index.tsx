@@ -1877,8 +1877,8 @@ function CasesSection() {
           const tagSize = variant === "slider" ? "max-[428px]:text-[9px] max-[428px]:px-2 max-[428px]:py-0.5" : "";
           const imgClass =
             variant === "grid"
-              ? "block w-full h-full object-cover border-0 outline-none md:grayscale md:group-hover:grayscale-0 transition-all duration-[400ms] ease-out group-hover:scale-[1.04]"
-              : "block w-full h-full object-cover border-0 outline-none md:grayscale md:group-hover:grayscale-0 transition-all duration-[400ms] ease-out group-hover:scale-[1.04]";
+              ? "block w-full h-full object-cover border-0 outline-none transition-all duration-[400ms] ease-out group-hover:scale-[1.04]"
+              : "block w-full h-full object-cover border-0 outline-none transition-all duration-[400ms] ease-out group-hover:scale-[1.04]";
           return (
             <button
               key={c.slug}
@@ -2208,7 +2208,7 @@ function KompetencerList() {
               src={c.bg}
               alt=""
               aria-hidden
-              className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-[filter] duration-300 ease-out"
+              className="absolute inset-0 w-full h-full object-cover transition-[filter] duration-300 ease-out"
             />
             <div
               aria-hidden
