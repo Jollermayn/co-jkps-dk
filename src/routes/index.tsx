@@ -889,6 +889,79 @@ function CodeParadoxBlock() {
   );
 }
 
+function DigitalTransformationSection() {
+  return (
+    <section
+      style={{
+        backgroundColor: "#0D1B2A",
+        padding: "80px 24px",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
+      <div style={{ maxWidth: "720px", width: "100%" }}>
+        <p
+          style={{
+            color: "#C0281E",
+            fontSize: "0.75rem",
+            letterSpacing: "0.1em",
+            fontWeight: 600,
+            textTransform: "uppercase",
+            margin: 0,
+          }}
+        >
+          DIGITAL TRANSFORMATION
+        </p>
+
+        <h2
+          style={{
+            color: "#ffffff",
+            fontSize: "clamp(1.8rem, 3vw, 2.4rem)",
+            lineHeight: 1.3,
+            maxWidth: "680px",
+            marginTop: "24px",
+            marginBottom: 0,
+            fontFamily: "'Playfair Display', serif",
+            fontWeight: 700,
+          }}
+        >
+          AI forandrer måden vi søger, kommunikerer og træffer beslutninger.
+        </h2>
+
+        <p
+          style={{
+            color: "#E5E1D8",
+            fontSize: "1.1rem",
+            lineHeight: 1.7,
+            maxWidth: "580px",
+            marginTop: "24px",
+            marginBottom: 0,
+          }}
+        >
+          Teknologi uden mennesket i centrum løser sjældent det rigtige problem. Jeg arbejder i krydset mellem indsigt, design og formidling — og starter altid med mennesket.
+        </p>
+
+        <Link
+          to="/tilgang"
+          style={{
+            display: "inline-block",
+            color: "#C0281E",
+            fontWeight: 600,
+            fontSize: "1rem",
+            marginTop: "32px",
+            textDecoration: "none",
+          }}
+          className="digital-transformation-link"
+        >
+          Se min tilgang →
+        </Link>
+        <style>{`.digital-transformation-link:hover { text-decoration: underline; }`}</style>
+      </div>
+    </section>
+  );
+}
+
 function Index() {
   return (
     <main id="top" className="w-full min-w-0 max-w-full overflow-x-clip text-cream lg:bg-[#0D1B2A]">
@@ -960,6 +1033,8 @@ function Index() {
             </div>
           </section>
 
+
+          <DigitalTransformationSection />
 
           {/* MIN TILGANG */}
           <section
