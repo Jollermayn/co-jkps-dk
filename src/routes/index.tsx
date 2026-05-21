@@ -1004,7 +1004,10 @@ function Index() {
               <div className="mt-8 max-w-3xl space-y-6">
 
                 <p style={{ color: "white", opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.8 }}>
-                  Jeg arbejder med dét, der sker mellem mennesker og systemer — og ikke mindst det der går tabt undervejs. I en verden der aldrig har forandret sig hurtigere.
+                  Jeg arbejder med dét, der sker mellem mennesker og systemer. Ikke brugeren — men personen bag beslutningen, vanen og frustrationen.
+                </p>
+                <p style={{ color: "white", opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.8 }}>
+                  Den digitale transformation har aldrig gået hurtigere. Derfor har det, for mig, aldrig været mere meningsfuldt at hjælpe alle med på vognen.
                 </p>
                 <p style={{ color: "white", opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.8 }}>
                   UX research, servicedesign og konceptudvikling på tværs af public service, civilsamfund og kommercielle virksomheder. Selvstændig siden 2016.
