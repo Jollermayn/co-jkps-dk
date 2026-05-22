@@ -1217,6 +1217,9 @@ function Index() {
             </div>
           </section>
 
+          <CodeParadoxBlock />
+
+
 
 
           {/* KOMPETENCER */}
