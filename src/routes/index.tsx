@@ -1038,7 +1038,7 @@ function Index() {
               <div className="grid grid-cols-1 md:grid-cols-3 relative md:items-start gap-x-8">
                 {[
                   {
-                    title: "Det digitale lag",
+                    title: "Digitalt lag",
                     description:
                       "Ti år med UX research, servicedesign og digital leverance for DR, Amnesty og DN.",
                     icon: (
@@ -1060,7 +1060,7 @@ function Index() {
                     ),
                   },
                   {
-                    title: "Det menneskelige lag",
+                    title: "Menneskeligt lag",
                     description:
                       "Evnen til at oversætte det komplekse til noget, der faktisk rammer.",
                     icon: (
@@ -1075,7 +1075,7 @@ function Index() {
                     ),
                   },
                   {
-                    title: "Det kreative lag",
+                    title: "Kreativt lag",
                     description:
                       "Løsninger der ikke lå i problemformuleringen — formet af en baggrund i medieproduktion og musik.",
                     icon: (
