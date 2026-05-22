@@ -715,7 +715,7 @@ function TilgangPage() {
               {
                 title: "Lytning før løsning.",
                 subtitle: "Mennesket bag problemet kommer før løsningen på det.",
-                text: "De fleste projekter starter med en løsning. Jeg starter med menneskene bag problemet — deres vaner, frustrationer og det, de ikke selv sætter ord på. Det er dér, indsigten opstår. Den, der holder.",
+                text: "De fleste projekter starter med en løsning. Jeg starter med menneskene bag problemet. Deres vaner, frustrationer og det, de ikke selv sætter ord på. Det er dér indsigten opstår. Den, der holder.",
               },
               {
                 title: "Indsigt der mærkes.",
