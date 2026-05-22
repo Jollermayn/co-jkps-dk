@@ -1038,10 +1038,9 @@ function Index() {
               <div className="grid grid-cols-1 md:grid-cols-3 relative md:items-start gap-x-8">
                 {[
                   {
-                    title: "Teknologi",
-                    tagline: "Det digitale lag",
+                    title: "Det digitale lag",
                     description:
-                      "Ti år med UX research, servicedesign og digitale leverancer for organisationer som DR, Amnesty International og Danmarks Naturfredningsforening.",
+                      "Ti år med UX research, servicedesign og digital leverance for DR, Amnesty og DN.",
                     icon: (
                       <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-20 h-20 md:w-24 md:h-24 text-cream">
                         {[0, 60, 120, 180, 240, 300].map((deg) => {
@@ -1061,10 +1060,9 @@ function Index() {
                     ),
                   },
                   {
-                    title: "Kommunikation",
-                    tagline: "Det menneskelige lag",
+                    title: "Det menneskelige lag",
                     description:
-                      "Strategisk kommunikation på tværs af organisationer og målgrupper. Evnen til at oversætte det komplekse til noget, der faktisk rammer.",
+                      "Evnen til at oversætte det komplekse til noget, der faktisk rammer.",
                     icon: (
                       <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-20 h-20 md:w-24 md:h-24 text-cream">
                         <defs>
@@ -1077,10 +1075,9 @@ function Index() {
                     ),
                   },
                   {
-                    title: "Kreativitet",
-                    tagline: "Det kreative lag",
+                    title: "Det kreative lag",
                     description:
-                      "En baggrund i medieproduktion, musik og ledelse af kreative projekter har formet min evne til at tænke ud over det åbenlyse — og finde løsninger, der ikke lå i problemformuleringen.",
+                      "Løsninger der ikke lå i problemformuleringen — formet af en baggrund i medieproduktion og musik.",
                     icon: (
                       <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" className="w-20 h-20 md:w-24 md:h-24 text-cream">
                         {[18, 26, 34, 42, 50, 58, 66, 74, 82].map((x, i) => {
@@ -1099,21 +1096,19 @@ function Index() {
                     key={item.title}
                     className={`flex flex-col items-center ${i === 0 ? "md:pr-8" : i === 2 ? "md:pl-8" : "md:px-8"} ${i > 0 ? "mt-12 md:mt-0" : ""}`}
                   >
-                    <div className="w-full max-w-[220px] flex flex-col items-center">
+                    <div className="w-full max-w-[260px] flex flex-col items-center">
                       <div className="w-28 h-28 md:w-32 md:h-32 flex items-center justify-center mb-2 md:mb-3 shrink-0 transition-all duration-300 ease-out hover:scale-[1.06] hover:[filter:drop-shadow(0_0_14px_var(--ember))]">
                         {item.icon}
                       </div>
-                      <h3 className="font-display text-xl md:text-2xl tracking-tight leading-snug text-center whitespace-nowrap">
+                      <h3 className="font-display text-xl md:text-[1.35rem] tracking-tight leading-snug text-center">
                         {item.title}
                       </h3>
-                      <p className="mt-2 italic text-cream/60 text-sm text-center">
-                        {item.tagline}
-                      </p>
                       <p className="mt-3 text-cream/80 leading-relaxed text-center self-stretch">
                         {item.description}
                       </p>
                     </div>
                   </div>
+
                 ))}
               </div>
             </div>
