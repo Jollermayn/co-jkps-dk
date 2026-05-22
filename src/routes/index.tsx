@@ -898,7 +898,7 @@ function DigitalTransformationSection() {
     <section
       style={{
         backgroundColor: "#0D1B2A",
-        padding: "80px 24px",
+        padding: "40px 24px",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
