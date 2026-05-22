@@ -933,6 +933,9 @@ function DigitalTransformationSection() {
             maxWidth: "580px",
             marginTop: "24px",
             marginBottom: 0,
+            marginLeft: "auto",
+            marginRight: "auto",
+            textAlign: "center",
           }}
         >
           Måden vi søger, kommunikerer og træffer beslutninger på forandrer sig hurtigere, end vi når at følge med. Derfor har designbeslutninger og interventioner aldrig været vigtigere.
