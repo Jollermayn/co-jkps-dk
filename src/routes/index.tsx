@@ -1531,6 +1531,7 @@ function sampleDominantColor(src: string) {
 }
 
 function CasesSection() {
+  const isMobile = useIsMobile();
   const [filter, setFilter] = useState<Filter>("Alle");
   const [filterOpen, setFilterOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
