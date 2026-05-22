@@ -1013,7 +1013,25 @@ function Index() {
                 </h2>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 relative md:items-start gap-x-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 relative md:items-start gap-x-8 md:pt-10">
+                {/* Søjle-top motiv — kun desktop */}
+                <svg
+                  aria-hidden="true"
+                  className="hidden md:block absolute left-0 right-0 top-0 w-full pointer-events-none"
+                  viewBox="0 0 300 30"
+                  preserveAspectRatio="none"
+                  style={{ height: "30px" }}
+                >
+                  <g stroke="var(--ember)" strokeWidth="0.6" opacity="0.45" fill="var(--ember)">
+                    <line x1="50" y1="10" x2="250" y2="10" />
+                    <line x1="50" y1="10" x2="50" y2="28" />
+                    <line x1="150" y1="10" x2="150" y2="28" />
+                    <line x1="250" y1="10" x2="250" y2="28" />
+                    <circle cx="50" cy="10" r="1.6" stroke="none" />
+                    <circle cx="150" cy="10" r="1.6" stroke="none" />
+                    <circle cx="250" cy="10" r="1.6" stroke="none" />
+                  </g>
+                </svg>
                 {[
                   {
                     title: "Digitalt lag",
