@@ -794,10 +794,6 @@ function TilgangPage() {
           >
             Genkender du disse mønstre?
           </p>
-          <div className="tilgang-monkey-wrap" ref={monkeyWrapRef}>
-            <img src={monkeyGrey} alt="JKPS" className="tilgang-monkey-grey" />
-            <img src={monkeyColor} alt="" aria-hidden="true" className="tilgang-monkey-color" />
-          </div>
           <p
             style={{
               fontFamily: "serif",
