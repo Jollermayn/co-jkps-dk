@@ -919,7 +919,7 @@ function DigitalTransformationSection() {
         >
           Værktøjerne er nye.
           <br />
-          <span style={{ fontStyle: "italic", color: "#C0281E" }}>Problemerne er gamle.</span>
+          <span style={{ fontStyle: "italic", color: "#C0281E", fontSize: "0.72em", fontWeight: 600 }}>Problemerne er gamle.</span>
         </h2>
 
 
