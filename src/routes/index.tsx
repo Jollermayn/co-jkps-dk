@@ -908,8 +908,9 @@ function DigitalTransformationSection() {
         <h2
           style={{
             color: "#ffffff",
-            fontSize: "clamp(2rem, 3.4vw, 2.8rem)",
-            lineHeight: 1.15,
+            fontSize: "clamp(1.75rem, 2.8vw, 2.4rem)",
+            lineHeight: 1.1,
+
             maxWidth: "680px",
             marginTop: 0,
             marginBottom: 0,
@@ -937,21 +938,7 @@ function DigitalTransformationSection() {
           Måden vi søger, kommunikerer og træffer beslutninger forandrer sig hurtigere, end vi når at forholde os til. Det er svært at vide, hvad man skal med det hele — og hvorfor. Den del løser ingen model for os.
         </p>
 
-        <Link
-          to="/tilgang"
-          style={{
-            display: "inline-block",
-            color: "#C0281E",
-            fontWeight: 600,
-            fontSize: "1rem",
-            marginTop: "32px",
-            textDecoration: "none",
-          }}
-          className="digital-transformation-link"
-        >
-          Se min tilgang →
-        </Link>
-        <style>{`.digital-transformation-link:hover { text-decoration: underline; }`}</style>
+
       </div>
     </section>
   );
