@@ -2213,7 +2213,7 @@ function KompetencerList() {
                   " border-cream/30 text-cream/85 cursor-pointer hover:border-[#C0281E] hover:text-[#C0281E] hover:bg-[#C0281E]/10 hover:-translate-y-px"
                 }
               >
-                <SlidersHorizontal size={10} strokeWidth={2} aria-hidden />
+                <SlidersHorizontal size={9} strokeWidth={2} className="opacity-60" aria-hidden />
                 <span>{t}</span>
               </button>
             </li>
