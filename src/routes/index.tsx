@@ -943,7 +943,7 @@ function DigitalTransformationSection() {
             marginBottom: 0,
           }}
         >
-          AI accelererer skiftet — men teknologi uden mennesket i centrum løser sjældent det rigtige problem. Jeg arbejder i krydset mellem indsigt, design og formidling — og starter altid med mennesket.
+          Værktøjerne er nye. Problemerne er gamle: folk forstår ikke, hvad de skal, eller hvorfor. Den del løser ingen model for dig.
         </p>
 
         <Link
