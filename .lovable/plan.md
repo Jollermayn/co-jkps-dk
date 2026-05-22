@@ -1,39 +1,45 @@
-# Stram Kompetencer-sektionen op
+# Logik-fix på Kompetencer-sektionen
 
-Mål: fjerne uroen i `Hvad jeg bringer`-rækken så de tre kort læses som ét sammenhængende sæt frem for et tilfældigt collage.
+Tre ændringer der retter sektionens indre logik uden at røre layoutet.
 
-## Ændringer i `src/routes/index.tsx` (KompetencerList + flipCards)
+## 1. Fjern redundans mellem eyebrow og headline
+Eyebrow `KOMPETENCER` + headline `Hvad jeg bringer` siger det samme. Skift eyebrow til **`OMRÅDER`** — det rammer som "her er felterne, ikke en CV-liste" og kolliderer ikke med headlinen.
 
-### 1. Lås billed-proportioner
-I dag har billedkolonnen `md:min-h-[280px]` og `md:h-auto` — billedet strækkes efter tekstens højde, så kort med længere tekst får højere billede. Det er kilden til den ujævne række.
+`src/routes/index.tsx` linje 1278:
+- Fra: `<Eyebrow>Kompetencer</Eyebrow>`
+- Til: `<Eyebrow>Områder</Eyebrow>`
 
-- Skift billedkolonnen til fast aspect ratio på desktop: `md:aspect-[4/3]` på selve `<img>`-wrapperen, og lad teksten styre kortets højde uafhængigt.
-- Alternativt: sæt fast `md:h-[320px]` på hele article'en, så billede og tekst-kolonne altid er ens høje.
-- Behold mobil-højden `h-[220px]`.
+Sektionens `id="kompetencer"` og alle interne anker-links (`/#kompetencer` i nav, footer, breadcrumbs) bevares — kun det viste ord ændres.
 
-### 2. Ensartet beskrivelseslængde
-- Omskriv `body` på de tre kort så de alle er 2 linjer ved normal læsebredde (ca. 90-110 tegn hver).
-  - Kort 2 ("UX Research") er i dag 1 linje — udvid med en konkret sætning.
-- Tilføj evt. `min-h` på `<p>` så højdeforskel udjævnes selv ved responsive line-breaks.
+## 2. Ensret eyebrows på de tre kort
+I dag: `RESULTAT / METODE / PRAKSIS` — blandet kategori (output vs. arbejdsmåde).
 
-### 3. Ensartet antal tags
-- Sørg for at alle tre kort har præcis **3 tags** (det er allerede sandt i `flipCards`, men `Formidling` har 3 og de andre 3 — bekræft og hold det stramt). Hvis 4 ønskes, gør det på alle tre.
+Skift til konsistente **fag-kategorier** der matcher titlerne:
+- Kort 1 (Formidling & Kommunikation): `RESULTAT` → **`KOMMUNIKATION`**
+- Kort 2 (UX Research & Brugerindsigt): `METODE` → **`RESEARCH`**
+- Kort 3 (Servicedesign & Konceptudvikling): `PRAKSIS` → **`DESIGN`**
 
-### 4. Tag-ikoner
-- Det generiske `SlidersHorizontal`-ikon vises kun på klikbare filter-tags. Det er ok funktionelt, men gør ikonet mindre og mere subtilt (`size={9}`, lavere opacity) så det ikke konkurrerer med teksten.
-- Ikke-klikbare tags har intet ikon — behold som er.
+Tre fag, tre kort. Læseren forstår øjeblikkeligt opdelingen.
 
-### 5. Billed-grading (let, valgfri)
-- Tilføj et meget subtilt navy-tint overlay på billederne (`bg-[#0D1B2A]/15` eller en let `mix-blend-multiply`) for at binde de tre forskellige fotos visuelt sammen uden at gøre dem mørke.
+`src/routes/index.tsx` `flipCards`-array (linje ~2162-2190): opdatér `eyebrow`-felterne.
+
+## 3. Logisk rækkefølge: Research → Design → Formidling
+Følger det reelle workflow (undersøg → form → formidl). I dag starter og slutter rækken med "output"-discipliner, hvilket bryder narrativet.
+
+Omarrangér `flipCards` til:
+1. **Research** (var kort 2)
+2. **Design** (var kort 3)
+3. **Kommunikation** (var kort 1)
+
+Numrene `no: "01"/"02"/"03"` opdateres så de matcher den nye rækkefølge.
 
 ## Hvad der IKKE ændres
-- Layout (billede venstre, tekst højre) bevares.
-- Eyebrow + titel + body + tags-struktur bevares.
-- Sektionens overordnede plads i siden, headline `Hvad jeg bringer`, og eksisterende filter-koblinger via `kompetencer:filter` rører jeg ikke.
-- Ingen nye kort tilføjes — antallet (3) bevares.
+- Layout, kort-design, billeder, body-tekster, tags.
+- Sektionens id, nav-links, scroll-anchors.
+- Headline "Hvad jeg bringer".
+- Filter-koblingen via `kompetencer:filter` events.
 
 ## Teknisk note
-Alle ændringer er i `src/routes/index.tsx`:
-- `flipCards`-array (linje ~2162): justér `body`-tekster, evt. `tags`.
-- `KompetencerList` `<article>` (linje ~2233-2254): justér billed-kolonnens højde/aspect ratio, tilføj overlay.
-- `renderTags` (linje ~2195): mindre tag-ikon.
+To filer/blokke berøres, begge i `src/routes/index.tsx`:
+- Linje 1278: eyebrow på sektionen.
+- Linje ~2162-2190: `flipCards`-array (eyebrows + rækkefølge + `no`-numre).

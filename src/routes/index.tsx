@@ -1275,7 +1275,7 @@ function Index() {
           <section id="kompetencer" className="pt-16 md:pt-20" style={{ paddingBottom: "80px" }}>
             <div className="px-5 md:px-14">
               <div className="mb-10 md:mb-14">
-                <Eyebrow>Kompetencer</Eyebrow>
+                <Eyebrow>Områder</Eyebrow>
                 <h2 className="font-display text-5xl md:text-7xl mt-6 mb-8 leading-[0.95] tracking-tight">
                   Hvad jeg <span className="italic">bringer</span>
                 </h2>
@@ -2162,16 +2162,7 @@ function scrollToTagFilter(tag: string) {
 const flipCards = [
   {
     no: "01",
-    eyebrow: "RESULTAT",
-    Icon: MessageCircle,
-    title: "Formidling & Kommunikation",
-    body: "Komplekse emner gjort konkrete og forståelige for dem der skal handle på dem i hverdagen.",
-    tags: ["Strategisk kommunikation", "Brandudvikling", "Konceptudvikling"],
-    bg: kompetence03Bg,
-  },
-  {
-    no: "02",
-    eyebrow: "METODE",
+    eyebrow: "RESEARCH",
     Icon: Search,
     title: "UX Research & Brugerindsigt",
     body: "Jeg oversætter kompleks adfærd til handlebare beslutninger, der peger direkte ind i forretningen.",
@@ -2179,15 +2170,25 @@ const flipCards = [
     bg: kompetence01Bg,
   },
   {
-    no: "03",
-    eyebrow: "PRAKSIS",
+    no: "02",
+    eyebrow: "DESIGN",
     Icon: GitBranch,
     title: "Servicedesign & Konceptudvikling",
     body: "Fra identifikation af problemet til et færdigt koncept der kan eksekveres i den virkelige verden.",
     tags: ["Brugerrejser", "Servicedesign", "Konceptudvikling"],
     bg: kompetence02Bg,
   },
+  {
+    no: "03",
+    eyebrow: "KOMMUNIKATION",
+    Icon: MessageCircle,
+    title: "Formidling & Kommunikation",
+    body: "Komplekse emner gjort konkrete og forståelige for dem der skal handle på dem i hverdagen.",
+    tags: ["Strategisk kommunikation", "Brandudvikling", "Konceptudvikling"],
+    bg: kompetence03Bg,
+  },
 ];
+
 
 
 
