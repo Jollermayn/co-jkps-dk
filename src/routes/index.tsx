@@ -2055,16 +2055,14 @@ function CasesSection() {
               </div>
               <div className={bodyPadding + " border-0 outline-none"} style={{ border: 0, borderTop: 0, boxShadow: "none", outline: "none", marginTop: 0 }}>
                 <h3
-                  className={"font-display font-bold text-cream leading-snug " + headlineSize}
+                  className={"font-display font-bold text-cream leading-snug min-h-[3.5rem] " + headlineSize}
                   style={{ fontSize: 18 }}
                 >
                   {meta?.headline ?? c.title}
                 </h3>
-                {c.stat && (
-                  <p className="text-[12px] text-cream/70 leading-snug italic">
-                    → {c.stat}
-                  </p>
-                )}
+                <p className="text-[12px] text-cream/70 leading-snug italic min-h-[2.4rem]">
+                  {c.stat ? <>→ {c.stat}</> : <>&nbsp;</>}
+                </p>
                 <ul className="mt-3 flex flex-col gap-1.5 text-[11px] uppercase tracking-[0.18em] text-cream/80 leading-relaxed">
                   {(meta?.tags ?? []).map((t) => (
                     <li key={t} className="flex items-baseline gap-2">

@@ -1,51 +1,22 @@
-## Killer-stat per case i case-listen
+## Få stats og tags til at flugte på tværs af case-kort
 
-Tilføj én kort stat-linje under hver case-overskrift i kortet — synlig før klik. Det løfter scanning-oplevelsen massivt: en digital chef ser brand + overskrift + ét konkret tal/resultat.
+Lige nu varierer højden på titel og stat fra kort til kort, så `→ stat`-linjen og tag-listen begynder forskellige steder. Det bryder scanning-rytmen.
 
-### Ændringer
+### Fix
 
-**1. Type-felt** — `src/data/cases.ts`
-Tilføj `stat?: string` til `CaseStudy`-type.
+I `renderCard` (ca. linje 2057-2070 i `src/routes/index.tsx`) sættes faste min-højder på de to tekstblokke, så stat- og tag-linjer altid starter på samme baseline — uanset om titel/stat er 1, 2 eller 3 linjer:
 
-**2. Stat per case** — `src/data/cases.ts`
-Tilføj `stat` til hver case (kort, max ~50 tegn, baseret på eksisterende tekst):
+- **Titel-blok (`<h3>`)**: `min-h-[3.5rem]` (rummer 2 linjer á 18px med leading-snug; 3-linjede titler tillades stadig at vokse).
+- **Stat-blok (`<p>`)**: `min-h-[2.4rem]` (rummer 2 linjer á 12px; 1-linje-stats får tom luft nedenunder så tags starter samme sted).
+- **Stat-wrapper** rendres altid (selv for DR — men nu garanteret) — tom plads holdes hvis `c.stat` mangler, så tag-listen flugter på alle kort.
 
-| Case | Stat |
-|---|---|
-| Wolt | `54% undervurdering af faktisk køredistance` |
-| Boliga | `1,1 mio. månedlige brugere · app uden brugerinddragelse` |
-| FUS / Høresimulering | `Hørehæmmede elever oplever 5× mere ensomhed` |
-| Amnesty | `7 journalister trænet til selvstændig produktion` |
-| Danmarks Naturfredningsforening | `130.000 medlemmer · ny digital strategi` |
-| Ulla Dyrløv | `Lanceret på Spotify, Apple Podcasts og Podimo` |
-| Concerto Copenhagen | `TV2-eksponering · aktivering på Dronning Louises Bro` |
-| ITU Designlab | `Valideret af domæneeksperter i ældreplejen` |
-| Musikfællesskabet i Nye | `Indstillet til Realdania / Underværker` |
-| Lydbøger til børn med ADHD | `Dokumenteret uopfyldt behov i markedet` |
-| Art Spirit Coaching | `Brandidentitet bygget på interviews med læger og klienter` |
-| DR | *(ingen stat — for vag; lader feltet være tomt)* |
+### Resultat
 
-**3. Render-stedet** — `src/routes/index.tsx`, `renderCard` ca. linje 2062
-Mellem `<h3>` (headline) og `<ul>` (tags): tilføj en stat-linje hvis `c.stat` findes.
-
-```tsx
-{c.stat && (
-  <p className="text-[12px] text-cream/70 leading-snug italic">
-    → {c.stat}
-  </p>
-)}
-```
-
-Pilen `→` matcher ember-streg-stilen fra tags. Italic + lidt mindre fontsize giver det en "footnote-fakta"-følelse, ikke en sub-overskrift.
+Korthøjden vokser en smule (~30-40px ekstra hvor titler er korte), men giver dig en visuel "snor" på tværs af alle kort: alle stats står på samme y-position, og alle tag-lister begynder på samme y-position.
 
 ### Hvad der IKKE ændres
 
-- Layout, kortstørrelse, billeder, video, hover-effekter.
-- Eksisterende `headline`, `context`, `challenge`, `outcomes` osv. — intet i case-modal-indhold rører.
-- Tags, filter, slider, grid-view.
-- Nav, anchors, routes.
-- DR-casen får ikke ændret tekst — den får bare ikke en stat (kan rettes separat senere).
-
-### Hvorfor disse stats
-
-Alle er trukket direkte fra eksisterende `context`/`challenge`/`outcomes`-tekst i `cases.ts`. Ingen nye påstande, ingen tal jeg har opfundet. Det er bare guld der bliver løftet op af brødtekst og gjort synligt.
+- Billed-højde, hover-effekt, kortbredde, gap mellem kort.
+- Tekst-indhold (stats, titler, tags) — intet ændres.
+- Slider/grid-skifte, filter, modal.
+- Mobile breakpoints — min-heights gælder også mobil, hvor det giver samme effekt.
