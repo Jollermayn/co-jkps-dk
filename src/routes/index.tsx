@@ -980,30 +980,18 @@ function Index() {
           </section>
           <DigitalTransformationSection />
 
-          {/* KERNEPOSITION */}
-          <section className="pt-24 md:pt-32 pb-16 md:pb-20">
-            <div className="px-12 md:px-14">
-              <div className="max-w-3xl">
-                <p style={{ color: "white", fontFamily: "'Playfair Display', serif", fontStyle: "italic", fontSize: "clamp(1.5rem, 2.4vw, 2rem)", lineHeight: 1.4, margin: 0 }}>
-                  Jeg arbejder med dét, der sker mellem mennesker og systemer.
-                </p>
-                <p style={{ color: "white", opacity: 0.8, fontFamily: "'Playfair Display', serif", fontStyle: "italic", fontSize: "1.25rem", lineHeight: 1.5, marginTop: "16px", marginBottom: 0 }}>
-                  Ikke brugeren — men personen bag beslutningen, vanen og frustrationen.
-                </p>
-              </div>
-            </div>
-          </section>
-
           {/* PORTRÆT */}
           <section id="om" className="pt-20 md:pt-28 pb-8 md:pb-10">
 
             <div className="px-12 md:px-14">
               <div className="max-w-3xl space-y-6">
 
-                <p style={{ color: "white", opacity: 0.95, fontFamily: "'Playfair Display', serif", fontSize: "1.35rem", lineHeight: 1.5 }}>
-                  Digital transformation handler ikke kun om teknologi.
-                  <br />
-                  Det handler om, hvorvidt mennesker kan følge med.
+                <p style={{ color: "white", opacity: 1, fontFamily: "'Playfair Display', serif", fontStyle: "italic", fontSize: "1.5rem", lineHeight: 1.4 }}>
+                  Jeg arbejder med dét, der sker mellem mennesker og systemer. Ikke brugeren — men personen bag beslutningen, vanen og frustrationen.
+                </p>
+
+                <p style={{ color: "white", opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.8 }}>
+                  Den digitale transformation har aldrig gået hurtigere. Derfor har det, for mig, aldrig været mere meningsfuldt at hjælpe alle med på vognen.
                 </p>
                 <p style={{ color: "white", opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.8 }}>
                   UX research, servicedesign og konceptudvikling på tværs af public service, civilsamfund og kommercielle virksomheder. Selvstændig siden 2016.
@@ -1028,7 +1016,7 @@ function Index() {
               <div className="grid grid-cols-1 md:grid-cols-3 relative md:items-start gap-x-8">
                 {[
                   {
-                    title: "Digital forståelse",
+                    title: "Digitalt lag",
                     description:
                       "Ti år med UX research, servicedesign og digital leverance for DR, Amnesty og DN.",
                     icon: (
@@ -1050,7 +1038,7 @@ function Index() {
                     ),
                   },
                   {
-                    title: "Menneskelig forståelse",
+                    title: "Menneskeligt lag",
                     description:
                       "Evnen til at oversætte det komplekse til noget, der faktisk rammer.",
                     icon: (
@@ -1065,7 +1053,7 @@ function Index() {
                     ),
                   },
                   {
-                    title: "Kreativ forståelse",
+                    title: "Kreativt lag",
                     description:
                       "Løsninger der ikke lå i problemformuleringen — formet af en baggrund i medieproduktion og musik.",
                     icon: (
