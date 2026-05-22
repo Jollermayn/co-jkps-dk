@@ -2233,16 +2233,21 @@ function KompetencerList() {
       {flipCards.map((c) => (
         <article
           key={c.no}
-          className="group relative grid grid-cols-1 md:grid-cols-5 overflow-hidden bg-[#0D1B2A] transition-colors duration-[400ms] ease-out hover:bg-[#0F2235]"
+          className="group relative grid grid-cols-1 md:grid-cols-5 overflow-hidden bg-[#0D1B2A] transition-colors duration-[400ms] ease-out hover:bg-[#0F2235] md:h-[320px]"
           style={{ border: "1px solid rgba(245,240,232,0.08)" }}
         >
           {/* Image — left ~40% on desktop, top on mobile */}
-          <div className="relative md:col-span-2 w-full h-[220px] md:h-auto md:min-h-[280px]">
+          <div className="relative md:col-span-2 w-full h-[220px] md:h-full">
             <img
               src={c.bg}
               alt=""
               aria-hidden
               className="absolute inset-0 w-full h-full object-cover transition-[filter] duration-300 ease-out"
+            />
+            {/* Subtle navy tint to unify the three different photos */}
+            <div
+              aria-hidden
+              className="absolute inset-0 pointer-events-none bg-[#0D1B2A]/15"
             />
             <div
               aria-hidden
@@ -2253,6 +2258,7 @@ function KompetencerList() {
               }}
             />
           </div>
+
 
           {/* Content — right ~60% on desktop */}
           <div
