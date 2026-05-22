@@ -1,10 +1,13 @@
 ## Ændring
 
-I `src/routes/index.tsx`, lige over `CodeParadoxBlock`-sektionen, tilføjes en minimal eyebrow:
+I `src/routes/index.tsx` byttes rækkefølgen på to blokke, så "Strategien er solid / Forankringen fejler" + chimp-sektionen kommer **under** Tilgang-blokken (CodeParadoxBlock):
 
-- Tekst: **"Tilgang"**
-- Ingen H2 — kodeblokken bærer selv pointen.
-- Styling matcher de øvrige eyebrows på siden (uppercase, tracking, muted accent-farve, lille margin under).
-- Centreret over kodevinduet, samme horisontale alignment som blokken.
+**Nu:**
+1. `#tilgang`-section (Strategien er solid + chimp + CTA)
+2. `<CodeParadoxBlock />` (eyebrow "Tilgang" + kodevindue)
 
-Ingen andre ændringer.
+**Efter:**
+1. `<CodeParadoxBlock />` (eyebrow "Tilgang" + kodevindue)
+2. `#tilgang`-section (Strategien er solid + chimp + CTA)
+
+Ingen ændring af indhold, styling eller markup i de to blokke — kun rækkefølgen.
