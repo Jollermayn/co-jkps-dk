@@ -1013,25 +1013,20 @@ function Index() {
                 </h2>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 relative md:items-start gap-x-8 md:pt-10">
-                {/* Søjle-top motiv — kun desktop */}
-                <svg
+              <div className="grid grid-cols-1 md:grid-cols-3 relative md:items-start gap-x-8 md:pt-12">
+                {/* Vandret forbindelsesstreg — spænder mellem col 1 og col 3 centre */}
+                <div
                   aria-hidden="true"
-                  className="hidden md:block absolute left-0 right-0 top-0 w-full pointer-events-none"
-                  viewBox="0 0 300 30"
-                  preserveAspectRatio="none"
-                  style={{ height: "30px" }}
-                >
-                  <g stroke="var(--ember)" strokeWidth="0.6" opacity="0.45" fill="var(--ember)">
-                    <line x1="50" y1="10" x2="250" y2="10" />
-                    <line x1="50" y1="10" x2="50" y2="28" />
-                    <line x1="150" y1="10" x2="150" y2="28" />
-                    <line x1="250" y1="10" x2="250" y2="28" />
-                    <circle cx="50" cy="10" r="1.6" stroke="none" />
-                    <circle cx="150" cy="10" r="1.6" stroke="none" />
-                    <circle cx="250" cy="10" r="1.6" stroke="none" />
-                  </g>
-                </svg>
+                  className="hidden md:block absolute pointer-events-none"
+                  style={{
+                    top: "10px",
+                    left: "16.6667%",
+                    right: "16.6667%",
+                    height: "1px",
+                    backgroundColor: "var(--ember)",
+                    opacity: 0.7,
+                  }}
+                />
                 {[
                   {
                     title: "Digitalt lag",
@@ -1090,9 +1085,30 @@ function Index() {
                 ].map((item, i) => (
                   <div
                     key={item.title}
-                    className={`flex flex-col items-center ${i === 0 ? "md:pr-8" : i === 2 ? "md:pl-8" : "md:px-8"} ${i > 0 ? "mt-12 md:mt-0" : ""}`}
+                    className={`flex flex-col items-center md:px-8 ${i > 0 ? "mt-12 md:mt-0" : ""}`}
                   >
                     <div className="w-full max-w-[260px] flex flex-col items-center">
+                      {/* Søjle-top: prik + lodret streg, centreret med symbolet */}
+                      <div className="hidden md:flex flex-col items-center" aria-hidden="true">
+                        <span
+                          style={{
+                            width: "5px",
+                            height: "5px",
+                            borderRadius: "9999px",
+                            backgroundColor: "var(--ember)",
+                            opacity: 0.9,
+                            marginTop: "-2px",
+                          }}
+                        />
+                        <span
+                          style={{
+                            width: "1px",
+                            height: "28px",
+                            backgroundColor: "var(--ember)",
+                            opacity: 0.7,
+                          }}
+                        />
+                      </div>
                       <div className="w-28 h-28 md:w-32 md:h-32 flex items-center justify-center mb-2 md:mb-3 shrink-0 transition-all duration-300 ease-out hover:scale-[1.06] hover:[filter:drop-shadow(0_0_14px_var(--ember))]">
                         {item.icon}
                       </div>
