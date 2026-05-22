@@ -723,6 +723,9 @@ function CodeParadoxBlock() {
       style={{ padding: "140px 48px 96px", background: "transparent" }}
     >
       <style dangerouslySetInnerHTML={{ __html: TW_CURSOR_CSS }} />
+      <div className="w-full max-w-[720px] mb-6 flex justify-start">
+        <Eyebrow>Tilgang</Eyebrow>
+      </div>
       <div className="tw-shell">
         <div
           ref={windowRef}
