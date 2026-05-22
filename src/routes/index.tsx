@@ -997,7 +997,9 @@ function Index() {
               }
             `}</style>
           </section>
-          {/* OM MIG */}
+          <DigitalTransformationSection />
+
+          {/* PORTRÆT */}
           <section id="om" className="pt-20 md:pt-28 pb-16 md:pb-20">
 
             <div className="px-12 md:px-14">
@@ -1019,26 +1021,106 @@ function Index() {
               </div>
             </div>
           </section>
-          {/* CASES */}
-          <CasesSection />
 
-          {/* KOMPETENCER */}
-          <section id="kompetencer" className="pt-16 md:pt-20" style={{ paddingBottom: "80px" }}>
+          {/* FUNDAMENT */}
+          <section id="baggrund" className="py-16 md:py-20">
             <div className="px-5 md:px-14">
-              <div className="mb-10 md:mb-14">
-                <Eyebrow>Ekspertise</Eyebrow>
-                <h2 className="font-display text-5xl md:text-7xl mt-6 mb-8 leading-[0.95] tracking-tight">
-                  Hvad jeg <span className="italic">bringer</span>
+              <div className="mb-6 md:mb-10">
+                <Eyebrow>Fundament</Eyebrow>
+                <h2 className="font-display text-5xl md:text-7xl mt-6 leading-[0.95] tracking-tight">
+                  Tre <span className="italic text-ember">søjler.</span>
                 </h2>
+                <p className="mt-3 max-w-2xl text-lg text-cream/75 leading-relaxed">
+                  Som tilsammen former den måde, jeg arbejder på.
+                </p>
               </div>
 
-              <KompetencerList />
-
+              <div className="grid grid-cols-1 md:grid-cols-3 relative md:items-start gap-x-8">
+                {[
+                  {
+                    title: "Teknologi",
+                    tagline: "Det digitale lag",
+                    description:
+                      "Ti år med UX research, servicedesign og digitale leverancer for organisationer som DR, Amnesty International og Danmarks Naturfredningsforening.",
+                    icon: (
+                      <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-20 h-20 md:w-24 md:h-24 text-cream">
+                        {[0, 60, 120, 180, 240, 300].map((deg) => {
+                          const rad = (deg * Math.PI) / 180;
+                          const x = 50 + Math.cos(rad) * 22;
+                          const y = 50 + Math.sin(rad) * 22;
+                          return <line key={deg} x1="50" y1="50" x2={x} y2={y} />;
+                        })}
+                        {[0, 60, 120, 180, 240, 300].map((deg) => {
+                          const rad = (deg * Math.PI) / 180;
+                          const x = 50 + Math.cos(rad) * 22;
+                          const y = 50 + Math.sin(rad) * 22;
+                          return <circle key={deg} cx={x} cy={y} r="3" fill="none" stroke="currentColor" />;
+                        })}
+                        <circle cx="50" cy="50" r="3" stroke="none" className="fill-ember" />
+                      </svg>
+                    ),
+                  },
+                  {
+                    title: "Kommunikation",
+                    tagline: "Det menneskelige lag",
+                    description:
+                      "Strategisk kommunikation på tværs af organisationer og målgrupper. Evnen til at oversætte det komplekse til noget, der faktisk rammer.",
+                    icon: (
+                      <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-20 h-20 md:w-24 md:h-24 text-cream">
+                        <defs>
+                          <clipPath id="venn-left"><circle cx="38" cy="50" r="22" /></clipPath>
+                        </defs>
+                        <circle cx="62" cy="50" r="22" className="fill-ember" stroke="none" clipPath="url(#venn-left)" />
+                        <circle cx="38" cy="50" r="22" />
+                        <circle cx="62" cy="50" r="22" />
+                      </svg>
+                    ),
+                  },
+                  {
+                    title: "Kreativitet",
+                    tagline: "Det kreative lag",
+                    description:
+                      "En baggrund i medieproduktion, musik og ledelse af kreative projekter har formet min evne til at tænke ud over det åbenlyse — og finde løsninger, der ikke lå i problemformuleringen.",
+                    icon: (
+                      <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" className="w-20 h-20 md:w-24 md:h-24 text-cream">
+                        {[18, 26, 34, 42, 50, 58, 66, 74, 82].map((x, i) => {
+                          const heights = [10, 22, 16, 32, 44, 32, 16, 22, 10];
+                          const h = heights[i];
+                          const isCenter = i === 4;
+                          return (
+                            <line key={x} x1={x} y1={50 - h / 2} x2={x} y2={50 + h / 2} strokeWidth={isCenter ? 2.5 : 1.5} className={isCenter ? "stroke-ember" : undefined} />
+                          );
+                        })}
+                      </svg>
+                    ),
+                  },
+                ].map((item, i) => (
+                  <div
+                    key={item.title}
+                    className={`flex flex-col items-center ${i === 0 ? "md:pr-8" : i === 2 ? "md:pl-8" : "md:px-8"} ${i > 0 ? "mt-12 md:mt-0" : ""}`}
+                  >
+                    <div className="w-full max-w-[220px] flex flex-col items-center">
+                      <div className="w-28 h-28 md:w-32 md:h-32 flex items-center justify-center mb-2 md:mb-3 shrink-0 transition-all duration-300 ease-out hover:scale-[1.06] hover:[filter:drop-shadow(0_0_14px_var(--ember))]">
+                        {item.icon}
+                      </div>
+                      <h3 className="font-display text-xl md:text-2xl tracking-tight leading-snug text-center whitespace-nowrap">
+                        {item.title}
+                      </h3>
+                      <p className="mt-2 italic text-cream/60 text-sm text-center">
+                        {item.tagline}
+                      </p>
+                      <p className="mt-3 text-cream/80 leading-relaxed text-center self-stretch">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </section>
 
-
-          <DigitalTransformationSection />
+          {/* CASES */}
+          <CasesSection />
 
           {/* MIN TILGANG */}
           <section
@@ -1159,6 +1241,21 @@ function Index() {
 
           <CodeParadoxBlock />
 
+          {/* KOMPETENCER */}
+          <section id="kompetencer" className="pt-16 md:pt-20" style={{ paddingBottom: "80px" }}>
+            <div className="px-5 md:px-14">
+              <div className="mb-10 md:mb-14">
+                <Eyebrow>Kompetencer</Eyebrow>
+                <h2 className="font-display text-5xl md:text-7xl mt-6 mb-8 leading-[0.95] tracking-tight">
+                  Hvad jeg <span className="italic">bringer</span>
+                </h2>
+              </div>
+
+              <KompetencerList />
+
+            </div>
+          </section>
+
           {/* UDDANNELSE */}
           <section id="uddannelse" className="py-16 md:py-20">
             <div className="px-5 md:px-14">
@@ -1213,103 +1310,6 @@ function Index() {
                   </li>
                 ))}
               </ul>
-            </div>
-          </section>
-
-          {/* BAGGRUND */}
-          <section id="baggrund" className="py-16 md:py-20">
-            <div className="px-5 md:px-14">
-              <div className="mb-6 md:mb-10">
-                <Eyebrow>Fundament</Eyebrow>
-                <h2 className="font-display text-5xl md:text-7xl mt-6 leading-[0.95] tracking-tight">
-                  Tre <span className="italic text-ember">søjler.</span>
-                </h2>
-                <p className="mt-3 max-w-2xl text-lg text-cream/75 leading-relaxed">
-                  Som tilsammen former den måde, jeg arbejder på.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 relative md:items-start gap-x-8">
-                {[
-                  {
-                    title: "Teknologi",
-                    tagline: "Det digitale lag",
-                    description:
-                      "Ti år med UX research, servicedesign og digitale leverancer for organisationer som DR, Amnesty International og Danmarks Naturfredningsforening.",
-                    icon: (
-                      <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-20 h-20 md:w-24 md:h-24 text-cream">
-                        {[0, 60, 120, 180, 240, 300].map((deg) => {
-                          const rad = (deg * Math.PI) / 180;
-                          const x = 50 + Math.cos(rad) * 22;
-                          const y = 50 + Math.sin(rad) * 22;
-                          return <line key={deg} x1="50" y1="50" x2={x} y2={y} />;
-                        })}
-                        {[0, 60, 120, 180, 240, 300].map((deg) => {
-                          const rad = (deg * Math.PI) / 180;
-                          const x = 50 + Math.cos(rad) * 22;
-                          const y = 50 + Math.sin(rad) * 22;
-                          return <circle key={deg} cx={x} cy={y} r="3" fill="none" stroke="currentColor" />;
-                        })}
-                        <circle cx="50" cy="50" r="3" stroke="none" className="fill-ember" />
-                      </svg>
-                    ),
-                  },
-                  {
-                    title: "Kommunikation",
-                    tagline: "Det menneskelige lag",
-                    description:
-                      "Strategisk kommunikation på tværs af organisationer og målgrupper. Evnen til at oversætte det komplekse til noget, der faktisk rammer.",
-                    icon: (
-                      <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-20 h-20 md:w-24 md:h-24 text-cream">
-                        <defs>
-                          <clipPath id="venn-left"><circle cx="38" cy="50" r="22" /></clipPath>
-                        </defs>
-                        <circle cx="62" cy="50" r="22" className="fill-ember" stroke="none" clipPath="url(#venn-left)" />
-                        <circle cx="38" cy="50" r="22" />
-                        <circle cx="62" cy="50" r="22" />
-                      </svg>
-                    ),
-                  },
-                  {
-                    title: "Kreativitet",
-                    tagline: "Det kreative lag",
-                    description:
-                      "En baggrund i medieproduktion, musik og ledelse af kreative projekter har formet min evne til at tænke ud over det åbenlyse — og finde løsninger, der ikke lå i problemformuleringen.",
-                    icon: (
-                      <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" className="w-20 h-20 md:w-24 md:h-24 text-cream">
-                        {[18, 26, 34, 42, 50, 58, 66, 74, 82].map((x, i) => {
-                          const heights = [10, 22, 16, 32, 44, 32, 16, 22, 10];
-                          const h = heights[i];
-                          const isCenter = i === 4;
-                          return (
-                            <line key={x} x1={x} y1={50 - h / 2} x2={x} y2={50 + h / 2} strokeWidth={isCenter ? 2.5 : 1.5} className={isCenter ? "stroke-ember" : undefined} />
-                          );
-                        })}
-                      </svg>
-                    ),
-                  },
-                ].map((item, i) => (
-                  <div
-                    key={item.title}
-                    className={`flex flex-col items-center ${i === 0 ? "md:pr-8" : i === 2 ? "md:pl-8" : "md:px-8"} ${i > 0 ? "mt-12 md:mt-0" : ""}`}
-                  >
-                    <div className="w-full max-w-[220px] flex flex-col items-center">
-                      <div className="w-28 h-28 md:w-32 md:h-32 flex items-center justify-center mb-2 md:mb-3 shrink-0 transition-all duration-300 ease-out hover:scale-[1.06] hover:[filter:drop-shadow(0_0_14px_var(--ember))]">
-                        {item.icon}
-                      </div>
-                      <h3 className="font-display text-xl md:text-2xl tracking-tight leading-snug text-center whitespace-nowrap">
-                        {item.title}
-                      </h3>
-                      <p className="mt-2 italic text-cream/60 text-sm text-center">
-                        {item.tagline}
-                      </p>
-                      <p className="mt-3 text-cream/80 leading-relaxed text-center self-stretch">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
             </div>
           </section>
 
