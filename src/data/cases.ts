@@ -106,19 +106,17 @@ const _allCases: CaseStudy[] = [
     video: caseBoligaVideo,
     poster: caseBoligaPoster,
     context:
-      "Boliga er Danmarks største boligplatform med 6,5 mio. månedlige interaktioner. Centrale funktioner var usynlige for brugerne — menuen modtog blot 100.000 interaktioner mod 2,6 mio. på boligvisningssiden.",
+      "Boliga er en af Danmarks førende boligportaler med over 1,1 mio. månedlige besøgende på web og 6,5 mio. interaktioner i app'ens kortvisning. Et samarbejde om at undersøge hvordan app'en kunne skabe tydeligere værdi for boligkøbere i et marked hvor konkurrenterne havde indhentet Boligas forspring.",
     challenge:
-      "Brugerne blev præsenteret for for mange irrelevante boliger for tidligt og mistede overblikket før de overhovedet kom i gang.",
+      "App'en føltes rodet og uoverskuelig. Men det var symptomet, ikke problemet. Gennem møder med Boligas designere og product owner blev det klart at app'en var kopieret 1:1 fra webløsningen, at funktioner blev rullet ud uden brugertest, og at der hverken fandtes et designsystem eller en produktvision.",
     role: [
-      "Gennemførte brugerinterviews og brugerrejser",
-      "Analyserede Boligas egne brugsdata",
-      "Designede et personaliseret onboarding-flow",
+      "Mit ansvar lå i det metodiske og analytiske fundament — markedsanalyse, brugerinterviews og den samlede problemdiagnose der pegede arbejdet i retning af personalisering.",
     ],
     approach: ["UX Research", "Brugerrejser", "Dataanalyse", "Product Design"],
     outcomes: [
-      "Onboarding-flowet valideret og godkendt af Boligas product owner til implementering",
-      "Personaliseret flow der bringer relevante boliger frem fra start — reducerer irrelevant eksponering i den kritiske første session",
-      "Designet på baggrund af analyse af 6,5 mio. månedlige interaktioner",
+      "Kortlagde at app'ens reelle problem ikke var grafisk men strukturelt — ingen brugerinddragelse, ingen designvision, webløsningen kopieret ukritisk.",
+      "Leverede et personaliseret onboarding-koncept der bringer relevante boliger frem fra start.",
+      "Boligas product owner bekræftede efter præsentationen at virksomheden selv var i gang med en lignende løsning.",
     ],
   },
   {
