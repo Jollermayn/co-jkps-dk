@@ -1001,7 +1001,7 @@ function Index() {
           <section id="om" className="pt-20 md:pt-28 pb-16 md:pb-20">
 
             <div className="px-12 md:px-14">
-              <Eyebrow>Baggrund</Eyebrow>
+              <Eyebrow>Portræt</Eyebrow>
               <div className="mt-8 max-w-3xl space-y-6">
 
                 <p style={{ color: "white", opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.8 }}>
