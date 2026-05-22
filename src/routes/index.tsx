@@ -981,7 +981,7 @@ function Index() {
           <DigitalTransformationSection />
 
           {/* PORTRÆT */}
-          <section id="om" className="pt-20 md:pt-28 pb-16 md:pb-20">
+          <section id="om" className="pt-20 md:pt-28 pb-8 md:pb-10">
 
             <div className="px-12 md:px-14">
               <div className="max-w-3xl space-y-6">
@@ -996,7 +996,7 @@ function Index() {
                 <p style={{ color: "white", opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.8 }}>
                   UX research, servicedesign og konceptudvikling på tværs af public service, civilsamfund og kommercielle virksomheder. Selvstændig siden 2016.
                 </p>
-                <p style={{ color: "white", opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.8 }}>
+                <p style={{ color: "white", opacity: 0.95, fontFamily: "'Playfair Display', serif", fontStyle: "italic", fontSize: "1.25rem", lineHeight: 1.5 }}>
                   Familiefar, naturmenneske — og først og fremmest en seriøs lytter.
                 </p>
               </div>
@@ -1004,13 +1004,14 @@ function Index() {
           </section>
 
           {/* FUNDAMENT */}
-          <section id="baggrund" className="py-16 md:py-20">
+          <section id="baggrund" className="pt-8 md:pt-10 pb-16 md:pb-20">
             <div className="px-5 md:px-14">
               <div className="mb-6 md:mb-10">
                 
-                <h2 className="font-display text-5xl md:text-7xl mt-6 leading-[0.95] tracking-tight">
+                <h2 className="font-display text-4xl md:text-5xl mt-6 leading-[0.95] tracking-tight">
                   Tre <span className="italic text-ember">søjler.</span>
                 </h2>
+
                 <p className="mt-3 max-w-2xl text-lg text-cream/75 leading-relaxed">
                   Som tilsammen former den måde, jeg arbejder på.
                 </p>
