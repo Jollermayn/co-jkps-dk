@@ -1001,7 +1001,7 @@ function Index() {
           <section id="om" className="pt-20 md:pt-28 pb-16 md:pb-20">
 
             <div className="px-12 md:px-14">
-              <Eyebrow>Om mig</Eyebrow>
+              <Eyebrow>Baggrund</Eyebrow>
               <div className="mt-8 max-w-3xl space-y-6">
 
                 <p style={{ color: "white", opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.8 }}>
@@ -1220,7 +1220,7 @@ function Index() {
           <section id="baggrund" className="py-16 md:py-20">
             <div className="px-5 md:px-14">
               <div className="mb-6 md:mb-10">
-                <Eyebrow>Baggrund</Eyebrow>
+                <Eyebrow>Fundament</Eyebrow>
                 <h2 className="font-display text-5xl md:text-7xl mt-6 leading-[0.95] tracking-tight">
                   Tre <span className="italic text-ember">søjler.</span>
                 </h2>
