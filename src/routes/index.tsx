@@ -946,7 +946,7 @@ function DigitalTransformationSection() {
             textAlign: "center",
           }}
         >
-          Måden vi søger, kommunikerer og træffer beslutninger på forandrer sig hurtigere, end vi når at følge med. Derfor er godt design blevet en forudsætning — ikke en luksus.
+          Måden vi søger, kommunikerer og træffer beslutninger på forandrer sig hurtigere, end vi når at følge med. Derfor er gennemtænkt design blevet en forudsætning — ikke en luksus.
         </p>
 
 
