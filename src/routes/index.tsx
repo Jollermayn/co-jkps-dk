@@ -1275,7 +1275,7 @@ function Index() {
           <section id="kompetencer" className="pt-16 md:pt-20" style={{ paddingBottom: "80px" }}>
             <div className="px-5 md:px-14">
               <div className="mb-10 md:mb-14">
-                <Eyebrow>Kompetencer</Eyebrow>
+                <Eyebrow>Områder</Eyebrow>
                 <h2 className="font-display text-5xl md:text-7xl mt-6 mb-8 leading-[0.95] tracking-tight">
                   Hvad jeg <span className="italic">bringer</span>
                 </h2>
