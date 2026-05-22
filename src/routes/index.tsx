@@ -129,6 +129,14 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
   );
 }
 
+function SectionDivider() {
+  return (
+    <div aria-hidden="true" className="flex justify-center py-2 md:py-4">
+      <span className="block h-px w-20 md:w-28 bg-cream/25" />
+    </div>
+  );
+}
+
 
 function Sidebar() {
   return (
