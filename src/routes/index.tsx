@@ -14,6 +14,7 @@ import kompetence02Bg from "@/assets/kompetence-02-servicedesign.jpg";
 import kompetence03Bg from "@/assets/kompetence-03-formidling.jpg";
 import { SiteLogo } from "@/components/SiteLogo";
 import { MenuIcon } from "@/components/MenuIcon";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 
 export const Route = createFileRoute("/")({
@@ -1530,6 +1531,7 @@ function sampleDominantColor(src: string) {
 }
 
 function CasesSection() {
+  const isMobile = useIsMobile();
   const [filter, setFilter] = useState<Filter>("Alle");
   const [filterOpen, setFilterOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -1924,7 +1926,7 @@ function CasesSection() {
                     className={imgClass}
                     preload={variant === "slider" ? "auto" : "metadata"}
                     active={variant === "slider" && index === currentIndex}
-                    autoplayInView={false}
+                    autoplayInView={isMobile}
                   />
                 ) : (
                   <img
