@@ -935,7 +935,7 @@ function DigitalTransformationSection() {
             marginBottom: 0,
           }}
         >
-          Måden vi søger, kommunikerer og træffer beslutninger på forandrer sig hurtigere, end mennesker når at følge med. Derfor har designbeslutninger og interventioner aldrig været vigtigere.
+          Måden vi søger, kommunikerer og træffer beslutninger på forandrer sig hurtigere, end vi når at følge med. Derfor har designbeslutninger og interventioner aldrig været vigtigere.
         </p>
 
 
