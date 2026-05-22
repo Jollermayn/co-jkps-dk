@@ -1,13 +1,11 @@
 ## Ændring
 
-I `src/routes/index.tsx` byttes rækkefølgen på to blokke, så "Strategien er solid / Forankringen fejler" + chimp-sektionen kommer **under** Tilgang-blokken (CodeParadoxBlock):
+I `src/routes/index.tsx` linje 946 erstattes den generiske paragraf.
 
-**Nu:**
-1. `#tilgang`-section (Strategien er solid + chimp + CTA)
-2. `<CodeParadoxBlock />` (eyebrow "Tilgang" + kodevindue)
+**Fra:**
+> AI accelererer skiftet — men teknologi uden mennesket i centrum løser sjældent det rigtige problem. Jeg arbejder i krydset mellem indsigt, design og formidling — og starter altid med mennesket.
 
-**Efter:**
-1. `<CodeParadoxBlock />` (eyebrow "Tilgang" + kodevindue)
-2. `#tilgang`-section (Strategien er solid + chimp + CTA)
+**Til (retning C):**
+> Værktøjerne er nye. Problemerne er gamle: folk forstår ikke, hvad de skal, eller hvorfor. Den del løser ingen model for dig.
 
-Ingen ændring af indhold, styling eller markup i de to blokke — kun rækkefølgen.
+Ingen ændring af styling eller markup — kun teksten.
