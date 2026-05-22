@@ -1,35 +1,51 @@
-## Tilføj kundenavne-linje i hero-sidebar
+## Killer-stat per case i case-listen
 
-Tilføjer en diskret social proof-linje under "Kontakt mig" i `Sidebar`-komponenten — viser de stærkeste kundenavne for at signalere autoritet uden at bryde den minimalistiske æstetik.
+Tilføj én kort stat-linje under hver case-overskrift i kortet — synlig før klik. Det løfter scanning-oplevelsen massivt: en digital chef ser brand + overskrift + ét konkret tal/resultat.
 
-### Hvor
+### Ændringer
 
-`src/routes/index.tsx`, `Sidebar`-komponenten — efter "Kontakt mig"-linket (efter linje 213, før den lukkende `</div>` på linje 214).
+**1. Type-felt** — `src/data/cases.ts`
+Tilføj `stat?: string` til `CaseStudy`-type.
 
-### Hvad indsættes
+**2. Stat per case** — `src/data/cases.ts`
+Tilføj `stat` til hver case (kort, max ~50 tegn, baseret på eksisterende tekst):
 
-En lille hairline-divider efterfulgt af en tekstlinje:
+| Case | Stat |
+|---|---|
+| Wolt | `54% undervurdering af faktisk køredistance` |
+| Boliga | `1,1 mio. månedlige brugere · app uden brugerinddragelse` |
+| FUS / Høresimulering | `Hørehæmmede elever oplever 5× mere ensomhed` |
+| Amnesty | `7 journalister trænet til selvstændig produktion` |
+| Danmarks Naturfredningsforening | `130.000 medlemmer · ny digital strategi` |
+| Ulla Dyrløv | `Lanceret på Spotify, Apple Podcasts og Podimo` |
+| Concerto Copenhagen | `TV2-eksponering · aktivering på Dronning Louises Bro` |
+| ITU Designlab | `Valideret af domæneeksperter i ældreplejen` |
+| Musikfællesskabet i Nye | `Indstillet til Realdania / Underværker` |
+| Lydbøger til børn med ADHD | `Dokumenteret uopfyldt behov i markedet` |
+| Art Spirit Coaching | `Brandidentitet bygget på interviews med læger og klienter` |
+| DR | *(ingen stat — for vag; lader feltet være tomt)* |
 
+**3. Render-stedet** — `src/routes/index.tsx`, `renderCard` ca. linje 2062
+Mellem `<h3>` (headline) og `<ul>` (tags): tilføj en stat-linje hvis `c.stat` findes.
+
+```tsx
+{c.stat && (
+  <p className="text-[12px] text-cream/70 leading-snug italic">
+    → {c.stat}
+  </p>
+)}
 ```
-TIDLIGERE
-DR · Wolt · Amnesty · Boliga
-Danmarks Naturfredningsforening · ITU
-```
 
-### Styling
-
-- Eyebrow "TIDLIGERE": samme uppercase-stil som "Digital konsulent" undertitlen (0.75rem, letter-spacing 0.24em, opacity ~50%).
-- Navnene: cremefarvet, ca. 0.85rem, mellemrum med · som separator, line-height 1.7. To linjer for at undgå for lang vandret tekst.
-- Top margin ca. 24px fra "Kontakt mig" — bevarer luft.
-- Centreret, matcher sidebar-layoutet.
+Pilen `→` matcher ember-streg-stilen fra tags. Italic + lidt mindre fontsize giver det en "footnote-fakta"-følelse, ikke en sub-overskrift.
 
 ### Hvad der IKKE ændres
 
-- Ingen logoer, ingen billeder — kun tekst.
-- Ingen ændringer til CTA-knapper, navn, foto eller anden sidebar-indhold.
-- Ingen route-, data-, eller logikændringer.
-- Ingen ændringer til design tokens eller globale styles.
+- Layout, kortstørrelse, billeder, video, hover-effekter.
+- Eksisterende `headline`, `context`, `challenge`, `outcomes` osv. — intet i case-modal-indhold rører.
+- Tags, filter, slider, grid-view.
+- Nav, anchors, routes.
+- DR-casen får ikke ændret tekst — den får bare ikke en stat (kan rettes separat senere).
 
-### Hvorfor netop disse seks
+### Hvorfor disse stats
 
-DR + Amnesty = public service/NGO-autoritet. Wolt + Boliga = kommerciel/skala. DN = nonprofit/grøn. ITU = akademisk. Dækker hele dit kundespektrum i ét scan.
+Alle er trukket direkte fra eksisterende `context`/`challenge`/`outcomes`-tekst i `cases.ts`. Ingen nye påstande, ingen tal jeg har opfundet. Det er bare guld der bliver løftet op af brødtekst og gjort synligt.
