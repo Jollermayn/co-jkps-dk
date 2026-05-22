@@ -226,7 +226,7 @@ function Sidebar() {
                 letterSpacing: "0.24em",
               }}
             >
-              Tidligere
+              Tidligere samarbejder
             </p>
             <p
               className="text-cream/75 text-center"
