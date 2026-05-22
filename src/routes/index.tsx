@@ -131,8 +131,8 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
 
 function SectionDivider() {
   return (
-    <div aria-hidden="true" className="flex justify-center py-2 md:py-4">
-      <span className="block h-px w-20 md:w-28 bg-cream/25" />
+    <div aria-hidden="true" className="flex justify-center py-8 md:py-12">
+      <span className="block h-px w-24 md:w-32 bg-cream/60" />
     </div>
   );
 }
