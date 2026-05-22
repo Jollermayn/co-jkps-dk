@@ -14,6 +14,7 @@ import kompetence02Bg from "@/assets/kompetence-02-servicedesign.jpg";
 import kompetence03Bg from "@/assets/kompetence-03-formidling.jpg";
 import { SiteLogo } from "@/components/SiteLogo";
 import { MenuIcon } from "@/components/MenuIcon";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 
 export const Route = createFileRoute("/")({
