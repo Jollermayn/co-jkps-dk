@@ -1,17 +1,10 @@
 ## Ændring
 
-I `src/routes/index.tsx` opdateres H2 og brødtekst i Digital Transformation-sektionen (linje 921–947).
+I `src/routes/index.tsx` Digital Transformation-sektionen (linje 907–934):
 
-**H2 (linje 933) — fra:**
-> Måden vi søger, kommunikerer og træffer beslutninger forandrer sig hurtigere end nogensinde.
-
-**H2 — til:**
-> Værktøjerne er nye. Problemerne er gamle.
-
-**Brødtekst (linje 946) — fra:**
-> Værktøjerne er nye. Problemerne er gamle: folk forstår ikke, hvad de skal, eller hvorfor. Den del løser ingen model for dig.
-
-**Brødtekst — til:**
-> Måden vi søger, kommunikerer og træffer beslutninger forandrer sig hurtigere, end vi når at forholde os til. Det er svært at vide, hvad man skal med det hele — og hvorfor. Den del løser ingen model for os.
-
-Ingen ændring af styling eller markup.
+1. **Fjern** eyebrow-paragraffen "DIGITAL TRANSFORMATION" (linje 908–919).
+2. **Linjeskift + kursiv** på H2:
+   - "Værktøjerne er nye." på linje 1 (hvid, Playfair, fed)
+   - "Problemerne er gamle." på linje 2 (kursiv, ember-rød #C0281E, samme font/vægt)
+3. **Skalér H2 op** så den får mere visuel vægt nu hvor eyebrowen er væk: `clamp(2.4rem, 4.2vw, 3.6rem)`, line-height 1.15.
+4. Baggrund og brødtekst urørt.

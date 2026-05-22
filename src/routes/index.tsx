@@ -905,33 +905,23 @@ function DigitalTransformationSection() {
       }}
     >
       <div style={{ maxWidth: "720px", width: "100%" }}>
-        <p
-          style={{
-            color: "#C0281E",
-            fontSize: "0.75rem",
-            letterSpacing: "0.1em",
-            fontWeight: 600,
-            textTransform: "uppercase",
-            margin: 0,
-          }}
-        >
-          DIGITAL TRANSFORMATION
-        </p>
-
         <h2
           style={{
             color: "#ffffff",
-            fontSize: "clamp(1.8rem, 3vw, 2.4rem)",
-            lineHeight: 1.3,
+            fontSize: "clamp(2.4rem, 4.2vw, 3.6rem)",
+            lineHeight: 1.15,
             maxWidth: "680px",
-            marginTop: "24px",
+            marginTop: 0,
             marginBottom: 0,
             fontFamily: "'Playfair Display', serif",
             fontWeight: 700,
           }}
         >
-          Værktøjerne er nye. Problemerne er gamle.
+          Værktøjerne er nye.
+          <br />
+          <span style={{ fontStyle: "italic", color: "#C0281E" }}>Problemerne er gamle.</span>
         </h2>
+
 
         <p
           style={{
