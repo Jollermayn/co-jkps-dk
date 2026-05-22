@@ -1085,9 +1085,30 @@ function Index() {
                 ].map((item, i) => (
                   <div
                     key={item.title}
-                    className={`flex flex-col items-center ${i === 0 ? "md:pr-8" : i === 2 ? "md:pl-8" : "md:px-8"} ${i > 0 ? "mt-12 md:mt-0" : ""}`}
+                    className={`flex flex-col items-center md:px-8 ${i > 0 ? "mt-12 md:mt-0" : ""}`}
                   >
                     <div className="w-full max-w-[260px] flex flex-col items-center">
+                      {/* Søjle-top: prik + lodret streg, centreret med symbolet */}
+                      <div className="hidden md:flex flex-col items-center" aria-hidden="true">
+                        <span
+                          style={{
+                            width: "5px",
+                            height: "5px",
+                            borderRadius: "9999px",
+                            backgroundColor: "var(--ember)",
+                            opacity: 0.9,
+                            marginTop: "-2px",
+                          }}
+                        />
+                        <span
+                          style={{
+                            width: "1px",
+                            height: "28px",
+                            backgroundColor: "var(--ember)",
+                            opacity: 0.7,
+                          }}
+                        />
+                      </div>
                       <div className="w-28 h-28 md:w-32 md:h-32 flex items-center justify-center mb-2 md:mb-3 shrink-0 transition-all duration-300 ease-out hover:scale-[1.06] hover:[filter:drop-shadow(0_0_14px_var(--ember))]">
                         {item.icon}
                       </div>
