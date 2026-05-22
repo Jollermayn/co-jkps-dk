@@ -2165,7 +2165,7 @@ const flipCards = [
     eyebrow: "RESULTAT",
     Icon: MessageCircle,
     title: "Formidling & Kommunikation",
-    body: "Komplekse emner gjort konkrete og forståelige for dem der skal handle på dem.",
+    body: "Komplekse emner gjort konkrete og forståelige for dem der skal handle på dem i hverdagen.",
     tags: ["Strategisk kommunikation", "Brandudvikling", "Konceptudvikling"],
     bg: kompetence03Bg,
   },
@@ -2174,7 +2174,7 @@ const flipCards = [
     eyebrow: "METODE",
     Icon: Search,
     title: "UX Research & Brugerindsigt",
-    body: "Jeg oversætter kompleks adfærd til handlebare beslutninger.",
+    body: "Jeg oversætter kompleks adfærd til handlebare beslutninger, der peger direkte ind i forretningen.",
     tags: ["Interviews", "Feltobservation", "Co-design"],
     bg: kompetence01Bg,
   },
@@ -2183,11 +2183,12 @@ const flipCards = [
     eyebrow: "PRAKSIS",
     Icon: GitBranch,
     title: "Servicedesign & Konceptudvikling",
-    body: "Fra identifikation af problemet til et færdigt koncept der kan eksekveres.",
+    body: "Fra identifikation af problemet til et færdigt koncept der kan eksekveres i den virkelige verden.",
     tags: ["Brugerrejser", "Servicedesign", "Konceptudvikling"],
     bg: kompetence02Bg,
   },
 ];
+
 
 
 
@@ -2212,7 +2213,7 @@ function KompetencerList() {
                   " border-cream/30 text-cream/85 cursor-pointer hover:border-[#C0281E] hover:text-[#C0281E] hover:bg-[#C0281E]/10 hover:-translate-y-px"
                 }
               >
-                <SlidersHorizontal size={10} strokeWidth={2} aria-hidden />
+                <SlidersHorizontal size={9} strokeWidth={2} className="opacity-60" aria-hidden />
                 <span>{t}</span>
               </button>
             </li>
@@ -2232,16 +2233,21 @@ function KompetencerList() {
       {flipCards.map((c) => (
         <article
           key={c.no}
-          className="group relative grid grid-cols-1 md:grid-cols-5 overflow-hidden bg-[#0D1B2A] transition-colors duration-[400ms] ease-out hover:bg-[#0F2235]"
+          className="group relative grid grid-cols-1 md:grid-cols-5 overflow-hidden bg-[#0D1B2A] transition-colors duration-[400ms] ease-out hover:bg-[#0F2235] md:h-[320px]"
           style={{ border: "1px solid rgba(245,240,232,0.08)" }}
         >
           {/* Image — left ~40% on desktop, top on mobile */}
-          <div className="relative md:col-span-2 w-full h-[220px] md:h-auto md:min-h-[280px]">
+          <div className="relative md:col-span-2 w-full h-[220px] md:h-full">
             <img
               src={c.bg}
               alt=""
               aria-hidden
               className="absolute inset-0 w-full h-full object-cover transition-[filter] duration-300 ease-out"
+            />
+            {/* Subtle navy tint to unify the three different photos */}
+            <div
+              aria-hidden
+              className="absolute inset-0 pointer-events-none bg-[#0D1B2A]/15"
             />
             <div
               aria-hidden
@@ -2252,6 +2258,7 @@ function KompetencerList() {
               }}
             />
           </div>
+
 
           {/* Content — right ~60% on desktop */}
           <div

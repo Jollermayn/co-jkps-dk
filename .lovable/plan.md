@@ -1,41 +1,39 @@
-## Tre søjler — visuel forbindelse
+# Stram Kompetencer-sektionen op
 
-Tilføj et lille "søjle-top"-motiv over de tre symboler i `#baggrund`-sektionen i `src/routes/index.tsx` (linje 1006-1093).
+Mål: fjerne uroen i `Hvad jeg bringer`-rækken så de tre kort læses som ét sammenhængende sæt frem for et tilfældigt collage.
 
-### Visuel idé
+## Ændringer i `src/routes/index.tsx` (KompetencerList + flipCards)
 
-```text
-   │           │           │      ← tynde lodrette streger (ember/rød)
-   ●───────────●───────────●      ← små prikker som "knudepunkter"
-   ───────────────────────────    ← tynd vandret linje der forbinder
-        [✦]         [◐]        [☰]   ← eksisterende symboler
-     Digitalt    Menneskeligt   Kreativt
-```
+### 1. Lås billed-proportioner
+I dag har billedkolonnen `md:min-h-[280px]` og `md:h-auto` — billedet strækkes efter tekstens højde, så kort med længere tekst får højere billede. Det er kilden til den ujævne række.
 
-Konkret:
-- Én vandret hårfin streg (1px, ember med ~40% opacity) på tværs af de tre kolonner, lige over symbolerne.
-- Tre korte lodrette streger (1px, ember, ~24px høje) som "falder ned" fra den vandrette streg og peger ned mod hvert symbol.
-- Små prikker (3px ember) hvor lodret og vandret møder hinanden — som tegnede konstruktionsknudepunkter.
-- På mobil (1 kolonne): skjul motivet helt — det giver kun mening i 3-kolonne layout.
+- Skift billedkolonnen til fast aspect ratio på desktop: `md:aspect-[4/3]` på selve `<img>`-wrapperen, og lad teksten styre kortets højde uafhængigt.
+- Alternativt: sæt fast `md:h-[320px]` på hele article'en, så billede og tekst-kolonne altid er ens høje.
+- Behold mobil-højden `h-[220px]`.
 
-### Hvorfor det virker
+### 2. Ensartet beskrivelseslængde
+- Omskriv `body` på de tre kort så de alle er 2 linjer ved normal læsebredde (ca. 90-110 tegn hver).
+  - Kort 2 ("UX Research") er i dag 1 linje — udvid med en konkret sætning.
+- Tilføj evt. `min-h` på `<p>` så højdeforskel udjævnes selv ved responsive line-breaks.
 
-- Forstærker "søjler"-metaforen uden at gentage den (søjlerne *bærer* noget — den vandrette streg).
-- Bruger ember sparsomt og arkitektonisk, matcher den eksisterende streg-stil i symbolerne (stjernen, equalizer).
-- Subtilt nok til ikke at stjæle fokus fra symbolerne.
+### 3. Ensartet antal tags
+- Sørg for at alle tre kort har præcis **3 tags** (det er allerede sandt i `flipCards`, men `Formidling` har 3 og de andre 3 — bekræft og hold det stramt). Hvis 4 ønskes, gør det på alle tre.
 
-### Implementering
+### 4. Tag-ikoner
+- Det generiske `SlidersHorizontal`-ikon vises kun på klikbare filter-tags. Det er ok funktionelt, men gør ikonet mindre og mere subtilt (`size={9}`, lavere opacity) så det ikke konkurrerer med teksten.
+- Ikke-klikbare tags har intet ikon — behold som er.
 
-I `<div className="grid grid-cols-1 md:grid-cols-3 relative ...">` (linje 1016) tilføjes et absolut-positioneret SVG-overlay som kun vises fra `md:` opefter. SVG'et spænder fuld bredde, sidder ca. 8px over symbol-rækken, og indeholder:
-- 1 `<line>` vandret over hele bredden
-- 3 `<line>` lodrette, centreret over hver kolonne (1/6, 3/6, 5/6 af bredden)
-- 3 `<circle>` r=2 hvor de mødes
+### 5. Billed-grading (let, valgfri)
+- Tilføj et meget subtilt navy-tint overlay på billederne (`bg-[#0D1B2A]/15` eller en let `mix-blend-multiply`) for at binde de tre forskellige fotos visuelt sammen uden at gøre dem mørke.
 
-Farve: `stroke="var(--ember)"`, `opacity: 0.45`.
+## Hvad der IKKE ændres
+- Layout (billede venstre, tekst højre) bevares.
+- Eyebrow + titel + body + tags-struktur bevares.
+- Sektionens overordnede plads i siden, headline `Hvad jeg bringer`, og eksisterende filter-koblinger via `kompetencer:filter` rører jeg ikke.
+- Ingen nye kort tilføjes — antallet (3) bevares.
 
-Symbol-wrapperne får `mt-6` så der er plads til motivet ovenover.
-
-### Risici
-
-- Hvis ember er for stærk → skru ned til opacity 0.3 eller skift til `stroke-cream/30`.
-- Hvis det konkurrerer med equalizer-symbolet (som også har lodrette streger) → kortere lodrette streger (16px i stedet for 24px).
+## Teknisk note
+Alle ændringer er i `src/routes/index.tsx`:
+- `flipCards`-array (linje ~2162): justér `body`-tekster, evt. `tags`.
+- `KompetencerList` `<article>` (linje ~2233-2254): justér billed-kolonnens højde/aspect ratio, tilføj overlay.
+- `renderTags` (linje ~2195): mindre tag-ikon.
