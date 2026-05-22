@@ -1101,7 +1101,14 @@ function Index() {
           {/* CASES */}
           <CasesSection />
 
+          {/* TILGANG eyebrow */}
+          <div className="px-5 md:px-14 pt-16 md:pt-20 pb-6 md:pb-8 flex justify-center">
+            <Eyebrow>Tilgang</Eyebrow>
+          </div>
+
           {/* MIN TILGANG */}
+
+
 
           <section
             id="tilgang"
