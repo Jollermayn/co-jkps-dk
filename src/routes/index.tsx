@@ -1020,8 +1020,8 @@ function Index() {
                   className="hidden md:block absolute pointer-events-none"
                   style={{
                     top: "10px",
-                    left: "16.6667%",
-                    right: "16.6667%",
+                    left: "4%",
+                    right: "4%",
                     height: "1px",
                     backgroundColor: "var(--ember)",
                     opacity: 0.7,
