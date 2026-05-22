@@ -914,8 +914,11 @@ function DigitalTransformationSection() {
             maxWidth: "680px",
             marginTop: 0,
             marginBottom: 0,
+            marginLeft: "auto",
+            marginRight: "auto",
             fontFamily: "'Playfair Display', serif",
             fontWeight: 700,
+            textAlign: "center",
           }}
         >
           Værktøjerne er nye.
@@ -932,7 +935,10 @@ function DigitalTransformationSection() {
             lineHeight: 1.7,
             maxWidth: "580px",
             marginTop: "24px",
+            marginLeft: "auto",
+            marginRight: "auto",
             marginBottom: 0,
+            textAlign: "center",
           }}
         >
           Måden vi søger, kommunikerer og træffer beslutninger på forandrer sig hurtigere, end vi når at følge med. Derfor har designbeslutninger og interventioner aldrig været vigtigere.
