@@ -1126,9 +1126,11 @@ function Index() {
             </div>
           </section>
 
+          <SectionDivider />
           {/* CASES */}
           <CasesSection />
 
+          <SectionDivider />
           {/* TILGANG eyebrow */}
           <div className="px-5 md:px-14 pt-16 md:pt-20 pb-6 md:pb-8">
             <Eyebrow>Tilgang</Eyebrow>
