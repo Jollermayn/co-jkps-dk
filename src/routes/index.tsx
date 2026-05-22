@@ -908,8 +908,9 @@ function DigitalTransformationSection() {
         <h2
           style={{
             color: "#ffffff",
-            fontSize: "clamp(2rem, 3.4vw, 2.8rem)",
-            lineHeight: 1.15,
+            fontSize: "clamp(1.75rem, 2.8vw, 2.4rem)",
+            lineHeight: 1.1,
+
             maxWidth: "680px",
             marginTop: 0,
             marginBottom: 0,
