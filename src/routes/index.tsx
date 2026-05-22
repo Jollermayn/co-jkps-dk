@@ -1262,6 +1262,7 @@ function Index() {
 
 
 
+          <SectionDivider />
           {/* KOMPETENCER */}
           <section id="kompetencer" className="pt-16 md:pt-20" style={{ paddingBottom: "80px" }}>
             <div className="px-5 md:px-14">
