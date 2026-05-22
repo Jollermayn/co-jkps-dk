@@ -994,9 +994,6 @@ function Index() {
                 </p>
 
                 <p style={{ color: "white", opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.8 }}>
-                  Den digitale transformation har aldrig gået hurtigere. Derfor har det, for mig, aldrig været mere meningsfuldt at hjælpe alle med på vognen.
-                </p>
-                <p style={{ color: "white", opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.8 }}>
                   UX research, servicedesign og konceptudvikling på tværs af public service, civilsamfund og kommercielle virksomheder. Selvstændig siden 2016.
                 </p>
                 <p style={{ color: "white", opacity: 0.95, fontFamily: "'Playfair Display', serif", fontStyle: "italic", fontSize: "1.25rem", lineHeight: 1.5 }}>
