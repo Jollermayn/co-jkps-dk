@@ -2165,7 +2165,7 @@ const flipCards = [
     eyebrow: "RESULTAT",
     Icon: MessageCircle,
     title: "Formidling & Kommunikation",
-    body: "Komplekse emner gjort konkrete og forståelige for dem der skal handle på dem.",
+    body: "Komplekse emner gjort konkrete og forståelige for dem der skal handle på dem i hverdagen.",
     tags: ["Strategisk kommunikation", "Brandudvikling", "Konceptudvikling"],
     bg: kompetence03Bg,
   },
@@ -2174,7 +2174,7 @@ const flipCards = [
     eyebrow: "METODE",
     Icon: Search,
     title: "UX Research & Brugerindsigt",
-    body: "Jeg oversætter kompleks adfærd til handlebare beslutninger.",
+    body: "Jeg oversætter kompleks adfærd til handlebare beslutninger, der peger direkte ind i forretningen.",
     tags: ["Interviews", "Feltobservation", "Co-design"],
     bg: kompetence01Bg,
   },
@@ -2183,11 +2183,12 @@ const flipCards = [
     eyebrow: "PRAKSIS",
     Icon: GitBranch,
     title: "Servicedesign & Konceptudvikling",
-    body: "Fra identifikation af problemet til et færdigt koncept der kan eksekveres.",
+    body: "Fra identifikation af problemet til et færdigt koncept der kan eksekveres i den virkelige verden.",
     tags: ["Brugerrejser", "Servicedesign", "Konceptudvikling"],
     bg: kompetence02Bg,
   },
 ];
+
 
 
 
