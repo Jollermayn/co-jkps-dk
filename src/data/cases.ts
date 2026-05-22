@@ -68,6 +68,7 @@ export type CaseStudy = {
   gallery?: string[];
   status?: "ongoing";
   statusLabel?: string;
+  stat?: string;
 };
 
 const _allCases: CaseStudy[] = [
@@ -75,6 +76,7 @@ const _allCases: CaseStudy[] = [
     slug: "wolt",
     client: "Wolt",
     title: "Fra usynlig algoritme til informeret bud",
+    stat: "54% undervurdering af faktisk køredistance",
     image: caseWolt,
     video: caseWoltVideo,
     poster: caseWoltPoster,
@@ -102,6 +104,7 @@ const _allCases: CaseStudy[] = [
     slug: "boliga",
     client: "Boliga",
     title: "Den gode start på boligjagten",
+    stat: "1,1 mio. månedlige brugere · app uden brugerinddragelse",
     image: caseBoliga,
     video: caseBoligaVideo,
     poster: caseBoligaPoster,
@@ -123,6 +126,7 @@ const _allCases: CaseStudy[] = [
     slug: "interaktiv-horesimulering",
     client: "FUS",
     title: "Social isolation. Teknologien løser lyden. Ikke ensomheden.",
+    stat: "Hørehæmmede elever oplever 5× mere ensomhed",
     image: caseHearing,
     video: caseHearingVideo,
     poster: caseHearingPoster,
@@ -210,6 +214,7 @@ const _allCases: CaseStudy[] = [
     slug: "amnesty-international",
     client: "AMNESTY INTERNATIONAL",
     title: "Når tunge emner finder sin stemme",
+    stat: "7 journalister trænet til selvstændig produktion",
     image: caseAmnesty,
     video: caseAmnestyVideo,
     poster: caseAmnestyPoster,
@@ -235,6 +240,7 @@ const _allCases: CaseStudy[] = [
     slug: "danmarks-naturfredningsforening",
     client: "Danmarks Naturfredningsforening",
     title: "Strategisk kommunikation for Danmarks største naturorganisation",
+    stat: "130.000 medlemmer · ny digital strategi",
     image: caseDN,
     video: caseDNVideo,
     poster: caseDNPoster,
@@ -258,6 +264,7 @@ const _allCases: CaseStudy[] = [
     slug: "ulla-dyrlov",
     client: "Ulla Dyrløv",
     title: "Ulla Dyrløv. En TV-psykologs stemme — fra idé til platform.",
+    stat: "Lanceret på Spotify, Apple Podcasts og Podimo",
     image: caseUlla,
     video: caseDyrlovVideo,
     poster: caseDyrlovPoster,
@@ -283,6 +290,7 @@ const _allCases: CaseStudy[] = [
     slug: "concerto-copenhagen",
     client: "Concerto Copenhagen",
     title: "Bach remixet for en ny generation",
+    stat: "TV2-eksponering · aktivering på Dronning Louises Bro",
     image: caseConcerto,
     video: caseConcertoVideo,
     poster: caseConcertoPoster,
@@ -306,6 +314,7 @@ const _allCases: CaseStudy[] = [
     slug: "art-spirit-coaching",
     client: "Art Spirit Coaching",
     title: "Brand og platform for en praksis der var før sin tid",
+    stat: "Brandidentitet bygget på interviews med læger og klienter",
     image: caseArtSpirit,
     video: caseArtSpiritVideo,
     poster: caseArtSpiritPoster,
@@ -330,6 +339,7 @@ const _allCases: CaseStudy[] = [
     slug: "musikfaellesskabet-i-nye",
     client: "Musikfællesskabet i Nye",
     title: "En borgerdrevet musikskole",
+    stat: "Indstillet til Realdania / Underværker",
     image: caseNyeHero,
     video: caseNyeHeroVideo,
     poster: caseNyeHeroPoster,
@@ -352,6 +362,7 @@ const _allCases: CaseStudy[] = [
     slug: "lydboger-til-born-med-adhd",
     client: "Lydbøger til børn med ADHD",
     title: "Når formatet ikke passer — design af auditiv fordybelse til børn med ADHD",
+    stat: "Dokumenteret uopfyldt behov i markedet",
     image: caseLydbogerAdhd,
     video: caseLydbogerAdhdVideo,
     poster: caseLydbogerAdhdPoster,
@@ -376,6 +387,7 @@ const _allCases: CaseStudy[] = [
     slug: "itu-designlab",
     client: "DESIGNLAB",
     title: "Når fortiden vækkes til live",
+    stat: "Valideret af domæneeksperter i ældreplejen",
     image: caseItuDesignlab,
     video: caseItuDesignlabVideo,
     poster: caseItuDesignlabPoster,

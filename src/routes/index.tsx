@@ -2060,6 +2060,11 @@ function CasesSection() {
                 >
                   {meta?.headline ?? c.title}
                 </h3>
+                {c.stat && (
+                  <p className="text-[12px] text-cream/70 leading-snug italic">
+                    → {c.stat}
+                  </p>
+                )}
                 <ul className="mt-3 flex flex-col gap-1.5 text-[11px] uppercase tracking-[0.18em] text-cream/80 leading-relaxed">
                   {(meta?.tags ?? []).map((t) => (
                     <li key={t} className="flex items-baseline gap-2">
