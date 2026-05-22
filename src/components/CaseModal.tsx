@@ -243,7 +243,7 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
               src={study.image}
               alt={`${study.client} — ${study.title}`}
               className="block w-full h-[240px] sm:h-[320px] md:h-[420px] max-h-[420px] object-cover"
-              style={study.slug === "danmarks-radio" ? { filter: "brightness(0.65)" } : undefined}
+              style={study.slug === "danmarks-radio" ? { filter: "brightness(0.85)" } : undefined}
             />
           )}
           <div
