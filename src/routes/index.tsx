@@ -211,7 +211,38 @@ function Sidebar() {
               →
             </span>
           </a>
+
+          {/* Social proof — tidligere kunder */}
+          <div className="flex flex-col items-center gap-2 mt-6">
+            <span
+              aria-hidden
+              className="block h-px w-10"
+              style={{ backgroundColor: "rgba(229,225,216,0.15)" }}
+            />
+            <p
+              className="uppercase text-cream/45 mt-1"
+              style={{
+                fontSize: "0.7rem",
+                letterSpacing: "0.24em",
+              }}
+            >
+              Tidligere
+            </p>
+            <p
+              className="text-cream/75 text-center"
+              style={{
+                fontSize: "0.82rem",
+                lineHeight: 1.7,
+                maxWidth: "28ch",
+              }}
+            >
+              DR · Wolt · Amnesty · Boliga
+              <br />
+              Danmarks Naturfredningsforening · ITU
+            </p>
+          </div>
         </div>
+
 
 
       </div>
