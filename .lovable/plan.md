@@ -1,50 +1,39 @@
 ## Mål
 
-Omarrangér sektionerne på forsiden (`src/routes/index.tsx`) til denne narrative bue:
-
-```
-1. Hero
-2. Digital Transformation     (tese — flyttet op)
-3. Portræt                    (hvem)
-4. Fundament — Tre søjler     (hvorfra — flyttet op)
-5. Cases                      (bevis)
-6. Tilgang (med aben)         (hvordan)
-7. Kompetencer                (hvad — rename fra "Ekspertise")
-8. Uddannelse                 (credentials)
-9. Kontakt
-```
-
-## Nuværende rækkefølge (i filen)
-
-- Hero (linje 976)
-- OM MIG / Portræt (1001–1021)
-- CASES (`<CasesSection />`, 1023)
-- KOMPETENCER (1026–1040, eyebrow "Ekspertise")
-- `<DigitalTransformationSection />` (1041)
-- MIN TILGANG (1045–1161)
-- UDDANNELSE (1163–1218)
-- BAGGRUND / Fundament (1220–1315)
-- KONTAKT (1317–...)
+Stram Fundament-sektionens tre søjler i `src/routes/index.tsx` (omkring linje 1025–1121).
 
 ## Ændringer
 
-1. **Flyt `<DigitalTransformationSection />`** fra linje 1041 til lige efter hero-sektionen (før Portræt).
-2. **Flyt Fundament-sektionen** (`{/* BAGGRUND */}` på linje 1219–1315) til lige efter Portræt (før Cases).
-3. **Flyt Kompetencer-sektionen** (1025–1040) til efter Tilgang (før Uddannelse).
-4. **Skift eyebrow** i Kompetencer-sektionen: `<Eyebrow>Ekspertise</Eyebrow>` → `<Eyebrow>Kompetencer</Eyebrow>` (linje 1029).
-5. Behold alle `id="..."` attributter uændret (så evt. interne anker-links stadig virker).
-6. Ingen ændringer til indhold, styling eller komponenter — kun rækkefølge + ét label.
+### 1. Skift titler til "lagene" (drop generiske kategori-titler)
 
-## Resulterende rækkefølge i filen
+| Før | Efter |
+|---|---|
+| Title: "Teknologi" / tagline: "Det digitale lag" | Title: **"Det digitale lag"** (tagline fjernes) |
+| Title: "Kommunikation" / tagline: "Det menneskelige lag" | Title: **"Det menneskelige lag"** (tagline fjernes) |
+| Title: "Kreativitet" / tagline: "Det kreative lag" | Title: **"Det kreative lag"** (tagline fjernes) |
 
-```
-Hero
-<DigitalTransformationSection />
-{/* PORTRÆT */}      (id="om", eyebrow "Portræt")
-{/* FUNDAMENT */}    (id="baggrund", eyebrow "Fundament", h2 "Tre søjler")
-<CasesSection />
-{/* MIN TILGANG */}  (id="tilgang")
-{/* KOMPETENCER */}  (id="kompetencer", eyebrow "Kompetencer")
-{/* UDDANNELSE */}   (id="uddannelse")
-{/* KONTAKT */}      (id="kontakt")
-```
+Fjerner samtidig selvmodsigelsen i søjle 2 (Kommunikation ≠ menneskelige lag).
+
+### 2. Skær body-tekst til én skarp sætning per søjle
+
+- **Det digitale lag** → "Ti år med UX research, servicedesign og digital leverance for DR, Amnesty og DN."
+- **Det menneskelige lag** → "Evnen til at oversætte det komplekse til noget, der faktisk rammer."
+- **Det kreative lag** → "Løsninger der ikke lå i problemformuleringen — formet af en baggrund i medieproduktion og musik."
+
+Fjerner overlap med Portræt og Kompetencer.
+
+### 3. Bredere læsekolonner
+
+- `max-w-[220px]` på indre wrapper → `max-w-[260px]`
+- Title `whitespace-nowrap` fjernes (ikke længere nødvendigt med kortere titler — men også fordi "Det menneskelige lag" wrapper alligevel pænere på mobil)
+
+### 4. Justér H3-styling
+Da titlerne nu er længere ("Det menneskelige lag" vs "Kommunikation"), reduceres `text-2xl` til `text-xl md:text-[1.35rem]` for at undgå line-break-grimhed.
+
+## Hvad der IKKE ændres
+
+- Ikonerne (de fungerer)
+- Eyebrow "Fundament" + H2 "Tre søjler."
+- Subtitle "Som tilsammen former den måde, jeg arbejder på."
+- Grid-layout (3 kolonner på md+, 1 på mobil)
+- Hover-glow på ikoner
