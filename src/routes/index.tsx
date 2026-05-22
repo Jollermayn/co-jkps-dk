@@ -927,7 +927,7 @@ function DigitalTransformationSection() {
             fontWeight: 700,
           }}
         >
-          AI forandrer måden vi søger, kommunikerer og træffer beslutninger.
+          Måden vi søger, kommunikerer og træffer beslutninger forandrer sig hurtigere end nogensinde.
         </h2>
 
         <p
@@ -940,7 +940,7 @@ function DigitalTransformationSection() {
             marginBottom: 0,
           }}
         >
-          Teknologi uden mennesket i centrum løser sjældent det rigtige problem. Jeg arbejder i krydset mellem indsigt, design og formidling — og starter altid med mennesket.
+          AI accelererer skiftet — men teknologi uden mennesket i centrum løser sjældent det rigtige problem. Jeg arbejder i krydset mellem indsigt, design og formidling — og starter altid med mennesket.
         </p>
 
         <Link
