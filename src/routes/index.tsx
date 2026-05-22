@@ -1926,7 +1926,7 @@ function CasesSection() {
                     className={imgClass}
                     preload={variant === "slider" ? "auto" : "metadata"}
                     active={variant === "slider" && index === currentIndex}
-                    autoplayInView={false}
+                    autoplayInView={isMobile}
                   />
                 ) : (
                   <img
