@@ -191,6 +191,7 @@ const _allCases: CaseStudy[] = [
     slug: "danmarks-radio",
     client: "Danmarks Radio",
     title: "Redaktionel kvalitet bag Danmarks public service",
+    stat: "Podcastproduktion og redaktionel kvalitet til Danmarks public service",
     image: caseDR,
     video: caseDRVideo,
     poster: caseDRPoster,
