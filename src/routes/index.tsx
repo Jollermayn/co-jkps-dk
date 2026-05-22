@@ -996,12 +996,12 @@ function Index() {
           <section id="om" className="pt-20 md:pt-28 pb-16 md:pb-20">
 
             <div className="px-12 md:px-14">
-              <Eyebrow>Portræt</Eyebrow>
-              <div className="mt-8 max-w-3xl space-y-6">
+              <div className="max-w-3xl space-y-6">
 
-                <p style={{ color: "white", opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.8 }}>
+                <p style={{ color: "white", opacity: 1, fontFamily: "'Playfair Display', serif", fontStyle: "italic", fontSize: "1.5rem", lineHeight: 1.4 }}>
                   Jeg arbejder med dét, der sker mellem mennesker og systemer. Ikke brugeren — men personen bag beslutningen, vanen og frustrationen.
                 </p>
+
                 <p style={{ color: "white", opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.8 }}>
                   Den digitale transformation har aldrig gået hurtigere. Derfor har det, for mig, aldrig været mere meningsfuldt at hjælpe alle med på vognen.
                 </p>

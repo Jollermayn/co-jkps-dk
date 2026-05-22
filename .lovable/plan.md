@@ -1,10 +1,14 @@
-## Ændring
+## Ændring i `src/routes/index.tsx` (Portræt-sektionen, linje 996–1016)
 
-I `src/routes/index.tsx` Digital Transformation-sektionen (linje 907–934):
+1. **Fjern** `<Eyebrow>Portræt</Eyebrow>` (linje 999) helt.
+2. **Justér wrapperen** — fjern `mt-8` så afsnittet starter i toppen af sektionen uden tomt mellemrum.
+3. **Fremhæv første sætning** (linje 1002–1004) som en redaktionel opening:
+   - Font: Playfair Display, italic
+   - Størrelse: `1.5rem` (op fra 1.1rem)
+   - Line-height: 1.4
+   - Opacity: 1 (fuld hvid, ikke 0.85)
+   - Bevar farvekontrast til de øvrige afsnit
+4. **Øvrige tre afsnit** forbliver uændrede (1.1rem, opacity 0.85).
+5. Sektionens padding (`pt-20 md:pt-28`) bevares, så der stadig er luft over.
 
-1. **Fjern** eyebrow-paragraffen "DIGITAL TRANSFORMATION" (linje 908–919).
-2. **Linjeskift + kursiv** på H2:
-   - "Værktøjerne er nye." på linje 1 (hvid, Playfair, fed)
-   - "Problemerne er gamle." på linje 2 (kursiv, ember-rød #C0281E, samme font/vægt)
-3. **Skalér H2 op** så den får mere visuel vægt nu hvor eyebrowen er væk: `clamp(2.4rem, 4.2vw, 3.6rem)`, line-height 1.15.
-4. Baggrund og brødtekst urørt.
+Resultatet: et roligere, mere redaktionelt look — første sætning fungerer som naturlig indgang i stedet for en CV-agtig label.
