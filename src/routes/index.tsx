@@ -930,7 +930,7 @@ function DigitalTransformationSection() {
             fontWeight: 700,
           }}
         >
-          Måden vi søger, kommunikerer og træffer beslutninger forandrer sig hurtigere end nogensinde.
+          Værktøjerne er nye. Problemerne er gamle.
         </h2>
 
         <p
@@ -943,7 +943,7 @@ function DigitalTransformationSection() {
             marginBottom: 0,
           }}
         >
-          Værktøjerne er nye. Problemerne er gamle: folk forstår ikke, hvad de skal, eller hvorfor. Den del løser ingen model for dig.
+          Måden vi søger, kommunikerer og træffer beslutninger forandrer sig hurtigere, end vi når at forholde os til. Det er svært at vide, hvad man skal med det hele — og hvorfor. Den del løser ingen model for os.
         </p>
 
         <Link
