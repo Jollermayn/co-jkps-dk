@@ -908,7 +908,7 @@ function DigitalTransformationSection() {
         <h2
           style={{
             color: "#ffffff",
-            fontSize: "clamp(2.4rem, 4.2vw, 3.6rem)",
+            fontSize: "clamp(2rem, 3.4vw, 2.8rem)",
             lineHeight: 1.15,
             maxWidth: "680px",
             marginTop: 0,
@@ -919,8 +919,9 @@ function DigitalTransformationSection() {
         >
           Værktøjerne er nye.
           <br />
-          <span style={{ fontStyle: "italic", color: "#C0281E", fontSize: "0.72em", fontWeight: 600 }}>Problemerne er gamle.</span>
+          <span style={{ fontStyle: "italic", color: "#E5E1D8", opacity: 0.75, fontSize: "0.88em", fontWeight: 400 }}>Problemerne er gamle.</span>
         </h2>
+
 
 
         <p
