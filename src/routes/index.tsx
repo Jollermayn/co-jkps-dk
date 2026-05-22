@@ -1099,9 +1099,8 @@ function Index() {
           {/* CASES */}
           <CasesSection />
 
-          <CodeParadoxBlock />
-
           {/* MIN TILGANG */}
+
           <section
             id="tilgang"
             style={{
@@ -1217,6 +1216,9 @@ function Index() {
               </div>
             </div>
           </section>
+
+          <CodeParadoxBlock />
+
 
 
 
