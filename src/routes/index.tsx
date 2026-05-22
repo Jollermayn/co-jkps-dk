@@ -1006,15 +1006,11 @@ function Index() {
           {/* FUNDAMENT */}
           <section id="baggrund" className="pt-8 md:pt-10 pb-16 md:pb-20">
             <div className="px-5 md:px-14">
-              <div className="mb-6 md:mb-10">
+              <div className="mb-6 md:mb-10 text-center">
                 
                 <h2 className="font-display text-4xl md:text-5xl mt-6 leading-[0.95] tracking-tight">
                   Tre <span className="italic text-ember">søjler.</span>
                 </h2>
-
-                <p className="mt-3 max-w-2xl text-lg text-cream/75 leading-relaxed">
-                  Som tilsammen former den måde, jeg arbejder på.
-                </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 relative md:items-start gap-x-8">
