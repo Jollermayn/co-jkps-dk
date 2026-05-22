@@ -238,7 +238,7 @@ function Sidebar() {
             >
               DR · Wolt · Amnesty · Boliga
               <br />
-              Danmarks Naturfredningsforening · ITU
+              Danmarks Naturfredningsforening
             </p>
           </div>
         </div>
