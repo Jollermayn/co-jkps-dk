@@ -935,7 +935,7 @@ function DigitalTransformationSection() {
             marginBottom: 0,
           }}
         >
-          Måden vi søger, kommunikerer og træffer beslutninger forandrer sig hurtigere, end vi når at forholde os til. Det er svært at vide, hvad man skal med det hele — og hvorfor. Den del løser ingen model for os.
+          Måden vi søger, kommunikerer og træffer beslutninger på forandrer sig hurtigere, end mennesker når at følge med. Derfor har designbeslutninger og interventioner aldrig været vigtigere.
         </p>
 
 
