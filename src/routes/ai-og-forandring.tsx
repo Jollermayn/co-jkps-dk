@@ -405,7 +405,7 @@ function AiOgForandringPage() {
         <AnimatedSection delay={0}>
           <div className="aif-split">
             <div className="aif-split-img">
-              <img src={img4} alt="" aria-hidden="true" />
+              <img src={img6} alt="" aria-hidden="true" />
             </div>
             <div className="aif-split-text">
               <p>Organisationer investerer i AI-værktøjer og opdager at ingenting ændrer sig. Medarbejderne bruger dem ikke. Kunderne mærker ingen forskel. Ledelsen ved ikke hvorfor.</p>
@@ -425,9 +425,6 @@ function AiOgForandringPage() {
         {/* SEKTION 5 — centreret, fuld bredde */}
         <AnimatedSection delay={0}>
           <section style={{ backgroundColor: "#E8E2D9" }}>
-
-            {/* Billede fuld bredde */}
-            <img src={img6} alt="" aria-hidden="true" style={{ width: "100%", height: "auto", display: "block" }} />
 
             {/* CTA — beige baggrund */}
             <div style={{ padding: "96px 32px", textAlign: "center" }}>
