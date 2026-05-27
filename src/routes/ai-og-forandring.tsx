@@ -296,9 +296,12 @@ function AiOgForandringPage() {
           <AnimatedSection delay={0}>
             <div style={{ padding: "88px 0 80px", borderBottom: `1px solid rgba(10,22,40,0.1)` }}>
               {[
-                "Dine konkurrenter taler om AI.",
-                "Dine medarbejdere spørger om AI.",
-                "Dine kunder forventer det.",
+                "De fleste af os prøver bare at følge med.",
+                "Ikke fordi vi har en plan. Men fordi frygten for at blive afkoblet er reel. Konkurrenterne nævner det. Medarbejderne spørger om det. Kunderne forventer det.",
+                "Så vi hopper med — i håbet om ikke at falde af.",
+                "Det er helt naturligt. Og det er et godt sted at starte.",
+                "Udfordringen er ikke teknologien. Det er at holde fast i sin egen tænkning, mens alt bevæger sig hurtigt — og bruge AI på dens præmisser, ikke omvendt.",
+                "De der kommer til at klare sig bedst, er dem der kan bevæge sig i begge lag: som forstår teknologien godt nok til at bruge den, men ikke mister deres egen dømmekraft, empati og situationsfornemmelse undervejs.",
               ].map((line, i) => (
                 <p
                   key={i}
@@ -308,25 +311,12 @@ function AiOgForandringPage() {
                     fontSize: "1.25rem",
                     lineHeight: 1.7,
                     color: NAVY,
-                    margin: "0 0 4px",
+                    margin: "0 0 20px",
                   }}
                 >
                   {line}
                 </p>
               ))}
-              <p
-                className="aif-body-text"
-                style={{
-                  fontFamily: "serif",
-                  fontSize: "1.25rem",
-                  lineHeight: 1.7,
-                  color: NAVY,
-                  margin: "28px 0 0",
-                  fontStyle: "italic",
-                }}
-              >
-                Og alligevel er ingenting egentlig forandret.
-              </p>
             </div>
           </AnimatedSection>
 
