@@ -489,7 +489,7 @@ function TilgangPage() {
               right: 0,
               margin: "0 auto",
               fontFamily: "serif",
-              fontSize: "2.2rem",
+              fontSize: "2.8rem",
               fontWeight: 700,
               color: "#F5F0E8",
               lineHeight: 1.2,
