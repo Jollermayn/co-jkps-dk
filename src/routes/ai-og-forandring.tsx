@@ -112,7 +112,7 @@ function AiOgForandringPage() {
           flex-direction: column;
           justify-content: center;
           padding: 64px 48px;
-          background: #ffffff;
+          background: #E8E2D9;
           box-sizing: border-box;
         }
         .aif-split-text p {
@@ -135,7 +135,7 @@ function AiOgForandringPage() {
         .aif-hero-left {
           width: 35%;
           flex-shrink: 0;
-          background: #ffffff;
+          background: #E8E2D9;
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -375,7 +375,7 @@ function AiOgForandringPage() {
         <AnimatedSection delay={0}>
           <div className="aif-split" style={{ flexDirection: "row-reverse" }}>
             <div className="aif-split-img" />
-            <div className="aif-split-text" style={{ background: "#E8E2D9" }}>
+            <div className="aif-split-text">
               <p>Historisk set har mønsteret gentaget sig. De der overlevede dampmaskinens indtog, elektriciteten og internettet var ikke dem der ignorerede forandringen — eller dem der bare købte teknologien.</p>
               <p style={{ fontStyle: "italic", fontWeight: 700, fontSize: "1.3rem", lineHeight: 1.6 }}>Det var dem der forstod hvad den ændrede ved måden mennesker arbejder og tænker.</p>
             </div>
@@ -396,7 +396,7 @@ function AiOgForandringPage() {
 
         {/* SEKTION 4 — centreret, fuld bredde */}
         <AnimatedSection delay={0}>
-          <section style={{ backgroundColor: "#ffffff", padding: "0 0 120px" }}>
+          <section style={{ backgroundColor: "#E8E2D9", padding: "0 0 120px" }}>
             {/* Billede placeholder fuld bredde */}
             <div style={{ width: "100%", maxHeight: 500, height: "40vw", minHeight: 240, backgroundColor: "#0D1B2A" }} />
             {/* Centreret tekst */}
