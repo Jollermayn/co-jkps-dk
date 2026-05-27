@@ -239,8 +239,7 @@ function TilgangPage() {
         }
         @media (max-width: 768px) {
           .tilgang-cell-img--maze { object-position: 20% center !important; }
-          .tilgang-cell-gradient--left { background: linear-gradient(to top, rgba(0,0,0,0.35) 0%, transparent 60%) !important; }
-          .tilgang-cell-gradient--bottom { background: linear-gradient(to top, rgba(0,0,0,0.35) 0%, transparent 60%) !important; }
+          .tilgang-cell-gradient--left, .tilgang-cell-gradient--bottom { display: none !important; }
         }
         @media (max-width: 1024px) {
           .tilgang-bar-top { height: 15px !important; }
