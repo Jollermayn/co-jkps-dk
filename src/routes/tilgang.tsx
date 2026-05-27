@@ -310,11 +310,11 @@ function TilgangPage() {
           }
         }
         @media (max-width: 1023px) {
-          .tilgang-hero-h1 { font-size: 2.6rem !important; line-height: 1.15 !important; max-width: 55% !important; }
+          .tilgang-hero-h1 { font-size: 2rem !important; line-height: 1.2 !important; max-width: 70% !important; bottom: 32px !important; left: 24px !important; }
           .tilgang-intro-line { font-size: 1.25rem !important; margin-bottom: 56px !important; white-space: nowrap; }
         }
         @media (max-width: 767px) {
-          .tilgang-hero-h1 { font-size: clamp(1.6rem, 6.5vw, 2.4rem) !important; max-width: 80% !important; }
+          .tilgang-hero-h1 { font-size: clamp(1.4rem, 5.5vw, 1.9rem) !important; max-width: 85% !important; bottom: 24px !important; left: 20px !important; }
           .tilgang-intro-line { font-size: clamp(1rem, 4.2vw, 1.5rem) !important; white-space: nowrap !important; margin-bottom: 48px !important; }
         }
         .tilgang-cell-title-mobile { display: none; }
@@ -474,42 +474,26 @@ function TilgangPage() {
               objectPosition: "right 65%",
             }}
           />
-          {/* Gradient venstre side for læsbarhed */}
-          <div
-            aria-hidden="true"
+          {/* Titel overlay — nederste venstre hjørne */}
+          <h1
+            className="tilgang-hero-h1"
             style={{
               position: "absolute",
-              inset: 0,
-              background: "linear-gradient(to right, rgba(10,22,40,0.82) 0%, rgba(10,22,40,0.55) 45%, rgba(10,22,40,0.0) 72%)",
-              pointerEvents: "none",
-            }}
-          />
-          {/* Titel overlay */}
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              display: "flex",
-              alignItems: "center",
-              padding: "0 6vw",
+              bottom: 40,
+              left: 40,
+              margin: 0,
+              fontFamily: "serif",
+              fontSize: "2.5rem",
+              fontWeight: 700,
+              color: "#F5F0E8",
+              lineHeight: 1.2,
+              textAlign: "left",
+              maxWidth: 480,
+              textShadow: "0 2px 12px rgba(0,0,0,0.7), 0 1px 4px rgba(0,0,0,0.5)",
             }}
           >
-            <h1
-              className="tilgang-hero-h1"
-              style={{
-                fontFamily: "serif",
-                fontSize: "5.5rem",
-                fontWeight: 700,
-                color: "#F5F0E8",
-                lineHeight: 1.1,
-                margin: 0,
-                maxWidth: "38%",
-                textAlign: "left",
-              }}
-            >
-              Kunsten at belyse,<br />hvad der går tabt<br />i processen.
-            </h1>
-          </div>
+            Kunsten at belyse,<br />hvad der går tabt<br />i processen.
+          </h1>
           {/* Scroll-pil */}
           <div
             aria-hidden="true"
