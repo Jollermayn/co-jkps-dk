@@ -381,7 +381,7 @@ function AiOgForandringPage() {
             <div className="aif-split-img" />
             <div className="aif-split-text">
               <p>Det er helt naturligt. Og det er et godt sted at starte.</p>
-              <p>Det har altid været sådan. De der overlevede dampmaskinens indtog, elektriciteten og internettet var ikke dem der ignorerede forandringen — eller dem der bare købte teknologien. Det var dem der forstod hvad den ændrede ved måden mennesker arbejder og tænker.</p>
+              <p>De der overlevede dampmaskinens indtog, elektriciteten og internettet var ikke dem der ignorerede forandringen — eller dem der bare købte teknologien. Det var dem der forstod hvad den ændrede ved måden mennesker arbejder og tænker.</p>
               <p>Forskning fra MIT og Harvard bekræfter det samme mønster i dag.</p>
             </div>
           </div>
