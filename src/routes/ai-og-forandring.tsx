@@ -105,7 +105,17 @@ function AiOgForandringPage() {
           .aif-body-text { font-size: 1.1rem !important; }
           .aif-cta-text { font-size: clamp(1.6rem, 7vw, 2.4rem) !important; }
           .aif-hero-img { object-fit: cover !important; object-position: center 20% !important; }
-          .aif-hero-section { min-height: auto !important; }
+          .aif-hero-section { min-height: 90vh !important; align-items: stretch !important; }
+          .aif-hero-content {
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            width: 100% !important;
+            padding: 32px 24px 48px !important;
+            min-height: calc(90vh - 72px) !important;
+            box-sizing: border-box !important;
+          }
         }
       `}</style>
 
@@ -248,7 +258,7 @@ function AiOgForandringPage() {
               background: "linear-gradient(to bottom, rgba(10,22,40,0.6) 0%, rgba(10,22,40,0.78) 100%)",
             }}
           />
-          <div style={{ position: "relative", zIndex: 1, padding: "120px 24px 100px" }}>
+          <div className="aif-hero-content" style={{ position: "relative", zIndex: 1, padding: "120px 24px 100px" }}>
             <p
               style={{
                 fontFamily: "serif",
