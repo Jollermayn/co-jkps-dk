@@ -468,15 +468,26 @@ function AiOgForandringPage() {
                 fontWeight: 700,
                 lineHeight: 1.3,
                 color: NAVY,
-                margin: "0 0 40px",
+                margin: "0 0 24px",
               }}>
                 Nogle ting kan aldrig erstattes.
+              </p>
+              <p style={{
+                fontFamily: "serif",
+                fontSize: "clamp(1.1rem, 2vw, 1.35rem)",
+                fontWeight: 400,
+                fontStyle: "italic",
+                lineHeight: 1.5,
+                color: NAVY,
+                margin: "0 0 48px",
+              }}>
+                Kreativitet. Leg. Den menneskelige gnist der starter det hele.
               </p>
               <p style={{ fontFamily: "serif", fontSize: "1.15rem", lineHeight: 1.8, color: NAVY, margin: "0 0 24px" }}>
                 Kreativitet, empati og dømmekraft kommer ikke fra et system. De kommer fra mennesker der har rum til at reflektere — og mod til at handle på det de ser.
               </p>
-              <p style={{ fontFamily: "serif", fontSize: "1.15rem", lineHeight: 1.8, color: NAVY, margin: "0 0 40px" }}>
-                AI er et kraftfuldt redskab. Men redskabet er aldrig svaret. Det er den menneskelige fornuft bag det der afgør om det bliver til noget godt.
+              <p style={{ fontFamily: "serif", fontSize: "1.15rem", lineHeight: 1.8, color: NAVY, margin: "0 0 48px" }}>
+                Jo hurtigere teknologien bevæger sig, jo vigtigere bliver det at holde fast i sine menneskelige rødder. Det er dem der giver retning — ikke algoritmerne.
               </p>
               <p style={{ fontFamily: "serif", fontSize: "1.2rem", fontWeight: 500, fontStyle: "italic", lineHeight: 1.6, color: NAVY, margin: 0 }}>
                 Vær nysgerrig på udviklingen. Brug teknologien. Men behold dig selv i centrum af det.
