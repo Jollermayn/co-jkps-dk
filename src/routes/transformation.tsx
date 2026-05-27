@@ -6,20 +6,19 @@ import { MenuIcon } from "@/components/MenuIcon";
 import heroImg from "@/assets/ai-og-forandring-hero.png";
 import img2 from "@/assets/ai-udvikling2.png";
 import img3 from "@/assets/ai-udvikling3.png";
-import img4 from "@/assets/ai-udvikling4.png";
 import img5 from "@/assets/ai-udvikling5.png";
 import img6 from "@/assets/ai-udvikling6.png";
 
-export const Route = createFileRoute("/ai-og-forandring")({
+export const Route = createFileRoute("/transformation")({
   head: () => ({
     meta: [
-      { title: "AI og forandring — Jonas K.P. Sørensen" },
+      { title: "Transformation — Jonas K.P. Sørensen" },
       {
         name: "description",
         content:
           "De fleste implementeringer fejler ikke fordi systemet er dårligt. De fejler fordi ingen stillede de rigtige spørgsmål inden.",
       },
-      { property: "og:title", content: "AI og forandring — Jonas K.P. Sørensen" },
+      { property: "og:title", content: "Transformation — Jonas K.P. Sørensen" },
       {
         property: "og:description",
         content:
@@ -28,14 +27,185 @@ export const Route = createFileRoute("/ai-og-forandring")({
       { property: "og:type", content: "website" },
     ],
   }),
-  component: AiOgForandringPage,
+  component: TransformationPage,
 });
 
 const NAVY = "#0A1628";
 const BEIGE = "#E8E2D9";
 const RED = "#C0281E";
 
-function AiOgForandringPage() {
+// ── Scroll fade hook ──────────────────────────────────────────────────────────
+// IntersectionObserver, threshold 0.15, animates opacity 0→1 + translateY 24px→0
+// over 0.6s ease. Once visible, stays visible.
+function useFade(delay = 0) {
+  const ref = useRef<any>(null);
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          obs.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+  return {
+    ref,
+    fs: {
+      opacity: visible ? 1 : 0,
+      transform: visible ? "translateY(0)" : "translateY(24px)",
+      transition: `opacity 0.6s ease ${delay}s, transform 0.6s ease ${delay}s`,
+    } as React.CSSProperties,
+  };
+}
+
+// ── Split section sub-components ──────────────────────────────────────────────
+// Each element animates independently with 0.15 s stagger between siblings.
+
+function SplitSection1() {
+  const imgFade = useFade(0);
+  const p1Fade  = useFade(0.15);
+  const p2Fade  = useFade(0.30);
+  const p3Fade  = useFade(0.45);
+  return (
+    <div className="aif-split">
+      <div className="aif-split-img" ref={imgFade.ref} style={imgFade.fs}>
+        <img src={img2} alt="" aria-hidden="true" />
+      </div>
+      <div className="aif-split-text">
+        <p ref={p1Fade.ref} style={p1Fade.fs}>
+          Konkurrenterne nævner det. Medarbejderne spørger om det. Kunderne forventer det.
+        </p>
+        <p ref={p2Fade.ref} style={p2Fade.fs}>
+          Så de fleste af os prøver bare at følge med. Ikke fordi vi har en plan — men fordi
+          frygten for at blive overhalet er reel.
+        </p>
+        <p
+          ref={p3Fade.ref}
+          style={{ ...p3Fade.fs, fontStyle: "italic", fontSize: "1.3rem", fontWeight: 500, lineHeight: 1.6 }}
+        >
+          Og vi hopper med. I håbet om ikke at falde af.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function SplitSection2() {
+  // Visual order left→right on desktop: text (left) then image (right, via row-reverse)
+  const p1Fade  = useFade(0);
+  const p2Fade  = useFade(0.15);
+  const imgFade = useFade(0.30);
+  return (
+    <div className="aif-split" style={{ flexDirection: "row-reverse" }}>
+      <div className="aif-split-img" ref={imgFade.ref} style={imgFade.fs}>
+        <img src={img3} alt="" aria-hidden="true" />
+      </div>
+      <div className="aif-split-text">
+        <p ref={p1Fade.ref} style={p1Fade.fs}>
+          Historisk set har mønsteret gentaget sig. De der overlevede dampmaskinens indtog,
+          elektriciteten og internettet var ikke dem der ignorerede forandringen — eller dem
+          der bare købte teknologien.
+        </p>
+        <p
+          ref={p2Fade.ref}
+          style={{ ...p2Fade.fs, fontStyle: "italic", fontWeight: 700, fontSize: "1.3rem", lineHeight: 1.6 }}
+        >
+          Det var dem der forstod hvad den ændrede ved måden mennesker arbejder og tænker.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function SplitSection3() {
+  const imgFade = useFade(0);
+  const p1Fade  = useFade(0.15);
+  const p2Fade  = useFade(0.30);
+  const p3Fade  = useFade(0.45);
+  return (
+    <div className="aif-split">
+      <div className="aif-split-img" ref={imgFade.ref} style={imgFade.fs}>
+        <img src={img6} alt="" aria-hidden="true" />
+      </div>
+      <div className="aif-split-text">
+        <p ref={p1Fade.ref} style={p1Fade.fs}>
+          Organisationer investerer i AI-værktøjer og opdager at ingenting ændrer sig.
+          Medarbejderne bruger dem ikke. Kunderne mærker ingen forskel. Ledelsen ved ikke
+          hvorfor.
+        </p>
+        <p
+          ref={p2Fade.ref}
+          style={{ ...p2Fade.fs, fontStyle: "italic", fontWeight: 700, fontSize: "1.3rem", lineHeight: 1.6 }}
+        >
+          Det er ikke et teknisk problem. Det er et menneskeligt et.
+        </p>
+        <p ref={p3Fade.ref} style={p3Fade.fs}>
+          AI kan generere, automatisere og optimere. Det den ikke kan er at forstå hvorfor
+          folk gør som de gør — og designe udenom det.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function Section4Block() {
+  const imgFade = useFade(0);
+  return (
+    <section style={{ backgroundColor: BEIGE }}>
+      <Section4Text />
+      <img
+        ref={imgFade.ref}
+        src={img5}
+        alt=""
+        aria-hidden="true"
+        style={{ ...imgFade.fs, width: "100%", height: "auto", display: "block" }}
+      />
+    </section>
+  );
+}
+
+function Section5CTA({ onContact }: { onContact: () => void }) {
+  const ctaFade = useFade(0);
+  return (
+    <section style={{ backgroundColor: "#E8E2D9" }}>
+      <div style={{ padding: "96px 32px", textAlign: "center" }}>
+        <p
+          ref={ctaFade.ref}
+          style={{
+            ...ctaFade.fs,
+            fontFamily: "serif",
+            fontStyle: "italic",
+            fontSize: "clamp(1.9rem, 5vw, 3rem)",
+            color: NAVY,
+            margin: 0,
+            lineHeight: 1.25,
+          }}
+        >
+          <a
+            href="#"
+            onClick={(e) => { e.preventDefault(); onContact(); }}
+            className="aif-tales-link"
+            style={{ color: RED, textDecoration: "none", cursor: "pointer" }}
+          >
+            Lad os tales ved
+          </a>
+          .
+        </p>
+      </div>
+    </section>
+  );
+}
+
+// ── Main page component ───────────────────────────────────────────────────────
+
+function TransformationPage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
   const [form, setForm] = useState({ navn: "", email: "", besked: "" });
@@ -89,8 +259,6 @@ function AiOgForandringPage() {
     <div style={{ backgroundColor: BEIGE, minHeight: "100vh" }}>
       <style>{`
         .aif-nav-link:hover { color: ${RED} !important; }
-        .aif-section { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
-        .aif-section.is-visible { opacity: 1; transform: translateY(0); }
         .aif-tales-link { position: relative; display: inline-block; }
         .aif-tales-link::after {
           content: "";
@@ -133,6 +301,7 @@ function AiOgForandringPage() {
           margin: 0 0 20px;
         }
         .aif-split-text p:last-child { margin-bottom: 0; }
+
         /* Tablet (≤1024px): stacked layout */
         @media (max-width: 1024px) {
           .aif-split { flex-direction: column !important; }
@@ -145,7 +314,7 @@ function AiOgForandringPage() {
           .aif-split-text p { font-size: 1.05rem !important; }
         }
 
-        /* Desktop split layout */
+        /* Hero */
         .aif-hero-section { display: flex; flex-direction: row; height: calc(100vh - 72px); background: #E8E2D9; margin: 0; position: relative; }
         .aif-hero-left {
           width: 35%;
@@ -157,11 +326,7 @@ function AiOgForandringPage() {
           padding: 64px 48px;
           box-sizing: border-box;
         }
-        .aif-hero-right {
-          flex: 1;
-          position: relative;
-          overflow: hidden;
-        }
+        .aif-hero-right { flex: 1; position: relative; overflow: hidden; }
         .aif-hero-img {
           position: absolute;
           inset: 0;
@@ -173,7 +338,7 @@ function AiOgForandringPage() {
         .aif-hero-mobile-overlay,
         .aif-hero-mobile-content { display: none; }
 
-        /* Tablet + Mobil: hero stacker med overlay */
+        /* Tablet + Mobil: hero med overlay */
         @media (max-width: 1024px) {
           .aif-hero-section { flex-direction: column; }
           .aif-hero-left { display: none; }
@@ -229,7 +394,7 @@ function AiOgForandringPage() {
               { label: "Cases", href: "/#cases" },
               { label: "Ekspertise", href: "/#kompetencer" },
               { label: "Tilgang", href: "/tilgang" },
-              { label: "AI og forandring", href: "/ai-og-forandring" },
+              { label: "Transformation", href: "/transformation" },
               { label: "Kontakt", href: "/#kontakt" },
             ].map((l) => (
               <a
@@ -299,7 +464,7 @@ function AiOgForandringPage() {
           </button>
           <Link to="/" onClick={() => setMenuOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: NAVY, textDecoration: "none" }}>Portfolio</Link>
           <Link to="/tilgang" onClick={() => setMenuOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: NAVY, textDecoration: "none" }}>Tilgang</Link>
-          <Link to="/ai-og-forandring" onClick={() => setMenuOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: NAVY, textDecoration: "none" }}>AI og forandring</Link>
+          <Link to="/transformation" onClick={() => setMenuOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: NAVY, textDecoration: "none" }}>Transformation</Link>
           <Link to="/cv" onClick={() => setMenuOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: NAVY, textDecoration: "none" }}>CV</Link>
           <a href="/#kontakt" onClick={() => setMenuOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: NAVY, textDecoration: "none" }}>Kontakt</a>
         </div>
@@ -307,10 +472,10 @@ function AiOgForandringPage() {
 
       <main style={{ paddingTop: 72 }}>
 
-        {/* HERO — split layout */}
+        {/* HERO — split layout (no scroll animation, loads immediately) */}
         <section className="aif-hero-section">
 
-          {/* Venstre: tekst på hvid baggrund (desktop only) */}
+          {/* Venstre: tekst (desktop only) */}
           <div className="aif-hero-left">
             <h1 style={{
               fontFamily: "serif",
@@ -322,7 +487,7 @@ function AiOgForandringPage() {
               opacity: 0,
               animation: "aif-fade 0.8s ease 0.2s both",
             }}>
-              Forandringen er begyndt
+              Transformationen er begyndt
             </h1>
           </div>
 
@@ -349,7 +514,7 @@ function AiOgForandringPage() {
                 opacity: 0,
                 animation: "aif-fade 0.8s ease 0.2s both",
               }}>
-                Forandringen er begyndt
+                Transformationen er begyndt
               </h1>
             </div>
           </div>
@@ -375,81 +540,19 @@ function AiOgForandringPage() {
         </section>
 
         {/* SEKTION 1 — billede venstre, tekst højre */}
-        <AnimatedSection delay={0}>
-          <div className="aif-split">
-            <div className="aif-split-img">
-              <img src={img2} alt="" aria-hidden="true" />
-            </div>
-            <div className="aif-split-text">
-              <p>Konkurrenterne nævner det. Medarbejderne spørger om det. Kunderne forventer det.</p>
-              <p>Så de fleste af os prøver bare at følge med. Ikke fordi vi har en plan — men fordi frygten for at blive overhalet er reel.</p>
-              <p style={{ fontStyle: "italic", fontSize: "1.3rem", fontWeight: 500, lineHeight: 1.6 }}>Og vi hopper med. I håbet om ikke at falde af.</p>
-            </div>
-          </div>
-        </AnimatedSection>
+        <SplitSection1 />
 
         {/* SEKTION 2 — tekst venstre, billede højre */}
-        <AnimatedSection delay={0}>
-          <div className="aif-split" style={{ flexDirection: "row-reverse" }}>
-            <div className="aif-split-img">
-              <img src={img3} alt="" aria-hidden="true" />
-            </div>
-            <div className="aif-split-text">
-              <p>Historisk set har mønsteret gentaget sig. De der overlevede dampmaskinens indtog, elektriciteten og internettet var ikke dem der ignorerede forandringen — eller dem der bare købte teknologien.</p>
-              <p style={{ fontStyle: "italic", fontWeight: 700, fontSize: "1.3rem", lineHeight: 1.6 }}>Det var dem der forstod hvad den ændrede ved måden mennesker arbejder og tænker.</p>
-            </div>
-          </div>
-        </AnimatedSection>
+        <SplitSection2 />
 
         {/* SEKTION 3 — billede venstre, tekst højre */}
-        <AnimatedSection delay={0}>
-          <div className="aif-split">
-            <div className="aif-split-img">
-              <img src={img6} alt="" aria-hidden="true" />
-            </div>
-            <div className="aif-split-text">
-              <p>Organisationer investerer i AI-værktøjer og opdager at ingenting ændrer sig. Medarbejderne bruger dem ikke. Kunderne mærker ingen forskel. Ledelsen ved ikke hvorfor.</p>
-              <p style={{ fontStyle: "italic", fontWeight: 700, fontSize: "1.3rem", lineHeight: 1.6 }}>Det er ikke et teknisk problem. Det er et menneskeligt et.</p>
-              <p>AI kan generere, automatisere og optimere. Det den ikke kan er at forstå hvorfor folk gør som de gør — og designe udenom det.</p>
-            </div>
-          </div>
-        </AnimatedSection>
+        <SplitSection3 />
 
         {/* SEKTION 4 — centreret, fuld bredde */}
-        <section style={{ backgroundColor: BEIGE }}>
-          <Section4Text />
-          {/* Billede fuld bredde — afsluttende */}
-          <img src={img5} alt="" aria-hidden="true" style={{ width: "100%", height: "auto", display: "block" }} />
-        </section>
+        <Section4Block />
 
-        {/* SEKTION 5 — centreret, fuld bredde */}
-        <AnimatedSection delay={0}>
-          <section style={{ backgroundColor: "#E8E2D9" }}>
-
-            {/* CTA — beige baggrund */}
-            <div style={{ padding: "96px 32px", textAlign: "center" }}>
-              <p style={{
-                fontFamily: "serif",
-                fontStyle: "italic",
-                fontSize: "clamp(1.9rem, 5vw, 3rem)",
-                color: NAVY,
-                margin: 0,
-                lineHeight: 1.25,
-              }}>
-                <a
-                  href="#"
-                  onClick={(e) => { e.preventDefault(); setContactOpen(true); }}
-                  className="aif-tales-link"
-                  style={{ color: RED, textDecoration: "none", cursor: "pointer" }}
-                >
-                  Lad os tales ved
-                </a>
-                .
-              </p>
-            </div>
-
-          </section>
-        </AnimatedSection>
+        {/* SEKTION 5 — CTA */}
+        <Section5CTA onContact={() => setContactOpen(true)} />
 
         {/* CLOSING */}
         <section style={{ backgroundColor: NAVY, padding: "80px 24px", textAlign: "center" }}>
@@ -574,6 +677,8 @@ function AiOgForandringPage() {
   );
 }
 
+// ── Section 4 word-reveal (Framer Motion) ─────────────────────────────────────
+
 function Section4Text() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-10% 0px" });
@@ -581,7 +686,6 @@ function Section4Text() {
 
   return (
     <div ref={ref} style={{ maxWidth: 680, marginInline: "auto", padding: "120px 32px", textAlign: "center" }}>
-      {/* Linje 1 */}
       <motion.p
         initial={{ opacity: 0 }}
         animate={inView ? { opacity: 1 } : { opacity: 0 }}
@@ -598,7 +702,6 @@ function Section4Text() {
         Nogle ting kan aldrig erstattes.
       </motion.p>
 
-      {/* Linje 2 — ord fader ind enkeltvis */}
       <p style={{
         fontFamily: "serif",
         fontSize: "clamp(1.3rem, 2.5vw, 1.9rem)",
@@ -620,21 +723,5 @@ function Section4Text() {
         ))}
       </p>
     </div>
-  );
-}
-
-function AnimatedSection({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-10% 0px" });
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 40 }}
-      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-      transition={{ duration: 0.8, ease: "easeOut", delay }}
-    >
-      {children}
-    </motion.div>
   );
 }

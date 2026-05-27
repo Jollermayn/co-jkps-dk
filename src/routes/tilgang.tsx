@@ -381,7 +381,7 @@ function TilgangPage() {
               { label: "Cases", href: "/#cases" },
               { label: "Ekspertise", href: "/#kompetencer" },
               { label: "Tilgang", href: "/tilgang" },
-              { label: "AI og forandring", href: "/ai-og-forandring" },
+              { label: "Transformation", href: "/transformation" },
               { label: "Kontakt", href: "/#kontakt" },
             ].map((l) => (
               <a
@@ -457,7 +457,7 @@ function TilgangPage() {
           </button>
           <Link to="/" onClick={() => setMenuOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: NAVY, textDecoration: "none" }}>Portfolio</Link>
           <Link to="/tilgang" onClick={() => setMenuOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: NAVY, textDecoration: "none" }}>Tilgang</Link>
-          <Link to="/ai-og-forandring" onClick={() => setMenuOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: NAVY, textDecoration: "none" }}>AI og forandring</Link>
+          <Link to="/transformation" onClick={() => setMenuOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: NAVY, textDecoration: "none" }}>Transformation</Link>
           <Link to="/cv" onClick={() => setMenuOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: NAVY, textDecoration: "none" }}>CV</Link>
           <a href="/#kontakt" onClick={() => setMenuOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: NAVY, textDecoration: "none" }}>Kontakt</a>
         </div>
