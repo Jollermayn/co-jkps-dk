@@ -4,6 +4,10 @@ import { motion, useInView } from "framer-motion";
 import { SiteLogo } from "@/components/SiteLogo";
 import { MenuIcon } from "@/components/MenuIcon";
 import heroImg from "@/assets/ai-og-forandring-hero.png";
+import img2 from "@/assets/ai-udvikling2.png";
+import img3 from "@/assets/ai-udvikling3.png";
+import img4 from "@/assets/ai-udvikling4.png";
+import img5 from "@/assets/ai-udvikling5.png";
 
 export const Route = createFileRoute("/ai-og-forandring")({
   head: () => ({
@@ -396,7 +400,9 @@ function AiOgForandringPage() {
         {/* SEKTION 1 — billede venstre, tekst højre */}
         <AnimatedSection delay={0}>
           <div className="aif-split">
-            <div className="aif-split-img" />
+            <div className="aif-split-img">
+              <img src={img2} alt="" aria-hidden="true" />
+            </div>
             <div className="aif-split-text">
               <p>Konkurrenterne nævner det. Medarbejderne spørger om det. Kunderne forventer det.</p>
               <p>Så de fleste af os prøver bare at følge med. Ikke fordi vi har en plan — men fordi frygten for at blive overhalet er reel.</p>
@@ -408,7 +414,9 @@ function AiOgForandringPage() {
         {/* SEKTION 2 — tekst venstre, billede højre */}
         <AnimatedSection delay={0}>
           <div className="aif-split" style={{ flexDirection: "row-reverse" }}>
-            <div className="aif-split-img" />
+            <div className="aif-split-img">
+              <img src={img3} alt="" aria-hidden="true" />
+            </div>
             <div className="aif-split-text">
               <p>Historisk set har mønsteret gentaget sig. De der overlevede dampmaskinens indtog, elektriciteten og internettet var ikke dem der ignorerede forandringen — eller dem der bare købte teknologien.</p>
               <p style={{ fontStyle: "italic", fontWeight: 700, fontSize: "1.3rem", lineHeight: 1.6 }}>Det var dem der forstod hvad den ændrede ved måden mennesker arbejder og tænker.</p>
@@ -419,7 +427,9 @@ function AiOgForandringPage() {
         {/* SEKTION 3 — billede venstre, tekst højre */}
         <AnimatedSection delay={0}>
           <div className="aif-split">
-            <div className="aif-split-img" />
+            <div className="aif-split-img">
+              <img src={img4} alt="" aria-hidden="true" />
+            </div>
             <div className="aif-split-text">
               <p>Organisationer investerer i AI-værktøjer og opdager at ingenting ændrer sig. Medarbejderne bruger dem ikke. Kunderne mærker ingen forskel. Ledelsen ved ikke hvorfor.</p>
               <p style={{ fontStyle: "italic", fontWeight: 700, fontSize: "1.3rem", lineHeight: 1.6 }}>Det er ikke et teknisk problem. Det er et menneskeligt et.</p>
@@ -431,8 +441,8 @@ function AiOgForandringPage() {
         {/* SEKTION 4 — centreret, fuld bredde */}
         <section style={{ backgroundColor: BEIGE }}>
           <Section4Text />
-          {/* Billede placeholder fuld bredde — afsluttende */}
-          <div style={{ width: "100%", height: "45vw", minHeight: 320, maxHeight: 650, backgroundColor: "#0D1B2A" }} />
+          {/* Billede fuld bredde — afsluttende */}
+          <img src={img5} alt="" aria-hidden="true" style={{ width: "100%", height: "45vw", minHeight: 320, maxHeight: 650, objectFit: "cover", objectPosition: "center", display: "block" }} />
         </section>
 
         {/* SEKTION 5 — centreret, fuld bredde */}
