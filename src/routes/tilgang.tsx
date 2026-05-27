@@ -475,6 +475,16 @@ function TilgangPage() {
               objectPosition: "right 65%",
             }}
           />
+          {/* Bund-gradient for tekstlæsbarhed */}
+          <div
+            aria-hidden="true"
+            style={{
+              position: "absolute",
+              inset: 0,
+              background: "linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 60%)",
+              pointerEvents: "none",
+            }}
+          />
           {/* Titel overlay — nederste center */}
           <h1
             className="tilgang-hero-h1"
