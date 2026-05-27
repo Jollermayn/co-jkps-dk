@@ -456,45 +456,11 @@ function AiOgForandringPage() {
         </AnimatedSection>
 
         {/* SEKTION 4 — centreret, fuld bredde */}
-        <AnimatedSection delay={0}>
-          <section style={{ backgroundColor: BEIGE }}>
-            {/* Centreret tekst */}
-            <div style={{ maxWidth: 680, marginInline: "auto", padding: "120px 32px", textAlign: "center" }}>
-              <p style={{
-                fontFamily: "serif",
-                fontSize: "clamp(1.6rem, 3vw, 2.2rem)",
-                fontWeight: 700,
-                lineHeight: 1.3,
-                color: NAVY,
-                margin: "0 0 24px",
-              }}>
-                Nogle ting kan aldrig erstattes.
-              </p>
-              <p style={{
-                fontFamily: "serif",
-                fontSize: "clamp(1.1rem, 2vw, 1.35rem)",
-                fontWeight: 400,
-                fontStyle: "italic",
-                lineHeight: 1.5,
-                color: NAVY,
-                margin: "0 0 48px",
-              }}>
-                Kreativitet. Leg. Den menneskelige gnist der starter det hele.
-              </p>
-              <p style={{ fontFamily: "serif", fontSize: "1.15rem", lineHeight: 1.8, color: NAVY, margin: "0 0 24px" }}>
-                Kreativitet, empati og dømmekraft kommer ikke fra et system. De kommer fra mennesker der har rum til at reflektere — og mod til at handle på det de ser.
-              </p>
-              <p style={{ fontFamily: "serif", fontSize: "1.15rem", lineHeight: 1.8, color: NAVY, margin: "0 0 48px" }}>
-                Jo hurtigere teknologien bevæger sig, jo vigtigere bliver det at holde fast i sine menneskelige rødder. Det er dem der giver retning — ikke algoritmerne.
-              </p>
-              <p style={{ fontFamily: "serif", fontSize: "1.2rem", fontWeight: 500, fontStyle: "italic", lineHeight: 1.6, color: NAVY, margin: 0 }}>
-                Vær nysgerrig på udviklingen. Brug teknologien. Men behold dig selv i centrum af det.
-              </p>
-            </div>
-            {/* Billede placeholder fuld bredde — afsluttende */}
-            <div style={{ width: "100%", height: "45vw", minHeight: 320, maxHeight: 650, backgroundColor: "#0D1B2A" }} />
-          </section>
-        </AnimatedSection>
+        <section style={{ backgroundColor: BEIGE }}>
+          <Section4Text />
+          {/* Billede placeholder fuld bredde — afsluttende */}
+          <div style={{ width: "100%", height: "45vw", minHeight: 320, maxHeight: 650, backgroundColor: "#0D1B2A" }} />
+        </section>
 
         {/* SEKTION 5 — centreret, fuld bredde */}
         <AnimatedSection delay={0}>
@@ -660,6 +626,55 @@ function AiOgForandringPage() {
           </div>
         </div>
       )}
+    </div>
+  );
+}
+
+function Section4Text() {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-10% 0px" });
+  const words = ["Kreativitet.", "Leg.", "Nysgerrighed.", "Kærlighed."];
+
+  return (
+    <div ref={ref} style={{ maxWidth: 680, marginInline: "auto", padding: "120px 32px", textAlign: "center" }}>
+      {/* Linje 1 */}
+      <motion.p
+        initial={{ opacity: 0 }}
+        animate={inView ? { opacity: 1 } : { opacity: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+        style={{
+          fontFamily: "serif",
+          fontSize: "clamp(1.6rem, 3vw, 2.2rem)",
+          fontWeight: 700,
+          lineHeight: 1.3,
+          color: NAVY,
+          margin: "0 0 56px",
+        }}
+      >
+        Nogle ting kan aldrig erstattes.
+      </motion.p>
+
+      {/* Linje 2 — ord fader ind enkeltvis */}
+      <p style={{
+        fontFamily: "serif",
+        fontSize: "clamp(1.3rem, 2.5vw, 1.9rem)",
+        fontWeight: 400,
+        fontStyle: "italic",
+        lineHeight: 1.5,
+        color: NAVY,
+        margin: 0,
+      }}>
+        {words.map((word, i) => (
+          <motion.span
+            key={word}
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 1.4, ease: "easeIn", delay: 1.1 + i * 1 }}
+          >
+            {word}{i < words.length - 1 ? " " : ""}
+          </motion.span>
+        ))}
+      </p>
     </div>
   );
 }
