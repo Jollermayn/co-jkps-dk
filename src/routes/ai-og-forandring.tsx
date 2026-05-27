@@ -358,11 +358,6 @@ function AiOgForandringPage() {
 
         </section>
 
-        {/* Rød separator */}
-        <div style={{ display: "flex", justifyContent: "center", padding: "40px 0 0" }}>
-          <div style={{ width: 60, height: 1, background: RED }} />
-        </div>
-
         {/* SEKTION 1 — billede venstre, tekst højre */}
         <AnimatedSection delay={0}>
           <div className="aif-split">
