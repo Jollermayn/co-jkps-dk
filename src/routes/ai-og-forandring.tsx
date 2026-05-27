@@ -104,7 +104,7 @@ function AiOgForandringPage() {
           .aif-hero-title { font-size: 2.8rem !important; line-height: 1.15 !important; }
           .aif-body-text { font-size: 1.1rem !important; }
           .aif-cta-text { font-size: clamp(1.6rem, 7vw, 2.4rem) !important; }
-          .aif-hero-img { object-fit: cover !important; object-position: center 20% !important; }
+          .aif-hero-img { object-fit: cover !important; object-position: center 30% !important; }
           .aif-hero-section { min-height: 90vh !important; align-items: stretch !important; }
           .aif-hero-content {
             display: flex !important;
