@@ -111,9 +111,9 @@ function AiOgForandringPage() {
         }
 
         /* Split content sections — 35% tekst / 65% billede, identisk med hero */
-        .aif-split { display: flex; flex-direction: row; min-height: 100vh; }
-        .aif-split-img { flex: 1; position: relative; background: #0D1B2A; overflow: hidden; }
-        .aif-split-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+        .aif-split { display: flex; flex-direction: row; align-items: stretch; }
+        .aif-split-img { flex: 1; }
+        .aif-split-img img { width: 100%; height: auto; display: block; }
         .aif-split-text {
           flex: 0 0 35%;
           width: 35%;
@@ -134,14 +134,12 @@ function AiOgForandringPage() {
         .aif-split-text p:last-child { margin-bottom: 0; }
         /* Tablet (≤1024px): stacked layout */
         @media (max-width: 1024px) {
-          .aif-split { flex-direction: column !important; min-height: auto; }
-          .aif-split-img { flex: none; width: 100%; height: 50vh; }
-          .aif-split-img img { object-fit: cover; object-position: center; }
+          .aif-split { flex-direction: column !important; }
+          .aif-split-img { flex: none; width: 100%; }
           .aif-split-text { flex: none; width: 100%; padding: 48px 32px; }
         }
-        /* Mobil (≤768px): reduceret billedhøjde, tættere padding */
+        /* Mobil (≤768px): tættere padding */
         @media (max-width: 768px) {
-          .aif-split-img { height: 40vh; }
           .aif-split-text { padding: 32px 24px; }
           .aif-split-text p { font-size: 1.05rem !important; }
         }
@@ -420,7 +418,7 @@ function AiOgForandringPage() {
         <section style={{ backgroundColor: BEIGE }}>
           <Section4Text />
           {/* Billede fuld bredde — afsluttende */}
-          <img src={img5} alt="" aria-hidden="true" style={{ width: "100%", height: "45vw", minHeight: 320, maxHeight: 650, objectFit: "cover", objectPosition: "center", display: "block" }} />
+          <img src={img5} alt="" aria-hidden="true" style={{ width: "100%", height: "auto", display: "block" }} />
         </section>
 
         {/* SEKTION 5 — centreret, fuld bredde */}
