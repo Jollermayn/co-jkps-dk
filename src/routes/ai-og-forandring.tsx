@@ -370,7 +370,7 @@ function AiOgForandringPage() {
             <div className="aif-split-text">
               <p>Konkurrenterne nævner det. Medarbejderne spørger om det. Kunderne forventer det.</p>
               <p>Så de fleste af os prøver bare at følge med. Ikke fordi vi har en plan — men fordi frygten for at blive overhalet er reel.</p>
-              <p>Og vi hopper med. I håbet om ikke at falde af.</p>
+              <p style={{ fontStyle: "italic", fontSize: "1.3rem", fontWeight: 500, lineHeight: 1.6 }}>Og vi hopper med. I håbet om ikke at falde af.</p>
             </div>
           </div>
         </AnimatedSection>
@@ -379,9 +379,10 @@ function AiOgForandringPage() {
         <AnimatedSection delay={0}>
           <div className="aif-split" style={{ flexDirection: "row-reverse" }}>
             <div className="aif-split-img" />
-            <div className="aif-split-text">
+            <div className="aif-split-text" style={{ background: "#E8E2D9" }}>
               <p>Det er helt naturligt. Og det er et godt sted at starte.</p>
-              <p>De der overlevede dampmaskinens indtog, elektriciteten og internettet var ikke dem der ignorerede forandringen — eller dem der bare købte teknologien. Det var dem der forstod hvad den ændrede ved måden mennesker arbejder og tænker.</p>
+              <p>De der overlevede dampmaskinens indtog, elektriciteten og internettet var ikke dem der ignorerede forandringen — eller dem der bare købte teknologien.</p>
+              <p style={{ fontStyle: "italic", fontWeight: 700, fontSize: "1.3rem", lineHeight: 1.6 }}>Det var dem der forstod hvad den ændrede ved måden mennesker arbejder og tænker.</p>
               <p>Forskning fra MIT og Harvard bekræfter det samme mønster i dag.</p>
             </div>
           </div>
@@ -393,7 +394,7 @@ function AiOgForandringPage() {
             <div className="aif-split-img" />
             <div className="aif-split-text">
               <p>Organisationer investerer i AI-værktøjer og opdager at ingenting ændrer sig. Medarbejderne bruger dem ikke. Kunderne mærker ingen forskel. Ledelsen ved ikke hvorfor.</p>
-              <p>Det er ikke et teknisk problem. Det er et menneskeligt et.</p>
+              <p style={{ fontStyle: "italic", fontWeight: 700, fontSize: "1.3rem", lineHeight: 1.6 }}>Det er ikke et teknisk problem. Det er et menneskeligt et.</p>
               <p>AI kan generere, automatisere og optimere. Det den ikke kan er at forstå hvorfor folk gør som de gør — og designe udenom det.</p>
             </div>
           </div>
@@ -414,32 +415,36 @@ function AiOgForandringPage() {
                 <p key={i} style={{
                   fontFamily: "serif",
                   fontSize: i === 0 ? "1.7rem" : "1.4rem",
-                  fontWeight: i === 0 ? 700 : 400,
+                  fontWeight: i === 0 ? 700 : (i === 1 ? 600 : 400),
                   fontStyle: i === 2 ? "italic" : "normal",
                   lineHeight: 1.5,
                   color: NAVY,
-                  margin: "0 0 28px",
+                  margin: i === 1 ? "8px 0 36px" : "0 0 28px",
+                  ...(i === 1 ? { borderLeft: `3px solid ${RED}`, paddingLeft: 20 } : {}),
                 }}>
                   {line}
                 </p>
               ))}
-              <p style={{
-                fontFamily: "serif",
-                fontStyle: "italic",
-                fontSize: "clamp(1.6rem, 4vw, 2.4rem)",
-                color: NAVY,
-                margin: "48px 0 0",
-              }}>
-                <a
-                  href="#"
-                  onClick={(e) => { e.preventDefault(); setContactOpen(true); }}
-                  className="aif-tales-link"
-                  style={{ color: RED, textDecoration: "none", cursor: "pointer" }}
-                >
-                  Lad os tales ved
-                </a>
-                .
-              </p>
+              <div style={{ marginTop: 64, paddingTop: 40, borderTop: `1px solid rgba(10,22,40,0.1)` }}>
+                <p style={{
+                  fontFamily: "serif",
+                  fontStyle: "italic",
+                  fontSize: "clamp(1.9rem, 5vw, 3rem)",
+                  color: NAVY,
+                  margin: 0,
+                  lineHeight: 1.25,
+                }}>
+                  <a
+                    href="#"
+                    onClick={(e) => { e.preventDefault(); setContactOpen(true); }}
+                    className="aif-tales-link"
+                    style={{ color: RED, textDecoration: "none", cursor: "pointer" }}
+                  >
+                    Lad os tales ved
+                  </a>
+                  .
+                </p>
+              </div>
             </div>
           </section>
         </AnimatedSection>
