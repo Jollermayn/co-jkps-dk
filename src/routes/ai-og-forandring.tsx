@@ -8,6 +8,7 @@ import img2 from "@/assets/ai-udvikling2.png";
 import img3 from "@/assets/ai-udvikling3.png";
 import img4 from "@/assets/ai-udvikling4.png";
 import img5 from "@/assets/ai-udvikling5.png";
+import img6 from "@/assets/ai-udvikling6.png";
 
 export const Route = createFileRoute("/ai-og-forandring")({
   head: () => ({
@@ -425,21 +426,8 @@ function AiOgForandringPage() {
         <AnimatedSection delay={0}>
           <section style={{ backgroundColor: "#E8E2D9" }}>
 
-            {/* Navy-boks med tekst indeni */}
-            <div style={{
-              width: "100%",
-              height: "40vw",
-              minHeight: 320,
-              maxHeight: 560,
-              backgroundColor: "#0D1B2A",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              padding: "48px 32px",
-              boxSizing: "border-box",
-            }}>
-              <div style={{ maxWidth: 680, width: "100%", textAlign: "center" }} />
-            </div>
+            {/* Billede fuld bredde */}
+            <img src={img6} alt="" aria-hidden="true" style={{ width: "100%", height: "auto", display: "block" }} />
 
             {/* CTA — beige baggrund */}
             <div style={{ padding: "96px 32px", textAlign: "center" }}>
