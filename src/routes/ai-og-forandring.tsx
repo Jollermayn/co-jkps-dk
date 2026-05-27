@@ -270,7 +270,7 @@ function AiOgForandringPage() {
                 maxWidth: 760,
               }}
             >
-              Det går stærkt.
+              Det går stærkt.<br />Du ved det godt.
             </h1>
           </div>
         </section>
