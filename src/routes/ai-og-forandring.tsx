@@ -368,9 +368,9 @@ function AiOgForandringPage() {
           <div className="aif-split">
             <div className="aif-split-img" />
             <div className="aif-split-text">
-              <p>De fleste af os prøver bare at følge med.</p>
-              <p>Ikke fordi vi har en plan. Men fordi frygten for at blive overhalet er reel. Konkurrenterne nævner det. Medarbejderne spørger om det. Kunderne forventer det.</p>
-              <p>Så vi hopper med — i håbet om ikke at falde af.</p>
+              <p>Konkurrenterne nævner det. Medarbejderne spørger om det. Kunderne forventer det.</p>
+              <p>Så de fleste af os prøver bare at følge med. Ikke fordi vi har en plan — men fordi frygten for at blive overhalet er reel.</p>
+              <p>Og vi hopper med. I håbet om ikke at falde af.</p>
             </div>
           </div>
         </AnimatedSection>
