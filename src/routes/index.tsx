@@ -8,7 +8,7 @@ import { CaseModal } from "@/components/CaseModal";
 import { CaseVideo } from "@/components/CaseVideo";
 import { BackgroundVideoSlideshow } from "@/components/BackgroundVideoSlideshow";
 import profilePhoto from "@/assets/profile-photo.png";
-import chimpSuit from "@/assets/ai-udvikling4.png";
+import chimpSuit from "@/assets/ai-udvikling6.png";
 import kompetence01Bg from "@/assets/kompetence-01-ux-research.jpg";
 import kompetence02Bg from "@/assets/kompetence-02-servicedesign.jpg";
 import kompetence03Bg from "@/assets/kompetence-03-formidling.jpg";
