@@ -485,29 +485,7 @@ function AiOgForandringPage() {
               padding: "48px 32px",
               boxSizing: "border-box",
             }}>
-              <div style={{ maxWidth: 680, width: "100%", textAlign: "center" }}>
-                <p style={{
-                  fontFamily: "serif",
-                  fontSize: "clamp(1.3rem, 2.5vw, 1.75rem)",
-                  fontWeight: 700,
-                  lineHeight: 1.5,
-                  color: BEIGE,
-                  margin: "0 0 24px",
-                }}>
-                  De der klarer sig bedst, er dem der kan bevæge sig i begge lag.
-                </p>
-                <p style={{
-                  fontFamily: "serif",
-                  fontSize: "clamp(1rem, 1.8vw, 1.25rem)",
-                  fontWeight: 400,
-                  fontStyle: "italic",
-                  lineHeight: 1.6,
-                  color: `rgba(232,226,217,0.75)`,
-                  margin: 0,
-                }}>
-                  Det felt er der ikke mange der arbejder i. Men det er præcis det her handler om.
-                </p>
-              </div>
+              <div style={{ maxWidth: 680, width: "100%", textAlign: "center" }} />
             </div>
 
             {/* CTA — beige baggrund */}
