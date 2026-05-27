@@ -8,6 +8,9 @@
 
 ## Session-workflow
 
+### Generelle regler
+- Push altid til dev automatisk efter hver ændring — ingen bekræftelse nødvendig.
+
 ### Ved opstart
 Læs seneste commits og opsummer hvad der er aktivt i projektet.
 
