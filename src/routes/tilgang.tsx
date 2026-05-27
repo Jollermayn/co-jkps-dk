@@ -630,6 +630,19 @@ function TilgangPage() {
                 <div className="tilgang-bar tilgang-bar-top" aria-hidden="true" />
                 <div className="tilgang-bar tilgang-bar-bottom" aria-hidden="true" />
               </div>
+              {/* Gradient overlay for celle 0+1 (venstre tekst) */}
+              {i < 2 && (
+                <div
+                  aria-hidden="true"
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    background: "linear-gradient(to right, rgba(0,0,0,0.55) 0%, transparent 70%)",
+                    zIndex: 6,
+                    pointerEvents: "none",
+                  }}
+                />
+              )}
               {/* Animerede tekstlinjer */}
               <div
                 className="tilgang-cell-overlay"
