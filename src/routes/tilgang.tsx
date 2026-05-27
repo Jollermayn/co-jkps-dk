@@ -314,12 +314,12 @@ function TilgangPage() {
             will-change: opacity, transform;
           }
         }
-        @media (max-width: 1023px) {
-          .tilgang-hero-h1 { font-size: 2rem !important; line-height: 1.2 !important; max-width: 70% !important; top: 24px !important; right: 20px !important; }
+        @media (max-width: 768px) {
+          .tilgang-hero-h1 { font-size: 1.5rem !important; line-height: 1.2 !important; max-width: 65% !important; top: 24px !important; right: 24px !important; text-align: right !important; }
           .tilgang-intro-line { font-size: 1.25rem !important; margin-bottom: 56px !important; white-space: nowrap; }
         }
-        @media (max-width: 767px) {
-          .tilgang-hero-h1 { font-size: clamp(1.3rem, 5vw, 1.8rem) !important; max-width: 80% !important; top: 20px !important; right: 16px !important; }
+        @media (max-width: 480px) {
+          .tilgang-hero-h1 { font-size: 1.2rem !important; max-width: 75% !important; top: auto !important; right: auto !important; bottom: 20px !important; left: 20px !important; text-align: left !important; }
           .tilgang-intro-line { font-size: clamp(1rem, 4.2vw, 1.5rem) !important; white-space: nowrap !important; margin-bottom: 48px !important; }
         }
         .tilgang-cell-title-mobile { display: none; }
@@ -479,7 +479,7 @@ function TilgangPage() {
               objectPosition: "right 65%",
             }}
           />
-          {/* Titel overlay — øverste højre hjørne */}
+          {/* Titel overlay — øverste højre hjørne (mobil: nederste venstre) */}
           <h1
             className="tilgang-hero-h1"
             style={{
@@ -488,7 +488,7 @@ function TilgangPage() {
               right: 40,
               margin: 0,
               fontFamily: "serif",
-              fontSize: "2.5rem",
+              fontSize: "2rem",
               fontWeight: 700,
               color: "#F5F0E8",
               lineHeight: 1.2,
