@@ -315,11 +315,11 @@ function TilgangPage() {
           }
         }
         @media (max-width: 768px) {
-          .tilgang-hero-h1 { font-size: 1.5rem !important; line-height: 1.2 !important; max-width: 65% !important; bottom: 24px !important; right: 24px !important; text-align: right !important; }
+          .tilgang-hero-h1 { font-size: 1.5rem !important; line-height: 1.2 !important; bottom: 24px !important; text-align: center !important; }
           .tilgang-intro-line { font-size: 1.25rem !important; margin-bottom: 56px !important; white-space: nowrap; }
         }
         @media (max-width: 480px) {
-          .tilgang-hero-h1 { font-size: 1.2rem !important; max-width: 80% !important; bottom: 20px !important; right: 20px !important; text-align: right !important; }
+          .tilgang-hero-h1 { font-size: 1.2rem !important; bottom: 20px !important; text-align: center !important; }
           .tilgang-intro-line { font-size: clamp(1rem, 4.2vw, 1.5rem) !important; white-space: nowrap !important; margin-bottom: 48px !important; }
         }
         .tilgang-cell-title-mobile { display: none; }
@@ -479,21 +479,23 @@ function TilgangPage() {
               objectPosition: "right 65%",
             }}
           />
-          {/* Titel overlay — nederste højre hjørne */}
+          {/* Titel overlay — nederste center */}
           <h1
             className="tilgang-hero-h1"
             style={{
               position: "absolute",
               bottom: 40,
-              right: 40,
-              margin: 0,
+              left: 0,
+              right: 0,
+              margin: "0 auto",
               fontFamily: "serif",
               fontSize: "2.2rem",
               fontWeight: 700,
               color: "#F5F0E8",
               lineHeight: 1.2,
-              textAlign: "right",
-              maxWidth: 480,
+              textAlign: "center",
+              maxWidth: 680,
+              padding: "0 24px",
               textShadow: "0 2px 12px rgba(0,0,0,0.7), 0 1px 4px rgba(0,0,0,0.5)",
             }}
           >
