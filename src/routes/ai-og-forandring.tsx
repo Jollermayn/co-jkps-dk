@@ -111,6 +111,7 @@ function AiOgForandringPage() {
             flex-direction: column !important;
             justify-content: space-between !important;
             align-items: center !important;
+            text-align: center !important;
             width: 100% !important;
             padding: 32px 24px 48px !important;
             min-height: calc(90vh - 72px) !important;
@@ -258,7 +259,7 @@ function AiOgForandringPage() {
               background: "linear-gradient(to bottom, rgba(10,22,40,0.6) 0%, rgba(10,22,40,0.78) 100%)",
             }}
           />
-          <div className="aif-hero-content" style={{ position: "relative", zIndex: 1, padding: "120px 24px 100px" }}>
+          <div className="aif-hero-content" style={{ position: "relative", zIndex: 1, padding: "120px 6vw 100px", textAlign: "left", alignSelf: "stretch", display: "flex", flexDirection: "column", alignItems: "flex-start", justifyContent: "center" }}>
             <p
               style={{
                 fontFamily: "serif",
