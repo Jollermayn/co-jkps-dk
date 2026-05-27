@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
 import { SiteLogo } from "@/components/SiteLogo";
 import { MenuIcon } from "@/components/MenuIcon";
+import heroImg from "@/assets/ai-og-forandring-hero.png";
 
 export const Route = createFileRoute("/ai-og-forandring")({
   head: () => ({
@@ -199,46 +200,76 @@ function AiOgForandringPage() {
         {/* HERO */}
         <section
           style={{
-            backgroundColor: NAVY,
-            padding: "100px 24px 96px",
+            position: "relative",
+            minHeight: "90vh",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
             textAlign: "center",
+            overflow: "hidden",
           }}
         >
-          <p
+          {/* Baggrundsbillede */}
+          <img
+            src={heroImg}
+            alt=""
+            aria-hidden="true"
             style={{
-              fontFamily: "serif",
-              fontSize: "0.85rem",
-              fontWeight: 600,
-              letterSpacing: "0.15em",
-              textTransform: "uppercase",
-              color: RED,
-              marginBottom: 24,
-            }}
-          >
-            AI og forandring
-          </p>
-          <h1
-            className="aif-hero-title"
-            style={{
-              fontFamily: "serif",
-              fontSize: "4.5rem",
-              fontWeight: 700,
-              color: "#F5F0E8",
-              lineHeight: 1.1,
-              margin: "0 auto 32px",
-              maxWidth: 820,
-            }}
-          >
-            En side til dem der ved at noget sker — men ikke helt ved hvad.
-          </h1>
-          <div
-            style={{
-              width: 48,
-              height: 2,
-              background: RED,
-              margin: "0 auto",
+              position: "absolute",
+              inset: 0,
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              objectPosition: "center",
             }}
           />
+          {/* Mørkt overlay */}
+          <div
+            aria-hidden="true"
+            style={{
+              position: "absolute",
+              inset: 0,
+              background: "linear-gradient(to bottom, rgba(10,22,40,0.65) 0%, rgba(10,22,40,0.75) 100%)",
+            }}
+          />
+          {/* Indhold */}
+          <div style={{ position: "relative", zIndex: 1, padding: "120px 24px 100px" }}>
+            <p
+              style={{
+                fontFamily: "serif",
+                fontSize: "0.85rem",
+                fontWeight: 600,
+                letterSpacing: "0.15em",
+                textTransform: "uppercase",
+                color: RED,
+                marginBottom: 24,
+              }}
+            >
+              AI og forandring
+            </p>
+            <h1
+              className="aif-hero-title"
+              style={{
+                fontFamily: "serif",
+                fontSize: "4.5rem",
+                fontWeight: 700,
+                color: "#F5F0E8",
+                lineHeight: 1.1,
+                margin: "0 auto 32px",
+                maxWidth: 820,
+              }}
+            >
+              En side til dem der ved at noget sker — men ikke helt ved hvad.
+            </h1>
+            <div
+              style={{
+                width: 48,
+                height: 2,
+                background: RED,
+                margin: "0 auto",
+              }}
+            />
+          </div>
         </section>
 
         {/* CONTENT SECTIONS */}
