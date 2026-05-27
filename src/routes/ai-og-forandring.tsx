@@ -485,18 +485,6 @@ function AiOgForandringPage() {
                 </p>
                 <p style={{
                   fontFamily: "serif",
-                  fontSize: "clamp(1.1rem, 2vw, 1.4rem)",
-                  fontWeight: 600,
-                  lineHeight: 1.5,
-                  color: BEIGE,
-                  margin: "0 0 24px",
-                  borderTop: `1px solid rgba(232,226,217,0.2)`,
-                  paddingTop: 24,
-                }}>
-                  Det kræver nogen der taler begge sprog.
-                </p>
-                <p style={{
-                  fontFamily: "serif",
                   fontSize: "clamp(1rem, 1.8vw, 1.25rem)",
                   fontWeight: 400,
                   fontStyle: "italic",
