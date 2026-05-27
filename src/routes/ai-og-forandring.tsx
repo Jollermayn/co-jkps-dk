@@ -100,23 +100,62 @@ function AiOgForandringPage() {
         }
         .aif-tales-link:hover::after { transform: scaleX(1); }
         @keyframes aif-fade { from { opacity: 0; } to { opacity: 1; } }
+
+        /* Desktop split layout */
+        .aif-hero-section { display: flex; flex-direction: row; min-height: 90vh; }
+        .aif-hero-left {
+          width: 35%;
+          flex-shrink: 0;
+          background: #ffffff;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          padding: 64px 48px;
+          box-sizing: border-box;
+        }
+        .aif-hero-right {
+          flex: 1;
+          position: relative;
+          overflow: hidden;
+        }
+        .aif-hero-img {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+        }
+        .aif-hero-mobile-overlay,
+        .aif-hero-mobile-content { display: none; }
+
+        /* Mobile: full-width image with overlay */
         @media (max-width: 767px) {
-          .aif-hero-title { font-size: 2.8rem !important; line-height: 1.15 !important; }
+          .aif-hero-section { flex-direction: column; min-height: 90vh; }
+          .aif-hero-left { display: none; }
+          .aif-hero-right { width: 100%; flex: 1; min-height: 90vh; position: relative; }
+          .aif-hero-img { object-position: center 30% !important; }
+          .aif-hero-mobile-overlay {
+            display: block;
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(10,22,40,0.6) 0%, rgba(10,22,40,0.78) 100%);
+            pointer-events: none;
+          }
+          .aif-hero-mobile-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            position: absolute;
+            inset: 0;
+            padding: 32px 24px 48px;
+            box-sizing: border-box;
+            z-index: 1;
+          }
           .aif-body-text { font-size: 1.1rem !important; }
           .aif-cta-text { font-size: clamp(1.6rem, 7vw, 2.4rem) !important; }
-          .aif-hero-img { object-fit: cover !important; object-position: center 30% !important; }
-          .aif-hero-section { min-height: 90vh !important; align-items: stretch !important; }
-          .aif-hero-content {
-            display: flex !important;
-            flex-direction: column !important;
-            justify-content: space-between !important;
-            align-items: center !important;
-            text-align: center !important;
-            width: 100% !important;
-            padding: 32px 24px 48px !important;
-            min-height: calc(90vh - 72px) !important;
-            box-sizing: border-box !important;
-          }
         }
       `}</style>
 
@@ -224,70 +263,71 @@ function AiOgForandringPage() {
 
       <main style={{ paddingTop: 72 }}>
 
-        {/* HERO */}
-        <section
-          className="aif-hero-section"
-          style={{
-            position: "relative",
-            minHeight: "90vh",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            textAlign: "center",
-            overflow: "hidden",
-          }}
-        >
-          <img
-            src={heroImg}
-            alt=""
-            aria-hidden="true"
-            className="aif-hero-img"
-            style={{
-              position: "absolute",
-              inset: 0,
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              objectPosition: "center",
-            }}
-          />
-          <div
-            aria-hidden="true"
-            style={{
-              position: "absolute",
-              inset: 0,
-              background: "linear-gradient(to bottom, rgba(10,22,40,0.6) 0%, rgba(10,22,40,0.78) 100%)",
-            }}
-          />
-          <div className="aif-hero-content" style={{ position: "relative", zIndex: 1, padding: "120px 6vw 100px", textAlign: "left", alignSelf: "stretch", display: "flex", flexDirection: "column", alignItems: "flex-start", justifyContent: "center" }}>
-            <p
-              style={{
+        {/* HERO — split layout */}
+        <section className="aif-hero-section">
+
+          {/* Venstre: tekst på hvid baggrund (desktop only) */}
+          <div className="aif-hero-left">
+            <p style={{
+              fontFamily: "serif",
+              fontSize: "0.8rem",
+              fontWeight: 600,
+              letterSpacing: "0.15em",
+              textTransform: "uppercase",
+              color: RED,
+              margin: "0 0 32px",
+            }}>
+              AI og forandring
+            </p>
+            <h1 style={{
+              fontFamily: "serif",
+              fontSize: "2.4rem",
+              fontWeight: 700,
+              color: NAVY,
+              lineHeight: 1.15,
+              margin: 0,
+            }}>
+              Forandringen<br />er i gang<br />og det går<br />stærkt…
+            </h1>
+          </div>
+
+          {/* Højre: billede */}
+          <div className="aif-hero-right">
+            <img
+              src={heroImg}
+              alt=""
+              aria-hidden="true"
+              className="aif-hero-img"
+            />
+            {/* Mobile overlay */}
+            <div className="aif-hero-mobile-overlay" aria-hidden="true" />
+            {/* Mobile tekst */}
+            <div className="aif-hero-mobile-content">
+              <p style={{
                 fontFamily: "serif",
-                fontSize: "0.85rem",
+                fontSize: "0.8rem",
                 fontWeight: 600,
                 letterSpacing: "0.15em",
                 textTransform: "uppercase",
                 color: RED,
-                marginBottom: 32,
-              }}
-            >
-              AI og forandring
-            </p>
-            <h1
-              className="aif-hero-title"
-              style={{
+                margin: 0,
+              }}>
+                AI og forandring
+              </p>
+              <h1 style={{
                 fontFamily: "serif",
-                fontSize: "5rem",
+                fontSize: "2.4rem",
                 fontWeight: 700,
                 color: "#F5F0E8",
-                lineHeight: 1.1,
-                margin: "0 auto 0",
-                maxWidth: 760,
-              }}
-            >
-              Forandringen er i gang<br />og det går stærkt…
-            </h1>
+                lineHeight: 1.15,
+                margin: 0,
+                textShadow: "0 2px 12px rgba(0,0,0,0.6)",
+              }}>
+                Forandringen<br />er i gang<br />og det går stærkt…
+              </h1>
+            </div>
           </div>
+
         </section>
 
         {/* TEKST-SEKTIONER */}
