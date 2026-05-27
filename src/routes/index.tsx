@@ -1205,23 +1205,8 @@ function Index() {
                     src={chimpSuit}
                     alt=""
                     aria-hidden="true"
-                    className="w-[320px] md:w-[340px]"
-                    style={{ display: "block", objectFit: "contain", height: "auto", maxWidth: "100%", marginRight: "-20px", position: "relative", zIndex: 1, transform: "scaleX(-1)" }}
-                  />
-                  <div
-                    aria-hidden="true"
-                    style={{
-                      position: "absolute",
-                      left: "50%",
-                      bottom: "8px",
-                      transform: "translateX(calc(-50% - 10px))",
-                      width: "70%",
-                      height: "22px",
-                      background: "radial-gradient(ellipse at center, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.18) 40%, rgba(0,0,0,0) 70%)",
-                      filter: "blur(4px)",
-                      zIndex: 0,
-                      pointerEvents: "none",
-                    }}
+                    className="w-full md:w-[420px]"
+                    style={{ display: "block", objectFit: "contain", height: "auto", maxWidth: "100%", borderRadius: "4px" }}
                   />
                 </div>
               </div>
