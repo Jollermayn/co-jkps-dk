@@ -458,8 +458,6 @@ function AiOgForandringPage() {
         {/* SEKTION 4 — centreret, fuld bredde */}
         <AnimatedSection delay={0}>
           <section style={{ backgroundColor: BEIGE }}>
-            {/* Billede placeholder fuld bredde */}
-            <div style={{ width: "100%", height: "40vw", minHeight: 240, maxHeight: 500, backgroundColor: "#0D1B2A" }} />
             {/* Centreret tekst */}
             <div style={{ maxWidth: 680, marginInline: "auto", padding: "120px 32px", textAlign: "center" }}>
               <p style={{
@@ -493,6 +491,8 @@ function AiOgForandringPage() {
                 Vær nysgerrig på udviklingen. Brug teknologien. Men behold dig selv i centrum af det.
               </p>
             </div>
+            {/* Billede placeholder fuld bredde — afsluttende */}
+            <div style={{ width: "100%", height: "45vw", minHeight: 320, maxHeight: 650, backgroundColor: "#0D1B2A" }} />
           </section>
         </AnimatedSection>
 
