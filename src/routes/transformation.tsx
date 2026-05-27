@@ -723,8 +723,6 @@ function TransformationPage() {
 function Section4Text() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-10% 0px" });
-  const words = ["Kreativitet.", "Leg.", "Nysgerrighed.", "Kærlighed."];
-
   return (
     <div ref={ref} style={{ maxWidth: 680, marginInline: "auto", padding: "120px 32px", textAlign: "center" }}>
       <motion.p
@@ -743,26 +741,6 @@ function Section4Text() {
         Nogle ting kan aldrig erstattes.
       </motion.p>
 
-      <p style={{
-        fontFamily: "serif",
-        fontSize: "clamp(1.3rem, 2.5vw, 1.9rem)",
-        fontWeight: 400,
-        fontStyle: "italic",
-        lineHeight: 1.5,
-        color: NAVY,
-        margin: 0,
-      }}>
-        {words.map((word, i) => (
-          <motion.span
-            key={word}
-            initial={{ opacity: 0 }}
-            animate={inView ? { opacity: 1 } : { opacity: 0 }}
-            transition={{ duration: 1.4, ease: "easeIn", delay: 1.1 + i * 1 }}
-          >
-            {word}{i < words.length - 1 ? " " : ""}
-          </motion.span>
-        ))}
-      </p>
     </div>
   );
 }
