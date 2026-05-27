@@ -1414,9 +1414,9 @@ function Index() {
                     href="https://www.linkedin.com/in/jonaskps/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block mt-3 font-display text-xl md:text-2xl hover:text-ember transition-colors"
+                    className="block mt-3 font-display text-xl md:text-2xl hover:text-ember hover:underline transition-colors"
                   >
-                    Find mig på LinkedIn
+                    Find mig på LinkedIn →
                   </a>
                 </div>
               </div>
