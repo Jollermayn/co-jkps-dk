@@ -335,14 +335,15 @@ function TilgangPage() {
             display: block !important;
             font-family: serif;
             font-weight: 700;
-            font-size: 1.25rem;
-            line-height: 1.3;
+            font-size: 1.35rem;
+            line-height: 1.4;
             color: #000000;
             text-align: center;
-            padding: 18px 24px 0;
+            padding: 18px 16px 0;
             opacity: 0;
             transform: translateY(16px);
             will-change: opacity, transform;
+            white-space: nowrap;
           }
         }
         @keyframes tilgang-fade-in {
@@ -746,8 +747,8 @@ function TilgangPage() {
                 </svg>
               </div>
               <div className="tilgang-cell-title-mobile" ref={(el) => { titleRefs.current[i] = el; }}>
-                <span style={{ whiteSpace: "pre-line", display: "block" }}>{cell.line1}</span>
-                <span style={{ whiteSpace: "pre-line", display: "block", fontStyle: "italic", fontWeight: 400 }}>{cell.line2}</span>
+                <span style={{ display: "block" }}>{cell.line1.replace(/\n/g, " ")}</span>
+                <span style={{ display: "block", fontStyle: "italic", fontWeight: 400 }}>{cell.line2.replace(/\n/g, " ")}</span>
               </div>
             </div>
           ))}
