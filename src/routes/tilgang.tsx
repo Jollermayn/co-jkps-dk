@@ -230,24 +230,16 @@ function TilgangPage() {
         .tilgang-nav-link:hover { color: ${RED} !important; }
         .tilgang-cell-img { filter: grayscale(100%); transition: filter 0.4s ease; }
         .tilgang-video-frame { position: absolute; inset: 0; overflow: hidden; }
-        .tilgang-bar { position: absolute; left: 0; right: 0; height: 30px; background: #000; z-index: 5; pointer-events: none; transition: transform 0.5s ease; }
-        .tilgang-bar-top { top: 0; transform: translateY(-100%); }
-        .tilgang-bar-bottom { bottom: 0; transform: translateY(100%); }
-        .tilgang-cell:hover .tilgang-bar-top { transform: translateY(0); }
-        .tilgang-cell:hover .tilgang-bar-bottom { transform: translateY(0); }
+        .tilgang-bar { position: absolute; left: 0; right: 0; height: 30px; background: #000; z-index: 5; pointer-events: none; }
+        .tilgang-bar-top { top: 0; }
+        .tilgang-bar-bottom { bottom: 0; }
         @media (max-width: 1024px) { .tilgang-play-btn { display: none !important; } }
         @media (max-width: 1024px) {
           .tilgang-cell { background-color: transparent !important; }
         }
-        @media (max-width: 767px) {
+        @media (max-width: 1024px) {
           .tilgang-bar-top { height: 15px !important; }
           .tilgang-bar-bottom { height: 15px !important; }
-          .tilgang-bar-top, .tilgang-bar-bottom { transform: translateY(0) !important; }
-        }
-        @media (min-width: 768px) and (max-width: 1024px) {
-          .tilgang-bar-top { height: 15px !important; }
-          .tilgang-bar-bottom { height: 15px !important; }
-          .tilgang-bar-top, .tilgang-bar-bottom { transform: translateY(0) !important; }
         }
         @media (min-width: 768px) {
           .tilgang-cell { min-height: 0 !important; aspect-ratio: auto !important; }
