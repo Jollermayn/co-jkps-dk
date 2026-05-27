@@ -380,7 +380,7 @@ function AiOgForandringPage() {
           <div className="aif-split" style={{ flexDirection: "row-reverse" }}>
             <div className="aif-split-img" />
             <div className="aif-split-text" style={{ background: "#E8E2D9" }}>
-              <p>De der overlevede dampmaskinens indtog, elektriciteten og internettet var ikke dem der ignorerede forandringen — eller dem der bare købte teknologien.</p>
+              <p>De der overlevede dampmaskinens indtog, elektriciteten og internettet var ikke dem der ignorerede forandringen.</p>
               <p style={{ fontStyle: "italic", fontWeight: 700, fontSize: "1.3rem", lineHeight: 1.6 }}>Det var dem der forstod hvad den ændrede ved måden mennesker arbejder og tænker.</p>
               <p>Forskning fra MIT og Harvard bekræfter det samme mønster i dag.</p>
             </div>
