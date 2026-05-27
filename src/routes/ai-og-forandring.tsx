@@ -313,17 +313,6 @@ function AiOgForandringPage() {
 
           {/* Venstre: tekst på hvid baggrund (desktop only) */}
           <div className="aif-hero-left">
-            <p style={{
-              fontFamily: "serif",
-              fontSize: "0.8rem",
-              fontWeight: 600,
-              letterSpacing: "0.15em",
-              textTransform: "uppercase",
-              color: RED,
-              margin: "0 0 32px",
-            }}>
-              AI og forandring
-            </p>
             <h1 style={{
               fontFamily: "serif",
               fontSize: "2.4rem",
@@ -350,17 +339,6 @@ function AiOgForandringPage() {
             <div className="aif-hero-mobile-overlay" aria-hidden="true" />
             {/* Mobile tekst */}
             <div className="aif-hero-mobile-content">
-              <p style={{
-                fontFamily: "serif",
-                fontSize: "0.8rem",
-                fontWeight: 600,
-                letterSpacing: "0.15em",
-                textTransform: "uppercase",
-                color: RED,
-                margin: 0,
-              }}>
-                AI og forandring
-              </p>
               <h1 style={{
                 fontFamily: "serif",
                 fontSize: "2.4rem",
