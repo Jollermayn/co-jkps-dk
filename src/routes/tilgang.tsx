@@ -239,6 +239,8 @@ function TilgangPage() {
         }
         @media (max-width: 768px) {
           .tilgang-cell-img--maze { object-position: 20% center !important; }
+          .tilgang-cell-gradient--left { background: linear-gradient(to top, rgba(0,0,0,0.35) 0%, transparent 60%) !important; }
+          .tilgang-cell-gradient--bottom { background: linear-gradient(to top, rgba(0,0,0,0.35) 0%, transparent 60%) !important; }
         }
         @media (max-width: 1024px) {
           .tilgang-bar-top { height: 15px !important; }
@@ -646,6 +648,7 @@ function TilgangPage() {
               {/* Gradient overlay — venstre for celle 0+1, bund for celle 2+3 */}
               <div
                 aria-hidden="true"
+                className={i < 2 ? "tilgang-cell-gradient tilgang-cell-gradient--left" : "tilgang-cell-gradient tilgang-cell-gradient--bottom"}
                 style={{
                   position: "absolute",
                   inset: 0,
@@ -743,7 +746,10 @@ function TilgangPage() {
                   <polygon points="6,4 20,12 6,20" />
                 </svg>
               </div>
-              <div className="tilgang-cell-title-mobile" ref={(el) => { titleRefs.current[i] = el; }}>{cell.line1} {cell.line2}</div>
+              <div className="tilgang-cell-title-mobile" ref={(el) => { titleRefs.current[i] = el; }}>
+                <span style={{ whiteSpace: "pre-line", display: "block" }}>{cell.line1}</span>
+                <span style={{ whiteSpace: "pre-line", display: "block", fontStyle: "italic", fontWeight: 400 }}>{cell.line2}</span>
+              </div>
             </div>
           ))}
         </section>
