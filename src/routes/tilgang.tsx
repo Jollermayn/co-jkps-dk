@@ -230,23 +230,24 @@ function TilgangPage() {
         .tilgang-nav-link:hover { color: ${RED} !important; }
         .tilgang-cell-img { filter: grayscale(100%); transition: filter 0.4s ease; }
         .tilgang-video-frame { position: absolute; inset: 0; overflow: hidden; }
-        .tilgang-bar { position: absolute; left: 0; right: 0; height: 40px; background: #000; z-index: 5; pointer-events: none; }
-        .tilgang-bar-top { top: 0; height: 30px; }
-        .tilgang-bar-bottom { bottom: 0; height: 30px; transition: height 0.6s ease; }
-        .tilgang-cell:hover .tilgang-bar-bottom { height: 45px; }
+        .tilgang-bar { position: absolute; left: 0; right: 0; height: 30px; background: #000; z-index: 5; pointer-events: none; transition: transform 0.5s ease; }
+        .tilgang-bar-top { top: 0; transform: translateY(-100%); }
+        .tilgang-bar-bottom { bottom: 0; transform: translateY(100%); }
+        .tilgang-cell:hover .tilgang-bar-top { transform: translateY(0); }
+        .tilgang-cell:hover .tilgang-bar-bottom { transform: translateY(0); }
         @media (max-width: 1024px) { .tilgang-play-btn { display: none !important; } }
         @media (max-width: 1024px) {
           .tilgang-cell { background-color: transparent !important; }
         }
         @media (max-width: 767px) {
-          .tilgang-bar-top { display: block !important; height: 15px !important; }
-          .tilgang-bar-bottom { display: block !important; height: 15px !important; }
-          .tilgang-cell:hover .tilgang-bar-bottom { height: 15px !important; }
+          .tilgang-bar-top { height: 15px !important; }
+          .tilgang-bar-bottom { height: 15px !important; }
+          .tilgang-bar-top, .tilgang-bar-bottom { transform: translateY(0) !important; }
         }
         @media (min-width: 768px) and (max-width: 1024px) {
-          .tilgang-bar-top { display: block !important; height: 15px !important; }
-          .tilgang-bar-bottom { display: block !important; height: 15px !important; }
-          .tilgang-cell:hover .tilgang-bar-bottom { height: 15px !important; }
+          .tilgang-bar-top { height: 15px !important; }
+          .tilgang-bar-bottom { height: 15px !important; }
+          .tilgang-bar-top, .tilgang-bar-bottom { transform: translateY(0) !important; }
         }
         @media (min-width: 768px) {
           .tilgang-cell { min-height: 0 !important; aspect-ratio: auto !important; }
@@ -635,6 +636,7 @@ function TilgangPage() {
                   }}
                 />
                 <div className="tilgang-bar tilgang-bar-top" aria-hidden="true" />
+                <div className="tilgang-bar tilgang-bar-bottom" aria-hidden="true" />
               </div>
               {/* Animerede tekstlinjer */}
               <div
