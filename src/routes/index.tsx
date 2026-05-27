@@ -1273,7 +1273,7 @@ function Index() {
                       letterSpacing: "0.05em",
                     }}
                   >
-                    Se min tilgang →
+                    Tilgang →
                   </span>
                 </Link>
               </div>
