@@ -101,16 +101,17 @@ function AiOgForandringPage() {
         .aif-tales-link:hover::after { transform: scaleX(1); }
         @keyframes aif-fade { from { opacity: 0; } to { opacity: 1; } }
 
-        /* Split content sections */
+        /* Split content sections — 35% tekst / 65% billede, identisk med hero */
         .aif-split { display: flex; flex-direction: row; min-height: 100vh; }
-        .aif-split-img { flex: 0 0 45%; position: relative; background: #0D1B2A; }
+        .aif-split-img { flex: 1; position: relative; background: #0D1B2A; overflow: hidden; }
         .aif-split-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
         .aif-split-text {
-          flex: 1;
+          flex: 0 0 35%;
+          width: 35%;
           display: flex;
           flex-direction: column;
           justify-content: center;
-          padding: 80px 64px;
+          padding: 64px 48px;
           background: #ffffff;
           box-sizing: border-box;
         }
@@ -124,8 +125,8 @@ function AiOgForandringPage() {
         .aif-split-text p:last-child { margin-bottom: 0; }
         @media (max-width: 767px) {
           .aif-split { flex-direction: column; min-height: auto; }
-          .aif-split-img { flex: none; height: 280px; }
-          .aif-split-text { padding: 48px 24px; }
+          .aif-split-img { flex: none; width: 100%; height: 280px; }
+          .aif-split-text { flex: none; width: 100%; padding: 48px 24px; }
           .aif-split-text p { font-size: 1.05rem !important; }
         }
 
