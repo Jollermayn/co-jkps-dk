@@ -320,11 +320,26 @@ function AiOgForandringPage() {
               fontSize: "2.4rem",
               fontWeight: 700,
               color: NAVY,
-              lineHeight: 1.15,
+              lineHeight: 1.2,
               margin: 0,
+              opacity: 0,
+              animation: "aif-fade 0.8s ease 0.2s both",
             }}>
-              Forandringen<br />er i gang<br />og det går<br />stærkt…
+              Forandringen er i gang
             </h1>
+            <p style={{
+              fontFamily: "serif",
+              fontSize: "1.9rem",
+              fontWeight: 400,
+              fontStyle: "italic",
+              color: NAVY,
+              lineHeight: 1.2,
+              margin: "2rem 0 0",
+              opacity: 0,
+              animation: "aif-fade 0.8s ease 1.2s both",
+            }}>
+              og det går stærkt...
+            </p>
           </div>
 
           {/* Højre: billede */}
@@ -355,12 +370,28 @@ function AiOgForandringPage() {
                 fontSize: "2.4rem",
                 fontWeight: 700,
                 color: "#F5F0E8",
-                lineHeight: 1.15,
+                lineHeight: 1.2,
                 margin: 0,
                 textShadow: "0 2px 12px rgba(0,0,0,0.6)",
+                opacity: 0,
+                animation: "aif-fade 0.8s ease 0.2s both",
               }}>
-                Forandringen<br />er i gang<br />og det går stærkt…
+                Forandringen er i gang
               </h1>
+              <p style={{
+                fontFamily: "serif",
+                fontSize: "1.9rem",
+                fontWeight: 400,
+                fontStyle: "italic",
+                color: "#F5F0E8",
+                lineHeight: 1.2,
+                margin: "2rem 0 0",
+                textShadow: "0 2px 12px rgba(0,0,0,0.6)",
+                opacity: 0,
+                animation: "aif-fade 0.8s ease 1.2s both",
+              }}>
+                og det går stærkt...
+              </p>
             </div>
           </div>
 
