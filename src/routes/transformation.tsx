@@ -85,7 +85,7 @@ function useScrollFocus() {
   return {
     ref,
     focusStyle: {
-      opacity: active ? 1 : 0.25,
+      opacity: active ? 1 : 0.1,
       transition: active ? "opacity 0.8s ease" : "opacity 1.2s ease",
     } as React.CSSProperties,
   };
