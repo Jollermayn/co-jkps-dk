@@ -285,7 +285,7 @@ function AiOgForandringPage() {
                 maxWidth: 760,
               }}
             >
-              Det går stærkt…
+              Forandringen er i gang<br />og det går stærkt…
             </h1>
           </div>
         </section>
