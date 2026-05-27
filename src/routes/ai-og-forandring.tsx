@@ -101,6 +101,34 @@ function AiOgForandringPage() {
         .aif-tales-link:hover::after { transform: scaleX(1); }
         @keyframes aif-fade { from { opacity: 0; } to { opacity: 1; } }
 
+        /* Split content sections */
+        .aif-split { display: flex; flex-direction: row; min-height: 100vh; }
+        .aif-split-img { flex: 0 0 45%; position: relative; background: #0D1B2A; }
+        .aif-split-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+        .aif-split-text {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          padding: 80px 64px;
+          background: #ffffff;
+          box-sizing: border-box;
+        }
+        .aif-split-text p {
+          font-family: serif;
+          font-size: 1.15rem;
+          line-height: 1.8;
+          color: ${NAVY};
+          margin: 0 0 20px;
+        }
+        .aif-split-text p:last-child { margin-bottom: 0; }
+        @media (max-width: 767px) {
+          .aif-split { flex-direction: column; min-height: auto; }
+          .aif-split-img { flex: none; height: 280px; }
+          .aif-split-text { padding: 48px 24px; }
+          .aif-split-text p { font-size: 1.05rem !important; }
+        }
+
         /* Desktop split layout */
         .aif-hero-section { display: flex; flex-direction: row; min-height: 90vh; }
         .aif-hero-left {
@@ -330,180 +358,95 @@ function AiOgForandringPage() {
 
         </section>
 
-        {/* TEKST-SEKTIONER */}
-        <div style={{ maxWidth: 680, marginInline: "auto", padding: "0 24px" }}>
+        {/* Rød separator */}
+        <div style={{ display: "flex", justifyContent: "center", padding: "40px 0 0" }}>
+          <div style={{ width: 60, height: 1, background: RED }} />
+        </div>
 
-          <AnimatedSection delay={0}>
-            <div style={{ padding: "88px 0 80px", borderBottom: `1px solid rgba(10,22,40,0.1)` }}>
+        {/* SEKTION 1 — billede venstre, tekst højre */}
+        <AnimatedSection delay={0}>
+          <div className="aif-split">
+            <div className="aif-split-img" />
+            <div className="aif-split-text">
+              <p>De fleste af os prøver bare at følge med.</p>
+              <p>Ikke fordi vi har en plan. Men fordi frygten for at blive overhalet er reel. Konkurrenterne nævner det. Medarbejderne spørger om det. Kunderne forventer det.</p>
+              <p>Så vi hopper med — i håbet om ikke at falde af.</p>
+            </div>
+          </div>
+        </AnimatedSection>
+
+        {/* SEKTION 2 — tekst venstre, billede højre */}
+        <AnimatedSection delay={0}>
+          <div className="aif-split" style={{ flexDirection: "row-reverse" }}>
+            <div className="aif-split-img" />
+            <div className="aif-split-text">
+              <p>Det er helt naturligt. Og det er et godt sted at starte.</p>
+              <p>Det har altid været sådan. De der overlevede dampmaskinens indtog, elektriciteten og internettet var ikke dem der ignorerede forandringen — eller dem der bare købte teknologien. Det var dem der forstod hvad den ændrede ved måden mennesker arbejder og tænker.</p>
+              <p>Forskning fra MIT og Harvard bekræfter det samme mønster i dag.</p>
+            </div>
+          </div>
+        </AnimatedSection>
+
+        {/* SEKTION 3 — billede venstre, tekst højre */}
+        <AnimatedSection delay={0}>
+          <div className="aif-split">
+            <div className="aif-split-img" />
+            <div className="aif-split-text">
+              <p>Organisationer investerer i AI-værktøjer og opdager at ingenting ændrer sig. Medarbejderne bruger dem ikke. Kunderne mærker ingen forskel. Ledelsen ved ikke hvorfor.</p>
+              <p>Det er ikke et teknisk problem. Det er et menneskeligt et.</p>
+              <p>AI kan generere, automatisere og optimere. Det den ikke kan er at forstå hvorfor folk gør som de gør — og designe udenom det.</p>
+            </div>
+          </div>
+        </AnimatedSection>
+
+        {/* SEKTION 4 — centreret, fuld bredde */}
+        <AnimatedSection delay={0}>
+          <section style={{ backgroundColor: "#ffffff", padding: "0 0 120px" }}>
+            {/* Billede placeholder fuld bredde */}
+            <div style={{ width: "100%", maxHeight: 500, height: "40vw", minHeight: 240, backgroundColor: "#0D1B2A" }} />
+            {/* Centreret tekst */}
+            <div style={{ maxWidth: 760, marginInline: "auto", padding: "80px 32px 60px", textAlign: "center" }}>
               {[
-                "De fleste af os prøver bare at følge med.",
-                "Ikke fordi vi har en plan. Men fordi frygten for at blive afkoblet er reel. Konkurrenterne nævner det. Medarbejderne spørger om det. Kunderne forventer det.",
-                "Så vi hopper med — i håbet om ikke at falde af.",
-                "Det er helt naturligt. Og det er et godt sted at starte.",
-                "Udfordringen er ikke teknologien. Det er at holde fast i sin egen tænkning, mens alt bevæger sig hurtigt — og bruge AI på dens præmisser, ikke omvendt.",
-                "De der kommer til at klare sig bedst, er dem der kan bevæge sig i begge lag: som forstår teknologien godt nok til at bruge den, men ikke mister deres egen dømmekraft, empati og situationsfornemmelse undervejs.",
+                "De der klarer sig bedst, er dem der kan bevæge sig i begge lag.",
+                "Det kræver nogen der taler begge sprog.",
+                "Det felt er der ikke mange der arbejder i. Men det er præcis det her handler om.",
               ].map((line, i) => (
-                <p
-                  key={i}
-                  className="aif-body-text"
-                  style={{
-                    fontFamily: "serif",
-                    fontSize: "1.25rem",
-                    lineHeight: 1.7,
-                    color: NAVY,
-                    margin: "0 0 20px",
-                  }}
-                >
+                <p key={i} style={{
+                  fontFamily: "serif",
+                  fontSize: i === 0 ? "1.7rem" : "1.4rem",
+                  fontWeight: i === 0 ? 700 : 400,
+                  fontStyle: i === 2 ? "italic" : "normal",
+                  lineHeight: 1.5,
+                  color: NAVY,
+                  margin: "0 0 28px",
+                }}>
                   {line}
                 </p>
               ))}
-            </div>
-          </AnimatedSection>
-
-          <AnimatedSection delay={0.1}>
-            <div style={{ padding: "80px 0", borderBottom: `1px solid rgba(10,22,40,0.1)` }}>
-              <p
-                className="aif-body-text"
-                style={{
-                  fontFamily: "serif",
-                  fontSize: "1.25rem",
-                  lineHeight: 1.7,
-                  color: NAVY,
-                  margin: "0 0 24px",
-                  fontWeight: 700,
-                }}
-              >
-                Det er ikke teknologien det handler om.
-              </p>
-              <p
-                className="aif-body-text"
-                style={{
-                  fontFamily: "serif",
-                  fontSize: "1.25rem",
-                  lineHeight: 1.7,
-                  color: "#2a3a52",
-                  margin: "0 0 28px",
-                }}
-              >
-                De fleste implementeringer fejler ikke fordi systemet er dårligt.
-                De fejler fordi ingen stillede de rigtige spørgsmål inden.
-              </p>
-              {[
-                "Hvem skal bruge det her?",
-                "Hvad stopper dem?",
-                "Hvad går der tabt hvis vi gør det forkert?",
-              ].map((q, i) => (
-                <p
-                  key={i}
-                  className="aif-body-text"
-                  style={{
-                    fontFamily: "serif",
-                    fontSize: "1.25rem",
-                    lineHeight: 1.7,
-                    color: "#2a3a52",
-                    fontStyle: "italic",
-                    margin: "0 0 4px",
-                  }}
-                >
-                  {q}
-                </p>
-              ))}
-            </div>
-          </AnimatedSection>
-
-          <AnimatedSection delay={0.1}>
-            <div style={{ padding: "80px 0 96px" }}>
-              <p
-                className="aif-body-text"
-                style={{
-                  fontFamily: "serif",
-                  fontSize: "1.25rem",
-                  lineHeight: 1.7,
-                  color: "#2a3a52",
-                  margin: "0 0 8px",
-                }}
-              >
-                Forandring sker ikke fordi et system er rullet ud.
-              </p>
-              <p
-                className="aif-body-text"
-                style={{
-                  fontFamily: "serif",
-                  fontSize: "1.25rem",
-                  lineHeight: 1.7,
-                  color: "#2a3a52",
-                  margin: "0 0 28px",
-                }}
-              >
-                Det sker fordi nogen har forstået hvad der faktisk stopper folk.
-              </p>
-              <p
-                className="aif-body-text"
-                style={{
-                  fontFamily: "serif",
-                  fontSize: "1.25rem",
-                  lineHeight: 1.7,
-                  color: NAVY,
-                  fontWeight: 700,
-                  margin: 0,
-                }}
-              >
-                Det er det jeg arbejder med.
-              </p>
-            </div>
-          </AnimatedSection>
-
-        </div>
-
-        {/* CTA */}
-        <AnimatedSection delay={0}>
-          <section
-            style={{
-              backgroundColor: BEIGE,
-              padding: "0 24px 120px",
-              textAlign: "center",
-            }}
-          >
-            <p
-              className="aif-cta-text"
-              style={{
+              <p style={{
                 fontFamily: "serif",
                 fontStyle: "italic",
-                fontSize: "clamp(1.6rem, 4vw, 2.6rem)",
+                fontSize: "clamp(1.6rem, 4vw, 2.4rem)",
                 color: NAVY,
-                margin: 0,
-              }}
-            >
-              <a
-                href="#"
-                onClick={(e) => { e.preventDefault(); setContactOpen(true); }}
-                className="aif-tales-link"
-                style={{ color: RED, textDecoration: "none", cursor: "pointer" }}
-              >
-                Lad os tales ved
-              </a>
-              .
-            </p>
+                margin: "48px 0 0",
+              }}>
+                <a
+                  href="#"
+                  onClick={(e) => { e.preventDefault(); setContactOpen(true); }}
+                  className="aif-tales-link"
+                  style={{ color: RED, textDecoration: "none", cursor: "pointer" }}
+                >
+                  Lad os tales ved
+                </a>
+                .
+              </p>
+            </div>
           </section>
         </AnimatedSection>
 
         {/* CLOSING */}
-        <section
-          style={{
-            backgroundColor: NAVY,
-            padding: "80px 24px",
-            textAlign: "center",
-          }}
-        >
-          <a
-            href="/"
-            style={{
-              fontFamily: "serif",
-              fontSize: "1.5rem",
-              color: "rgba(245,240,232,0.5)",
-              textDecoration: "none",
-            }}
-          >
+        <section style={{ backgroundColor: NAVY, padding: "80px 24px", textAlign: "center" }}>
+          <a href="/" style={{ fontFamily: "serif", fontSize: "1.5rem", color: "rgba(245,240,232,0.5)", textDecoration: "none" }}>
             ← Tilbage til portfolio
           </a>
         </section>
