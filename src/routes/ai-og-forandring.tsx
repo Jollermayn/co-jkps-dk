@@ -457,50 +457,80 @@ function AiOgForandringPage() {
 
         {/* SEKTION 4 — centreret, fuld bredde */}
         <AnimatedSection delay={0}>
-          <section style={{ backgroundColor: "#E8E2D9", padding: "0 0 120px" }}>
-            {/* Billede placeholder fuld bredde */}
-            <div style={{ width: "100%", maxHeight: 500, height: "40vw", minHeight: 240, backgroundColor: "#0D1B2A" }} />
-            {/* Centreret tekst */}
-            <div style={{ maxWidth: 760, marginInline: "auto", padding: "80px 32px 60px", textAlign: "center" }}>
-              {[
-                "De der klarer sig bedst, er dem der kan bevæge sig i begge lag.",
-                "Det kræver nogen der taler begge sprog.",
-                "Det felt er der ikke mange der arbejder i. Men det er præcis det her handler om.",
-              ].map((line, i) => (
-                <p key={i} style={{
-                  fontFamily: "serif",
-                  fontSize: i === 0 ? "1.7rem" : "1.4rem",
-                  fontWeight: i === 0 ? 700 : (i === 1 ? 600 : 400),
-                  fontStyle: i === 2 ? "italic" : "normal",
-                  lineHeight: 1.5,
-                  color: NAVY,
-                  margin: i === 1 ? "8px 0 36px" : "0 0 28px",
-                  ...(i === 1 ? { borderLeft: `3px solid ${RED}`, paddingLeft: 20 } : {}),
-                }}>
-                  {line}
-                </p>
-              ))}
-              <div style={{ marginTop: 64, paddingTop: 40, borderTop: `1px solid rgba(10,22,40,0.1)` }}>
+          <section style={{ backgroundColor: "#E8E2D9" }}>
+
+            {/* Navy-boks med tekst indeni */}
+            <div style={{
+              width: "100%",
+              height: "40vw",
+              minHeight: 320,
+              maxHeight: 560,
+              backgroundColor: "#0D1B2A",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: "48px 32px",
+              boxSizing: "border-box",
+            }}>
+              <div style={{ maxWidth: 680, width: "100%", textAlign: "center" }}>
                 <p style={{
                   fontFamily: "serif",
-                  fontStyle: "italic",
-                  fontSize: "clamp(1.9rem, 5vw, 3rem)",
-                  color: NAVY,
-                  margin: 0,
-                  lineHeight: 1.25,
+                  fontSize: "clamp(1.3rem, 2.5vw, 1.75rem)",
+                  fontWeight: 700,
+                  lineHeight: 1.5,
+                  color: BEIGE,
+                  margin: "0 0 24px",
                 }}>
-                  <a
-                    href="#"
-                    onClick={(e) => { e.preventDefault(); setContactOpen(true); }}
-                    className="aif-tales-link"
-                    style={{ color: RED, textDecoration: "none", cursor: "pointer" }}
-                  >
-                    Lad os tales ved
-                  </a>
-                  .
+                  De der klarer sig bedst, er dem der kan bevæge sig i begge lag.
+                </p>
+                <p style={{
+                  fontFamily: "serif",
+                  fontSize: "clamp(1.1rem, 2vw, 1.4rem)",
+                  fontWeight: 600,
+                  lineHeight: 1.5,
+                  color: BEIGE,
+                  margin: "0 0 24px",
+                  borderTop: `1px solid rgba(232,226,217,0.2)`,
+                  paddingTop: 24,
+                }}>
+                  Det kræver nogen der taler begge sprog.
+                </p>
+                <p style={{
+                  fontFamily: "serif",
+                  fontSize: "clamp(1rem, 1.8vw, 1.25rem)",
+                  fontWeight: 400,
+                  fontStyle: "italic",
+                  lineHeight: 1.6,
+                  color: `rgba(232,226,217,0.75)`,
+                  margin: 0,
+                }}>
+                  Det felt er der ikke mange der arbejder i. Men det er præcis det her handler om.
                 </p>
               </div>
             </div>
+
+            {/* CTA — beige baggrund */}
+            <div style={{ padding: "96px 32px", textAlign: "center" }}>
+              <p style={{
+                fontFamily: "serif",
+                fontStyle: "italic",
+                fontSize: "clamp(1.9rem, 5vw, 3rem)",
+                color: NAVY,
+                margin: 0,
+                lineHeight: 1.25,
+              }}>
+                <a
+                  href="#"
+                  onClick={(e) => { e.preventDefault(); setContactOpen(true); }}
+                  className="aif-tales-link"
+                  style={{ color: RED, textDecoration: "none", cursor: "pointer" }}
+                >
+                  Lad os tales ved
+                </a>
+                .
+              </p>
+            </div>
+
           </section>
         </AnimatedSection>
 
