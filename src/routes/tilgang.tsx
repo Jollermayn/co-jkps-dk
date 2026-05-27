@@ -49,8 +49,8 @@ type Cell = {
 
 const cells: Cell[] = [
   {
-    line1: "Strategien fylder 40 sider.",
-    line2: "Ingen har åbnet den.",
+    line1: "Strategien fylder\n40 sider",
+    line2: "Ingen har\nåbnet den",
     silver:
       "Et dokument er ikke en retning. Jeg designer indhold der læses — og huskes.",
     image: scenarioStrategi,
@@ -655,6 +655,7 @@ function TilgangPage() {
                     lineHeight: 1.3,
                     margin: "0 0 6px",
                     maxWidth: 480,
+                    whiteSpace: "pre-line",
                     textShadow: "0 2px 10px rgba(0,0,0,0.8), 0 1px 3px rgba(0,0,0,0.6)",
                     opacity: hoverIdx === i ? 1 : 0,
                     transform: hoverIdx === i ? "translateY(0)" : "translateY(8px)",
@@ -675,6 +676,7 @@ function TilgangPage() {
                     lineHeight: 1.3,
                     margin: 0,
                     maxWidth: 480,
+                    whiteSpace: "pre-line",
                     textShadow: "0 2px 10px rgba(0,0,0,0.8), 0 1px 3px rgba(0,0,0,0.6)",
                     opacity: hoverIdx === i ? 1 : 0,
                     transform: hoverIdx === i ? "translateY(0)" : "translateY(8px)",
