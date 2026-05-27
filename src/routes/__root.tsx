@@ -1,9 +1,7 @@
-import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import { Outlet, Link, createRootRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
 
 const CV_PDF_URL = "/JKPS_CV.pdf";
-
-import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
   return (
@@ -28,50 +26,9 @@ function NotFoundComponent() {
 }
 
 export const Route = createRootRoute({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1.0" },
-      { title: "Jonas K.P. Sørensen — Digital konsulent" },
-      { name: "description", content: "UX research, servicedesign og konceptudvikling. Selvstændig siden 2016." },
-      { name: "author", content: "Jonas K.P. Sørensen" },
-      { property: "og:title", content: "Jonas K.P. Sørensen — Digital konsulent" },
-      { property: "og:description", content: "UX research, servicedesign og konceptudvikling. Selvstændig siden 2016." },
-      { property: "og:type", content: "website" },
-      { property: "og:image", content: "https://www.jkps.dk/og-thumbnail.png?v=2" },
-      { property: "og:image:width", content: "1200" },
-      { property: "og:image:height", content: "630" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@jonaskps" },
-      { name: "twitter:title", content: "Jonas K.P. Sørensen — Digital konsulent" },
-      { name: "twitter:description", content: "UX research, servicedesign og konceptudvikling. Selvstændig siden 2016." },
-      { name: "twitter:image", content: "https://www.jkps.dk/og-thumbnail.png?v=2" },
-    ],
-    links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
-    ],
-  }),
-  shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
 });
-
-function RootShell({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  );
-}
 
 function RootComponent() {
   useEffect(() => {
