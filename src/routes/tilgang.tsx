@@ -237,6 +237,9 @@ function TilgangPage() {
         @media (max-width: 1024px) {
           .tilgang-cell { background-color: transparent !important; }
         }
+        @media (max-width: 768px) {
+          .tilgang-cell-img--maze { object-position: 20% center !important; }
+        }
         @media (max-width: 1024px) {
           .tilgang-bar-top { height: 15px !important; }
           .tilgang-bar-bottom { height: 15px !important; }
@@ -616,7 +619,7 @@ function TilgangPage() {
                   loop
                   playsInline
                   preload="auto"
-                  className="tilgang-cell-img"
+                  className={`tilgang-cell-img${i === 0 ? " tilgang-cell-img--maze" : ""}`}
                   style={{
                     position: "absolute",
                     inset: 0,
