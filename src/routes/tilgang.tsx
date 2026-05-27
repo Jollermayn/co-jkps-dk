@@ -56,8 +56,8 @@ const cells: Cell[] = [
     image: scenarioStrategi,
   },
   {
-    line1: "Alle var enige i mødelokalet.",
-    line2: "Intet skete bagefter.",
+    line1: "Alle var enige\ni mødelokalet.",
+    line2: "Intet skete\nbagefter.",
     silver:
       "Enighed er ikke forankring. Jeg finder hullet mellem beslutningen og hverdagen.",
     image: scenarioModelokale,
