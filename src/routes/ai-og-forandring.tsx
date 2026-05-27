@@ -138,7 +138,7 @@ function AiOgForandringPage() {
         }
 
         /* Desktop split layout */
-        .aif-hero-section { display: flex; flex-direction: row; min-height: 90vh; }
+        .aif-hero-section { display: flex; flex-direction: row; min-height: 90vh; background: #E8E2D9; margin: 0; }
         .aif-hero-left {
           width: 35%;
           flex-shrink: 0;
@@ -318,7 +318,7 @@ function AiOgForandringPage() {
             <h1 style={{
               fontFamily: "serif",
               fontSize: "2.4rem",
-              fontWeight: 700,
+              fontWeight: 400,
               color: NAVY,
               lineHeight: 1.2,
               margin: 0,
@@ -329,14 +329,14 @@ function AiOgForandringPage() {
             </h1>
             <p style={{
               fontFamily: "serif",
-              fontSize: "1.9rem",
-              fontWeight: 400,
+              fontSize: "2.6rem",
+              fontWeight: 700,
               fontStyle: "italic",
               color: NAVY,
               lineHeight: 1.2,
               margin: "2rem 0 0",
               opacity: 0,
-              animation: "aif-fade 0.8s ease 1.2s both",
+              animation: "aif-fade 0.8s ease 2s both",
             }}>
               og det går stærkt...
             </p>
@@ -368,7 +368,7 @@ function AiOgForandringPage() {
               <h1 style={{
                 fontFamily: "serif",
                 fontSize: "2.4rem",
-                fontWeight: 700,
+                fontWeight: 400,
                 color: "#F5F0E8",
                 lineHeight: 1.2,
                 margin: 0,
@@ -380,15 +380,15 @@ function AiOgForandringPage() {
               </h1>
               <p style={{
                 fontFamily: "serif",
-                fontSize: "1.9rem",
-                fontWeight: 400,
+                fontSize: "2.6rem",
+                fontWeight: 700,
                 fontStyle: "italic",
                 color: "#F5F0E8",
                 lineHeight: 1.2,
                 margin: "2rem 0 0",
                 textShadow: "0 2px 12px rgba(0,0,0,0.6)",
                 opacity: 0,
-                animation: "aif-fade 0.8s ease 1.2s both",
+                animation: "aif-fade 0.8s ease 2s both",
               }}>
                 og det går stærkt...
               </p>
@@ -624,8 +624,7 @@ function AnimatedSection({ children, delay = 0 }: { children: React.ReactNode; d
       }}
       style={{
         opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(24px)",
-        transition: `opacity 0.8s ease ${delay}s, transform 0.8s ease ${delay}s`,
+        transition: `opacity 0.8s ease ${delay}s`,
       }}
     >
       {children}
