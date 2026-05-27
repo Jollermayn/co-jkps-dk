@@ -100,6 +100,10 @@ function AiOgForandringPage() {
         }
         .aif-tales-link:hover::after { transform: scaleX(1); }
         @keyframes aif-fade { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes aif-bounce {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(8px); }
+        }
 
         /* Split content sections — 35% tekst / 65% billede, identisk med hero */
         .aif-split { display: flex; flex-direction: row; min-height: 100vh; }
@@ -138,7 +142,7 @@ function AiOgForandringPage() {
         }
 
         /* Desktop split layout */
-        .aif-hero-section { display: flex; flex-direction: row; min-height: 90vh; background: #E8E2D9; margin: 0; }
+        .aif-hero-section { display: flex; flex-direction: row; height: calc(100vh - 72px); background: #E8E2D9; margin: 0; position: relative; }
         .aif-hero-left {
           width: 35%;
           flex-shrink: 0;
@@ -167,9 +171,9 @@ function AiOgForandringPage() {
 
         /* Tablet + Mobil: hero stacker med overlay */
         @media (max-width: 1024px) {
-          .aif-hero-section { flex-direction: column; min-height: 90vh; }
+          .aif-hero-section { flex-direction: column; }
           .aif-hero-left { display: none; }
-          .aif-hero-right { width: 100%; flex: 1; min-height: 90vh; position: relative; }
+          .aif-hero-right { width: 100%; flex: 1; position: relative; }
           .aif-hero-img { object-position: center 30% !important; }
           .aif-hero-mobile-overlay {
             display: block;
@@ -393,6 +397,24 @@ function AiOgForandringPage() {
                 og det går stærkt...
               </p>
             </div>
+          </div>
+
+          {/* Bounce-pil */}
+          <div
+            aria-hidden="true"
+            style={{
+              position: "absolute",
+              bottom: 24,
+              left: "50%",
+              marginLeft: -12,
+              zIndex: 10,
+              animation: "aif-bounce 1.5s ease-in-out infinite",
+              pointerEvents: "none",
+            }}
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 9l6 6 6-6" stroke="#C0281E" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
           </div>
 
         </section>
