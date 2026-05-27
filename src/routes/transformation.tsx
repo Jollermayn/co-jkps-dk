@@ -34,43 +34,13 @@ const NAVY = "#0A1628";
 const BEIGE = "#E8E2D9";
 const RED = "#C0281E";
 
-// ── Scroll fade hook ──────────────────────────────────────────────────────────
-// IntersectionObserver, threshold 0.15, animates opacity 0→1 + translateY 24px→0
-// over 0.6s ease. Once visible, stays visible.
-function useFade(delay = 0) {
-  const ref = useRef<any>(null);
-  const [visible, setVisible] = useState(false);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          obs.disconnect();
-        }
-      },
-      { threshold: 0.15 }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
-  return {
-    ref,
-    fs: {
-      opacity: visible ? 1 : 0,
-      transform: visible ? "translateY(0)" : "translateY(24px)",
-      transition: `opacity 0.6s ease ${delay}s, transform 0.6s ease ${delay}s`,
-    } as React.CSSProperties,
-  };
-}
-
 // ── Scroll-focus hook ─────────────────────────────────────────────────────────
-// Sections outside the active viewport band are dimmed to 0.25.
 // Active zone = middle 60% of viewport (rootMargin "-20% 0px -20% 0px").
 // Brightening: 0.8s ease  |  Dimming: 1.2s ease  (asymmetric)
+// Exposes `active` so child elements can coordinate their reveal timing with it,
+// eliminating the race condition with the old separate-observer useFade approach.
 function useScrollFocus() {
-  const ref = useRef<any>(null);
+  const ref = useRef<Element>(null);
   const [active, setActive] = useState(false);
   useEffect(() => {
     const el = ref.current;
@@ -84,6 +54,7 @@ function useScrollFocus() {
   }, []);
   return {
     ref,
+    active,
     focusStyle: {
       opacity: active ? 1 : 0.1,
       transition: active ? "opacity 0.8s ease" : "opacity 1.2s ease",
@@ -91,155 +62,162 @@ function useScrollFocus() {
   };
 }
 
+// ── Coordinated fade hook ─────────────────────────────────────────────────────
+// Fires once when `active` (from useScrollFocus on the parent wrapper) first
+// becomes true. Replaces the old useFade which ran its own IntersectionObserver
+// at threshold 0.15 — that fired before the parent reached the active zone,
+// causing elements to ghost in at 0.1 effective opacity before snapping bright.
+// Now both effects start at the same moment.
+function useFadeOnTrigger(active: boolean, delay = 0): React.CSSProperties {
+  const [revealed, setRevealed] = useState(false);
+  useEffect(() => {
+    if (active && !revealed) setRevealed(true);
+  }, [active, revealed]);
+  return {
+    opacity: revealed ? 1 : 0,
+    transform: revealed ? "translateY(0)" : "translateY(24px)",
+    transition: `opacity 0.6s ease ${delay}s, transform 0.6s ease ${delay}s`,
+  };
+}
+
 // ── Split section sub-components ──────────────────────────────────────────────
-// Each element animates independently with 0.15 s stagger between siblings.
+// Each element staggered 0.15s. Both hooks share the same `active` signal so
+// the focus-brighten and element-reveal fire in sync, not sequentially.
 
 function SplitSection1() {
-  const focus   = useScrollFocus();
-  const imgFade = useFade(0);
-  const p1Fade  = useFade(0.15);
-  const p2Fade  = useFade(0.30);
-  const p3Fade  = useFade(0.45);
+  const focus = useScrollFocus();
+  const imgFs = useFadeOnTrigger(focus.active, 0);
+  const p1Fs  = useFadeOnTrigger(focus.active, 0.15);
+  const p2Fs  = useFadeOnTrigger(focus.active, 0.30);
+  const p3Fs  = useFadeOnTrigger(focus.active, 0.45);
   return (
-    <div ref={focus.ref} style={focus.focusStyle}>
-    <div className="aif-split">
-      <div className="aif-split-img" ref={imgFade.ref} style={imgFade.fs}>
-        <img src={img2} alt="" aria-hidden="true" />
+    <div ref={focus.ref as React.RefObject<HTMLDivElement>} style={focus.focusStyle}>
+      <div className="aif-split">
+        <div className="aif-split-img" style={imgFs}>
+          <img src={img2} alt="" aria-hidden="true" />
+        </div>
+        <div className="aif-split-text">
+          <p style={p1Fs}>
+            Konkurrenterne nævner det. Medarbejderne spørger om det. Kunderne forventer det.
+          </p>
+          <p style={p2Fs}>
+            Så de fleste af os prøver bare at følge med. Ikke fordi vi har en plan — men fordi
+            frygten for at blive overhalet er reel.
+          </p>
+          <p style={{ ...p3Fs, fontStyle: "italic", fontSize: "1.3rem", fontWeight: 500, lineHeight: 1.6 }}>
+            Og vi hopper med. I håbet om ikke at falde af.
+          </p>
+        </div>
       </div>
-      <div className="aif-split-text">
-        <p ref={p1Fade.ref} style={p1Fade.fs}>
-          Konkurrenterne nævner det. Medarbejderne spørger om det. Kunderne forventer det.
-        </p>
-        <p ref={p2Fade.ref} style={p2Fade.fs}>
-          Så de fleste af os prøver bare at følge med. Ikke fordi vi har en plan — men fordi
-          frygten for at blive overhalet er reel.
-        </p>
-        <p
-          ref={p3Fade.ref}
-          style={{ ...p3Fade.fs, fontStyle: "italic", fontSize: "1.3rem", fontWeight: 500, lineHeight: 1.6 }}
-        >
-          Og vi hopper med. I håbet om ikke at falde af.
-        </p>
-      </div>
-    </div>
     </div>
   );
 }
 
 function SplitSection2() {
-  // Visual order left→right on desktop: text (left) then image (right, via row-reverse)
-  const focus   = useScrollFocus();
-  const p1Fade  = useFade(0);
-  const p2Fade  = useFade(0.15);
-  const imgFade = useFade(0.30);
+  const focus = useScrollFocus();
+  const p1Fs  = useFadeOnTrigger(focus.active, 0);
+  const p2Fs  = useFadeOnTrigger(focus.active, 0.15);
+  const imgFs = useFadeOnTrigger(focus.active, 0.30);
   return (
-    <div ref={focus.ref} style={focus.focusStyle}>
-    <div className="aif-split" style={{ flexDirection: "row-reverse" }}>
-      <div className="aif-split-img" ref={imgFade.ref} style={imgFade.fs}>
-        <img src={img3} alt="" aria-hidden="true" />
+    <div ref={focus.ref as React.RefObject<HTMLDivElement>} style={focus.focusStyle}>
+      <div className="aif-split" style={{ flexDirection: "row-reverse" }}>
+        <div className="aif-split-img" style={imgFs}>
+          <img src={img3} alt="" aria-hidden="true" />
+        </div>
+        <div className="aif-split-text">
+          <p style={p1Fs}>
+            Historisk set har mønsteret gentaget sig. De der overlevede dampmaskinens indtog,
+            elektriciteten og internettet var ikke dem der ignorerede forandringen — eller dem
+            der bare købte teknologien.
+          </p>
+          <p style={{ ...p2Fs, fontStyle: "italic", fontWeight: 700, fontSize: "1.3rem", lineHeight: 1.6 }}>
+            Det var dem der forstod hvad den ændrede ved måden mennesker arbejder og tænker.
+          </p>
+        </div>
       </div>
-      <div className="aif-split-text">
-        <p ref={p1Fade.ref} style={p1Fade.fs}>
-          Historisk set har mønsteret gentaget sig. De der overlevede dampmaskinens indtog,
-          elektriciteten og internettet var ikke dem der ignorerede forandringen — eller dem
-          der bare købte teknologien.
-        </p>
-        <p
-          ref={p2Fade.ref}
-          style={{ ...p2Fade.fs, fontStyle: "italic", fontWeight: 700, fontSize: "1.3rem", lineHeight: 1.6 }}
-        >
-          Det var dem der forstod hvad den ændrede ved måden mennesker arbejder og tænker.
-        </p>
-      </div>
-    </div>
     </div>
   );
 }
 
 function SplitSection3() {
-  const focus   = useScrollFocus();
-  const imgFade = useFade(0);
-  const p1Fade  = useFade(0.15);
-  const p2Fade  = useFade(0.30);
-  const p3Fade  = useFade(0.45);
+  const focus = useScrollFocus();
+  const imgFs = useFadeOnTrigger(focus.active, 0);
+  const p1Fs  = useFadeOnTrigger(focus.active, 0.15);
+  const p2Fs  = useFadeOnTrigger(focus.active, 0.30);
+  const p3Fs  = useFadeOnTrigger(focus.active, 0.45);
   return (
-    <div ref={focus.ref} style={focus.focusStyle}>
-    <div className="aif-split">
-      <div className="aif-split-img" ref={imgFade.ref} style={imgFade.fs}>
-        <img src={img6} alt="" aria-hidden="true" />
+    <div ref={focus.ref as React.RefObject<HTMLDivElement>} style={focus.focusStyle}>
+      <div className="aif-split">
+        <div className="aif-split-img" style={imgFs}>
+          <img src={img6} alt="" aria-hidden="true" />
+        </div>
+        <div className="aif-split-text">
+          <p style={p1Fs}>
+            Organisationer investerer i AI-værktøjer og opdager at ingenting ændrer sig.
+            Medarbejderne bruger dem ikke. Kunderne mærker ingen forskel. Ledelsen ved ikke
+            hvorfor.
+          </p>
+          <p style={{ ...p2Fs, fontStyle: "italic", fontWeight: 700, fontSize: "1.3rem", lineHeight: 1.6 }}>
+            Det er ikke et teknisk problem. Det er et menneskeligt et.
+          </p>
+          <p style={p3Fs}>
+            AI kan generere, automatisere og optimere. Det den ikke kan er at forstå hvorfor
+            folk gør som de gør — og designe udenom det.
+          </p>
+        </div>
       </div>
-      <div className="aif-split-text">
-        <p ref={p1Fade.ref} style={p1Fade.fs}>
-          Organisationer investerer i AI-værktøjer og opdager at ingenting ændrer sig.
-          Medarbejderne bruger dem ikke. Kunderne mærker ingen forskel. Ledelsen ved ikke
-          hvorfor.
-        </p>
-        <p
-          ref={p2Fade.ref}
-          style={{ ...p2Fade.fs, fontStyle: "italic", fontWeight: 700, fontSize: "1.3rem", lineHeight: 1.6 }}
-        >
-          Det er ikke et teknisk problem. Det er et menneskeligt et.
-        </p>
-        <p ref={p3Fade.ref} style={p3Fade.fs}>
-          AI kan generere, automatisere og optimere. Det den ikke kan er at forstå hvorfor
-          folk gør som de gør — og designe udenom det.
-        </p>
-      </div>
-    </div>
     </div>
   );
 }
 
 function Section4Block() {
-  const focus   = useScrollFocus();
-  const imgFade = useFade(0);
+  const focus = useScrollFocus();
+  const imgFs = useFadeOnTrigger(focus.active, 0);
   return (
-    <div ref={focus.ref} style={focus.focusStyle}>
-    <section style={{ backgroundColor: BEIGE }}>
-      <Section4Text />
-      <img
-        ref={imgFade.ref}
-        src={img5}
-        alt=""
-        aria-hidden="true"
-        style={{ ...imgFade.fs, width: "100%", height: "auto", display: "block" }}
-      />
-    </section>
+    <div ref={focus.ref as React.RefObject<HTMLDivElement>} style={focus.focusStyle}>
+      <section style={{ backgroundColor: BEIGE }}>
+        <Section4Text />
+        <img
+          src={img5}
+          alt=""
+          aria-hidden="true"
+          style={{ ...imgFs, width: "100%", height: "auto", display: "block" }}
+        />
+      </section>
     </div>
   );
 }
 
 function Section5CTA({ onContact }: { onContact: () => void }) {
-  const focus   = useScrollFocus();
-  const ctaFade = useFade(0);
+  const focus = useScrollFocus();
+  const ctaFs = useFadeOnTrigger(focus.active, 0);
   return (
-    <div ref={focus.ref} style={focus.focusStyle}>
-    <section style={{ backgroundColor: "#E8E2D9" }}>
-      <div style={{ padding: "96px 32px", textAlign: "center" }}>
-        <p
-          ref={ctaFade.ref}
-          style={{
-            ...ctaFade.fs,
-            fontFamily: "serif",
-            fontStyle: "italic",
-            fontSize: "clamp(1.9rem, 5vw, 3rem)",
-            color: NAVY,
-            margin: 0,
-            lineHeight: 1.25,
-          }}
-        >
-          <a
-            href="#"
-            onClick={(e) => { e.preventDefault(); onContact(); }}
-            className="aif-tales-link"
-            style={{ color: RED, textDecoration: "none", cursor: "pointer" }}
+    <div ref={focus.ref as React.RefObject<HTMLDivElement>} style={focus.focusStyle}>
+      <section style={{ backgroundColor: BEIGE }}>
+        <div style={{ padding: "96px 32px", textAlign: "center" }}>
+          <p
+            style={{
+              ...ctaFs,
+              fontFamily: "serif",
+              fontStyle: "italic",
+              fontSize: "clamp(1.9rem, 5vw, 3rem)",
+              color: NAVY,
+              margin: 0,
+              lineHeight: 1.25,
+            }}
           >
-            Lad os tales ved
-          </a>
-          .
-        </p>
-      </div>
-    </section>
+            <a
+              href="#"
+              onClick={(e) => { e.preventDefault(); onContact(); }}
+              className="aif-tales-link"
+              style={{ color: RED, textDecoration: "none", cursor: "pointer" }}
+            >
+              Lad os tales ved
+            </a>
+            .
+          </p>
+        </div>
+      </section>
     </div>
   );
 }
@@ -320,18 +298,17 @@ function TransformationPage() {
           50% { transform: translateY(8px); }
         }
 
-        /* Split content sections — 35% tekst / 65% billede, identisk med hero */
+        /* Split content sections — 35% tekst / 65% billede */
         .aif-split { display: flex; flex-direction: row; align-items: stretch; }
         .aif-split-img { flex: 1; }
         .aif-split-img img { width: 100%; height: auto; display: block; }
         .aif-split-text {
           flex: 0 0 35%;
-          width: 35%;
           display: flex;
           flex-direction: column;
           justify-content: center;
           padding: 64px 48px;
-          background: #E8E2D9;
+          background: ${BEIGE};
           box-sizing: border-box;
         }
         .aif-split-text p {
@@ -352,15 +329,15 @@ function TransformationPage() {
         /* Mobil (≤768px): tættere padding */
         @media (max-width: 768px) {
           .aif-split-text { padding: 32px 24px; }
-          .aif-split-text p { font-size: 1.05rem !important; }
+          .aif-split-text p { font-size: 1.05rem; }
         }
 
         /* Hero */
-        .aif-hero-section { display: flex; flex-direction: row; height: calc(100vh - 72px); background: #E8E2D9; margin: 0; position: relative; }
+        .aif-hero-section { display: flex; flex-direction: row; height: calc(100vh - 72px); background: ${BEIGE}; margin: 0; position: relative; }
         .aif-hero-left {
           width: 35%;
           flex-shrink: 0;
-          background: #E8E2D9;
+          background: ${BEIGE};
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -384,7 +361,7 @@ function TransformationPage() {
           .aif-hero-section { flex-direction: column; }
           .aif-hero-left { display: none; }
           .aif-hero-right { width: 100%; flex: 1; position: relative; }
-          .aif-hero-img { object-position: center 30% !important; }
+          .aif-hero-img { object-position: center 30%; }
           .aif-hero-mobile-overlay {
             display: block;
             position: absolute;
@@ -404,8 +381,6 @@ function TransformationPage() {
             box-sizing: border-box;
             z-index: 1;
           }
-          .aif-body-text { font-size: 1.1rem !important; }
-          .aif-cta-text { font-size: clamp(1.6rem, 7vw, 2.4rem) !important; }
         }
       `}</style>
 
@@ -513,10 +488,9 @@ function TransformationPage() {
 
       <main style={{ paddingTop: 72 }}>
 
-        {/* HERO — split layout (no scroll animation, loads immediately) */}
+        {/* HERO — no scroll animation, loads immediately */}
         <section className="aif-hero-section">
 
-          {/* Venstre: tekst (desktop only) */}
           <div className="aif-hero-left">
             <h1 style={{
               fontFamily: "serif",
@@ -532,17 +506,9 @@ function TransformationPage() {
             </h1>
           </div>
 
-          {/* Højre: billede */}
           <div className="aif-hero-right">
-            <img
-              src={heroImg}
-              alt=""
-              aria-hidden="true"
-              className="aif-hero-img"
-            />
-            {/* Mobile overlay */}
+            <img src={heroImg} alt="" aria-hidden="true" className="aif-hero-img" />
             <div className="aif-hero-mobile-overlay" aria-hidden="true" />
-            {/* Mobile tekst */}
             <div className="aif-hero-mobile-content">
               <h1 style={{
                 fontFamily: "serif",
@@ -580,19 +546,10 @@ function TransformationPage() {
 
         </section>
 
-        {/* SEKTION 1 — billede venstre, tekst højre */}
         <SplitSection1 />
-
-        {/* SEKTION 2 — tekst venstre, billede højre */}
         <SplitSection2 />
-
-        {/* SEKTION 3 — billede venstre, tekst højre */}
         <SplitSection3 />
-
-        {/* SEKTION 4 — centreret, fuld bredde */}
         <Section4Block />
-
-        {/* SEKTION 5 — CTA */}
         <Section5CTA onContact={() => setContactOpen(true)} />
 
         {/* CLOSING */}
@@ -718,11 +675,12 @@ function TransformationPage() {
   );
 }
 
-// ── Section 4 word-reveal (Framer Motion) ─────────────────────────────────────
+// ── Section 4 heading reveal (Framer Motion) ──────────────────────────────────
 
 function Section4Text() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-10% 0px" });
+
   return (
     <div ref={ref} style={{ maxWidth: 680, marginInline: "auto", padding: "120px 32px", textAlign: "center" }}>
       <motion.p
@@ -735,12 +693,11 @@ function Section4Text() {
           fontWeight: 700,
           lineHeight: 1.3,
           color: NAVY,
-          margin: "0 0 56px",
+          margin: 0,
         }}
       >
         Nogle ting kan aldrig erstattes.
       </motion.p>
-
     </div>
   );
 }
