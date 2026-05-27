@@ -313,12 +313,12 @@ function TilgangPage() {
         }
         @media (max-width: 768px) {
           .tilgang-hero-h1 { font-size: 1.5rem !important; line-height: 1.2 !important; bottom: 24px !important; left: 24px !important; text-align: left !important; }
-          .tilgang-hero-img { object-position: 20% center !important; }
+          .tilgang-hero-img { object-position: 65% center !important; }
           .tilgang-intro-line { font-size: 1.25rem !important; margin-bottom: 56px !important; white-space: nowrap; }
         }
         @media (max-width: 480px) {
           .tilgang-hero-h1 { font-size: 1.2rem !important; bottom: 20px !important; left: 20px !important; text-align: left !important; }
-          .tilgang-hero-img { object-position: 20% center !important; }
+          .tilgang-hero-img { object-position: 65% center !important; }
           .tilgang-intro-line { font-size: clamp(1rem, 4.2vw, 1.5rem) !important; white-space: nowrap !important; margin-bottom: 48px !important; }
         }
         .tilgang-cell-title-mobile { display: none; }
