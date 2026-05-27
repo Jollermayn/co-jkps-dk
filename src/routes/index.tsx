@@ -417,6 +417,7 @@ function MobileHeader() {
             { label: "Cases", href: "/#cases" },
             { label: "Ekspertise", href: "/#kompetencer" },
             { label: "Tilgang", href: "/tilgang" },
+            { label: "AI og forandring", href: "/ai-og-forandring" },
             { label: "Kontakt", href: "/#kontakt" },
           ].map((l) => (
             <a
@@ -463,6 +464,7 @@ function MobileHeader() {
             { label: "Cases", href: "/#cases" },
             { label: "Ekspertise", href: "/#kompetencer" },
             { label: "Tilgang", href: "/tilgang" },
+            { label: "AI og forandring", href: "/ai-og-forandring" },
             { label: "Kontakt", href: "/#kontakt" },
           ].map((l) => (
             <a
@@ -494,6 +496,7 @@ function MobileHeader() {
           </button>
           <Link to="/" onClick={() => setOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: "#0A1628", textDecoration: "none" }}>Portfolio</Link>
           <Link to="/tilgang" onClick={() => setOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: "#0A1628", textDecoration: "none" }}>Tilgang</Link>
+          <Link to="/ai-og-forandring" onClick={() => setOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: "#0A1628", textDecoration: "none" }}>AI og forandring</Link>
           <Link to="/cv" onClick={() => setOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: "#0A1628", textDecoration: "none" }}>CV</Link>
           <a href="#kontakt" onClick={() => setOpen(false)} style={{ fontFamily: "serif", fontSize: "1.8rem", color: "#0A1628", textDecoration: "none" }}>Kontakt</a>
         </div>
