@@ -65,15 +65,43 @@ function useFade(delay = 0) {
   };
 }
 
+// ── Scroll-focus hook ─────────────────────────────────────────────────────────
+// Sections outside the active viewport band are dimmed to 0.25.
+// Active zone = middle 60% of viewport (rootMargin "-20% 0px -20% 0px").
+// Brightening: 0.8s ease  |  Dimming: 1.2s ease  (asymmetric)
+function useScrollFocus() {
+  const ref = useRef<any>(null);
+  const [active, setActive] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => setActive(entry.isIntersecting),
+      { rootMargin: "-20% 0px -20% 0px", threshold: 0 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+  return {
+    ref,
+    focusStyle: {
+      opacity: active ? 1 : 0.25,
+      transition: active ? "opacity 0.8s ease" : "opacity 1.2s ease",
+    } as React.CSSProperties,
+  };
+}
+
 // ── Split section sub-components ──────────────────────────────────────────────
 // Each element animates independently with 0.15 s stagger between siblings.
 
 function SplitSection1() {
+  const focus   = useScrollFocus();
   const imgFade = useFade(0);
   const p1Fade  = useFade(0.15);
   const p2Fade  = useFade(0.30);
   const p3Fade  = useFade(0.45);
   return (
+    <div ref={focus.ref} style={focus.focusStyle}>
     <div className="aif-split">
       <div className="aif-split-img" ref={imgFade.ref} style={imgFade.fs}>
         <img src={img2} alt="" aria-hidden="true" />
@@ -94,15 +122,18 @@ function SplitSection1() {
         </p>
       </div>
     </div>
+    </div>
   );
 }
 
 function SplitSection2() {
   // Visual order left→right on desktop: text (left) then image (right, via row-reverse)
+  const focus   = useScrollFocus();
   const p1Fade  = useFade(0);
   const p2Fade  = useFade(0.15);
   const imgFade = useFade(0.30);
   return (
+    <div ref={focus.ref} style={focus.focusStyle}>
     <div className="aif-split" style={{ flexDirection: "row-reverse" }}>
       <div className="aif-split-img" ref={imgFade.ref} style={imgFade.fs}>
         <img src={img3} alt="" aria-hidden="true" />
@@ -121,15 +152,18 @@ function SplitSection2() {
         </p>
       </div>
     </div>
+    </div>
   );
 }
 
 function SplitSection3() {
+  const focus   = useScrollFocus();
   const imgFade = useFade(0);
   const p1Fade  = useFade(0.15);
   const p2Fade  = useFade(0.30);
   const p3Fade  = useFade(0.45);
   return (
+    <div ref={focus.ref} style={focus.focusStyle}>
     <div className="aif-split">
       <div className="aif-split-img" ref={imgFade.ref} style={imgFade.fs}>
         <img src={img6} alt="" aria-hidden="true" />
@@ -152,12 +186,15 @@ function SplitSection3() {
         </p>
       </div>
     </div>
+    </div>
   );
 }
 
 function Section4Block() {
+  const focus   = useScrollFocus();
   const imgFade = useFade(0);
   return (
+    <div ref={focus.ref} style={focus.focusStyle}>
     <section style={{ backgroundColor: BEIGE }}>
       <Section4Text />
       <img
@@ -168,12 +205,15 @@ function Section4Block() {
         style={{ ...imgFade.fs, width: "100%", height: "auto", display: "block" }}
       />
     </section>
+    </div>
   );
 }
 
 function Section5CTA({ onContact }: { onContact: () => void }) {
+  const focus   = useScrollFocus();
   const ctaFade = useFade(0);
   return (
+    <div ref={focus.ref} style={focus.focusStyle}>
     <section style={{ backgroundColor: "#E8E2D9" }}>
       <div style={{ padding: "96px 32px", textAlign: "center" }}>
         <p
@@ -200,6 +240,7 @@ function Section5CTA({ onContact }: { onContact: () => void }) {
         </p>
       </div>
     </section>
+    </div>
   );
 }
 
