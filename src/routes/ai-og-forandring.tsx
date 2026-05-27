@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { SiteLogo } from "@/components/SiteLogo";
 import { MenuIcon } from "@/components/MenuIcon";
 import heroImg from "@/assets/ai-og-forandring-hero.png";
@@ -627,29 +628,17 @@ function AiOgForandringPage() {
 }
 
 function AnimatedSection({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
-  const [visible, setVisible] = useState(false);
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-10% 0px" });
 
   return (
-    <div
-      ref={(el) => {
-        if (!el) return;
-        const io = new IntersectionObserver(
-          ([entry]) => {
-            if (entry.isIntersecting) {
-              setVisible(true);
-              io.disconnect();
-            }
-          },
-          { threshold: 0.12 }
-        );
-        io.observe(el);
-      }}
-      style={{
-        opacity: visible ? 1 : 0,
-        transition: `opacity 0.8s ease ${delay}s`,
-      }}
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 40 }}
+      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+      transition={{ duration: 0.8, ease: "easeOut", delay }}
     >
       {children}
-    </div>
+    </motion.div>
   );
 }
