@@ -455,7 +455,20 @@ function AiOgForandringPage() {
           </div>
         </AnimatedSection>
 
-        {/* SEKTION 4 — centreret, fuld bredde */}
+        {/* SEKTION 4 — tekst venstre, billede højre */}
+        <AnimatedSection delay={0}>
+          <div className="aif-split" style={{ flexDirection: "row-reverse" }}>
+            <div className="aif-split-img" />
+            <div className="aif-split-text">
+              <p style={{ fontStyle: "italic", fontWeight: 700, fontSize: "1.3rem", lineHeight: 1.5 }}>Det vi ikke må miste er evnen til at tænke selv.</p>
+              <p>Kreativitet, empati og dømmekraft kommer ikke fra et system. De kommer fra mennesker der har rum til at reflektere — og mod til at handle på det de ser.</p>
+              <p>AI er et kraftfuldt redskab. Men redskabet er aldrig svaret. Det er den menneskelige fornuft bag det der afgør om det bliver til noget godt.</p>
+              <p style={{ fontStyle: "italic", fontWeight: 500, fontSize: "1.2rem", lineHeight: 1.6 }}>Vær nysgerrig på udviklingen. Brug teknologien. Men behold dig selv i centrum af det.</p>
+            </div>
+          </div>
+        </AnimatedSection>
+
+        {/* SEKTION 5 — centreret, fuld bredde */}
         <AnimatedSection delay={0}>
           <section style={{ backgroundColor: "#E8E2D9" }}>
 
