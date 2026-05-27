@@ -310,10 +310,11 @@ function TilgangPage() {
           }
         }
         @media (max-width: 1023px) {
-          .tilgang-hero-h1 { font-size: 3.25rem !important; line-height: 1.15 !important; }
+          .tilgang-hero-h1 { font-size: 2.6rem !important; line-height: 1.15 !important; max-width: 55% !important; }
           .tilgang-intro-line { font-size: 1.25rem !important; margin-bottom: 56px !important; white-space: nowrap; }
         }
         @media (max-width: 767px) {
+          .tilgang-hero-h1 { font-size: clamp(1.6rem, 6.5vw, 2.4rem) !important; max-width: 80% !important; }
           .tilgang-intro-line { font-size: clamp(1rem, 4.2vw, 1.5rem) !important; white-space: nowrap !important; margin-bottom: 48px !important; }
         }
         .tilgang-cell-title-mobile { display: none; }
@@ -459,31 +460,7 @@ function TilgangPage() {
 
       <main style={{ paddingTop: 72 }}>
         {/* HERO */}
-        <section
-          style={{
-            backgroundColor: BEIGE,
-            padding: "60px 24px 0",
-            textAlign: "center",
-          }}
-        >
-          <h1
-            className="tilgang-hero-h1"
-            style={{
-              fontFamily: "serif",
-              fontSize: "5.5rem",
-              fontWeight: 700,
-              color: NAVY,
-              lineHeight: 1.1,
-              margin: 0,
-              maxWidth: 1100,
-              marginInline: "auto",
-            }}
-          >
-            Kunsten at belyse,<br />hvad der går tabt<br />i processen.
-          </h1>
-        </section>
-
-        <div style={{ position: "relative", marginTop: 48, marginBottom: 48 }}>
+        <div style={{ position: "relative", marginBottom: 48 }}>
           <img
             ref={heroImgRef}
             src={mazeKort}
@@ -491,11 +468,49 @@ function TilgangPage() {
             style={{
               display: "block",
               width: "100%",
-              height: 700,
+              height: "85vh",
+              minHeight: 520,
               objectFit: "cover",
-              objectPosition: "center 65%",
+              objectPosition: "right 65%",
             }}
           />
+          {/* Gradient venstre side for læsbarhed */}
+          <div
+            aria-hidden="true"
+            style={{
+              position: "absolute",
+              inset: 0,
+              background: "linear-gradient(to right, rgba(10,22,40,0.82) 0%, rgba(10,22,40,0.55) 45%, rgba(10,22,40,0.0) 72%)",
+              pointerEvents: "none",
+            }}
+          />
+          {/* Titel overlay */}
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              display: "flex",
+              alignItems: "center",
+              padding: "0 6vw",
+            }}
+          >
+            <h1
+              className="tilgang-hero-h1"
+              style={{
+                fontFamily: "serif",
+                fontSize: "5.5rem",
+                fontWeight: 700,
+                color: "#F5F0E8",
+                lineHeight: 1.1,
+                margin: 0,
+                maxWidth: "38%",
+                textAlign: "left",
+              }}
+            >
+              Kunsten at belyse,<br />hvad der går tabt<br />i processen.
+            </h1>
+          </div>
+          {/* Scroll-pil */}
           <div
             aria-hidden="true"
             style={{
