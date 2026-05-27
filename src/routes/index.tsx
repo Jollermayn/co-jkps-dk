@@ -1036,7 +1036,7 @@ function Index() {
                   UX research, servicedesign og konceptudvikling på tværs af public service, civilsamfund og kommercielle virksomheder. Selvstændig siden 2016.
                 </p>
                 <p style={{ color: "white", opacity: 0.95, fontFamily: "'Playfair Display', serif", fontStyle: "italic", fontSize: "1.25rem", lineHeight: 1.5 }}>
-                  Familiefar og naturmenneske. Først og fremmest en seriøs lytter.
+                  Nysgerrig af natur. Seriøs lytter af profession.
                 </p>
               </div>
             </div>
