@@ -41,31 +41,36 @@ const MUTED_ON_DARK = "#94a3b8";
 const MUTED_ON_LIGHT = "#6b6157";
 
 type Cell = {
-  heading: string;
+  line1: string;
+  line2: string;
   silver: string;
   image: string;
 };
 
 const cells: Cell[] = [
   {
-    heading: "Strategien fylder 40 sider. Ingen har åbnet den.",
+    line1: "Strategien fylder 40 sider.",
+    line2: "Ingen har åbnet den.",
     silver:
       "Et dokument er ikke en retning. Jeg designer indhold der læses — og huskes.",
     image: scenarioStrategi,
   },
   {
-    heading: "Alle var enige i mødelokalet. Intet skete bagefter.",
+    line1: "Alle var enige i mødelokalet.",
+    line2: "Intet skete bagefter.",
     silver:
       "Enighed er ikke forankring. Jeg finder hullet mellem beslutningen og hverdagen.",
     image: scenarioModelokale,
   },
   {
-    heading: "Systemet er rullet ud. Ingen bruger det.",
+    line1: "Systemet er rullet ud.",
+    line2: "Ingen bruger det.",
     silver: "Mening kan ikke installeres. Jeg designer den ind.",
     image: scenarioSystem,
   },
   {
-    heading: "De designede til brugerne. Men glemte at spørge dem.",
+    line1: "De designede til brugerne.",
+    line2: "Men glemte at spørge dem.",
     silver: "Antagelser er ikke viden. Jeg går ud og finder den.",
     image: scenarioBrugere,
   },
@@ -310,11 +315,11 @@ function TilgangPage() {
           }
         }
         @media (max-width: 1023px) {
-          .tilgang-hero-h1 { font-size: 2rem !important; line-height: 1.2 !important; max-width: 70% !important; bottom: 32px !important; left: 24px !important; }
+          .tilgang-hero-h1 { font-size: 2rem !important; line-height: 1.2 !important; max-width: 70% !important; top: 24px !important; right: 20px !important; }
           .tilgang-intro-line { font-size: 1.25rem !important; margin-bottom: 56px !important; white-space: nowrap; }
         }
         @media (max-width: 767px) {
-          .tilgang-hero-h1 { font-size: clamp(1.4rem, 5.5vw, 1.9rem) !important; max-width: 85% !important; bottom: 24px !important; left: 20px !important; }
+          .tilgang-hero-h1 { font-size: clamp(1.3rem, 5vw, 1.8rem) !important; max-width: 80% !important; top: 20px !important; right: 16px !important; }
           .tilgang-intro-line { font-size: clamp(1rem, 4.2vw, 1.5rem) !important; white-space: nowrap !important; margin-bottom: 48px !important; }
         }
         .tilgang-cell-title-mobile { display: none; }
@@ -474,20 +479,20 @@ function TilgangPage() {
               objectPosition: "right 65%",
             }}
           />
-          {/* Titel overlay — nederste venstre hjørne */}
+          {/* Titel overlay — øverste højre hjørne */}
           <h1
             className="tilgang-hero-h1"
             style={{
               position: "absolute",
-              bottom: 40,
-              left: 40,
+              top: 40,
+              right: 40,
               margin: 0,
               fontFamily: "serif",
               fontSize: "2.5rem",
               fontWeight: 700,
               color: "#F5F0E8",
               lineHeight: 1.2,
-              textAlign: "left",
+              textAlign: "right",
               maxWidth: 480,
               textShadow: "0 2px 12px rgba(0,0,0,0.7), 0 1px 4px rgba(0,0,0,0.5)",
             }}
@@ -629,36 +634,62 @@ function TilgangPage() {
                   }}
                 />
                 <div className="tilgang-bar tilgang-bar-top" aria-hidden="true" />
-                <div className="tilgang-bar tilgang-bar-bottom" aria-hidden="true" />
               </div>
+              {/* Animerede tekstlinjer */}
               <div
                 className="tilgang-cell-overlay"
                 style={{
                   position: "absolute",
                   inset: 0,
-                  backgroundColor: "transparent",
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
                   justifyContent: "flex-end",
                   textAlign: "center",
-                  padding: "32px 32px 10px",
+                  padding: "0 32px 32px",
                   zIndex: 10,
+                  pointerEvents: "none",
                 }}
               >
-                <h3
+                <p
                   style={{
                     fontFamily: "serif",
                     fontWeight: 700,
-                    fontSize: "1.25rem",
+                    fontSize: "1.2rem",
                     color: "#ffffff",
-                    lineHeight: 1.25,
-                    margin: 0,
-                    maxWidth: 520,
+                    lineHeight: 1.3,
+                    margin: "0 0 6px",
+                    maxWidth: 480,
+                    textShadow: "0 2px 10px rgba(0,0,0,0.8), 0 1px 3px rgba(0,0,0,0.6)",
+                    opacity: hoverIdx === i ? 1 : 0,
+                    transform: hoverIdx === i ? "translateY(0)" : "translateY(8px)",
+                    transition: hoverIdx === i
+                      ? "opacity 0.5s ease 0.5s, transform 0.5s ease 0.5s"
+                      : "opacity 0.2s ease, transform 0.2s ease",
                   }}
                 >
-                  {cell.heading}
-                </h3>
+                  {cell.line1}
+                </p>
+                <p
+                  style={{
+                    fontFamily: "serif",
+                    fontWeight: 400,
+                    fontStyle: "italic",
+                    fontSize: "1.2rem",
+                    color: "#ffffff",
+                    lineHeight: 1.3,
+                    margin: 0,
+                    maxWidth: 480,
+                    textShadow: "0 2px 10px rgba(0,0,0,0.8), 0 1px 3px rgba(0,0,0,0.6)",
+                    opacity: hoverIdx === i ? 1 : 0,
+                    transform: hoverIdx === i ? "translateY(0)" : "translateY(8px)",
+                    transition: hoverIdx === i
+                      ? "opacity 0.5s ease 2.0s, transform 0.5s ease 2.0s"
+                      : "opacity 0.2s ease, transform 0.2s ease",
+                  }}
+                >
+                  {cell.line2}
+                </p>
               </div>
               <div
                 className="tilgang-play-btn"
@@ -689,7 +720,7 @@ function TilgangPage() {
                   <polygon points="6,4 20,12 6,20" />
                 </svg>
               </div>
-              <div className="tilgang-cell-title-mobile" ref={(el) => { titleRefs.current[i] = el; }}>{cell.heading}</div>
+              <div className="tilgang-cell-title-mobile" ref={(el) => { titleRefs.current[i] = el; }}>{cell.line1} {cell.line2}</div>
             </div>
           ))}
         </section>
