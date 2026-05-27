@@ -104,6 +104,8 @@ function AiOgForandringPage() {
           .aif-hero-title { font-size: 2.8rem !important; line-height: 1.15 !important; }
           .aif-body-text { font-size: 1.1rem !important; }
           .aif-cta-text { font-size: clamp(1.6rem, 7vw, 2.4rem) !important; }
+          .aif-hero-img { object-fit: contain !important; object-position: center top !important; background-color: ${NAVY}; }
+          .aif-hero-section { min-height: auto !important; }
         }
       `}</style>
 
@@ -213,6 +215,7 @@ function AiOgForandringPage() {
 
         {/* HERO */}
         <section
+          className="aif-hero-section"
           style={{
             position: "relative",
             minHeight: "90vh",
@@ -227,6 +230,7 @@ function AiOgForandringPage() {
             src={heroImg}
             alt=""
             aria-hidden="true"
+            className="aif-hero-img"
             style={{
               position: "absolute",
               inset: 0,
