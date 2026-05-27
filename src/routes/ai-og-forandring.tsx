@@ -332,19 +332,6 @@ function AiOgForandringPage() {
             }}>
               Forandringen er begyndt
             </h1>
-            <p style={{
-              fontFamily: "serif",
-              fontSize: "2.6rem",
-              fontWeight: 700,
-              fontStyle: "italic",
-              color: NAVY,
-              lineHeight: 1.2,
-              margin: "2rem 0 0",
-              opacity: 0,
-              animation: "aif-fade 0.8s ease 2s both",
-            }}>
-              og det går stærkt...
-            </p>
           </div>
 
           {/* Højre: billede */}
@@ -383,20 +370,6 @@ function AiOgForandringPage() {
               }}>
                 Forandringen er begyndt
               </h1>
-              <p style={{
-                fontFamily: "serif",
-                fontSize: "2.6rem",
-                fontWeight: 700,
-                fontStyle: "italic",
-                color: "#F5F0E8",
-                lineHeight: 1.2,
-                margin: "2rem 0 0",
-                textShadow: "0 2px 12px rgba(0,0,0,0.6)",
-                opacity: 0,
-                animation: "aif-fade 0.8s ease 2s both",
-              }}>
-                og det går stærkt...
-              </p>
             </div>
           </div>
 
