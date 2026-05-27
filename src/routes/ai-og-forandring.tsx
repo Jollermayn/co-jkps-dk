@@ -455,17 +455,34 @@ function AiOgForandringPage() {
           </div>
         </AnimatedSection>
 
-        {/* SEKTION 4 — tekst venstre, billede højre */}
+        {/* SEKTION 4 — centreret, fuld bredde */}
         <AnimatedSection delay={0}>
-          <div className="aif-split" style={{ flexDirection: "row-reverse" }}>
-            <div className="aif-split-img" />
-            <div className="aif-split-text">
-              <p style={{ fontStyle: "italic", fontWeight: 700, fontSize: "1.3rem", lineHeight: 1.5 }}>Det vi ikke må miste er evnen til at tænke selv.</p>
-              <p>Kreativitet, empati og dømmekraft kommer ikke fra et system. De kommer fra mennesker der har rum til at reflektere — og mod til at handle på det de ser.</p>
-              <p>AI er et kraftfuldt redskab. Men redskabet er aldrig svaret. Det er den menneskelige fornuft bag det der afgør om det bliver til noget godt.</p>
-              <p style={{ fontStyle: "italic", fontWeight: 500, fontSize: "1.2rem", lineHeight: 1.6 }}>Vær nysgerrig på udviklingen. Brug teknologien. Men behold dig selv i centrum af det.</p>
+          <section style={{ backgroundColor: BEIGE }}>
+            {/* Billede placeholder fuld bredde */}
+            <div style={{ width: "100%", height: "40vw", minHeight: 240, maxHeight: 500, backgroundColor: "#0D1B2A" }} />
+            {/* Centreret tekst */}
+            <div style={{ maxWidth: 680, marginInline: "auto", padding: "120px 32px", textAlign: "center" }}>
+              <p style={{
+                fontFamily: "serif",
+                fontSize: "clamp(1.6rem, 3vw, 2.2rem)",
+                fontWeight: 700,
+                lineHeight: 1.3,
+                color: NAVY,
+                margin: "0 0 40px",
+              }}>
+                Nogle ting kan aldrig erstattes.
+              </p>
+              <p style={{ fontFamily: "serif", fontSize: "1.15rem", lineHeight: 1.8, color: NAVY, margin: "0 0 24px" }}>
+                Kreativitet, empati og dømmekraft kommer ikke fra et system. De kommer fra mennesker der har rum til at reflektere — og mod til at handle på det de ser.
+              </p>
+              <p style={{ fontFamily: "serif", fontSize: "1.15rem", lineHeight: 1.8, color: NAVY, margin: "0 0 40px" }}>
+                AI er et kraftfuldt redskab. Men redskabet er aldrig svaret. Det er den menneskelige fornuft bag det der afgør om det bliver til noget godt.
+              </p>
+              <p style={{ fontFamily: "serif", fontSize: "1.2rem", fontWeight: 500, fontStyle: "italic", lineHeight: 1.6, color: NAVY, margin: 0 }}>
+                Vær nysgerrig på udviklingen. Brug teknologien. Men behold dig selv i centrum af det.
+              </p>
             </div>
-          </div>
+          </section>
         </AnimatedSection>
 
         {/* SEKTION 5 — centreret, fuld bredde */}
