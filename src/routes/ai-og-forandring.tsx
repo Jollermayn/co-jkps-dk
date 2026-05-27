@@ -325,7 +325,7 @@ function AiOgForandringPage() {
               opacity: 0,
               animation: "aif-fade 0.8s ease 0.2s both",
             }}>
-              Forandringen er i gang
+              Forandringen er begyndt
             </h1>
             <p style={{
               fontFamily: "serif",
@@ -376,7 +376,7 @@ function AiOgForandringPage() {
                 opacity: 0,
                 animation: "aif-fade 0.8s ease 0.2s both",
               }}>
-                Forandringen er i gang
+                Forandringen er begyndt
               </h1>
               <p style={{
                 fontFamily: "serif",
