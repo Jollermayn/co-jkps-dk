@@ -117,9 +117,10 @@ function useFadeOnTrigger(active: boolean, delay = 0): React.CSSProperties {
 // Each element staggered 0.15s. Both hooks share the same `active` signal so
 // the focus-brighten and element-reveal fire in sync, not sequentially.
 
-// Card image — flows naturally so portrait ratio is preserved
+// Card image — absolute fill so min-height drives the card size
 const BG_IMG_STYLE: React.CSSProperties = {
-  width: "100%", height: "auto", display: "block",
+  position: "absolute", inset: 0, width: "100%", height: "100%",
+  objectFit: "cover", objectPosition: "center top", display: "block",
 };
 function onImgErr(e: React.SyntheticEvent<HTMLImageElement>) {
   console.error("[newspaper card] failed to load background image:", (e.target as HTMLImageElement).src);
@@ -425,19 +426,19 @@ function TransformationPage() {
         }
 
         /* ── Newspaper card layout ─────────────────────────────── */
-        /* Mobile: single column */
+        /* ── Newspaper cards: full-width stacked column ───────── */
         .aif-cards-section {
-          background: transparent;
+          background: #0D1B2A;
           display: flex;
           flex-direction: column;
-          padding: 120px 16px;
+          padding: 0;
           margin-top: 160px;
-          overflow: visible;
-          gap: 16px;
+          gap: 0;
+          width: 100%;
         }
         .aif-card-wrapper { width: 100%; }
 
-        /* Card — let portrait image set the height naturally */
+        /* Card — portrait image fills full width, min 80vh tall */
         .aif-np-card {
           background-color: transparent;
           border: none;
@@ -445,9 +446,10 @@ function TransformationPage() {
           padding: 0;
           overflow: hidden;
           width: 100%;
+          min-height: 80vh;
           box-sizing: border-box;
           position: relative;
-          border-radius: 12px;
+          border-radius: 0;
         }
         .aif-np-card::after {
           content: '';
@@ -563,39 +565,6 @@ function TransformationPage() {
         }
         .aif-np-readmore { color: #C0281E !important; font-weight: 600; }
 
-        /* Tablet (768px–1023px): 2×2 grid */
-        @media (min-width: 768px) and (max-width: 1023px) {
-          .aif-cards-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            padding: 120px 24px;
-          }
-          .aif-card-wrapper { width: 100%; }
-        }
-
-        /* Desktop (≥1024px): four cards side by side */
-        @media (min-width: 1024px) {
-          .aif-cards-section {
-            display: flex;
-            flex-direction: row;
-            gap: 16px;
-            padding: 120px 40px;
-            margin-top: 160px;
-            width: 100%;
-            box-sizing: border-box;
-            align-items: flex-start;
-          }
-          .aif-card-wrapper {
-            flex: 1;
-            min-width: 0;
-          }
-          .aif-np-card {
-            min-height: 700px;
-            max-width: none;
-            margin: 0;
-          }
-        }
 
         /* Hero */
         .aif-hero-section { display: flex; flex-direction: row; height: calc(100vh - 72px); background: ${BEIGE}; margin: 0; position: relative; }
