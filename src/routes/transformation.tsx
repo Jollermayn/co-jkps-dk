@@ -126,29 +126,20 @@ function SplitSection1() {
       <div className="aif-card-wrapper">
         <div
           className="aif-np-card"
-          style={{ transform: "rotate(-1.2deg)" }}
+          style={{
+            transform: "rotate(-1.2deg)",
+            backgroundImage: "url('/_JKPS_AVIS_TEMP_5.png')",
+            backgroundSize: "cover",
+            backgroundPosition: "center top",
+          }}
           onMouseEnter={() => { if (!isMobile) videoRef.current?.play(); }}
           onMouseLeave={() => { if (!isMobile) videoRef.current?.pause(); }}
         >
-          <div className="aif-np-topbar">★ JKPS.DK ★</div>
-          <div className="aif-np-dateline">28. maj 2026 · Aarhus · Nr. 1</div>
-          <h2 className="aif-np-headline">Frygten for at blive overhalet er reel</h2>
-          <div className="aif-np-doublerule" />
-          <p className="aif-np-deck">Konkurrenterne nævner det. Medarbejderne spørger. Kunderne forventer.</p>
-          <div className="aif-np-video-wrap">
-            <video ref={videoRef} autoPlay={!!isMobile} muted loop playsInline>
-              <source src="/videos/Ai_udvikling2_video.mp4" type="video/mp4" />
-            </video>
-            <div className="aif-np-caption">AI-adoption · Strategi · 2026</div>
-          </div>
-          <div className="aif-np-body">
-            <p>Så vi følger med — ikke fordi vi har en plan, men fordi frygten for at blive overhalet er reel.</p>
-            <p>Og vi hopper med.</p>
-          </div>
-          <div className="aif-np-footer">
-            <span>FOMO · AI-ADOPTION · STRATEGI</span>
-            <span className="aif-np-readmore">Læs case →</span>
-          </div>
+          <video ref={videoRef} autoPlay={!!isMobile} muted loop playsInline
+            style={{ position: "absolute", top: "42%", left: "5%", width: "90%", height: "28%", objectFit: "cover" }}
+          >
+            <source src="/videos/Ai_udvikling2_video.mp4" type="video/mp4" />
+          </video>
         </div>
       </div>
     </div>
@@ -164,29 +155,20 @@ function SplitSection2() {
       <div className="aif-card-wrapper">
         <div
           className="aif-np-card"
-          style={{ transform: "rotate(1.5deg)" }}
+          style={{
+            transform: "rotate(1.5deg)",
+            backgroundImage: "url('/_JKPS_AVIS_TEMP_11.png')",
+            backgroundSize: "cover",
+            backgroundPosition: "center top",
+          }}
           onMouseEnter={() => { if (!isMobile) videoRef.current?.play(); }}
           onMouseLeave={() => { if (!isMobile) videoRef.current?.pause(); }}
         >
-          <div className="aif-np-topbar">★ JKPS.DK ★</div>
-          <div className="aif-np-dateline">28. maj 2026 · Aarhus · Nr. 2</div>
-          <h2 className="aif-np-headline">De der forstod hvad det ændrede ved mennesket</h2>
-          <div className="aif-np-doublerule" />
-          <p className="aif-np-deck">Mønsteret har gentaget sig hver gang. Dampmaskinens. Elektricitetens. Internettets.</p>
-          <div className="aif-np-video-wrap">
-            <video ref={videoRef} autoPlay={!!isMobile} muted loop playsInline>
-              <source src="/videos/Ai_udvikling3_video.mp4" type="video/mp4" />
-            </video>
-            <div className="aif-np-caption">Forandring · Teknologi · Menneske</div>
-          </div>
-          <div className="aif-np-body">
-            <p>De der klarede skærene var hverken dem der ignorerede det — eller dem der bare købte teknologien.</p>
-            <p>Det var dem der forstod hvad den ændrede ved mennesket.</p>
-          </div>
-          <div className="aif-np-footer">
-            <span>HISTORISK PERSPEKTIV · TEKNOLOGI</span>
-            <span className="aif-np-readmore">Læs case →</span>
-          </div>
+          <video ref={videoRef} autoPlay={!!isMobile} muted loop playsInline
+            style={{ position: "absolute", top: "42%", left: "5%", width: "90%", height: "28%", objectFit: "cover" }}
+          >
+            <source src="/videos/Ai_udvikling3_video.mp4" type="video/mp4" />
+          </video>
         </div>
       </div>
     </div>
@@ -202,29 +184,49 @@ function SplitSection3() {
       <div className="aif-card-wrapper">
         <div
           className="aif-np-card"
-          style={{ transform: "rotate(-0.8deg)" }}
+          style={{
+            transform: "rotate(-0.8deg)",
+            backgroundImage: "url('/_JKPS_AVIS_TEMP_9.png')",
+            backgroundSize: "cover",
+            backgroundPosition: "center top",
+          }}
           onMouseEnter={() => { if (!isMobile) videoRef.current?.play(); }}
           onMouseLeave={() => { if (!isMobile) videoRef.current?.pause(); }}
         >
-          <div className="aif-np-topbar">★ JKPS.DK ★</div>
-          <div className="aif-np-dateline">28. maj 2026 · Aarhus · Nr. 3</div>
-          <h2 className="aif-np-headline">Det er ikke et teknisk problem — det er et menneskeligt et</h2>
-          <div className="aif-np-doublerule" />
-          <p className="aif-np-deck">Værktøjerne rulles ud. Ingenting ændrer sig.</p>
-          <div className="aif-np-video-wrap">
-            <video ref={videoRef} autoPlay={!!isMobile} muted loop playsInline>
-              <source src="/videos/Ai_udvikling6_video.mp4" type="video/mp4" />
-            </video>
-            <div className="aif-np-caption">Implementering · Menneskelig faktor · AI</div>
-          </div>
-          <div className="aif-np-body">
-            <p>Medarbejderne bruger dem ikke. Kunderne mærker ingen forskel. Ledelsen ved ikke hvorfor.</p>
-            <p>AI kan generere, automatisere og optimere. Det den ikke kan er forstå hvorfor folk gør som de gør.</p>
-          </div>
-          <div className="aif-np-footer">
-            <span>IMPLEMENTERING · MENNESKELIG FAKTOR</span>
-            <span className="aif-np-readmore">Læs case →</span>
-          </div>
+          <video ref={videoRef} autoPlay={!!isMobile} muted loop playsInline
+            style={{ position: "absolute", top: "42%", left: "5%", width: "90%", height: "28%", objectFit: "cover" }}
+          >
+            <source src="/videos/Ai_udvikling5_video.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function SplitSection4() {
+  const focus    = useScrollFocus();
+  const isMobile = useIsMobile();
+  const videoRef = useRef<HTMLVideoElement>(null);
+  return (
+    <div ref={focus.ref}>
+      <div className="aif-card-wrapper">
+        <div
+          className="aif-np-card"
+          style={{
+            transform: "rotate(0.9deg)",
+            backgroundImage: "url('/_JKPS_AVIS_TEMP_10.png')",
+            backgroundSize: "cover",
+            backgroundPosition: "center top",
+          }}
+          onMouseEnter={() => { if (!isMobile) videoRef.current?.play(); }}
+          onMouseLeave={() => { if (!isMobile) videoRef.current?.pause(); }}
+        >
+          <video ref={videoRef} autoPlay={!!isMobile} muted loop playsInline
+            style={{ position: "absolute", top: "42%", left: "5%", width: "90%", height: "28%", objectFit: "cover" }}
+          >
+            <source src="/videos/Ai_udvikling6_video.mp4" type="video/mp4" />
+          </video>
         </div>
       </div>
     </div>
@@ -947,6 +949,7 @@ function TransformationPage() {
           <SplitSection1 />
           <SplitSection2 />
           <SplitSection3 />
+          <SplitSection4 />
         </div>
         <SectionBridge />
         <Section4Block />
