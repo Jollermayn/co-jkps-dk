@@ -237,52 +237,36 @@ function Section4Block() {
 function SectionBridge() {
   const focus = useScrollFocus();
   const p1Fs  = useFadeOnTrigger(focus.active, 0);
-  const p2Fs  = useFadeOnTrigger(focus.active, 0.15);
-  const p3Fs  = useFadeOnTrigger(focus.active, 0.30);
-  const p4Fs  = useFadeOnTrigger(focus.active, 0.45);
+  const p2Fs  = useFadeOnTrigger(focus.active, 0.12);
+  const p3Fs  = useFadeOnTrigger(focus.active, 0.24);
+  const p4Fs  = useFadeOnTrigger(focus.active, 0.36);
+  const p5Fs  = useFadeOnTrigger(focus.active, 0.48);
+  const p6Fs  = useFadeOnTrigger(focus.active, 0.60);
+
+  const pStyle = (fs: React.CSSProperties, extraMargin = false): React.CSSProperties => ({
+    ...fs,
+    fontFamily: "serif",
+    fontSize: "1.2rem",
+    lineHeight: 1.8,
+    color: NAVY,
+    margin: extraMargin ? "0 0 32px" : "0 0 20px",
+  });
+
   return (
     <div ref={focus.ref}>
       <section style={{ backgroundColor: BEIGE, padding: "80px 32px" }}>
         <div style={{ maxWidth: 680, marginInline: "auto", textAlign: "center" }}>
-          <p style={{
-            ...p1Fs,
-            fontFamily: "serif",
-            fontSize: "1.2rem",
-            lineHeight: 1.8,
-            color: NAVY,
-            margin: "0 0 20px",
-          }}>
-            Jeg arbejder i det mellemrum.
+          <p style={pStyle(p1Fs)}>
+            De fleste organisationer ved godt hvad de vil opnå.
           </p>
-          <p style={{
-            ...p2Fs,
-            fontFamily: "serif",
-            fontSize: "1.2rem",
-            lineHeight: 1.8,
-            color: NAVY,
-            margin: "0 0 20px",
-          }}>
-            Mellem beslutningen og virkeligheden. Mellem teknologien og de mennesker der skal bruge den.
+          <p style={{ ...pStyle(p2Fs), margin: "0 0 32px" }}>
+            Det svære er at få det til at lande.
           </p>
-          <p style={{
-            ...p3Fs,
-            fontFamily: "serif",
-            fontSize: "1.2rem",
-            lineHeight: 1.8,
-            color: NAVY,
-            margin: "0 0 20px",
-          }}>
-            Ikke som teknologikonsulent. Ikke som forandringsleder med en metode i en mappe.
-          </p>
-          <p style={{
-            ...p4Fs,
-            fontFamily: "serif",
-            fontSize: "1.2rem",
-            lineHeight: 1.8,
-            color: NAVY,
-            margin: 0,
-          }}>
-            <em>Men som én der ved hvordan man finder ud af hvad der faktisk foregår — og designer udenom det der ellers ville gå tabt.</em>
+          <p style={pStyle(p3Fs)}>— Medarbejderne der skal ændre vaner.</p>
+          <p style={pStyle(p4Fs)}>— Kunderne der skal mærke en forskel.</p>
+          <p style={{ ...pStyle(p5Fs), margin: "0 0 32px" }}>— Ledelsen der skal se at det virker.</p>
+          <p style={{ ...pStyle(p6Fs), margin: 0 }}>
+            Jeg arbejder i det mellemrum hvor teknologi møder mennesker. Ikke med værktøjerne — men med dem der skal bruge dem. Gennem metodisk research og et konsekvent fokus på mennesket finder jeg ind til det der faktisk foregår — og omsætter det til løsninger der virker fordi de tager afsæt i virkeligheden.
           </p>
         </div>
       </section>
@@ -682,11 +666,11 @@ function TransformationPage() {
 
         </section>
 
+        <SectionBridge />
         <SplitSection1 />
         <SplitSection2 />
         <SplitSection3 />
         <Section4Block />
-        <SectionBridge />
         <Section5CTA onContact={() => setContactOpen(true)} />
 
         {/* CLOSING */}
