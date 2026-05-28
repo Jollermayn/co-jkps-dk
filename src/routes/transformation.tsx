@@ -35,7 +35,8 @@ const BEIGE = "#E8E2D9";
 const RED = "#C0281E";
 
 // ── Scroll-focus hook ─────────────────────────────────────────────────────────
-// Active zone = middle 60% of viewport (rootMargin "-20% 0px -20% 0px").
+// Active zone: 10% inset at top, 30% inset at bottom — sections stay active
+// longer as they exit upward, dim sooner as they approach from below.
 // Brightening: 0.8s ease  |  Dimming: 1.2s ease  (asymmetric)
 // Exposes `active` so child elements can coordinate their reveal timing with it,
 // eliminating the race condition with the old separate-observer useFade approach.
@@ -47,7 +48,7 @@ function useScrollFocus() {
     if (!el) return;
     const obs = new IntersectionObserver(
       ([entry]) => setActive(entry.isIntersecting),
-      { rootMargin: "-20% 0px -20% 0px", threshold: 0 }
+      { rootMargin: "-10% 0px -30% 0px", threshold: 0 }
     );
     obs.observe(el);
     return () => obs.disconnect();
