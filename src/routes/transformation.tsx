@@ -483,7 +483,7 @@ function TransformationPage() {
 
         /* Card layout — mobile-first single column */
         .aif-cards-section { background: ${BEIGE}; padding: 40px 0; }
-        .aif-cards-section > div { margin-bottom: 32px; }
+        .aif-cards-section > div { margin-bottom: 64px; }
         .aif-cards-section > div:last-child { margin-bottom: 0; }
         .aif-card-wrapper { padding: 0 24px; }
         .aif-card {
@@ -523,9 +523,9 @@ function TransformationPage() {
           .aif-cards-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px 40px;
-            padding: 80px;
-            max-width: 1260px;
+            gap: 120px 40px;
+            padding: 100px;
+            max-width: 1300px;
             box-sizing: border-box;
             margin: 0 auto;
             align-items: start;
