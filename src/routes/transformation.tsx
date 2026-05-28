@@ -272,7 +272,7 @@ function SectionStatement() {
             color: "#FFFFFF",
             margin: 0,
           }}>
-            Så lad os prøve med det oprigtige.
+            Så kunne vi prøve med det oprigtige.
           </p>
         </div>
       </section>
