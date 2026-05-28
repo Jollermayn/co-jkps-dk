@@ -241,35 +241,33 @@ function SectionBridge() {
   const p3Fs  = useFadeOnTrigger(focus.active, 0.24);
   const p4Fs  = useFadeOnTrigger(focus.active, 0.36);
   const p5Fs  = useFadeOnTrigger(focus.active, 0.48);
-  const p6Fs  = useFadeOnTrigger(focus.active, 0.60);
-
-  const pStyle = (fs: React.CSSProperties, extraMargin = false): React.CSSProperties => ({
-    ...fs,
-    fontFamily: "serif",
-    fontSize: "1.2rem",
-    lineHeight: 1.8,
-    color: NAVY,
-    margin: extraMargin ? "0 0 32px" : "0 0 20px",
-  });
+  const p6Fs  = useFadeOnTrigger(focus.active, 0.15);
 
   return (
     <div ref={focus.ref}>
-      <section style={{ backgroundColor: BEIGE, padding: "80px 32px" }}>
-        <div style={{ maxWidth: 640, marginInline: 0, textAlign: "left" }}>
-          <p style={pStyle(p1Fs)}>
+      <div className="aif-bridge">
+
+        {/* Left column — beige, navy text */}
+        <div className="aif-bridge-left">
+          <p style={{ ...p1Fs, color: NAVY }}>
             De fleste organisationer ved godt hvad de vil opnå.
           </p>
-          <p style={{ ...pStyle(p2Fs), margin: "0 0 32px" }}>
+          <p style={{ ...p2Fs, color: NAVY, margin: "0 0 32px" }}>
             Det svære er at få det til at lande.
           </p>
-          <p style={pStyle(p3Fs)}>— Medarbejderne der skal ændre vaner.</p>
-          <p style={pStyle(p4Fs)}>— Kunderne der skal mærke en forskel.</p>
-          <p style={{ ...pStyle(p5Fs), margin: "0 0 32px" }}>— Ledelsen der skal se at det virker.</p>
-          <p style={{ ...pStyle(p6Fs), margin: 0 }}>
+          <p style={{ ...p3Fs, color: NAVY }}>— Medarbejderne der skal ændre vaner.</p>
+          <p style={{ ...p4Fs, color: NAVY }}>— Kunderne der skal mærke en forskel.</p>
+          <p style={{ ...p5Fs, color: NAVY }}>— Ledelsen der skal se at det virker.</p>
+        </div>
+
+        {/* Right column — dark navy, cream text */}
+        <div className="aif-bridge-right">
+          <p style={{ ...p6Fs, color: "#F5F0E8" }}>
             Jeg arbejder i det mellemrum hvor teknologi møder mennesker. Ikke med værktøjerne — men med dem der skal bruge dem. Gennem metodisk research og et konsekvent fokus på mennesket finder jeg ind til det der faktisk foregår — og omsætter det til løsninger der virker fordi de tager afsæt i virkeligheden.
           </p>
         </div>
-      </section>
+
+      </div>
     </div>
   );
 }
@@ -540,6 +538,38 @@ function TransformationPage() {
           .aif-mobile-hero-h1 span {
             color: white !important;
           }
+        }
+
+        /* Bridge section — two-column split */
+        .aif-bridge { display: flex; flex-direction: row; }
+        .aif-bridge-left {
+          flex: 0 0 50%;
+          background: ${BEIGE};
+          padding: 60px;
+          box-sizing: border-box;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+        .aif-bridge-right {
+          flex: 0 0 50%;
+          background: #0D1B2A;
+          padding: 60px;
+          box-sizing: border-box;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+        .aif-bridge-left p, .aif-bridge-right p {
+          font-family: serif;
+          font-size: 1.2rem;
+          line-height: 1.8;
+          margin: 0 0 20px;
+        }
+        .aif-bridge-left p:last-child, .aif-bridge-right p:last-child { margin-bottom: 0; }
+        @media (max-width: 768px) {
+          .aif-bridge { flex-direction: column; }
+          .aif-bridge-left, .aif-bridge-right { flex: none; width: 100%; padding: 40px 24px; }
         }
       `}</style>
 
