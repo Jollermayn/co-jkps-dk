@@ -37,34 +37,52 @@ const RED = "#C0281E";
 // ── Scroll-focus hook ─────────────────────────────────────────────────────────
 // Active zone: viewport band from 10 % (top) to 70 % (bottom).
 //
-// Opacity is written DIRECTLY to the DOM element — not via React state — so
-// React re-renders can never override it. The root cause of the snap-back was
-// that setActive() triggered a child re-render (useFadeOnTrigger), which in
-// turn caused the parent SplitSection to re-render and re-apply
-// focusStyle = { opacity: 1 } before the dimming transition could complete.
-// By removing opacity from the React style prop entirely, React's reconciler
-// never touches it, and the value set by check() persists unconditionally.
+// Two refs, zero reactive state for the scroll path:
 //
-// setActive() is still called so child useFadeOnTrigger hooks fire at the
-// right moment — but the wrapper div's style prop carries NO opacity.
+//   activeRef   — mirrors the current active/inactive state so check() can
+//                 short-circuit when nothing has changed (avoids redundant
+//                 DOM writes and avoids calling forceReveal unnecessarily).
+//
+//   revealedRef — one-shot latch: false → true, never resets. Ensures the
+//                 child-reveal re-render fires exactly once per section no
+//                 matter how many times the section enters the active zone.
+//
+// Opacity is written directly to el.style, completely outside React's
+// reconciler. Because the wrapper div's JSX style prop never includes opacity,
+// React has nothing to reconcile and can never reset the value.
+//
+// forceReveal is the only useState here. It increments from 0 → 1 exactly
+// once (guarded by revealedRef) to give useFadeOnTrigger children the single
+// reactive signal they need. Every subsequent scroll event takes the early
+// return path and causes zero React work.
 function useScrollFocus() {
-  const ref = useRef<HTMLDivElement>(null);
-  const [active, setActive] = useState(false);
+  const ref         = useRef<HTMLDivElement>(null);
+  const activeRef   = useRef(false); // current active state — updated without re-render
+  const revealedRef = useRef(false); // has this section ever gone active — one-way latch
+  const [, forceReveal] = useState(0); // incremented once to wake child hooks
+
   useEffect(() => {
     const check = () => {
       const el = ref.current;
       if (!el) return;
       const { top, bottom } = el.getBoundingClientRect();
-      const vh       = window.innerHeight;
-      const isActive = top < vh * 0.70 && bottom > vh * 0.10;
-      // Write opacity directly — React cannot reset this during reconciliation
-      // because the JSX style prop for this element never includes opacity.
+      const isActive = top < window.innerHeight * 0.70 && bottom > window.innerHeight * 0.10;
+
+      if (isActive === activeRef.current) return; // nothing changed — no work at all
+      activeRef.current = isActive;
+
+      // Direct DOM write — React will never touch this property
       el.style.opacity    = isActive ? "1" : "0.1";
-      el.style.transition = isActive
-        ? "opacity 0.8s ease"
-        : "opacity 1.2s ease";
-      setActive(isActive);
+      el.style.transition = isActive ? "opacity 0.8s ease" : "opacity 1.2s ease";
+
+      // Trigger child reveals the very first time this section goes active.
+      // revealedRef guards the call so forceReveal fires at most once.
+      if (isActive && !revealedRef.current) {
+        revealedRef.current = true;
+        forceReveal(n => n + 1);
+      }
     };
+
     check();
     window.addEventListener("scroll", check, { passive: true });
     window.addEventListener("resize", check, { passive: true });
@@ -73,8 +91,11 @@ function useScrollFocus() {
       window.removeEventListener("resize", check);
     };
   }, []);
-  // focusStyle is intentionally omitted — opacity is owned by the DOM directly.
-  return { ref, active };
+
+  // `active` exposes revealedRef (not activeRef) so it is a permanent latch:
+  // false on initial render → true after first activation → never false again.
+  // useFadeOnTrigger sees exactly one false→true transition and never rerenders again.
+  return { ref, active: revealedRef.current };
 }
 
 // ── Coordinated fade hook ─────────────────────────────────────────────────────
