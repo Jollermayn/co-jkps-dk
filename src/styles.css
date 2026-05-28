@@ -383,6 +383,7 @@
 [data-case-slug] *:active {
   outline: none !important;
   box-shadow: none !important;
+  border-color: transparent !important;
   -webkit-tap-highlight-color: transparent !important;
 }
 [data-case-slug] video,
