@@ -443,7 +443,7 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
                         alt=""
                         aria-hidden="true"
                         loading="lazy"
-                        className="w-full h-full object-cover grayscale transition-[filter] duration-300 ease hover:grayscale-0"
+                        className="w-full h-full object-cover lg:grayscale transition-[filter] duration-300 ease lg:hover:grayscale-0"
                       />
                     </div>
                   ))}
@@ -459,7 +459,7 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
                         alt=""
                         aria-hidden="true"
                         loading="lazy"
-                        className="w-full h-full object-cover grayscale transition-[filter] duration-300 ease hover:grayscale-0"
+                        className="w-full h-full object-cover lg:grayscale transition-[filter] duration-300 ease lg:hover:grayscale-0"
                       />
                     </div>
                   ))}
