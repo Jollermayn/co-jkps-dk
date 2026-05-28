@@ -123,7 +123,6 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
   const idx      = caseStudies.findIndex((c) => c.slug === study.slug);
   const isFirst  = idx === 0;
   const isLast   = idx === caseStudies.length - 1;
-  const nextCase = !isLast && idx >= 0 ? caseStudies[idx + 1] : null;
 
   const isMobile = typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches;
 
@@ -487,9 +486,7 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
           )}
 
           {/* ── Right chevron ───────────────────────────────────────────────
-              Appears on panel hover. Hidden on the last case.
-              z-20 places it above the peek strip (z-10) so it floats over
-              the darkened next-case thumbnail. */}
+              Appears on panel hover. Hidden on the last case. */}
           {!isLast && (
             <button
               type="button"
@@ -501,29 +498,6 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
             </button>
           )}
 
-          {/* ── Edge peek strip ─────────────────────────────────────────────
-              Desktop only. Shows ~50 px of the next case's thumbnail on the
-              right edge of the modal, slightly darkened, hinting there is
-              more content to swipe to. Hidden on the last case. */}
-          {nextCase && (
-            <div
-              className="hidden md:block absolute right-0 top-0 bottom-0 w-[20px] z-10 cursor-pointer overflow-hidden"
-              onClick={() => navigateDir(1)}
-              aria-label={`Gå til næste case: ${nextCase.client}`}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") navigateDir(1); }}
-            >
-              <img
-                src={nextCase.poster ?? nextCase.image}
-                alt=""
-                aria-hidden="true"
-                className="absolute inset-0 w-full h-full object-cover object-center"
-              />
-              {/* Dark overlay */}
-              <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.85)" }} />
-            </div>
-          )}
 
         </div>
         {/* ── end outer panel wrapper ──────────────────────────────────────── */}

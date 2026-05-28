@@ -8,7 +8,7 @@ import caseHearing from "@/assets/case-hearing.png";
 import caseHearingVideo from "@/assets/case-hearing.mp4?url";
 import caseHearingPoster from "@/assets/case-hearing-poster.jpg";
 import caseDR from "@/assets/case-dr.png";
-import caseDRVideo from "@/assets/case-dr.mp4?url";
+const caseDRVideo = "/videos/DR2.mp4";
 import caseDRPoster from "@/assets/case-dr-poster.jpg";
 import caseAmnesty from "@/assets/case-amnesty.png";
 import caseAmnestyVideo from "@/assets/case-amnesty.mp4?url";
