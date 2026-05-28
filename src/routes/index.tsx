@@ -1335,6 +1335,32 @@ function Index() {
 
               <KompetencerList />
 
+              {/* Transformation call-out */}
+              <div style={{ backgroundColor: "#E8E2D9", marginTop: "48px", padding: "40px" }}>
+                <div style={{ maxWidth: 640 }}>
+                  <p style={{
+                    color: "#0A1628",
+                    fontWeight: 600,
+                    fontSize: "1.1rem",
+                    lineHeight: 1.6,
+                    margin: "0 0 14px",
+                  }}>
+                    Værktøjerne er nye. Problematikken er gammel.
+                  </p>
+                  <p style={{
+                    color: "#1C2B3A",
+                    fontSize: "1rem",
+                    lineHeight: 1.8,
+                    margin: "0 0 24px",
+                  }}>
+                    Måden vi søger, kommunikerer og træffer beslutninger på forandrer sig hurtigere end vi når at følge med. Men behovet for at forstå, vælge og handle er det samme som altid.
+                  </p>
+                  <Link to="/transformation" style={{ color: "#C0281E", textDecoration: "none", fontSize: "1rem" }}>
+                    Se hvordan jeg arbejder med det →
+                  </Link>
+                </div>
+              </div>
+
             </div>
           </section>
 
