@@ -1177,32 +1177,51 @@ function Index() {
                 ))}
               </div>
 
-              {/* Transformation call-out — after three columns */}
-              <div style={{ backgroundColor: "#0D1B2A", marginTop: "48px", padding: "40px" }}>
-                <div style={{ maxWidth: 640 }}>
-                  <p style={{
-                    color: "#ffffff",
-                    fontWeight: 600,
-                    fontSize: "1.1rem",
-                    lineHeight: 1.6,
-                    margin: "0 0 14px",
-                  }}>
-                    Værktøjerne er nye. Problematikken er gammel.
-                  </p>
-                  <p style={{
-                    color: "rgba(255,255,255,0.8)",
-                    fontSize: "1rem",
-                    lineHeight: 1.8,
-                    margin: "0 0 24px",
-                  }}>
-                    Måden vi søger, kommunikerer og træffer beslutninger på forandrer sig hurtigere end vi når at følge med. Men behovet for at forstå, vælge og handle er det samme som altid.
-                  </p>
-                  <Link to="/transformation" style={{ color: "#C0281E", textDecoration: "none", fontSize: "1rem" }}>
-                    Se hvordan jeg arbejder med det →
-                  </Link>
-                </div>
-              </div>
 
+            </div>
+
+            {/* Transformation call-out — full-bleed navy */}
+            <div style={{
+              backgroundColor: "#0D1B2A",
+              padding: "120px 24px",
+              textAlign: "center",
+            }}>
+              <p style={{
+                fontFamily: "'Playfair Display', serif",
+                fontSize: "clamp(2.5rem, 4vw, 4.5rem)",
+                fontWeight: 400,
+                lineHeight: 1.2,
+                color: "#ffffff",
+                display: "block",
+                margin: 0,
+              }}>
+                Værktøjerne er nye.
+              </p>
+              <p style={{
+                fontFamily: "'Playfair Display', serif",
+                fontSize: "clamp(2.5rem, 4vw, 4.5rem)",
+                fontWeight: 400,
+                lineHeight: 1.2,
+                color: "#C0281E",
+                display: "block",
+                margin: "40px 0 0",
+              }}>
+                Problematikken er gammel.
+              </p>
+              <p style={{
+                color: "rgba(255,255,255,0.85)",
+                fontSize: "1.2rem",
+                lineHeight: 1.8,
+                maxWidth: 600,
+                margin: "48px auto 0",
+              }}>
+                Måden vi søger, kommunikerer og træffer beslutninger på forandrer sig hurtigere end vi når at følge med. Men behovet for at forstå, vælge og handle er det samme som altid.
+              </p>
+              <p style={{ margin: "40px 0 0" }}>
+                <Link to="/transformation" style={{ color: "#C0281E", textDecoration: "none", fontSize: "1rem" }}>
+                  Se hvordan jeg arbejder med det →
+                </Link>
+              </p>
             </div>
           </section>
 
