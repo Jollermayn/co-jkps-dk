@@ -434,6 +434,22 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
                 </div>
               )}
 
+              {study.slug === "interaktiv-horesimulering" && (
+                <div className="mt-12 grid grid-cols-2 md:grid-cols-4" style={{ gap: "4px" }}>
+                  {[1,2,3,4,5,6,7,8].map((n) => (
+                    <div key={n} className="overflow-hidden aspect-square">
+                      <img
+                        src={`/FUS_${n}.png`}
+                        alt=""
+                        aria-hidden="true"
+                        loading="lazy"
+                        className="w-full h-full object-cover grayscale transition-[filter] duration-300 ease hover:grayscale-0"
+                      />
+                    </div>
+                  ))}
+                </div>
+              )}
+
               {study.slug === "danmarks-naturfredningsforening" && (
                 <div className="mt-12 grid grid-cols-2 md:grid-cols-4" style={{ gap: "4px" }}>
                   {[1,2,3,4,5,6,7,8].map((n) => (
