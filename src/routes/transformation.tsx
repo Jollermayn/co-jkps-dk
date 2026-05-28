@@ -234,6 +234,62 @@ function Section4Block() {
   );
 }
 
+function SectionBridge() {
+  const focus = useScrollFocus();
+  const p1Fs  = useFadeOnTrigger(focus.active, 0);
+  const p2Fs  = useFadeOnTrigger(focus.active, 0.15);
+  const p3Fs  = useFadeOnTrigger(focus.active, 0.30);
+  const p4Fs  = useFadeOnTrigger(focus.active, 0.45);
+  return (
+    <div ref={focus.ref}>
+      <section style={{ backgroundColor: BEIGE, padding: "80px 32px" }}>
+        <div style={{ maxWidth: 680, marginInline: "auto", textAlign: "center" }}>
+          <p style={{
+            ...p1Fs,
+            fontFamily: "serif",
+            fontSize: "1.2rem",
+            lineHeight: 1.8,
+            color: NAVY,
+            margin: "0 0 20px",
+          }}>
+            Jeg arbejder i det mellemrum.
+          </p>
+          <p style={{
+            ...p2Fs,
+            fontFamily: "serif",
+            fontSize: "1.2rem",
+            lineHeight: 1.8,
+            color: NAVY,
+            margin: "0 0 20px",
+          }}>
+            Mellem beslutningen og virkeligheden. Mellem teknologien og de mennesker der skal bruge den.
+          </p>
+          <p style={{
+            ...p3Fs,
+            fontFamily: "serif",
+            fontSize: "1.2rem",
+            lineHeight: 1.8,
+            color: NAVY,
+            margin: "0 0 20px",
+          }}>
+            Ikke som teknologikonsulent. Ikke som forandringsleder med en metode i en mappe.
+          </p>
+          <p style={{
+            ...p4Fs,
+            fontFamily: "serif",
+            fontSize: "1.2rem",
+            lineHeight: 1.8,
+            color: NAVY,
+            margin: 0,
+          }}>
+            <em>Men som én der ved hvordan man finder ud af hvad der faktisk foregår — og designer udenom det der ellers ville gå tabt.</em>
+          </p>
+        </div>
+      </section>
+    </div>
+  );
+}
+
 function Section5CTA({ onContact }: { onContact: () => void }) {
   const focus = useScrollFocus();
   const ctaFs = useFadeOnTrigger(focus.active, 0);
@@ -629,6 +685,7 @@ function TransformationPage() {
         <SplitSection2 />
         <SplitSection3 />
         <Section4Block />
+        <SectionBridge />
         <Section5CTA onContact={() => setContactOpen(true)} />
 
         {/* CLOSING */}
