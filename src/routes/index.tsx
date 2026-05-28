@@ -2039,12 +2039,12 @@ function CasesSection() {
               }}
               onBlur={() => variant === "slider" && setHoveredIndex(null)}
               className={
-                "group relative flex flex-col text-left rounded-lg overflow-hidden transition-all duration-300 ease-out hover:-translate-y-[3px] hover:bg-[rgba(255,255,255,0.04)] outline-none ring-0 shadow-none focus:outline-none focus-visible:outline-none focus:ring-0 focus-visible:ring-0 focus:shadow-none focus-visible:shadow-none " +
+                "group relative flex flex-col text-left rounded-lg overflow-hidden transition-all duration-300 ease-out hover:-translate-y-[3px] hover:bg-[rgba(0,0,0,0.03)] outline-none ring-0 shadow-none focus:outline-none focus-visible:outline-none focus:ring-0 focus-visible:ring-0 focus:shadow-none focus-visible:shadow-none " +
                 "cursor-pointer " +
                 sizing
               }
               style={{
-                background: "#0D1B2A",
+                background: "#E8E2D9",
                 appearance: "none",
                 WebkitAppearance: "none",
                 border: 0,
@@ -2088,19 +2088,20 @@ function CasesSection() {
                   style={{
                     height: "90px",
                     background:
-                      "linear-gradient(to top, #0D1B2A 0%, rgba(13,27,42,0) 100%)",
+                      "linear-gradient(to top, #E8E2D9 0%, rgba(232,226,217,0) 100%)",
                   }}
                 />
                 <div
                   aria-hidden
                   data-case-seam-cover
                   className="absolute inset-x-0 pointer-events-none"
-                  style={{ bottom: -2, height: 6, backgroundColor: "#0D1B2A" }}
+                  style={{ bottom: -2, height: 6, backgroundColor: "#E8E2D9" }}
                 />
                 {/* client name directly on image, above bottom fade */}
                 <span
                   data-case-client-label
-                  className={"absolute bottom-8 left-3 z-[2] inline-block w-fit text-white uppercase font-extrabold leading-tight " + clientSize}
+                  className={"absolute bottom-8 left-3 z-[2] inline-block w-fit uppercase font-extrabold leading-tight " + clientSize}
+                  style={{ color: "#0D1B2A" }}
                   style={{
                     fontFamily: "'Arial Black', 'Helvetica Neue', Helvetica, Arial, sans-serif",
                     fontSize: "0.9rem",
@@ -2130,15 +2131,15 @@ function CasesSection() {
               </div>
               <div className={bodyPadding + " border-0 outline-none"} style={{ border: 0, borderTop: 0, boxShadow: "none", outline: "none", marginTop: 0 }}>
                 <h3
-                  className={"font-display font-bold text-cream leading-snug min-h-[5rem] " + headlineSize}
-                  style={{ fontSize: 18 }}
+                  className={"font-display font-bold leading-snug min-h-[5rem] " + headlineSize}
+                  style={{ fontSize: 18, color: "#0D1B2A" }}
                 >
                   {meta?.headline ?? c.title}
                 </h3>
-                <p className="text-[12px] text-cream/70 leading-snug italic min-h-[2.6rem]">
+                <p className="text-[12px] leading-snug italic min-h-[2.6rem]" style={{ color: "rgba(10,22,40,0.65)" }}>
                   {c.stat ? <>→ {c.stat}</> : <>&nbsp;</>}
                 </p>
-                <ul className="mt-3 flex flex-col gap-1.5 text-[11px] uppercase tracking-[0.18em] text-cream/80 leading-relaxed">
+                <ul className="mt-3 flex flex-col gap-1.5 text-[11px] uppercase tracking-[0.18em] leading-relaxed" style={{ color: "rgba(10,22,40,0.75)" }}>
                   {(meta?.tags ?? []).map((t) => (
                     <li key={t} className="flex items-baseline gap-2">
                       <span aria-hidden className="text-ember">—</span>
@@ -2149,7 +2150,8 @@ function CasesSection() {
                 {variant === "slider" && (
                   <span
                     aria-hidden
-                    className="mt-auto pt-2 self-start sm:self-end inline-flex items-center gap-1.5 text-[10px] tracking-[0.15em] uppercase text-cream font-semibold md:opacity-0 md:group-hover:opacity-100 md:group-focus-visible:opacity-100 md:hover:!text-[#B83A20] transition-[opacity,color] duration-[400ms] md:hover:duration-300 ease-out"
+                    className="mt-auto pt-2 self-start sm:self-end inline-flex items-center gap-1.5 text-[10px] tracking-[0.15em] uppercase font-semibold md:opacity-0 md:group-hover:opacity-100 md:group-focus-visible:opacity-100 transition-[opacity,color] duration-[400ms] md:hover:duration-300 ease-out"
+                    style={{ color: "#0D1B2A" }}
                   >
                     <MousePointerClick className="w-3.5 h-3.5" strokeWidth={1.75} />
                     Se case
