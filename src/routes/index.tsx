@@ -2081,6 +2081,16 @@ function CasesSection() {
                     style={{ position: "absolute", inset: 0, backgroundColor: "rgba(0,0,0,0.12)", zIndex: 1, pointerEvents: "none" }}
                   />
                 )}
+                {/* dark gradient behind client name label */}
+                <div
+                  aria-hidden
+                  className="absolute inset-x-0 bottom-0 pointer-events-none"
+                  style={{
+                    height: "80px",
+                    background: "linear-gradient(to top, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 100%)",
+                    zIndex: 1,
+                  }}
+                />
                 {/* gradient overlay — fades image cleanly into card body, no visible seam */}
                 <div
                   data-gradient-overlay
