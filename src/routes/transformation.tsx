@@ -234,6 +234,52 @@ function Section4Block() {
   );
 }
 
+function SectionStatement() {
+  const focus = useScrollFocus();
+  const h1Fs  = useFadeOnTrigger(focus.active, 0);
+  const h2Fs  = useFadeOnTrigger(focus.active, 0.18);
+
+  return (
+    <div ref={focus.ref} style={{ margin: 0 }}>
+      <section style={{
+        backgroundColor: "#0D1B2A",
+        minHeight: "40vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "80px 32px",
+        textAlign: "center",
+        boxSizing: "border-box",
+      }}>
+        <div>
+          <p style={{
+            ...h1Fs,
+            fontFamily: "serif",
+            fontSize: "clamp(2rem, 4vw, 3.5rem)",
+            fontWeight: 700,
+            lineHeight: 1.2,
+            color: "#FFFFFF",
+            margin: "0 0 20px",
+          }}>
+            Når strategi A, B, C og D ikke virkede.
+          </p>
+          <p style={{
+            ...h2Fs,
+            fontFamily: "serif",
+            fontSize: "clamp(1.2rem, 2vw, 1.8rem)",
+            fontWeight: 400,
+            lineHeight: 1.4,
+            color: RED,
+            margin: 0,
+          }}>
+            <em>Så lad os prøve med det oprigtige.</em>
+          </p>
+        </div>
+      </section>
+    </div>
+  );
+}
+
 function SectionBridge() {
   const focus = useScrollFocus();
   const p1Fs  = useFadeOnTrigger(focus.active, 0);
@@ -743,6 +789,7 @@ function TransformationPage() {
 
         </section>
 
+        <SectionStatement />
         <SectionBridge />
         <SplitSection1 />
         <SplitSection2 />
