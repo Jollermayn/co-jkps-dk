@@ -128,20 +128,22 @@ function SplitSection1() {
   const p3Fs  = useFadeOnTrigger(focus.active, 0.45);
   return (
     <div ref={focus.ref}>
-      <div className="aif-split">
-        <div className="aif-split-img" style={imgFs}>
-          <img src={img2} alt="" aria-hidden="true" />
-        </div>
-        <div className="aif-split-text">
-          <p style={p1Fs}>
-            Konkurrenterne nævner det. Medarbejderne spørger. Kunderne forventer.
-          </p>
-          <p style={p2Fs}>
-            Så vi følger med — ikke fordi vi har en plan, men fordi frygten for at blive overhalet er reel.
-          </p>
-          <p className="aif-punchline" style={{ ...p3Fs, fontSize: "1.3rem", fontWeight: 500, lineHeight: 1.6 }}>
-            <em>Og vi hopper med.</em>
-          </p>
+      <div className="aif-card-wrapper">
+        <div className="aif-card">
+          <div className="aif-card-img" style={imgFs}>
+            <img src={img2} alt="" aria-hidden="true" />
+          </div>
+          <div className="aif-card-text">
+            <p style={p1Fs}>
+              Konkurrenterne nævner det. Medarbejderne spørger. Kunderne forventer.
+            </p>
+            <p style={p2Fs}>
+              Så vi følger med — ikke fordi vi har en plan, men fordi frygten for at blive overhalet er reel.
+            </p>
+            <p className="aif-punchline" style={{ ...p3Fs, fontWeight: 500, fontSize: "1.2rem" }}>
+              <em>Og vi hopper med.</em>
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -154,26 +156,28 @@ function SplitSection2() {
   const p2Fs  = useFadeOnTrigger(focus.active, 0.15);
   const p3Fs  = useFadeOnTrigger(focus.active, 0.30);
   const p4Fs  = useFadeOnTrigger(focus.active, 0.45);
-  const imgFs = useFadeOnTrigger(focus.active, 0.15);
+  const imgFs = useFadeOnTrigger(focus.active, 0);
   return (
     <div ref={focus.ref}>
-      <div className="aif-split" style={{ flexDirection: "row-reverse" }}>
-        <div className="aif-split-img" style={imgFs}>
-          <img src={img3} alt="" aria-hidden="true" />
-        </div>
-        <div className="aif-split-text">
-          <p style={p1Fs}>
-            Mønsteret har gentaget sig hver gang.
-          </p>
-          <p className="aif-punchline" style={{ ...p2Fs, fontSize: "1.3rem", lineHeight: 1.6 }}>
-            <em>Dampmaskinens. Elektricitetens. Internettets.</em>
-          </p>
-          <p style={p3Fs}>
-            De der klarede skærene var hverken dem der ignorerede det — eller dem der bare købte teknologien.
-          </p>
-          <p className="aif-boldline" style={{ ...p4Fs, fontWeight: 700, fontSize: "1.3rem", lineHeight: 1.6 }}>
-            <strong>Det var dem der forstod hvad den ændrede ved mennesket.</strong>
-          </p>
+      <div className="aif-card-wrapper">
+        <div className="aif-card">
+          <div className="aif-card-img" style={imgFs}>
+            <img src={img3} alt="" aria-hidden="true" />
+          </div>
+          <div className="aif-card-text">
+            <p style={p1Fs}>
+              Mønsteret har gentaget sig hver gang.
+            </p>
+            <p className="aif-punchline" style={{ ...p2Fs, fontSize: "1.2rem" }}>
+              <em>Dampmaskinens. Elektricitetens. Internettets.</em>
+            </p>
+            <p style={p3Fs}>
+              De der klarede skærene var hverken dem der ignorerede det — eller dem der bare købte teknologien.
+            </p>
+            <p className="aif-boldline" style={{ ...p4Fs, fontWeight: 700 }}>
+              <strong>Det var dem der forstod hvad den ændrede ved mennesket.</strong>
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -190,26 +194,28 @@ function SplitSection3() {
   const p5Fs  = useFadeOnTrigger(focus.active, 0.66);
   return (
     <div ref={focus.ref}>
-      <div className="aif-split">
-        <div className="aif-split-img" style={imgFs}>
-          <img src={img6} alt="" aria-hidden="true" />
-        </div>
-        <div className="aif-split-text">
-          <p style={p1Fs}>
-            Værktøjerne rulles ud. Ingenting ændrer sig.
-          </p>
-          <p style={p2Fs}>
-            Medarbejderne bruger dem ikke. Kunderne mærker ingen forskel. Ledelsen ved ikke hvorfor.
-          </p>
-          <p className="aif-boldline" style={{ ...p3Fs, fontWeight: 700, fontSize: "1.15rem", lineHeight: 1.6 }}>
-            <strong>Det er ikke et teknisk problem.</strong>
-          </p>
-          <p className="aif-boldline" style={{ ...p4Fs, fontWeight: 700, fontSize: "1.15rem", lineHeight: 1.6 }}>
-            <strong>Det er et menneskeligt et.</strong>
-          </p>
-          <p style={p5Fs}>
-            AI kan generere, automatisere og optimere. Det den ikke kan er forstå hvorfor folk gør som de gør.
-          </p>
+      <div className="aif-card-wrapper">
+        <div className="aif-card">
+          <div className="aif-card-img" style={imgFs}>
+            <img src={img6} alt="" aria-hidden="true" />
+          </div>
+          <div className="aif-card-text">
+            <p style={p1Fs}>
+              Værktøjerne rulles ud. Ingenting ændrer sig.
+            </p>
+            <p style={p2Fs}>
+              Medarbejderne bruger dem ikke. Kunderne mærker ingen forskel. Ledelsen ved ikke hvorfor.
+            </p>
+            <p className="aif-boldline" style={{ ...p3Fs, fontWeight: 700 }}>
+              <strong>Det er ikke et teknisk problem.</strong>
+            </p>
+            <p className="aif-boldline" style={{ ...p4Fs, fontWeight: 700 }}>
+              <strong>Det er et menneskeligt et.</strong>
+            </p>
+            <p style={p5Fs}>
+              AI kan generere, automatisere og optimere. Det den ikke kan er forstå hvorfor folk gør som de gør.
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -475,46 +481,48 @@ function TransformationPage() {
           50% { transform: translateY(8px); }
         }
 
-        /* Split content sections — 35% tekst / 65% billede */
-        .aif-split { display: flex; flex-direction: row; align-items: stretch; }
-        .aif-split-img { flex: 1; }
-        .aif-split-img img { width: 100%; height: auto; display: block; }
-        .aif-split-text {
-          flex: 0 0 35%;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          padding: 64px 48px;
-          background: ${BEIGE};
-          box-sizing: border-box;
+        /* Card layout */
+        .aif-cards-section { background: ${BEIGE}; padding: 80px 0; }
+        .aif-cards-section > div { margin-bottom: 80px; }
+        .aif-cards-section > div:last-child { margin-bottom: 0; }
+        .aif-card-wrapper { padding: 0 80px; }
+        .aif-card {
+          max-width: 900px;
+          margin: 0 auto;
+          background: #FFFFFF;
+          border-radius: 16px;
+          box-shadow: 0 2px 24px rgba(0,0,0,0.07);
+          overflow: hidden;
+          transition: box-shadow 0.3s ease;
         }
-        .aif-split-text p {
+        .aif-card:hover { box-shadow: 0 8px 40px rgba(0,0,0,0.13); }
+        .aif-card-img {
+          width: 100%;
+          height: 320px;
+          overflow: hidden;
+        }
+        .aif-card-img img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+          border-radius: 16px 16px 0 0;
+        }
+        .aif-card-text {
+          padding: 32px;
+        }
+        .aif-card-text p {
           font-family: serif;
-          font-size: 1.15rem;
+          font-size: 1.1rem;
           line-height: 1.8;
           color: ${NAVY};
-          margin: 0 0 20px;
+          margin: 0 0 16px;
         }
-        .aif-split-text p:last-child { margin-bottom: 0; }
-
-        /* Tablet (≤1024px): stacked layout */
-        @media (max-width: 1024px) {
-          .aif-split { flex-direction: column !important; }
-          .aif-split-img { flex: none; width: 100%; }
-          .aif-split-text { flex: none; width: 100%; padding: 48px 32px; }
-        }
-        /* Mobil (≤768px): tættere padding, tekst over billede */
+        .aif-card-text p:last-child { margin-bottom: 0; }
         @media (max-width: 768px) {
-          .aif-split { flex-direction: column-reverse !important; }
-          .aif-split-text { padding: 32px 24px; }
-          .aif-split-text p { font-size: 1.05rem; }
-        }
-
-        /* Desktop (≥1024px): larger body and emphasis text */
-        @media (min-width: 1024px) {
-          .aif-split-text p              { font-size: 1.3rem !important; }
-          .aif-split-text .aif-punchline { font-size: 1.5rem !important; }
-          .aif-split-text .aif-boldline  { font-size: 1.4rem !important; }
+          .aif-card-wrapper { padding: 0 24px; }
+          .aif-cards-section > div { margin-bottom: 32px; }
+          .aif-card-img { height: 220px; }
         }
 
         /* Hero */
@@ -791,9 +799,11 @@ function TransformationPage() {
 
         <SectionStatement />
         <SectionBridge />
-        <SplitSection1 />
-        <SplitSection2 />
-        <SplitSection3 />
+        <div className="aif-cards-section">
+          <SplitSection1 />
+          <SplitSection2 />
+          <SplitSection3 />
+        </div>
         <Section4Block />
         <SectionClosing onContact={() => setContactOpen(true)} />
         <Section5CTA onContact={() => setContactOpen(true)} />
