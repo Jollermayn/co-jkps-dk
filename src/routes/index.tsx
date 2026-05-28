@@ -2050,6 +2050,7 @@ function CasesSection() {
                 outline: "none",
                 boxShadow: "none",
                 marginTop: variant === "slider" && !isMobile ? ([0, 60, 30] as const)[index % 3] : 0,
+                marginBottom: variant === "slider" && !isMobile ? ([60, 0, 30] as const)[index % 3] : 0,
               }}
             >
               <div className={imgWrapperClass + " relative isolate border-0 outline-none"} style={{ backgroundColor: cardBackground, border: 0, boxShadow: "none", outline: "none", marginBottom: 0 }}>
