@@ -2044,7 +2044,7 @@ function CasesSection() {
                 sizing
               }
               style={{
-                background: "#E8E2D9",
+                background: "#D4B896",
                 appearance: "none",
                 WebkitAppearance: "none",
                 border: 0,
@@ -2088,14 +2088,14 @@ function CasesSection() {
                   style={{
                     height: "30px",
                     background:
-                      "linear-gradient(to top, rgba(232,226,217,0.7) 0%, rgba(232,226,217,0) 100%)",
+                      "linear-gradient(to top, rgba(212,184,150,0.7) 0%, rgba(212,184,150,0) 100%)",
                   }}
                 />
                 <div
                   aria-hidden
                   data-case-seam-cover
                   className="absolute inset-x-0 pointer-events-none"
-                  style={{ bottom: -2, height: 6, backgroundColor: "#E8E2D9" }}
+                  style={{ bottom: -2, height: 6, backgroundColor: "#D4B896" }}
                 />
                 {/* client name directly on image, above bottom fade */}
                 <span

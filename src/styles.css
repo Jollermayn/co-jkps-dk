@@ -425,13 +425,13 @@ video {
   border: none !important;
   border-top: none !important;
   border-bottom: none !important;
-  background-color: #E8E2D9 !important;
+  background-color: #D4B896 !important;
 }
 
 /* Force solid beige on card button and its direct div children — kill any seam on production build */
 button[data-case-slug],
 button[data-case-slug] > div {
-  background-color: #E8E2D9 !important;
+  background-color: #D4B896 !important;
   background-image: none !important;
   border: none !important;
   box-shadow: none !important;
@@ -455,7 +455,7 @@ button[data-case-slug] [data-case-video-wrap] * {
 /* The gradient overlay div needs its gradient back */
 button[data-case-slug] [data-gradient-overlay] {
   height: 30px !important;
-  background: linear-gradient(to top, rgba(232,226,217,0.7) 0%, rgba(232,226,217,0) 100%) !important;
+  background: linear-gradient(to top, rgba(212,184,150,0.7) 0%, rgba(212,184,150,0) 100%) !important;
   z-index: 1;
 }
 
