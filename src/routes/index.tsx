@@ -2142,9 +2142,6 @@ function CasesSection() {
                 >
                   {meta?.headline ?? c.title}
                 </h3>
-                <p className="text-[12px] leading-snug italic min-h-[2.6rem]" style={{ fontWeight: 500, color: "rgba(10,22,40,0.65)" }}>
-                  {c.stat ? <>→ {c.stat}</> : <>&nbsp;</>}
-                </p>
                 <ul className="mt-3 flex flex-col gap-1.5 text-[11px] uppercase tracking-[0.18em] leading-relaxed" style={{ fontWeight: 600, color: "rgba(10,22,40,0.75)" }}>
                   {(meta?.tags ?? []).map((t) => (
                     <li key={t} className="flex items-baseline gap-2">
@@ -2153,6 +2150,9 @@ function CasesSection() {
                     </li>
                   ))}
                 </ul>
+                <p className="text-[12px] leading-snug italic min-h-[2.6rem]" style={{ fontWeight: 500, color: "rgba(10,22,40,0.65)" }}>
+                  {c.stat ? <>→ {c.stat}</> : <>&nbsp;</>}
+                </p>
                 {variant === "slider" && (
                   <span
                     aria-hidden
