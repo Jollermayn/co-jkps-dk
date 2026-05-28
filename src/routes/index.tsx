@@ -1200,7 +1200,7 @@ function Index() {
             <div className="flex flex-col items-center sm:items-center sm:flex-row" style={{ width: "100%" }}>
               {/* RIGHT: image */}
               <div className="w-full sm:w-1/2 flex justify-center sm:justify-end order-2 mt-8 sm:mt-0">
-                <div style={{ position: "relative", display: "inline-block" }}>
+                <div style={{ position: "relative", display: "inline-block" }} className="md:translate-x-[48px]">
                   <img
                     src={chimpSuit}
                     alt=""
