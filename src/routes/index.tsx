@@ -2136,7 +2136,7 @@ function CasesSection() {
                   </span>
                 )}
               </div>
-              <div aria-hidden data-card-divider style={{ height: 3, lineHeight: 0, fontSize: 0, background: "linear-gradient(to right, #3D5C35, #6B8F5E)", flexShrink: 0 }} />
+              <div aria-hidden data-card-divider style={{ height: 0, lineHeight: 0, fontSize: 0, background: "none", borderTop: "2px dashed #4A6741", flexShrink: 0, position: "relative" }} />
               <div className={bodyPadding + " border-0 outline-none"} style={{ border: 0, borderTop: 0, boxShadow: "none", outline: "none", marginTop: 0 }}>
                 <h3
                   className={"font-display font-bold leading-snug min-h-[5rem] " + headlineSize}
