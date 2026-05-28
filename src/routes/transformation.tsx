@@ -117,6 +117,19 @@ function useFadeOnTrigger(active: boolean, delay = 0): React.CSSProperties {
 // Each element staggered 0.15s. Both hooks share the same `active` signal so
 // the focus-brighten and element-reveal fire in sync, not sequentially.
 
+// Shared card image style — absolute fill behind video
+const BG_IMG_STYLE: React.CSSProperties = {
+  position: "absolute", inset: 0, width: "100%", height: "100%",
+  objectFit: "cover", objectPosition: "center top", display: "block",
+};
+const VIDEO_STYLE: React.CSSProperties = {
+  position: "absolute", top: "42%", left: "5%", width: "90%", height: "28%",
+  objectFit: "cover", zIndex: 1,
+};
+function onImgErr(e: React.SyntheticEvent<HTMLImageElement>) {
+  console.error("[newspaper card] failed to load background image:", (e.target as HTMLImageElement).src);
+}
+
 function SplitSection1() {
   const focus    = useScrollFocus();
   const isMobile = useIsMobile();
@@ -126,18 +139,12 @@ function SplitSection1() {
       <div className="aif-card-wrapper">
         <div
           className="aif-np-card"
-          style={{
-            transform: "rotate(-1.2deg)",
-            backgroundImage: "url('/_JKPS_AVIS_TEMP_5.png')",
-            backgroundSize: "cover",
-            backgroundPosition: "center top",
-          }}
+          style={{ transform: "rotate(-1.2deg)" }}
           onMouseEnter={() => { if (!isMobile) videoRef.current?.play(); }}
           onMouseLeave={() => { if (!isMobile) videoRef.current?.pause(); }}
         >
-          <video ref={videoRef} autoPlay={!!isMobile} muted loop playsInline
-            style={{ position: "absolute", top: "42%", left: "5%", width: "90%", height: "28%", objectFit: "cover" }}
-          >
+          <img src="/_JKPS_AVIS_TEMP_5.png" alt="" style={BG_IMG_STYLE} onError={onImgErr} />
+          <video ref={videoRef} autoPlay={!!isMobile} muted loop playsInline style={VIDEO_STYLE}>
             <source src="/videos/Ai_udvikling2_video.mp4" type="video/mp4" />
           </video>
         </div>
@@ -155,18 +162,12 @@ function SplitSection2() {
       <div className="aif-card-wrapper">
         <div
           className="aif-np-card"
-          style={{
-            transform: "rotate(1.5deg)",
-            backgroundImage: "url('/_JKPS_AVIS_TEMP_11.png')",
-            backgroundSize: "cover",
-            backgroundPosition: "center top",
-          }}
+          style={{ transform: "rotate(1.5deg)" }}
           onMouseEnter={() => { if (!isMobile) videoRef.current?.play(); }}
           onMouseLeave={() => { if (!isMobile) videoRef.current?.pause(); }}
         >
-          <video ref={videoRef} autoPlay={!!isMobile} muted loop playsInline
-            style={{ position: "absolute", top: "42%", left: "5%", width: "90%", height: "28%", objectFit: "cover" }}
-          >
+          <img src="/_JKPS_AVIS_TEMP_11.png" alt="" style={BG_IMG_STYLE} onError={onImgErr} />
+          <video ref={videoRef} autoPlay={!!isMobile} muted loop playsInline style={VIDEO_STYLE}>
             <source src="/videos/Ai_udvikling3_video.mp4" type="video/mp4" />
           </video>
         </div>
@@ -184,18 +185,12 @@ function SplitSection3() {
       <div className="aif-card-wrapper">
         <div
           className="aif-np-card"
-          style={{
-            transform: "rotate(-0.8deg)",
-            backgroundImage: "url('/_JKPS_AVIS_TEMP_9.png')",
-            backgroundSize: "cover",
-            backgroundPosition: "center top",
-          }}
+          style={{ transform: "rotate(-0.8deg)" }}
           onMouseEnter={() => { if (!isMobile) videoRef.current?.play(); }}
           onMouseLeave={() => { if (!isMobile) videoRef.current?.pause(); }}
         >
-          <video ref={videoRef} autoPlay={!!isMobile} muted loop playsInline
-            style={{ position: "absolute", top: "42%", left: "5%", width: "90%", height: "28%", objectFit: "cover" }}
-          >
+          <img src="/_JKPS_AVIS_TEMP_9.png" alt="" style={BG_IMG_STYLE} onError={onImgErr} />
+          <video ref={videoRef} autoPlay={!!isMobile} muted loop playsInline style={VIDEO_STYLE}>
             <source src="/videos/Ai_udvikling5_video.mp4" type="video/mp4" />
           </video>
         </div>
@@ -213,18 +208,12 @@ function SplitSection4() {
       <div className="aif-card-wrapper">
         <div
           className="aif-np-card"
-          style={{
-            transform: "rotate(0.9deg)",
-            backgroundImage: "url('/_JKPS_AVIS_TEMP_10.png')",
-            backgroundSize: "cover",
-            backgroundPosition: "center top",
-          }}
+          style={{ transform: "rotate(0.9deg)" }}
           onMouseEnter={() => { if (!isMobile) videoRef.current?.play(); }}
           onMouseLeave={() => { if (!isMobile) videoRef.current?.pause(); }}
         >
-          <video ref={videoRef} autoPlay={!!isMobile} muted loop playsInline
-            style={{ position: "absolute", top: "42%", left: "5%", width: "90%", height: "28%", objectFit: "cover" }}
-          >
+          <img src="/_JKPS_AVIS_TEMP_10.png" alt="" style={BG_IMG_STYLE} onError={onImgErr} />
+          <video ref={videoRef} autoPlay={!!isMobile} muted loop playsInline style={VIDEO_STYLE}>
             <source src="/videos/Ai_udvikling6_video.mp4" type="video/mp4" />
           </video>
         </div>
@@ -521,7 +510,7 @@ function TransformationPage() {
 
         /* Card */
         .aif-np-card {
-          background: #EDE0BE;
+          background-color: #EDE0BE;
           border: 1px solid #a89060;
           box-shadow: 4px 6px 0 rgba(0,0,0,0.4);
           padding: 14px 14px 0;
