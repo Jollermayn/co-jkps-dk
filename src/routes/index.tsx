@@ -1041,6 +1041,12 @@ function Index() {
                 <p style={{ color: "white", opacity: 0.95, fontFamily: "'Playfair Display', serif", fontStyle: "italic", fontSize: "1.25rem", lineHeight: 1.5 }}>
                   Nysgerrig af natur. Seriøs lytter af profession.
                 </p>
+                <p style={{ color: "rgba(255,255,255,0.75)", fontSize: "1rem", lineHeight: 1.7 }}>
+                  Arbejder du med AI-implementering eller organisatorisk forandring?{" "}
+                  <Link to="/transformation" style={{ color: "#C0281E", textDecoration: "none" }}>
+                    Se min tilgang →
+                  </Link>
+                </p>
               </div>
             </div>
           </section>
@@ -1261,6 +1267,19 @@ function Index() {
                     Tilgang →
                   </span>
                 </Link>
+                <Link
+                  to="/transformation"
+                  className="hidden sm:block"
+                  style={{
+                    marginTop: "16px",
+                    color: "#C0281E",
+                    fontSize: "1rem",
+                    textDecoration: "none",
+                    fontFamily: "serif",
+                  }}
+                >
+                  Om AI og transformation →
+                </Link>
               </div>
 
               {/* Mobile only: Læs mere under the chimp */}
@@ -1279,6 +1298,20 @@ function Index() {
                   }}
                 >
                   Se min tilgang →
+                </Link>
+              </div>
+              {/* Mobile only: transformation link */}
+              <div className="w-full flex justify-center order-4 mt-3 sm:hidden">
+                <Link
+                  to="/transformation"
+                  style={{
+                    color: "#C0281E",
+                    fontSize: "1rem",
+                    textDecoration: "none",
+                    fontFamily: "serif",
+                  }}
+                >
+                  Om AI og transformation →
                 </Link>
               </div>
             </div>
