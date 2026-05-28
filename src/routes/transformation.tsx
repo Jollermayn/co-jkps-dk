@@ -451,10 +451,10 @@ function TransformationPage() {
           background: transparent;
           display: flex;
           flex-direction: column;
-          padding: 0 16px;
+          padding: 80px 16px;
           margin-top: 160px;
           overflow: visible;
-          gap: 24px;
+          gap: 16px;
         }
         .aif-card-wrapper { width: 100%; }
 
@@ -465,12 +465,13 @@ function TransformationPage() {
           box-shadow: none;
           padding: 0;
           overflow: hidden;
-          min-height: 600px;
+          aspect-ratio: 16 / 9;
           width: 100%;
           box-sizing: border-box;
           display: flex;
           flex-direction: column;
           position: relative;
+          border-radius: 12px;
         }
         .aif-np-card::after {
           content: '';
@@ -587,25 +588,27 @@ function TransformationPage() {
         .aif-np-readmore { color: #C0281E !important; font-weight: 600; }
 
         /* Tablet (768px–1023px): 2×2 grid */
+        /* Tablet (768px–1023px): 2×2 grid */
         @media (min-width: 768px) and (max-width: 1023px) {
           .aif-cards-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 24px;
-            padding: 0 24px;
+            gap: 16px;
+            padding: 80px 24px;
           }
           .aif-card-wrapper { width: 100%; }
         }
 
-        /* Desktop (≥1024px): four cards side-by-side, newsstand row */
+        /* Desktop (≥1024px): four cards in a horizontal row */
         @media (min-width: 1024px) {
           .aif-cards-section {
             display: flex;
             flex-direction: row;
-            gap: 0;
-            padding: 0;
+            gap: 16px;
+            padding: 80px 40px;
             margin-top: 160px;
             width: 100%;
+            box-sizing: border-box;
             align-items: stretch;
           }
           .aif-card-wrapper {
@@ -613,11 +616,10 @@ function TransformationPage() {
             min-width: 0;
           }
           .aif-np-card {
-            min-height: 600px;
-            height: 100%;
+            aspect-ratio: 16 / 9;
+            height: auto;
             max-width: none;
             margin: 0;
-            border-radius: 0;
           }
         }
 
