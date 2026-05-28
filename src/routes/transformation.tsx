@@ -256,23 +256,23 @@ function SectionStatement() {
             ...h1Fs,
             fontFamily: "serif",
             fontSize: "clamp(2rem, 4vw, 3.5rem)",
-            fontWeight: 700,
+            fontWeight: 400,
             lineHeight: 1.2,
             color: "#FFFFFF",
             margin: "0 0 20px",
           }}>
-            Når strategi A, B, C og D ikke virkede.
+            Når strategi <span style={{ color: RED }}>A</span>, <span style={{ color: RED }}>B</span>, <span style={{ color: RED }}>C</span> og <span style={{ color: RED }}>D</span> ikke virkede.
           </p>
           <p style={{
             ...h2Fs,
             fontFamily: "serif",
-            fontSize: "clamp(1.2rem, 2vw, 1.8rem)",
+            fontSize: "clamp(2rem, 4vw, 3.5rem)",
             fontWeight: 400,
-            lineHeight: 1.4,
-            color: RED,
+            lineHeight: 1.2,
+            color: "#FFFFFF",
             margin: 0,
           }}>
-            <em>Så lad os prøve med det oprigtige.</em>
+            Så lad os prøve med det oprigtige.
           </p>
         </div>
       </section>
