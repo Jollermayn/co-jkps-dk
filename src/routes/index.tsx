@@ -2044,7 +2044,7 @@ function CasesSection() {
                 sizing
               }
               style={{
-                background: "#D4B896",
+                background: "#EDE3D0",
                 appearance: "none",
                 WebkitAppearance: "none",
                 border: 0,
@@ -2098,14 +2098,14 @@ function CasesSection() {
                   style={{
                     height: "30px",
                     background:
-                      "linear-gradient(to top, rgba(212,184,150,0.7) 0%, rgba(212,184,150,0) 100%)",
+                      "linear-gradient(to top, rgba(237,227,208,0.7) 0%, rgba(237,227,208,0) 100%)",
                   }}
                 />
                 <div
                   aria-hidden
                   data-case-seam-cover
                   className="absolute inset-x-0 pointer-events-none"
-                  style={{ bottom: -2, height: 6, backgroundColor: "#D4B896" }}
+                  style={{ bottom: -2, height: 6, backgroundColor: "#EDE3D0" }}
                 />
                 {/* client name directly on image, above bottom fade */}
                 <span
@@ -2144,14 +2144,14 @@ function CasesSection() {
               <div className={bodyPadding + " border-0 outline-none"} style={{ border: 0, borderTop: 0, boxShadow: "none", outline: "none", marginTop: 0 }}>
                 <h3
                   className={"font-display font-bold leading-snug min-h-[5rem] " + headlineSize}
-                  style={{ fontSize: 18, color: "#0D1B2A" }}
+                  style={{ fontSize: 18, fontWeight: 700, color: "#0D1B2A" }}
                 >
                   {meta?.headline ?? c.title}
                 </h3>
-                <p className="text-[12px] leading-snug italic min-h-[2.6rem]" style={{ color: "rgba(10,22,40,0.65)" }}>
+                <p className="text-[12px] leading-snug italic min-h-[2.6rem]" style={{ fontWeight: 500, color: "rgba(10,22,40,0.65)" }}>
                   {c.stat ? <>→ {c.stat}</> : <>&nbsp;</>}
                 </p>
-                <ul className="mt-3 flex flex-col gap-1.5 text-[11px] uppercase tracking-[0.18em] leading-relaxed" style={{ color: "rgba(10,22,40,0.75)" }}>
+                <ul className="mt-3 flex flex-col gap-1.5 text-[11px] uppercase tracking-[0.18em] leading-relaxed" style={{ fontWeight: 600, color: "rgba(10,22,40,0.75)" }}>
                   {(meta?.tags ?? []).map((t) => (
                     <li key={t} className="flex items-baseline gap-2">
                       <span aria-hidden className="text-ember">—</span>
