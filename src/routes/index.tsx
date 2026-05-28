@@ -2039,7 +2039,7 @@ function CasesSection() {
               }}
               onBlur={() => variant === "slider" && setHoveredIndex(null)}
               className={
-                "group relative flex flex-col text-left rounded-lg overflow-hidden transition-all duration-300 ease-out hover:-translate-y-[3px] hover:bg-[rgba(0,0,0,0.03)] outline-none ring-0 shadow-none focus:outline-none focus-visible:outline-none focus:ring-0 focus-visible:ring-0 focus:shadow-none focus-visible:shadow-none " +
+                "group relative flex flex-col text-left overflow-hidden transition-all duration-300 ease-out hover:-translate-y-[3px] hover:bg-[rgba(0,0,0,0.03)] outline-none ring-0 shadow-none focus:outline-none focus-visible:outline-none focus:ring-0 focus-visible:ring-0 focus:shadow-none focus-visible:shadow-none " +
                 "cursor-pointer " +
                 sizing
               }
@@ -2050,6 +2050,8 @@ function CasesSection() {
                 border: 0,
                 outline: "none",
                 boxShadow: "none",
+                borderRadius: "4px 4px 0 0",
+                clipPath: "polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 16px 100%, 0 calc(100% - 16px))",
                 marginTop: variant === "slider" && !isMobile ? ([0, 60, 30] as const)[index % 3] : 0,
                 marginBottom: variant === "slider" && !isMobile ? ([60, 0, 30] as const)[index % 3] : 0,
               }}
