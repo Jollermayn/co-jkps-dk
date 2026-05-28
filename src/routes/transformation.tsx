@@ -126,47 +126,69 @@ function onImgErr(e: React.SyntheticEvent<HTMLImageElement>) {
   console.error("[newspaper card] failed to load background image:", (e.target as HTMLImageElement).src);
 }
 
-function SplitSection1() {
-  const focus = useScrollFocus();
-  return (
-    <div ref={focus.ref} className="aif-card-wrapper">
-      <div className="aif-np-card">
-        <img src="/AVIS_AI_1.png" alt="" style={BG_IMG_STYLE} onError={onImgErr} />
-      </div>
-    </div>
-  );
-}
+const NP_CARDS = ["/AVIS_AI_1.png", "/AVIS_AI_2.png", "/AVIS_AI_3.png", "/AVIS_AI_4.png"] as const;
 
-function SplitSection2() {
-  const focus = useScrollFocus();
-  return (
-    <div ref={focus.ref} className="aif-card-wrapper">
-      <div className="aif-np-card">
-        <img src="/AVIS_AI_2.png" alt="" style={BG_IMG_STYLE} onError={onImgErr} />
-      </div>
-    </div>
-  );
-}
+function NewspaperCarousel() {
+  const [current, setCurrent] = useState(0);
+  const total = NP_CARDS.length;
+  const prev = () => setCurrent(c => Math.max(0, c - 1));
+  const next = () => setCurrent(c => Math.min(total - 1, c + 1));
 
-function SplitSection3() {
-  const focus = useScrollFocus();
-  return (
-    <div ref={focus.ref} className="aif-card-wrapper">
-      <div className="aif-np-card">
-        <img src="/AVIS_AI_3.png" alt="" style={BG_IMG_STYLE} onError={onImgErr} />
-      </div>
-    </div>
-  );
-}
+  const arrowBase: React.CSSProperties = {
+    flexShrink: 0,
+    width: 48, height: 48,
+    display: "flex", alignItems: "center", justifyContent: "center",
+    background: "rgba(245,240,232,0.06)",
+    border: "1px solid rgba(245,240,232,0.18)",
+    borderRadius: "50%",
+    color: "#F5F0E8",
+    fontSize: 20,
+    cursor: "pointer",
+    transition: "opacity 0.2s, background 0.2s",
+    outline: "none",
+    boxShadow: "none",
+  };
 
-function SplitSection4() {
-  const focus = useScrollFocus();
   return (
-    <div ref={focus.ref} className="aif-card-wrapper">
-      <div className="aif-np-card">
-        <img src="/AVIS_AI_4.png" alt="" style={BG_IMG_STYLE} onError={onImgErr} />
+    <section style={{ background: "#0D1B2A", padding: "80px 0", marginTop: 160, width: "100%" }}>
+      {/* Row: arrow — track — arrow */}
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 20, padding: "0 16px" }}>
+        <button type="button" aria-label="Forrige" onClick={prev}
+          style={{ ...arrowBase, opacity: current === 0 ? 0.25 : 1 }}>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M13 4l-6 6 6 6" stroke="#F5F0E8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+        </button>
+
+        {/* Overflow-hidden track, card width */}
+        <div style={{ overflow: "hidden", width: "100%", maxWidth: 600, flexShrink: 1 }}>
+          <div style={{
+            display: "flex",
+            transform: `translateX(-${current * 100}%)`,
+            transition: "transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+          }}>
+            {NP_CARDS.map((src) => (
+              <div key={src} style={{ flex: "0 0 100%", height: "80vh", position: "relative", overflow: "hidden" }}>
+                <img src={src} alt="" style={BG_IMG_STYLE} onError={onImgErr} />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <button type="button" aria-label="Næste" onClick={next}
+          style={{ ...arrowBase, opacity: current === total - 1 ? 0.25 : 1 }}>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7 4l6 6-6 6" stroke="#F5F0E8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+        </button>
       </div>
-    </div>
+
+      {/* Counter */}
+      <p style={{
+        textAlign: "center", marginTop: 20,
+        color: "rgba(245,240,232,0.45)",
+        fontFamily: "sans-serif", fontSize: 13,
+        letterSpacing: "0.14em", fontWeight: 500,
+      }}>
+        {current + 1} / {total}
+      </p>
+    </section>
   );
 }
 
@@ -425,145 +447,6 @@ function TransformationPage() {
           50% { transform: translateY(8px); }
         }
 
-        /* ── Newspaper card layout ─────────────────────────────── */
-        /* ── Newspaper cards: full-width stacked column ───────── */
-        .aif-cards-section {
-          background: #0D1B2A;
-          display: flex;
-          flex-direction: column;
-          padding: 0;
-          margin-top: 160px;
-          gap: 0;
-          width: 100%;
-        }
-        .aif-card-wrapper { width: 100%; }
-
-        /* Card — portrait image fills full width, min 80vh tall */
-        .aif-np-card {
-          background-color: transparent;
-          border: none;
-          box-shadow: none;
-          padding: 0;
-          overflow: hidden;
-          width: 100%;
-          min-height: 80vh;
-          box-sizing: border-box;
-          position: relative;
-          border-radius: 0;
-        }
-        .aif-np-card::after {
-          content: '';
-          position: absolute;
-          inset: 0;
-          pointer-events: none;
-          opacity: 0.15;
-          mix-blend-mode: multiply;
-          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
-          background-size: 200px 200px;
-        }
-        /* Top bar */
-        .aif-np-topbar {
-          background: #000;
-          color: #fff;
-          text-align: center;
-          font-variant: small-caps;
-          letter-spacing: 0.3em;
-          font-size: 11px;
-          padding: 5px 0;
-          margin: -14px -14px 8px;
-        }
-        /* Date line */
-        .aif-np-dateline {
-          font-size: 9px;
-          color: #555;
-          border-bottom: 0.5px solid #888;
-          padding-bottom: 5px;
-          margin-bottom: 9px;
-          font-family: sans-serif;
-          letter-spacing: 0.05em;
-        }
-        /* Headline */
-        .aif-np-headline {
-          font-family: serif;
-          font-weight: 700;
-          font-size: clamp(1.4rem, 3.5vw, 2rem);
-          line-height: 1.05;
-          text-transform: uppercase;
-          color: #0a0a0a;
-          margin: 0 0 10px;
-          letter-spacing: -0.01em;
-        }
-        /* Double rule */
-        .aif-np-doublerule {
-          border-top: 2px solid #000;
-          margin-bottom: 4px;
-        }
-        .aif-np-doublerule::after {
-          content: '';
-          display: block;
-          border-top: 0.5px solid #000;
-          margin-top: 4px;
-          margin-bottom: 8px;
-        }
-        /* Deck */
-        .aif-np-deck {
-          font-style: italic;
-          font-size: 10px;
-          line-height: 1.55;
-          color: #222;
-          margin: 0 0 10px;
-          font-family: serif;
-        }
-        /* Video wrapper */
-        .aif-np-video-wrap {
-          position: relative;
-          margin: 0 -14px 10px;
-          border-top: 1.5px solid #000;
-          border-bottom: 1.5px solid #000;
-        }
-        .aif-np-video-wrap video {
-          width: 100%;
-          height: 185px;
-          object-fit: cover;
-          display: block;
-        }
-        .aif-np-caption {
-          position: absolute;
-          bottom: 0; left: 0; right: 0;
-          background: rgba(0,0,0,0.68);
-          color: #fff;
-          font-size: 8px;
-          padding: 3px 8px;
-          font-family: sans-serif;
-          letter-spacing: 0.12em;
-          text-transform: uppercase;
-        }
-        /* Two-column body */
-        .aif-np-body {
-          column-count: 2;
-          column-gap: 14px;
-          font-size: 10px;
-          line-height: 1.65;
-          font-family: sans-serif;
-          color: #111;
-          margin: 10px 0 0;
-        }
-        .aif-np-body p { margin: 0 0 6px; break-inside: avoid; }
-        /* Footer bar */
-        .aif-np-footer {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          background: #000;
-          color: #ccc;
-          font-size: 8.5px;
-          padding: 5px 8px;
-          font-family: sans-serif;
-          letter-spacing: 0.12em;
-          text-transform: uppercase;
-          margin: 10px -14px 0;
-        }
-        .aif-np-readmore { color: #C0281E !important; font-weight: 600; }
 
 
         /* Hero */
@@ -839,12 +722,7 @@ function TransformationPage() {
         </section>
 
         <SectionStatement />
-        <div className="aif-cards-section">
-          <SplitSection1 />
-          <SplitSection2 />
-          <SplitSection3 />
-          <SplitSection4 />
-        </div>
+        <NewspaperCarousel />
         <SectionBridge />
         <SectionClosing onContact={() => setContactOpen(true)} />
         <Section5CTA onContact={() => setContactOpen(true)} />
