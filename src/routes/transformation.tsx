@@ -139,7 +139,7 @@ function SplitSection1() {
           <p style={p2Fs}>
             Så vi følger med — ikke fordi vi har en plan, men fordi frygten for at blive overhalet er reel.
           </p>
-          <p style={{ ...p3Fs, fontSize: "1.3rem", fontWeight: 500, lineHeight: 1.6 }}>
+          <p className="aif-punchline" style={{ ...p3Fs, fontSize: "1.3rem", fontWeight: 500, lineHeight: 1.6 }}>
             <em>Og vi hopper med.</em>
           </p>
         </div>
@@ -165,13 +165,13 @@ function SplitSection2() {
           <p style={p1Fs}>
             Mønsteret har gentaget sig hver gang.
           </p>
-          <p style={{ ...p2Fs, fontSize: "1.3rem", lineHeight: 1.6 }}>
+          <p className="aif-punchline" style={{ ...p2Fs, fontSize: "1.3rem", lineHeight: 1.6 }}>
             <em>Dampmaskinens. Elektricitetens. Internettets.</em>
           </p>
           <p style={p3Fs}>
             De der klarede skærene var hverken dem der ignorerede det — eller dem der bare købte teknologien.
           </p>
-          <p style={{ ...p4Fs, fontWeight: 700, fontSize: "1.3rem", lineHeight: 1.6 }}>
+          <p className="aif-boldline" style={{ ...p4Fs, fontWeight: 700, fontSize: "1.3rem", lineHeight: 1.6 }}>
             <strong>Det var dem der forstod hvad den ændrede ved mennesket.</strong>
           </p>
         </div>
@@ -201,10 +201,10 @@ function SplitSection3() {
           <p style={p2Fs}>
             Medarbejderne bruger dem ikke. Kunderne mærker ingen forskel. Ledelsen ved ikke hvorfor.
           </p>
-          <p style={{ ...p3Fs, fontWeight: 700, fontSize: "1.15rem", lineHeight: 1.6 }}>
+          <p className="aif-boldline" style={{ ...p3Fs, fontWeight: 700, fontSize: "1.15rem", lineHeight: 1.6 }}>
             <strong>Det er ikke et teknisk problem.</strong>
           </p>
-          <p style={{ ...p4Fs, fontWeight: 700, fontSize: "1.15rem", lineHeight: 1.6 }}>
+          <p className="aif-boldline" style={{ ...p4Fs, fontWeight: 700, fontSize: "1.15rem", lineHeight: 1.6 }}>
             <strong>Det er et menneskeligt et.</strong>
           </p>
           <p style={p5Fs}>
@@ -372,10 +372,18 @@ function TransformationPage() {
           .aif-split-img { flex: none; width: 100%; }
           .aif-split-text { flex: none; width: 100%; padding: 48px 32px; }
         }
-        /* Mobil (≤768px): tættere padding */
+        /* Mobil (≤768px): tættere padding, tekst over billede */
         @media (max-width: 768px) {
+          .aif-split { flex-direction: column-reverse !important; }
           .aif-split-text { padding: 32px 24px; }
           .aif-split-text p { font-size: 1.05rem; }
+        }
+
+        /* Desktop (≥1024px): larger body and emphasis text */
+        @media (min-width: 1024px) {
+          .aif-split-text p              { font-size: 1.3rem !important; }
+          .aif-split-text .aif-punchline { font-size: 1.5rem !important; }
+          .aif-split-text .aif-boldline  { font-size: 1.4rem !important; }
         }
 
         /* Hero */
