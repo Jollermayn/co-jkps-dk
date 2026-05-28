@@ -520,16 +520,29 @@ function TransformationPage() {
         /* Card */
         .aif-np-card {
           background: #EDE0BE;
-          filter: url(#paper-grain);
           border: 1px solid #a89060;
           box-shadow: 4px 6px 0 rgba(0,0,0,0.4);
           padding: 14px 14px 0;
           font-family: serif;
           overflow: hidden;
-          min-height: 640px;
+          min-height: 620px;
+          max-width: 400px;
+          margin: 0 auto;
+          width: 100%;
           box-sizing: border-box;
           display: flex;
           flex-direction: column;
+          position: relative;
+        }
+        .aif-np-card::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          opacity: 0.15;
+          mix-blend-mode: multiply;
+          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+          background-size: 200px 200px;
         }
         /* Top bar */
         .aif-np-topbar {
@@ -556,8 +569,8 @@ function TransformationPage() {
         .aif-np-headline {
           font-family: serif;
           font-weight: 700;
-          font-size: clamp(1.5rem, 4vw, 2.2rem);
-          line-height: 1.0;
+          font-size: clamp(1.4rem, 3.5vw, 2rem);
+          line-height: 1.05;
           text-transform: uppercase;
           color: #0a0a0a;
           margin: 0 0 10px;
@@ -649,12 +662,12 @@ function TransformationPage() {
             justify-items: center;
             overflow: visible;
           }
-          .aif-cards-section > div { margin-bottom: 0; width: 100%; max-width: 420px; }
+          .aif-cards-section > div { margin-bottom: 0; width: 100%; max-width: 400px; }
           .aif-cards-section > div:last-child { margin-bottom: 0; }
           .aif-cards-section > div:nth-child(even) { margin-top: -180px; }
           .aif-card-wrapper { padding: 0; }
-          .aif-np-card { max-width: 420px; margin: 0 auto; }
-          .aif-np-headline { font-size: clamp(1.6rem, 2.5vw, 2.4rem); }
+          .aif-np-card { max-width: 400px; }
+          .aif-np-headline { font-size: clamp(1.4rem, 3.5vw, 2rem); }
         }
 
         /* Hero */
