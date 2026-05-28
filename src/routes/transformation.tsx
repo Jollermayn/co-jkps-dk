@@ -274,6 +274,53 @@ function SectionBridge() {
   );
 }
 
+function SectionClosing({ onContact }: { onContact: () => void }) {
+  const focus = useScrollFocus();
+  const p1Fs  = useFadeOnTrigger(focus.active, 0);
+  const p2Fs  = useFadeOnTrigger(focus.active, 0.20);
+  const p3Fs  = useFadeOnTrigger(focus.active, 0.40);
+  return (
+    <div ref={focus.ref}>
+      <section style={{ backgroundColor: BEIGE, padding: "80px 32px" }}>
+        <div style={{ maxWidth: 680, marginInline: "auto", textAlign: "center" }}>
+          <p style={{
+            ...p1Fs,
+            fontFamily: "serif",
+            fontSize: "1.2rem",
+            lineHeight: 1.8,
+            color: NAVY,
+            margin: "0 0 20px",
+          }}>
+            Står du med en organisation der skal igennem noget svært — en implementering der ikke lander, en forandring der møder modstand, en teknologi der ikke bliver brugt — så er jeg interesseret i at høre om det.
+          </p>
+          <p style={{
+            ...p2Fs,
+            fontFamily: "serif",
+            fontSize: "1.2rem",
+            lineHeight: 1.8,
+            color: NAVY,
+            margin: "0 0 32px",
+          }}>
+            Ikke for at sælge en løsning. Men for at forstå problemet.
+          </p>
+          <p style={{ ...p3Fs, fontFamily: "serif", fontSize: "1.2rem", lineHeight: 1.8, color: NAVY, margin: 0 }}>
+            <em>
+              <a
+                href="#"
+                onClick={(e) => { e.preventDefault(); onContact(); }}
+                className="aif-tales-link"
+                style={{ color: NAVY, textDecoration: "none", cursor: "pointer" }}
+              >
+                Lad os tales ved.
+              </a>
+            </em>
+          </p>
+        </div>
+      </section>
+    </div>
+  );
+}
+
 function Section5CTA({ onContact }: { onContact: () => void }) {
   const focus = useScrollFocus();
   const ctaFs = useFadeOnTrigger(focus.active, 0);
@@ -671,6 +718,7 @@ function TransformationPage() {
         <SplitSection2 />
         <SplitSection3 />
         <Section4Block />
+        <SectionClosing onContact={() => setContactOpen(true)} />
         <Section5CTA onContact={() => setContactOpen(true)} />
 
         {/* CLOSING */}
