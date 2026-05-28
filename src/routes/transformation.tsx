@@ -35,38 +35,37 @@ const BEIGE = "#E8E2D9";
 const RED = "#C0281E";
 
 // ── Scroll-focus hook ─────────────────────────────────────────────────────────
-// Active zone: viewport band from 10% (top) to 70% (bottom).
-// A section is active when it overlaps this band — i.e. its top is above
-// zoneBottom AND its bottom is below zoneTop. Both conditions are required,
-// covering all three inactive states:
-//   • not yet reached: top >= zoneBottom  → top < zoneBottom is false
-//   • scrolled past:   bottom <= zoneTop  → bottom > zoneTop is false
-//   • both true only when section genuinely overlaps the active band
-// ref.current is read INSIDE check on every call so we never hold a stale
-// element reference captured at effect-mount time.
+// Active zone: viewport band from 10 % (top) to 70 % (bottom).
+//
+// Opacity is written DIRECTLY to the DOM element — not via React state — so
+// React re-renders can never override it. The root cause of the snap-back was
+// that setActive() triggered a child re-render (useFadeOnTrigger), which in
+// turn caused the parent SplitSection to re-render and re-apply
+// focusStyle = { opacity: 1 } before the dimming transition could complete.
+// By removing opacity from the React style prop entirely, React's reconciler
+// never touches it, and the value set by check() persists unconditionally.
+//
+// setActive() is still called so child useFadeOnTrigger hooks fire at the
+// right moment — but the wrapper div's style prop carries NO opacity.
 function useScrollFocus() {
-  const ref = useRef<Element>(null);
+  const ref = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(false);
   useEffect(() => {
     const check = () => {
-      const el = ref.current;          // read fresh every call
+      const el = ref.current;
       if (!el) return;
       const { top, bottom } = el.getBoundingClientRect();
-      const vh          = window.innerHeight;
-      const zoneTop     = vh * 0.10;   // 10 % from viewport top
-      const zoneBottom  = vh * 0.70;   // 70 % from viewport top (30 % inset at bottom)
-      const isActive    = top < zoneBottom && bottom > zoneTop;
-      // ── diagnostic: remove once dimming is confirmed correct ──
-      console.log("[ScrollFocus]", {
-        top:    Math.round(top),
-        bottom: Math.round(bottom),
-        zoneTop:    Math.round(zoneTop),
-        zoneBottom: Math.round(zoneBottom),
-        isActive,
-      });
+      const vh       = window.innerHeight;
+      const isActive = top < vh * 0.70 && bottom > vh * 0.10;
+      // Write opacity directly — React cannot reset this during reconciliation
+      // because the JSX style prop for this element never includes opacity.
+      el.style.opacity    = isActive ? "1" : "0.1";
+      el.style.transition = isActive
+        ? "opacity 0.8s ease"
+        : "opacity 1.2s ease";
       setActive(isActive);
     };
-    check(); // evaluate immediately on mount
+    check();
     window.addEventListener("scroll", check, { passive: true });
     window.addEventListener("resize", check, { passive: true });
     return () => {
@@ -74,14 +73,8 @@ function useScrollFocus() {
       window.removeEventListener("resize", check);
     };
   }, []);
-  return {
-    ref,
-    active,
-    focusStyle: {
-      opacity: active ? 1 : 0.1,
-      transition: active ? "opacity 0.8s ease" : "opacity 1.2s ease",
-    } as React.CSSProperties,
-  };
+  // focusStyle is intentionally omitted — opacity is owned by the DOM directly.
+  return { ref, active };
 }
 
 // ── Coordinated fade hook ─────────────────────────────────────────────────────
@@ -113,7 +106,7 @@ function SplitSection1() {
   const p2Fs  = useFadeOnTrigger(focus.active, 0.30);
   const p3Fs  = useFadeOnTrigger(focus.active, 0.45);
   return (
-    <div ref={focus.ref as React.RefObject<HTMLDivElement>} style={focus.focusStyle}>
+    <div ref={focus.ref}>
       <div className="aif-split">
         <div className="aif-split-img" style={imgFs}>
           <img src={img2} alt="" aria-hidden="true" />
@@ -142,7 +135,7 @@ function SplitSection2() {
   const p4Fs  = useFadeOnTrigger(focus.active, 0.45);
   const imgFs = useFadeOnTrigger(focus.active, 0.15);
   return (
-    <div ref={focus.ref as React.RefObject<HTMLDivElement>} style={focus.focusStyle}>
+    <div ref={focus.ref}>
       <div className="aif-split" style={{ flexDirection: "row-reverse" }}>
         <div className="aif-split-img" style={imgFs}>
           <img src={img3} alt="" aria-hidden="true" />
@@ -175,7 +168,7 @@ function SplitSection3() {
   const p4Fs  = useFadeOnTrigger(focus.active, 0.54);
   const p5Fs  = useFadeOnTrigger(focus.active, 0.66);
   return (
-    <div ref={focus.ref as React.RefObject<HTMLDivElement>} style={focus.focusStyle}>
+    <div ref={focus.ref}>
       <div className="aif-split">
         <div className="aif-split-img" style={imgFs}>
           <img src={img6} alt="" aria-hidden="true" />
@@ -206,7 +199,7 @@ function Section4Block() {
   const focus = useScrollFocus();
   const imgFs = useFadeOnTrigger(focus.active, 0);
   return (
-    <div ref={focus.ref as React.RefObject<HTMLDivElement>} style={focus.focusStyle}>
+    <div ref={focus.ref}>
       <section style={{ backgroundColor: BEIGE }}>
         <Section4Text />
         <img
@@ -224,7 +217,7 @@ function Section5CTA({ onContact }: { onContact: () => void }) {
   const focus = useScrollFocus();
   const ctaFs = useFadeOnTrigger(focus.active, 0);
   return (
-    <div ref={focus.ref as React.RefObject<HTMLDivElement>} style={focus.focusStyle}>
+    <div ref={focus.ref}>
       <section style={{ backgroundColor: BEIGE }}>
         <div style={{ padding: "96px 32px", textAlign: "center" }}>
           <p
