@@ -128,15 +128,38 @@ function onImgErr(e: React.SyntheticEvent<HTMLImageElement>) {
 
 const NP_CARDS = ["/AVIS_AI_1.png", "/AVIS_AI_2.png", "/AVIS_AI_3.png", "/AVIS_AI_4.png"] as const;
 
+const FADE_MS = 400;
+
 function NewspaperCarousel() {
-  const [current, setCurrent] = useState(0);
+  const [current, setCurrent]   = useState(0);
+  const [prev,    setPrev]      = useState<number | null>(null);
+  const [animating, setAnimating] = useState(false);
+  const touchX = useRef(0);
   const total = NP_CARDS.length;
 
+  const goTo = (index: number) => {
+    if (animating || index === current || index < 0 || index >= total) return;
+    setPrev(current);
+    setCurrent(index);
+    setAnimating(true);
+    setTimeout(() => { setPrev(null); setAnimating(false); }, FADE_MS);
+  };
+
+  // Keyboard navigation
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft")  goTo(current - 1);
+      if (e.key === "ArrowRight") goTo(current + 1);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [current, animating]); // eslint-disable-line react-hooks/exhaustive-deps
+
   const arrowBtn: React.CSSProperties = {
-    width: 48, height: 48, flexShrink: 0,
+    width: 44, height: 44, flexShrink: 0,
     display: "flex", alignItems: "center", justifyContent: "center",
     background: "rgba(245,240,232,0.06)",
-    border: "1px solid rgba(245,240,232,0.18)",
+    border: "1px solid rgba(245,240,232,0.16)",
     borderRadius: "50%",
     cursor: "pointer",
     outline: "none", boxShadow: "none",
@@ -145,33 +168,79 @@ function NewspaperCarousel() {
 
   return (
     <section style={{ background: "#0D1B2A", marginTop: 160, width: "100%" }}>
-      {/* Full-width 16:9 card — only current visible */}
-      <div style={{ width: "100%", aspectRatio: "16/9", position: "relative", overflow: "hidden" }}>
+      {/* 16:9 card area — crossfade between prev and current */}
+      <div
+        style={{ width: "100%", aspectRatio: "16/9", position: "relative", overflow: "hidden" }}
+        onTouchStart={e => { touchX.current = e.touches[0].clientX; }}
+        onTouchEnd={e => {
+          const diff = touchX.current - e.changedTouches[0].clientX;
+          if (diff >  50) goTo(current + 1);
+          if (diff < -50) goTo(current - 1);
+        }}
+      >
+        {/* Current image — always underneath, fades in */}
         <img
-          key={current}
+          key={`cur-${current}`}
           src={NP_CARDS[current]}
           alt=""
-          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }}
+          style={{
+            position: "absolute", inset: 0, width: "100%", height: "100%",
+            objectFit: "cover", objectPosition: "center top", display: "block",
+            zIndex: 1,
+            animation: animating ? `np-fade-in ${FADE_MS}ms ease forwards` : "none",
+          }}
           onError={onImgErr}
         />
+        {/* Previous image — fades out on top during crossfade */}
+        {animating && prev !== null && (
+          <img
+            key={`prev-${prev}`}
+            src={NP_CARDS[prev]}
+            alt=""
+            style={{
+              position: "absolute", inset: 0, width: "100%", height: "100%",
+              objectFit: "cover", objectPosition: "center top", display: "block",
+              zIndex: 2,
+              animation: `np-fade-out ${FADE_MS}ms ease forwards`,
+              pointerEvents: "none",
+            }}
+            onError={onImgErr}
+          />
+        )}
       </div>
 
-      {/* Arrows + counter row */}
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 24, padding: "24px 16px 32px" }}>
-        <button type="button" aria-label="Forrige"
-          onClick={() => setCurrent(c => Math.max(0, c - 1))}
-          style={{ ...arrowBtn, opacity: current === 0 ? 0.25 : 1 }}>
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M13 4l-6 6 6 6" stroke="#F5F0E8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+      {/* Controls: arrows + dot indicators */}
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 20, padding: "20px 16px 32px" }}>
+        <button type="button" aria-label="Forrige" onClick={() => goTo(current - 1)}
+          style={{ ...arrowBtn, opacity: current === 0 ? 0.22 : 1 }}>
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M13 4l-6 6 6 6" stroke="#F5F0E8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
         </button>
 
-        <span style={{ color: "rgba(245,240,232,0.45)", fontFamily: "sans-serif", fontSize: 13, letterSpacing: "0.14em", fontWeight: 500, minWidth: 40, textAlign: "center" }}>
-          {current + 1} / {total}
-        </span>
+        {/* Dot indicators */}
+        <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+          {NP_CARDS.map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              aria-label={`Kort ${i + 1}`}
+              onClick={() => goTo(i)}
+              style={{
+                width: i === current ? 22 : 8,
+                height: 8,
+                borderRadius: 4,
+                background: i === current ? "#F5F0E8" : "rgba(245,240,232,0.28)",
+                border: "none", outline: "none", padding: 0,
+                cursor: i === current ? "default" : "pointer",
+                boxShadow: "none",
+                transition: `width ${FADE_MS}ms ease, background ${FADE_MS}ms ease`,
+              }}
+            />
+          ))}
+        </div>
 
-        <button type="button" aria-label="Næste"
-          onClick={() => setCurrent(c => Math.min(total - 1, c + 1))}
-          style={{ ...arrowBtn, opacity: current === total - 1 ? 0.25 : 1 }}>
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7 4l6 6-6 6" stroke="#F5F0E8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+        <button type="button" aria-label="Næste" onClick={() => goTo(current + 1)}
+          style={{ ...arrowBtn, opacity: current === total - 1 ? 0.22 : 1 }}>
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M7 4l6 6-6 6" stroke="#F5F0E8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
         </button>
       </div>
     </section>
@@ -428,6 +497,8 @@ function TransformationPage() {
         }
         .aif-tales-link:hover::after { transform: scaleX(1); }
         @keyframes aif-fade { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes np-fade-out { from { opacity: 1; } to { opacity: 0; } }
+        @keyframes np-fade-in  { from { opacity: 0; } to { opacity: 1; } }
         @keyframes aif-bounce {
           0%, 100% { transform: translateY(0); }
           50% { transform: translateY(8px); }
