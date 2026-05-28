@@ -507,7 +507,7 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
               more content to swipe to. Hidden on the last case. */}
           {nextCase && (
             <div
-              className="hidden md:block absolute right-0 top-0 bottom-0 w-[30px] z-10 cursor-pointer overflow-hidden"
+              className="hidden md:block absolute right-0 top-0 bottom-0 w-[20px] z-10 cursor-pointer overflow-hidden"
               onClick={() => navigateDir(1)}
               aria-label={`Gå til næste case: ${nextCase.client}`}
               role="button"
@@ -521,7 +521,7 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
                 className="absolute inset-0 w-full h-full object-cover object-center"
               />
               {/* Dark overlay */}
-              <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.7)" }} />
+              <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.85)" }} />
             </div>
           )}
 
