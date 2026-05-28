@@ -4,10 +4,6 @@ import { motion, useInView } from "framer-motion";
 import { SiteLogo } from "@/components/SiteLogo";
 import { MenuIcon } from "@/components/MenuIcon";
 import heroImg from "@/assets/ai-og-forandring-hero.png";
-import img2 from "@/assets/ai-udvikling2.png";
-import img3 from "@/assets/ai-udvikling3.png";
-import img5 from "@/assets/ai-udvikling5.png";
-import img6 from "@/assets/ai-udvikling6.png";
 
 export const Route = createFileRoute("/transformation")({
   head: () => ({
@@ -131,7 +127,7 @@ function SplitSection1() {
       <div className="aif-card-wrapper">
         <div className="aif-card">
           <div className="aif-card-img" style={imgFs}>
-            <img src={img2} alt="" aria-hidden="true" />
+            <video src="/videos/Ai_udvikling2_video.mp4" autoPlay muted loop playsInline style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
           </div>
           <div className="aif-card-text">
             <p style={p1Fs}>
@@ -162,7 +158,7 @@ function SplitSection2() {
       <div className="aif-card-wrapper">
         <div className="aif-card">
           <div className="aif-card-img" style={imgFs}>
-            <img src={img3} alt="" aria-hidden="true" />
+            <video src="/videos/Ai_udvikling3_video.mp4" autoPlay muted loop playsInline style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
           </div>
           <div className="aif-card-text">
             <p style={p1Fs}>
@@ -197,7 +193,7 @@ function SplitSection3() {
       <div className="aif-card-wrapper">
         <div className="aif-card">
           <div className="aif-card-img" style={imgFs}>
-            <img src={img6} alt="" aria-hidden="true" />
+            <video src="/videos/Ai_udvikling6_video.mp4" autoPlay muted loop playsInline style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
           </div>
           <div className="aif-card-text">
             <p style={p1Fs}>
@@ -229,11 +225,13 @@ function Section4Block() {
     <div ref={focus.ref}>
       <section style={{ backgroundColor: BEIGE }}>
         <Section4Text />
-        <img
-          src={img5}
-          alt=""
-          aria-hidden="true"
-          style={{ ...imgFs, width: "100%", height: "auto", display: "block" }}
+        <video
+          src="/videos/Ai_udvikling5_video.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          style={{ ...imgFs, width: "100%", height: "auto", display: "block", objectFit: "cover" }}
         />
       </section>
     </div>
@@ -499,7 +497,8 @@ function TransformationPage() {
           height: 220px;
           overflow: hidden;
         }
-        .aif-card-img img {
+        .aif-card-img img,
+        .aif-card-img video {
           width: 100%;
           height: 100%;
           object-fit: cover;
