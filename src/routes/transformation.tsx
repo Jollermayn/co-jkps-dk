@@ -513,7 +513,9 @@ function TransformationPage() {
               opacity: 0,
               animation: "aif-fade 0.8s ease 0.2s both",
             }}>
-              Transformationen er begyndt
+              <span style={{ display: "block" }}>Transformationen</span>
+              <span style={{ display: "block", fontSize: "0.5em", fontWeight: 300, color: RED }}>er</span>
+              <span style={{ display: "block" }}>begyndt</span>
             </h1>
           </div>
 
@@ -532,7 +534,9 @@ function TransformationPage() {
                 opacity: 0,
                 animation: "aif-fade 0.8s ease 0.2s both",
               }}>
-                Transformationen er begyndt
+                <span style={{ display: "block" }}>Transformationen</span>
+                <span style={{ display: "block", fontSize: "0.5em", fontWeight: 300, color: RED }}>er</span>
+                <span style={{ display: "block" }}>begyndt</span>
               </h1>
             </div>
           </div>
