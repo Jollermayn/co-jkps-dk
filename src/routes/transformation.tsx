@@ -131,63 +131,49 @@ const NP_CARDS = ["/AVIS_AI_1.png", "/AVIS_AI_2.png", "/AVIS_AI_3.png", "/AVIS_A
 function NewspaperCarousel() {
   const [current, setCurrent] = useState(0);
   const total = NP_CARDS.length;
-  const prev = () => setCurrent(c => Math.max(0, c - 1));
-  const next = () => setCurrent(c => Math.min(total - 1, c + 1));
 
-  const arrowBase: React.CSSProperties = {
-    flexShrink: 0,
-    width: 48, height: 48,
+  const arrowBtn: React.CSSProperties = {
+    width: 48, height: 48, flexShrink: 0,
     display: "flex", alignItems: "center", justifyContent: "center",
     background: "rgba(245,240,232,0.06)",
     border: "1px solid rgba(245,240,232,0.18)",
     borderRadius: "50%",
-    color: "#F5F0E8",
-    fontSize: 20,
     cursor: "pointer",
-    transition: "opacity 0.2s, background 0.2s",
-    outline: "none",
-    boxShadow: "none",
+    outline: "none", boxShadow: "none",
+    transition: "opacity 0.15s",
   };
 
   return (
-    <section style={{ background: "#0D1B2A", padding: "80px 0", marginTop: 160, width: "100%" }}>
-      {/* Row: arrow — track — arrow */}
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 20, padding: "0 16px" }}>
-        <button type="button" aria-label="Forrige" onClick={prev}
-          style={{ ...arrowBase, opacity: current === 0 ? 0.25 : 1 }}>
+    <section style={{ background: "#0D1B2A", marginTop: 160, width: "100%" }}>
+      {/* Full-width 16:9 card — only current visible */}
+      <div style={{ width: "100%", aspectRatio: "16/9", position: "relative", overflow: "hidden" }}>
+        <img
+          key={current}
+          src={NP_CARDS[current]}
+          alt=""
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }}
+          onError={onImgErr}
+        />
+      </div>
+
+      {/* Arrows + counter row */}
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 24, padding: "24px 16px 32px" }}>
+        <button type="button" aria-label="Forrige"
+          onClick={() => setCurrent(c => Math.max(0, c - 1))}
+          style={{ ...arrowBtn, opacity: current === 0 ? 0.25 : 1 }}>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M13 4l-6 6 6 6" stroke="#F5F0E8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
         </button>
 
-        {/* Overflow-hidden track, card width */}
-        <div style={{ overflow: "hidden", width: "100%", maxWidth: 600, flexShrink: 1 }}>
-          <div style={{
-            display: "flex",
-            transform: `translateX(-${current * 100}%)`,
-            transition: "transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-          }}>
-            {NP_CARDS.map((src) => (
-              <div key={src} style={{ flex: "0 0 100%", height: "80vh", position: "relative", overflow: "hidden" }}>
-                <img src={src} alt="" style={BG_IMG_STYLE} onError={onImgErr} />
-              </div>
-            ))}
-          </div>
-        </div>
+        <span style={{ color: "rgba(245,240,232,0.45)", fontFamily: "sans-serif", fontSize: 13, letterSpacing: "0.14em", fontWeight: 500, minWidth: 40, textAlign: "center" }}>
+          {current + 1} / {total}
+        </span>
 
-        <button type="button" aria-label="Næste" onClick={next}
-          style={{ ...arrowBase, opacity: current === total - 1 ? 0.25 : 1 }}>
+        <button type="button" aria-label="Næste"
+          onClick={() => setCurrent(c => Math.min(total - 1, c + 1))}
+          style={{ ...arrowBtn, opacity: current === total - 1 ? 0.25 : 1 }}>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7 4l6 6-6 6" stroke="#F5F0E8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
         </button>
       </div>
-
-      {/* Counter */}
-      <p style={{
-        textAlign: "center", marginTop: 20,
-        color: "rgba(245,240,232,0.45)",
-        fontFamily: "sans-serif", fontSize: 13,
-        letterSpacing: "0.14em", fontWeight: 500,
-      }}>
-        {current + 1} / {total}
-      </p>
     </section>
   );
 }
