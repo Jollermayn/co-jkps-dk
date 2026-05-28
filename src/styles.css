@@ -475,10 +475,16 @@ button[data-case-slug] [data-card-divider]::after {
 button[data-case-slug] [data-card-divider]::before { left: -8px; }
 button[data-case-slug] [data-card-divider]::after  { right: -8px; }
 
-/* Dashed side borders on card */
+/* Dashed side borders on card + GPU compositing to kill clip-path artifact */
 button[data-case-slug] {
   border-left:  1px dashed rgba(74,103,65,0.3) !important;
   border-right: 1px dashed rgba(74,103,65,0.3) !important;
+  outline: none !important;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 16px 100%, 0 calc(100% - 16px));
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 16px 100%, 0 calc(100% - 16px));
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 /* The gradient overlay div needs its gradient back */
