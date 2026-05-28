@@ -117,35 +117,22 @@ function useFadeOnTrigger(active: boolean, delay = 0): React.CSSProperties {
 // Each element staggered 0.15s. Both hooks share the same `active` signal so
 // the focus-brighten and element-reveal fire in sync, not sequentially.
 
-// Shared card image style — absolute fill behind video
+// Shared card image style — absolute fill
 const BG_IMG_STYLE: React.CSSProperties = {
   position: "absolute", inset: 0, width: "100%", height: "100%",
   objectFit: "cover", objectPosition: "center top", display: "block",
 };
-function videoStyle(top: string, height: string): React.CSSProperties {
-  return { position: "absolute", top, left: "8%", width: "84%", height, objectFit: "cover", zIndex: 1 };
-}
 function onImgErr(e: React.SyntheticEvent<HTMLImageElement>) {
   console.error("[newspaper card] failed to load background image:", (e.target as HTMLImageElement).src);
 }
 
 function SplitSection1() {
-  const focus    = useScrollFocus();
-  const isMobile = useIsMobile();
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const focus = useScrollFocus();
   return (
     <div ref={focus.ref}>
       <div className="aif-card-wrapper">
-        <div
-          className="aif-np-card"
-          style={{ transform: "rotate(-1.2deg)" }}
-          onMouseEnter={() => { if (!isMobile) videoRef.current?.play(); }}
-          onMouseLeave={() => { if (!isMobile) videoRef.current?.pause(); }}
-        >
+        <div className="aif-np-card" style={{ transform: "rotate(-1.2deg)" }}>
           <img src="/_JKPS_AVIS_TEMP_5.png" alt="" style={BG_IMG_STYLE} onError={onImgErr} />
-          <video ref={videoRef} autoPlay={!!isMobile} muted loop playsInline style={videoStyle("50%", "27%")}>
-            <source src="/videos/Ai_udvikling2_video.mp4" type="video/mp4" />
-          </video>
         </div>
       </div>
     </div>
@@ -153,22 +140,12 @@ function SplitSection1() {
 }
 
 function SplitSection2() {
-  const focus    = useScrollFocus();
-  const isMobile = useIsMobile();
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const focus = useScrollFocus();
   return (
     <div ref={focus.ref}>
       <div className="aif-card-wrapper">
-        <div
-          className="aif-np-card"
-          style={{ transform: "rotate(1.5deg)" }}
-          onMouseEnter={() => { if (!isMobile) videoRef.current?.play(); }}
-          onMouseLeave={() => { if (!isMobile) videoRef.current?.pause(); }}
-        >
-          <img src="/_JKPS_AVIS_TEMP_11.png" alt="" style={BG_IMG_STYLE} onError={onImgErr} />
-          <video ref={videoRef} autoPlay={!!isMobile} muted loop playsInline style={videoStyle("50%", "27%")}>
-            <source src="/videos/Ai_udvikling3_video.mp4" type="video/mp4" />
-          </video>
+        <div className="aif-np-card" style={{ transform: "rotate(1.5deg)" }}>
+          <img src="/AVIS_AI_11.png" alt="" style={BG_IMG_STYLE} onError={onImgErr} />
         </div>
       </div>
     </div>
@@ -176,22 +153,12 @@ function SplitSection2() {
 }
 
 function SplitSection3() {
-  const focus    = useScrollFocus();
-  const isMobile = useIsMobile();
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const focus = useScrollFocus();
   return (
     <div ref={focus.ref}>
       <div className="aif-card-wrapper">
-        <div
-          className="aif-np-card"
-          style={{ transform: "rotate(-0.8deg)" }}
-          onMouseEnter={() => { if (!isMobile) videoRef.current?.play(); }}
-          onMouseLeave={() => { if (!isMobile) videoRef.current?.pause(); }}
-        >
+        <div className="aif-np-card" style={{ transform: "rotate(-0.8deg)" }}>
           <img src="/_JKPS_AVIS_TEMP_9.png" alt="" style={BG_IMG_STYLE} onError={onImgErr} />
-          <video ref={videoRef} autoPlay={!!isMobile} muted loop playsInline style={videoStyle("53%", "25%")}>
-            <source src="/videos/Ai_udvikling5_video.mp4" type="video/mp4" />
-          </video>
         </div>
       </div>
     </div>
@@ -199,22 +166,12 @@ function SplitSection3() {
 }
 
 function SplitSection4() {
-  const focus    = useScrollFocus();
-  const isMobile = useIsMobile();
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const focus = useScrollFocus();
   return (
     <div ref={focus.ref}>
       <div className="aif-card-wrapper">
-        <div
-          className="aif-np-card"
-          style={{ transform: "rotate(0.9deg)" }}
-          onMouseEnter={() => { if (!isMobile) videoRef.current?.play(); }}
-          onMouseLeave={() => { if (!isMobile) videoRef.current?.pause(); }}
-        >
+        <div className="aif-np-card" style={{ transform: "rotate(0.9deg)" }}>
           <img src="/_JKPS_AVIS_TEMP_10.png" alt="" style={BG_IMG_STYLE} onError={onImgErr} />
-          <video ref={videoRef} autoPlay={!!isMobile} muted loop playsInline style={videoStyle("51%", "27%")}>
-            <source src="/videos/Ai_udvikling6_video.mp4" type="video/mp4" />
-          </video>
         </div>
       </div>
     </div>
