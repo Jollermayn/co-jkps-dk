@@ -2101,12 +2101,6 @@ function CasesSection() {
                       "linear-gradient(to top, rgba(237,227,208,0.7) 0%, rgba(237,227,208,0) 100%)",
                   }}
                 />
-                <div
-                  aria-hidden
-                  data-case-seam-cover
-                  className="absolute inset-x-0 pointer-events-none"
-                  style={{ bottom: -2, height: 6, backgroundColor: "#EDE3D0" }}
-                />
                 {/* client name directly on image, above bottom fade */}
                 <span
                   data-case-client-label
@@ -2140,7 +2134,7 @@ function CasesSection() {
                   </span>
                 )}
               </div>
-              <div aria-hidden data-card-divider style={{ height: 3, background: "linear-gradient(to right, #3D5C35, #6B8F5E)", flexShrink: 0 }} />
+              <div aria-hidden data-card-divider style={{ height: 3, lineHeight: 0, fontSize: 0, background: "linear-gradient(to right, #3D5C35, #6B8F5E)", flexShrink: 0 }} />
               <div className={bodyPadding + " border-0 outline-none"} style={{ border: 0, borderTop: 0, boxShadow: "none", outline: "none", marginTop: 0 }}>
                 <h3
                   className={"font-display font-bold leading-snug min-h-[5rem] " + headlineSize}
