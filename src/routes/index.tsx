@@ -2140,6 +2140,7 @@ function CasesSection() {
                   </span>
                 )}
               </div>
+              <div aria-hidden style={{ height: 2, backgroundColor: "#4A6741", flexShrink: 0 }} />
               <div className={bodyPadding + " border-0 outline-none"} style={{ border: 0, borderTop: 0, boxShadow: "none", outline: "none", marginTop: 0 }}>
                 <h3
                   className={"font-display font-bold leading-snug min-h-[5rem] " + headlineSize}
