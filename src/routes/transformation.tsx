@@ -526,6 +526,10 @@ function TransformationPage() {
           padding: 14px 14px 0;
           font-family: serif;
           overflow: hidden;
+          min-height: 640px;
+          box-sizing: border-box;
+          display: flex;
+          flex-direction: column;
         }
         /* Top bar */
         .aif-np-topbar {
@@ -642,12 +646,14 @@ function TransformationPage() {
             box-sizing: border-box;
             margin: 0 auto;
             align-items: start;
+            justify-items: center;
             overflow: visible;
           }
-          .aif-cards-section > div { margin-bottom: 0; }
+          .aif-cards-section > div { margin-bottom: 0; width: 100%; max-width: 420px; }
           .aif-cards-section > div:last-child { margin-bottom: 0; }
           .aif-cards-section > div:nth-child(even) { margin-top: -180px; }
           .aif-card-wrapper { padding: 0; }
+          .aif-np-card { max-width: 420px; margin: 0 auto; }
           .aif-np-headline { font-size: clamp(1.6rem, 2.5vw, 2.4rem); }
         }
 
