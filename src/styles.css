@@ -437,6 +437,14 @@ button[data-case-slug] > div {
   border: none !important;
   box-shadow: none !important;
 }
+/* Nuclear fix: override Tailwind base layer's white border-color on card button + all descendants */
+button[data-case-slug],
+button[data-case-slug] * {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: transparent !important;
+}
 /* Guarantee only the client name label stays fully transparent */
 #root button[data-case-slug] [data-case-client-label] {
   background: transparent !important;

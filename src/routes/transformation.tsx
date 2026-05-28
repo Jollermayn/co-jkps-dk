@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { SiteLogo } from "@/components/SiteLogo";
 import { MenuIcon } from "@/components/MenuIcon";
+import { useIsMobile } from "@/hooks/use-mobile";
 import heroImg from "@/assets/ai-og-forandring-hero.png";
 
 export const Route = createFileRoute("/transformation")({
@@ -117,17 +118,23 @@ function useFadeOnTrigger(active: boolean, delay = 0): React.CSSProperties {
 // the focus-brighten and element-reveal fire in sync, not sequentially.
 
 function SplitSection1() {
-  const focus = useScrollFocus();
-  const imgFs = useFadeOnTrigger(focus.active, 0);
-  const p1Fs  = useFadeOnTrigger(focus.active, 0.15);
-  const p2Fs  = useFadeOnTrigger(focus.active, 0.30);
-  const p3Fs  = useFadeOnTrigger(focus.active, 0.45);
+  const focus    = useScrollFocus();
+  const imgFs    = useFadeOnTrigger(focus.active, 0);
+  const p1Fs     = useFadeOnTrigger(focus.active, 0.15);
+  const p2Fs     = useFadeOnTrigger(focus.active, 0.30);
+  const p3Fs     = useFadeOnTrigger(focus.active, 0.45);
+  const isMobile = useIsMobile();
+  const videoRef = useRef<HTMLVideoElement>(null);
   return (
     <div ref={focus.ref}>
       <div className="aif-card-wrapper">
-        <div className="aif-card">
+        <div
+          className="aif-card"
+          onMouseEnter={() => { if (!isMobile) videoRef.current?.play(); }}
+          onMouseLeave={() => { if (!isMobile) videoRef.current?.pause(); }}
+        >
           <div className="aif-card-img" style={imgFs}>
-            <video autoPlay muted loop playsInline style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}>
+            <video ref={videoRef} autoPlay={!!isMobile} muted loop playsInline style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}>
               <source src="/videos/Ai_udvikling2_video.mp4" type="video/mp4" />
             </video>
           </div>
@@ -149,18 +156,24 @@ function SplitSection1() {
 }
 
 function SplitSection2() {
-  const focus = useScrollFocus();
-  const p1Fs  = useFadeOnTrigger(focus.active, 0);
-  const p2Fs  = useFadeOnTrigger(focus.active, 0.15);
-  const p3Fs  = useFadeOnTrigger(focus.active, 0.30);
-  const p4Fs  = useFadeOnTrigger(focus.active, 0.45);
-  const imgFs = useFadeOnTrigger(focus.active, 0);
+  const focus    = useScrollFocus();
+  const p1Fs     = useFadeOnTrigger(focus.active, 0);
+  const p2Fs     = useFadeOnTrigger(focus.active, 0.15);
+  const p3Fs     = useFadeOnTrigger(focus.active, 0.30);
+  const p4Fs     = useFadeOnTrigger(focus.active, 0.45);
+  const imgFs    = useFadeOnTrigger(focus.active, 0);
+  const isMobile = useIsMobile();
+  const videoRef = useRef<HTMLVideoElement>(null);
   return (
     <div ref={focus.ref}>
       <div className="aif-card-wrapper">
-        <div className="aif-card">
+        <div
+          className="aif-card"
+          onMouseEnter={() => { if (!isMobile) videoRef.current?.play(); }}
+          onMouseLeave={() => { if (!isMobile) videoRef.current?.pause(); }}
+        >
           <div className="aif-card-img" style={imgFs}>
-            <video autoPlay muted loop playsInline style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}>
+            <video ref={videoRef} autoPlay={!!isMobile} muted loop playsInline style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}>
               <source src="/videos/Ai_udvikling3_video.mp4" type="video/mp4" />
             </video>
           </div>
@@ -185,19 +198,25 @@ function SplitSection2() {
 }
 
 function SplitSection3() {
-  const focus = useScrollFocus();
-  const imgFs = useFadeOnTrigger(focus.active, 0);
-  const p1Fs  = useFadeOnTrigger(focus.active, 0.15);
-  const p2Fs  = useFadeOnTrigger(focus.active, 0.30);
-  const p3Fs  = useFadeOnTrigger(focus.active, 0.42);
-  const p4Fs  = useFadeOnTrigger(focus.active, 0.54);
-  const p5Fs  = useFadeOnTrigger(focus.active, 0.66);
+  const focus    = useScrollFocus();
+  const imgFs    = useFadeOnTrigger(focus.active, 0);
+  const p1Fs     = useFadeOnTrigger(focus.active, 0.15);
+  const p2Fs     = useFadeOnTrigger(focus.active, 0.30);
+  const p3Fs     = useFadeOnTrigger(focus.active, 0.42);
+  const p4Fs     = useFadeOnTrigger(focus.active, 0.54);
+  const p5Fs     = useFadeOnTrigger(focus.active, 0.66);
+  const isMobile = useIsMobile();
+  const videoRef = useRef<HTMLVideoElement>(null);
   return (
     <div ref={focus.ref}>
       <div className="aif-card-wrapper">
-        <div className="aif-card">
+        <div
+          className="aif-card"
+          onMouseEnter={() => { if (!isMobile) videoRef.current?.play(); }}
+          onMouseLeave={() => { if (!isMobile) videoRef.current?.pause(); }}
+        >
           <div className="aif-card-img" style={imgFs}>
-            <video autoPlay muted loop playsInline style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}>
+            <video ref={videoRef} autoPlay={!!isMobile} muted loop playsInline style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}>
               <source src="/videos/Ai_udvikling6_video.mp4" type="video/mp4" />
             </video>
           </div>
@@ -503,6 +522,22 @@ function TransformationPage() {
           width: 100%;
           height: 220px;
           overflow: hidden;
+          position: relative;
+        }
+        /* Letterbox bars — desktop only */
+        @media (min-width: 1024px) {
+          .aif-card-img::before,
+          .aif-card-img::after {
+            content: '';
+            position: absolute;
+            left: 0; right: 0;
+            height: 30px;
+            background: #0D1B2A;
+            z-index: 2;
+            pointer-events: none;
+          }
+          .aif-card-img::before { top: 0; }
+          .aif-card-img::after  { bottom: 0; }
         }
         .aif-card-img img,
         .aif-card-img video {
