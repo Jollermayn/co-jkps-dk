@@ -1028,21 +1028,27 @@ function Index() {
           <section id="om" className="pt-20 md:pt-28 pb-8 md:pb-10">
 
             <div className="px-12 md:px-14">
-              <div className="max-w-3xl space-y-6">
+              <div className="max-w-3xl" style={{ display: "flex", flexDirection: "column" }}>
 
-                <p style={{ color: "white", opacity: 1, fontFamily: "'Playfair Display', serif", fontStyle: "italic", fontSize: "1.5rem", lineHeight: 1.4 }}>
-                  Jeg arbejder med dét, der sker mellem mennesker og systemer. Ikke brugeren — men personen bag beslutningen, vanen og frustrationen.
+                <p style={{ color: "white", opacity: 1, fontFamily: "'Playfair Display', serif", fontStyle: "italic", fontSize: "clamp(1.6rem, 2.5vw, 2.2rem)", lineHeight: 1.7, marginBottom: "2rem" }}>
+                  Bag enhver beslutning, vane og frustration er der et menneske.
                 </p>
 
-                <p style={{ color: "white", opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.8 }}>
+                <p style={{ color: "white", opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.7, marginBottom: "2rem" }}>
                   UX research, servicedesign og konceptudvikling på tværs af public service, civilsamfund og kommercielle virksomheder. Selvstændig siden 2016.
                 </p>
-                <p style={{ color: "white", opacity: 0.95, fontFamily: "'Playfair Display', serif", fontStyle: "italic", fontSize: "1.25rem", lineHeight: 1.5 }}>
+                <p style={{ color: "white", opacity: 0.95, fontFamily: "'Playfair Display', serif", fontStyle: "italic", fontSize: "1.25rem", lineHeight: 1.7, marginBottom: "2rem" }}>
                   Nysgerrig af natur. Seriøs lytter af profession.
                 </p>
-                <p style={{ color: "rgba(255,255,255,0.75)", fontSize: "1rem", lineHeight: 1.7 }}>
-                  Arbejder du med AI-implementering eller organisatorisk forandring?{" "}
+                <p style={{ color: "rgba(255,255,255,0.75)", fontSize: "1rem", lineHeight: 1.7, marginBottom: "1rem" }}>
+                  Arbejder du med AI-implementering?{" "}
                   <Link to="/transformation" style={{ color: "#C0281E", textDecoration: "none" }}>
+                    Se transformation →
+                  </Link>
+                </p>
+                <p style={{ color: "rgba(255,255,255,0.75)", fontSize: "1rem", lineHeight: 1.7, marginBottom: 0 }}>
+                  Vil du vide hvordan jeg arbejder?{" "}
+                  <Link to="/tilgang" style={{ color: "#C0281E", textDecoration: "none" }}>
                     Se min tilgang →
                   </Link>
                 </p>
