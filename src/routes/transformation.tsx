@@ -428,6 +428,23 @@ function TransformationPage() {
             z-index: 1;
           }
         }
+
+        /* Mobil only: heading anchored bottom-left, gradient from bottom, taller hero */
+        @media (max-width: 768px) {
+          .aif-hero-section { min-height: 85vh; }
+          .aif-hero-mobile-overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);
+          }
+          .aif-mobile-hero-h1 {
+            position: absolute;
+            bottom: 32px;
+            left: 24px;
+            text-align: left;
+          }
+          .aif-mobile-hero-h1 span {
+            color: white !important;
+          }
+        }
       `}</style>
 
       {/* NAV */}
@@ -559,18 +576,20 @@ function TransformationPage() {
             <img src={heroImg} alt="" aria-hidden="true" className="aif-hero-img" />
             <div className="aif-hero-mobile-overlay" aria-hidden="true" />
             <div className="aif-hero-mobile-content">
-              <h1 style={{
-                fontFamily: "serif",
-                fontSize: "2.4rem",
-                fontWeight: 400,
-                color: "#F5F0E8",
-                lineHeight: 1.2,
-                margin: 0,
-                textAlign: "center",
-                textShadow: "0 2px 12px rgba(0,0,0,0.6)",
-                opacity: 0,
-                animation: "aif-fade 0.8s ease 0.2s both",
-              }}>
+              <h1
+                className="aif-mobile-hero-h1"
+                style={{
+                  fontFamily: "serif",
+                  fontSize: "2.4rem",
+                  fontWeight: 400,
+                  color: "#F5F0E8",
+                  lineHeight: 1.2,
+                  margin: 0,
+                  textShadow: "0 2px 12px rgba(0,0,0,0.6)",
+                  opacity: 0,
+                  animation: "aif-fade 0.8s ease 0.2s both",
+                }}
+              >
                 <span style={{ display: "block", color: "#F5F0E8" }}>Transformationen</span>
                 <span style={{ display: "block", fontSize: "0.65em", fontWeight: 300, color: "#F5F0E8" }}>er</span>
                 <span style={{ display: "block", color: RED }}>begyndt</span>
