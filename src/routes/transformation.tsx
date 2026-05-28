@@ -127,7 +127,9 @@ function SplitSection1() {
       <div className="aif-card-wrapper">
         <div className="aif-card">
           <div className="aif-card-img" style={imgFs}>
-            <video src="/videos/Ai_udvikling2_video.mp4" autoPlay muted loop playsInline style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+            <video autoPlay muted loop playsInline style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}>
+              <source src="/videos/Ai_udvikling2_video.mp4" type="video/mp4" />
+            </video>
           </div>
           <div className="aif-card-text">
             <p style={p1Fs}>
@@ -158,7 +160,9 @@ function SplitSection2() {
       <div className="aif-card-wrapper">
         <div className="aif-card">
           <div className="aif-card-img" style={imgFs}>
-            <video src="/videos/Ai_udvikling3_video.mp4" autoPlay muted loop playsInline style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+            <video autoPlay muted loop playsInline style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}>
+              <source src="/videos/Ai_udvikling3_video.mp4" type="video/mp4" />
+            </video>
           </div>
           <div className="aif-card-text">
             <p style={p1Fs}>
@@ -193,7 +197,9 @@ function SplitSection3() {
       <div className="aif-card-wrapper">
         <div className="aif-card">
           <div className="aif-card-img" style={imgFs}>
-            <video src="/videos/Ai_udvikling6_video.mp4" autoPlay muted loop playsInline style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+            <video autoPlay muted loop playsInline style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}>
+              <source src="/videos/Ai_udvikling6_video.mp4" type="video/mp4" />
+            </video>
           </div>
           <div className="aif-card-text">
             <p style={p1Fs}>
@@ -226,13 +232,14 @@ function Section4Block() {
       <section style={{ backgroundColor: BEIGE }}>
         <Section4Text />
         <video
-          src="/videos/Ai_udvikling5_video.mp4"
           autoPlay
           muted
           loop
           playsInline
           style={{ ...imgFs, width: "100%", height: "auto", display: "block", objectFit: "cover" }}
-        />
+        >
+          <source src="/videos/Ai_udvikling5_video.mp4" type="video/mp4" />
+        </video>
       </section>
     </div>
   );
