@@ -496,6 +496,7 @@ function TransformationPage() {
         /* Mobil only: heading anchored bottom-left, gradient from bottom, taller hero */
         @media (max-width: 768px) {
           .aif-hero-section { min-height: 85vh; }
+          .aif-hero-img { object-position: center top; }
           .aif-hero-mobile-overlay {
             background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);
           }
