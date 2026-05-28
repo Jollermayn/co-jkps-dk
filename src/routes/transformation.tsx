@@ -35,26 +35,36 @@ const BEIGE = "#E8E2D9";
 const RED = "#C0281E";
 
 // ── Scroll-focus hook ─────────────────────────────────────────────────────────
-// Active zone: 10% inset at top, 30% inset at bottom (same bounds as the
-// previous rootMargin "-10% 0px -30% 0px", now computed explicitly so the
-// check fires symmetrically on both scroll-down and scroll-up).
-// Uses a scroll/resize listener + getBoundingClientRect rather than
-// IntersectionObserver, which can miss exit events at threshold: 0 when
-// sections are tall or when scrolling fast in either direction.
-// Brightening: 0.8s ease  |  Dimming: 1.2s ease  (asymmetric)
-// Exposes `active` so child elements can coordinate their reveal timing.
+// Active zone: viewport band from 10% (top) to 70% (bottom).
+// A section is active when it overlaps this band — i.e. its top is above
+// zoneBottom AND its bottom is below zoneTop. Both conditions are required,
+// covering all three inactive states:
+//   • not yet reached: top >= zoneBottom  → top < zoneBottom is false
+//   • scrolled past:   bottom <= zoneTop  → bottom > zoneTop is false
+//   • both true only when section genuinely overlaps the active band
+// ref.current is read INSIDE check on every call so we never hold a stale
+// element reference captured at effect-mount time.
 function useScrollFocus() {
   const ref = useRef<Element>(null);
   const [active, setActive] = useState(false);
   useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
     const check = () => {
+      const el = ref.current;          // read fresh every call
+      if (!el) return;
       const { top, bottom } = el.getBoundingClientRect();
-      const vh = window.innerHeight;
-      const zoneTop    = vh * 0.10;
-      const zoneBottom = vh * 0.70;
-      setActive(top < zoneBottom && bottom > zoneTop);
+      const vh          = window.innerHeight;
+      const zoneTop     = vh * 0.10;   // 10 % from viewport top
+      const zoneBottom  = vh * 0.70;   // 70 % from viewport top (30 % inset at bottom)
+      const isActive    = top < zoneBottom && bottom > zoneTop;
+      // ── diagnostic: remove once dimming is confirmed correct ──
+      console.log("[ScrollFocus]", {
+        top:    Math.round(top),
+        bottom: Math.round(bottom),
+        zoneTop:    Math.round(zoneTop),
+        zoneBottom: Math.round(zoneBottom),
+        isActive,
+      });
+      setActive(isActive);
     };
     check(); // evaluate immediately on mount
     window.addEventListener("scroll", check, { passive: true });
@@ -521,7 +531,7 @@ function TransformationPage() {
               color: NAVY,
               lineHeight: 1.2,
               margin: 0,
-              textAlign: "right",
+              textAlign: "center",
               opacity: 0,
               animation: "aif-fade 0.8s ease 0.2s both",
             }}>
@@ -542,7 +552,7 @@ function TransformationPage() {
                 color: "#F5F0E8",
                 lineHeight: 1.2,
                 margin: 0,
-                textAlign: "right",
+                textAlign: "center",
                 textShadow: "0 2px 12px rgba(0,0,0,0.6)",
                 opacity: 0,
                 animation: "aif-fade 0.8s ease 0.2s both",
