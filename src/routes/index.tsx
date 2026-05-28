@@ -1183,7 +1183,7 @@ function Index() {
             {/* Transformation call-out — full-bleed navy */}
             <div style={{
               backgroundColor: "#0D1B2A",
-              padding: "120px 24px",
+              padding: "200px 24px 120px",
               textAlign: "center",
             }}>
               <p style={{
@@ -1219,7 +1219,7 @@ function Index() {
               </p>
               <p style={{ margin: "40px 0 0" }}>
                 <Link to="/transformation" style={{ color: "#C0281E", textDecoration: "none", fontSize: "1rem" }}>
-                  Se hvordan jeg arbejder med det →
+                  Mine tanker om dette →
                 </Link>
               </p>
             </div>
