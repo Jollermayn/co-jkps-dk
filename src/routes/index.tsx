@@ -1172,10 +1172,10 @@ function Index() {
               </div>
 
               {/* Transformation call-out — after three columns */}
-              <div style={{ backgroundColor: "#E8E2D9", marginTop: "48px", padding: "40px" }}>
+              <div style={{ backgroundColor: "#0D1B2A", marginTop: "48px", padding: "40px" }}>
                 <div style={{ maxWidth: 640 }}>
                   <p style={{
-                    color: "#0A1628",
+                    color: "#ffffff",
                     fontWeight: 600,
                     fontSize: "1.1rem",
                     lineHeight: 1.6,
@@ -1184,7 +1184,7 @@ function Index() {
                     Værktøjerne er nye. Problematikken er gammel.
                   </p>
                   <p style={{
-                    color: "#1C2B3A",
+                    color: "rgba(255,255,255,0.8)",
                     fontSize: "1rem",
                     lineHeight: 1.8,
                     margin: "0 0 24px",
