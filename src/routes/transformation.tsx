@@ -291,7 +291,7 @@ function SectionClosing({ onContact }: { onContact: () => void }) {
             color: NAVY,
             margin: "0 0 20px",
           }}>
-            Står du med en organisation der skal igennem noget svært — en implementering der ikke lander, en forandring der møder modstand, en teknologi der ikke bliver brugt — så er jeg interesseret i at høre om det.
+            Står du med en organisation der skal igennem noget svært, så er jeg interesseret i at høre om det.
           </p>
           <p style={{
             ...p2Fs,
