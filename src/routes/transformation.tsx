@@ -119,35 +119,35 @@ function useFadeOnTrigger(active: boolean, delay = 0): React.CSSProperties {
 
 function SplitSection1() {
   const focus    = useScrollFocus();
-  const imgFs    = useFadeOnTrigger(focus.active, 0);
-  const p1Fs     = useFadeOnTrigger(focus.active, 0.15);
-  const p2Fs     = useFadeOnTrigger(focus.active, 0.30);
-  const p3Fs     = useFadeOnTrigger(focus.active, 0.45);
   const isMobile = useIsMobile();
   const videoRef = useRef<HTMLVideoElement>(null);
   return (
     <div ref={focus.ref}>
       <div className="aif-card-wrapper">
         <div
-          className="aif-card"
+          className="aif-np-card"
+          style={{ transform: "rotate(-1.2deg)" }}
           onMouseEnter={() => { if (!isMobile) videoRef.current?.play(); }}
           onMouseLeave={() => { if (!isMobile) videoRef.current?.pause(); }}
         >
-          <div className="aif-card-img" style={imgFs}>
-            <video ref={videoRef} autoPlay={!!isMobile} muted loop playsInline style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}>
+          <div className="aif-np-topbar">★ JKPS.DK ★</div>
+          <div className="aif-np-dateline">28. maj 2026 · Aarhus · Nr. 1</div>
+          <h2 className="aif-np-headline">Frygten for at blive overhalet er reel</h2>
+          <div className="aif-np-doublerule" />
+          <p className="aif-np-deck">Konkurrenterne nævner det. Medarbejderne spørger. Kunderne forventer.</p>
+          <div className="aif-np-video-wrap">
+            <video ref={videoRef} autoPlay={!!isMobile} muted loop playsInline>
               <source src="/videos/Ai_udvikling2_video.mp4" type="video/mp4" />
             </video>
+            <div className="aif-np-caption">AI-adoption · Strategi · 2026</div>
           </div>
-          <div className="aif-card-text">
-            <p style={p1Fs}>
-              Konkurrenterne nævner det. Medarbejderne spørger. Kunderne forventer.
-            </p>
-            <p style={p2Fs}>
-              Så vi følger med — ikke fordi vi har en plan, men fordi frygten for at blive overhalet er reel.
-            </p>
-            <p className="aif-punchline" style={{ ...p3Fs, fontWeight: 500, fontSize: "1.2rem" }}>
-              <em>Og vi hopper med.</em>
-            </p>
+          <div className="aif-np-body">
+            <p>Så vi følger med — ikke fordi vi har en plan, men fordi frygten for at blive overhalet er reel.</p>
+            <p>Og vi hopper med.</p>
+          </div>
+          <div className="aif-np-footer">
+            <span>FOMO · AI-ADOPTION · STRATEGI</span>
+            <span className="aif-np-readmore">Læs case →</span>
           </div>
         </div>
       </div>
@@ -157,39 +157,35 @@ function SplitSection1() {
 
 function SplitSection2() {
   const focus    = useScrollFocus();
-  const p1Fs     = useFadeOnTrigger(focus.active, 0);
-  const p2Fs     = useFadeOnTrigger(focus.active, 0.15);
-  const p3Fs     = useFadeOnTrigger(focus.active, 0.30);
-  const p4Fs     = useFadeOnTrigger(focus.active, 0.45);
-  const imgFs    = useFadeOnTrigger(focus.active, 0);
   const isMobile = useIsMobile();
   const videoRef = useRef<HTMLVideoElement>(null);
   return (
     <div ref={focus.ref}>
       <div className="aif-card-wrapper">
         <div
-          className="aif-card"
+          className="aif-np-card"
+          style={{ transform: "rotate(1.5deg)" }}
           onMouseEnter={() => { if (!isMobile) videoRef.current?.play(); }}
           onMouseLeave={() => { if (!isMobile) videoRef.current?.pause(); }}
         >
-          <div className="aif-card-img" style={imgFs}>
-            <video ref={videoRef} autoPlay={!!isMobile} muted loop playsInline style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}>
+          <div className="aif-np-topbar">★ JKPS.DK ★</div>
+          <div className="aif-np-dateline">28. maj 2026 · Aarhus · Nr. 2</div>
+          <h2 className="aif-np-headline">De der forstod hvad det ændrede ved mennesket</h2>
+          <div className="aif-np-doublerule" />
+          <p className="aif-np-deck">Mønsteret har gentaget sig hver gang. Dampmaskinens. Elektricitetens. Internettets.</p>
+          <div className="aif-np-video-wrap">
+            <video ref={videoRef} autoPlay={!!isMobile} muted loop playsInline>
               <source src="/videos/Ai_udvikling3_video.mp4" type="video/mp4" />
             </video>
+            <div className="aif-np-caption">Forandring · Teknologi · Menneske</div>
           </div>
-          <div className="aif-card-text">
-            <p style={p1Fs}>
-              Mønsteret har gentaget sig hver gang.
-            </p>
-            <p className="aif-punchline" style={{ ...p2Fs, fontSize: "1.2rem" }}>
-              <em>Dampmaskinens. Elektricitetens. Internettets.</em>
-            </p>
-            <p style={p3Fs}>
-              De der klarede skærene var hverken dem der ignorerede det — eller dem der bare købte teknologien.
-            </p>
-            <p className="aif-boldline" style={{ ...p4Fs, fontWeight: 700 }}>
-              <strong>Det var dem der forstod hvad den ændrede ved mennesket.</strong>
-            </p>
+          <div className="aif-np-body">
+            <p>De der klarede skærene var hverken dem der ignorerede det — eller dem der bare købte teknologien.</p>
+            <p>Det var dem der forstod hvad den ændrede ved mennesket.</p>
+          </div>
+          <div className="aif-np-footer">
+            <span>HISTORISK PERSPEKTIV · TEKNOLOGI</span>
+            <span className="aif-np-readmore">Læs case →</span>
           </div>
         </div>
       </div>
@@ -199,43 +195,35 @@ function SplitSection2() {
 
 function SplitSection3() {
   const focus    = useScrollFocus();
-  const imgFs    = useFadeOnTrigger(focus.active, 0);
-  const p1Fs     = useFadeOnTrigger(focus.active, 0.15);
-  const p2Fs     = useFadeOnTrigger(focus.active, 0.30);
-  const p3Fs     = useFadeOnTrigger(focus.active, 0.42);
-  const p4Fs     = useFadeOnTrigger(focus.active, 0.54);
-  const p5Fs     = useFadeOnTrigger(focus.active, 0.66);
   const isMobile = useIsMobile();
   const videoRef = useRef<HTMLVideoElement>(null);
   return (
     <div ref={focus.ref}>
       <div className="aif-card-wrapper">
         <div
-          className="aif-card"
+          className="aif-np-card"
+          style={{ transform: "rotate(-0.8deg)" }}
           onMouseEnter={() => { if (!isMobile) videoRef.current?.play(); }}
           onMouseLeave={() => { if (!isMobile) videoRef.current?.pause(); }}
         >
-          <div className="aif-card-img" style={imgFs}>
-            <video ref={videoRef} autoPlay={!!isMobile} muted loop playsInline style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}>
+          <div className="aif-np-topbar">★ JKPS.DK ★</div>
+          <div className="aif-np-dateline">28. maj 2026 · Aarhus · Nr. 3</div>
+          <h2 className="aif-np-headline">Det er ikke et teknisk problem — det er et menneskeligt et</h2>
+          <div className="aif-np-doublerule" />
+          <p className="aif-np-deck">Værktøjerne rulles ud. Ingenting ændrer sig.</p>
+          <div className="aif-np-video-wrap">
+            <video ref={videoRef} autoPlay={!!isMobile} muted loop playsInline>
               <source src="/videos/Ai_udvikling6_video.mp4" type="video/mp4" />
             </video>
+            <div className="aif-np-caption">Implementering · Menneskelig faktor · AI</div>
           </div>
-          <div className="aif-card-text">
-            <p style={p1Fs}>
-              Værktøjerne rulles ud. Ingenting ændrer sig.
-            </p>
-            <p style={p2Fs}>
-              Medarbejderne bruger dem ikke. Kunderne mærker ingen forskel. Ledelsen ved ikke hvorfor.
-            </p>
-            <p className="aif-boldline" style={{ ...p3Fs, fontWeight: 700 }}>
-              <strong>Det er ikke et teknisk problem.</strong>
-            </p>
-            <p className="aif-boldline" style={{ ...p4Fs, fontWeight: 700 }}>
-              <strong>Det er et menneskeligt et.</strong>
-            </p>
-            <p style={p5Fs}>
-              AI kan generere, automatisere og optimere. Det den ikke kan er forstå hvorfor folk gør som de gør.
-            </p>
+          <div className="aif-np-body">
+            <p>Medarbejderne bruger dem ikke. Kunderne mærker ingen forskel. Ledelsen ved ikke hvorfor.</p>
+            <p>AI kan generere, automatisere og optimere. Det den ikke kan er forstå hvorfor folk gør som de gør.</p>
+          </div>
+          <div className="aif-np-footer">
+            <span>IMPLEMENTERING · MENNESKELIG FAKTOR</span>
+            <span className="aif-np-readmore">Læs case →</span>
           </div>
         </div>
       </div>
@@ -483,6 +471,19 @@ function TransformationPage() {
 
   return (
     <div style={{ backgroundColor: BEIGE, minHeight: "100vh" }}>
+      <svg width="0" height="0" style={{position:'absolute'}}>
+        <defs>
+          <filter id="paper-grain" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="4" stitchTiles="stitch" result="noise"/>
+            <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.18 0" in="noise" result="alpha"/>
+            <feBlend in="SourceGraphic" in2="alpha" mode="multiply"/>
+          </filter>
+          <filter id="edge-worn">
+            <feTurbulence type="turbulence" baseFrequency="0.02 0.06" numOctaves="3" result="n"/>
+            <feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" xChannelSelector="R" yChannelSelector="G"/>
+          </filter>
+        </defs>
+      </svg>
       <style>{`
         .aif-nav-link:hover { color: ${RED} !important; }
         .aif-tales-link { position: relative; display: inline-block; }
@@ -506,76 +507,148 @@ function TransformationPage() {
         }
 
         /* Card layout — mobile-first single column */
-        .aif-cards-section { background: ${BEIGE}; padding: 40px 0; }
-        .aif-cards-section > div { margin-bottom: 64px; }
+        /* ── Newspaper card layout ─────────────────────────────── */
+        .aif-cards-section {
+          background: ${BEIGE};
+          padding: 60px 24px;
+          overflow: visible;
+        }
+        .aif-cards-section > div { margin-bottom: 80px; }
         .aif-cards-section > div:last-child { margin-bottom: 0; }
-        .aif-card-wrapper { padding: 0 24px; }
-        .aif-card {
-          background: #FFFFFF;
-          border-radius: 16px;
-          box-shadow: 0 2px 24px rgba(0,0,0,0.07);
+        .aif-card-wrapper { padding: 0; }
+
+        /* Card */
+        .aif-np-card {
+          background: #EDE0BE;
+          filter: url(#paper-grain);
+          border: 1px solid #a89060;
+          box-shadow: 4px 6px 0 rgba(0,0,0,0.4);
+          padding: 14px 14px 0;
+          font-family: serif;
           overflow: hidden;
-          transition: box-shadow 0.3s ease;
         }
-        .aif-card:hover { box-shadow: 0 8px 40px rgba(0,0,0,0.13); }
-        .aif-card-img {
-          width: 100%;
-          height: 220px;
-          overflow: hidden;
+        /* Top bar */
+        .aif-np-topbar {
+          background: #000;
+          color: #fff;
+          text-align: center;
+          font-variant: small-caps;
+          letter-spacing: 0.3em;
+          font-size: 11px;
+          padding: 5px 0;
+          margin: -14px -14px 8px;
+        }
+        /* Date line */
+        .aif-np-dateline {
+          font-size: 9px;
+          color: #555;
+          border-bottom: 0.5px solid #888;
+          padding-bottom: 5px;
+          margin-bottom: 9px;
+          font-family: sans-serif;
+          letter-spacing: 0.05em;
+        }
+        /* Headline */
+        .aif-np-headline {
+          font-family: serif;
+          font-weight: 700;
+          font-size: clamp(1.5rem, 4vw, 2.2rem);
+          line-height: 1.0;
+          text-transform: uppercase;
+          color: #0a0a0a;
+          margin: 0 0 10px;
+          letter-spacing: -0.01em;
+        }
+        /* Double rule */
+        .aif-np-doublerule {
+          border-top: 2px solid #000;
+          margin-bottom: 4px;
+        }
+        .aif-np-doublerule::after {
+          content: '';
+          display: block;
+          border-top: 0.5px solid #000;
+          margin-top: 4px;
+          margin-bottom: 8px;
+        }
+        /* Deck */
+        .aif-np-deck {
+          font-style: italic;
+          font-size: 10px;
+          line-height: 1.55;
+          color: #222;
+          margin: 0 0 10px;
+          font-family: serif;
+        }
+        /* Video wrapper */
+        .aif-np-video-wrap {
           position: relative;
+          margin: 0 -14px 10px;
+          border-top: 1.5px solid #000;
+          border-bottom: 1.5px solid #000;
         }
-        /* Letterbox bars — desktop only */
-        @media (min-width: 1024px) {
-          .aif-card-img::before,
-          .aif-card-img::after {
-            content: '';
-            position: absolute;
-            left: 0; right: 0;
-            height: 30px;
-            background: #0D1B2A;
-            z-index: 2;
-            pointer-events: none;
-          }
-          .aif-card-img::before { top: 0; }
-          .aif-card-img::after  { bottom: 0; }
-        }
-        .aif-card-img img,
-        .aif-card-img video {
+        .aif-np-video-wrap video {
           width: 100%;
-          height: 100%;
+          height: 185px;
           object-fit: cover;
           display: block;
-          border-radius: 16px 16px 0 0;
         }
-        .aif-card-text {
-          padding: 32px;
+        .aif-np-caption {
+          position: absolute;
+          bottom: 0; left: 0; right: 0;
+          background: rgba(0,0,0,0.68);
+          color: #fff;
+          font-size: 8px;
+          padding: 3px 8px;
+          font-family: sans-serif;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
         }
-        .aif-card-text p {
-          font-family: serif;
-          font-size: 1.1rem;
-          line-height: 1.8;
-          color: ${NAVY};
-          margin: 0 0 16px;
+        /* Two-column body */
+        .aif-np-body {
+          column-count: 2;
+          column-gap: 14px;
+          font-size: 10px;
+          line-height: 1.65;
+          font-family: sans-serif;
+          color: #111;
+          margin: 10px 0 0;
         }
-        .aif-card-text p:last-child { margin-bottom: 0; }
+        .aif-np-body p { margin: 0 0 6px; break-inside: avoid; }
+        /* Footer bar */
+        .aif-np-footer {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background: #000;
+          color: #ccc;
+          font-size: 8.5px;
+          padding: 5px 8px;
+          font-family: sans-serif;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          margin: 10px -14px 0;
+        }
+        .aif-np-readmore { color: #C0281E !important; font-weight: 600; }
 
         /* Desktop (≥1024px): two-column staggered grid */
         @media (min-width: 1024px) {
           .aif-cards-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 120px 60px;
-            padding: 100px;
+            gap: 140px 80px;
+            padding: 100px 100px 140px;
             max-width: 1300px;
             box-sizing: border-box;
             margin: 0 auto;
             align-items: start;
+            overflow: visible;
           }
           .aif-cards-section > div { margin-bottom: 0; }
           .aif-cards-section > div:last-child { margin-bottom: 0; }
           .aif-cards-section > div:nth-child(even) { margin-top: -180px; }
           .aif-card-wrapper { padding: 0; }
-          .aif-card-img { height: 320px; }
+          .aif-np-headline { font-size: clamp(1.6rem, 2.5vw, 2.4rem); }
         }
 
         /* Hero */
