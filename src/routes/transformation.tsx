@@ -255,7 +255,7 @@ function SectionBridge() {
   return (
     <div ref={focus.ref}>
       <section style={{ backgroundColor: BEIGE, padding: "80px 32px" }}>
-        <div style={{ maxWidth: 680, marginInline: "auto", textAlign: "center" }}>
+        <div style={{ maxWidth: 640, marginInline: 0, textAlign: "left" }}>
           <p style={pStyle(p1Fs)}>
             De fleste organisationer ved godt hvad de vil opnå.
           </p>
