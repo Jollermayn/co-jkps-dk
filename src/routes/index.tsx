@@ -1183,7 +1183,8 @@ function Index() {
             {/* Transformation call-out — full-bleed navy */}
             <div style={{
               backgroundColor: "#0D1B2A",
-              padding: "200px 24px 120px",
+              padding: "60px 24px",
+              marginTop: "120px",
               textAlign: "center",
             }}>
               <p style={{
