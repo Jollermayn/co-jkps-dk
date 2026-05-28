@@ -2110,7 +2110,7 @@ function CasesSection() {
                 {/* client name directly on image, above bottom fade */}
                 <span
                   data-case-client-label
-                  className={"absolute bottom-8 left-3 z-[2] inline-block w-fit uppercase font-extrabold leading-tight " + clientSize}
+                  className={"absolute bottom-3 left-3 z-[2] inline-block w-fit uppercase font-extrabold leading-tight " + clientSize}
                   style={{
                     fontFamily: "'Arial Black', 'Impact', sans-serif",
                     fontSize: "1rem",
