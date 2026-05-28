@@ -810,12 +810,12 @@ function TransformationPage() {
         </section>
 
         <SectionStatement />
-        <SectionBridge />
         <div className="aif-cards-section">
           <SplitSection1 />
           <SplitSection2 />
           <SplitSection3 />
         </div>
+        <SectionBridge />
         <Section4Block />
         <SectionClosing onContact={() => setContactOpen(true)} />
         <Section5CTA onContact={() => setContactOpen(true)} />
