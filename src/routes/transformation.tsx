@@ -122,10 +122,9 @@ const BG_IMG_STYLE: React.CSSProperties = {
   position: "absolute", inset: 0, width: "100%", height: "100%",
   objectFit: "cover", objectPosition: "center top", display: "block",
 };
-const VIDEO_STYLE: React.CSSProperties = {
-  position: "absolute", top: "42%", left: "5%", width: "90%", height: "28%",
-  objectFit: "cover", zIndex: 1,
-};
+function videoStyle(top: string, height: string): React.CSSProperties {
+  return { position: "absolute", top, left: "8%", width: "84%", height, objectFit: "cover", zIndex: 1 };
+}
 function onImgErr(e: React.SyntheticEvent<HTMLImageElement>) {
   console.error("[newspaper card] failed to load background image:", (e.target as HTMLImageElement).src);
 }
@@ -144,7 +143,7 @@ function SplitSection1() {
           onMouseLeave={() => { if (!isMobile) videoRef.current?.pause(); }}
         >
           <img src="/_JKPS_AVIS_TEMP_5.png" alt="" style={BG_IMG_STYLE} onError={onImgErr} />
-          <video ref={videoRef} autoPlay={!!isMobile} muted loop playsInline style={VIDEO_STYLE}>
+          <video ref={videoRef} autoPlay={!!isMobile} muted loop playsInline style={videoStyle("50%", "27%")}>
             <source src="/videos/Ai_udvikling2_video.mp4" type="video/mp4" />
           </video>
         </div>
@@ -167,7 +166,7 @@ function SplitSection2() {
           onMouseLeave={() => { if (!isMobile) videoRef.current?.pause(); }}
         >
           <img src="/_JKPS_AVIS_TEMP_11.png" alt="" style={BG_IMG_STYLE} onError={onImgErr} />
-          <video ref={videoRef} autoPlay={!!isMobile} muted loop playsInline style={VIDEO_STYLE}>
+          <video ref={videoRef} autoPlay={!!isMobile} muted loop playsInline style={videoStyle("50%", "27%")}>
             <source src="/videos/Ai_udvikling3_video.mp4" type="video/mp4" />
           </video>
         </div>
@@ -190,7 +189,7 @@ function SplitSection3() {
           onMouseLeave={() => { if (!isMobile) videoRef.current?.pause(); }}
         >
           <img src="/_JKPS_AVIS_TEMP_9.png" alt="" style={BG_IMG_STYLE} onError={onImgErr} />
-          <video ref={videoRef} autoPlay={!!isMobile} muted loop playsInline style={VIDEO_STYLE}>
+          <video ref={videoRef} autoPlay={!!isMobile} muted loop playsInline style={videoStyle("53%", "25%")}>
             <source src="/videos/Ai_udvikling5_video.mp4" type="video/mp4" />
           </video>
         </div>
@@ -213,7 +212,7 @@ function SplitSection4() {
           onMouseLeave={() => { if (!isMobile) videoRef.current?.pause(); }}
         >
           <img src="/_JKPS_AVIS_TEMP_10.png" alt="" style={BG_IMG_STYLE} onError={onImgErr} />
-          <video ref={videoRef} autoPlay={!!isMobile} muted loop playsInline style={VIDEO_STYLE}>
+          <video ref={videoRef} autoPlay={!!isMobile} muted loop playsInline style={videoStyle("51%", "27%")}>
             <source src="/videos/Ai_udvikling6_video.mp4" type="video/mp4" />
           </video>
         </div>
