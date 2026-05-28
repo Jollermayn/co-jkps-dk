@@ -170,26 +170,6 @@ function SplitSection4() {
   );
 }
 
-function Section4Block() {
-  const focus = useScrollFocus();
-  const imgFs = useFadeOnTrigger(focus.active, 0);
-  return (
-    <div ref={focus.ref}>
-      <section style={{ backgroundColor: BEIGE }}>
-        <Section4Text />
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          style={{ ...imgFs, width: "100%", height: "auto", display: "block", objectFit: "cover" }}
-        >
-          <source src="/videos/Ai_udvikling5_video.mp4" type="video/mp4" />
-        </video>
-      </section>
-    </div>
-  );
-}
 
 function SectionStatement() {
   const focus = useScrollFocus();
@@ -903,7 +883,6 @@ function TransformationPage() {
           <SplitSection4 />
         </div>
         <SectionBridge />
-        <Section4Block />
         <SectionClosing onContact={() => setContactOpen(true)} />
         <Section5CTA onContact={() => setContactOpen(true)} />
 
@@ -1032,27 +1011,3 @@ function TransformationPage() {
 
 // ── Section 4 heading reveal (Framer Motion) ──────────────────────────────────
 
-function Section4Text() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-10% 0px" });
-
-  return (
-    <div ref={ref} style={{ maxWidth: 680, marginInline: "auto", padding: "120px 32px", textAlign: "center" }}>
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={inView ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-        style={{
-          fontFamily: "serif",
-          fontSize: "clamp(1.6rem, 3vw, 2.2rem)",
-          fontWeight: 700,
-          lineHeight: 1.3,
-          color: NAVY,
-          margin: 0,
-        }}
-      >
-        Nogle ting kan aldrig erstattes.
-      </motion.p>
-    </div>
-  );
-}
