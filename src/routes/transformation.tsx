@@ -481,14 +481,12 @@ function TransformationPage() {
           50% { transform: translateY(8px); }
         }
 
-        /* Card layout */
-        .aif-cards-section { background: ${BEIGE}; padding: 80px 0; }
-        .aif-cards-section > div { margin-bottom: 80px; }
+        /* Card layout — mobile-first single column */
+        .aif-cards-section { background: ${BEIGE}; padding: 40px 0; }
+        .aif-cards-section > div { margin-bottom: 32px; }
         .aif-cards-section > div:last-child { margin-bottom: 0; }
-        .aif-card-wrapper { padding: 0 80px; }
+        .aif-card-wrapper { padding: 0 24px; }
         .aif-card {
-          max-width: 900px;
-          margin: 0 auto;
           background: #FFFFFF;
           border-radius: 16px;
           box-shadow: 0 2px 24px rgba(0,0,0,0.07);
@@ -498,7 +496,7 @@ function TransformationPage() {
         .aif-card:hover { box-shadow: 0 8px 40px rgba(0,0,0,0.13); }
         .aif-card-img {
           width: 100%;
-          height: 320px;
+          height: 220px;
           overflow: hidden;
         }
         .aif-card-img img {
@@ -519,10 +517,24 @@ function TransformationPage() {
           margin: 0 0 16px;
         }
         .aif-card-text p:last-child { margin-bottom: 0; }
-        @media (max-width: 768px) {
-          .aif-card-wrapper { padding: 0 24px; }
-          .aif-cards-section > div { margin-bottom: 32px; }
-          .aif-card-img { height: 220px; }
+
+        /* Desktop (≥1024px): two-column staggered grid */
+        @media (min-width: 1024px) {
+          .aif-cards-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px 40px;
+            padding: 80px;
+            max-width: 1260px;
+            box-sizing: border-box;
+            margin: 0 auto;
+            align-items: start;
+          }
+          .aif-cards-section > div { margin-bottom: 0; }
+          .aif-cards-section > div:last-child { margin-bottom: 0; }
+          .aif-cards-section > div:nth-child(even) { margin-top: 60px; }
+          .aif-card-wrapper { padding: 0; }
+          .aif-card-img { height: 320px; }
         }
 
         /* Hero */
