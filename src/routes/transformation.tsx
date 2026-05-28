@@ -117,10 +117,9 @@ function useFadeOnTrigger(active: boolean, delay = 0): React.CSSProperties {
 // Each element staggered 0.15s. Both hooks share the same `active` signal so
 // the focus-brighten and element-reveal fire in sync, not sequentially.
 
-// Shared card image style — absolute fill
+// Card image — flows naturally so portrait ratio is preserved
 const BG_IMG_STYLE: React.CSSProperties = {
-  position: "absolute", inset: 0, width: "100%", height: "100%",
-  objectFit: "cover", objectPosition: "center top", display: "block",
+  width: "100%", height: "auto", display: "block",
 };
 function onImgErr(e: React.SyntheticEvent<HTMLImageElement>) {
   console.error("[newspaper card] failed to load background image:", (e.target as HTMLImageElement).src);
@@ -431,25 +430,22 @@ function TransformationPage() {
           background: transparent;
           display: flex;
           flex-direction: column;
-          padding: 80px 16px;
+          padding: 120px 16px;
           margin-top: 160px;
           overflow: visible;
           gap: 16px;
         }
         .aif-card-wrapper { width: 100%; }
 
-        /* Card */
+        /* Card — let portrait image set the height naturally */
         .aif-np-card {
           background-color: transparent;
           border: none;
           box-shadow: none;
           padding: 0;
           overflow: hidden;
-          aspect-ratio: 16 / 9;
           width: 100%;
           box-sizing: border-box;
-          display: flex;
-          flex-direction: column;
           position: relative;
           border-radius: 12px;
         }
@@ -568,36 +564,34 @@ function TransformationPage() {
         .aif-np-readmore { color: #C0281E !important; font-weight: 600; }
 
         /* Tablet (768px–1023px): 2×2 grid */
-        /* Tablet (768px–1023px): 2×2 grid */
         @media (min-width: 768px) and (max-width: 1023px) {
           .aif-cards-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 16px;
-            padding: 80px 24px;
+            padding: 120px 24px;
           }
           .aif-card-wrapper { width: 100%; }
         }
 
-        /* Desktop (≥1024px): four cards in a horizontal row */
+        /* Desktop (≥1024px): four cards side by side */
         @media (min-width: 1024px) {
           .aif-cards-section {
             display: flex;
             flex-direction: row;
             gap: 16px;
-            padding: 80px 40px;
+            padding: 120px 40px;
             margin-top: 160px;
             width: 100%;
             box-sizing: border-box;
-            align-items: stretch;
+            align-items: flex-start;
           }
           .aif-card-wrapper {
             flex: 1;
             min-width: 0;
           }
           .aif-np-card {
-            aspect-ratio: 16 / 9;
-            height: auto;
+            min-height: 700px;
             max-width: none;
             margin: 0;
           }
