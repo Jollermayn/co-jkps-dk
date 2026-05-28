@@ -35,23 +35,34 @@ const BEIGE = "#E8E2D9";
 const RED = "#C0281E";
 
 // ── Scroll-focus hook ─────────────────────────────────────────────────────────
-// Active zone: 10% inset at top, 30% inset at bottom — sections stay active
-// longer as they exit upward, dim sooner as they approach from below.
+// Active zone: 10% inset at top, 30% inset at bottom (same bounds as the
+// previous rootMargin "-10% 0px -30% 0px", now computed explicitly so the
+// check fires symmetrically on both scroll-down and scroll-up).
+// Uses a scroll/resize listener + getBoundingClientRect rather than
+// IntersectionObserver, which can miss exit events at threshold: 0 when
+// sections are tall or when scrolling fast in either direction.
 // Brightening: 0.8s ease  |  Dimming: 1.2s ease  (asymmetric)
-// Exposes `active` so child elements can coordinate their reveal timing with it,
-// eliminating the race condition with the old separate-observer useFade approach.
+// Exposes `active` so child elements can coordinate their reveal timing.
 function useScrollFocus() {
   const ref = useRef<Element>(null);
   const [active, setActive] = useState(false);
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => setActive(entry.isIntersecting),
-      { rootMargin: "-10% 0px -30% 0px", threshold: 0 }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
+    const check = () => {
+      const { top, bottom } = el.getBoundingClientRect();
+      const vh = window.innerHeight;
+      const zoneTop    = vh * 0.10;
+      const zoneBottom = vh * 0.70;
+      setActive(top < zoneBottom && bottom > zoneTop);
+    };
+    check(); // evaluate immediately on mount
+    window.addEventListener("scroll", check, { passive: true });
+    window.addEventListener("resize", check, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", check);
+      window.removeEventListener("resize", check);
+    };
   }, []);
   return {
     ref,
@@ -510,12 +521,13 @@ function TransformationPage() {
               color: NAVY,
               lineHeight: 1.2,
               margin: 0,
+              textAlign: "right",
               opacity: 0,
               animation: "aif-fade 0.8s ease 0.2s both",
             }}>
-              <span style={{ display: "block" }}>Transformationen</span>
-              <span style={{ display: "block", fontSize: "0.5em", fontWeight: 300, color: RED }}>er</span>
-              <span style={{ display: "block" }}>begyndt</span>
+              <span style={{ display: "block", color: NAVY }}>Transformationen</span>
+              <span style={{ display: "block", fontSize: "0.65em", fontWeight: 300, color: NAVY }}>er</span>
+              <span style={{ display: "block", color: RED }}>begyndt</span>
             </h1>
           </div>
 
@@ -530,13 +542,14 @@ function TransformationPage() {
                 color: "#F5F0E8",
                 lineHeight: 1.2,
                 margin: 0,
+                textAlign: "right",
                 textShadow: "0 2px 12px rgba(0,0,0,0.6)",
                 opacity: 0,
                 animation: "aif-fade 0.8s ease 0.2s both",
               }}>
-                <span style={{ display: "block" }}>Transformationen</span>
-                <span style={{ display: "block", fontSize: "0.5em", fontWeight: 300, color: RED }}>er</span>
-                <span style={{ display: "block" }}>begyndt</span>
+                <span style={{ display: "block", color: "#F5F0E8" }}>Transformationen</span>
+                <span style={{ display: "block", fontSize: "0.65em", fontWeight: 300, color: "#F5F0E8" }}>er</span>
+                <span style={{ display: "block", color: RED }}>begyndt</span>
               </h1>
             </div>
           </div>
