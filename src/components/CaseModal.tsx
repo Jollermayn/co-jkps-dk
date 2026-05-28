@@ -221,16 +221,21 @@ export function CaseModal({ study, onClose, onNavigate }: Props) {
         style={{ opacity: dragY > 0 ? Math.max(0, 1 - dragY / 400) : undefined }}
       />
 
-      {/* Right-side layout container */}
-      <div className="absolute inset-0 flex items-end justify-center md:items-stretch md:justify-end">
+      {/* Right-side layout container — click on dark area outside panel closes modal */}
+      <div
+        className="absolute inset-0 flex items-end justify-center md:items-stretch md:justify-end"
+        onClick={onClose}
+      >
 
         {/* ── Outer panel wrapper ─────────────────────────────────────────────
             Holds the slide/drag transform and the group-hover context for
-            chevrons. NOT scrollable — scroll lives in the inner scrollRef div. */}
+            chevrons. NOT scrollable — scroll lives in the inner scrollRef div.
+            stopPropagation prevents backdrop-click from firing inside the panel. */}
         <div
           ref={panelRef}
           style={panelTransformStyle}
           className="group relative w-full h-[92vh] rounded-t-2xl md:rounded-none md:ml-auto md:w-[min(960px,92vw)] md:h-full bg-[#0D1B2A] shadow-2xl animate-in slide-in-from-bottom md:slide-in-from-right md:slide-in-from-bottom-0 duration-300"
+          onClick={(e) => e.stopPropagation()}
         >
 
           {/* ── Inner scrollable content ──────────────────────────────────── */}
