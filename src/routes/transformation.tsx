@@ -523,7 +523,7 @@ function TransformationPage() {
           .aif-cards-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 120px 40px;
+            gap: 120px 60px;
             padding: 100px;
             max-width: 1300px;
             box-sizing: border-box;
@@ -532,7 +532,7 @@ function TransformationPage() {
           }
           .aif-cards-section > div { margin-bottom: 0; }
           .aif-cards-section > div:last-child { margin-bottom: 0; }
-          .aif-cards-section > div:nth-child(even) { margin-top: 60px; }
+          .aif-cards-section > div:nth-child(even) { margin-top: -180px; }
           .aif-card-wrapper { padding: 0; }
           .aif-card-img { height: 320px; }
         }
