@@ -458,6 +458,7 @@ function TransformationPage() {
         .aif-cards-section {
           background: ${BEIGE};
           padding: 60px 24px;
+          margin-top: 80px;
           overflow: visible;
         }
         .aif-cards-section > div { margin-bottom: 80px; }
