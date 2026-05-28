@@ -456,9 +456,9 @@ function TransformationPage() {
         /* Card layout — mobile-first single column */
         /* ── Newspaper card layout ─────────────────────────────── */
         .aif-cards-section {
-          background: ${BEIGE};
+          background: transparent;
           padding: 60px 24px;
-          margin-top: 80px;
+          margin-top: 160px;
           overflow: visible;
         }
         .aif-cards-section > div { margin-bottom: 80px; }
@@ -605,7 +605,7 @@ function TransformationPage() {
             padding: 100px 100px 140px;
             max-width: 1300px;
             box-sizing: border-box;
-            margin: 0 auto;
+            margin: 160px auto 0;
             align-items: start;
             justify-items: center;
             overflow: visible;
