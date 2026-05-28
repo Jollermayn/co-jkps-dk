@@ -251,12 +251,12 @@ function Sidebar() {
 }
 
 const OM_MIG_ROTATING_PHRASES: { text: string; boldWord: string; color: string }[] = [
+  { text: "mod til at ændre", boldWord: "ændre", color: "#FB923C" },
   { text: "forandring der mærkes", boldWord: "mærkes", color: "#60A5FA" },
   { text: "design med mening", boldWord: "mening", color: "#F59E0B" },
   { text: "koncepter der holder", boldWord: "holder", color: "#A78BFA" },
-  { text: "klarhed", boldWord: "klarhed", color: "#34D399" },
-  { text: "mod til at ændre", boldWord: "ændre", color: "#FB923C" },
   { text: "fortællinger der huskes", boldWord: "huskes", color: "#F472B6" },
+  { text: "klarhed", boldWord: "klarhed", color: "#34D399" },
 ];
 
 function lerpHex(a: string, b: string, t: number) {
@@ -1008,7 +1008,7 @@ function Index() {
             <BackgroundVideoSlideshow />
             <div className="px-8 sm:px-12 md:px-14 lg:pr-4 relative w-full lg:max-w-none" style={{ zIndex: 1 }}>
               <p className="text-left relative hero-headline" style={{ color: "#FFFFFF", lineHeight: 1.15, fontWeight: 700, fontSize: "clamp(1.5rem, 6vw, 3.5rem)" }}>
-                <span className="block">Jeg omsætter<br /><span className="hero-line-2">menneskelig <span className="max-md:whitespace-nowrap">indsigt til:</span></span></span>
+                <span className="block">Menneskelig indsigt<br /><span className="hero-line-2"><span className="max-md:whitespace-nowrap">omsættes til:</span></span></span>
                 <span className="block overflow-visible hero-rotating" style={{ fontSize: "clamp(1.1rem, 5vw, 3.75rem)", fontStyle: "italic", fontWeight: 700, lineHeight: 1.15, whiteSpace: "nowrap", overflowAnchor: "none", contain: "layout style", minHeight: "1.15em" }}>
                   <RotatingPhrase />
                 </span>
