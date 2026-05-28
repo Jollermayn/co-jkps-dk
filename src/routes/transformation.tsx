@@ -244,7 +244,7 @@ function SectionBridge() {
   const p6Fs  = useFadeOnTrigger(focus.active, 0.15);
 
   return (
-    <div ref={focus.ref}>
+    <div ref={focus.ref} style={{ margin: 0 }}>
       <div className="aif-bridge">
 
         {/* Left column — beige, navy text */}
@@ -540,21 +540,21 @@ function TransformationPage() {
           }
         }
 
-        /* Bridge section — two-column split */
-        .aif-bridge { display: flex; flex-direction: row; }
+        /* Bridge section — two-column split, proportions mirror the hero (35/65) */
+        .aif-bridge { display: flex; flex-direction: row; margin: 0; }
         .aif-bridge-left {
-          flex: 0 0 50%;
+          flex: 0 0 35%;
           background: ${BEIGE};
-          padding: 60px;
+          padding: 60px 48px;
           box-sizing: border-box;
           display: flex;
           flex-direction: column;
           justify-content: center;
         }
         .aif-bridge-right {
-          flex: 0 0 50%;
-          background: #0D1B2A;
-          padding: 60px;
+          flex: 1;
+          background: #1C2B3A;
+          padding: 60px 48px;
           box-sizing: border-box;
           display: flex;
           flex-direction: column;
