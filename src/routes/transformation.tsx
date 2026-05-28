@@ -129,11 +129,9 @@ function onImgErr(e: React.SyntheticEvent<HTMLImageElement>) {
 function SplitSection1() {
   const focus = useScrollFocus();
   return (
-    <div ref={focus.ref}>
-      <div className="aif-card-wrapper">
-        <div className="aif-np-card" style={{ transform: "rotate(-1.2deg)" }}>
-          <img src="/_JKPS_AVIS_TEMP_5.png" alt="" style={BG_IMG_STYLE} onError={onImgErr} />
-        </div>
+    <div ref={focus.ref} className="aif-card-wrapper">
+      <div className="aif-np-card">
+        <img src="/AVIS_AI_1.png" alt="" style={BG_IMG_STYLE} onError={onImgErr} />
       </div>
     </div>
   );
@@ -142,11 +140,9 @@ function SplitSection1() {
 function SplitSection2() {
   const focus = useScrollFocus();
   return (
-    <div ref={focus.ref}>
-      <div className="aif-card-wrapper">
-        <div className="aif-np-card" style={{ transform: "rotate(1.5deg)" }}>
-          <img src="/AVIS_AI_11.png" alt="" style={BG_IMG_STYLE} onError={onImgErr} />
-        </div>
+    <div ref={focus.ref} className="aif-card-wrapper">
+      <div className="aif-np-card">
+        <img src="/AVIS_AI_2.png" alt="" style={BG_IMG_STYLE} onError={onImgErr} />
       </div>
     </div>
   );
@@ -155,11 +151,9 @@ function SplitSection2() {
 function SplitSection3() {
   const focus = useScrollFocus();
   return (
-    <div ref={focus.ref}>
-      <div className="aif-card-wrapper">
-        <div className="aif-np-card" style={{ transform: "rotate(-0.8deg)" }}>
-          <img src="/_JKPS_AVIS_TEMP_9.png" alt="" style={BG_IMG_STYLE} onError={onImgErr} />
-        </div>
+    <div ref={focus.ref} className="aif-card-wrapper">
+      <div className="aif-np-card">
+        <img src="/AVIS_AI_3.png" alt="" style={BG_IMG_STYLE} onError={onImgErr} />
       </div>
     </div>
   );
@@ -168,11 +162,9 @@ function SplitSection3() {
 function SplitSection4() {
   const focus = useScrollFocus();
   return (
-    <div ref={focus.ref}>
-      <div className="aif-card-wrapper">
-        <div className="aif-np-card" style={{ transform: "rotate(0.9deg)" }}>
-          <img src="/_JKPS_AVIS_TEMP_10.png" alt="" style={BG_IMG_STYLE} onError={onImgErr} />
-        </div>
+    <div ref={focus.ref} className="aif-card-wrapper">
+      <div className="aif-np-card">
+        <img src="/AVIS_AI_4.png" alt="" style={BG_IMG_STYLE} onError={onImgErr} />
       </div>
     </div>
   );
@@ -453,29 +445,27 @@ function TransformationPage() {
           50% { transform: translateY(8px); }
         }
 
-        /* Card layout — mobile-first single column */
         /* ── Newspaper card layout ─────────────────────────────── */
+        /* Mobile: single column */
         .aif-cards-section {
           background: transparent;
-          padding: 60px 24px;
+          display: flex;
+          flex-direction: column;
+          padding: 0 16px;
           margin-top: 160px;
           overflow: visible;
+          gap: 24px;
         }
-        .aif-cards-section > div { margin-bottom: 80px; }
-        .aif-cards-section > div:last-child { margin-bottom: 0; }
-        .aif-card-wrapper { padding: 0; }
+        .aif-card-wrapper { width: 100%; }
 
         /* Card */
         .aif-np-card {
           background-color: transparent;
           border: none;
           box-shadow: none;
-          padding: 14px 14px 0;
-          font-family: serif;
+          padding: 0;
           overflow: hidden;
-          min-height: 620px;
-          max-width: 400px;
-          margin: 0 auto;
+          min-height: 600px;
           width: 100%;
           box-sizing: border-box;
           display: flex;
@@ -596,26 +586,39 @@ function TransformationPage() {
         }
         .aif-np-readmore { color: #C0281E !important; font-weight: 600; }
 
-        /* Desktop (≥1024px): two-column staggered grid */
-        @media (min-width: 1024px) {
+        /* Tablet (768px–1023px): 2×2 grid */
+        @media (min-width: 768px) and (max-width: 1023px) {
           .aif-cards-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 140px 80px;
-            padding: 100px 100px 140px;
-            max-width: 1300px;
-            box-sizing: border-box;
-            margin: 160px auto 0;
-            align-items: start;
-            justify-items: center;
-            overflow: visible;
+            gap: 24px;
+            padding: 0 24px;
           }
-          .aif-cards-section > div { margin-bottom: 0; width: 100%; max-width: 400px; }
-          .aif-cards-section > div:last-child { margin-bottom: 0; }
-          .aif-cards-section > div:nth-child(even) { margin-top: -180px; }
-          .aif-card-wrapper { padding: 0; }
-          .aif-np-card { max-width: 400px; }
-          .aif-np-headline { font-size: clamp(1.4rem, 3.5vw, 2rem); }
+          .aif-card-wrapper { width: 100%; }
+        }
+
+        /* Desktop (≥1024px): four cards side-by-side, newsstand row */
+        @media (min-width: 1024px) {
+          .aif-cards-section {
+            display: flex;
+            flex-direction: row;
+            gap: 0;
+            padding: 0;
+            margin-top: 160px;
+            width: 100%;
+            align-items: stretch;
+          }
+          .aif-card-wrapper {
+            flex: 1;
+            min-width: 0;
+          }
+          .aif-np-card {
+            min-height: 600px;
+            height: 100%;
+            max-width: none;
+            margin: 0;
+            border-radius: 0;
+          }
         }
 
         /* Hero */
