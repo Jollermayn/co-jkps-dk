@@ -354,6 +354,12 @@
 }
 .filter-chip-pulse { animation: filterChipPulse 600ms ease-out 1; }
 
+/* Override --color-border variable on the carousel so ALL card children inherit transparent */
+.cases-carousel {
+  --border: transparent;
+  --color-border: transparent;
+}
+
 /* Strip any outline/border/box-shadow from case card videos and their wrappers in all states */
 [data-case-slug] video,
 [data-case-slug] video *,
@@ -437,13 +443,20 @@ button[data-case-slug] > div {
   border: none !important;
   box-shadow: none !important;
 }
-/* Nuclear fix: override Tailwind base layer's white border-color on card button + all descendants */
+/* Nuclear fix: override Tailwind base layer's white border-color on card button + all descendants.
+   --color-border is overridden at the card root so all children inherit transparent via the
+   @layer base { * { border-color: var(--color-border) } } rule — kills the white fringe at source. */
+button[data-case-slug] {
+  --border: transparent;
+  --color-border: transparent;
+}
 button[data-case-slug],
 button[data-case-slug] * {
   border: none !important;
   outline: none !important;
   box-shadow: none !important;
   border-color: transparent !important;
+  -webkit-tap-highlight-color: transparent !important;
 }
 /* Guarantee only the client name label stays fully transparent */
 #root button[data-case-slug] [data-case-client-label] {
