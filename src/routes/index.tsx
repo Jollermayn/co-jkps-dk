@@ -2051,11 +2051,6 @@ function CasesSection() {
                 outline: "none",
                 boxShadow: "none",
                 borderRadius: "4px 4px 0 0",
-                clipPath: "polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 16px 100%, 0 calc(100% - 16px))",
-                WebkitClipPath: "polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 16px 100%, 0 calc(100% - 16px))",
-                transform: "translateZ(0)",
-                backfaceVisibility: "hidden",
-                WebkitBackfaceVisibility: "hidden",
                 marginTop: variant === "slider" && !isMobile ? ([0, 60, 30] as const)[index % 3] : 0,
                 marginBottom: variant === "slider" && !isMobile ? ([60, 0, 30] as const)[index % 3] : 0,
               }}
