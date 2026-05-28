@@ -99,14 +99,13 @@ function SplitSection1() {
         </div>
         <div className="aif-split-text">
           <p style={p1Fs}>
-            Konkurrenterne nævner det. Medarbejderne spørger om det. Kunderne forventer det.
+            Konkurrenterne nævner det. Medarbejderne spørger. Kunderne forventer.
           </p>
           <p style={p2Fs}>
-            Så de fleste af os prøver bare at følge med. Ikke fordi vi har en plan — men fordi
-            frygten for at blive overhalet er reel.
+            Så vi følger med — ikke fordi vi har en plan, men fordi frygten for at blive overhalet er reel.
           </p>
-          <p style={{ ...p3Fs, fontStyle: "italic", fontSize: "1.3rem", fontWeight: 500, lineHeight: 1.6 }}>
-            Og vi hopper med. I håbet om ikke at falde af.
+          <p style={{ ...p3Fs, fontSize: "1.3rem", fontWeight: 500, lineHeight: 1.6 }}>
+            <em>Og vi hopper med.</em>
           </p>
         </div>
       </div>
@@ -118,7 +117,9 @@ function SplitSection2() {
   const focus = useScrollFocus();
   const p1Fs  = useFadeOnTrigger(focus.active, 0);
   const p2Fs  = useFadeOnTrigger(focus.active, 0.15);
-  const imgFs = useFadeOnTrigger(focus.active, 0.30);
+  const p3Fs  = useFadeOnTrigger(focus.active, 0.30);
+  const p4Fs  = useFadeOnTrigger(focus.active, 0.45);
+  const imgFs = useFadeOnTrigger(focus.active, 0.15);
   return (
     <div ref={focus.ref as React.RefObject<HTMLDivElement>} style={focus.focusStyle}>
       <div className="aif-split" style={{ flexDirection: "row-reverse" }}>
@@ -127,12 +128,16 @@ function SplitSection2() {
         </div>
         <div className="aif-split-text">
           <p style={p1Fs}>
-            Historisk set har mønsteret gentaget sig. De der overlevede dampmaskinens indtog,
-            elektriciteten og internettet var ikke dem der ignorerede forandringen — eller dem
-            der bare købte teknologien.
+            Mønsteret har gentaget sig hver gang.
           </p>
-          <p style={{ ...p2Fs, fontStyle: "italic", fontWeight: 700, fontSize: "1.3rem", lineHeight: 1.6 }}>
-            Det var dem der forstod hvad den ændrede ved måden mennesker arbejder og tænker.
+          <p style={{ ...p2Fs, fontSize: "1.3rem", lineHeight: 1.6 }}>
+            <em>Dampmaskinens. Elektricitetens. Internettets.</em>
+          </p>
+          <p style={p3Fs}>
+            De der klarede skærene var hverken dem der ignorerede det — eller dem der bare købte teknologien.
+          </p>
+          <p style={{ ...p4Fs, fontWeight: 700, fontSize: "1.3rem", lineHeight: 1.6 }}>
+            <strong>Det var dem der forstod hvad den ændrede ved mennesket.</strong>
           </p>
         </div>
       </div>
@@ -145,7 +150,9 @@ function SplitSection3() {
   const imgFs = useFadeOnTrigger(focus.active, 0);
   const p1Fs  = useFadeOnTrigger(focus.active, 0.15);
   const p2Fs  = useFadeOnTrigger(focus.active, 0.30);
-  const p3Fs  = useFadeOnTrigger(focus.active, 0.45);
+  const p3Fs  = useFadeOnTrigger(focus.active, 0.42);
+  const p4Fs  = useFadeOnTrigger(focus.active, 0.54);
+  const p5Fs  = useFadeOnTrigger(focus.active, 0.66);
   return (
     <div ref={focus.ref as React.RefObject<HTMLDivElement>} style={focus.focusStyle}>
       <div className="aif-split">
@@ -154,16 +161,19 @@ function SplitSection3() {
         </div>
         <div className="aif-split-text">
           <p style={p1Fs}>
-            Organisationer investerer i AI-værktøjer og opdager at ingenting ændrer sig.
-            Medarbejderne bruger dem ikke. Kunderne mærker ingen forskel. Ledelsen ved ikke
-            hvorfor.
+            Værktøjerne rulles ud. Ingenting ændrer sig.
           </p>
-          <p style={{ ...p2Fs, fontStyle: "italic", fontWeight: 700, fontSize: "1.3rem", lineHeight: 1.6 }}>
-            Det er ikke et teknisk problem. Det er et menneskeligt et.
+          <p style={p2Fs}>
+            Medarbejderne bruger dem ikke. Kunderne mærker ingen forskel. Ledelsen ved ikke hvorfor.
           </p>
-          <p style={p3Fs}>
-            AI kan generere, automatisere og optimere. Det den ikke kan er at forstå hvorfor
-            folk gør som de gør — og designe udenom det.
+          <p style={{ ...p3Fs, fontWeight: 700, fontSize: "1.15rem", lineHeight: 1.6 }}>
+            <strong>Det er ikke et teknisk problem.</strong>
+          </p>
+          <p style={{ ...p4Fs, fontWeight: 700, fontSize: "1.15rem", lineHeight: 1.6 }}>
+            <strong>Det er et menneskeligt et.</strong>
+          </p>
+          <p style={p5Fs}>
+            AI kan generere, automatisere og optimere. Det den ikke kan er forstå hvorfor folk gør som de gør.
           </p>
         </div>
       </div>
