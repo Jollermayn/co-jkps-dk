@@ -2102,10 +2102,11 @@ function CasesSection() {
                   data-case-client-label
                   className={"absolute bottom-8 left-3 z-[2] inline-block w-fit uppercase font-extrabold leading-tight " + clientSize}
                   style={{
-                    fontFamily: "'Arial Black', 'Helvetica Neue', Helvetica, Arial, sans-serif",
-                    fontSize: "0.9rem",
+                    fontFamily: "'Arial Black', 'Impact', sans-serif",
+                    fontSize: "1rem",
+                    fontWeight: 800,
                     letterSpacing: "0.15em",
-                    color: "#0D1B2A",
+                    color: "#FFFFFF",
                     background: "transparent",
                     backgroundColor: "transparent",
                     backgroundImage: "none",
