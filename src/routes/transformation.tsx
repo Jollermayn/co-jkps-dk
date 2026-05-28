@@ -467,8 +467,8 @@ function TransformationPage() {
         /* Card */
         .aif-np-card {
           background-color: transparent;
-          border: 1px solid #a89060;
-          box-shadow: 4px 6px 0 rgba(0,0,0,0.4);
+          border: none;
+          box-shadow: none;
           padding: 14px 14px 0;
           font-family: serif;
           overflow: hidden;
