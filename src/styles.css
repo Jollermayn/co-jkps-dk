@@ -454,8 +454,8 @@ button[data-case-slug] [data-case-video-wrap] * {
 }
 /* The gradient overlay div needs its gradient back */
 button[data-case-slug] [data-gradient-overlay] {
-  height: 90px !important;
-  background: linear-gradient(to top, #E8E2D9 0%, rgba(232,226,217,0) 100%) !important;
+  height: 30px !important;
+  background: linear-gradient(to top, rgba(232,226,217,0.7) 0%, rgba(232,226,217,0) 100%) !important;
   z-index: 1;
 }
 

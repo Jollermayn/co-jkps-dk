@@ -2086,9 +2086,9 @@ function CasesSection() {
                   data-gradient-overlay
                   className="absolute inset-x-0 bottom-0 pointer-events-none"
                   style={{
-                    height: "90px",
+                    height: "30px",
                     background:
-                      "linear-gradient(to top, #E8E2D9 0%, rgba(232,226,217,0) 100%)",
+                      "linear-gradient(to top, rgba(232,226,217,0.7) 0%, rgba(232,226,217,0) 100%)",
                   }}
                 />
                 <div
@@ -2101,11 +2101,11 @@ function CasesSection() {
                 <span
                   data-case-client-label
                   className={"absolute bottom-8 left-3 z-[2] inline-block w-fit uppercase font-extrabold leading-tight " + clientSize}
-                  style={{ color: "#0D1B2A" }}
                   style={{
                     fontFamily: "'Arial Black', 'Helvetica Neue', Helvetica, Arial, sans-serif",
                     fontSize: "0.9rem",
                     letterSpacing: "0.15em",
+                    color: "#0D1B2A",
                     background: "transparent",
                     backgroundColor: "transparent",
                     backgroundImage: "none",
