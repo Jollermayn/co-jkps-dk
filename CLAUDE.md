@@ -37,3 +37,16 @@ Når jeg siger 'afslut session' eller 'lav resumé':
 1. Opsummer hvad der er lavet i sessionen
 2. Opdater todo-listen
 3. Generer en Projekt Resumé-fil klar til kopiering i Obsidian
+
+## Kommandoer
+
+### 'læs obsidian'
+Læs projektets Obsidian-resumé og opsummer kort: hvad er aktivt, hvad mangler, hvad er næste skridt.
+
+**Sti:** `~/Library/Mobile Documents/iCloud~md~obsidian/Documents/JKPS/CO & KREATIVE/Projekt Resumé - CO & KREATIVE.md`
+
+### 'gem session'
+1. Opsummer hvad der er lavet i denne session
+2. Opdater Obsidian-resuméet — tilføj dagens arbejde under ny dato-overskrift og opdater næste skridt
+3. Push alle uncommitted ændringer til dev branch
+4. Bekræft: 'Session gemt. Obsidian opdateret. Dev pushet.'
