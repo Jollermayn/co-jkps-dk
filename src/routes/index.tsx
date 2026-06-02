@@ -160,8 +160,8 @@ function Sidebar() {
               textAlign: "center",
             }}
           >
-            <span className="block">Digital konsulent</span>
-            <span className="block">UX Research &amp; Servicedesign</span>
+            <span className="block">Kreativ formidler</span>
+            <span className="block">&amp; konceptudvikler</span>
           </p>
         </div>
 
@@ -1007,11 +1007,8 @@ function Index() {
           >
             <BackgroundVideoSlideshow />
             <div className="px-8 sm:px-12 md:px-14 lg:pr-4 relative w-full lg:max-w-none" style={{ zIndex: 1 }}>
-              <p className="text-left relative hero-headline" style={{ color: "#FFFFFF", lineHeight: 1.15, fontWeight: 700, fontSize: "clamp(1.5rem, 6vw, 3.5rem)" }}>
-                <span className="block">Menneskelig indsigt<br /><span className="hero-line-2"><span className="max-md:whitespace-nowrap">omsættes til:</span></span></span>
-                <span className="block overflow-visible hero-rotating" style={{ fontSize: "clamp(1.1rem, 5vw, 3.75rem)", fontStyle: "italic", fontWeight: 700, lineHeight: 1.15, whiteSpace: "nowrap", overflowAnchor: "none", contain: "layout style", minHeight: "1.15em" }}>
-                  <RotatingPhrase />
-                </span>
+              <p className="text-left relative hero-headline" style={{ color: "#FFFFFF", lineHeight: 1.3, fontWeight: 700, fontSize: "clamp(1.5rem, 6vw, 3.5rem)" }}>
+                Jeg omsætter komplekse emner til kommunikation der rammer — på tværs af medie, bureau og organisation.
               </p>
             </div>
             <style>{`
@@ -1030,15 +1027,8 @@ function Index() {
             <div className="px-12 md:px-14">
               <div className="max-w-3xl" style={{ display: "flex", flexDirection: "column" }}>
 
-                <p style={{ color: "white", opacity: 1, fontFamily: "'Playfair Display', serif", fontStyle: "italic", fontSize: "clamp(1.6rem, 2.5vw, 2.2rem)", lineHeight: 1.7, marginBottom: "2rem" }}>
-                  Bag enhver beslutning, vane og frustration er der et menneske.
-                </p>
-
                 <p style={{ color: "white", opacity: 0.85, fontSize: "1.1rem", lineHeight: 1.7, marginBottom: "2rem" }}>
-                  UX research, servicedesign og konceptudvikling på tværs af public service, civilsamfund og kommercielle virksomheder. Selvstændig siden 2016.
-                </p>
-                <p style={{ color: "white", opacity: 0.95, fontFamily: "'Playfair Display', serif", fontStyle: "italic", fontSize: "1.25rem", lineHeight: 1.7, marginBottom: "2rem" }}>
-                  Nysgerrig af natur. Seriøs lytter af profession.
+                  Jeg har arbejdet selvstændigt siden 2016 med konceptudvikling, redaktionel udvikling og strategisk kommunikation — på tværs af public service, civilsamfund og kreative bureauer. Mit udgangspunkt er altid mennesket bag budskabet. Ikke afsenderen — men den person der skal modtage, forstå og handle på det. Jeg finder det der er svært at sige enkelt, og gør det konkret. Med en kandidat i Digital Design og Interaktive Teknologier fra ITU som fagligt fundament arbejder jeg i skæringsfeltet mellem research, fortælling og visuel eksekvering.
                 </p>
                 <p style={{ color: "rgba(255,255,255,0.75)", fontSize: "1rem", lineHeight: 1.7, marginBottom: "1rem" }}>
                   Arbejder du med AI-implementering?{" "}

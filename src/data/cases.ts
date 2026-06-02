@@ -419,16 +419,16 @@ const _allCases: CaseStudy[] = [
 ];
 
 const _order = [
-  "wolt",
-  "amnesty-international",
-  "boliga",
   "danmarks-radio",
+  "amnesty-international",
+  "interaktiv-horesimulering",
   "ulla-dyrlov",
   "danmarks-naturfredningsforening",
-  "interaktiv-horesimulering",
+  "concerto-copenhagen",
+  "wolt",
+  "boliga",
   "itu-designlab",
   "art-spirit-coaching",
-  "concerto-copenhagen",
   "musikfaellesskabet-i-nye",
   "lydboger-til-born-med-adhd",
 ];
