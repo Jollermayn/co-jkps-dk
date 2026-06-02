@@ -45,7 +45,7 @@ Læs projektets Obsidian-resumé og opsummer kort: hvad er aktivt, hvad mangler,
 
 **Sti:** `~/Library/Mobile Documents/iCloud~md~obsidian/Documents/JKPS/CO & KREATIVE/Projekt Resumé - CO & KREATIVE.md`
 
-### 'gem session'
+### 'gem'
 1. Opsummer hvad der er lavet i denne session
 2. Opdater Obsidian-resuméet — tilføj dagens arbejde under ny dato-overskrift og opdater næste skridt
 3. Push alle uncommitted ændringer til dev branch
