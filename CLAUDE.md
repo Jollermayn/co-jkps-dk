@@ -1,5 +1,19 @@
 # CLAUDE.md
 
+## Projekt
+
+- **Navn:** co.jkps.dk — Kreativ formidler & konceptudvikler
+- **Repo:** github.com/Jollermayn/co-jkps-dk
+- **Stack:** Vite + TypeScript + React + TanStack
+- **Vercel projekt:** co-jkps-dk
+- **Production:** co.jkps.dk
+- **Preview:** co-jkps-dk.vercel.app
+
+## Branch workflow
+
+- Arbejd på `dev` → merge til `main` → live på co.jkps.dk
+- Push altid til `dev` efter ændringer — `main` er production
+
 ## Tekniske læringer
 
 - CSS `filter` på et `<video>`-element rammer ikke `poster`-attributten i alle browsere (fx Safari) — brug en wrapper `<div>` med `height: 100%` og `width: 100%` i stedet, så filteret appliceres på det compositede output.
