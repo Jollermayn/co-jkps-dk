@@ -11,8 +11,12 @@
 
 ## Branch workflow
 
-- Arbejd på `dev` → merge til `main` → live på co.jkps.dk
-- Push altid til `dev` efter ændringer — `main` er production
+⚠️ Arbejd ALTID på `dev` branch. Push ALDRIG direkte til `main`.
+
+- Alle ændringer committes og pushes til `dev`
+- `dev` → preview på co-jkps-dk.vercel.app
+- Merge til `main` KUN når ændringer er godkendt på preview URL
+- `main` er production → co.jkps.dk
 
 ## Tekniske læringer
 
